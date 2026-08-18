@@ -1,0 +1,153 @@
+{
+  "id": "rescue_vessel_capsized",
+  "name": "Vessel in Difficulty, Persons in the Water",
+  "category": "rescue",
+  "domain": "water",
+  "enabled": true,
+  "weight": 0.3,
+  "grade": 1,
+  "responseMinutes": 15,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 500,
+  "locationTypes": [
+    "coast",
+    "harbour",
+    "estuary"
+  ],
+  "units": {
+    "lifeboat_all_weather": 1,
+    "lifeboat_inshore": 1,
+    "coastguard_rescue_team": 1,
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      4
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "hypothermia",
+      "near drowning",
+      "shoulder injury"
+    ]
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hems"
+    },
+    "coastguardHelicopter": {
+      "chance": 50,
+      "delaySeconds": [
+        120,
+        300
+      ],
+      "unit": "cg_helicopter"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        240,
+        600
+      ],
+      "message": "Casualty recovered, ambulance to meet at the slipway",
+      "addUnits": {
+        "ambulance": 1
+      }
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's a boat sinking off the harbour wall, I can see people in the water!",
+      "Coastguard please, a small yacht's capsized just past the pier"
+    ],
+    "phoneArea": "auto"
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Coastguard, there's a boat in trouble, people are in the water"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm on the seafront by the pier"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know them, I can see three people, maybe four"
+      ]
+    },
+    "address": {
+      "revealsAddress": true,
+      "answers": [
+        "I'm at {{address}}, they're about two hundred metres out from here"
+      ]
+    },
+    "whatHappened": {
+      "diagnostic": true,
+      "answers": [
+        "The boat's gone right over, it's on its side and there are people hanging on to it"
+      ]
+    },
+    "conscious": {
+      "diagnostic": true,
+      "answers": [
+        "They're waving and shouting, one of them's stopped waving though"
+      ]
+    },
+    "breathing": {
+      "diagnostic": true,
+      "answers": [
+        "I can't tell from here, they're in the water"
+      ]
+    },
+    "pain": {
+      "answers": [
+        "I can't tell, they're too far out"
+      ]
+    },
+    "bleeding": {
+      "answers": [
+        "Not that I can see"
+      ]
+    },
+    "medicalHistory": {
+      "answers": [
+        "No idea, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Adults I think, one might be a teenager"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay here and keep watching them",
+        "Please hurry, the tide's going out"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? People are drowning out there!"
+      ]
+    }
+  }
+}

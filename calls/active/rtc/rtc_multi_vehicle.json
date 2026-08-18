@@ -1,0 +1,182 @@
+{
+  "id": "rtc_multi_vehicle",
+  "name": "Multiple Vehicle Road Traffic Collision",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    45,
+    90
+  ],
+  "reward": 600,
+  "locationTypes": [
+    "a_road",
+    "motorway",
+    "roundabout"
+  ],
+  "units": {
+    "irv": 2,
+    "rpt": 2,
+    "dual_pump": 2,
+    "rescue_unit": 1,
+    "otl": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      5,
+      9
+    ],
+    "rrvChance": 80,
+    "conditions": [
+      "neck injury",
+      "chest injury",
+      "catastrophic bleed",
+      "trapped, leg injury",
+      "walking wounded",
+      "head injury"
+    ]
+  },
+  "desks": {
+    "hems": {
+      "chance": 40,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 15,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    },
+    "npas": {
+      "chance": 10,
+      "delaySeconds": [
+        120,
+        240
+      ],
+      "unit": "npas"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 30,
+      "afterSeconds": [
+        180,
+        420
+      ],
+      "message": "Persons trapped confirmed, second rescue unit required",
+      "addUnits": {
+        "rescue_unit": 1
+      }
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's been a massive crash, loads of cars, please send everyone!",
+      "Police, ambulance, everything, a lorry's ploughed into the traffic!",
+      "Hello? There's been a pile-up on the dual carriageway, people are trapped"
+    ],
+    "phoneArea": "auto"
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police and ambulance, there's been a bad crash",
+        "All of them, it's a pile-up, people are hurt"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was two cars behind",
+        "{{callerName}}, I've pulled over on the hard shoulder"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them",
+        "One lad says his name's Connor, he's the one with the leg"
+      ]
+    },
+    "address": {
+      "revealsAddress": true,
+      "answers": [
+        "We're on {{address}}, both lanes are blocked",
+        "{{address}}, just before the roundabout"
+      ]
+    },
+    "whatHappened": {
+      "diagnostic": true,
+      "answers": [
+        "A lorry's crossed the central reservation and four or five cars have gone into it",
+        "Someone braked hard and about six cars have gone into each other, then a van rolled"
+      ]
+    },
+    "conscious": {
+      "diagnostic": true,
+      "answers": [
+        "Most are out and walking, but the driver of the blue car isn't moving at all",
+        "Two people are slumped in the front car and not answering me"
+      ]
+    },
+    "breathing": {
+      "diagnostic": true,
+      "answers": [
+        "The blue car driver, I honestly can't tell",
+        "The lady in the van is breathing but it's really fast and shallow"
+      ]
+    },
+    "pain": {
+      "diagnostic": true,
+      "answers": [
+        "A woman keeps screaming about her neck",
+        "The lorry driver says his chest is crushed against the wheel"
+      ]
+    },
+    "bleeding": {
+      "diagnostic": true,
+      "answers": [
+        "There's a lot of blood on the road by the lorry cab, his leg is a mess",
+        "One man's got a nasty head wound, it's pouring"
+      ]
+    },
+    "medicalHistory": {
+      "answers": [
+        "No idea, sorry",
+        "I don't know them"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know",
+        "No idea"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All sorts, there's a child in the back of one car, six or seven maybe",
+        "Mostly adults, one older couple"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're all on the verge",
+        "Please hurry, the blue car driver still isn't moving"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Are you joking? There are people trapped in cars here!",
+        "What? No! Send someone now!"
+      ]
+    }
+  }
+}
