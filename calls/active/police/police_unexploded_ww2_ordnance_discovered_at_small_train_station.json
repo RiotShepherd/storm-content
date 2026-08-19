@@ -49,6 +49,12 @@
     "fire_officer": 2,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 6,
+    "police": 15
+  },
   "patients": {
     "range": [
       0,
@@ -82,8 +88,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Hello, I work here at the station, we've found something in the ballast that looks like an old bomb.",
-      "Police please, one of the maintenance lads has turned up what looks like an old WW2 shell on the tracks."
+      "Hello, we've found a suspected small device on the platform.",
+      "Hi, this is station staff, we've got something that looks like old ordnance.",
+      "Yeah hiya, engineering works have uncovered a suspicious item here.",
+      "Oh hello, we've had to close a platform, there's a device that's been found.",
+      "Hi there, I need to report suspected ordnance found at the station.",
+      "Hello, this is urgent, we've found what looks like an old shell.",
+      "Hi, I'm calling from the station, staff have found a suspect item.",
+      "Oh, hello, we've cleared the area, there's a small device that looks military.",
+      "Hiya, please send someone, we think we've found unexploded ordnance.",
+      "Hello, we've got a suspected small device found on the platform."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -95,91 +109,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Hello, I work here at the station, we've found something in the ballast that looks like an old bomb.",
-        "Police please, one of the maintenance lads has turned up what looks like an old WW2 shell on the tracks."
+        "Hello, we've found a suspected small device on the platform.",
+        "Hi, this is station staff, we've got something that looks like old ordnance.",
+        "Yeah hiya, engineering works have uncovered a suspicious item here.",
+        "Oh hello, we've had to close a platform, there's a device that's been found.",
+        "Hi there, I need to report suspected ordnance found at the station.",
+        "Hello, this is urgent, we've found what looks like an old shell.",
+        "Hi, I'm calling from the station, staff have found a suspect item.",
+        "Oh, hello, we've cleared the area, there's a small device that looks military.",
+        "Hiya, please send someone, we think we've found unexploded ordnance.",
+        "Hello, we've got a suspected small device found on the platform."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the duty supervisor here.",
-        "{{callerName}}, I'm one of the track workers."
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}.",
+        "{{callerName}} speaking.",
+        "It's {{callerName}} here.",
+        "Name's {{callerName}}.",
+        "{{callerName}}, yes.",
+        "This is {{callerName}}."
       ]
     },
     "patientName": {
       "answers": [
-        "There's no one hurt, it's just the item we found.",
-        "Nobody's involved, it's an object not a person."
+        "There's nobody hurt, it's just unexploded ordnance found on the platform.",
+        "No patient, it's only unexploded ordnance found on the platform I'm calling about.",
+        "Nobody's hurt, this is just about unexploded ordnance found on the platform.",
+        "No one needs a name, no one's hurt, it's unexploded ordnance found on the platform.",
+        "Not applicable, nobody's injured, just unexploded ordnance found on the platform.",
+        "There's no casualty, purely unexploded ordnance found on the platform.",
+        "No injuries here, it's simply unexploded ordnance found on the platform.",
+        "Nobody to name, it's not a medical thing, it's unexploded ordnance found on the platform.",
+        "No patient involved, just unexploded ordnance found on the platform I'm reporting.",
+        "There's no one hurt, this is only about unexploded ordnance found on the platform."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, it's the small station building.",
-        "{{address}}, on the platform near the end of the line."
+        "It's {{address}}.",
+        "The address is {{address}}, can you get someone there quickly.",
+        "{{address}}, that's where I am.",
+        "We're at {{address}}.",
+        "It's {{address}}, just past the corner.",
+        "{{address}}, that's the postcode area.",
+        "I'm calling from {{address}}.",
+        "You need {{address}}, that's the one.",
+        "It's {{address}}, look for the front door.",
+        "{{address}}, please hurry."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "One of the lads doing track works found what looks like an old shell buried near the rails.",
-        "It's been sat there rusting, we think it's from the war, we've stopped all trains through here."
+        "Maintenance staff doing trackside works uncovered it near the platform edge.",
+        "It's small, about a foot long, looks old, we've closed that platform.",
+        "We've moved passengers away and cleared the immediate area.",
+        "The engineering team found it while doing routine checks.",
+        "It looks like an old shell casing, we've cordoned it off just in case.",
+        "Staff spotted it during works and reported it straight away.",
+        "It's sat right by the rail, definitely looks like military ordnance.",
+        "We think it's wartime, it's near where the old sidings used to be.",
+        "It's not large but we're taking it seriously, passengers are well back.",
+        "The find was made this morning, platform's been closed since."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's no casualty, nobody's touched it.",
-        "Nobody's hurt, we've kept everyone well back."
+        "Nobody's hurt, so that doesn't apply here.",
+        "There's no patient, no one's unconscious or anything.",
+        "No one's collapsed, nobody's hurt at all.",
+        "Not applicable, there's no casualty.",
+        "No one's affected like that, nobody's injured.",
+        "There's nobody down, no injuries here.",
+        "No, nobody's hurt, so there's no one to check.",
+        "That doesn't apply, no one's been hurt.",
+        "No casualty, nobody's collapsed or anything.",
+        "Nobody's hurt, everyone's fine physically."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No one's injured, it's not that kind of call.",
-        "Everyone here is fine, we're just worried about the object itself."
+        "No one's struggling to breathe, nobody's hurt.",
+        "That's not an issue, there's no injuries.",
+        "Nobody needs that, no one's hurt at all.",
+        "No, there's no casualty, nobody's affected.",
+        "Not applicable, no one's hurt here.",
+        "No breathing problems, nobody's injured.",
+        "There's no patient, so no, nothing like that.",
+        "No one's hurt, that doesn't come into it.",
+        "Not a medical thing, nobody's hurt.",
+        "No, nobody's hurt, everyone's breathing fine."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's in any pain, we've all kept clear of it.",
-        "No injuries at all, we just need it dealt with safely."
+        "No one's in pain, nobody's hurt.",
+        "Nobody's hurt, so no pain to report.",
+        "No, there's no casualty in pain.",
+        "Not applicable, no one's injured.",
+        "No pain, nobody's hurt at all.",
+        "There's no patient, so no.",
+        "No one's suffering, nobody's hurt.",
+        "No, everyone's fine, nobody's hurt.",
+        "Not a medical call really, no pain involved.",
+        "No one's hurt, so no pain to speak of."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, nobody's been hurt.",
-        "No blood, no injuries, just the ordnance."
+        "No bleeding, nobody's hurt.",
+        "No, there's no injuries at all.",
+        "Nobody's bleeding, no one's hurt.",
+        "Not applicable, no casualty here.",
+        "No, no one's hurt, no bleeding.",
+        "There's no patient, so no bleeding.",
+        "No injuries, nobody's hurt.",
+        "No, everyone's unhurt.",
+        "Not a medical emergency, no bleeding.",
+        "No, nobody's hurt at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, I'm not sure why you're asking.",
-        "Nobody's hurt, so nothing to tell you there."
+        "There's no patient, so that's not relevant.",
+        "Not applicable, nobody's hurt.",
+        "No one's involved medically, nobody's hurt.",
+        "N/A, no casualty here.",
+        "There's no one to ask that about.",
+        "Not a medical matter, no one's hurt.",
+        "No patient, so no history to give.",
+        "Nobody's hurt, that doesn't apply.",
+        "Not relevant, no one's injured.",
+        "No, there's no patient for that."
       ]
     },
     "medications": {
       "answers": [
-        "Not relevant, nobody's injured.",
-        "No one needs medical help, it's the item itself we're worried about."
+        "Not applicable, no one's hurt.",
+        "No patient, so no medication to mention.",
+        "N/A, nobody's involved medically.",
+        "No one's hurt, that doesn't apply.",
+        "Not relevant, no casualty here.",
+        "No, there's no patient.",
+        "Nobody needs that, no one's hurt.",
+        "Not a medical matter, no medication needed.",
+        "No one's hurt, so no.",
+        "N/A, no injuries here."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient, sorry.",
-        "It's not a person, it's an old shell."
+        "There's no patient, so no age to give.",
+        "Not applicable, nobody's hurt.",
+        "N/A, no casualty here.",
+        "No one's hurt, that doesn't apply.",
+        "Not relevant, no injuries.",
+        "No patient involved, no age needed.",
+        "Nobody's hurt, so no.",
+        "Not a medical thing, no age to give.",
+        "No one's injured, that doesn't apply.",
+        "N/A, there's no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping everyone off the platform.",
-        "Understood, we'll wait for your officers well back from it."
+        "Ambulance? No, nobody's hurt, I don't need that.",
+        "I don't think we need an ambulance, no one's injured.",
+        "Sorry, why an ambulance, nobody's hurt here.",
+        "No, there's no injuries, I don't need paramedics.",
+        "I think you've misunderstood, nobody needs medical help.",
+        "No ambulance needed, nobody's hurt at all.",
+        "No, no one's hurt, just cancel that if you can.",
+        "I'm confused, why would I need an ambulance.",
+        "No thank you, nobody's hurt, we're all fine.",
+        "No need for that, nobody's injured here."
       ]
     },
     "refer111": {
       "answers": [
-        "This isn't a medical matter, we need the bomb squad!"
+        "111? No, this needs a proper response now, not a call back.",
+        "I don't think 111 is right for this, please send someone.",
+        "This can't wait for 111, I need help now.",
+        "No, please, this needs someone out here, not 111.",
+        "I really don't think 111 is going to cut it here.",
+        "Please, I need this dealt with now, not a call back later.",
+        "No, this is urgent, 111 won't do.",
+        "I don't understand, this needs a response, not 111.",
+        "Please don't fob me off to 111, this needs attention.",
+        "No, I need someone here, not a phone call from 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Thank you, I'll keep an eye out for the officers.",
+        "Okay, good, how long will the police be please.",
+        "Right, I'll wait here till they arrive.",
+        "That's a relief, thank you for sending someone.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, I'll point them in the right direction when they get here.",
+        "Good, I was starting to worry, thank you.",
+        "Okay, I'll keep back and let them deal with it.",
+        "Thanks, I'll watch out for the patrol car.",
+        "Alright, I'll stay put until the officers arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, that's what we need, how long will they be.",
+        "Okay, good, I'll wait for the fire engine.",
+        "Right, thank you, I'll stay clear until they arrive.",
+        "That's a relief, thank you for sending the crew.",
+        "Okay, I'll keep everyone back until the fire brigade gets here.",
+        "Thanks, I'll watch out for the engine.",
+        "Good, I was hoping you'd send fire crews.",
+        "Okay, I'll stay on the line if needed.",
+        "Thank you, I'll point them the right way when they arrive.",
+        "Alright, I'll wait here for them."
       ]
     }
   },

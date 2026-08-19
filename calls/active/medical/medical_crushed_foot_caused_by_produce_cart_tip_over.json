@@ -40,6 +40,10 @@
     "retail_park"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -72,8 +76,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "A produce cart's tipped over onto someone's foot in the supermarket",
-      "One of our customers has had their foot crushed by a stock cart"
+      "One of our customers has had their foot crushed by a stock cart",
+      "A produce cart's tipped over onto a customer's foot in the aisle",
+      "We've had an accident, a cart's gone over and caught a customer's foot",
+      "A customer's foot's been crushed under one of our produce carts",
+      "There's been an accident in store, a cart's trapped a customer's foot",
+      "One of our shoppers has had a stock cart tip onto their foot",
+      "A cart's come off balance and landed on a customer's foot",
+      "We need an ambulance, a produce cart's crushed someone's foot here",
+      "A customer's foot's got caught under a cart that tipped over",
+      "There's been a mishap with a stock cart, it's landed on a customer's foot"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -85,90 +97,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "A produce cart's tipped over onto someone's foot in the supermarket",
-        "One of our customers has had their foot crushed by a stock cart"
+        "One of our customers has had their foot crushed by a stock cart",
+        "A produce cart's tipped over onto a customer's foot in the aisle",
+        "We've had an accident, a cart's gone over and caught a customer's foot",
+        "A customer's foot's been crushed under one of our produce carts",
+        "There's been an accident in store, a cart's trapped a customer's foot",
+        "One of our shoppers has had a stock cart tip onto their foot",
+        "A cart's come off balance and landed on a customer's foot",
+        "We need an ambulance, a produce cart's crushed someone's foot here",
+        "A customer's foot's got caught under a cart that tipped over",
+        "There's been a mishap with a stock cart, it's landed on a customer's foot"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I work here"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}, one of our customers"
+        "{{He}} told us {{his}} name's {{firstPatientName}}",
+        "It's {{firstPatientName}}, {{he}}'s one of our customers",
+        "{{firstPatientName}}, that's what {{he}} gave us",
+        "{{He}} said {{he}}'s called {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s a customer of ours",
+        "We've got {{his}} name as {{firstPatientName}}",
+        "{{firstPatientName}} is the name {{he}} gave",
+        "It's {{firstPatientName}}, according to {{him}}",
+        "{{He}} says {{his}} name is {{firstPatientName}}",
+        "{{firstPatientName}}, that's what {{he}} told my colleague"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, the supermarket",
-        "{{address}}, near the produce aisle"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A loaded produce cart tipped over and landed on their foot",
-        "The cart came off its wheels and crushed their foot against the shelving"
+        "A stock cart tipped over and came down on {{his}} foot in the produce aisle",
+        "{{He}} was stood near the cart when it tipped and caught {{his}} foot",
+        "One of our carts overbalanced and landed across {{his}} foot",
+        "A member of staff was moving the cart when it tipped onto {{his}} foot",
+        "{{He}} was browsing when the produce cart toppled onto {{his}} foot",
+        "The cart wasn't secured properly and came down on {{his}} foot",
+        "{{He}} stepped too close to the cart and it tipped onto {{him}}",
+        "A colleague was restocking when the cart tipped onto a customer's foot",
+        "The cart's wheel caught the edge of the shelf and it tipped onto {{his}} foot",
+        "{{He}} was reaching past the cart when it toppled onto {{his}} foot"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake and in pain",
-        "Yes, fully conscious"
+        "Yes, {{he}}'s awake, just in a lot of pain",
+        "Conscious, yes, but really shaken up",
+        "{{He}}'s awake and talking to me",
+        "Yes, {{he}}'s alert, wincing every time {{he}} moves",
+        "Conscious, yes, {{he}}'s gritting {{his}} teeth",
+        "{{He}}'s awake, just shaken and sore",
+        "Yes, {{he}}'s conscious throughout",
+        "{{He}}'s alert, just very shaken up",
+        "Yes, {{he}}'s talking to me, clearly in pain",
+        "Conscious, yes, {{he}}'s embarrassed more than anything"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Fine, breathing normally",
-        "No problems there"
+        "Yes, breathing fine, just winded from the fall",
+        "{{He}}'s breathing okay, just shaken",
+        "Fine, {{his}} breathing's normal",
+        "Yes, {{he}}'s breathing normally",
+        "{{His}} breathing seems fine to me",
+        "Yes, no problem breathing",
+        "{{He}}'s breathing okay, a bit out of breath from the shock",
+        "Normal breathing, yes",
+        "Fine, {{he}}'s just shaken, breathing's okay",
+        "Yes, breathing's fine"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Yes, quite severe in the foot",
-        "Very painful, they can't put weight on it"
+        "{{He}} says {{his}} foot hurts really badly",
+        "{{He}}'s in a lot of pain in {{his}} foot",
+        "{{He}} won't let me touch {{his}} foot, says it's agony",
+        "Yes, {{he}}'s in pain, {{his}} foot mostly",
+        "{{He}}'s holding {{his}} foot, says it's really sore",
+        "Bad pain in {{his}} foot, {{he}} keeps wincing",
+        "{{He}} says it hurts a lot when {{he}} moves {{his}} foot",
+        "{{His}} foot is really painful, {{he}}'s in a bad way",
+        "Yes, quite a bit of pain, mostly in {{his}} foot",
+        "{{He}} says it's sore all round {{his}} foot"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A little, from a graze",
-        "No visible bleeding"
+        "No bleeding that I can see",
+        "No, there's no blood anywhere",
+        "Doesn't look like it, no cuts or blood",
+        "No, {{he}}'s not bleeding at all",
+        "Not that I can see, no visible blood",
+        "No blood, thankfully",
+        "No, nothing like that, no bleeding",
+        "I don't think so, no blood that I can see",
+        "No, {{he}}'s not cut anywhere",
+        "No bleeding, {{he}} just can't move well"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of",
-        "I don't know them personally"
+        "I don't know, I'm just a member of staff here",
+        "No idea, {{he}}'s a customer, I don't know {{him}}",
+        "I couldn't tell you, sorry, I don't know {{him}} personally",
+        "No idea I'm afraid, we've never met before today",
+        "Sorry, I don't know {{him}}, I just work here",
+        "I don't know {{him}} at all, so I couldn't say",
+        "No idea, sorry, {{he}}'s not someone I know",
+        "Can't help you there, I don't know {{him}} personally",
+        "Sorry, no idea, I only just met {{him}}",
+        "I've no idea, {{he}}'s just a customer"
       ]
     },
     "medications": {
       "answers": [
-        "Not that I know of",
-        "I don't know"
+        "No idea, sorry, I don't know {{him}}",
+        "I couldn't tell you, {{he}}'s a customer, not someone I know",
+        "No idea I'm afraid, sorry",
+        "Sorry, I don't know {{him}} well enough to say",
+        "Can't help with that, I don't know {{him}} personally",
+        "No idea, sorry, I don't know",
+        "I've no clue, never met {{him}} before today",
+        "Sorry, I really don't know",
+        "No idea, I just work here, I don't know {{him}}",
+        "Couldn't tell you I'm afraid"
       ]
     },
     "patientAge": {
       "answers": [
-        "36"
+        "I don't know, {{he}} looks about 45",
+        "Not sure, maybe 45, I don't know {{him}}",
+        "I'd guess 45, but I couldn't say for certain",
+        "No idea really, {{he}} looks to be around 45",
+        "I don't know {{him}}, but {{he}} looks about 45",
+        "Hard to say, 45 maybe",
+        "I couldn't tell you exactly, around 45 I'd guess",
+        "Sorry, no idea, 45 perhaps",
+        "I'm not sure, {{he}} looks to be in {{his}} 40s",
+        "Can't say for certain, 45 ish"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've kept the area clear",
-        "We've got them sat down comfortably"
+        "Okay, we've got the cart lifted clear and {{he}}'s sat down now",
+        "Right, we've put an ice pack on {{his}} foot like you suggested",
+        "We're keeping {{him}} still, {{he}}'s got {{his}} foot up on a chair",
+        "Okay, a colleague's staying with {{him}} until you arrive",
+        "We've cleared the aisle so you've got access when you get here",
+        "Right, {{he}}'s sitting comfortably, we're keeping {{him}} calm",
+        "Okay, we've not tried to move {{his}} foot at all",
+        "We're keeping {{him}} company, {{he}}'s a bit shaken but okay",
+        "Right, we've got a first aider with {{him}} now",
+        "Okay, doing that now, {{he}}'s just very sore"
       ]
     },
     "refer111": {
       "answers": [
-        "I think it's best they're checked properly, the foot looks bad",
-        "Could try that, but the foot's quite swollen already"
+        "I did wonder, but {{he}}'s in a lot of pain, could you send someone anyway",
+        "Maybe, but {{his}} foot looks quite swollen already",
+        "I'm not sure, {{he}} can't put any weight on it at all",
+        "Possibly, but {{he}}'s in quite a state, can you send an ambulance",
+        "I don't know, it looks nasty, {{he}}'s in real pain",
+        "Could be, but we'd feel better if someone came to check {{him}} over",
+        "I did think about that, but {{he}}'s in agony, please send someone",
+        "Maybe not a bad idea, but can you send someone anyway",
+        "I'm not sure that's enough, {{his}} foot's swelling up fast",
+        "Could be, but {{he}}'s really struggling with the pain"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "No, there's nothing for police here, we just need an ambulance for {{him}}",
+        "Police isn't needed, {{he}} just needs medical attention",
+        "No, nothing criminal here, {{he}} just needs to be seen by paramedics",
+        "No police required, this is purely a medical matter",
+        "No, we don't need police, just the ambulance for {{him}} please",
+        "No, that's not necessary here, {{he}} just needs paramedics",
+        "No police involved, we just need the ambulance to attend",
+        "No, nothing to report on that front, {{he}} just needs medical help",
+        "Police isn't needed, no, {{he}}'s just unwell, we need the ambulance",
+        "No, no police required, just the ambulance crew please"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "No, there's no fire here, we just need an ambulance for {{him}}",
+        "Fire service isn't needed, {{he}} just needs medical attention",
+        "No, nothing's on fire, {{he}} just needs to be seen by paramedics",
+        "No fire brigade required, this is purely a medical matter",
+        "No, we don't need fire, just the ambulance for {{him}} please",
+        "No, that's not necessary here, {{he}} just needs paramedics",
+        "No fire involved, we just need the ambulance to attend",
+        "No, nothing to report on that front, {{he}} just needs medical help",
+        "Fire's not needed, no, {{he}}'s just unwell, we need the ambulance",
+        "No, no fire service required, just the ambulance crew please"
       ]
     }
   },

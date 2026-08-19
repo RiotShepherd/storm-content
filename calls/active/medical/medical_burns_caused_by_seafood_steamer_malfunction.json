@@ -40,6 +40,10 @@
     "retail_park"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -76,7 +80,15 @@
   "caller": {
     "openings": [
       "One of my colleagues has been burned by the steamer in the fish counter, it malfunctioned",
-      "There's been an accident with the seafood steamer, a member of staff's been scalded"
+      "There's been an accident with the seafood steamer, a member of staff's been scalded",
+      "The steamer on the fish counter malfunctioned and burned one of my colleagues",
+      "We've had an accident, the seafood steamer scalded a colleague of mine",
+      "There's been a steamer malfunction, one of the team's been burned",
+      "A colleague of mine's been scalded by the fish counter steamer",
+      "The steamer went wrong and burned one of my staff on the fish counter",
+      "We've had an accident on the fish counter, the steamer scalded my colleague",
+      "One of my team's been burned by the steamer, it malfunctioned suddenly",
+      "There's been a scalding incident, the seafood steamer malfunctioned badly"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -89,89 +101,231 @@
     "start": {
       "answers": [
         "One of my colleagues has been burned by the steamer in the fish counter, it malfunctioned",
-        "There's been an accident with the seafood steamer, a member of staff's been scalded"
+        "There's been an accident with the seafood steamer, a member of staff's been scalded",
+        "The steamer on the fish counter malfunctioned and burned one of my colleagues",
+        "We've had an accident, the seafood steamer scalded a colleague of mine",
+        "There's been a steamer malfunction, one of the team's been burned",
+        "A colleague of mine's been scalded by the fish counter steamer",
+        "The steamer went wrong and burned one of my staff on the fish counter",
+        "We've had an accident on the fish counter, the steamer scalded my colleague",
+        "One of my team's been burned by the steamer, it malfunctioned suddenly",
+        "There's been a scalding incident, the seafood steamer malfunctioned badly"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm the supervisor"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
         "It's {{firstPatientName}}",
-        "{{firstPatientName}}, from the fish counter"
+        "{{His}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s one of my colleagues",
+        "It's {{firstPatientName}}, {{he}} works on the fish counter",
+        "{{firstPatientName}}, that's {{his}} name",
+        "{{He}}'s called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "It's {{firstPatientName}}, {{he}}'s part of my team",
+        "{{firstPatientName}}, {{he}}'s the one who's been burned",
+        "{{firstPatientName}}, please send someone"
       ]
     },
     "address": {
       "answers": [
+        "It's {{address}}",
+        "{{address}}, in the supermarket",
         "We're at {{address}}",
-        "{{address}}, the supermarket, fish counter"
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, in the supermarket",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, in the supermarket, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The steamer malfunctioned and released a burst of steam, {{firstPatientName}} got scalded on the arm",
-        "Hot steam sprayed out unexpectedly and burned their hand and arm"
+        "The steamer malfunctioned and released a burst of steam onto {{him}}",
+        "{{He}} was using the steamer when it malfunctioned and scalded {{his}} arm",
+        "The steamer's valve failed and steam burst out, catching {{him}}",
+        "{{He}} was clearing the steamer when it suddenly released hot steam",
+        "The steamer overheated and released steam right where {{he}} was standing",
+        "{{He}} was loading the steamer when it malfunctioned badly",
+        "A seal failed on the steamer and steam shot out at {{him}}",
+        "{{He}} was working the fish counter when the steamer went wrong",
+        "The steamer's door came loose and released steam onto {{his}} hand and arm",
+        "{{He}} got caught by a burst of steam when the steamer malfunctioned"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake and in pain",
-        "Yes, fully conscious"
+        "Yes, {{he}}'s conscious, just in a lot of pain",
+        "{{He}}'s awake and talking to me",
+        "Yes, conscious, {{he}}'s shaken but alert",
+        "{{He}}'s alert, clearly in discomfort though",
+        "Yes, {{he}}'s conscious and responding fine",
+        "Conscious, {{he}}'s sat down and we're looking after {{him}}",
+        "Yes, {{he}}'s awake and responding normally",
+        "{{He}}'s conscious, just very uncomfortable",
+        "Yes, awake and talking, just in pain",
+        "Conscious, {{he}}'s just really shaken by it"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Fine, breathing normally",
-        "No problems there"
+        "Yes, {{he}}'s breathing fine",
+        "{{His}} breathing's okay, just the pain from the burn",
+        "Yes, breathing normally",
+        "{{He}}'s breathing fine, a bit shaken though",
+        "Yes, no problems breathing",
+        "{{His}} breathing seems fine to me",
+        "Yes, breathing's okay, it's just the burn that's the issue",
+        "{{He}}'s breathing normally as far as I can tell",
+        "Yes, {{he}}'s breathing fine, just uncomfortable",
+        "No breathing issues, just the burn"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Yes, quite painful, the skin's red and blistering",
-        "Significant pain where the steam hit"
+        "Yes, {{he}}'s in a lot of pain from the burn",
+        "{{He}}'s in real pain, it's quite a nasty scald",
+        "Yes, {{he}}'s in significant pain on {{his}} arm",
+        "{{He}}'s in a lot of discomfort, the burn looks sore",
+        "Yes, {{he}}'s in pain, we've run it under cold water",
+        "{{He}}'s really struggling with the pain from the scald",
+        "Yes, {{he}} says it's quite painful, especially {{his}} hand",
+        "{{He}}'s in significant pain, {{he}}'s holding {{his}} arm still",
+        "Yes, {{he}}'s in a lot of pain, it's a nasty burn",
+        "{{He}}'s in pain, it's worse where the steam caught {{him}} directly"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, it's a burn",
-        "No"
+        "No bleeding, it's a burn, not a cut",
+        "No, not bleeding, just the scald",
+        "No bleeding, just the burn from the steam",
+        "No, it's not bleeding, just red and blistering",
+        "No bleeding as such, but the burn looks quite sore",
+        "No, no bleeding, just the scalded skin",
+        "No bleeding, just burns on {{his}} hand and arm",
+        "No, not bleeding, the burn's the main concern",
+        "No bleeding, but {{his}} skin's quite red and blistered",
+        "No, no bleeding, just this burn from the steam"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of",
-        "I'm not sure"
+        "Not that I know of, {{he}}'s generally fit and well",
+        "No idea, sorry, I don't know {{his}} medical history that well",
+        "No, {{he}}'s never mentioned any health issues to me",
+        "I couldn't say for certain, sorry",
+        "No, not that {{he}}'s ever told me",
+        "I don't know, sorry, we've never talked about it",
+        "Not that I'm aware of, no",
+        "I couldn't tell you, sorry, that's private to {{him}}",
+        "No idea, sorry, I don't know {{his}} medical history",
+        "Not as far as I know, {{he}} seems generally healthy"
       ]
     },
     "medications": {
       "answers": [
-        "Not that I know of",
-        "I don't know"
+        "I don't think {{he}}'s on anything, sorry",
+        "No idea, sorry, I don't know {{his}} medications",
+        "Not that I'm aware of, sorry",
+        "I couldn't say, sorry, we've never discussed that",
+        "No idea, sorry, I don't know {{him}} that well outside work",
+        "I don't think so, but I'm not completely certain",
+        "Sorry, no idea what {{he}} takes",
+        "Not that I know of, sorry",
+        "I don't know, sorry, that's not something we've talked about",
+        "No idea, sorry, I really can't help with that"
       ]
     },
     "patientAge": {
       "answers": [
-        "24"
+        "I think {{he}}'s about forty",
+        "{{He}}'s in {{his}} forties, I believe",
+        "Early forties, {{he}}'s worked here a couple of years",
+        "{{He}}'s around forty two, I think",
+        "I'd say {{he}}'s about thirty nine or forty",
+        "{{He}}'s in {{his}} forties, fairly new to the fish counter",
+        "About forty, {{he}}'s one of our longer serving staff",
+        "{{He}}'s in {{his}} early forties",
+        "{{He}}'s forty something, I couldn't say exactly",
+        "{{He}}'s in {{his}} forties, usually works mornings"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've run cool water over it",
-        "We've turned the steamer off"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "I think it needs proper attention, the burn looks bad",
-        "Could try that, but I'd rather be safe"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

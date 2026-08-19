@@ -41,6 +41,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -60,7 +64,15 @@
   "caller": {
     "openings": [
       "Police please, my car's been bashed in the shopping centre car park",
-      "Someone's hit my car outside the mall and just left"
+      "Someone's hit my car outside the mall and just left",
+      "Police please, my car's been damaged at the shopping centre, whoever did it's gone",
+      "I need to report a hit and run at the mall car park",
+      "There's damage to my car and no note left, it's at the shopping centre",
+      "Police please, someone's hit my parked car and driven off from the mall",
+      "I need to report damage to my car, no witnesses at the shopping centre",
+      "There's a scrape on my car, no one's left any details at the mall",
+      "Police please, someone's clipped my car outside the shopping centre and gone",
+      "I need to report my car's been hit at the mall, no note, no driver in sight"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -73,91 +85,231 @@
     "start": {
       "answers": [
         "Police please, my car's been bashed in the shopping centre car park",
-        "Someone's hit my car outside the mall and just left"
+        "Someone's hit my car outside the mall and just left",
+        "Police please, my car's been damaged at the shopping centre, whoever did it's gone",
+        "I need to report a hit and run at the mall car park",
+        "There's damage to my car and no note left, it's at the shopping centre",
+        "Police please, someone's hit my parked car and driven off from the mall",
+        "I need to report damage to my car, no witnesses at the shopping centre",
+        "There's a scrape on my car, no one's left any details at the mall",
+        "Police please, someone's clipped my car outside the shopping centre and gone",
+        "I need to report my car's been hit at the mall, no note, no driver in sight"
       ]
     },
     "callerName": {
       "answers": [
+        "{{callerName}}",
+        "It's {{callerName}} calling",
+        "My name's {{callerName}}",
         "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "Yeah, it's {{callerName}}",
+        "{{callerName}} here, I'm a member of the public",
+        "It's {{callerName}}, I happened to be passing",
+        "My name is {{callerName}}",
+        "{{callerName}}, that's me",
+        "Sorry, yes, it's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, it's just the car",
-        "Nobody involved, whoever did it has gone"
+        "I don't know their name, never seen them before",
+        "No idea who they are, complete strangers to me",
+        "Couldn't tell you, I don't know them",
+        "I don't have a name for you, sorry",
+        "No, I don't know who they are",
+        "Never seen them before in my life",
+        "I can't give you a name, I don't know them",
+        "Sorry, no idea, they're not known to me",
+        "I've got no name for you, they're strangers",
+        "Don't know, I've never seen them around here"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, in the shopping centre car park",
-        "It's {{address}}, on level two of the car park"
+        "{{address}}, it's the shopping centre car park",
+        "We're at {{address}}",
+        "It's {{address}}, the shopping centre car park",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near the shopping centre car park",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's a dent along the passenger side, must have happened while I was inside",
-        "The wing's been crushed against the barrier, nobody's owned up to it"
+        "I came out of the mall to find a dent in the driver's door, no note left",
+        "There's scrape marks along the side, whoever did it has gone",
+        "My wing mirror's been knocked off, no sign of who did it",
+        "There's a dent and paint transfer on the rear, no note or details",
+        "I found the bumper cracked when I got back from shopping",
+        "There's a long scrape down the side, must have happened while I was inside",
+        "The door's been dented, no witnesses that I can find nearby",
+        "I noticed the damage when I loaded my shopping into the car",
+        "There's damage to the front wing, no note, nobody saw anything apparently",
+        "My car's been hit and whoever did it just left, no details at all"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's nobody hurt, it's just the property",
-        "No one's hurt, it's just damage"
+        "Nobody's hurt, so there's nothing to report on that front",
+        "N/A, no one's injured here",
+        "No casualties at all, we just need police",
+        "Nobody's hurt, this isn't a medical matter",
+        "Not applicable, no one's been hurt",
+        "No injuries to report, it's not that kind of call",
+        "Nobody's collapsed or hurt, we just need officers down here",
+        "N/A, this is a police matter, no casualties",
+        "No one's been hurt in this, I promise",
+        "Not applicable, there's no patient here"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Nobody needing that, no one's hurt",
-        "There's no injuries, just the damage"
+        "No breathing problems, nobody's been hurt",
+        "N/A, there's no injuries here to speak of",
+        "Nobody needs help breathing, this isn't medical",
+        "Not applicable, no one's hurt",
+        "No one's struggling for breath, no casualties at all",
+        "N/A, we just need police, not an ambulance",
+        "Nobody's been affected like that, no injuries",
+        "No breathing issues, nobody's hurt in this",
+        "Not a medical thing at all, no one's struggling",
+        "N/A, there's no patient here"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's in pain, nobody's here",
-        "No, nobody's hurt at all"
+        "No pain to report, nobody's hurt",
+        "N/A, no injuries at all",
+        "Nobody's in pain, this isn't medical",
+        "Not applicable, no one's been hurt",
+        "No one's complained of any pain",
+        "N/A, we don't need an ambulance for this",
+        "Nobody's hurt themselves, no pain reported",
+        "No injuries, so no pain to speak of",
+        "Not that I'm aware of, nobody's hurt",
+        "N/A, it's purely a police matter"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, there's no one hurt",
-        "No bleeding, nobody was here when it happened"
+        "No bleeding, nobody's hurt",
+        "N/A, there's no injuries",
+        "No one's bleeding, this isn't medical",
+        "Not applicable, nobody's been hurt",
+        "No blood, no injuries at all",
+        "N/A, we just need police here",
+        "Nobody's hurt themselves, no bleeding",
+        "No, there's no injuries to report",
+        "Not that I can see, nobody's hurt",
+        "N/A, it's not a medical call"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, it's not medical",
-        "Not applicable, nobody's hurt"
+        "N/A, nobody's hurt so there's no history needed",
+        "Not applicable, no patient involved",
+        "No idea, and it's not relevant, nobody's hurt",
+        "N/A, this isn't a medical matter",
+        "Not applicable, we just need police",
+        "No one's been hurt, so no history to give",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "I couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's a police matter, not medical"
       ]
     },
     "medications": {
       "answers": [
-        "No one needs that, nobody's hurt",
-        "Not applicable"
+        "N/A, nobody's hurt",
+        "Not applicable, no patient involved",
+        "No idea, and it doesn't matter, no one's hurt",
+        "N/A, this isn't medical",
+        "Not applicable, we need police, not paramedics",
+        "No one's been hurt, so nothing like that to report",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "Couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's not a medical call"
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient, it's just property",
-        "N/A, nobody's involved that way"
+        "No idea, I didn't see who did it",
+        "Can't say, there were no witnesses",
+        "No idea at all, nobody saw it happen",
+        "Couldn't tell you, I only noticed the damage after",
+        "No idea, whoever it was had already gone",
+        "Can't say, no one saw who hit my car",
+        "No idea, I've got no information on who did it",
+        "Couldn't say, sorry, no witnesses",
+        "No idea at all, I wasn't there when it happened",
+        "Can't tell you, there's no clues to who it was"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep watching from here",
-        "Right, understood, I'll wait"
+        "Ambulance? No need, nobody's hurt, it's police we're after",
+        "We don't need an ambulance, just get police here please",
+        "No ambulance needed, this is a police matter",
+        "There's no injuries, we just need officers down here",
+        "Nobody's hurt, so an ambulance won't be needed",
+        "That's not necessary, it's police we need, not paramedics",
+        "No thank you, nobody's injured, just send police",
+        "We're fine on that front, it's police we're waiting for",
+        "Not needed, there's no casualties, just police please",
+        "No one's hurt, an ambulance isn't required for this"
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "111? No, this needs police now, not a callback",
+        "We can't wait for 111, this needs officers straight away",
+        "This isn't something 111 can help with, we need police",
+        "No, please, this needs police, not NHS 111",
+        "I don't think 111 is right for this, we need police here",
+        "This is a police matter, 111 won't be able to help",
+        "Please, we really need police, not a 111 callback",
+        "That's not going to help, this needs police attendance",
+        "No, this can't wait for a callback, we need officers now",
+        "111 isn't going to sort this, we need police please"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, how long will they be?",
+        "Good, please hurry, it's getting worse here",
+        "Thank you, we'll wait for them",
+        "Okay, I'll stay on the line if you need anything else",
+        "Please tell them to hurry, we're keeping an eye on things",
+        "Thank goodness, how many are coming?",
+        "Okay, I'll let people know officers are on the way",
+        "Thank you, we'll keep back until they arrive",
+        "Good, we really need them here quickly",
+        "Okay, thank you, I'll stay put until they get here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

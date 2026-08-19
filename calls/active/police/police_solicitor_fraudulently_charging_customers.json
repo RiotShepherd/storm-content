@@ -48,6 +48,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -66,8 +70,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police please, I want to report a solicitor, I think they're overcharging deliberately",
-      "I need to report fraud, a solicitor's been billing me for work they never did"
+      "They've charged me for hours of work that never happened, and I've heard others say the same",
+      "Several of us have compared bills, we think it's deliberate overcharging",
+      "I think a solicitor's been fraudulently billing {{his}} clients",
+      "Police, I want to report a solicitor overcharging {{his}} customers deliberately",
+      "I've compared invoices with other clients and the pattern's very suspicious",
+      "I believe a local solicitor's fraudulently inflating {{his}} bills",
+      "Several of us clients think {{he}}'s been charging for work never done",
+      "I want to report suspected fraud, a solicitor overcharging {{his}} clients",
+      "I've found {{he}}'s billed me for meetings that never took place",
+      "I think this solicitor's been deliberately defrauding {{his}} customers"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -79,92 +91,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police please, I want to report a solicitor, I think they're overcharging deliberately",
-        "I need to report fraud, a solicitor's been billing me for work they never did"
+        "They've charged me for hours of work that never happened, and I've heard others say the same",
+        "Several of us have compared bills, we think it's deliberate overcharging",
+        "I think a solicitor's been fraudulently billing {{his}} clients",
+        "Police, I want to report a solicitor overcharging {{his}} customers deliberately",
+        "I've compared invoices with other clients and the pattern's very suspicious",
+        "I believe a local solicitor's fraudulently inflating {{his}} bills",
+        "Several of us clients think {{he}}'s been charging for work never done",
+        "I want to report suspected fraud, a solicitor overcharging {{his}} clients",
+        "I've found {{he}}'s billed me for meetings that never took place",
+        "I think this solicitor's been deliberately defrauding {{his}} customers"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I saw the whole thing.",
+        "{{callerName}}, I was just walking past.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} here, I'm the one who called.",
+        "{{callerName}}, yes, that's me.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}.",
+        "{{callerName}} speaking, I saw it happen.",
+        "Name's {{callerName}}.",
+        "It's {{callerName}}, I'm just a witness."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, this is a fraud matter",
-        "Nobody hurt, it's about money"
+        "I don't know {{his}} name, never seen the solicitor overcharging clients before.",
+        "No name, sorry, {{he}} didn't exactly introduce {{himself}}.",
+        "Couldn't tell you, the solicitor overcharging clients was a stranger to me.",
+        "No idea who {{he}} is, I've got no name to give you.",
+        "Don't know {{him}} personally, the solicitor overcharging clients, that's all I can say.",
+        "No, never seen {{him}} before, can't give you a name.",
+        "Can't help with a name, only a description of the solicitor overcharging clients.",
+        "No name I'm afraid, {{he}} was gone before I could ask.",
+        "Nobody round here knows {{his}} name, the solicitor overcharging clients.",
+        "I've got no name for you, just what {{he}} looked like."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's their office",
-        "It's {{address}}, the solicitor's firm"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "They've charged me for hours of work that never happened, and I've heard others say the same",
-        "Several of us have compared bills, we think it's deliberate overcharging"
+        "Several of us have compared bills, we think it's deliberate overcharging",
+        "{{He}}'s billed me for a court appearance that was actually cancelled",
+        "I've been charged for calls and letters I never received",
+        "Three of us clients found the exact same pattern of false hours on our bills",
+        "{{He}}'s added charges for meetings that simply never happened",
+        "My final bill included work I know for certain was never carried out",
+        "{{He}}'s been rounding up hours in a way that doesn't add up at all",
+        "I checked my file and the hours logged don't match what {{he}} actually did",
+        "Other clients have told me the same story, inflated hours on every invoice"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's nobody hurt, it's just the property",
-        "No one's hurt, it's just damage"
+        "Nobody's hurt, so there's nobody to check on for that.",
+        "There's no injured person here, the solicitor overcharging clients, {{he}}'s just gone.",
+        "No one's collapsed or anything, {{he}} was moving fine.",
+        "It's not that kind of call, nobody's unconscious.",
+        "No casualties here, nobody needs checking over.",
+        "There isn't a patient as such, the solicitor overcharging clients.",
+        "{{He}} was on {{his}} feet the whole time, no one's hurt.",
+        "No, nobody's hurt, this isn't a medical one.",
+        "Nobody needs an ambulance, no one's injured.",
+        "No one's out cold, nobody's been hurt at all."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Nobody needing that, no one's hurt",
-        "There's no injuries, just the damage"
+        "Nobody's struggling to breathe, no one's hurt.",
+        "There's no injuries at all here, so nothing like that.",
+        "No, {{he}} was breathing fine, running off quick enough.",
+        "It's not a medical call, nobody's had trouble breathing.",
+        "No casualties, nobody needs checking for that.",
+        "Nobody's hurt, the solicitor overcharging clients, that's the whole problem.",
+        "No, this isn't that kind of emergency.",
+        "Everyone's fine physically as far as I can see.",
+        "No one's been injured, so no breathing issues to report.",
+        "Not a medical one, nobody's struggling with anything like that."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's in pain, nobody's here",
-        "No, nobody's hurt at all"
+        "No one's in pain, nobody's hurt.",
+        "Nobody's complaining of any pain, the solicitor overcharging clients.",
+        "No injuries, so no pain that I know of.",
+        "Not that I've seen, nobody's hurt here.",
+        "No, nobody's been hurt at all.",
+        "There's no one in pain, this isn't medical.",
+        "No casualties, nobody's said they're in pain.",
+        "Not a soul hurt, the solicitor overcharging clients.",
+        "No, nobody needs anything for pain.",
+        "No injuries to report, everyone's fine that way."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, there's no one hurt",
-        "No bleeding, nobody was here when it happened"
+        "No, no one's bleeding.",
+        "Nobody's bleeding, there's no injuries at all.",
+        "No, nothing like that, the solicitor overcharging clients.",
+        "No blood, no injuries, nobody's hurt.",
+        "Not that I've seen, no one's bleeding.",
+        "No, it's not that kind of call.",
+        "Nobody's injured, so no bleeding to report.",
+        "No, the solicitor overcharging clients, nobody's hurt.",
+        "No blood anywhere that I can see.",
+        "Not at all, no one's been hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, it's not medical",
-        "Not applicable, nobody's hurt"
+        "I wouldn't know, the solicitor overcharging clients.",
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, never met {{him}} before.",
+        "No idea about that, sorry.",
+        "I don't know {{him}} well enough to say.",
+        "Not a clue, the solicitor overcharging clients.",
+        "No, I've no idea about {{his}} health.",
+        "Couldn't say, I don't know {{him}} personally.",
+        "No idea whatsoever, sorry.",
+        "I really wouldn't know, never spoken to {{him}}."
       ]
     },
     "medications": {
       "answers": [
-        "No one needs that, nobody's hurt",
-        "Not applicable"
+        "I've no idea.",
+        "Couldn't tell you, sorry.",
+        "No idea at all, the solicitor overcharging clients.",
+        "I wouldn't know, never met {{him}}.",
+        "No clue, sorry.",
+        "Couldn't say, I don't know {{him}}.",
+        "No idea, I'm afraid.",
+        "Not a clue what {{he}} takes.",
+        "I really couldn't tell you.",
+        "No idea, sorry, I don't know {{him}}."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient, it's just property",
-        "N/A, nobody's involved that way"
+        "Hard to say, maybe in {{his}} twenties.",
+        "I'd guess {{him}} as thirtyish, but I couldn't be certain.",
+        "Looked youngish, maybe late teens, from what I saw.",
+        "Not sure exactly, {{he}} looked middle aged.",
+        "Couldn't tell you exactly, mid twenties at a guess.",
+        "I'd say {{he}} was in {{his}} forties, but don't quote me.",
+        "Maybe early twenties, hard to tell from a distance.",
+        "I only got a quick look, {{he}} seemed fairly young.",
+        "Roughly thirty, that's my best guess.",
+        "Somewhere around {{his}} twenties or thirties, I'd say."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep watching from here",
-        "Right, understood, I'll wait"
+        "Ambulance? No, nobody's hurt, it's a police matter.",
+        "No, we don't need an ambulance, nobody's injured here.",
+        "Sorry, why an ambulance, nobody's hurt, I just need police.",
+        "No, there's no injury, I only need the police out here.",
+        "That's not needed, nobody's been hurt, it's police I want.",
+        "No ambulance required, nobody's injured, just send police please.",
+        "No, I don't think that's right, nobody's hurt, it's a police job.",
+        "There's no injury here, I only asked for police.",
+        "No, nobody needs an ambulance, this isn't medical.",
+        "No thank you, nobody's hurt, just the police please."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "No, this isn't a health thing, I need the police out here.",
+        "This isn't a 111 matter, someone's committing an offence, I need police.",
+        "No, I don't need a doctor, I need the police to come now.",
+        "That's not right, nobody's ill, this needs police attention.",
+        "No, please, this is a crime, not a medical thing, send police.",
+        "I don't need 111, I need officers here, this is a police matter.",
+        "No, nobody's poorly, I need police, not a callback.",
+        "That won't help, this needs police, not health advice.",
+        "No, please don't fob me off, I need police out here.",
+        "This isn't medical at all, I need the police, please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll keep an eye out until they arrive.",
+        "Right, good, I'll wait here for them.",
+        "Thank you, I'll point them the right way when they get here.",
+        "Okay, that's good to hear, I'll stay on the line if you need.",
+        "Right, thanks, I'll let you know if anything changes.",
+        "Good, thank you, I'll stay well back until they turn up.",
+        "Okay, I'll keep watching from here until they arrive.",
+        "Thanks, that's a relief, I'll wait for them outside.",
+        "Right, understood, I'll stay put until they get here.",
+        "Okay, thank you, appreciate it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

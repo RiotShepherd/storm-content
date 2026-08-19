@@ -45,6 +45,10 @@
   "units": {
     "rescue_unit": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6
+  },
   "patients": {
     "range": [
       0,
@@ -66,8 +70,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Hi, I don't know if this is right to call, but there's people abseiling down the side of the building and it looks a bit risky",
-      "There's some sort of rope demonstration going on, people dangling off the building, is that meant to be happening"
+      "Hi, I don't know if this is right to call, but there's people abseiling down the side of the building and it looks a bit risky.",
+      "There's some sort of rope demonstration going on, people dangling off the building, is that meant to be happening.",
+      "Sorry to bother you, but there's people hanging off ropes on the side of a building here.",
+      "I just want to check, is it normal for people to be abseiling down a building in the middle of town.",
+      "There's a group of people on ropes coming down the side of a tall building, looks organised but I wasn't sure.",
+      "Not sure if this is anything, but there's people rappelling down a building near me.",
+      "I'm probably worrying over nothing, but people are dangling off ropes on a building here.",
+      "There's some kind of abseiling event going on outside, I wanted to check it was allowed.",
+      "Sorry, this might be nothing, but there's people coming down ropes on the outside of a building.",
+      "I saw people on ropes going down a building and wasn't sure if that was official or not."
     ],
     "phoneArea": "auto",
     "callerType": "passer_by"
@@ -79,79 +91,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Hi, I don't know if this is right to call, but there's people abseiling down the side of the building and it looks a bit risky",
-        "There's some sort of rope demonstration going on, people dangling off the building, is that meant to be happening"
+        "Hi, I don't know if this is right to call, but there's people abseiling down the side of the building and it looks a bit risky.",
+        "There's some sort of rope demonstration going on, people dangling off the building, is that meant to be happening.",
+        "Sorry to bother you, but there's people hanging off ropes on the side of a building here.",
+        "I just want to check, is it normal for people to be abseiling down a building in the middle of town.",
+        "There's a group of people on ropes coming down the side of a tall building, looks organised but I wasn't sure.",
+        "Not sure if this is anything, but there's people rappelling down a building near me.",
+        "I'm probably worrying over nothing, but people are dangling off ropes on a building here.",
+        "There's some kind of abseiling event going on outside, I wanted to check it was allowed.",
+        "Sorry, this might be nothing, but there's people coming down ropes on the outside of a building.",
+        "I saw people on ropes going down a building and wasn't sure if that was official or not."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "Sorry, yes, it's {{callerName}} here.",
+        "{{callerName}} is my name.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}, calling from nearby.",
+        "{{callerName}}, if you need it.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} speaking.",
+        "{{callerName}}, yes."
       ]
     },
     "patientName": {
       "answers": [
-        "No, nobody looked hurt, I just wasn't sure what was going on"
+        "There's nobody hurt, it's just the rope demonstration.",
+        "No patient here, it's only the rope demonstration going up.",
+        "Nobody to name, there's no one hurt, just the rope demonstration.",
+        "No casualties, it's purely the rope demonstration we've got.",
+        "There's no one involved, just the rope demonstration itself.",
+        "No patient to speak of, it's the rope demonstration that's the issue.",
+        "Nobody's hurt so there's no name to give, it's just the rope demonstration.",
+        "No one injured, it's only the rope demonstration.",
+        "There's no patient, just the rope demonstration needs sorting.",
+        "Nobody hurt at all, it's the rope demonstration, that's it."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "We're at {{address}}.",
+        "That's {{address}}, yes.",
+        "{{address}}, that's the address.",
+        "You'll find it at {{address}}.",
+        "It's {{address}}, just so you know.",
+        "The location is {{address}}.",
+        "{{address}} is where we are.",
+        "That's the postcode and address, {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I saw people on ropes coming down the side of the building, I wasn't sure if it was official or if someone needed help"
+        "There's a group of people with harnesses and ropes coming down the outside of a tall building.",
+        "It looks organised, with helmets and equipment, but I've never seen it before so I wasn't sure.",
+        "They've got proper gear on, ropes and harnesses, it looks like some sort of planned event.",
+        "There's banners up as well, so it might be a charity thing, but I wanted to check.",
+        "It looks controlled, people are cheering, but I just wanted to make sure it's not an emergency.",
+        "They seem to know what they're doing, all roped up properly, just looked unusual to me.",
+        "There's a crowd watching, so it might be planned, but I didn't want to ignore it just in case.",
+        "It looks like a charity abseil, but I wasn't completely sure so thought I'd check.",
+        "They've got safety gear on and there's people directing from the ground, looks organised.",
+        "It all looks safe and planned, but I've never seen anything like it so wanted to be sure."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, there's no one to check on"
+        "Nobody's hurt, there's no one to check on.",
+        "No one's involved, so nothing like that applies.",
+        "There's no patient, no one to ask that about.",
+        "Nobody's affected, it's just the rope demonstration.",
+        "No, there's no casualty here at all.",
+        "There's no one hurt, so no need for that.",
+        "Nobody to check, everyone's clear of it.",
+        "No patient here, so that doesn't apply.",
+        "There's nobody involved like that, just the rope demonstration.",
+        "No one's hurt, so there's nothing to check."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No one's affected, everyone's clear"
+        "No one's affected, everyone's well clear of it.",
+        "There's no patient, so nothing like that to report.",
+        "Nobody's breathing in anything, we're all well away from it.",
+        "No, nobody's affected, it's just the rope demonstration.",
+        "There's no one hurt, so that doesn't apply here.",
+        "Everyone's fine, nobody's near enough to be affected.",
+        "No casualties, no breathing problems, nothing like that.",
+        "Nobody's affected at all, we're all clear.",
+        "There's no patient to ask about that.",
+        "No, we're all outside and fine, nobody's affected."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can tell"
+        "No one's hurt as far as I can tell.",
+        "There's no patient, so no pain to report.",
+        "Nobody's in any pain, there's no one hurt.",
+        "No, nobody's injured, it's just the rope demonstration.",
+        "There's no casualty, so that doesn't apply.",
+        "No one's hurt, nothing like that going on.",
+        "Nobody's in pain, there's no patient at all.",
+        "No injuries reported, nobody's hurt.",
+        "There's no one involved that way, just the rope demonstration.",
+        "No, nobody's hurt, no pain, nothing like that."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries that I can see"
+        "No, no injuries that I can see.",
+        "There's no patient, so no bleeding to report.",
+        "Nobody's bleeding, there's no one hurt.",
+        "No, nothing like that, it's just the rope demonstration.",
+        "There's no casualty here, no bleeding, nothing.",
+        "No one's injured at all, no bleeding.",
+        "Nobody's hurt, so there's no bleeding to speak of.",
+        "No, there's no patient, nothing like that.",
+        "There's no injury, no bleeding, just the rope demonstration.",
+        "No, nobody's bleeding, nobody's hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, I can't help with that"
+        "There's no patient, I can't help with that.",
+        "No one's hurt, so there's no history to give.",
+        "Nobody involved that way, there's no patient.",
+        "No, there's no casualty, nothing like that applies.",
+        "There's no one to give history for, it's just the rope demonstration.",
+        "No patient here, so I wouldn't know that.",
+        "Nobody's hurt, so that doesn't come into it.",
+        "There's no one injured, no history needed.",
+        "No casualty involved, so nothing like that.",
+        "There's no patient, that question doesn't apply here."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's nobody hurt"
+        "No idea, there's nobody hurt.",
+        "There's no patient, so no medication to mention.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No, there's no one involved that way.",
+        "There's no casualty, nothing like that to say.",
+        "No patient here, so I can't answer that.",
+        "Nobody's hurt at all, no medication needed.",
+        "There's no one injured, so that's not relevant.",
+        "No, it's just the rope demonstration, no patient involved.",
+        "There's no patient, so nothing to report there."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's nobody hurt, no patient involved"
+        "There's nobody hurt, no patient involved.",
+        "No one to give an age for, there's no patient.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No casualty here, just the rope demonstration.",
+        "There's no one injured, so no age to give.",
+        "No patient at all, it's only the rope demonstration.",
+        "Nobody's affected, so that question doesn't apply.",
+        "There's no one hurt, no age needed.",
+        "No, there's no patient here.",
+        "Nobody's involved that way, just the rope demonstration, no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll let you check it out"
+        "Oh, okay, that's good to know, thank you.",
+        "Right, no problem, sorry for bothering you then.",
+        "Okay, that makes sense, thank you for checking.",
+        "Ah, okay, I did wonder if it was planned, thanks.",
+        "Right, that's reassuring, thank you.",
+        "Okay, good, I just wanted to be sure, thank you.",
+        "Ah okay, that explains it, thanks for checking.",
+        "Right, no worries then, thank you for looking into it.",
+        "Okay, that's fine then, thanks for your help.",
+        "Ah, good to know, thank you for checking that out."
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire, I need the fire brigade"
+        "No, it's not medical, I just wanted to check it was allowed, sorry.",
+        "No, nobody's hurt, I just wasn't sure if it was official, sorry to bother you.",
+        "No, it's not that sort of thing, I just wanted to check it was safe.",
+        "No, nothing medical, I just wanted someone to confirm it's all fine.",
+        "No, sorry, it's not a health thing, I just wanted to check it out.",
+        "No, nobody's hurt, I just thought I should mention it in case.",
+        "No, it's not medical at all, just wanted to check it was legitimate.",
+        "No, sorry to bother you, nobody's hurt, I just wasn't sure what it was.",
+        "No, it's nothing medical, just wanted peace of mind really.",
+        "No, nobody needs a doctor, I just wanted to check it out, sorry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh, I don't think you need police, it just looked odd to me.",
+        "No, I don't think that's necessary, it looks organised.",
+        "I don't think police are needed, it seems like a planned event.",
+        "No, I don't think that's required, it looks under control.",
+        "I doubt police are needed, everyone seems fine with it.",
+        "No, I don't think that's necessary, it looks like a proper event.",
+        "I don't think you'll need police, it looks safe enough.",
+        "No, I don't think police are required for this.",
+        "I don't think that's needed, it all looks planned and safe.",
+        "No, I don't think police are necessary, just wanted to check."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh, if you think it's worth sending someone to check, that's fine.",
+        "Okay, if a crew wants to have a look, that's fine by me.",
+        "Right, if that's what you think is best, okay.",
+        "Okay, if someone wants to check it's all above board, fine.",
+        "Alright, if you think it's worth a look, okay.",
+        "Okay, if that's standard procedure, that's fine.",
+        "Right, if you'd like to check it out, that's fine with me.",
+        "Okay, if you think it's worth confirming, go ahead.",
+        "Alright, if someone's coming to check, that's fine.",
+        "Okay, if that's what you think is best, thank you."
       ]
     }
   },

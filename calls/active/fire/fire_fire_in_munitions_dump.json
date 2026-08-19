@@ -47,6 +47,10 @@
     "hazmat_unit": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11
+  },
   "patients": {
     "range": [
       0,
@@ -95,8 +99,16 @@
   ],
   "caller": {
     "openings": [
-      "There's a fire at the old munitions dump, I'm worried it's going to go up properly",
-      "Fire brigade please, fire near where they store old ordnance, please keep everyone back"
+      "There's a fire at the munitions dump on the industrial estate, we've cleared the site",
+      "I need the fire brigade, we've got a fire near stored ordnance, everyone's off site",
+      "Fire brigade please, it's the munitions storage area, this could be very dangerous",
+      "There's smoke coming from the ordnance storage building, we've evacuated everyone",
+      "Please send a crew urgently, there's a fire near where munitions are kept",
+      "We've got a fire at the storage dump, we need a large exclusion zone setting up",
+      "Fire at the munitions site, we've shut the whole facility down and got everyone out",
+      "There's a fire near stored ordnance, please treat this as high risk",
+      "We've evacuated the site, there's a fire close to the munitions store",
+      "Please hurry, there's a fire at the ordnance dump and it could be serious"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -108,81 +120,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's a fire at the old munitions dump, I'm worried it's going to go up properly",
-        "Fire brigade please, fire near where they store old ordnance, please keep everyone back"
+        "There's a fire at the munitions dump on the industrial estate, we've cleared the site",
+        "I need the fire brigade, we've got a fire near stored ordnance, everyone's off site",
+        "Fire brigade please, it's the munitions storage area, this could be very dangerous",
+        "There's smoke coming from the ordnance storage building, we've evacuated everyone",
+        "Please send a crew urgently, there's a fire near where munitions are kept",
+        "We've got a fire at the storage dump, we need a large exclusion zone setting up",
+        "Fire at the munitions site, we've shut the whole facility down and got everyone out",
+        "There's a fire near stored ordnance, please treat this as high risk",
+        "We've evacuated the site, there's a fire close to the munitions store",
+        "Please hurry, there's a fire at the ordnance dump and it could be serious"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm a site security guard"
+        "It's {{callerName}}, I'm the site supervisor here",
+        "{{callerName}}, I manage security for the facility",
+        "It's {{callerName}}, I'm the duty manager on site today",
+        "{{callerName}} here, I work in the storage facility",
+        "It's {{callerName}}, I'm responsible for site safety",
+        "My name's {{callerName}}, I'm the site controller",
+        "It's {{callerName}}, I'm part of the operations team",
+        "{{callerName}} speaking, I've raised the alarm on site",
+        "It's {{callerName}}, I've got everyone off the premises",
+        "{{callerName}}, I'm the person in charge today"
       ]
     },
     "patientName": {
       "answers": [
-        "No, we evacuated the site as soon as the alarm went, there's no one near it"
+        "No, there's nobody hurt, no one was anywhere near it when it started.",
+        "Nobody to name, there's no injuries at all here.",
+        "No patient, no one's been caught up in it.",
+        "There's no casualties, everyone's well clear.",
+        "No one's hurt, I've not seen anybody near the fire.",
+        "Nobody's involved, there's no one to give a name for.",
+        "No injuries, no one was anywhere near when it caught.",
+        "There's no patient here, nobody's been affected.",
+        "No one's hurt, we're all stood well back from it.",
+        "Nobody at all, there's no casualties to report."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the munitions storage site, there's a perimeter fence",
-        "It's {{address}}, access is via the service road"
+        "{{address}}, it's the munitions dump on the industrial estate",
+        "It's {{address}}, we've locked down the site perimeter",
+        "{{address}}, the access road is off the main estate entrance",
+        "It's {{address}}, I'll meet you at the outer gate",
+        "{{address}}, please keep back until you're briefed on site",
+        "It's {{address}}, we've cleared a wide area around it",
+        "{{address}}, the storage building is at the far end of the site",
+        "It's {{address}}, there's a controlled access point at the front",
+        "{{address}}, we've got the emergency plan ready for you",
+        "It's {{address}}, please approach carefully, we're not sure how it'll behave"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I saw smoke coming from the munitions storage area, I didn't want to get any closer given what's in there"
+        "We've got a fire near the munitions storage area, we don't know the exact cause yet",
+        "Smoke started in the storage building, we evacuated immediately as a precaution",
+        "There's a fire close to where ordnance is kept, we've followed our emergency procedure",
+        "We think it may be an electrical fault, but with what's stored there we can't take chances",
+        "The fire's near the storage bunkers, we've cleared the whole site already",
+        "No one's sure how it started, but we've triggered a full site evacuation",
+        "It's contained to one storage area for now but we're treating it as very serious",
+        "We noticed smoke and got everyone out straight away given what's stored on site",
+        "The fire's close to the ordnance store, we need a proper exclusion zone",
+        "We're not taking any risks, everyone's off site and we've called it in immediately"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's no one involved, I've not seen anybody hurt"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so nothing to report there.",
+        "Everyone's fine, nobody's anywhere near the fire.",
+        "No casualties at all, no one's been affected.",
+        "There's no patient, nobody's hurt in any way.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved at all.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's genuinely no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, there's nobody to check, it's just the fire"
+        "No one's struggling, it's just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smell that's bothering anyone.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's close enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke at all.",
+        "No breathing problems, nobody's near enough to it.",
+        "We've kept well clear, so no trouble breathing for anyone.",
+        "No one's affected, there's just a smell of smoke in the air.",
+        "Nothing to report, we're all well away from any smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can see"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, so there's nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected by it.",
+        "Not applicable, there's no patient in any pain.",
+        "No injuries, nobody's hurt in any way at all.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries, nobody's here"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all here.",
+        "Not applicable, nobody's been hurt in this.",
+        "No, no one's involved, so there's no injuries.",
+        "No bleeding to report, everyone's well clear.",
+        "No injuries at all, nobody's anywhere near it.",
+        "No, there's no one hurt to report bleeding on.",
+        "Not applicable, no one's been affected by it.",
+        "No, everyone's well away from where it's burning.",
+        "No bleeding, nobody's been caught up in this."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I can't help with that, there's no one hurt"
+        "Not applicable, there's no one hurt.",
+        "No patient, so there's nothing to tell you there.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter here.",
+        "No patient at all, nothing to report on that.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that front.",
+        "Not applicable, nobody's hurt, sorry.",
+        "No patient involved, nothing to tell you there."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's no patient, sorry"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not a medical call.",
+        "No patient at all, nothing to tell you.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected by it.",
+        "No casualty here, so nothing on that.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no one to ask, nobody's been hurt"
+        "There's no patient, nobody's hurt at all.",
+        "No one involved, so no age to give you.",
+        "Not applicable, it's just the fire itself.",
+        "No casualty, there's no one to report on.",
+        "Nobody's hurt, there's no patient here.",
+        "No one's involved, so nothing there, sorry.",
+        "Not applicable, there's no injuries at all.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient at all."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm keeping everyone well back from the fence line",
-        "Please hurry, I don't know what's stored where the fire is"
+        "Okay, everyone's well clear of the site now",
+        "Please hurry, we've set up an exclusion zone but need your guidance",
+        "Right, we're all at the assembly point off site",
+        "Okay, I've got our site plans ready for your crews",
+        "Understood, I'll brief you fully when you arrive",
+        "Alright, nobody's going back on site until you say it's safe",
+        "Okay, we've kept the access road clear for your vehicles",
+        "Right, I'll meet you at the gate with the emergency plan",
+        "Understood, we're keeping well back from the storage area",
+        "Okay, everyone's accounted for and off the premises"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a munitions site fire, we need specialist crews, not a GP"
+        "No, it's a fire at a munitions store, not a medical matter",
+        "No thank you, this is a fire call, please send the brigade",
+        "No, nobody's hurt, everyone got off site safely",
+        "No, I need the fire service given what's stored here",
+        "No, please just get crews here, this needs specialist handling",
+        "No, this isn't medical, it's a serious fire risk site",
+        "No, there's no injury, everyone's been evacuated",
+        "No, it's purely a fire, please treat this as high priority",
+        "No, it's a fire call, not something 111 can help with",
+        "No, please hurry, we need this handled carefully"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just a fire, no one's caused any trouble",
+        "Oh, are they coming too? I suppose they can keep people back from the smoke",
+        "Police? I was expecting the fire brigade, is that not enough on its own",
+        "That's fine, I expect they'll want to keep the road clear for you",
+        "Police? I hadn't thought we'd need them, but if it helps with traffic that's fine",
+        "I don't think this needs police, it's not a crime, just a fire",
+        "Oh right, I suppose they can close the road off if it comes to that",
+        "Police? There's no one to arrest here, it's only a fire",
+        "That's okay, I imagine they'll help keep an eye on the bystanders gathering",
+        "Police? I wasn't sure that was needed, but thank you for sending them anyway"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, I'll stay well back until they arrive",
+        "That's great, how long roughly until they get here",
+        "Okay, I'll keep clear of the smoke until the crew arrives",
+        "Brilliant, thank you, I'll wait here to point them in the right direction",
+        "Thank goodness, I'll stay a safe distance away until they come",
+        "Okay, I'll wave them down when I see the engine coming",
+        "Thank you, I'll keep everyone else back until they get here",
+        "That's a relief, I'll stay put and keep watching from a distance",
+        "Okay, thank you, I'll make sure the access stays clear for them",
+        "Understood, I'll stay clear and wait for the crew to arrive"
       ]
     }
   },

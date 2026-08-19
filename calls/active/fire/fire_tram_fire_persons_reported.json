@@ -48,6 +48,12 @@
     "iccu": 1,
     "fire_officer": 6
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13,
+    "ambulance": 15,
+    "police": 3
+  },
   "patients": {
     "range": [
       1,
@@ -110,8 +116,16 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade, the tram's on fire and there's still passengers on board, please hurry.",
-      "It's a tram fire, people are trying to get off but it's crowded and there's smoke inside."
+      "There's a tram on fire with people still inside, they can't get the doors open.",
+      "A tram's caught fire and people are trapped inside, breathing in the smoke.",
+      "Fire on a tram, there's passengers still on it, choking on the smoke.",
+      "The tram's alight and there's people struggling to get off, smoke everywhere.",
+      "There's a fire on the tram at the stop, some passengers can't get out.",
+      "It's a tram fire with people on board, they're coughing badly from the smoke.",
+      "There's smoke filling the tram, passengers are trapped and can't breathe properly.",
+      "A tram's on fire, people are still inside, some collapsed from the smoke.",
+      "Fire's broken out on a crowded tram, passengers are struggling to breathe.",
+      "There's a tram fire, doors seem jammed, people are stuck inside with the smoke."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -123,83 +137,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade, the tram's on fire and there's still passengers on board, please hurry.",
-        "It's a tram fire, people are trying to get off but it's crowded and there's smoke inside."
+        "There's a tram on fire with people still inside, they can't get the doors open.",
+        "A tram's caught fire and people are trapped inside, breathing in the smoke.",
+        "Fire on a tram, there's passengers still on it, choking on the smoke.",
+        "The tram's alight and there's people struggling to get off, smoke everywhere.",
+        "There's a fire on the tram at the stop, some passengers can't get out.",
+        "It's a tram fire with people on board, they're coughing badly from the smoke.",
+        "There's smoke filling the tram, passengers are trapped and can't breathe properly.",
+        "A tram's on fire, people are still inside, some collapsed from the smoke.",
+        "Fire's broken out on a crowded tram, passengers are struggling to breathe.",
+        "There's a tram fire, doors seem jammed, people are stuck inside with the smoke."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know their names, there was a school group on board."
+        "There's a good few of them, I don't have names, sorry.",
+        "I don't know all their names, there's several affected.",
+        "No idea on names, we're just trying to get everyone out safely.",
+        "I can't give you names for all of them, there's too many.",
+        "Some staff know their names, I only know a couple of them.",
+        "I've not got names, sorry, there's a fair few people involved.",
+        "No names I'm afraid, it's chaos here with several affected.",
+        "I don't know them all personally, sorry.",
+        "Can't help with names, there's just too many people caught up in it.",
+        "Sorry, no names, we're focused on getting them out."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Fire's broken out at the back of the tram while it was still moving, passengers are pushing to get off the doors at the front.",
-        "Smoke's filling the carriage, some passengers have got off but a few are struggling near the fire end."
+        "It started underneath the tram and smoke filled the carriage before people could get off.",
+        "Something caught fire near the doors, trapping passengers inside with the smoke.",
+        "The fire started at the back, smoke spread fast through the crowded carriage.",
+        "It began as an electrical fault, now the whole carriage is filling with smoke.",
+        "The tram was packed when it caught fire, people are struggling to get clear.",
+        "Flames came from underneath and smoke's filled the tram, some couldn't get out fast enough.",
+        "It caught fire while stopped, the doors jammed and people got trapped inside.",
+        "Smoke's spread through the whole carriage, a lot of passengers are coughing badly.",
+        "The fire started near the front, passengers at the back are struggling with the smoke.",
+        "It's a fast moving fire, smoke's overwhelmed a lot of the passengers still on board."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Most are conscious, coughing, out on the platform now."
+        "Most are conscious, coughing and upset, but awake.",
+        "They're all conscious as far as I can see, just shaken up.",
+        "A couple seem a bit dazed but everyone's conscious.",
+        "Yes, conscious, but some are struggling more than others.",
+        "They're awake, frightened, some coughing badly.",
+        "All conscious that I can see, no one's collapsed.",
+        "Conscious but distressed, a lot of coughing going on.",
+        "Everyone I can see is conscious, just very shaken.",
+        "They're conscious, some worse than others with the coughing.",
+        "As far as I know they're all conscious, just unwell."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A few are wheezing badly from the smoke."
+        "Several are struggling to breathe, we've got them into fresh air.",
+        "A few are wheezing badly, the rest seem okay so far.",
+        "Some are really short of breath, it's quite bad for a couple of them.",
+        "Breathing's laboured for a number of them, lots of coughing.",
+        "A handful are having real trouble breathing.",
+        "Most are breathing okay now they're outside, a few still struggling.",
+        "Some are gasping a bit, we've moved them away from it.",
+        "A couple are really struggling for breath, the others are coughing.",
+        "Breathing's an issue for several of them, getting worse by the minute.",
+        "Some are fine, others are really wheezy and short of breath."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "A couple have knocks and bruises from the crush getting off."
+        "A few are complaining of chest pain and sore throats.",
+        "Some say their chests hurt and their eyes are stinging.",
+        "There's chest pain and headaches among some of them.",
+        "A couple are holding their chests, say it hurts to breathe.",
+        "Some have got sore eyes and throats from it.",
+        "A few are saying their chests feel tight.",
+        "Some are in discomfort, chest pain mostly.",
+        "There's a bit of chest pain reported, and some headaches.",
+        "A number of them say it hurts when they breathe in.",
+        "Some are complaining of pain in their chest and throat."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "One's got a cut to the head from the door, not too bad."
+        "No bleeding that I can see, it's all breathing problems.",
+        "No, nobody's bleeding, it's the fumes causing the trouble.",
+        "No blood, just people struggling with the smoke.",
+        "Not that I've seen, it's all coughing and breathing issues.",
+        "No bleeding, thankfully, just everyone feeling unwell.",
+        "No, no injuries like that, just the effects of the smoke.",
+        "Nobody's cut or bleeding, it's the fumes affecting them.",
+        "No bleeding at all, it's a respiratory thing.",
+        "Not bleeding, no, just really struggling to breathe.",
+        "No blood, no, this is all down to the smoke."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know any of them, sorry."
+        "I don't know all their medical histories, sorry, there's too many.",
+        "No idea, we'd need to check with each of them individually.",
+        "Can't say for certain, I know one or two have asthma.",
+        "I'm not sure, some might have breathing conditions already.",
+        "I don't have that information for all of them.",
+        "Not sure, sorry, there's too many people to know that about.",
+        "I couldn't tell you, we're just trying to help them right now.",
+        "No idea about medical history, sorry, it's chaos here.",
+        "I know a couple mentioned asthma, not sure about the rest.",
+        "Can't say, sorry, I don't know them all that well."
       ]
     },
     "medications": {
       "answers": [
-        "No idea."
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's too many people to ask.",
+        "Not a clue, sorry, we're just trying to keep them calm.",
+        "I don't know, I'd have to ask each of them.",
+        "No idea on medications, sorry, we're a bit overwhelmed here.",
+        "Can't help with that, sorry, I don't know them well enough.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's too many to know that about.",
+        "No idea, honestly, we're just focused on getting help to them.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "Mixed ages, there was a school group on board too."
+        "All ages really, there's a real mix of people caught up in it.",
+        "Mixed ages, kids and adults both affected.",
+        "Hard to say exactly, there's a real range from young to old.",
+        "Mostly adults I'd say, but a couple of younger ones too.",
+        "A proper mix, teenagers up to older people.",
+        "Can't say exactly, it's a real mix of everyone.",
+        "There's a broad mix, young and old caught up in this.",
+        "Mostly working age adults from what I can see.",
+        "A mix, I'd say twenties up to sixties maybe.",
+        "Hard to tell, there's people of all ages here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Okay, thank you, we'll keep them comfortable till the paramedics arrive.",
+        "Right, I'll stay with them until the ambulance gets here.",
+        "Okay, that's good, please hurry, they're not looking great.",
+        "Thank you, we'll keep them still and wait for the crew.",
+        "Alright, I'll keep talking to them until the ambulance arrives.",
+        "Okay, we're keeping them warm and calm, waiting for you.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we'll keep everyone together until the ambulance turns up.",
+        "Thank you, I'll do what I can until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, they need paramedics now, not 111, some can barely breathe.",
+        "No, this can't wait for 111, people are really struggling.",
+        "I don't think 111 can help with this, please send an ambulance.",
+        "No, please, we need proper help now, not a phone line.",
+        "Sorry, no, this needs paramedics urgently, not 111.",
+        "No, some of them are really unwell, please don't put me through to 111.",
+        "No, I really think we need 999 crews here, not 111.",
+        "Please, no, this is urgent, they need help now.",
+        "No, this isn't something 111 can sort, please send paramedics.",
+        "No, we need help here now, not a phone line, please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll point them to where they're needed when they arrive.",
+        "Right, that's good, we could do with them here to sort the traffic.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting a bit chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay back until the crews get here.",
+        "Right, that's a relief, please send them as quickly as you can.",
+        "Okay, we'll keep everyone well clear until the fire engines arrive.",
+        "Thank you, I'll wait here and point them in the right direction.",
+        "Alright, understood, we won't go near it till they arrive.",
+        "Okay, good, we're all outside and waiting for the crews.",
+        "Thank you, we'll keep our distance until the brigade gets here.",
+        "Right, please hurry, it's not looking any better.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, we'll wait here for them."
       ]
     }
   },

@@ -46,6 +46,11 @@
     "dual_pump": 1,
     "irv": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -68,7 +73,15 @@
   "caller": {
     "openings": [
       "I want to report a group of youths setting small fires in the park.",
-      "There's some kids lighting fires behind the shops, it looks deliberate."
+      "There's some kids lighting fires behind the shops, it looks deliberate.",
+      "A group of lads are setting fire to bins near the flats, on purpose it looks like.",
+      "There's youths starting fires along the verge here, could be a few of them.",
+      "I've just seen a group of teenagers lighting a fire deliberately by the road.",
+      "There's some kids messing about with fire near the houses, it's spreading a bit.",
+      "A group of youngsters are setting small fires here, it's getting out of hand.",
+      "I can see some lads lighting fires on purpose near the high street.",
+      "There's a group deliberately starting fires by the flats, someone needs to come.",
+      "Some teenagers are setting fire to rubbish here, it looks intentional."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -81,82 +94,231 @@
     "start": {
       "answers": [
         "I want to report a group of youths setting small fires in the park.",
-        "There's some kids lighting fires behind the shops, it looks deliberate."
+        "There's some kids lighting fires behind the shops, it looks deliberate.",
+        "A group of lads are setting fire to bins near the flats, on purpose it looks like.",
+        "There's youths starting fires along the verge here, could be a few of them.",
+        "I've just seen a group of teenagers lighting a fire deliberately by the road.",
+        "There's some kids messing about with fire near the houses, it's spreading a bit.",
+        "A group of youngsters are setting small fires here, it's getting out of hand.",
+        "I can see some lads lighting fires on purpose near the high street.",
+        "There's a group deliberately starting fires by the flats, someone needs to come.",
+        "Some teenagers are setting fire to rubbish here, it looks intentional."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "There's no patient, it's just the youths setting fire, nobody's hurt."
+        "No, there's no patient, it's the fire the youths started I'm calling about.",
+        "Nobody's hurt, I'm ringing about the fire the youths started.",
+        "There's no injured person, just the incident to report.",
+        "No one to name, no one's been hurt here.",
+        "It's not a person hurt, it's the fire the youths started, nobody's involved.",
+        "No patient, no one's been injured.",
+        "There isn't anyone hurt, so no name to give you.",
+        "Nobody's been hurt, I'm just reporting the fire the youths started.",
+        "No casualties, it's just the fire the youths started I need you for.",
+        "No one's injured, there's no patient to give a name for."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A group of teenagers have been setting fire to bits of rubbish and bushes in the park for the last twenty minutes.",
-        "I've seen youths deliberately lighting small fires near the bins behind the parade of shops."
+        "A group of youths have been setting small fires deliberately along the verge.",
+        "They've been lighting bins and rubbish on fire, moving along the street doing it.",
+        "It looks deliberate, a group of lads going along setting small fires on purpose.",
+        "They started a fire in some bushes and it's begun to spread a bit.",
+        "A few teenagers have been setting fire to rubbish bags near the flats.",
+        "They've lit several small fires along the road, seems to be for fun.",
+        "It's a group of youths, they've set fire to some bins and dry grass.",
+        "They deliberately set light to some rubbish, it's caught onto nearby vegetation.",
+        "A group of them have been lighting fires one after another along the verge.",
+        "They set fire to some bins outside the flats, it's started to spread."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, it's just the fire setting I'm worried about."
+        "Everyone's fine, no one's hurt, so nothing to report there.",
+        "There's no patient, so nobody's unconscious or anything like that.",
+        "No one's collapsed or anything, the fire the youths started is the only issue.",
+        "Nobody's hurt at all, we're all fine here.",
+        "No casualties, so that question doesn't really apply.",
+        "Everybody's up and about, no one's been affected.",
+        "No one's hurt, we're all stood well back and fine.",
+        "There's no injured person, everyone here is okay.",
+        "No, nobody's collapsed, it's just the fire the youths started, no one's hurt.",
+        "All fine here, no one's been knocked about or hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, nobody's breathing anything in, we're away from it."
+        "No breathing problems, nobody's been affected by anything.",
+        "Everyone's breathing fine, there's no patient to worry about.",
+        "No one's struggling for breath, we're all outside and fine.",
+        "No issues there, nobody's hurt or affected.",
+        "Breathing's fine for everyone, it's just the fire the youths started.",
+        "No one's had any trouble breathing here.",
+        "Not a problem, there's no casualty, everyone's breathing normally.",
+        "No, nobody's affected, we're all fine and clear of it.",
+        "No breathing issues, nobody's been caught up in it.",
+        "Everyone's absolutely fine, no breathing problems at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No pain, no injuries, nobody's hurt."
+        "No, nobody's in any pain, there's no patient.",
+        "No one's hurt, so no pain to report.",
+        "Nobody's in pain, we're all fine here.",
+        "No injuries, no pain, just the fire the youths started to deal with.",
+        "No, everyone's fine, nobody's been hurt.",
+        "There's no casualty, so no, nobody's in pain.",
+        "No pain, no injuries, nobody's been affected.",
+        "Nobody's hurt at all, so no pain to speak of.",
+        "No, we're all fine, no injuries here.",
+        "No one's in any discomfort, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, there's nobody hurt to bleed."
+        "No, no bleeding, nobody's hurt.",
+        "No injuries at all, so no bleeding.",
+        "Nobody's cut or bleeding, we're all fine.",
+        "No, there's no patient, no bleeding to report.",
+        "No blood, no injuries, everyone's fine here.",
+        "No one's bleeding, it's just the fire the youths started.",
+        "No injuries whatsoever, nobody's bleeding.",
+        "No, nobody's hurt, so no bleeding.",
+        "No blood, no casualties, we're all okay.",
+        "No, not a scratch on anyone, we're fine."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, I can't answer that."
+        "There's no patient, so I've nothing medical to tell you.",
+        "Sorry, no patient here, nothing to report medically.",
+        "No one's hurt, so there's no medical history needed.",
+        "Not applicable, nobody's been injured here.",
+        "No patient, so nothing to add on that front.",
+        "There's no one hurt, so no medical details needed.",
+        "No casualties, so nothing medical to report.",
+        "Sorry, there's no patient for me to tell you about.",
+        "No injuries, so I can't help with that one.",
+        "Nobody's hurt, there's no medical history to give you."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable, nobody's hurt."
+        "No idea, there's no one hurt here.",
+        "No patient, so no medication to mention.",
+        "Not applicable, nobody's injured.",
+        "No one's hurt, so that doesn't apply here.",
+        "No idea, sorry, there's no casualty.",
+        "No patient, nothing to report on that.",
+        "Not relevant, nobody's been hurt.",
+        "No one's affected, so no medication to give you.",
+        "N/A, there's no patient here.",
+        "No injuries, so nothing on medication to add."
       ]
     },
     "patientAge": {
       "answers": [
-        "No one's hurt, so there's no patient age to give."
+        "There's no patient, nobody's been injured.",
+        "No one hurt, so no age to give you.",
+        "Not applicable, there's no casualty here.",
+        "No patient, sorry, nobody's been hurt.",
+        "No one's injured, so that doesn't apply.",
+        "N/A, there's no one hurt at this job.",
+        "No casualties, no age to report.",
+        "Nobody's hurt, so there's no patient age to give.",
+        "No injuries at all, no patient to speak of.",
+        "There's no one hurt, no age needed."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Oh, we don't need an ambulance, nobody's hurt here, but thank you.",
+        "No need for paramedics, everyone's fine, it's just the incident we need dealt with.",
+        "There's no one injured, so no ambulance necessary, but I appreciate it.",
+        "No thank you, nobody's hurt, we just need the crews out here.",
+        "We're all fine here, no one needs an ambulance.",
+        "No injuries at all, so there's no need for paramedics, thanks anyway.",
+        "Nobody's hurt, so I don't think we need an ambulance, just the crews.",
+        "That's kind, but no one's injured, we don't need paramedics.",
+        "No, honestly, everyone's fine, it's just the incident itself we need sorted.",
+        "No need, thank you, nobody's been hurt here at all."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "What? No, I need the fire brigade, not 111.",
+        "No, this is a fire, I don't need 111.",
+        "Sorry, no, I called 999 for the fire brigade.",
+        "No, nobody needs a doctor, I need the fire service out here.",
+        "I don't think 111 can help with a fire, sorry.",
+        "No, I need someone to come and put this out, not 111.",
+        "It's not medical, it's a fire, please send a crew.",
+        "No thank you, I need the fire brigade urgently.",
+        "Sorry, no, this needs the fire brigade, not 111.",
+        "No, I'm not after medical advice, I need the fire brigade."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll point them to where they're needed when they arrive.",
+        "Right, that's good, we could do with them here to sort the traffic.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting a bit chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay back until the crews get here.",
+        "Right, that's a relief, please send them as quickly as you can.",
+        "Okay, we'll keep everyone well clear until the fire engines arrive.",
+        "Thank you, I'll wait here and point them in the right direction.",
+        "Alright, understood, we won't go near it till they arrive.",
+        "Okay, good, we're all outside and waiting for the crews.",
+        "Thank you, we'll keep our distance until the brigade gets here.",
+        "Right, please hurry, it's not looking any better.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, we'll wait here for them."
       ]
     }
   },

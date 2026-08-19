@@ -52,6 +52,12 @@
     "fire_officer": 8,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 40,
+    "police": 10,
+    "ambulance": 40
+  },
   "patients": {
     "range": [
       0,
@@ -99,7 +105,14 @@
     "openings": [
       "This is the control room at the power station, we've had a serious incident and need every resource you have",
       "Major incident declared at the power station, we have multiple casualties and a possible radiation release",
-      "I'm calling from site control, we need immediate mass casualty response"
+      "I'm calling from site control, we need immediate mass casualty response",
+      "We've got a major incident on site, alarms are going off everywhere and people are down",
+      "This is site control, we've evacuated part of the plant but there are casualties still inside",
+      "We need every service you've got, there's been a serious incident at the power station",
+      "This is the control room, we have multiple people down and a possible radiation release",
+      "I'm the duty controller, we've declared a major incident, please send everything you have",
+      "We've got casualties across the site and an evacuation in progress, please hurry",
+      "This is site control at the power station, we need mass casualty support immediately"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -113,90 +126,230 @@
       "answers": [
         "This is the control room at the power station, we've had a serious incident and need every resource you have",
         "Major incident declared at the power station, we have multiple casualties and a possible radiation release",
-        "I'm calling from site control, we need immediate mass casualty response"
+        "I'm calling from site control, we need immediate mass casualty response",
+        "We've got a major incident on site, alarms are going off everywhere and people are down",
+        "This is site control, we've evacuated part of the plant but there are casualties still inside",
+        "We need every service you've got, there's been a serious incident at the power station",
+        "This is the control room, we have multiple people down and a possible radiation release",
+        "I'm the duty controller, we've declared a major incident, please send everything you have",
+        "We've got casualties across the site and an evacuation in progress, please hurry",
+        "This is site control at the power station, we need mass casualty support immediately"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, site control room"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
-        "We've multiple casualties across the site, one of the first is {{firstPatientName}}",
-        "{{firstPatientName}} is one of the affected workers"
+        "There's a lot of them, I can't give you names for everyone",
+        "Multiple casualties, I don't have a full list yet",
+        "I can't give individual names, there's too many affected",
+        "We've got several down, I'll get names to you as we can",
+        "I don't have names for all of them, sorry, it's chaos here",
+        "There's a group of workers affected, no names yet",
+        "I can't confirm names, we're still doing a headcount",
+        "Several casualties, I'll update you with names when I have them",
+        "No names yet, we're still accounting for everyone on site",
+        "I can't say exactly, there's a number of people down across the site"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, the power station site",
-        "{{address}}, use the main site entrance, security will direct you"
+        "It's {{address}}, please hurry",
+        "{{address}}, quickly please",
+        "We're at {{address}}, please send someone fast",
+        "The address is {{address}}, please hurry",
+        "{{address}}, at the plant, please hurry",
+        "It's {{address}}, oh please be quick",
+        "{{address}}, come quickly please",
+        "{{address}} is the address, please hurry",
+        "Please, it's {{address}}",
+        "{{address}}, at the plant, quickly please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's been a serious incident in the plant, we have casualties and a possible release, we've activated our major incident plan",
-        "Multiple workers are down, we're evacuating the site now"
+        "We've had a serious incident on site, alarms triggered and we've got multiple casualties",
+        "There's been an incident in the reactor building, we're evacuating and treating people as we go",
+        "Something's gone wrong on site, we've got people down and a possible radiation release",
+        "We declared a major incident a few minutes ago, casualties are spread across the site",
+        "There's smoke and alarms across part of the plant, people have been overcome",
+        "We're not sure of the full cause yet, but we have multiple people injured or unwell",
+        "The site alarm's been triggered, staff are reporting breathing difficulty and chest pain",
+        "We've got an evacuation in progress and casualties who couldn't get clear in time",
+        "It looks serious, we've got people collapsed near the affected building",
+        "We're still assessing but it's a major incident with a lot of people affected"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are conscious, others aren't responding",
-        "A number of casualties are unresponsive"
+        "Most are conscious, a few are drifting in and out",
+        "Mixed, some are alert, a couple aren't responding well",
+        "Most are talking to us, a few are quite groggy",
+        "The majority are conscious but confused",
+        "A few aren't responding properly, most others are alert",
+        "Most are awake, some are struggling to stay with it",
+        "Mixed picture, some are fine, some are barely responding",
+        "Most are conscious, a small number are not responding",
+        "The majority are alert, a few are drowsy",
+        "Some are conscious and talking, others are not responding well"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Some are struggling to breathe, others seem stable",
-        "Mixed, some breathing difficulty reported"
+        "Several are struggling to breathe, it's the fumes",
+        "A number of them have breathing difficulty, it's affecting quite a few",
+        "Some are gasping, we think it's smoke or fumes",
+        "Breathing's a problem for a lot of them, it's what's worrying us most",
+        "Quite a few are coughing badly and struggling for breath",
+        "Some are breathing fine, others are really struggling",
+        "A good number have breathing trouble, we're moving them to fresh air",
+        "Several are wheezing and short of breath",
+        "It varies, some are okay, several are in real difficulty breathing",
+        "A number are struggling for breath, we're getting them clear of the building"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Various injuries reported across the site",
-        "Some burns and trauma reported"
+        "Some are reporting chest pain",
+        "A few are complaining of chest pain and headaches",
+        "Several have chest pain, others just feel generally unwell",
+        "Some are in pain from smoke inhalation, coughing badly",
+        "A number are complaining of tightness in the chest",
+        "Some have pain, others are just very unwell and confused",
+        "A few have chest pain, we're keeping them still",
+        "Several are uncomfortable, chest pain and headaches mostly",
+        "Some are in pain, we're doing what we can for them",
+        "A number are reporting chest pain and feeling dizzy"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Some casualties are bleeding, yes",
-        "A few with visible injuries"
+        "No, it's not injuries like that, it's the fumes and smoke",
+        "No bleeding that we've seen, it's respiratory mostly",
+        "No, nobody's bleeding, they're unwell from the exposure",
+        "No bleeding reported, it's breathing and chest symptoms",
+        "No, this isn't a bleeding type incident",
+        "No bleeding, the concern is the fumes and possible exposure",
+        "No, we've not seen any bleeding injuries",
+        "No bleeding, it's all respiratory and general unwellness",
+        "No, nobody's bleeding as far as we know",
+        "No bleeding, the issue here is exposure, not trauma"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't have that information for all staff",
-        "Not something I can confirm right now"
+        "I don't have medical histories for everyone, sorry",
+        "No idea, there's too many people to know individual histories",
+        "I can't say, we don't hold that information here",
+        "Sorry, I don't know medical backgrounds for the staff affected",
+        "No, we don't have that on hand right now",
+        "I can't tell you that for everyone involved, sorry",
+        "Not something I can answer with this many people affected",
+        "Sorry, no, we haven't got individual histories to hand",
+        "I don't know, there's too many casualties to say",
+        "No idea, sorry, we're focused on getting everyone accounted for"
       ]
     },
     "medications": {
       "answers": [
-        "Not something I can confirm right now",
-        "I don't have that information"
+        "I don't know what any of them take, sorry",
+        "No idea, we don't hold that information for staff",
+        "Can't say, sorry, there's too many people involved",
+        "Sorry, no, I don't know individual medications",
+        "No, we haven't got that information here",
+        "I can't tell you that with this many casualties",
+        "Sorry, not something I can answer right now",
+        "No idea, we're not able to check that at the moment",
+        "I don't know, sorry, focus is on getting people out",
+        "No, sorry, we don't have that to hand"
       ]
     },
     "patientAge": {
       "answers": [
-        "All adults, site workers",
-        "Working age adults, mixed"
+        "Mixed ages, mostly working age staff",
+        "A range of ages, our workforce is quite varied",
+        "Mostly adults, twenties through to sixties I'd say",
+        "Mixed, it's a full shift on site so all sorts of ages",
+        "A wide range, sorry I can't be more specific",
+        "Mostly working age, twenties to sixties",
+        "Varied ages across the site, no children involved",
+        "Mixed adult ages, it's our normal shift on site",
+        "A broad range, mostly adults of working age",
+        "Mixed, sorry, there's a lot of people to account for"
       ]
     },
     "reassure": {
       "answers": [
-        "Understood, we're following our emergency procedures and evacuating",
-        "We have first aiders on site already helping"
+        "Okay, thank you, we'll keep them as comfortable as we can",
+        "Right, that's a relief, there's quite a few of them",
+        "Okay, we'll wait for them by the entrance",
+        "Thank you, I'll let everyone know help's coming",
+        "Okay, we're keeping them together until they arrive",
+        "Right, thank you, please send as many as you can",
+        "Okay, we'll point them to where everyone is",
+        "Thank you, that's good, some of them are quite unwell",
+        "Okay, we'll stay with them until they get here",
+        "Right, thank you, we'll keep everyone calm"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a declared major incident, we need every service now",
-        "Absolutely not, this is critical"
+        "No, please, people are unwell, this can't wait",
+        "No, we need help here now, not a call back",
+        "No, please send someone, people are struggling",
+        "No, this is urgent, there's people affected here",
+        "No, please, I don't think this can wait for 111",
+        "No, we really need help on scene, not advice over the phone",
+        "No, please hurry, this isn't something that can wait",
+        "No, people need treatment now, please send someone",
+        "No, I don't think 111 is enough, please send help",
+        "No, please, this needs an urgent response"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, good, we could do with them helping keep people back",
+        "Right, that's good, some of this area needs cordoning off",
+        "Okay, that'll help keep everyone clear of the area",
+        "Good, they can help control who comes near",
+        "Okay, thank you, it's getting crowded here",
+        "Right, that's useful, we need the area kept clear",
+        "Okay, good, there's a few onlookers we could do with moving back",
+        "Thank you, that'll help with keeping the road clear too",
+        "Okay, good, we could use the extra hands keeping people away",
+        "Right, thank you, that's reassuring"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, good, we really need them here",
+        "Right, that's a relief, thank you",
+        "Okay, thank you, please tell them to hurry",
+        "Good, we need them to deal with this properly",
+        "Okay, that's good news, thank you",
+        "Right, thank you, this needs specialist help",
+        "Okay, good, we've been trying to keep everyone clear",
+        "Thank you, that's reassuring to hear",
+        "Okay, good, we need them to make this safe",
+        "Right, thank you, please hurry them along"
       ]
     }
   },

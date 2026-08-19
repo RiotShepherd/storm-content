@@ -49,6 +49,10 @@
     "irv": 4,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 4
+  },
   "patients": {
     "range": [
       0,
@@ -73,7 +77,14 @@
     "openings": [
       "Police please, there's a large protest blocking the road at the motorway site",
       "I need to report a demonstration, protesters have chained themselves to machinery",
-      "There's a big group of demonstrators here, traffic's completely blocked"
+      "There's a big group of demonstrators here, traffic's completely blocked",
+      "Police, we've got a large group of protesters occupying the site",
+      "I need to report a demonstration blocking access to the construction site",
+      "There's a group chained themselves to the diggers, we can't work",
+      "Please send someone, protesters are stopping our machinery from operating",
+      "I need to report, there's a big crowd of demonstrators here blocking the road",
+      "There's a large group protesting the motorway works, it's causing serious disruption",
+      "Police please, we've got demonstrators occupying the construction site"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -87,90 +98,230 @@
       "answers": [
         "Police please, there's a large protest blocking the road at the motorway site",
         "I need to report a demonstration, protesters have chained themselves to machinery",
-        "There's a big group of demonstrators here, traffic's completely blocked"
+        "There's a big group of demonstrators here, traffic's completely blocked",
+        "Police, we've got a large group of protesters occupying the site",
+        "I need to report a demonstration blocking access to the construction site",
+        "There's a group chained themselves to the diggers, we can't work",
+        "Please send someone, protesters are stopping our machinery from operating",
+        "I need to report, there's a big crowd of demonstrators here blocking the road",
+        "There's a large group protesting the motorway works, it's causing serious disruption",
+        "Police please, we've got demonstrators occupying the construction site"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm the site foreman",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I work here.",
+        "{{callerName}}, I'm a member of staff.",
+        "My name's {{callerName}}, I'm on shift here.",
+        "It's {{callerName}}, I'm the duty manager.",
+        "{{callerName}} here, I work on site.",
+        "You can put me down as {{callerName}}, I'm staff.",
+        "It's {{callerName}}, I'm working today.",
+        "{{callerName}} speaking, I'm employed here.",
+        "My name is {{callerName}}, I'm behind the counter.",
+        "It's {{callerName}}, I'm part of the team here."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, it's a peaceful protest so far",
-        "N/A, nobody injured"
+        "I don't know any of their names, I don't know them.",
+        "No idea who they are, complete strangers to me.",
+        "Couldn't tell you their names, I don't recognise them.",
+        "No names I'm afraid, I don't know any of them.",
+        "I don't know them personally, so no names.",
+        "Sorry, no idea what any of them are called.",
+        "Can't help with names, I don't know them at all.",
+        "No, I've no idea who they are.",
+        "I don't recognise any of them, no names to give.",
+        "Not a clue, they're strangers to me."
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, it's the construction site entrance",
-        "We're at {{address}}"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "A group of about thirty protesters have blocked the site entrance and chained themselves to the fence",
-        "They've been here since this morning, stopping our vehicles getting through",
-        "Some have climbed onto the machinery, it's stopped all work"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, they're all conscious and shouting slogans",
-        "No injuries, just a standoff"
+        "They're all awake, nobody's hurt, just causing chaos.",
+        "No injuries, they're all fully alert.",
+        "Nobody's hurt, they're just kicking off.",
+        "They're fine, no injuries, just aggressive.",
+        "No one's hurt, they're all conscious and shouting.",
+        "They're not injured at all, just causing a scene.",
+        "Nobody's hurt, everyone's on their feet.",
+        "No injuries that I can see, they're all up and about.",
+        "They're fine physically, just being a nuisance.",
+        "No one's hurt, they're all wide awake and angry."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "They're all breathing fine, nobody's hurt.",
+        "No problems there, no one's injured.",
+        "They're fine, breathing normally, no injuries.",
+        "No issues, nobody's hurt in this.",
+        "They're all breathing okay, this isn't medical.",
+        "Nobody's hurt, everyone's breathing fine.",
+        "No one's struggling, no injuries at all.",
+        "They're all fine, no breathing problems.",
+        "Not an issue, nobody's hurt.",
+        "No, they're all breathing normally."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A",
-        "No one's hurt"
+        "No pain, nobody's hurt as far as I can see.",
+        "They're not in any pain, no injuries.",
+        "No, they're all fine, this isn't medical.",
+        "Nobody's hurt, so no pain to report.",
+        "No pain that I can see, they're unhurt.",
+        "They're not injured, no pain involved.",
+        "No one's hurt, so nothing there.",
+        "They're fine, no pain, just aggressive.",
+        "No, none of them are hurt.",
+        "Not that I can tell, no injuries."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No, nobody's bleeding, they're not hurt.",
+        "None that I can see, they're all unhurt.",
+        "No injuries, no bleeding at all.",
+        "No, nobody's hurt, they're all fine.",
+        "Not that I can see, everyone's uninjured.",
+        "No bleeding, nobody's hurt.",
+        "None, they're all completely unhurt.",
+        "No, they're fine, no blood at all.",
+        "Not at all, no injuries.",
+        "No, there's no injuries on any of them."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A, don't know them",
-        "Not applicable"
+        "No idea, I don't know any of them.",
+        "Couldn't tell you, they're strangers to me.",
+        "No idea about their health, I don't know them.",
+        "I've no idea, never met any of them before.",
+        "Can't help, I don't know anything about them.",
+        "No idea, this isn't really medical anyway.",
+        "I wouldn't know, nobody's hurt anyway.",
+        "No idea about any of them, sorry.",
+        "Couldn't say, I don't know their backgrounds.",
+        "No idea, I've never spoken to them before today."
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "No idea, I don't know any of them.",
+        "Couldn't tell you, they're strangers to me.",
+        "No idea what they take, I don't know them.",
+        "I've no clue, never met them before.",
+        "Can't help with that, sorry.",
+        "No idea, this isn't medical, they're just causing trouble.",
+        "I wouldn't know, nobody's hurt anyway.",
+        "No idea about any of them at all.",
+        "Couldn't say, I don't know them personally.",
+        "No idea, never spoken to them before."
       ]
     },
     "patientAge": {
       "answers": [
-        "Mixed ages, some quite elderly, some young"
+        "Mixed ages, mostly twenties and thirties I'd say.",
+        "Hard to say, a real mix of ages.",
+        "Some look young, others older, hard to pin down.",
+        "I'd guess twenties to forties, a real spread.",
+        "Hard to tell with the group, all sorts of ages.",
+        "Mostly younger, twenties I'd guess.",
+        "A real mix, some teens, some older.",
+        "Can't say exactly, quite a range of ages.",
+        "Mixed group, hard to give one age.",
+        "All different ages, hard to say for certain."
       ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's where I am.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, that's the address.",
+        "We're at {{address}}.",
+        "It's {{address}}, you can't miss it.",
+        "{{address}}, that's the postcode.",
+        "The address is {{address}}.",
+        "{{address}}, I'll wait for you here.",
+        "It's {{address}}, that's the spot.",
+        "{{address}}, that's it exactly."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's a group of about thirty demonstrators who've chained themselves to our diggers",
+        "They've blocked the site entrance with banners and won't let any vehicles through",
+        "A crowd has gathered protesting the motorway project and it's stopping all our work",
+        "They've set up camp right across the access road, we can't get any machinery in",
+        "There's a large group sat in front of the equipment refusing to move",
+        "They've locked themselves to the fencing and won't let contractors through",
+        "A big crowd's turned up with placards and they've blocked the whole entrance",
+        "They've formed a human chain across the site access, nothing can get through",
+        "There's demonstrators up in the trees and others blocking the gates",
+        "They've occupied the site office and are refusing to leave voluntarily"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, we've stopped work for now",
-        "Thank you, it's peaceful but we can't get through"
+        "No ambulance needed, nobody's hurt, thank you.",
+        "I don't need an ambulance, this isn't medical, I just need police.",
+        "No, nobody's injured, just send police please.",
+        "That's not necessary, no one's hurt here.",
+        "No ambulance, thank you, it's a police matter.",
+        "Nobody's hurt, I only need officers here.",
+        "No, that's not needed, this isn't a medical emergency.",
+        "I don't think so, no injuries here at all.",
+        "No, no one's hurt, just police please.",
+        "That's not required, nobody's been injured."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them to arrive.",
+        "Good, I'll stay right here until they get here.",
+        "Thank you, I'll keep everyone back until they arrive.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Please hurry, I'll be watching out for them.",
+        "Thank you, I'll wait outside for the officers.",
+        "Okay, that's a relief, I'll stay put.",
+        "Good, I'll let you know if anything changes before they arrive.",
+        "Thank you, I'll keep an eye on things until they get here.",
+        "Okay, I'll stay close by until the police arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, there's no fire, I need police.",
+        "No, this isn't a fire, it's a police matter.",
+        "I don't need the fire service, just police please.",
+        "No fire here at all, just send officers.",
+        "That's the wrong service, there's no fire involved.",
+        "No, I need police, not the fire brigade.",
+        "There's no fire, just police please.",
+        "No thank you, nothing's alight, I need police.",
+        "That's not right, no fire here, just police.",
+        "No, nothing's on fire, just send police please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, I need police to manage the protest"
+        "111? No, this isn't medical, but I do need someone to sort this out.",
+        "No, that's not right, this isn't a health thing, it's for the police.",
+        "I don't think 111 can help with this, can you send police.",
+        "No, this isn't medical, but it still needs looking at.",
+        "That doesn't sound right, this isn't a 111 matter.",
+        "No, I don't think a callback will help, this needs police.",
+        "I'm not sure that's the right service, this isn't medical.",
+        "No, this isn't about health, it's a police issue.",
+        "That's not it, this needs officers, not a nurse calling back.",
+        "No, I don't think so, this is a police matter really."
       ]
     }
   },

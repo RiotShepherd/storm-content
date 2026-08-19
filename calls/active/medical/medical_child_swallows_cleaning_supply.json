@@ -48,6 +48,11 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -71,8 +76,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My little girl's drunk some cleaning fluid, I don't know how much",
-      "Please help, my son's swallowed some bleach from under the sink"
+      "My {{son}}'s drunk some cleaning fluid, I don't know how much",
+      "Please help, my {{son}}'s swallowed some bleach from under the sink",
+      "My {{son}} got into the cleaning cupboard and drank something",
+      "I think my {{son}}'s swallowed some kitchen cleaner, {{he}}'s coughing",
+      "My {{son}}'s had some bleach, I found the bottle open next to {{him}}",
+      "Please, my {{son}}'s drunk something from under the sink, {{he}}'s crying",
+      "My {{son}} got hold of a bottle of cleaning spray and drank some",
+      "I need help, my {{son}}'s swallowed some sort of cleaning fluid",
+      "My {{son}}'s got into the cupboard under the sink, {{he}}'s swallowed something",
+      "Please hurry, my {{son}}'s drunk some bleach, {{his}} mouth's gone red"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -84,90 +97,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My little girl's drunk some cleaning fluid, I don't know how much",
-        "Please help, my son's swallowed some bleach from under the sink"
+        "My {{son}}'s drunk some cleaning fluid, I don't know how much",
+        "Please help, my {{son}}'s swallowed some bleach from under the sink",
+        "My {{son}} got into the cleaning cupboard and drank something",
+        "I think my {{son}}'s swallowed some kitchen cleaner, {{he}}'s coughing",
+        "My {{son}}'s had some bleach, I found the bottle open next to {{him}}",
+        "Please, my {{son}}'s drunk something from under the sink, {{he}}'s crying",
+        "My {{son}} got hold of a bottle of cleaning spray and drank some",
+        "I need help, my {{son}}'s swallowed some sort of cleaning fluid",
+        "My {{son}}'s got into the cupboard under the sink, {{he}}'s swallowed something",
+        "Please hurry, my {{son}}'s drunk some bleach, {{his}} mouth's gone red"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}, she's only three"
+        "It's {{firstPatientName}}, my {{son}}",
+        "{{firstPatientName}}, {{he}}'s only three",
+        "My {{son}}'s name is {{firstPatientName}}",
+        "{{firstPatientName}}, that's {{him}}",
+        "It's my {{son}} {{firstPatientName}}",
+        "{{firstPatientName}}, please hurry",
+        "My little {{son}} is called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "{{firstPatientName}}, {{he}}'s my {{son}}",
+        "{{firstPatientName}}, please, {{he}}'s only little"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, please hurry"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She got into the cupboard under the sink and drank some of the cleaning spray, I don't know how much",
-        "He's swallowed some bleach, I found the bottle open next to him"
+        "{{He}} got into the cupboard under the sink and drank some cleaning spray",
+        "{{He}} found an open bottle of bleach and took a mouthful before I saw",
+        "I turned my back for a second and {{he}}'d got hold of the cleaning fluid",
+        "{{He}} was playing near the cupboard and swallowed some of the cleaner",
+        "There was an open bottle out, {{he}} must have drunk from it",
+        "{{He}} got into the utility cupboard and swallowed something caustic",
+        "I found {{him}} with the bleach bottle, {{his}} mouth's gone red and sore",
+        "{{He}} drank from a spray bottle I'd left out after cleaning",
+        "{{He}} got hold of some drain cleaner from under the sink",
+        "{{He}} swallowed some cleaning fluid, I don't know exactly how much"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's awake and crying",
-        "Yes, conscious but upset"
+        "Yes, {{he}}'s awake, just crying a lot",
+        "Yes, conscious, but really shaken up",
+        "{{He}}'s awake and talking to me",
+        "Yes, {{he}}'s alert, just in a lot of pain",
+        "Conscious, yes, {{he}}'s crying but talking",
+        "{{He}}'s awake, {{he}} just won't stop crying",
+        "Yes, {{he}}'s conscious the whole time",
+        "{{He}}'s alert, just very upset",
+        "Yes, {{he}}'s talking to me, just in pain",
+        "Conscious and crying, yes"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, breathing okay so far",
-        "Seems fine for now"
+        "Yes, breathing but coughing a lot",
+        "{{He}}'s spluttering, but breathing",
+        "Breathing okay, just coughing from it",
+        "Yes, {{he}}'s breathing, coughing quite badly though",
+        "{{He}}'s breathing fine, just keeps coughing",
+        "Yes, breathing, {{he}}'s just retching and coughing",
+        "{{He}}'s breathing, a bit wheezy from coughing",
+        "Breathing's okay, {{he}}'s just spluttering a lot",
+        "Yes, {{he}}'s breathing normally, still coughing though",
+        "{{He}}'s breathing fine, just upset and coughing"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her mouth and throat hurt",
-        "He's saying his tummy hurts"
+        "{{He}} says {{his}} mouth's burning",
+        "{{He}}'s complaining {{his}} throat hurts",
+        "{{He}} keeps saying it stings in {{his}} mouth",
+        "Yes, {{he}} says it burns when {{he}} swallows",
+        "{{His}} lips and mouth look sore and red",
+        "{{He}}'s crying that {{his}} mouth hurts",
+        "{{He}} says it stings really badly in {{his}} throat",
+        "{{His}} mouth looks irritated, {{he}}'s in discomfort",
+        "Yes, {{he}}'s in pain, {{his}} mouth and lips are red",
+        "{{He}} says it burns, {{he}}'s very upset"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No, no bleeding, {{he}}'s just unwell",
+        "No blood involved, no",
+        "No, this isn't that kind of thing",
+        "No bleeding, {{he}}'s just really weak",
+        "No, nothing like that at all",
+        "No, {{he}}'s not injured, just poorly",
+        "No blood, no",
+        "Not that I've seen, no",
+        "No, no cuts or blood, {{he}}'s just unwell",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No, she's healthy otherwise",
-        "Nothing relevant"
+        "No, nothing that I know of",
+        "Not that I'm aware of, no",
+        "No history I know of, {{he}}'s usually fit and well",
+        "No, {{he}}'s never had anything like this before",
+        "Nothing at all, {{he}}'s normally very healthy",
+        "No, no medical conditions that I know of",
+        "Not that I know of, no",
+        "No, {{he}}'s never had any real health problems",
+        "Nothing I know of, {{he}}'s generally fine",
+        "No history at all as far as I know"
       ]
     },
     "medications": {
       "answers": [
-        "No regular medication",
-        "None"
+        "No, {{he}} doesn't take anything",
+        "None that I know of",
+        "No medication, no",
+        "Not that I'm aware of, no",
+        "No, nothing regular",
+        "None at all as far as I know",
+        "No, {{he}}'s not on anything",
+        "Nothing, {{he}} doesn't take any tablets",
+        "No medication that I know of",
+        "None, no"
       ]
     },
     "patientAge": {
       "answers": [
-        "3"
+        "{{He}}'s 3",
+        "About 3, I think",
+        "{{He}}'s 3 years old",
+        "{{He}}'s only 3",
+        "I think {{he}}'s 3",
+        "3 years old",
+        "{{He}}'s just 3",
+        "Just turned 3",
+        "{{He}}'s 3, still little",
+        "3, {{he}}'s only small"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I haven't given her anything to drink or eat",
-        "I've got the bottle here to show you what it was"
+        "Okay, I'm not giving {{him}} anything to drink like you said",
+        "Right, I've got the bottle here so I can tell them what it was",
+        "I'm keeping {{him}} calm, not making {{him}} sick like you said",
+        "Okay, I've got the label to hand for when they arrive",
+        "Yes, I'm doing that now, {{he}}'s still crying but breathing",
+        "Okay, I'm not letting {{him}} eat or drink anything",
+        "Right, I've rinsed {{his}} mouth out gently like you said",
+        "I'm staying calm, keeping {{him}} sitting up like you said",
+        "Okay, I've got the bottle right here, not giving {{him}} anything",
+        "I'm keeping {{him}} still and calm until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, she's swallowed a chemical, I need an ambulance",
-        "No, this can't wait, please send someone"
+        "No, {{he}}'s swallowed bleach, this can't wait for a call back",
+        "No, please, I think this needs to be seen straight away",
+        "I don't think that's enough, {{he}}'s swallowed something dangerous",
+        "No, please, {{he}}'s only three, I'm frightened",
+        "I'd rather someone came, {{he}}'s swallowed a chemical",
+        "No, this needs an ambulance, not a phone call",
+        "I don't think 111 can help with this, please send someone",
+        "No, {{he}}'s in pain, this can't wait",
+        "Please just send an ambulance, {{he}}'s swallowed something caustic",
+        "No, I think this is an emergency, please hurry"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, is that normal procedure for something like this",
+        "Right, okay, whatever helps, I just want {{him}} seen to",
+        "Okay, that's fine, I understand why, I just want {{him}} looked after",
+        "Alright, thank you, I suppose that makes sense given what happened",
+        "Okay, I understand, I'll let them in when they arrive",
+        "Right, thank you, I wasn't sure if that would happen but okay",
+        "Okay, that's fine, I've got nothing to hide, I just want {{him}} safe",
+        "Alright, thank you, I'll have the bottle ready to show them too",
+        "Okay, I understand, I just feel terrible about it happening at all",
+        "Right, okay, thank you, I just want to make sure {{he}}'s alright"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, no, there's no fire, please just get the ambulance here",
+        "No, no fire, why would we need that, {{he}} just needs help now",
+        "There's no fire, I don't understand, just send the ambulance please",
+        "No fire brigade, please, {{he}}'s not trapped, {{he}}'s just in a bad way",
+        "No, no, nothing's burning, please, {{he}} just needs paramedics",
+        "Fire service? No, please, just the ambulance, {{he}}'s really unwell",
+        "No, there's no fire here, I just need someone to help {{him}} now",
+        "No fire, please, I don't know why you'd say that, just hurry",
+        "No, please, no fire brigade, {{he}} just needs an ambulance urgently",
+        "There's definitely no fire, please just send the paramedics quickly"
       ]
     }
   },

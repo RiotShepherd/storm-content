@@ -50,6 +50,11 @@
     "traffic_car": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -81,7 +86,15 @@
   "caller": {
     "openings": [
       "A milk tanker's overturned and it's spilled everywhere, the road's like an ice rink.",
-      "Police please, a lorry's lost its load, there's milk all across the carriageway."
+      "Police please, a lorry's lost its load, there's milk all across the carriageway.",
+      "There's milk everywhere, a tanker's gone over and it's spilled right across the road.",
+      "A tanker's tipped on its side, milk's covering both lanes.",
+      "Can you send someone, a milk lorry's overturned and the road's really slippery now.",
+      "There's a huge spillage, a milk tanker's gone over on the carriageway.",
+      "Hello, an HGV's spilled its milk load, the road's like glass.",
+      "Milk's pouring across the road, a tanker's overturned just ahead of me.",
+      "There's a massive spill, a milk tanker's rolled and it's everywhere.",
+      "A tanker's lost its load, milk's covering the whole carriageway."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -94,90 +107,231 @@
     "start": {
       "answers": [
         "A milk tanker's overturned and it's spilled everywhere, the road's like an ice rink.",
-        "Police please, a lorry's lost its load, there's milk all across the carriageway."
+        "Police please, a lorry's lost its load, there's milk all across the carriageway.",
+        "There's milk everywhere, a tanker's gone over and it's spilled right across the road.",
+        "A tanker's tipped on its side, milk's covering both lanes.",
+        "Can you send someone, a milk lorry's overturned and the road's really slippery now.",
+        "There's a huge spillage, a milk tanker's gone over on the carriageway.",
+        "Hello, an HGV's spilled its milk load, the road's like glass.",
+        "Milk's pouring across the road, a tanker's overturned just ahead of me.",
+        "There's a massive spill, a milk tanker's rolled and it's everywhere.",
+        "A tanker's lost its load, milk's covering the whole carriageway."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, I nearly skidded on it.",
-        "{{callerName}}, I've stopped short of the spillage."
+        "{{callerName}}, I've stopped short of the spillage.",
+        "My name's {{callerName}}, I'm parked well back from it.",
+        "{{callerName}} here, I very nearly slid into it.",
+        "It's {{callerName}} speaking, I'm still on scene.",
+        "{{callerName}}, I've got my hazards on near the spill.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I'm a bit further back from the tanker.",
+        "{{callerName}}, I'm the one who rang it in.",
+        "Name's {{callerName}}, I'm stuck behind the spillage now."
       ]
     },
     "patientName": {
       "answers": [
-        "Nobody's hurt, it's just the spillage.",
-        "No injuries, the driver's out of the cab fine."
+        "Nobody's hurt, it's just the load that's come off.",
+        "No injuries, it's a spillage, there's no patient as such.",
+        "There's no one to name, it's just debris on the road.",
+        "No casualties, everyone involved is out and fine.",
+        "Nobody needs a name taken, no one's been hurt.",
+        "It's just an obstruction, there's no patient involved.",
+        "No injuries here, it's purely a road hazard.",
+        "There's nobody hurt to give you a name for.",
+        "No one's been struck, everyone's fine.",
+        "Not applicable, nobody's been injured."
       ]
     },
     "address": {
       "answers": [
         "We're on {{address}}.",
-        "{{address}}, the whole road's covered in it."
+        "{{address}}, the whole road's covered in it.",
+        "It's happened on {{address}}, near the bend.",
+        "{{address}}, you can't miss it, milk everywhere.",
+        "We're at {{address}}, both lanes are affected.",
+        "{{address}}, right in the middle of the road.",
+        "It's on {{address}}, close to the junction.",
+        "{{address}} is where it is, cars are sliding about.",
+        "We're stopped on {{address}}, the spillage is blocking the way.",
+        "{{address}}, just past the bend in the road."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "The tanker's tipped and it's spilled milk right across the carriageway, it's really slippery.",
-        "Something's given way on the tanker and it's all over the road now."
+        "Something's given way on the tanker and it's all over the road now.",
+        "Looks like the tanker's rolled onto its side and the milk's spilled out completely.",
+        "The lorry's gone over on the bend and the whole tank's emptied onto the road.",
+        "The tanker's lost control and gone over, milk's covering both lanes now.",
+        "I think a valve's failed, the tanker's emptying itself across the road.",
+        "The driver's lost it on the bend and the tanker's spilled everywhere.",
+        "It looks like the tanker's tipped and the milk's covering the whole carriageway.",
+        "Something's ruptured on the tanker and it's pouring out onto the road.",
+        "The tanker's gone over completely and milk's spread right across the lanes."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, it's just the spillage.",
-        "No injuries, the driver's fine."
+        "Nobody's hurt, everyone involved is fine.",
+        "No injuries, the driver's out and about, no one's hurt.",
+        "There's no one unconscious, nobody's been hurt at all.",
+        "Not applicable, no one's been struck by anything.",
+        "No patient here, everyone involved is fine.",
+        "Everyone's absolutely fine, no one's hurt.",
+        "No casualties, nobody's collapsed or been struck.",
+        "Nobody's hurt, this is just a road hazard.",
+        "No one needs checking, there's no injuries at all.",
+        "Not applicable, no one was hurt in this."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
         "Everyone's fine, this isn't a medical call.",
-        "No injuries at all."
+        "No injuries at all.",
+        "Nobody's struggling, there's no patient here.",
+        "Not applicable, no one's hurt.",
+        "Everyone involved is breathing fine, nobody's injured.",
+        "No one needs checking, it's just an obstruction.",
+        "This isn't a medical emergency, no one's hurt.",
+        "There's no patient to check breathing on.",
+        "Not applicable, nobody's been affected physically.",
+        "No injuries reported at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt, it's just the spill.",
-        "Not applicable."
+        "No one's hurt, it's just the road hazard.",
+        "Not applicable, no injuries.",
+        "Nobody's in pain, no one's been hurt.",
+        "No patient here, so no pain to report.",
+        "There's nothing like that, nobody's injured.",
+        "No one's complaining of anything, they're all fine.",
+        "Not applicable, this is just an obstruction.",
+        "No injuries at all to report.",
+        "Nobody's hurt in any way.",
+        "No, there's no patient in pain here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
         "No, nobody's injured.",
-        "No injuries."
+        "No injuries.",
+        "No, there's no one bleeding, nobody's hurt.",
+        "Not applicable, no patient involved.",
+        "No, everyone's fine, it's just the obstruction.",
+        "No bleeding, no injuries at all.",
+        "Nobody's been cut or hurt in any way.",
+        "No, there's no patient here to check.",
+        "Not applicable, nobody's been struck.",
+        "No, this is purely a road hazard, no injuries."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
         "There's no patient.",
-        "Not applicable."
+        "Not applicable.",
+        "No one to ask about, nobody's hurt.",
+        "There's no patient here to speak of.",
+        "N/A, nobody's been injured.",
+        "No need, there's no casualty.",
+        "Not relevant, no one's hurt.",
+        "There's no patient involved in this.",
+        "No history needed, nobody's injured.",
+        "Not applicable, it's just an obstruction."
       ]
     },
     "medications": {
       "answers": [
         "No one needs medical help.",
-        "Not applicable."
+        "Not applicable.",
+        "There's no patient taking anything.",
+        "N/A, nobody's hurt.",
+        "No need, there's no casualty here.",
+        "Not relevant, no one's injured.",
+        "There's no patient to ask about.",
+        "No medication needed, nobody's hurt.",
+        "Not applicable at all.",
+        "No, there's no one who needs that."
       ]
     },
     "patientAge": {
       "answers": [
         "There's no patient.",
-        "Not applicable."
+        "Not applicable.",
+        "No one to give an age for.",
+        "N/A, there's no casualty.",
+        "Not relevant, nobody's hurt.",
+        "There's no patient here to speak of.",
+        "No age needed, nobody's injured.",
+        "Not applicable, it's just the obstruction.",
+        "No one's hurt, so there's no patient age.",
+        "N/A, this isn't a medical call."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay well back from the spillage.",
-        "Understood, I'll warn drivers behind me."
+        "Ambulance? No, honestly, nobody's hurt, we just need the road sorted.",
+        "Oh, we don't need that, nobody's injured, just help with the road.",
+        "There's no need for an ambulance, nobody's hurt.",
+        "No one's hurt so we won't need that, but thanks.",
+        "That's not necessary, nobody's been injured here.",
+        "We're fine on that front, it's just a road hazard, nobody's hurt.",
+        "No thank you, no injuries at all.",
+        "You can stand that down, nobody's hurt at all.",
+        "That won't be needed, everyone's absolutely fine.",
+        "No, honestly, nobody's injured here."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, thank you, we could really use them to direct the traffic.",
+        "Yes please, it's chaos out here, we need them to close a lane.",
+        "Thank goodness, cars are swerving about, we need them quickly.",
+        "That's great, someone needs to manage this before there's a crash.",
+        "Okay, I'll flag them down when I see them coming.",
+        "Thank you, drivers keep nearly hitting the obstruction.",
+        "Good, we really need someone controlling the traffic here.",
+        "Thanks, I'll point them to the right spot when they arrive.",
+        "That's a relief, it's getting dangerous with the traffic.",
+        "Perfect, we need them here before someone crashes into it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, I'll keep my hazards on to warn others.",
+        "Understood, I'll wait clear of the road.",
+        "Good, thank you, they can get this cleared off the road.",
+        "Thanks, we really need the road cleared before it causes a crash.",
+        "That's great, I'll stay back until they've dealt with it.",
+        "Thank you, I'll point them to where the problem is.",
+        "Good, the sooner it's cleared the better, it's a real hazard.",
+        "Okay, I'll keep everyone back until they've sorted it.",
+        "Thanks, that really needs shifting off the carriageway.",
+        "Great, I'll stay here and wave them down when they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need help clearing a spillage on the road!"
+        "No, we need help clearing a spillage on the road!",
+        "111? This isn't medical, the road's like an ice rink out here.",
+        "No, that's not right, cars are sliding on this, we need you now.",
+        "I don't think so, it's a proper hazard, that's not a 111 job.",
+        "No, please, someone could skid into another car any second.",
+        "That doesn't sound right, this needs clearing urgently, not a callback.",
+        "No, we need people out here now, the road's a skating rink.",
+        "I really don't think 111 can clear a tanker spill.",
+        "No, this needs sorting straight away, it's really dangerous.",
+        "Please, no, someone needs to come and deal with this now."
       ]
     }
   },

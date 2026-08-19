@@ -52,6 +52,12 @@
     "irv": 4,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 10,
+    "ambulance": 7,
+    "police": 3
+  },
   "patients": {
     "range": [
       1,
@@ -87,8 +93,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police, and I think you'll need the fire brigade too, someone's climbed up and won't come down",
-      "Help, a protester's stuck up there, they look frightened"
+      "Police, there's a protester stuck up on the crane, {{he}} looks distressed",
+      "Please hurry, someone's climbed the gantry and can't get down, {{he}}'s really struggling",
+      "Police, a protester's stuck up high and looks like {{he}}'s struggling to breathe",
+      "Please send help, someone's up on the mast and won't come down, {{he}} looks unwell",
+      "Police, there's a protester up on the roof, {{he}}'s been up there for ages",
+      "Please hurry, someone's stuck on the crane and there's smoke up there",
+      "Police, a protester's climbed really high and now looks in trouble",
+      "Please send someone, {{he}}'s stuck up there and clearly not okay",
+      "Police, there's someone up on the gantry, looking very unwell now",
+      "Please hurry, the protester up high is struggling badly"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -100,90 +114,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police, and I think you'll need the fire brigade too, someone's climbed up and won't come down",
-        "Help, a protester's stuck up there, they look frightened"
+        "Police, there's a protester stuck up on the crane, {{he}} looks distressed",
+        "Please hurry, someone's climbed the gantry and can't get down, {{he}}'s really struggling",
+        "Police, a protester's stuck up high and looks like {{he}}'s struggling to breathe",
+        "Please send help, someone's up on the mast and won't come down, {{he}} looks unwell",
+        "Police, there's a protester up on the roof, {{he}}'s been up there for ages",
+        "Please hurry, someone's stuck on the crane and there's smoke up there",
+        "Police, a protester's climbed really high and now looks in trouble",
+        "Please send someone, {{he}}'s stuck up there and clearly not okay",
+        "Police, there's someone up on the gantry, looking very unwell now",
+        "Please hurry, the protester up high is struggling badly"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I saw the whole thing.",
+        "{{callerName}}, I was just walking past.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} here, I'm the one who called.",
+        "{{callerName}}, yes, that's me.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}.",
+        "{{callerName}} speaking, I saw it happen.",
+        "Name's {{callerName}}.",
+        "It's {{callerName}}, I'm just a witness."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, one of the protesters",
-        "I don't know their name, one of the group up there"
+        "I don't know {{his}} name, {{he}}'s just one of the protesters.",
+        "No idea, I've never met {{him}} before today.",
+        "Couldn't tell you, {{he}}'s a stranger to me.",
+        "No idea what {{his}} name is, sorry.",
+        "I don't know {{him}} personally at all.",
+        "No, I've no idea who {{he}} is.",
+        "Couldn't say, I only know {{him}} as one of the group up there.",
+        "No idea whatsoever, {{he}}'s not someone I know.",
+        "I really wouldn't know, never spoken to {{him}}.",
+        "No name, sorry, I don't know {{his}} background at all."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, they're up above the entrance",
-        "It's {{address}}, on the roof line"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "They climbed up during the demo and now they're too scared to climb back down",
-        "They're sat on a ledge, refusing to move, looks like they're stuck"
+        "{{He}} climbed the crane hours ago and now looks like {{he}}'s in real trouble",
+        "There's smoke from a flare drifting up where {{he}}'s stuck, {{he}}'s coughing badly",
+        "{{He}}'s been up on the gantry for ages and now {{he}}'s clutching {{his}} chest",
+        "{{He}} set off a smoke flare earlier and now seems to be struggling to breathe",
+        "{{He}} climbed up to protest and now looks exhausted and unwell",
+        "{{He}}'s stuck up on the structure and the wind's making it worse for {{him}}",
+        "{{He}} lit a flare as part of the protest and now {{he}}'s coughing non-stop",
+        "{{He}}'s been up there since this morning and now looks in a bad way",
+        "The smoke from below seems to be drifting up to where {{he}}'s stuck",
+        "{{He}} climbed up alone and now can't get {{himself}} back down safely"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, conscious, shouting down to us",
-        "Yes, awake, but very scared"
+        "{{He}}'s conscious but sounds distressed, shouting down to us.",
+        "{{He}}'s awake, but {{his}} voice sounds really weak now.",
+        "{{He}}'s conscious, just very frightened up there.",
+        "{{He}}'s still talking to us, but {{he}} sounds exhausted.",
+        "{{He}}'s awake but seems to be struggling to stay upright.",
+        "{{He}}'s conscious, just really shaken and tired.",
+        "{{He}}'s still responding when we shout up, but slower each time.",
+        "{{He}}'s awake, holding on tightly, sounding scared.",
+        "{{He}}'s conscious but {{his}} breathing sounds laboured from here.",
+        "{{He}}'s awake, just clearly struggling up there."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, seems fine, just terrified",
-        "Yes, breathing okay, panicking a bit"
+        "{{He}} sounds like {{he}}'s really struggling to breathe up there.",
+        "{{He}}'s coughing a lot, I think it's the smoke getting to {{him}}.",
+        "{{His}} breathing sounds laboured, even from down here.",
+        "{{He}}'s wheezing, I think {{he}}'s breathed in some smoke.",
+        "{{He}} keeps coughing hard, must be the flare smoke.",
+        "{{He}}'s gasping a bit, sounds like it's getting harder for {{him}} to breathe.",
+        "{{His}} breathing's gone quite fast and shallow from what I can hear.",
+        "{{He}}'s definitely struggling with the smoke drifting up there.",
+        "{{He}} sounds breathless, coughing between shouting down to us.",
+        "{{His}} breathing sounds really strained now."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No pain, just stuck and scared",
-        "Says they're fine, just can't move"
+        "{{He}}'s shouting that {{his}} chest hurts.",
+        "{{He}} says {{he}}'s got a tight pain across {{his}} chest.",
+        "{{He}}'s holding {{his}} chest, says it's really hurting.",
+        "{{He}} called down that {{his}} chest feels tight and sore.",
+        "{{He}}'s in pain, clutching at {{his}} chest up there.",
+        "{{He}} says the pain in {{his}} chest is getting worse.",
+        "{{He}}'s complaining of chest pain, sounds quite bad.",
+        "{{He}} shouted down that {{his}} chest is really tight.",
+        "{{He}}'s holding {{his}} chest and looks very uncomfortable.",
+        "{{He}} says {{he}}'s got sharp pains in {{his}} chest."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No"
+        "No bleeding that I can see from down here.",
+        "No, {{he}} doesn't look to be bleeding, it's the breathing that worries me.",
+        "Can't see any blood, {{he}}'s just really struggling to breathe.",
+        "No bleeding visible, it's {{his}} chest and breathing that's the problem.",
+        "Doesn't look like {{he}}'s bleeding, no injuries that I can see.",
+        "No blood as far as I can tell from ground level.",
+        "No, nothing like that, it's the smoke that's the issue.",
+        "Can't see any bleeding, {{he}} just looks exhausted and unwell.",
+        "No bleeding visible, it's {{his}} breathing that's worrying.",
+        "Doesn't look to be bleeding, no visible injuries at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Don't know them well enough to say",
-        "Not sure, I don't know them"
+        "I don't know {{him}}, {{he}}'s just one of the protesters.",
+        "No idea, I've never met {{him}} before today.",
+        "Couldn't tell you, {{he}}'s a stranger to me.",
+        "No idea about {{his}} health, sorry.",
+        "I don't know {{him}} personally at all.",
+        "No, I've no idea what conditions {{he}} might have.",
+        "Couldn't say, I only know {{him}} as one of the group up there.",
+        "No idea whatsoever, {{he}}'s not someone I know.",
+        "I really wouldn't know, never spoken to {{him}}.",
+        "No idea, sorry, I don't know {{his}} background at all."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "I've no idea what {{he}} takes.",
+        "Couldn't tell you, sorry.",
+        "No idea at all, I don't know {{him}}.",
+        "I wouldn't know, never met {{him}} before.",
+        "No clue, sorry.",
+        "Couldn't say, I don't know {{him}} personally.",
+        "No idea, I'm afraid.",
+        "Not a clue what {{he}} might be on.",
+        "I really couldn't tell you.",
+        "No idea, sorry, {{he}}'s a stranger to me."
       ]
     },
     "patientAge": {
       "answers": [
-        "Young, maybe early twenties",
-        "Looks like a teenager"
+        "Hard to say from here, maybe early twenties.",
+        "I'd guess {{him}} as quite young, twenties maybe.",
+        "Looked youngish from down here, early twenties perhaps.",
+        "Not sure exactly, {{he}} looked like a student, so youngish.",
+        "Couldn't tell you exactly, twenties at a guess.",
+        "I'd say {{he}}'s in {{his}} twenties, but hard to be sure from here.",
+        "Maybe early twenties, hard to tell from this distance.",
+        "I only got a glimpse, {{he}} seemed fairly young.",
+        "Roughly twenty, that's my best guess.",
+        "Somewhere in {{his}} twenties, I'd say, from what I could see."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're telling them to stay still",
-        "Right, we'll keep everyone calm down here"
+        "Oh thank god, yes, {{he}} really needs help.",
+        "Thank you, please hurry, {{he}}'s getting worse up there.",
+        "Yes please, {{he}} sounds like {{he}}'s struggling badly now.",
+        "Thank you, that's a relief, please get them here fast.",
+        "Yes, please hurry, I'm really worried about {{him}}.",
+        "Thank you, {{he}} needs help urgently, {{his}} breathing's bad.",
+        "Yes please, {{he}}'s in a bad way, please be quick.",
+        "Thank god, yes, please hurry for {{him}}.",
+        "Yes please, I'll try to keep {{him}} calm till they arrive.",
+        "Thank you, please hurry, {{he}} really doesn't look good."
       ]
     },
     "refer111": {
       "answers": [
-        "This needs the fire brigade and police, not 111!"
+        "No, please, {{he}} needs help now, not a phone call.",
+        "That's not good enough, {{he}}'s really struggling, I need paramedics.",
+        "No, this can't wait, {{he}}'s up there really unwell.",
+        "Please, no, this is urgent, {{he}} needs help now.",
+        "No, don't do that, {{he}} needs someone to come now.",
+        "That's not right, this is an emergency, {{he}} needs an ambulance.",
+        "No, please, I really think {{he}} needs paramedics now.",
+        "Don't leave it to 111, {{he}}'s genuinely in trouble up there.",
+        "No, this is serious, {{he}} needs help sent out now.",
+        "Please no, this can't wait, {{he}} needs medical help now."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh thank god, please hurry, I don't know how long this can go on for.",
+        "Okay, okay, please tell them to hurry, I'm really worried.",
+        "Thank you, please, how long will they be, I'm scared.",
+        "Right, okay, thank you, please just get them here fast.",
+        "Oh good, thank you, I'll stay on the line until they arrive.",
+        "Please hurry, I don't feel safe until they get here.",
+        "Okay, thank you, I'm staying back, just please be quick.",
+        "Thank god, yes please, tell them to hurry.",
+        "Right, thank you, I'm shaking, please just get them here.",
+        "Okay, thank you, I'll wait, just please don't be long."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes please, {{he}} can't get down on {{his}} own.",
+        "Thank you, that's what we need, {{he}}'s stuck up there.",
+        "Yes, please hurry, {{he}} needs help getting down safely.",
+        "Thank god, yes, {{he}} can't climb down alone.",
+        "Yes please, that's exactly what's needed, {{he}}'s too high to get down.",
+        "Thank you, please hurry, {{he}}'s stuck fast up there.",
+        "Yes, that's right, {{he}} needs rescuing from up there.",
+        "Thank you, {{he}}'s been stuck for ages, please hurry.",
+        "Yes please, {{he}} can't manage it on {{his}} own.",
+        "Thank you, that's a relief, {{he}} really needs rescuing."
       ]
     }
   },

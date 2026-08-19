@@ -52,6 +52,12 @@
     "fire_officer": 6,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 14,
+    "ambulance": 8,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -115,7 +121,14 @@
     "openings": [
       "There's a fire at the care home and we can't account for all the residents",
       "I need the fire brigade urgently, smoke's spreading through the corridor and residents are trapped in their rooms",
-      "Please hurry, several of our residents can't be moved quickly and the smoke is getting worse"
+      "Please hurry, several of our residents can't be moved quickly and the smoke is getting worse",
+      "We've a fire here and I think two residents are still in their rooms, we can't reach them",
+      "Fire brigade please, smoke's filling the corridor and we're missing some residents from the muster point",
+      "Please send help fast, some of our residents haven't come to the assembly point yet",
+      "There's a serious fire, staff can't get to a couple of rooms because of the smoke",
+      "We've lost count of residents, the smoke's too thick to check every room ourselves",
+      "Fire brigade urgently, some residents use wheelchairs and we can't get them out fast enough",
+      "Please hurry, we think residents are trapped, the smoke's coming down the corridor fast"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -129,78 +142,230 @@
       "answers": [
         "There's a fire at the care home and we can't account for all the residents",
         "I need the fire brigade urgently, smoke's spreading through the corridor and residents are trapped in their rooms",
-        "Please hurry, several of our residents can't be moved quickly and the smoke is getting worse"
+        "Please hurry, several of our residents can't be moved quickly and the smoke is getting worse",
+        "We've a fire here and I think two residents are still in their rooms, we can't reach them",
+        "Fire brigade please, smoke's filling the corridor and we're missing some residents from the muster point",
+        "Please send help fast, some of our residents haven't come to the assembly point yet",
+        "There's a serious fire, staff can't get to a couple of rooms because of the smoke",
+        "We've lost count of residents, the smoke's too thick to check every room ourselves",
+        "Fire brigade urgently, some residents use wheelchairs and we can't get them out fast enough",
+        "Please hurry, we think residents are trapped, the smoke's coming down the corridor fast"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the night manager"
+        "It's {{callerName}}, I'm the manager on duty",
+        "{{callerName}}, I'm the senior carer tonight",
+        "My name's {{callerName}}, I'm counting who's missing right now",
+        "It's {{callerName}}, please hurry, I'm trying to get to the rooms",
+        "{{callerName}} speaking, I'm coordinating the evacuation",
+        "Name's {{callerName}}, I'm on the phone in the office",
+        "It's {{callerName}}, I've got most residents out but not all",
+        "{{callerName}}, please, I need to get back to help",
+        "This is {{callerName}}, I'm the night duty manager",
+        "{{callerName}} here, I'll meet the crew at the door"
       ]
     },
     "patientName": {
       "answers": [
-        "We've got residents unaccounted for, I'll get you the names as we check"
+        "There's a couple we can't account for, one's called {{firstPatientName}}",
+        "One resident we can't reach is {{patientName}}, room's near the smoke",
+        "I think it's {{firstPatientName}} and one other resident still inside",
+        "One's {{firstPatientName}}, {{he}}'s in the room closest to the fire",
+        "There's a few unaccounted for, {{firstPatientName}} is one of them",
+        "One resident, {{firstPatientName}}, hasn't come to the muster point",
+        "I can't be sure of everyone, but {{firstPatientName}} is definitely missing",
+        "There's more than one, {{he}}'s an elderly {{gentleman}} called {{firstPatientName}}",
+        "One's {{patientName}}, {{he}}'s in a room on the smoky corridor",
+        "We think {{firstPatientName}} and possibly one other are still in there"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the care home, come to the main entrance"
+        "{{address}}, it's the care home",
+        "It's {{address}}, please hurry, use the main entrance",
+        "{{address}}, we'll have staff waiting to guide you in",
+        "You want {{address}}, come to the front, smoke's on the east side",
+        "{{address}}, please hurry, the corridor's filling with smoke",
+        "{{address}}, that's us, come quickly please",
+        "{{address}}, that's confirmed, staff are at the door",
+        "{{address}}, the care home, please hurry",
+        "{{address}}, come round the side, that's nearest the trapped residents",
+        "{{address}}, please, we need help fast"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Fire's broken out and spread into the corridor, several residents are still in their rooms and can't get out unaided"
+        "A fire's started in a bedroom and smoke's spread down the corridor fast",
+        "We think it started in a room, staff can't get past the smoke now",
+        "The fire's grown quickly, we lost visibility in the corridor within minutes",
+        "Not sure of the cause, but it's spread and residents can't be reached",
+        "A bedroom fire has taken hold, smoke's blocking the route to two other rooms",
+        "We think it's electrical, it's spread faster than we expected",
+        "The fire's in one wing, smoke's now filling the whole corridor",
+        "Unclear cause, staff tried to reach the residents but were beaten back by smoke",
+        "It started small but has grown, we can't safely get to every room now",
+        "We're not sure how it started, but we can't reach a couple of rooms now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "We think most are conscious but some won't be able to respond to us over the smoke alarms"
+        "We don't know, we can't get to {{him}} to check",
+        "Not sure, {{he}} hasn't responded when staff called through the door",
+        "We can't tell, the smoke's too thick to get near {{his}} room",
+        "Unknown, staff shouted through the door and got no answer",
+        "We don't know {{his}} condition, we haven't been able to reach {{him}}",
+        "Can't say, nobody's been able to get close enough to check",
+        "Unknown, {{he}} may be asleep or overcome by smoke, we can't tell",
+        "We're not sure, staff are trying again to reach the room now",
+        "Can't confirm, the door's too hot to open safely",
+        "We don't know, that's why we need you here urgently"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Several residents have breathing problems normally, the smoke will be making that much worse"
+        "We don't know, {{he}}'s in a smoke filled room we can't reach",
+        "Unknown, there's smoke logging in that whole section",
+        "Can't say, we haven't been able to get near enough to check",
+        "We're worried, the smoke's very thick around that room",
+        "Unknown, staff couldn't get past the smoke to check on {{him}}",
+        "Can't confirm, that's exactly what we're worried about",
+        "We don't know {{his}} breathing, we can't reach the room",
+        "Unknown, the corridor outside is thick with smoke",
+        "Can't say, please hurry, the smoke's getting worse by the minute",
+        "We don't know, that's why we called straight away"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "We don't know yet, we're still trying to reach them"
+        "We don't know, we haven't been able to reach {{him}}",
+        "Unknown, staff can't get close enough to check on {{him}}",
+        "Can't say, {{he}}'s in a room we can't safely access",
+        "We don't know {{his}} condition at all right now",
+        "Unknown, nobody's been able to get to {{him}} yet",
+        "Can't confirm anything, the smoke's blocking access",
+        "We don't know, staff tried but had to turn back",
+        "Unknown, we're hoping {{he}}'s just staying low in the room",
+        "Can't say, please just get here as quickly as you can",
+        "We don't know, that's the honest truth right now"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding reported so far"
+        "We don't know, we haven't been able to reach the room",
+        "No idea, staff can't get close enough to check",
+        "Unknown, we can't see {{him}} through the smoke",
+        "Can't say, sorry, we've had no contact with {{him}}",
+        "We don't know, nobody's been able to get near",
+        "Unknown, that's not something we can check right now",
+        "Can't confirm, the corridor's too smoky to get through",
+        "We don't know, staff had to pull back from the smoke",
+        "No idea, please just hurry, we're very worried",
+        "We don't know, sorry, we simply can't reach {{him}}"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Many have dementia, breathing conditions and limited mobility, staff have their care plans"
+        "{{He}}'s got mobility problems, that's why {{he}} can't get out quickly",
+        "{{He}} uses a wheelchair, {{his}} notes are in the office if needed",
+        "{{He}} has dementia, {{he}} may not understand what's happening",
+        "{{He}}'s on oxygen normally, I'm not sure if it's still connected",
+        "{{He}} has heart problems, it's all on file in the office",
+        "{{He}}'s frail and uses a hoist, {{he}} can't move independently",
+        "{{He}} has COPD, breathing in smoke would be very dangerous for {{him}}",
+        "I don't know the full history offhand, it's all in {{his}} care file",
+        "{{He}}'s got limited mobility after a stroke, that's why {{he}}'s not out yet",
+        "{{He}} is usually confused at night, {{he}} might not have heard the alarm"
       ]
     },
     "medications": {
       "answers": [
-        "Medication records are kept at the nurses station, staff can bring them out"
+        "I'm not sure exactly, {{his}} medication chart is in the office",
+        "{{He}} takes regular heart medication, it's all recorded on file",
+        "I don't know off the top of my head, but the file has everything",
+        "{{He}}'s on inhalers for {{his}} breathing, kept by {{his}} bed",
+        "Not sure exactly, but {{his}} notes list everything {{he}} takes",
+        "{{He}} has regular medication for {{his}} heart, I can get details later",
+        "I can't recall exactly, it's all documented in {{his}} care plan",
+        "{{He}} takes something for blood pressure, I believe",
+        "I'm not sure of the specifics right now, sorry",
+        "It's all on {{his}} chart, I can find it once we're safe"
       ]
     },
     "patientAge": {
       "answers": [
-        "Residents range from seventies to nineties"
+        "{{He}}'s in {{his}} eighties",
+        "{{He}}'s about ninety, one of our older residents",
+        "{{He}}'s in {{his}} late seventies",
+        "{{He}}'s around eighty five years old",
+        "{{He}}'s elderly, I'd say early nineties",
+        "{{He}}'s in {{his}} mid eighties",
+        "{{He}}'s about eighty, been with us a couple of years",
+        "{{He}}'s elderly, late eighties I believe",
+        "{{He}}'s in {{his}} nineties, quite frail",
+        "{{He}}'s around eighty two years old"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, staff are doing what they can to reach residents in their rooms"
+        "Okay, please hurry, I'm going to try the door again",
+        "Understood, I'll stay by the phone, please get here fast",
+        "Okay, other staff are trying to reach {{him}} from another corridor",
+        "Right, I'll keep the other residents calm while we wait",
+        "Okay, please hurry, the smoke's getting thicker",
+        "Understood, I'll stay on the line as long as I can",
+        "Okay, I've got the rest of the residents accounted for now",
+        "Right, please hurry, we're doing everything we can here",
+        "Okay, I'll let you know the moment anything changes",
+        "Understood, please just get here as fast as possible"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need every crew you can send, people are trapped"
+        "No, this needs the fire brigade and ambulance now",
+        "No, this is far too urgent for that",
+        "No, please, we need proper emergency help right now",
+        "No, this can't wait, residents may be trapped",
+        "No, absolutely not, this is a genuine emergency",
+        "No, please just send everyone you can",
+        "No, this is a fire with people possibly trapped, not that",
+        "No, we need the fire brigade here urgently",
+        "No, please, there's no time for that",
+        "No, this needs an emergency response right now"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the fire brigade, please hurry them",
+        "We don't need police, please just get the fire crew here fast",
+        "No, forget police, it's the fire brigade we're desperate for",
+        "I don't think we need them, please just send the fire crew quickly",
+        "No police needed, please, just the fire brigade, our residents need them",
+        "We don't need police, please hurry the fire crew instead",
+        "No, it's not a police matter, please just get the fire brigade here",
+        "I don't think that's necessary, please just send the fire crew",
+        "No police, please, we just need the fire brigade urgently",
+        "We don't need them, please just get the fire crew here quickly"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry, we can't reach {{him}}",
+        "Good, please, how long will they be, the smoke's getting worse",
+        "Thank you, staff are trying the door again, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we'll keep trying to reach {{him}}, please hurry",
+        "Oh good, please send them quickly, we're very worried about {{him}}",
+        "Thank you, the other residents are safe, please hurry them for {{him}}",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, {{he}}'s still not answering"
       ]
     }
   },

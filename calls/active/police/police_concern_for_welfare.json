@@ -48,6 +48,11 @@
   "units": {
     "irv": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 2,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -71,8 +76,15 @@
   "caller": {
     "openings": [
       "Police please, I've not heard from my neighbour in days and I'm worried",
-      "I need a welfare check, I can't get an answer at my neighbour's and her curtains haven't moved",
-      "Please can someone check on someone for me, I think something might be wrong"
+      "I need a welfare check, I can't get an answer at my neighbour's and {{his}} curtains haven't moved",
+      "Please can someone check on someone for me, I think something might be wrong",
+      "I'm worried about my neighbour, I haven't seen {{him}} in a few days",
+      "Can someone go and check on my neighbour, I've had no answer at all",
+      "Police please, the milk's piling up on the doorstep next door and no one's answering",
+      "I'm concerned, my neighbour hasn't answered the door in two days",
+      "Please could someone check on my neighbour, this really isn't like them",
+      "I haven't seen or heard from my neighbour for a few days now",
+      "Can you send someone to check on my neighbour please, I'm getting worried"
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -85,91 +97,231 @@
     "start": {
       "answers": [
         "Police please, I've not heard from my neighbour in days and I'm worried",
-        "I need a welfare check, I can't get an answer at my neighbour's and her curtains haven't moved",
-        "Please can someone check on someone for me, I think something might be wrong"
+        "I need a welfare check, I can't get an answer at my neighbour's and {{his}} curtains haven't moved",
+        "Please can someone check on someone for me, I think something might be wrong",
+        "I'm worried about my neighbour, I haven't seen {{him}} in a few days",
+        "Can someone go and check on my neighbour, I've had no answer at all",
+        "Police please, the milk's piling up on the doorstep next door and no one's answering",
+        "I'm concerned, my neighbour hasn't answered the door in two days",
+        "Please could someone check on my neighbour, this really isn't like them",
+        "I haven't seen or heard from my neighbour for a few days now",
+        "Can you send someone to check on my neighbour please, I'm getting worried"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I live next door to her",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I live next door.",
+        "{{callerName}}, I'm a neighbour.",
+        "My name's {{callerName}}, I live nearby.",
+        "It's {{callerName}}, I live just up the road.",
+        "{{callerName}} here, I live in the next house.",
+        "You can put me down as {{callerName}}, I'm the neighbour.",
+        "It's {{callerName}}, I live right beside them.",
+        "{{callerName}} speaking, I live just along the street.",
+        "My name is {{callerName}}, I live opposite.",
+        "It's {{callerName}}, I'm from next door."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, she lives on her own",
-        "{{firstPatientName}}, she's elderly and lives alone"
+        "I only know {{him}} as {{firstPatientName}}, never got the surname",
+        "{{His}} name's {{firstPatientName}}, that's all I know",
+        "I know {{him}} as {{firstPatientName}}, we're just neighbours",
+        "{{firstPatientName}}, that's what I call {{him}}",
+        "I believe {{his}} name's {{firstPatientName}}",
+        "{{He}} goes by {{firstPatientName}}, I don't know {{his}} surname",
+        "It's {{firstPatientName}}, I've known {{him}} for years",
+        "{{firstPatientName}}, that's {{his}} name",
+        "I only know {{him}} by {{his}} first name, {{firstPatientName}}",
+        "{{His}} name is {{firstPatientName}} as far as I know"
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, that's her house",
-        "It's {{address}}, I've knocked several times"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "I haven't seen her in three days, her milk's still on the step",
-        "She usually pops out every morning and I haven't seen her since Tuesday",
-        "The curtains haven't been opened and she's not answering her phone"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I don't know, I can't get anyone to answer",
-        "I can't tell, there's no answer at the door"
+        "I don't know, I can't get any answer at all",
+        "I've no idea, {{he}}'s not responding to me at the door",
+        "I can't tell, I think I saw {{him}} through the window but {{he}} wasn't moving",
+        "I don't know, that's exactly why I'm worried",
+        "No idea, I can't see or hear {{him}} at all",
+        "I can't say, there's just no response from inside",
+        "I don't know, I've been knocking for ages with nothing",
+        "No idea, I think I might have seen {{him}} on the floor through the window",
+        "I can't tell you, {{he}}'s not answering at all",
+        "I don't know, that's why I need someone to check"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I've no way of knowing, I can't get in",
-        "I don't know, that's why I'm calling"
+        "I've no idea, I can't get near enough to tell",
+        "I don't know, {{he}}'s not answering the door",
+        "I can't say, I couldn't get a proper look through the window",
+        "No idea, that's why I need someone to check on {{him}}",
+        "I don't know, I can't tell from out here",
+        "I can't tell, {{he}} wasn't responding when I looked in",
+        "No idea, I just know something's not right",
+        "I don't know, I couldn't see clearly enough",
+        "I can't say, {{he}}'s not come to the door at all",
+        "No idea, that's exactly what's worrying me"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I don't know, I can't reach her",
-        "Unknown, no answer"
+        "I don't know, I can't get an answer from {{him}}",
+        "No idea, I haven't been able to speak to {{him}}",
+        "I can't say, {{he}}'s not responding at all",
+        "I don't know, that's why I'm asking for someone to check",
+        "No idea, I couldn't tell from outside",
+        "I can't tell you, {{he}} hasn't answered the door",
+        "I don't know, I just have a bad feeling",
+        "No idea, I can't get close enough to check",
+        "I can't say, there's been no response from {{him}} at all",
+        "I don't know, I just want someone to check {{he}}'s okay"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I can't tell from outside",
-        "No idea"
+        "I don't know, I can't see inside properly",
+        "No idea, I haven't been able to get in",
+        "I can't tell, {{he}}'s not come to the door",
+        "I don't know, that's why I need someone to check",
+        "No idea at all, I can't see clearly through the window",
+        "I can't say, there's no way for me to check",
+        "I don't know, I just haven't been able to see {{him}}",
+        "No idea, {{he}} hasn't answered at all",
+        "I can't tell you, I've not been able to get close enough",
+        "I don't know, I just want someone to go in and check"
       ],
       "diagnostic": true
     },
+    "patientAge": {
+      "answers": [
+        "{{He}}'s in {{his}} seventies I believe",
+        "I think {{he}}'s about seventy five",
+        "{{He}}'s elderly, mid seventies I'd guess",
+        "I believe {{he}}'s in {{his}} late seventies",
+        "{{He}}'s getting on, I'd say around eighty",
+        "I think {{he}}'s in {{his}} early seventies",
+        "{{He}}'s elderly, I'd guess mid to late seventies",
+        "I'm not sure exactly, but {{he}}'s in {{his}} seventies",
+        "{{He}}'s an older {{gentleman}}, around seventy five I'd say",
+        "I believe {{he}}'s in {{his}} seventies, lives alone"
+      ]
+    },
     "medicalHistory": {
       "answers": [
-        "She's got heart problems as far as I know",
-        "She's diabetic I believe"
+        "I don't know {{his}} full medical history, sorry.",
+        "Not that I know of, no health problems I'm aware of.",
+        "I think {{he}} might have asthma, but I'm not certain.",
+        "No idea about that, I don't know {{him}} that well.",
+        "Nothing I know of, {{he}}'s usually fit and well.",
+        "I'm not sure, you'd have to ask {{him}} when you arrive.",
+        "No idea, I couldn't tell you {{his}} medical history.",
+        "Not that I'm aware of, no known conditions.",
+        "I don't know, sorry, I can't say for certain.",
+        "Nothing comes to mind, I don't know {{his}} history well."
       ]
     },
     "medications": {
       "answers": [
-        "I'm not sure what she takes",
-        "I don't know her medications"
+        "I don't know what {{he}} takes, sorry.",
+        "No idea on medication, you'd need to ask {{him}}.",
+        "Not that I'm aware of, I don't know {{his}} medicines.",
+        "I couldn't say, I don't know {{him}} well enough.",
+        "No idea, sorry, I can't help with that.",
+        "I'm not sure, {{he}} might take something but I don't know what.",
+        "No idea what medication {{he}}'s on.",
+        "Not that I know of, sorry.",
+        "I couldn't tell you, I don't know {{his}} medical details.",
+        "No idea, you'll have to check when you get here."
       ]
     },
-    "patientAge": {
+    "address": {
       "answers": [
-        "She's in her eighties"
-      ]
+        "{{address}}, that's my neighbour's house",
+        "It's {{address}}, next door to me",
+        "{{address}}, I'm stood outside now",
+        "We're at {{address}}, I'll wait for you here",
+        "It's {{address}}, I'll meet you at the gate",
+        "{{address}}, that's the house with no answer",
+        "The address is {{address}}, I'm outside the front door",
+        "{{address}}, I'll be waiting outside",
+        "It's {{address}}, please hurry",
+        "{{address}}, that's the property"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I usually see {{him}} most days but I haven't seen {{him}} for three days now",
+        "{{His}} curtains haven't been opened and the post is piling up behind the door",
+        "I knocked earlier and got no answer, which really isn't like {{him}}",
+        "{{He}} lives alone and I always check in, but I've had no answer all week",
+        "I can hear the telly on inside but {{he}}'s not answering the door",
+        "{{He}} usually collects {{his}} paper first thing, but it's still there from yesterday",
+        "I tried calling {{him}} and there's no answer, that's not like {{him}} at all",
+        "The lights have been off for two days and {{he}} always leaves one on",
+        "{{He}}'s got mobility problems and I'm worried {{he}}'s had a fall inside",
+        "I peered through the window and I think I can see {{him}} on the floor"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, I'll wait here for you",
-        "Thank you, I'm really worried about her"
+        "Okay, thank you, I hope {{he}}'s alright",
+        "Thank you, I'll wait outside for the paramedics too",
+        "Okay, that's a relief, please hurry though",
+        "Thank you, I'm really worried about {{him}}",
+        "Okay, I'll stay here until everyone arrives",
+        "Thank you, I hope {{he}}'s just not hearing us",
+        "Okay, please hurry, I've got a bad feeling",
+        "Thank you, I'll wait right here for you",
+        "Okay, I really hope {{he}}'s okay",
+        "Thank you, please just get here as soon as you can"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll wait outside for them",
+        "Good, I'll stay here until they arrive",
+        "Thank you, I hope they can get in somehow",
+        "Okay, I'll wait by the gate for the officers",
+        "Thank you, please hurry, I'm really worried",
+        "Okay, I'll stay right here until they come",
+        "Good, I'll let you know if anything changes",
+        "Thank you, I'll be waiting outside the house",
+        "Okay, please send them quickly",
+        "Thank you, I'll stay put until they arrive"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? I suppose if they can force entry, yes",
+        "I hadn't thought of that, but if they can get us in, okay",
+        "I'm not sure that's needed, but if it helps get to {{him}}, okay",
+        "I don't think there's a fire, but if they can open the door, fine",
+        "That might help actually, if they can force the door",
+        "I hadn't thought about fire brigade, but if it gets us in, yes",
+        "There's no fire, but if they can help get inside, that's fine",
+        "I suppose if the door needs forcing, that could help",
+        "Not sure that's what's needed, but if it helps reach {{him}}, okay",
+        "I don't think it's a fire, but if they can assist getting in, fine"
       ]
     },
     "refer111": {
       "answers": [
-        "No, I think you need to get in, this needs police"
+        "No, I really think someone needs to check on {{him}} in person",
+        "I don't think a phone call's going to help, {{he}}'s not answering the door",
+        "No, this needs someone to actually go round, not a callback",
+        "I'm not sure that helps, {{he}} won't be able to answer a phone either",
+        "No, please, I really think someone needs to go and check",
+        "That won't help, {{he}}'s not answering anything, not even the door",
+        "No, I need someone to physically check on {{him}}, please",
+        "I don't think a callback's right, this feels urgent to me",
+        "No, please send someone, I've got a really bad feeling",
+        "That's not going to help, {{he}} can't even get to the door"
       ]
     }
   },

@@ -49,6 +49,11 @@
     "water_carrier": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 5,
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       0,
@@ -113,7 +118,15 @@
   "caller": {
     "openings": [
       "There's a fire out on the hillside, it's hard to get to, and I think there's walkers up there",
-      "Fire brigade please, fire on the rough ground up past the ridge, some of us couldn't get down easy"
+      "Fire brigade please, fire on the rough ground up past the ridge, some of us couldn't get down easy",
+      "There's a fire on the hill and one of our group's been hurt trying to get away from it",
+      "Please hurry, we're on rough ground near a fire and someone's gone over on the rocks",
+      "There's a fire up on the moor, we scrambled down over rocky ground and someone's hurt",
+      "Fire brigade, we're up on difficult terrain, there's a fire and an injured walker",
+      "Please send help, there's a fire on the hillside and someone in our group can't walk",
+      "There's a fire up here, the ground's really rough and one of us has been hurt getting clear",
+      "Help, there's a fire on the hill and someone's injured trying to escape it over rocks",
+      "Fire brigade please, we're stuck on rough terrain near a fire with an injured person"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -126,80 +139,231 @@
     "start": {
       "answers": [
         "There's a fire out on the hillside, it's hard to get to, and I think there's walkers up there",
-        "Fire brigade please, fire on the rough ground up past the ridge, some of us couldn't get down easy"
+        "Fire brigade please, fire on the rough ground up past the ridge, some of us couldn't get down easy",
+        "There's a fire on the hill and one of our group's been hurt trying to get away from it",
+        "Please hurry, we're on rough ground near a fire and someone's gone over on the rocks",
+        "There's a fire up on the moor, we scrambled down over rocky ground and someone's hurt",
+        "Fire brigade, we're up on difficult terrain, there's a fire and an injured walker",
+        "Please send help, there's a fire on the hillside and someone in our group can't walk",
+        "There's a fire up here, the ground's really rough and one of us has been hurt getting clear",
+        "Help, there's a fire on the hill and someone's injured trying to escape it over rocks",
+        "Fire brigade please, we're stuck on rough terrain near a fire with an injured person"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, we're a walking group"
+        "It's {{callerName}}, we're a walking group",
+        "{{callerName}}, I'm with the group up here",
+        "It's {{callerName}}, we were out walking when the fire started",
+        "{{callerName}} here, I'm with the injured walker now",
+        "It's {{callerName}}, I organised today's walk",
+        "My name's {{callerName}}, I'm staying with my friend",
+        "It's {{callerName}}, we're up on the hillside together",
+        "{{callerName}} speaking, I'm one of the walking group",
+        "It's {{callerName}}, I'm trying to keep everyone calm up here",
+        "{{callerName}}, I'm the one who called it in for the group"
       ]
     },
     "patientName": {
       "answers": [
-        "It's one of our group, he went over on the rocks coming down"
+        "It's one of our group, {{he}} went over on the rocks coming down",
+        "{{firstPatientName}}, {{he}}'s one of the walking group",
+        "It's {{firstPatientName}}, {{he}} slipped trying to get clear of the fire",
+        "{{firstPatientName}} is {{his}} name, {{he}}'s with us on the walk",
+        "It's my friend {{firstPatientName}}, {{he}} twisted something coming down",
+        "{{firstPatientName}}, {{he}}'s a regular in our walking group",
+        "It's {{firstPatientName}}, {{he}} went down hard on the rocks",
+        "{{firstPatientName}}'s the name, {{he}}'s one of us on the walk today",
+        "It's {{firstPatientName}}, {{he}} hurt {{himself}} scrambling down",
+        "{{firstPatientName}}, {{he}}'s part of our group, {{he}} can't walk on it now"
       ]
     },
     "address": {
       "answers": [
         "{{address}}, it's up past the footpath gate, you'll need to come in off the track",
-        "It's {{address}}, the access is rough, best bring the off road vehicle"
+        "It's {{address}}, the access is rough, best bring the off road vehicle",
+        "{{address}}, we're up near the ridge, there's no proper road access",
+        "It's {{address}}, follow the footpath as far as it goes then it's rough ground",
+        "{{address}}, we're above the treeline, it's a difficult approach",
+        "It's {{address}}, the nearest vehicle access is quite a way off",
+        "{{address}}, we'll try to move to more accessible ground if we can",
+        "It's {{address}}, the terrain up here is very uneven",
+        "{{address}}, there's a gate at the bottom of the track to start from",
+        "It's {{address}}, please bring rescue equipment, it's rough going"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A fire's started on the hillside, we were walking and had to scramble down over rough ground, one of us went over on the way down"
+        "A fire's started on the hillside, we were walking and had to scramble down over rough ground, one of us went over on the way down",
+        "We saw smoke and started moving away fast over rocky ground, someone slipped",
+        "The fire caught us by surprise, we had to move quickly over uneven terrain and someone fell",
+        "We were trying to get clear of the smoke and one of the group went over on loose rock",
+        "A fire started nearby and in the rush to get away, someone went over badly",
+        "We're not sure how the fire started, but getting away from it over this ground caused the injury",
+        "The fire's spreading and we had to move fast, that's when the fall happened",
+        "We had to scramble down quickly because of the fire and someone twisted their leg",
+        "The smoke made us move in a hurry and the ground here is very uneven, hence the fall",
+        "We were escaping the fire over rough terrain when one of us went down hard"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious, but he can't put weight on his leg"
+        "Yes, {{he}}'s conscious, but {{he}} can't put weight on {{his}} leg",
+        "{{He}}'s conscious and talking, just in a lot of pain",
+        "Conscious, yes, {{he}}'s alert but really struggling with the pain",
+        "{{He}}'s awake, {{he}}'s just stuck where {{he}} fell",
+        "Yes, conscious, {{he}}'s talking to us but can't move much",
+        "{{He}}'s conscious throughout, just in a lot of discomfort",
+        "Conscious, yes, {{he}}'s scared but alert",
+        "{{He}}'s awake and responding, {{his}} leg's the main problem",
+        "Yes, fully conscious, {{he}} just can't get up on {{his}} own",
+        "{{He}}'s conscious, we're keeping {{him}} talking and calm"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine, he's just in a lot of pain"
+        "Breathing's fine, {{he}}'s just in a lot of pain",
+        "{{He}}'s breathing normally, no smoke got to {{him}} thankfully",
+        "No breathing problems, it's the leg injury that's the issue",
+        "{{He}}'s breathing okay, just very shaken and in pain",
+        "Fine on breathing, we moved away from the smoke in time",
+        "{{He}}'s breathing normally, {{he}} didn't get caught in the smoke",
+        "No issues breathing, {{his}} leg is the main concern",
+        "{{He}}'s okay for breathing, just really struggling with the pain",
+        "Breathing's fine, we got {{him}} clear of the smoke before the fall",
+        "No breathing trouble, it's purely the injury from the fall"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Yes, he's in a lot of pain, his ankle or leg, we're not sure which"
+        "Yes, {{he}}'s in a lot of pain, {{his}} ankle or leg, we're not sure which",
+        "{{He}}'s in serious pain, says it's {{his}} lower leg",
+        "Yes, quite bad pain, {{he}} thinks {{he}}'s broken something in {{his}} leg",
+        "{{He}}'s in a lot of discomfort, can't put any weight on it at all",
+        "Yes, {{he}}'s in pain, it seems to be around the ankle",
+        "{{He}} says the pain is severe, especially when {{he}} tries to move",
+        "Yes, {{he}}'s in a lot of pain, we think it might be fractured",
+        "{{He}}'s clearly in pain, holding {{his}} leg and not moving it",
+        "Yes, {{he}}'s in real pain, {{he}} went down awkwardly on the rocks",
+        "{{He}}'s in significant pain, we're trying to keep {{him}} as comfortable as we can"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A bit of a graze but nothing serious, it's the leg we're worried about"
+        "A bit of a graze but nothing serious, it's the leg we're worried about",
+        "No real bleeding, just some scrapes from the rocks",
+        "A small graze on {{his}} hand but nothing major, the leg's the concern",
+        "No significant bleeding, mostly scrapes and bruising",
+        "There's a graze on {{his}} arm but the leg injury is the main worry",
+        "No serious bleeding, just minor scrapes from the fall",
+        "A bit of a scrape but nothing that's bleeding heavily",
+        "No major bleeding, {{he}} caught {{himself}} on the rocks a little",
+        "Just a graze, the leg is what we're really concerned about",
+        "No serious bleeding, some minor cuts from the rocky ground"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that he's mentioned to me, I don't know him that well"
+        "Not that {{he}}'s mentioned to me, I don't know {{him}} that well",
+        "Sorry, I don't know {{his}} medical history, we're not close",
+        "No idea, {{he}}'s a fairly new member of the walking group",
+        "I couldn't say, I don't know {{him}} well enough",
+        "Sorry, no idea about {{his}} medical background",
+        "I don't know, we've only walked together a few times",
+        "Not that I know of, sorry, I can't say for certain",
+        "No idea, {{he}} hasn't mentioned anything to the group before",
+        "Sorry, I really don't know {{his}} history well",
+        "I couldn't tell you, we're not that close as walking friends"
       ]
     },
     "medications": {
       "answers": [
-        "I don't think he's on anything, sorry"
+        "I don't think {{he}}'s on anything, sorry",
+        "No idea, sorry, I don't know {{his}} medications",
+        "Not that I'm aware of, sorry",
+        "I couldn't say, sorry, we've never discussed that",
+        "No idea, sorry, I don't know {{him}} that well",
+        "I don't think so, but I'm not completely certain",
+        "Sorry, no idea what {{he}} takes",
+        "Not that I know of, sorry",
+        "I don't know, sorry, that's not something we've talked about",
+        "No idea, sorry, I really can't help with that"
       ]
     },
     "patientAge": {
       "answers": [
-        "He's in his thirties"
+        "{{He}}'s in {{his}} thirties",
+        "{{He}}'s about thirty five, I think",
+        "Early thirties, {{he}}'s one of the younger walkers in our group",
+        "{{He}}'s in {{his}} mid thirties",
+        "I'd say {{he}}'s around thirty two or so",
+        "{{He}}'s in {{his}} thirties, fairly fit normally",
+        "About thirty five, {{he}}'s been walking with us a year or so",
+        "{{He}}'s in {{his}} late thirties",
+        "{{He}}'s thirty something, I couldn't say exactly",
+        "{{He}}'s in {{his}} thirties, quite active usually"
       ]
     },
     "reassure": {
       "answers": [
         "Okay, we're moving to the lower path where it's safer",
-        "Please hurry, it's rough ground and getting dark"
+        "Please hurry, it's rough ground and getting dark",
+        "Right, we're keeping {{him}} still and warm",
+        "Okay, I've got a jacket over {{him}} to keep {{him}} warm",
+        "Understood, we're staying with {{him}} until help arrives",
+        "Alright, we've moved away from the worst of the smoke",
+        "Okay, I'll keep talking to {{him}} to keep {{him}} calm",
+        "Right, the rest of the group are keeping watch for you",
+        "Understood, we're doing what we can to keep {{him}} comfortable",
+        "Okay, we'll wave when we see you coming up the path"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need the fire and rescue and an ambulance, this is a hillside injury and fire"
+        "No, we need the fire and rescue and an ambulance, this is a hillside injury and fire",
+        "No thank you, this needs mountain rescue and paramedics",
+        "No, {{he}} can't walk and there's a fire nearby, we need proper help",
+        "No, this is an emergency, please send crews out here",
+        "No, please, we're stuck on rough ground with an injured walker",
+        "No, this isn't something 111 can help with out here",
+        "No, we need fire and ambulance crews, this is urgent",
+        "No, please hurry, {{he}}'s in a lot of pain and we're exposed up here",
+        "No, this needs a proper emergency response given the terrain",
+        "No, please send help, we can't move {{him}} safely ourselves"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I think we mainly need mountain rescue and an ambulance out here",
+        "Oh, I suppose they could help coordinate access to this terrain",
+        "Police? We're not in any trouble, just stuck on rough ground with a fire nearby",
+        "That's fine if it helps, this ground's difficult to reach from any direction",
+        "Police? I hadn't thought of that, but extra hands finding a way up could help",
+        "Oh right, I suppose they know the tracks up here better than we do",
+        "I don't think we need them specifically, but thank you for sending them",
+        "That's okay, more people looking for a route in can only help",
+        "Police? There's no crime here, just an injured walker and a fire",
+        "Okay, thank you, I suppose coordinating access is useful given the terrain"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, please hurry, it's rough going to get up to us",
+        "Okay, we're moving to the lower path to make it easier for them",
+        "Thank god, how long roughly until they can reach us out here",
+        "Right, I'll keep watching for them and wave when I see the crew",
+        "Okay, we're staying put near the injured walker until they arrive",
+        "Thank you, please send word on which route is easiest for them",
+        "Understood, I'll keep {{him}} as comfortable as I can until then",
+        "Okay, the rest of the group are keeping a lookout for the crew",
+        "Thank you, please hurry, it's getting colder up here",
+        "Right, we'll stay exactly where we are so they can find us"
       ]
     }
   },

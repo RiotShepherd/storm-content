@@ -46,6 +46,10 @@
     "aerial": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3
+  },
   "patients": {
     "range": [
       0,
@@ -78,7 +82,15 @@
   "caller": {
     "openings": [
       "My chimney's on fire, there's sparks coming out the top and it's roaring",
-      "I need the fire brigade, the chimney's alight, I can hear it from inside"
+      "I need the fire brigade, the chimney's alight, I can hear it from inside",
+      "There's a chimney fire at my house, I can see flames from the garden",
+      "Fire brigade please, my chimney's roaring and there's soot falling",
+      "I think my chimney's caught, there's a loud rushing sound and sparks",
+      "There's smoke and sparks coming from the chimney pot, sounds like it's on fire",
+      "My log burner's chimney has caught alight, I can hear it crackling loudly",
+      "Fire brigade please, the chimney's throwing sparks onto the roof",
+      "I've got a chimney fire, it's been roaring for a few minutes now",
+      "There's a fire in my chimney, I've moved everyone out of that room"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -91,78 +103,231 @@
     "start": {
       "answers": [
         "My chimney's on fire, there's sparks coming out the top and it's roaring",
-        "I need the fire brigade, the chimney's alight, I can hear it from inside"
+        "I need the fire brigade, the chimney's alight, I can hear it from inside",
+        "There's a chimney fire at my house, I can see flames from the garden",
+        "Fire brigade please, my chimney's roaring and there's soot falling",
+        "I think my chimney's caught, there's a loud rushing sound and sparks",
+        "There's smoke and sparks coming from the chimney pot, sounds like it's on fire",
+        "My log burner's chimney has caught alight, I can hear it crackling loudly",
+        "Fire brigade please, the chimney's throwing sparks onto the roof",
+        "I've got a chimney fire, it's been roaring for a few minutes now",
+        "There's a fire in my chimney, I've moved everyone out of that room"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, it's my house"
+        "It's {{callerName}}, it's my house",
+        "{{callerName}}, I'm the homeowner here",
+        "My name's {{callerName}}, calling about my chimney",
+        "It's {{callerName}}, sorry I'm a bit rattled",
+        "{{callerName}} speaking, I live here alone",
+        "Name's {{callerName}}, it's my log burner that's caused it",
+        "It's {{callerName}}, we've just had a fire lit tonight",
+        "{{callerName}}, I noticed it about ten minutes ago",
+        "This is {{callerName}}, I'm stood outside watching the chimney",
+        "{{callerName}} here, thanks for calling back so quick"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, we're all downstairs and away from the fireplace"
+        "There's nobody hurt, the chimney fire, no one's near it",
+        "No patient to give a name for, the chimney fire, no one's near it",
+        "There's no one involved, the chimney fire, no one's near it",
+        "Nobody's hurt, the chimney fire, no one's near it",
+        "No casualty at all, the chimney fire, no one's near it",
+        "There's no one to report, the chimney fire, no one's near it",
+        "Not applicable, the chimney fire, no one's near it",
+        "No injuries, the chimney fire, no one's near it",
+        "Nobody to name, the chimney fire, no one's near it",
+        "No patient, the chimney fire, no one's near it"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's my house, the chimney at the front"
+        "{{address}}, it's the house with the tall chimney",
+        "It's {{address}}, you'll hear the roaring from the street",
+        "{{address}}, come round the front, I'll be watching for you",
+        "You want {{address}}, second house past the church",
+        "{{address}}, there's sparks visible from the road",
+        "{{address}}, please hurry, it's getting louder",
+        "{{address}}, the terrace with the wood burner smoke",
+        "{{address}}, I'll leave the gate open for you",
+        "{{address}}, that's us, semi detached with the red door",
+        "{{address}}, come quick, I can see the sparks landing near the roof"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I lit the fire earlier and now the chimney's roaring, I can see sparks coming out the top"
+        "We had the wood burner going and it's built up too much soot",
+        "Think it's soot deposits catching, we've not swept it this year",
+        "We've had the fire lit all evening, must have caught in the flue",
+        "Not sure exactly, but it's roaring loudly and sparking a lot",
+        "Probably soot buildup, we heard a rushing sound then saw sparks",
+        "We lit the fire an hour ago, now the chimney's roaring",
+        "Might be old soot catching alight, it's been a cold few weeks",
+        "We're not certain, but the chimney's clearly alight inside",
+        "Could be the flue liner, we've never had this happen before",
+        "We think it's soot, the chimney hasn't been swept in a while"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, we're all fine"
+        "No one's hurt, the chimney fire, no one's near it",
+        "There's no patient here, the chimney fire, no one's near it",
+        "Not applicable, the chimney fire, no one's near it",
+        "Nobody's involved, the chimney fire, no one's near it",
+        "No injuries at all, the chimney fire, no one's near it",
+        "No one to check on, the chimney fire, no one's near it",
+        "There's no casualty, the chimney fire, no one's near it",
+        "No patient at all, the chimney fire, no one's near it",
+        "Nobody's hurt, thankfully, the chimney fire, no one's near it",
+        "No one's affected, the chimney fire, no one's near it"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, we've put the fire out downstairs"
+        "No one to worry about, the chimney fire, no one's near it",
+        "Not applicable, the chimney fire, no one's near it",
+        "Nobody's struggling to breathe, the chimney fire, no one's near it",
+        "No casualty, the chimney fire, no one's near it",
+        "No one's affected by any smoke, the chimney fire, no one's near it",
+        "There's no patient, the chimney fire, no one's near it",
+        "No breathing issues to report, the chimney fire, no one's near it",
+        "Nobody's been near any smoke, the chimney fire, no one's near it",
+        "No one's hurt, the chimney fire, no one's near it",
+        "Not applicable, no one's involved, the chimney fire, no one's near it"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's in pain, the chimney fire, no one's near it",
+        "No one's hurt at all, the chimney fire, no one's near it",
+        "Not applicable, the chimney fire, no one's near it",
+        "No injuries to report, the chimney fire, no one's near it",
+        "There's no patient, the chimney fire, no one's near it",
+        "No one's complaining of anything, the chimney fire, no one's near it",
+        "Nobody's hurt, the chimney fire, no one's near it",
+        "No pain to report, the chimney fire, no one's near it",
+        "Not applicable, no casualty, the chimney fire, no one's near it",
+        "No one's injured, the chimney fire, no one's near it"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's involved"
+        "No, no one's involved, the chimney fire, no one's near it",
+        "No bleeding, there's no patient, the chimney fire, no one's near it",
+        "Not applicable, the chimney fire, no one's near it",
+        "No, everyone's uninjured, the chimney fire, no one's near it",
+        "No, nobody's hurt, the chimney fire, no one's near it",
+        "No bleeding to report, the chimney fire, no one's near it",
+        "Not applicable, no casualties, the chimney fire, no one's near it",
+        "No, no one's been near it, the chimney fire, no one's near it",
+        "No, we're all fine, the chimney fire, no one's near it",
+        "No, there's no one injured, the chimney fire, no one's near it"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient, everyone's fine"
+        "No patient, the chimney fire, no one's near it",
+        "Not applicable, the chimney fire, no one's near it",
+        "No one to give an age for, the chimney fire, no one's near it",
+        "N/A, the chimney fire, no one's near it",
+        "No age to give, the chimney fire, no one's near it",
+        "Not applicable, no one's hurt, the chimney fire, no one's near it",
+        "No casualty, the chimney fire, no one's near it",
+        "Nobody's involved, the chimney fire, no one's near it",
+        "Not applicable at all, the chimney fire, no one's near it",
+        "No patient to speak of, the chimney fire, no one's near it"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've moved into the kitchen away from the fireplace"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a chimney fire not medical"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

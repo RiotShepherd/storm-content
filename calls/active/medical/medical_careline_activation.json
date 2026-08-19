@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -70,7 +74,15 @@
   "caller": {
     "openings": [
       "This is Careline, we've had an alarm activation from one of our clients and can't get a response",
-      "Careline monitoring, one of our pendant alarms has triggered and the resident isn't answering"
+      "Careline monitoring, one of our pendant alarms has triggered and the resident isn't answering",
+      "This is Careline, we've had an activation and the client isn't responding on the intercom",
+      "Careline here, an alarm's triggered and we can't raise the resident",
+      "This is Careline monitoring, we've got an activation with no response from the client",
+      "Careline, one of our alarms has gone off and we can't get an answer",
+      "This is Careline, an activation's come through and the resident's not responding",
+      "Careline monitoring here, we've had an alarm trigger with no response",
+      "This is Careline, we've had a pendant activation and can't reach the client",
+      "Careline, we've got an alarm activation and no answer from the resident"
     ],
     "phoneArea": "auto",
     "callerType": "alarm_company"
@@ -83,89 +95,231 @@
     "start": {
       "answers": [
         "This is Careline, we've had an alarm activation from one of our clients and can't get a response",
-        "Careline monitoring, one of our pendant alarms has triggered and the resident isn't answering"
+        "Careline monitoring, one of our pendant alarms has triggered and the resident isn't answering",
+        "This is Careline, we've had an activation and the client isn't responding on the intercom",
+        "Careline here, an alarm's triggered and we can't raise the resident",
+        "This is Careline monitoring, we've got an activation with no response from the client",
+        "Careline, one of our alarms has gone off and we can't get an answer",
+        "This is Careline, an activation's come through and the resident's not responding",
+        "Careline monitoring here, we've had an alarm trigger with no response",
+        "This is Careline, we've had a pendant activation and can't reach the client",
+        "Careline, we've got an alarm activation and no answer from the resident"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm a Careline operator"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "The client on file is {{firstPatientName}}",
-        "{{firstPatientName}}, that's the name on our records"
+        "It's {{firstPatientName}} on our system",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s one of our clients",
+        "{{firstPatientName}}, that's the resident on file",
+        "It's {{firstPatientName}}, according to our records",
+        "{{firstPatientName}} is the name we have for the property",
+        "{{He}}'s listed as {{firstPatientName}} on our system",
+        "{{firstPatientName}}, that's our client's name",
+        "It's {{firstPatientName}}, {{he}}'s registered with us",
+        "{{firstPatientName}}, that's who the alarm's registered to",
+        "{{firstPatientName}}, according to our details"
       ]
     },
     "address": {
       "answers": [
-        "The address on our system is {{address}}",
-        "{{address}}, that's their registered address"
+        "It's {{address}}",
+        "{{address}}, at the property",
+        "We're at {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, at the property",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, at the property, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The pendant alarm was triggered but we've had no verbal response when we called back through the unit",
-        "It's an automatic activation, we can hear background noise but no one's speaking to us"
+        "{{His}} pendant alarm triggered and we've had no response on the intercom",
+        "The alarm activated a few minutes ago, we've tried calling {{him}} with no luck",
+        "We had an automatic activation, {{he}}'s not answering our calls",
+        "The alarm's gone off and {{he}}'s not responding when we speak through the unit",
+        "We've had a trigger from the pendant, {{he}} isn't answering us",
+        "The system alerted us to an activation, we can't raise {{him}} at all",
+        "It might have triggered automatically or {{he}} may have pressed it, we can't tell",
+        "We've had no response since the alarm went off a few minutes ago",
+        "The alarm's active and we've been unable to reach {{him}} since",
+        "It could be a fall, {{he}}'s not responding to us at all"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "We can't confirm, there's no response through the unit",
-        "Unknown, we've had no verbal contact"
+        "We don't know, {{he}}'s not responding to us",
+        "Unknown, we can't get a response through the unit",
+        "We can't tell, {{he}}'s not answering our calls",
+        "No idea, that's why we've called, {{he}}'s not responding",
+        "We don't know {{his}} condition, {{he}}'s not answering",
+        "Unable to say, there's been no response at all",
+        "We can't confirm, {{he}}'s not responding to the intercom",
+        "Unknown at this stage, {{he}}'s not answering us",
+        "We don't know, that's the concern, no response from {{him}}",
+        "Can't say, {{he}}'s not responding through the system"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "We can't tell from here",
-        "No way for us to know from the monitoring centre"
+        "We don't know, we've no way of telling from here",
+        "Unknown, we only have the alarm signal",
+        "We can't tell, we don't have any other information",
+        "No idea, sorry, we only monitor the alarm",
+        "We don't know {{his}} condition at all",
+        "Unable to say, we've no visual on {{him}}",
+        "We can't confirm anything beyond the alarm activation",
+        "Unknown, that's why we need someone to check on {{him}}",
+        "We don't know, we only have the alert itself",
+        "Can't say, we've no further information available"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "We've no way of knowing",
-        "Unable to confirm from here"
+        "We don't know, there's no way to tell from here",
+        "Unknown, we only have the alarm signal to go on",
+        "We can't say, we don't have any other details",
+        "No idea, sorry, that's beyond what we can see",
+        "We don't know {{his}} condition, sorry",
+        "Unable to say, we've no visual or voice contact",
+        "We can't confirm anything at this point",
+        "Unknown, that's why we need someone to check",
+        "We don't know, we only have the alert itself",
+        "Can't say, we've no further information"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "We can't say from here",
-        "No way to confirm"
+        "We don't know, there's no way to tell from here",
+        "Unknown, we only have the alarm signal",
+        "We can't say, we've no visual on {{him}}",
+        "No idea, sorry, that's beyond what we can see",
+        "We don't know, sorry",
+        "Unable to say, we've no other information",
+        "We can't confirm anything at this point",
+        "Unknown, that's why we need someone to check on {{him}}",
+        "We don't know, we only have the alert itself",
+        "Can't say, we've no further details"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Our records show some mobility issues",
-        "I can check the notes, one moment"
+        "Our notes say {{he}} has mobility issues",
+        "We have a note that {{he}}'s had falls before",
+        "Our file says {{he}}'s got a heart condition",
+        "There's a note on file about {{his}} mobility",
+        "We've got a record that {{he}}'s diabetic",
+        "Our notes mention {{he}}'s had previous falls",
+        "There's some history on file, mobility problems mainly",
+        "We have a note that {{he}} lives alone and has limited mobility",
+        "Our records mention a previous fall a few months ago",
+        "We've got some notes on file, nothing too detailed though"
       ]
     },
     "medications": {
       "answers": [
-        "Not something we hold details of",
-        "I don't have that on our system"
+        "We don't hold detailed medication information, sorry",
+        "Our notes don't list {{his}} medications, sorry",
+        "No, we don't have that level of detail on file",
+        "Sorry, we only hold basic details, not medications",
+        "We don't have that information available, sorry",
+        "No, that's not something we hold on our system",
+        "Sorry, we can't confirm {{his}} medications",
+        "We don't have that on file, sorry",
+        "No, our records don't go into that detail",
+        "Sorry, we don't hold medication details for clients"
       ]
     },
     "patientAge": {
       "answers": [
-        "82"
+        "Our records show {{he}}'s eighty three",
+        "{{He}}'s in {{his}} eighties according to our file",
+        "Our system says {{he}}'s eighty four",
+        "{{He}}'s eighty two, according to our records",
+        "Our notes show {{he}}'s in {{his}} early eighties",
+        "{{He}}'s eighty five, that's what's on file",
+        "According to our records, {{he}}'s eighty one",
+        "Our file lists {{him}} as eighty three years old",
+        "{{He}}'s in {{his}} mid eighties, our records say",
+        "Our system has {{him}} down as eighty"
       ]
     },
     "reassure": {
       "answers": [
-        "Understood, we'll keep trying to make contact",
-        "We'll stay on the line as long as we can"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "This is a welfare concern with no response, we'd like it checked",
-        "We'd prefer someone attends given there's no answer"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

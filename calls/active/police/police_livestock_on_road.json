@@ -48,6 +48,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -71,7 +75,14 @@
     "openings": [
       "Police please, there's sheep all over the road, they've escaped from a field",
       "I need help, there's cattle loose on the road, it's really dangerous for drivers",
-      "There's livestock wandering on the carriageway, cars are having to stop suddenly"
+      "There's livestock wandering on the carriageway, cars are having to stop suddenly",
+      "Police please, there's sheep loose on the road, traffic's backing up",
+      "I need help, cows have got out and they're on the road",
+      "There's animals loose on the carriageway, it's dangerous for drivers",
+      "Police please, there's livestock blocking the road, please send help",
+      "I need urgent help, sheep are wandering across a busy road",
+      "There's cattle on the road, cars are swerving to avoid them",
+      "Police please, animals have escaped and are all over the road"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -85,90 +96,230 @@
       "answers": [
         "Police please, there's sheep all over the road, they've escaped from a field",
         "I need help, there's cattle loose on the road, it's really dangerous for drivers",
-        "There's livestock wandering on the carriageway, cars are having to stop suddenly"
+        "There's livestock wandering on the carriageway, cars are having to stop suddenly",
+        "Police please, there's sheep loose on the road, traffic's backing up",
+        "I need help, cows have got out and they're on the road",
+        "There's animals loose on the carriageway, it's dangerous for drivers",
+        "Police please, there's livestock blocking the road, please send help",
+        "I need urgent help, sheep are wandering across a busy road",
+        "There's cattle on the road, cars are swerving to avoid them",
+        "Police please, animals have escaped and are all over the road"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm parked up watching them",
-        "It's {{callerName}}"
+        "{{callerName}}",
+        "It's {{callerName}} calling",
+        "My name's {{callerName}}",
+        "{{callerName}}, I just saw it happen",
+        "Yeah, it's {{callerName}}",
+        "{{callerName}} here, I'm a member of the public",
+        "It's {{callerName}}, I happened to be passing",
+        "My name is {{callerName}}",
+        "{{callerName}}, that's me",
+        "Sorry, yes, it's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, it's just the animals",
-        "N/A"
+        "N/A, it's just animals, no people involved",
+        "There's no person involved, just livestock on the road",
+        "N/A, no one's involved, it's just the animals",
+        "Not applicable, it's only livestock, no people",
+        "N/A, there's no person to name, just sheep",
+        "No one's involved, it's just cattle loose",
+        "N/A, it's animals only, no people here",
+        "Not applicable, just livestock on the road",
+        "N/A, no person involved at all",
+        "There's no one involved, just the animals"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, they're spread right across the road",
-        "It's on {{address}}, near the farm gate"
+        "{{address}}, it's the road by the field",
+        "We're at {{address}}",
+        "It's {{address}}, the road by the field",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near the road by the field",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A gate's been left open and a whole flock's wandered onto the road",
-        "Cars are having to stop and wait, it's causing a tailback",
-        "About a dozen sheep are just stood in the middle of the lane"
+        "A gate must have been left open, there's sheep all over the carriageway",
+        "Cattle have got through a broken fence and are wandering the road",
+        "There's a whole flock of sheep spread across both lanes",
+        "Some cows have got loose and are just standing in the road",
+        "The fence looks damaged, and now there's livestock all over the road",
+        "There's sheep scattered along the verge and across the road",
+        "A herd's escaped a field and they're blocking traffic",
+        "The animals seem to have pushed through a weak part of the fence",
+        "There's livestock wandering right across both lanes of the road",
+        "It looks like the gate was left open, sheep are everywhere"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, no injuries",
-        "No injuries reported"
+        "Nobody's hurt, so there's nothing to report on that front",
+        "N/A, no one's injured here",
+        "No casualties at all, we just need police",
+        "Nobody's hurt, this isn't a medical matter",
+        "Not applicable, no one's been hurt",
+        "No injuries to report, it's not that kind of call",
+        "Nobody's collapsed or hurt, we just need officers down here",
+        "N/A, this is a police matter, no casualties",
+        "No one's been hurt in this, I promise",
+        "Not applicable, there's no patient here"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "No breathing problems, nobody's been hurt",
+        "N/A, there's no injuries here to speak of",
+        "Nobody needs help breathing, this isn't medical",
+        "Not applicable, no one's hurt",
+        "No one's struggling for breath, no casualties at all",
+        "N/A, we just need police, not an ambulance",
+        "Nobody's been affected like that, no injuries",
+        "No breathing issues, nobody's hurt in this",
+        "Not a medical thing at all, no one's struggling",
+        "N/A, there's no patient here"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A",
-        "No one's hurt"
+        "No pain to report, nobody's hurt",
+        "N/A, no injuries at all",
+        "Nobody's in pain, this isn't medical",
+        "Not applicable, no one's been hurt",
+        "No one's complained of any pain",
+        "N/A, we don't need an ambulance for this",
+        "Nobody's hurt themselves, no pain reported",
+        "No injuries, so no pain to speak of",
+        "Not that I'm aware of, nobody's hurt",
+        "N/A, it's purely a police matter"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No bleeding, nobody's hurt",
+        "N/A, there's no injuries",
+        "No one's bleeding, this isn't medical",
+        "Not applicable, nobody's been hurt",
+        "No blood, no injuries at all",
+        "N/A, we just need police here",
+        "Nobody's hurt themselves, no bleeding",
+        "No, there's no injuries to report",
+        "Not that I can see, nobody's hurt",
+        "N/A, it's not a medical call"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A, it's about the animals",
-        "Not applicable"
+        "N/A, nobody's hurt so there's no history needed",
+        "Not applicable, no patient involved",
+        "No idea, and it's not relevant, nobody's hurt",
+        "N/A, this isn't a medical matter",
+        "Not applicable, we just need police",
+        "No one's been hurt, so no history to give",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "I couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's a police matter, not medical"
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "N/A, nobody's hurt",
+        "Not applicable, no patient involved",
+        "No idea, and it doesn't matter, no one's hurt",
+        "N/A, this isn't medical",
+        "Not applicable, we need police, not paramedics",
+        "No one's been hurt, so nothing like that to report",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "Couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's not a medical call"
       ]
     },
     "patientAge": {
       "answers": [
-        "Not applicable"
+        "N/A, it's just animals, no age to give",
+        "Not applicable, there's no person involved",
+        "N/A, it's only livestock on the road",
+        "Not applicable, just animals, no age relevant",
+        "N/A, no person here to describe",
+        "Not applicable, it's just sheep and cattle",
+        "N/A, there's no one to give an age for",
+        "Not applicable, only animals involved",
+        "N/A, no person is involved",
+        "Not applicable, just livestock"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying back and waiting",
-        "Thank you, please hurry, more cars keep coming"
+        "Ambulance? No need, nobody's hurt, it's police we're after",
+        "We don't need an ambulance, just get police here please",
+        "No ambulance needed, this is a police matter",
+        "There's no injuries, we just need officers down here",
+        "Nobody's hurt, so an ambulance won't be needed",
+        "That's not necessary, it's police we need, not paramedics",
+        "No thank you, nobody's injured, just send police",
+        "We're fine on that front, it's police we're waiting for",
+        "Not needed, there's no casualties, just police please",
+        "No one's hurt, an ambulance isn't required for this"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police, not 111"
+        "111? No, this needs police now, not a callback",
+        "We can't wait for 111, this needs officers straight away",
+        "This isn't something 111 can help with, we need police",
+        "No, please, this needs police, not NHS 111",
+        "I don't think 111 is right for this, we need police here",
+        "This is a police matter, 111 won't be able to help",
+        "Please, we really need police, not a 111 callback",
+        "That's not going to help, this needs police attendance",
+        "No, this can't wait for a callback, we need officers now",
+        "111 isn't going to sort this, we need police please"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, how long will they be?",
+        "Good, please hurry, it's getting worse here",
+        "Thank you, we'll wait for them",
+        "Okay, I'll stay on the line if you need anything else",
+        "Please tell them to hurry, we're keeping an eye on things",
+        "Thank goodness, how many are coming?",
+        "Okay, I'll let people know officers are on the way",
+        "Thank you, we'll keep back until they arrive",
+        "Good, we really need them here quickly",
+        "Okay, thank you, I'll stay put until they get here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

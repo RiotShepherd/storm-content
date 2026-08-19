@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -69,7 +73,15 @@
   "caller": {
     "openings": [
       "I think I've got food poisoning, I've been sick for hours and now I'm getting worried",
-      "It's probably nothing but I can't keep anything down and I feel dreadful"
+      "It's probably nothing but I can't keep anything down and I feel dreadful",
+      "I think something I ate's disagreed with me badly, I've been sick all night",
+      "I'm not sure if this needs an ambulance, but I've had food poisoning for hours now",
+      "I've been throwing up for ages, I think it's something I ate",
+      "I feel really rough, I think it's food poisoning, I can't stop being sick",
+      "I've had terrible stomach cramps and sickness since last night",
+      "I think I've picked up food poisoning, I'm really weak now",
+      "I can't keep any fluids down, I think it's something I ate",
+      "I've been sick repeatedly, I'm starting to feel quite faint with it"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -82,81 +94,231 @@
     "start": {
       "answers": [
         "I think I've got food poisoning, I've been sick for hours and now I'm getting worried",
-        "It's probably nothing but I can't keep anything down and I feel dreadful"
+        "It's probably nothing but I can't keep anything down and I feel dreadful",
+        "I think something I ate's disagreed with me badly, I've been sick all night",
+        "I'm not sure if this needs an ambulance, but I've had food poisoning for hours now",
+        "I've been throwing up for ages, I think it's something I ate",
+        "I feel really rough, I think it's food poisoning, I can't stop being sick",
+        "I've had terrible stomach cramps and sickness since last night",
+        "I think I've picked up food poisoning, I'm really weak now",
+        "I can't keep any fluids down, I think it's something I ate",
+        "I've been sick repeatedly, I'm starting to feel quite faint with it"
       ]
     },
     "callerName": {
       "answers": [
+        "It's {{callerName}}",
         "{{callerName}}, that's me",
-        "It's {{callerName}}"
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}, that's my name"
+        "It's {{firstPatientName}}, that's me",
+        "{{firstPatientName}}, that's my name",
+        "My name's {{firstPatientName}}",
+        "It's {{firstPatientName}} you're speaking to",
+        "{{firstPatientName}}, I'm the one who's unwell",
+        "You can put me down as {{firstPatientName}}",
+        "{{firstPatientName}}, that's me calling",
+        "My name is {{firstPatientName}}",
+        "It's {{firstPatientName}}, I'm the patient",
+        "{{firstPatientName}}, yes, that's me"
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}",
-        "{{address}}, the door's unlocked"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I had a takeaway last night and I've been vomiting and got terrible stomach cramps since"
+        "I think I ate something dodgy last night, I've been sick ever since",
+        "I had a takeaway yesterday and I've been throwing up since the early hours",
+        "I've had terrible stomach cramps and been sick repeatedly since last night",
+        "I can't keep anything down, not even water, I think it's food poisoning",
+        "I've been sick over and over, I think something I ate was off",
+        "I had some leftovers reheated and I've felt dreadful ever since",
+        "I've got awful stomach pains and I can't stop being sick",
+        "I think it's something I ate at a restaurant last night",
+        "I've been vomiting for hours now, I feel completely wiped out",
+        "I can't hold anything down at all, I'm feeling really weak now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, I'm awake, just weak"
+        "Yes, I'm awake, just feel dreadful",
+        "I'm conscious, just very weak",
+        "Yes, I'm alert, just exhausted from being sick",
+        "I'm awake, just really unwell",
+        "Yes, conscious, but I feel like I could pass out",
+        "I'm awake, just very pale and shaky",
+        "Yes, I'm talking fine, just feel awful",
+        "I'm conscious, just drained from being sick so much",
+        "Yes, awake, just really weak and dizzy",
+        "I'm alert, just feel absolutely dreadful"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Yes, my breathing's fine",
+        "Fine, no problems breathing",
+        "Yes, breathing normally",
+        "My breathing's okay, I'm just weak",
+        "Normal, as far as I can tell",
+        "Yes, breathing's fine, just unwell",
+        "My breathing seems okay",
+        "Fine, no distress with my breathing",
+        "Yes, breathing's steady",
+        "I'm breathing normally, yes"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Cramping, maybe six out of ten"
+        "Yes, terrible cramping pain in my stomach",
+        "My stomach's in agony, it comes in waves",
+        "Yes, bad pain, right across my abdomen",
+        "My stomach hurts a lot, especially when I'm sick",
+        "Yes, cramping pain, quite severe",
+        "My stomach's really sore from being sick so much",
+        "Yes, sharp pains in my stomach on and off",
+        "Bad cramps, they come and go",
+        "Yes, my stomach's really painful right now",
+        "Constant ache in my stomach, worse when I move"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No, no bleeding, I'm just being sick",
+        "No blood, no",
+        "No, nothing like that at all",
+        "No bleeding, I'm just really unwell",
+        "No, no blood anywhere",
+        "No, I'm not injured, just poorly",
+        "No blood, no, just sickness",
+        "Not that I've seen, no",
+        "No, no cuts or blood, I'm just unwell",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing significant, I'm generally healthy"
+        "No, nothing that I know of",
+        "Not that I'm aware of, no",
+        "No history I know of, I'm usually fit and well",
+        "No, I've never had anything like this before",
+        "Nothing at all, I'm normally very healthy",
+        "No, no medical conditions",
+        "Not that I know of, no",
+        "No, I've never had any real health problems",
+        "Nothing I know of, I'm generally fine",
+        "No history at all as far as I know"
       ]
     },
     "medications": {
       "answers": [
-        "Just paracetamol for the cramps"
+        "No, I don't take anything",
+        "None that I know of",
+        "No medication, no",
+        "Not that I'm aware of, no",
+        "No, nothing regular",
+        "None at all",
+        "No, I'm not on anything",
+        "Nothing, I don't take any tablets",
+        "No medication currently",
+        "None, no"
       ]
     },
     "patientAge": {
       "answers": [
-        "29"
+        "I'm 34",
+        "34",
+        "I'm 34 years old",
+        "I'll be 35 next birthday, so 34 now",
+        "34, why does that matter right now",
+        "I'm 34, why",
+        "34 years of age",
+        "Just turned 34",
+        "I'm 34, I feel about ninety though",
+        "34, does that help"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep sipping water"
+        "Okay, I'll stay sitting near the bathroom",
+        "Right, I'm sipping water like you said",
+        "Okay, I'll try to keep still",
+        "Yes, I'm doing that now, still feel dreadful though",
+        "Okay, I'll stay on the line with you",
+        "Right, I'm lying down like you said",
+        "Okay, I'll keep sipping small amounts",
+        "Yes, doing that now, I just feel so weak",
+        "Okay, I'll try to stay calm",
+        "Right, I'm staying put, not moving far from the loo"
       ]
     },
     "refer111": {
       "answers": [
-        "Actually that might be better, I wasn't sure if this was a 999 job"
+        "I did think about that, but I feel really rough, can someone come",
+        "Maybe, but I can't keep anything down at all now",
+        "I'm not sure, I've never felt this bad before",
+        "Possibly, but it's been hours and I'm getting worse",
+        "I don't know, I feel like I might pass out",
+        "Could be, but I'm on my own and I'm scared",
+        "I did wonder, but I really don't feel right",
+        "Maybe not a bad idea, but can you just send someone anyway",
+        "I'm not sure that's enough somehow, I feel dreadful",
+        "Could be, but I'd rather someone checked me over"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, I just need an ambulance",
+        "No, no police needed, this is medical, not police",
+        "No thank you, just the ambulance, there's nothing for police here",
+        "No, wrong service, I just need medical help, not police",
+        "No police required, I'm just unwell, I only need paramedics",
+        "No, nothing for police to do here, it's purely medical",
+        "No, I'm fine on that front, just the ambulance for me please",
+        "Police? No, I don't think that's needed, I just need help",
+        "No, no crime or anything like that, just an ambulance please",
+        "No police necessary, I just need to be seen by paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, I just need an ambulance",
+        "No, no fire brigade needed, I just feel dreadful, that's all",
+        "Fire service? No, wrong service, I just need paramedics",
+        "No, nothing's on fire, I just need medical help",
+        "No thank you, no fire needed, just an ambulance please",
+        "No, I'm not trapped or anything, I just need paramedics",
+        "No, that's not necessary, I only need medical help",
+        "No fire involved, I just need the ambulance to get here",
+        "Fire? No, I don't think that's needed, I just need paramedics",
+        "No, no fire service required, it's purely a medical thing"
       ]
     }
   },

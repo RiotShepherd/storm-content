@@ -45,6 +45,11 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -77,8 +82,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's someone stuck in the lift and they're saying they feel really unwell.",
-      "Fire brigade please, a man's collapsed inside a stuck lift, we can hear him through the door."
+      "There's someone stuck in the lift and {{he}}'s saying {{he}} feels really unwell!",
+      "Please help, {{firstPatientName}}'s trapped in the lift and {{he}}'s got chest pain!",
+      "We've got someone stuck in a lift who says {{he}} can't breathe properly!",
+      "There's a person trapped in the lift, {{he}}'s not sounding well at all!",
+      "Please hurry, {{firstPatientName}}'s stuck in the lift and {{he}}'s complaining of chest pain!",
+      "Someone's stuck in the lift and shouting that {{he}} feels very unwell!",
+      "There's a person trapped in the lift who sounds like {{he}}'s struggling to breathe!",
+      "Please send help, {{firstPatientName}}'s stuck in the lift and going downhill fast!",
+      "We've got a passenger stuck in the lift, {{he}}'s saying {{he}} feels faint!",
+      "Please hurry, {{firstPatientName}}'s trapped and sounds really unwell in there!"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -90,91 +103,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's someone stuck in the lift and they're saying they feel really unwell.",
-        "Fire brigade please, a man's collapsed inside a stuck lift, we can hear him through the door."
+        "There's someone stuck in the lift and {{he}}'s saying {{he}} feels really unwell!",
+        "Please help, {{firstPatientName}}'s trapped in the lift and {{he}}'s got chest pain!",
+        "We've got someone stuck in a lift who says {{he}} can't breathe properly!",
+        "There's a person trapped in the lift, {{he}}'s not sounding well at all!",
+        "Please hurry, {{firstPatientName}}'s stuck in the lift and {{he}}'s complaining of chest pain!",
+        "Someone's stuck in the lift and shouting that {{he}} feels very unwell!",
+        "There's a person trapped in the lift who sounds like {{he}}'s struggling to breathe!",
+        "Please send help, {{firstPatientName}}'s stuck in the lift and going downhill fast!",
+        "We've got a passenger stuck in the lift, {{he}}'s saying {{he}} feels faint!",
+        "Please hurry, {{firstPatientName}}'s trapped and sounds really unwell in there!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I work in the building.",
-        "{{callerName}}, I heard him calling for help."
+        "It's {{callerName}}, I heard {{him}} calling out.",
+        "{{callerName}}, I work in the same building.",
+        "My name's {{callerName}}, I was walking past the lift.",
+        "{{callerName}} here, I don't know {{him}}, I just heard {{him}} shouting.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm a passer by really.",
+        "My name is {{callerName}}, I was nearby when I heard {{him}}.",
+        "{{callerName}}, I've been talking to {{him}} through the doors.",
+        "It's {{callerName}}, I heard {{him}} calling for help.",
+        "{{callerName}} speaking, I'm right outside the lift."
       ]
     },
     "patientName": {
       "answers": [
-        "He told us his name's {{firstPatientName}}.",
-        "It's {{firstPatientName}}, he works on the third floor."
+        "{{He}} told me {{his}} name's {{firstPatientName}} through the door.",
+        "It's {{firstPatientName}}, {{he}} managed to shout it through to me.",
+        "{{patientName}}, that's what {{he}} said.",
+        "I don't know {{him}} personally, but {{he}} said {{his}} name's {{firstPatientName}}.",
+        "{{firstPatientName}}'s the name {{he}} gave me.",
+        "{{his}} name's {{firstPatientName}}, {{he}} told me through the doors.",
+        "It's {{firstPatientName}}, {{he}}'s a stranger to me but that's {{his}} name.",
+        "{{firstPatientName}}, that's {{his}} name.",
+        "{{patientName}}'s the name, {{he}} managed to tell me.",
+        "It's {{firstPatientName}}, I got {{his}} name through the lift doors."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}.",
-        "{{address}}, it's the lift near reception."
+        "We're at {{address}}, the lift's near the main entrance.",
+        "{{address}}, it's the lift on the ground floor lobby.",
+        "It's {{address}}, security should be able to let you in.",
+        "{{address}}, {{he}}'s stuck between the second and third floor.",
+        "We're at {{address}}, the building manager has a key if needed.",
+        "{{address}}, come to reception, they'll show you the lift.",
+        "It's {{address}}, the lift's at the back of the building.",
+        "{{address}}, there's someone on site who can let you in.",
+        "We're at {{address}}, please hurry, {{he}} doesn't sound well.",
+        "{{address}}, I'll be right here when you arrive."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The lift got stuck between floors and now he's saying he feels dizzy and can't breathe properly.",
-        "He was fine when he got in but now he's saying his chest hurts and he feels faint."
+        "The lift got stuck between floors and now {{he}}'s saying {{he}} feels really unwell.",
+        "{{He}}'s trapped in the lift and started saying {{he}} can't breathe properly.",
+        "The lift stopped and {{he}}'s been shouting that {{his}} chest hurts.",
+        "{{He}}'s stuck in the lift and sounds like {{he}}'s getting worse by the minute.",
+        "The doors won't open and {{he}}'s telling me {{he}} feels faint and unwell.",
+        "{{He}}'s trapped and started complaining of chest pain a few minutes ago.",
+        "The lift stopped suddenly and {{he}}'s not sounding right at all now.",
+        "{{He}}'s stuck and {{he}} says {{he}}'s finding it hard to breathe in there.",
+        "The lift's jammed and {{he}}'s been getting more and more unwell.",
+        "{{He}}'s trapped in the lift and I can hear {{him}} struggling to breathe."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's still talking to us through the door, but he sounds weak.",
-        "Yes, but his voice is getting fainter."
+        "{{He}}'s conscious, {{he}}'s talking to me through the doors.",
+        "Yes, {{he}}'s awake, but {{he}} sounds like {{he}}'s struggling.",
+        "{{He}}'s conscious, {{he}} sounds very frightened and unwell.",
+        "Yes, conscious, {{he}}'s asking me to get help fast.",
+        "{{He}}'s alert, talking to me through the lift doors.",
+        "Yes, {{he}}'s conscious, just sounding worse and worse.",
+        "{{He}}'s awake, {{he}} says {{he}} feels dizzy.",
+        "Conscious, yes, {{he}}'s calling out for help.",
+        "{{He}}'s conscious and responding, just really unwell.",
+        "Yes, {{he}}'s conscious, please hurry, {{he}} sounds bad."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He says he's finding it hard to breathe in there.",
-        "Yes, but he says it's getting worse."
+        "{{He}} says {{he}}'s struggling to breathe properly.",
+        "{{He}} sounds breathless when {{he}} talks to me.",
+        "{{He}}'s saying {{he}} can't get a proper breath in there.",
+        "It sounds laboured, {{he}}'s gasping a bit through the door.",
+        "{{He}} says {{his}} chest feels tight and {{he}}'s struggling for breath.",
+        "I can hear {{him}} breathing heavily through the doors.",
+        "{{He}} says {{he}}'s finding it really hard to breathe.",
+        "It sounds like {{he}}'s wheezing, please hurry.",
+        "{{He}}'s telling me {{he}}'s short of breath.",
+        "{{His}} breathing sounds laboured through the doors, please hurry."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's saying his chest feels tight.",
-        "He says he's got a bad headache and feels sick."
+        "{{He}} says {{his}} chest really hurts.",
+        "{{He}}'s telling me {{he}}'s got sharp pain in {{his}} chest.",
+        "{{He}} says {{he}}'s in a lot of discomfort, mostly {{his}} chest.",
+        "{{He}}'s saying the pain in {{his}} chest is getting worse.",
+        "{{He}} mentioned {{his}} chest and left arm are hurting.",
+        "{{He}} says {{he}}'s in real pain now, please hurry.",
+        "{{He}}'s telling me {{he}} feels a crushing pain in {{his}} chest.",
+        "{{He}} says {{he}}'s in pain and feels dizzy too.",
+        "{{He}}'s saying {{he}}'s got tightness and pain across {{his}} chest.",
+        "{{He}} mentioned severe chest pain, please send help quickly."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, he hasn't mentioned any bleeding.",
-        "No, not that we know of."
+        "No, {{he}}'s not mentioned any bleeding, it's more that {{he}} feels unwell.",
+        "No bleeding, no, it's {{his}} breathing and chest that's the worry.",
+        "No, nothing like that, {{he}}'s just really unwell.",
+        "No, {{he}} hasn't said anything about bleeding.",
+        "No visible bleeding, this is more a medical concern.",
+        "No, {{he}}'s not bleeding, {{he}}'s just struggling to breathe.",
+        "No, it's not that, {{he}}'s just feeling very unwell.",
+        "No bleeding, no, {{he}}'s complaining of chest pain instead.",
+        "No, nothing like that, {{he}}'s just really poorly.",
+        "No, {{he}}'s not mentioned bleeding at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He mentioned he's got a heart condition.",
-        "We're not sure, we don't know him well."
+        "No idea, I don't know {{him}} at all.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "No idea, sorry, I've never met {{him}} before.",
+        "I don't know {{him}}, so no idea on that.",
+        "Sorry, no idea, I've just come across {{him}} stuck.",
+        "No, I can't help with that, I don't know {{him}}.",
+        "I've no idea, {{he}}'s not someone I know.",
+        "Sorry, no, I don't know {{his}} medical history.",
+        "No idea at all, {{he}}'s a stranger to me.",
+        "Can't say, sorry, I only just found {{him}} stuck."
       ]
     },
     "medications": {
       "answers": [
-        "Not sure, sorry.",
-        "He might have a spray on him, we're not sure."
+        "No idea, I don't know {{him}}.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "No idea, sorry, I've never met {{him}}.",
+        "I don't know {{him}}, so no idea on that.",
+        "Sorry, no idea at all.",
+        "No, I can't help with that, I don't know {{him}}.",
+        "I've no idea, {{he}}'s not someone I know.",
+        "Sorry, no, I don't know anything about {{him}}.",
+        "No idea at all, sorry.",
+        "Can't say, sorry, I only just found {{him}} stuck in there."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's about fifty.",
-        "He's in his sixties."
+        "{{He}} sounds older, maybe in {{his}} sixties.",
+        "Hard to say from {{his}} voice, maybe fifties.",
+        "{{He}} sounds like {{he}}'s in {{his}} seventies, from the voice.",
+        "I'd guess {{he}}'s in {{his}} sixties.",
+        "Hard to say exactly, maybe late fifties.",
+        "{{He}} sounds like {{he}}'s in {{his}} sixties.",
+        "I'd say maybe seventy from {{his}} voice.",
+        "Not sure exactly, maybe mid sixties.",
+        "{{He}} sounds fairly elderly, from {{his}} voice.",
+        "I'd estimate {{he}}'s in {{his}} sixties or seventies."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're staying by the door talking to him.",
-        "Please hurry, he sounds like he's getting worse."
+        "Okay, thank you, I'll keep talking to {{him}} until they arrive.",
+        "Right, I'll try to keep {{him}} calm until the ambulance gets here.",
+        "Okay, that's good, please hurry, {{he}}'s really struggling.",
+        "Thank you, I'll stay right here by the lift.",
+        "Alright, I'll keep {{him}} talking through the doors.",
+        "Okay, we'll wait right here for the paramedics.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll keep reassuring {{him}} until help arrives.",
+        "Thank you, I'll do what I can until they get here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's trapped and unwell, we need the fire brigade now!"
+        "No, {{he}}'s trapped and struggling to breathe, this can't wait for 111!",
+        "111 won't help, {{he}}'s stuck and getting worse, please send an ambulance!",
+        "No, please, {{he}} says {{his}} chest hurts badly, we need help now!",
+        "This can't wait for a callback, {{he}}'s trapped and unwell!",
+        "No, we need paramedics here now, not 111!",
+        "Please, this is urgent, {{he}} sounds like {{he}}'s deteriorating!",
+        "No, this needs an ambulance now, not a phone line!",
+        "I don't think 111 can help with someone trapped and this unwell!",
+        "No, please, we need someone here right now!",
+        "This is too urgent for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, {{he}}'s just unwell in the lift.",
+        "Do we need police as well? I really just need paramedics for {{him}}.",
+        "Okay, if you think that helps, though it's really the ambulance we need.",
+        "I wasn't expecting police, but that's fine if it helps.",
+        "Alright, though I think it's really a medical matter, not police.",
+        "Okay, understood, though {{he}}'s health is the main worry.",
+        "Fine, if that's needed, but nothing's gone wrong like that.",
+        "Okay, whatever you think's best, just please hurry.",
+        "Alright, I'll let them know when they arrive.",
+        "Okay, though I'm not sure what police can do about {{him}} being unwell."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, if they can get the doors open that would help a lot.",
+        "Right, thank you, that would help get {{him}} out to the paramedics.",
+        "Okay, that's good, please hurry, {{he}}'s not sounding well.",
+        "Thank you, I'll let them know where the lift is.",
+        "Alright, thank you, hopefully they can free {{him}} quickly.",
+        "Okay, understood, we need {{him}} out as fast as possible.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, I'll wait here to guide them in.",
+        "Okay, thank you, we need {{him}} out urgently.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

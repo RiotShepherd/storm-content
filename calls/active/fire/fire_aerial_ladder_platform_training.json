@@ -45,6 +45,11 @@
   "units": {
     "aerial": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +72,15 @@
   "caller": {
     "openings": [
       "Hello, it's the training officer, we need the aerial platform booked out for a scheduled exercise",
-      "This is a call to confirm the aerial ladder training session, we need the crew and appliance on site"
+      "This is a call to confirm the aerial ladder training session, we need the crew and appliance on site",
+      "Hello, we've got a scheduled training exercise and need the aerial platform sent over",
+      "This is regarding the booked aerial ladder training, can you confirm the appliance is on its way",
+      "Calling to arrange the crew and platform for today's training session",
+      "This is the station, we need the aerial appliance for a planned exercise",
+      "Hello, it's about the scheduled ladder training, we're ready for the crew",
+      "This is a confirmation call for the aerial platform training booking",
+      "Calling ahead of the training exercise, we need the appliance sent to the ground",
+      "This is the training coordinator, the aerial ladder session is scheduled for today"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -80,78 +93,231 @@
     "start": {
       "answers": [
         "Hello, it's the training officer, we need the aerial platform booked out for a scheduled exercise",
-        "This is a call to confirm the aerial ladder training session, we need the crew and appliance on site"
+        "This is a call to confirm the aerial ladder training session, we need the crew and appliance on site",
+        "Hello, we've got a scheduled training exercise and need the aerial platform sent over",
+        "This is regarding the booked aerial ladder training, can you confirm the appliance is on its way",
+        "Calling to arrange the crew and platform for today's training session",
+        "This is the station, we need the aerial appliance for a planned exercise",
+        "Hello, it's about the scheduled ladder training, we're ready for the crew",
+        "This is a confirmation call for the aerial platform training booking",
+        "Calling ahead of the training exercise, we need the appliance sent to the ground",
+        "This is the training coordinator, the aerial ladder session is scheduled for today"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm running today's training session"
+        "It's {{callerName}}, I'm running today's training session",
+        "{{callerName}} here, I'm the training coordinator",
+        "It's {{callerName}}, I organised this exercise",
+        "{{callerName}}, I'm overseeing the training ground",
+        "It's {{callerName}}, I booked the session in advance",
+        "My name's {{callerName}}, I'm the instructor for today",
+        "It's {{callerName}}, I'm liaising with the crew",
+        "{{callerName}} speaking, I'll be on site to meet you",
+        "It's {{callerName}}, I confirmed this booking last week",
+        "{{callerName}}, I'm at the training ground now"
       ]
     },
     "patientName": {
       "answers": [
-        "No patients, this is a training exercise"
+        "There's no one hurt, nobody was anywhere near it.",
+        "No patient to report, it's just the fire itself.",
+        "Nobody's hurt, I haven't seen anyone go near it.",
+        "No casualties, no one was involved when it caught.",
+        "There's no one to name, no one's injured.",
+        "Nobody was caught up in it, no injuries at all.",
+        "No one's hurt, everyone's kept well clear.",
+        "There's nobody involved, it's not touched anyone.",
+        "No injuries to report, no one's anywhere near it.",
+        "Nobody's hurt, there's no patient here."
       ]
     },
     "address": {
       "answers": [
-        "It's {{address}}, that's the training ground we booked"
+        "It's {{address}}, that's the training ground we booked",
+        "{{address}}, the exercise site is signposted",
+        "It's {{address}}, come in through the main gate",
+        "{{address}}, the training ground's off the access road",
+        "It's {{address}}, I'll meet you at the entrance",
+        "{{address}}, the site's been prepared for the exercise",
+        "It's {{address}}, follow the signs to the training area",
+        "{{address}}, the ground crew are already set up",
+        "It's {{address}}, use the usual training ground entrance",
+        "{{address}}, the exercise area is marked out"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "We're running a scheduled aerial ladder platform exercise and need the appliance and crew"
+        "We're running a scheduled aerial ladder platform exercise and need the appliance and crew",
+        "This is a planned training session, we just need confirmation the appliance is coming",
+        "We've set up the training ground for the aerial platform exercise today",
+        "It's a routine training booking, nothing has gone wrong, we just need the crew",
+        "We're doing height and ladder work as part of ongoing training",
+        "This is a scheduled exercise to keep crews current on the aerial platform",
+        "We booked this session weeks ago, just confirming it's still going ahead",
+        "It's standard training, the ground's ready and the instructors are here",
+        "We're running through platform drills as part of the training programme",
+        "This is a routine session, the site's prepared and waiting for the appliance"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, it's a training exercise"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so there's nothing to report there.",
+        "Everyone's fine, nobody's anywhere near it.",
+        "No casualties, no one's been affected by it.",
+        "There's no patient, nobody's hurt at all.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, everyone's fine"
+        "No one's struggling, just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smoke that's bothering us.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's near enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke.",
+        "No breathing problems, nobody's close enough to it.",
+        "We've kept clear, so no one's had any trouble breathing.",
+        "No one's affected, just a bit of a smell in the air.",
+        "Nothing to report, we're all well away from the smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's in pain, it's just training"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected.",
+        "Not applicable, there's no patient in pain.",
+        "No injuries, nobody's hurt in any way.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, no one's been hurt"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all.",
+        "Not applicable, nobody's been hurt.",
+        "No, no one's involved, so no injuries.",
+        "No bleeding to report, everyone's clear.",
+        "No injuries at all, nobody's near it.",
+        "No, there's no one hurt to report bleeding.",
+        "Not applicable, no one's been affected.",
+        "No, everyone's well away from it.",
+        "No bleeding, nobody's been caught up in it."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable, there's no patient"
+        "Not applicable, there's no one hurt.",
+        "No patient, so nothing to tell you there.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter.",
+        "No patient here, nothing to report.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that.",
+        "Not applicable, nobody's hurt.",
+        "No patient involved, nothing to tell you."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not medical.",
+        "No patient, nothing to tell you.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected.",
+        "No casualty, so nothing there.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient involved"
+        "There's no patient, nobody's hurt.",
+        "No one involved, so no age to give.",
+        "Not applicable, it's just the fire.",
+        "No casualty, there's no one to report.",
+        "Nobody's hurt, no patient here.",
+        "No one's involved, so nothing there.",
+        "Not applicable, there's no injuries.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient."
       ]
     },
     "reassure": {
       "answers": [
-        "Thanks, we'll have the ground crew ready when you arrive"
+        "Thanks, we'll have the ground crew ready when you arrive",
+        "Understood, we'll wait at the entrance for the appliance",
+        "Okay, the training ground's all set up",
+        "Right, I'll let the instructors know you're on the way",
+        "Alright, we'll have everything ready to start",
+        "Okay, we're all set for the session",
+        "Understood, I'll meet the crew at the gate",
+        "Right, we'll begin as soon as you arrive",
+        "Okay, thanks for confirming the booking",
+        "Understood, we appreciate you fitting this in"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, this is just a training booking for the aerial platform",
+        "Sorry, why would we need the police, it's only an exercise",
+        "No, there's no incident, it's a scheduled training session",
+        "Police aren't needed, we're just booking the aerial rig for practice",
+        "No thank you, this is routine training, nothing for the police",
+        "There's no need for that, it's just a planned exercise today",
+        "No, we don't need police, we're only running a training drill",
+        "Sorry, I think you've misunderstood, it's a training booking",
+        "No police needed, it's just us and the crew for the exercise",
+        "That's not necessary, this is a scheduled fire service exercise"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thanks, we'll have the ground crew and cones set up ready",
+        "Good, we'll mark out the area before the crew gets here",
+        "Thank you, the site's clear and ready for the appliance",
+        "Great, I'll brief the crew on the exercise plan when they arrive",
+        "Thanks, we've got the wet ground cordoned off already",
+        "Good, we'll have the paperwork ready for the crew",
+        "Thank you, I'll meet them at the gate when they get here",
+        "Perfect, we're all set up and waiting for the appliance",
+        "Thanks, the ladder bay's clear for them to set up",
+        "Good, we'll run through the safety brief once they're here"
       ]
     },
     "refer111": {
       "answers": [
-        "No need, it's a training booking, not a medical call"
+        "No need, it's a training booking, not a medical call",
+        "No, this isn't medical, it's a scheduled exercise",
+        "No thank you, this is just a training arrangement",
+        "No, there's no emergency, it's a planned session",
+        "No, nobody's hurt, this is routine training",
+        "No, I don't need that, it's just booking confirmation",
+        "No, this is administrative, not a health matter",
+        "No, it's not urgent, just a scheduled exercise",
+        "No, please don't worry, it's a training call",
+        "No, this is a routine booking, not an emergency"
       ]
     }
   },

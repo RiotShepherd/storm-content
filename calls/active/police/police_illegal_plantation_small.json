@@ -50,6 +50,10 @@
     "dog_unit": 1,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 6
+  },
   "patients": {
     "range": [
       0,
@@ -73,7 +77,14 @@
     "openings": [
       "Police please, I think there's a cannabis farm next door, the smell's unmistakable",
       "I need to report suspicious activity, I believe drugs are being grown at the address",
-      "There's a strong smell and blacked out windows next door, I think it's a drug plantation"
+      "There's a strong smell and blacked out windows next door, I think it's a drug plantation",
+      "Police please, I'm fairly sure next door is growing cannabis",
+      "I need to report a suspected drug plantation next door",
+      "There's a really strong smell coming from next door, I think it's cannabis",
+      "Police please, the windows next door have been blacked out for weeks, I'm suspicious",
+      "I need to report what I think is a cannabis farm nearby",
+      "There's constant humming and a strong smell next door, I think it's a plantation",
+      "Police please, I'm fairly certain there's an illegal grow next door"
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -87,90 +98,230 @@
       "answers": [
         "Police please, I think there's a cannabis farm next door, the smell's unmistakable",
         "I need to report suspicious activity, I believe drugs are being grown at the address",
-        "There's a strong smell and blacked out windows next door, I think it's a drug plantation"
+        "There's a strong smell and blacked out windows next door, I think it's a drug plantation",
+        "Police please, I'm fairly sure next door is growing cannabis",
+        "I need to report a suspected drug plantation next door",
+        "There's a really strong smell coming from next door, I think it's cannabis",
+        "Police please, the windows next door have been blacked out for weeks, I'm suspicious",
+        "I need to report what I think is a cannabis farm nearby",
+        "There's constant humming and a strong smell next door, I think it's a plantation",
+        "Police please, I'm fairly certain there's an illegal grow next door"
       ]
     },
     "callerName": {
       "answers": [
         "{{callerName}}, I live next door",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I'm a neighbour",
+        "My name's {{callerName}}, I live nearby",
+        "{{callerName}} calling, I live on the same street",
+        "Yeah, it's {{callerName}}, I'm next door",
+        "{{callerName}} here, I live just along from them",
+        "It's {{callerName}}, I'm their neighbour",
+        "My name is {{callerName}}, I live close by",
+        "{{callerName}}, that's me, I'm from next door",
+        "Sorry, yes, it's {{callerName}}, I live opposite"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know who lives there",
-        "No idea, they keep to themselves"
+        "I don't know their name, never seen them before",
+        "No idea who they are, complete strangers to me",
+        "Couldn't tell you, I don't know them",
+        "I don't have a name for you, sorry",
+        "No, I don't know who they are",
+        "Never seen them before in my life",
+        "I can't give you a name, I don't know them",
+        "Sorry, no idea, they're not known to me",
+        "I've got no name for you, they're strangers",
+        "Don't know, I've never seen them around here"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the house with the blacked out windows",
-        "We're at {{address}}"
+        "{{address}}, it's the house next door",
+        "We're at {{address}}",
+        "It's {{address}}, the house next door",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near the house next door",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's a strong smell coming from the house and I've noticed condensation on the windows constantly",
-        "People come and go at odd hours, never during the day",
-        "The electricity meter's been humming loudly for weeks, I think they've bypassed it"
+        "There's a strong cannabis smell coming from the house, and the windows are blacked out",
+        "I can hear a constant humming noise, like fans running all the time",
+        "The curtains never open and there's condensation on the inside of the windows",
+        "Nobody seems to actually live there, but there's constant activity late at night",
+        "There's a strong chemical and plant smell whenever I walk past",
+        "The electricity meter's been tampered with according to the meter reader",
+        "There's been a steady stream of visitors at odd hours, never staying long",
+        "I can smell it strongly from my garden most evenings",
+        "The windows have been covered over for weeks, and there's a constant hum",
+        "It's the smell mainly, it's unmistakable when the wind's right"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, this is just what I've noticed",
-        "No injuries involved"
+        "Nobody's hurt, so there's nothing to report on that front",
+        "N/A, no one's injured here",
+        "No casualties at all, we just need police",
+        "Nobody's hurt, this isn't a medical matter",
+        "Not applicable, no one's been hurt",
+        "No injuries to report, it's not that kind of call",
+        "Nobody's collapsed or hurt, we just need officers down here",
+        "N/A, this is a police matter, no casualties",
+        "No one's been hurt in this, I promise",
+        "Not applicable, there's no patient here"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "No breathing problems, nobody's been hurt",
+        "N/A, there's no injuries here to speak of",
+        "Nobody needs help breathing, this isn't medical",
+        "Not applicable, no one's hurt",
+        "No one's struggling for breath, no casualties at all",
+        "N/A, we just need police, not an ambulance",
+        "Nobody's been affected like that, no injuries",
+        "No breathing issues, nobody's hurt in this",
+        "Not a medical thing at all, no one's struggling",
+        "N/A, there's no patient here"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A",
-        "No one's hurt"
+        "No pain to report, nobody's hurt",
+        "N/A, no injuries at all",
+        "Nobody's in pain, this isn't medical",
+        "Not applicable, no one's been hurt",
+        "No one's complained of any pain",
+        "N/A, we don't need an ambulance for this",
+        "Nobody's hurt themselves, no pain reported",
+        "No injuries, so no pain to speak of",
+        "Not that I'm aware of, nobody's hurt",
+        "N/A, it's purely a police matter"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No bleeding, nobody's hurt",
+        "N/A, there's no injuries",
+        "No one's bleeding, this isn't medical",
+        "Not applicable, nobody's been hurt",
+        "No blood, no injuries at all",
+        "N/A, we just need police here",
+        "Nobody's hurt themselves, no bleeding",
+        "No, there's no injuries to report",
+        "Not that I can see, nobody's hurt",
+        "N/A, it's not a medical call"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A, don't know them",
-        "Not applicable"
+        "N/A, nobody's hurt so there's no history needed",
+        "Not applicable, no patient involved",
+        "No idea, and it's not relevant, nobody's hurt",
+        "N/A, this isn't a medical matter",
+        "Not applicable, we just need police",
+        "No one's been hurt, so no history to give",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "I couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's a police matter, not medical"
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "N/A, nobody's hurt",
+        "Not applicable, no patient involved",
+        "No idea, and it doesn't matter, no one's hurt",
+        "N/A, this isn't medical",
+        "Not applicable, we need police, not paramedics",
+        "No one's been hurt, so nothing like that to report",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "Couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's not a medical call"
       ]
     },
     "patientAge": {
       "answers": [
-        "Not sure, never really see them"
+        "No idea, I never see anyone properly",
+        "Can't say, I've only seen them briefly at odd hours",
+        "No idea, they keep themselves hidden",
+        "Couldn't tell you, I rarely see anyone come or go",
+        "No idea, it's hard to see clearly at night",
+        "Can't say, I've never got a good look",
+        "No idea, I only hear the noise, don't see them",
+        "Couldn't say, sorry, they're rarely seen",
+        "No idea, I've not seen who's there",
+        "Can't tell, I only notice the smell and the noise"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'd rather they didn't know it was me who called",
-        "Thank you, I just want it sorted"
+        "Ambulance? No need, nobody's hurt, it's police we're after",
+        "We don't need an ambulance, just get police here please",
+        "No ambulance needed, this is a police matter",
+        "There's no injuries, we just need officers down here",
+        "Nobody's hurt, so an ambulance won't be needed",
+        "That's not necessary, it's police we need, not paramedics",
+        "No thank you, nobody's injured, just send police",
+        "We're fine on that front, it's police we're waiting for",
+        "Not needed, there's no casualties, just police please",
+        "No one's hurt, an ambulance isn't required for this"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police, not medical"
+        "111? No, this needs police now, not a callback",
+        "We can't wait for 111, this needs officers straight away",
+        "This isn't something 111 can help with, we need police",
+        "No, please, this needs police, not NHS 111",
+        "I don't think 111 is right for this, we need police here",
+        "This is a police matter, 111 won't be able to help",
+        "Please, we really need police, not a 111 callback",
+        "That's not going to help, this needs police attendance",
+        "No, this can't wait for a callback, we need officers now",
+        "111 isn't going to sort this, we need police please"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, how long will they be?",
+        "Good, please hurry, it's getting worse here",
+        "Thank you, we'll wait for them",
+        "Okay, I'll stay on the line if you need anything else",
+        "Please tell them to hurry, we're keeping an eye on things",
+        "Thank goodness, how many are coming?",
+        "Okay, I'll let people know officers are on the way",
+        "Thank you, we'll keep back until they arrive",
+        "Good, we really need them here quickly",
+        "Okay, thank you, I'll stay put until they get here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

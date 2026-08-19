@@ -45,6 +45,12 @@
     "rescue_unit": 1,
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 10,
+    "ambulance": 5,
+    "police": 5
+  },
   "patients": {
     "range": [
       1,
@@ -73,7 +79,15 @@
   "caller": {
     "openings": [
       "One of our rides has malfunctioned and stopped with people stuck on it, one's not doing well",
-      "I need the fire brigade, we've a stuck ride and a passenger's in a bad way up top"
+      "I need the fire brigade, we've a stuck ride and a passenger's in a bad way up top",
+      "Our ride's jammed with riders still on board, one {{guy}}'s struggling to breathe",
+      "Please hurry, the drop tower's stopped and a passenger up there looks in real trouble",
+      "There's been a malfunction on the ride, one of the riders is panicking badly up high",
+      "The ride's stuck halfway round, one passenger's gone very pale and can't catch {{his}} breath",
+      "We've got riders trapped on a stopped ride, one of them needs help urgently",
+      "The mechanism's jammed with people still strapped in, one's in distress",
+      "I need someone out here now, our ride's stuck and a rider's struggling up top",
+      "The ride's come to a dead stop, one of the passengers is in a bad state"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -86,80 +100,231 @@
     "start": {
       "answers": [
         "One of our rides has malfunctioned and stopped with people stuck on it, one's not doing well",
-        "I need the fire brigade, we've a stuck ride and a passenger's in a bad way up top"
+        "I need the fire brigade, we've a stuck ride and a passenger's in a bad way up top",
+        "Our ride's jammed with riders still on board, one {{guy}}'s struggling to breathe",
+        "Please hurry, the drop tower's stopped and a passenger up there looks in real trouble",
+        "There's been a malfunction on the ride, one of the riders is panicking badly up high",
+        "The ride's stuck halfway round, one passenger's gone very pale and can't catch {{his}} breath",
+        "We've got riders trapped on a stopped ride, one of them needs help urgently",
+        "The mechanism's jammed with people still strapped in, one's in distress",
+        "I need someone out here now, our ride's stuck and a rider's struggling up top",
+        "The ride's come to a dead stop, one of the passengers is in a bad state"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the ride operator"
+        "It's {{callerName}}, I'm the ride operator",
+        "{{callerName}} here, I run this attraction",
+        "It's {{callerName}}, I'm the operator on duty",
+        "{{callerName}}, I'm the member of staff who stopped the ride",
+        "It's {{callerName}}, I work the controls for this ride",
+        "My name's {{callerName}}, I'm the duty operator",
+        "It's {{callerName}}, I called it in as soon as it jammed",
+        "{{callerName}} speaking, I'm at the ride control panel now",
+        "It's {{callerName}}, I'm the attraction supervisor",
+        "{{callerName}}, I've got the ride stopped and I'm watching {{him}}"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't have his name, he's one of the riders",
-        "It might be {{firstPatientName}}, that's what his friend shouted up"
+        "I don't have {{his}} name, {{he}}'s one of the riders",
+        "It might be {{firstPatientName}}, that's what {{his}} friend shouted up",
+        "I haven't got {{his}} details yet, {{he}}'s stuck up on the ride",
+        "{{His}} friends are calling {{him}} {{firstPatientName}}, I heard them shout it",
+        "I don't know {{his}} name, {{he}}'s the rider in the second seat",
+        "Someone with {{him}} said {{his}} name's {{firstPatientName}}",
+        "I've not managed to get {{his}} name, {{he}}'s too far up to hear me clearly",
+        "{{His}} mates are shouting {{firstPatientName}} up to {{him}}",
+        "I don't have a name for {{him}} yet, sorry",
+        "I heard {{his}} friend call {{him}} {{firstPatientName}} a moment ago"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the theme park, follow signs to the big drop ride"
+        "{{address}}, it's the theme park, follow signs to the big drop ride",
+        "It's {{address}}, come in through the staff gate at the back",
+        "{{address}}, the ride's near the main entrance",
+        "It's {{address}}, follow the park road to the tower ride",
+        "{{address}}, security will guide you to the ride",
+        "It's {{address}}, use the service entrance behind the ride",
+        "{{address}}, I'll have someone meet you at the gate",
+        "It's {{address}}, the drop tower's in the centre of the park",
+        "{{address}}, follow the signs marked staff access",
+        "It's {{address}}, the ride's visible from the car park"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "The ride jammed halfway through the cycle, one rider's stuck at height and struggling",
-        "It stopped dead with people still on it, one passenger's gone very pale and can't catch their breath"
+        "It stopped dead with people still on it, one passenger's gone very pale and can't catch their breath",
+        "There was a mechanical fault and the ride's frozen with riders on board",
+        "The safety system triggered and stopped the ride mid cycle, one {{guy}}'s in real distress",
+        "It jammed at the top of the cycle, {{he}}'s panicking and struggling to breathe",
+        "Something's failed in the mechanism and it's stuck with people strapped in",
+        "The ride stalled and {{he}}'s been stuck up there getting worse by the minute",
+        "It came to an emergency stop and one rider's showing signs of a panic attack",
+        "The lift mechanism has failed and {{he}}'s trapped at height, very distressed",
+        "It's a mechanical fault, riders are stuck and one's struggling badly"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious but shaking, can't get down"
+        "{{He}}'s conscious but shaking, can't get down",
+        "{{He}}'s awake and talking, but very panicked",
+        "{{He}}'s conscious, gripping the harness, won't respond to us calling up",
+        "{{He}}'s alert but {{he}}'s not making much sense, very scared",
+        "{{He}}'s conscious, shouting down that {{he}} can't breathe properly",
+        "{{He}}'s awake, but {{he}}'s gone very quiet and pale",
+        "{{He}}'s conscious and responsive, just terrified up there",
+        "{{He}}'s still talking to {{his}} friends, but {{he}}'s clearly struggling",
+        "{{He}}'s conscious, we can see {{him}} moving, but {{he}}'s very distressed",
+        "{{He}}'s awake, {{he}} keeps calling out that {{he}} feels dizzy"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He says he can't catch his breath, he's panicking up there"
+        "{{He}} says {{he}} can't catch {{his}} breath, {{he}}'s panicking up there",
+        "{{His}} breathing sounds fast and shallow from what we can hear",
+        "{{He}}'s gasping a bit, {{his}} friends say {{he}}'s struggling to breathe",
+        "{{He}}'s breathing but it sounds laboured, probably the panic",
+        "{{He}} says {{his}} chest feels tight and {{he}} can't get a full breath",
+        "{{His}} mates are shouting that {{he}}'s hyperventilating",
+        "{{He}}'s breathing quickly, we think it's the height and panic",
+        "{{He}} says {{he}} can't breathe properly, it's getting worse",
+        "{{His}} breathing's ragged, {{he}} sounds very distressed",
+        "{{He}}'s struggling for breath, we can hear {{him}} from down here"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's saying his chest feels tight"
+        "{{He}}'s saying {{his}} chest feels tight",
+        "{{He}} says {{his}} hands and arms hurt from gripping the harness",
+        "{{He}}'s not mentioned pain, just that {{he}} can't breathe properly",
+        "{{His}} friends say {{he}}'s complaining of chest pain",
+        "{{He}} says {{his}} chest and stomach feel tight",
+        "{{He}}'s shouting that {{his}} chest hurts",
+        "{{He}} hasn't said about pain, just that {{he}}'s terrified and struggling",
+        "{{He}} says {{his}} arms ache from holding on so tight",
+        "{{He}}'s complaining {{his}} chest feels heavy",
+        "{{He}} says everything feels tight, especially {{his}} chest"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding that I can see from here"
+        "No bleeding that I can see from here",
+        "No, there's no sign of any injury like that",
+        "No bleeding, it's more that {{he}}'s panicking and can't breathe",
+        "No, nothing visible from down here",
+        "No blood that we can see, {{he}}'s just very distressed",
+        "No, {{he}}'s not injured that way, just stuck and scared",
+        "No bleeding reported, it's a breathing and panic issue",
+        "No, there's nothing like that visible",
+        "No bleeding, the harness has kept {{him}} secure",
+        "No, no sign of any cuts or blood"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, I'll ask his friends"
+        "I don't know, I'll ask {{his}} friends",
+        "I've no idea about {{his}} medical history",
+        "I can't say, we don't take that information for the ride",
+        "I don't know {{him}}, I'll try to find out from the group",
+        "Not sure, I'll ask the people {{he}}'s with",
+        "I don't have that information, sorry",
+        "I can't tell you, I don't know {{him}} personally",
+        "I've no details on that, I'll ask around",
+        "Not sure, {{his}} friends might know",
+        "I don't know, I can try and find out"
       ]
     },
     "medications": {
       "answers": [
-        "Not sure, I can ask the group he's with"
+        "Not sure, I can ask the group {{he}}'s with",
+        "I don't know, I'll check with {{his}} friends",
+        "I can't say, we don't have that information",
+        "No idea, sorry, I don't know {{him}}",
+        "Not sure, I'll ask if {{his}} friends know",
+        "I don't have that detail, I can try to find out",
+        "I can't tell you, I don't know {{his}} medical details",
+        "Not sure, I'll see if anyone with {{him}} knows",
+        "I don't know, sorry",
+        "No idea, I can ask around for you"
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks like a teenager, maybe 16 or so"
+        "Looks like a teenager, maybe 16 or so",
+        "{{He}}'s young, I'd guess mid to late teens",
+        "{{He}} looks about 15 or 16 to me",
+        "{{He}}'s a teenager, one of a group of friends",
+        "I'd say {{he}}'s around 16, hard to tell exactly",
+        "{{He}} looks like a young teenager, maybe 15",
+        "{{He}}'s with a group of teenagers, looks about the same age",
+        "I'd guess mid teens, {{he}}'s quite young looking",
+        "{{He}} looks about 16, {{he}}'s with {{his}} mates",
+        "{{He}}'s young, I'd say 15 or 16"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping everyone calm and talking to him"
+        "Okay, we're keeping everyone calm and talking to {{him}}",
+        "Right, we're trying to keep {{him}} talking and calm",
+        "Okay, staff are reassuring {{him}} from the platform",
+        "Understood, we're keeping the ride locked in place",
+        "Alright, we're doing our best to keep {{him}} calm up there",
+        "Okay, we've got someone talking to {{him}} constantly",
+        "Right, we're keeping the other riders calm too",
+        "Okay, we're staying in contact with {{him}} the whole time",
+        "Understood, we won't attempt anything until you arrive",
+        "Okay, we're keeping everyone below {{him}} clear"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we need them to keep the crowd back from the ride",
+        "Yes please, people keep trying to get closer for photos",
+        "Thank you, it's getting busy round here, we need it clear",
+        "Okay, good, can they help move visitors away from the area",
+        "Yes, send them, there's a big crowd gathering already",
+        "Good, we could use help keeping people calm and back",
+        "Thank you, some visitors won't stop filming, we need space",
+        "Okay, they can help us cordon off the queue area",
+        "Good, the crowd's growing, we need it managed",
+        "Yes please, we need help keeping everyone clear of the ride"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, {{he}}'s really struggling up there",
+        "Okay, good, we're keeping {{him}} talking until they arrive",
+        "Please hurry, {{he}}'s stuck at height and getting distressed",
+        "Thank you, we've stopped the ride, just waiting on them now",
+        "Okay, I can see them coming, thank god",
+        "Good, hurry, {{he}}'s been up there a while now",
+        "Thank you, we're keeping everyone else well clear",
+        "Okay, please tell them to hurry, {{he}}'s getting scared",
+        "Thank goodness, we'll keep reassuring {{him}} till they get here",
+        "Good, hurry please, the ride mechanism's still under tension"
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's stuck up a ride and can't breathe properly, we need you here"
+        "No, {{he}}'s stuck up a ride and can't breathe properly, we need you here",
+        "No, this is an emergency, {{he}}'s trapped and distressed",
+        "No thank you, we need the fire brigade for the rescue",
+        "No, {{he}}'s at height and struggling, we need you now",
+        "No, this isn't something 111 can help with",
+        "No, please, {{he}}'s stuck and panicking up there",
+        "No, we need a rescue, not medical advice over the phone",
+        "No, {{he}} needs help getting down safely, please hurry",
+        "No, this is urgent, {{he}}'s trapped at height",
+        "No, please just send someone, {{he}}'s getting worse"
       ]
     }
   },

@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -69,8 +73,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My daughter's just staring into space, she's not responding to me at all",
-      "Something's wrong, she just stopped mid sentence and isn't answering"
+      "My {{son}}'s just staring into space, {{he}}'s not responding to me at all",
+      "Something's wrong, {{he}} just stopped mid sentence and isn't answering",
+      "My {{son}}'s gone really blank, {{he}}'s just staring and won't answer",
+      "I don't understand what's happening, {{he}} just froze and won't respond",
+      "My {{son}}'s just stopped talking and is staring into nothing",
+      "{{He}}'s gone completely blank, I don't know what's happening to {{him}}",
+      "My {{son}}'s just zoned out, {{he}} won't answer me at all",
+      "Something odd's happening, {{he}}'s just staring, not responding",
+      "My {{son}}'s just gone still and quiet, staring at nothing",
+      "{{He}} stopped mid game and is just staring, I'm not sure what's wrong"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -82,90 +94,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My daughter's just staring into space, she's not responding to me at all",
-        "Something's wrong, she just stopped mid sentence and isn't answering"
+        "My {{son}}'s just staring into space, {{he}}'s not responding to me at all",
+        "Something's wrong, {{he}} just stopped mid sentence and isn't answering",
+        "My {{son}}'s gone really blank, {{he}}'s just staring and won't answer",
+        "I don't understand what's happening, {{he}} just froze and won't respond",
+        "My {{son}}'s just stopped talking and is staring into nothing",
+        "{{He}}'s gone completely blank, I don't know what's happening to {{him}}",
+        "My {{son}}'s just zoned out, {{he}} won't answer me at all",
+        "Something odd's happening, {{he}}'s just staring, not responding",
+        "My {{son}}'s just gone still and quiet, staring at nothing",
+        "{{He}} stopped mid game and is just staring, I'm not sure what's wrong"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "Erm, it's {{callerName}}",
+        "{{callerName}}, sorry, I'm a bit flustered",
+        "My name is, sorry, {{callerName}}",
+        "{{callerName}}, sorry, yes, {{callerName}}",
+        "It's {{callerName}}, sorry, what did you ask",
+        "{{callerName}}, sorry, I'm not thinking straight",
+        "Um, {{callerName}}",
+        "{{callerName}}, sorry, can you repeat that",
+        "It's, sorry, {{callerName}}",
+        "{{callerName}}, sorry, I'm a bit confused"
       ]
     },
     "patientName": {
       "answers": [
         "It's {{firstPatientName}}",
-        "{{firstPatientName}}, my daughter"
+        "{{His}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s my {{son}}",
+        "It's {{firstPatientName}}, sorry, I'm a bit shaken",
+        "{{firstPatientName}}, that's {{his}} name",
+        "{{He}}'s called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "It's {{firstPatientName}}, I'm {{his}} {{callerParent}}",
+        "{{firstPatientName}}, sorry, yes, {{firstPatientName}}",
+        "{{firstPatientName}}, please, what's happening to {{him}}"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, I'm with her"
+        "Erm, it's {{address}}",
+        "{{address}}, sorry, let me think, yes, {{address}}",
+        "We're at, sorry, {{address}}",
+        "The address, sorry, it's {{address}}",
+        "{{address}}, at home, sorry I'm flustered",
+        "It's {{address}}, sorry",
+        "Um, {{address}}",
+        "{{address}}, sorry, is that right, yes",
+        "Sorry, {{address}}",
+        "{{address}}, at home"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She just went blank, staring, not responding, it's been going on a couple of minutes",
-        "She stopped talking mid sentence and her eyes went vacant, she's not answering me"
+        "{{He}} just stopped talking mid sentence and started staring blankly",
+        "{{He}} went completely still and won't respond to anything I say",
+        "{{He}} was fine a minute ago and now {{he}}'s just staring into space",
+        "{{His}} eyes just went blank and {{he}} stopped answering me",
+        "{{He}} froze while we were talking and hasn't come round yet",
+        "{{He}} just blanked out, sorry, I don't really know what happened",
+        "{{He}} was playing and suddenly went completely still and quiet",
+        "{{He}} just stopped what {{he}} was doing and stared into nothing",
+        "It happened really suddenly, {{he}} just stopped responding",
+        "{{He}} went quiet and blank, it's happened before but not like this"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "She's sort of awake but not responding to me",
-        "Her eyes are open but she's not there"
+        "{{His}} eyes are open but {{he}}'s not responding to me",
+        "{{He}}'s sort of awake but not answering anything I say",
+        "{{He}}'s not responding properly, just staring",
+        "{{He}}'s conscious I think, eyes open, but not talking",
+        "{{He}}'s awake but completely blank, not responding",
+        "Sort of, {{his}} eyes are open but nothing's getting through",
+        "{{He}}'s not responding at all right now, eyes just staring",
+        "{{He}}'s there but not really with me, if that makes sense",
+        "{{He}}'s awake but not answering me at all",
+        "I'm not sure, {{he}}'s just staring and not reacting"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, breathing normally",
-        "Seems fine, breathing steady"
+        "Yes, {{he}}'s still breathing normally",
+        "{{He}}'s breathing fine, that's not the issue",
+        "Yes, breathing looks normal",
+        "{{His}} breathing seems okay to me",
+        "Yes, no problems with breathing that I can see",
+        "{{He}}'s breathing normally, just not responding",
+        "Yes, breathing's fine, it's the not responding that scares me",
+        "{{He}}'s breathing okay as far as I can tell",
+        "Yes, {{he}}'s breathing normally throughout this",
+        "No breathing problems, just the staring"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She's not saying anything, I don't think so",
-        "Can't tell, she's not responding"
+        "No, {{he}} doesn't seem to be in pain",
+        "No pain that I can see, {{he}} just seems blank",
+        "No, {{he}}'s not reacting like {{he}}'s in pain",
+        "Doesn't seem to be in pain, just unresponsive",
+        "No, {{he}} isn't showing any signs of pain",
+        "No pain that's obvious, just this staring",
+        "No, {{he}} doesn't seem uncomfortable, just blank",
+        "No signs of pain that I can tell",
+        "No, {{he}}'s not wincing or anything, just staring",
+        "No pain apparent, just this odd blankness"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No bleeding at all",
+        "No, nothing like that",
+        "No, no injuries, {{he}} just froze suddenly",
+        "No bleeding, {{he}}'s not hurt",
+        "No, there's no bleeding",
+        "No bleeding, {{he}} didn't fall or anything",
+        "No, {{he}}'s not injured",
+        "No bleeding, nothing like that at all",
+        "No, no injury, just this staring",
+        "No bleeding, {{he}}'s just unresponsive"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She's had these before, the doctor called them absence seizures",
-        "Yes, she's epileptic I think"
+        "{{He}}'s had something like this happen before, I think",
+        "No, nothing that I know of",
+        "{{He}} might have epilepsy, we've never had it confirmed",
+        "No history that I'm aware of",
+        "{{He}}'s never had anything like this before",
+        "I think a teacher mentioned something similar happened at school once",
+        "No, {{he}}'s generally healthy",
+        "{{He}} may have had something like this before, I'm not sure",
+        "No significant history that I know of",
+        "No, nothing's ever been diagnosed"
       ]
     },
     "medications": {
       "answers": [
-        "I think she has some medication but I'm not sure",
-        "Not sure, I'd have to check"
+        "No, {{he}} doesn't take anything",
+        "No medications that I know of",
+        "No, {{he}}'s not on any tablets",
+        "No, nothing regular",
+        "No medication that I'm aware of",
+        "No, {{he}} doesn't take any medicine",
+        "No, {{he}}'s not on anything",
+        "No medications, no",
+        "No, nothing at all",
+        "No, {{he}} isn't on any medication"
       ]
     },
     "patientAge": {
       "answers": [
-        "9"
+        "{{He}}'s nine",
+        "{{He}}'s about nine years old",
+        "{{He}}'s nine, just started year five",
+        "{{He}}'s nine years old",
+        "About nine, I think",
+        "{{He}}'s nine, {{he}} just had a birthday",
+        "{{He}}'s nine years old, {{he}}'s in primary school",
+        "Nine, {{he}} turned nine in the spring",
+        "{{He}}'s about nine",
+        "Just nine years old"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying right with her",
-        "She's starting to come round I think, still confused"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "I don't know, this is the first time it's lasted this long",
-        "Maybe, but I'm worried, should I still call one"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

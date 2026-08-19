@@ -45,6 +45,11 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -70,7 +75,15 @@
   "caller": {
     "openings": [
       "There's a baby locked in a car and it's really hot, the parent's outside panicking",
-      "I need the fire brigade, a child's shut in a car in this heat and can't get out"
+      "I need the fire brigade, a child's shut in a car in this heat and can't get out",
+      "Please hurry, there's a toddler locked in a car in the car park, it's boiling",
+      "There's a young child trapped in a car, the keys are locked inside with {{him}}",
+      "Fire brigade please, a little {{boy}}'s stuck in a hot car, {{he}}'s crying",
+      "Please send someone fast, a child's locked in a car and the parent can't get in",
+      "There's a baby stuck in the back of a car, it's really warm today",
+      "I need help, a small child's locked in a vehicle in the supermarket car park",
+      "Please hurry, a toddler's trapped in a car, the windows are all shut",
+      "There's a child locked in a car outside the shop, {{he}} seems distressed"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -83,78 +96,231 @@
     "start": {
       "answers": [
         "There's a baby locked in a car and it's really hot, the parent's outside panicking",
-        "I need the fire brigade, a child's shut in a car in this heat and can't get out"
+        "I need the fire brigade, a child's shut in a car in this heat and can't get out",
+        "Please hurry, there's a toddler locked in a car in the car park, it's boiling",
+        "There's a young child trapped in a car, the keys are locked inside with {{him}}",
+        "Fire brigade please, a little {{boy}}'s stuck in a hot car, {{he}}'s crying",
+        "Please send someone fast, a child's locked in a car and the parent can't get in",
+        "There's a baby stuck in the back of a car, it's really warm today",
+        "I need help, a small child's locked in a vehicle in the supermarket car park",
+        "Please hurry, a toddler's trapped in a car, the windows are all shut",
+        "There's a child locked in a car outside the shop, {{he}} seems distressed"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was walking past"
+        "It's {{callerName}}, I'm a member of the public here",
+        "{{callerName}}, I was walking past the car park",
+        "My name's {{callerName}}, I'm helping the parent right now",
+        "It's {{callerName}}, I've called from my mobile",
+        "{{callerName}} speaking, I'm stood by the car",
+        "Name's {{callerName}}, I work at the shop nearby",
+        "It's {{callerName}}, sorry, I'm trying to keep the parent calm",
+        "{{callerName}}, I'm a shopper, I noticed the child crying",
+        "This is {{callerName}}, I'm with the car right now",
+        "{{callerName}} here, I'll stay until help arrives"
       ]
     },
     "patientName": {
       "answers": [
-        "It's the mum's little one, {{firstPatientName}} she said his name is"
+        "The parent says {{his}} name's {{firstPatientName}}",
+        "{{He}}'s called {{firstPatientName}}, according to the parent",
+        "It's {{firstPatientName}}, that's what the parent told me",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s the little one in the car",
+        "The parent says it's {{firstPatientName}}",
+        "It's {{firstPatientName}}, the parent's very upset",
+        "{{He}}'s called {{firstPatientName}}, I've just asked the parent",
+        "Name's {{firstPatientName}}, according to the parent",
+        "It's {{firstPatientName}}, that's the child in the car",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s crying inside the car"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's in the car park outside"
+        "{{address}}, it's the car park",
+        "It's {{address}}, in the supermarket car park",
+        "{{address}}, come to the car park at the back",
+        "You want {{address}}, we're near the entrance",
+        "{{address}}, that's where the car's parked",
+        "{{address}}, please hurry, it's very hot today",
+        "{{address}}, that's confirmed, the car's near the trolley bay",
+        "{{address}}, come quickly, we're stood right by it",
+        "{{address}}, that's the location, please hurry",
+        "{{address}}, that's the car park, please come fast"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The car's locked with the child inside, keys are locked in too, it's warm out and he's getting distressed"
+        "The parent locked the keys in the car with the child still inside",
+        "The parent went to get a trolley and the car locked itself with the child in",
+        "The central locking activated somehow with the child still in the back",
+        "The parent's key fob seems to have failed and now the car won't unlock",
+        "The parent stepped away for a second and the doors locked automatically",
+        "It seems the fob's battery died and now the doors won't open",
+        "The parent says the car auto locked when the door was shut",
+        "The parent's locked out, the spare key's at home",
+        "It looks like the child locked the door from the inside by accident",
+        "Not sure exactly how, but the doors are locked and the child's inside"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's awake and crying, banging on the window"
+        "{{He}}'s conscious, crying quite a lot",
+        "{{He}}'s awake and clearly distressed",
+        "{{He}}'s conscious, banging on the window a bit",
+        "{{He}}'s awake, red faced and crying",
+        "{{He}}'s conscious but looks uncomfortable and hot",
+        "{{He}}'s awake, {{he}}'s crying out for the parent",
+        "{{He}}'s conscious, quite upset but responsive",
+        "{{He}}'s awake, {{he}} looks flushed from the heat",
+        "{{He}}'s conscious, crying but moving around fine",
+        "{{He}}'s awake, {{he}}'s clearly getting distressed by the heat"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He seems okay so far but it's warm in there and he's getting worked up"
+        "{{He}}'s breathing fine, just very upset",
+        "{{He}} seems to be breathing okay, just crying hard",
+        "{{He}}'s breathing normally as far as I can tell",
+        "{{He}} looks a bit flushed but breathing seems fine",
+        "{{He}}'s breathing okay, mostly just distressed",
+        "{{He}} seems fine breathing wise, just hot and upset",
+        "{{He}}'s breathing normally, crying quite loudly though",
+        "{{He}} looks okay breathing wise but is getting sweaty",
+        "{{He}}'s breathing fine, just very unhappy about being stuck",
+        "{{He}} seems to be breathing normally through the crying"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He doesn't seem hurt, just very upset"
+        "No pain that we can see, {{he}}'s just hot and upset",
+        "No, {{he}}'s not hurt, just distressed by the heat",
+        "{{He}} doesn't seem to be in pain, just crying",
+        "No injury, {{he}}'s just uncomfortable in the heat",
+        "No pain as far as we can tell, just very upset",
+        "{{He}}'s not hurt, just overheating and frightened",
+        "No, there's no injury, {{he}}'s just very warm and crying",
+        "{{He}} seems fine physically, just wants out of the car",
+        "No pain, {{he}}'s just getting more distressed by the minute",
+        "{{He}}'s not injured, just hot and scared"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, he's not injured"
+        "No, {{he}}'s not bleeding, {{he}}'s just locked in",
+        "No bleeding, {{he}}'s just hot and upset",
+        "No, there's no injury at all",
+        "No, {{he}}'s fine physically, just distressed",
+        "No bleeding, this is just about the heat and being trapped",
+        "No, nothing like that, just a locked door problem",
+        "No, {{he}}'s uninjured, just crying",
+        "No bleeding, {{he}}'s just very hot in there",
+        "No, {{he}}'s not hurt, just scared and warm",
+        "No, there's no bleeding, {{he}}'s just trapped"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "The mum says he's healthy, no conditions she's aware of"
+        "The parent doesn't know of anything, {{he}}'s healthy usually",
+        "The parent says {{he}} has no medical conditions",
+        "Not that the parent's aware of, {{he}}'s a healthy little one",
+        "The parent says no history of anything, {{he}}'s fit and well",
+        "Nothing that the parent's mentioned",
+        "The parent says {{he}}'s never had any health issues",
+        "No known conditions according to the parent",
+        "The parent says {{he}}'s perfectly healthy normally",
+        "Nothing flagged by the parent, {{he}}'s a well child",
+        "No history that the parent's aware of"
       ]
     },
     "medications": {
       "answers": [
-        "She says he's not on any medication"
+        "No, the parent says {{he}} doesn't take anything",
+        "None that the parent's mentioned",
+        "No medication, {{he}}'s not on anything",
+        "The parent says no, {{he}} doesn't take any medicine",
+        "No, nothing that the parent knows of",
+        "None, according to the parent",
+        "No medications, {{he}}'s a healthy child",
+        "The parent says {{he}} isn't on anything",
+        "No, {{he}} doesn't take any regular medication",
+        "None that we're aware of from the parent"
       ]
     },
     "patientAge": {
       "answers": [
-        "He's about two years old"
+        "{{He}}'s about two years old",
+        "{{He}}'s eighteen months, the parent says",
+        "{{He}}'s just turned three",
+        "{{He}}'s a baby, about ten months old",
+        "{{He}}'s two and a half, according to the parent",
+        "{{He}}'s around one years old",
+        "{{He}}'s three years old",
+        "{{He}}'s about eighteen months",
+        "{{He}}'s two, the parent just told me",
+        "{{He}}'s a young toddler, about two"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're talking to him through the glass to keep him calm"
+        "Okay, we're talking to {{him}} through the window to keep {{him}} calm",
+        "Understood, we're keeping the parent calm too, please hurry",
+        "Okay, we've got a bit of shade over the car with a blanket",
+        "Right, we'll keep talking to {{him}} through the glass",
+        "Okay, please hurry, {{he}}'s getting more upset",
+        "Understood, we're staying right here until you arrive",
+        "Okay, the parent's calmer now knowing help's coming",
+        "Right, we'll keep {{him}} as comfortable as we can till you arrive",
+        "Okay, thank you, please just get here quickly, it's very hot",
+        "Understood, we won't leave until the fire brigade gets here"
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's locked in a hot car, we need you here now"
+        "No, {{he}}'s locked in a hot car, this needs urgent help",
+        "No, this can't wait for that, please send someone now",
+        "No, {{he}} needs to be got out quickly, it's an emergency",
+        "No, please, this is too urgent for that",
+        "No, we need the fire brigade to get {{him}} out safely",
+        "No, this isn't something 111 can help with",
+        "No, please just send someone quickly, it's very hot",
+        "No, this needs an urgent response, not that",
+        "No, {{he}}'s a small child in a hot car, please hurry",
+        "No, please, we really need help now"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the fire brigade to get the door open",
+        "We don't need police, please just get the fire crew here fast",
+        "No, it's not a police matter, {{he}}'s just locked in, please hurry the fire brigade",
+        "I don't think we need them, please just send the fire crew quickly",
+        "No police needed, please, just the fire brigade, it's very hot in there",
+        "We don't need police, please hurry the fire crew instead",
+        "No, nothing like that's happened, please just get the fire brigade here",
+        "I don't think that's necessary, please just send the fire crew",
+        "No police, please, we just need the fire brigade urgently",
+        "We don't need them, please just get the fire crew here quickly"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry, {{he}}'s getting more upset",
+        "Good, please, how long will they be, it's so hot in there",
+        "Thank you, we're talking to {{him}} through the window, please hurry them",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we'll keep {{him}} calm, please hurry",
+        "Oh good, please send them quickly, {{he}}'s really overheating",
+        "Thank you, the parent's staying calm, please hurry them up",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, we need {{him}} out"
       ]
     }
   },

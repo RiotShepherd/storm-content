@@ -41,6 +41,10 @@
     "park"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -76,8 +80,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "She's come off her horse and hit her head on the ground, she's not making sense",
-      "I need an ambulance, she's been thrown from her horse and knocked her head badly"
+      "{{He}}'s come off {{his}} horse and hit {{his}} head on the ground, {{he}}'s not making sense.",
+      "I need an ambulance, {{he}}'s been thrown from {{his}} horse and knocked {{his}} head badly.",
+      "There's been a riding accident, {{he}}'s hit {{his}} head hard.",
+      "Please hurry, {{he}}'s come off {{his}} horse and {{he}}'s confused.",
+      "{{He}}'s been thrown from the horse, {{he}}'s hit {{his}} head on the ground.",
+      "Please send help, {{he}}'s had a bad fall from {{his}} horse.",
+      "{{He}} came off {{his}} horse badly and knocked {{himself}} out briefly.",
+      "There's been an accident on the bridleway, {{he}}'s hit {{his}} head.",
+      "Please hurry, {{he}}'s fallen from {{his}} horse and {{he}}'s not right.",
+      "{{He}}'s been thrown off {{his}} horse, {{he}}'s dazed and confused now."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -89,82 +101,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "She's come off her horse and hit her head on the ground, she's not making sense",
-        "I need an ambulance, she's been thrown from her horse and knocked her head badly"
+        "{{He}}'s come off {{his}} horse and hit {{his}} head on the ground, {{he}}'s not making sense.",
+        "I need an ambulance, {{he}}'s been thrown from {{his}} horse and knocked {{his}} head badly.",
+        "There's been a riding accident, {{he}}'s hit {{his}} head hard.",
+        "Please hurry, {{he}}'s come off {{his}} horse and {{he}}'s confused.",
+        "{{He}}'s been thrown from the horse, {{he}}'s hit {{his}} head on the ground.",
+        "Please send help, {{he}}'s had a bad fall from {{his}} horse.",
+        "{{He}} came off {{his}} horse badly and knocked {{himself}} out briefly.",
+        "There's been an accident on the bridleway, {{he}}'s hit {{his}} head.",
+        "Please hurry, {{he}}'s fallen from {{his}} horse and {{he}}'s not right.",
+        "{{He}}'s been thrown off {{his}} horse, {{he}}'s dazed and confused now."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was riding with her",
-        "{{callerName}}"
+        "It's {{callerName}}, I was riding with {{him}}.",
+        "{{callerName}}, I was riding with {{him}}.",
+        "My name's {{callerName}}, I was riding with {{him}}.",
+        "{{callerName}} here, I was riding with {{him}}.",
+        "It's {{callerName}} speaking, I was riding with {{him}}.",
+        "You can put me down as {{callerName}}, I was riding with {{him}}.",
+        "{{callerName}}. I was riding with {{him}}.",
+        "It's {{callerName}}, I was riding with {{him}}, please hurry.",
+        "{{callerName}}, that's me, I was riding with {{him}}.",
+        "It's {{callerName}}, I was riding with {{him}}, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, the rider I was out with.",
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's the rider I was out with.",
+        "{{He}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}} is the rider I was out with.",
+        "The name's {{firstPatientName}}.",
+        "{{firstPatientName}}, the rider I was out with, please hurry.",
+        "It's {{firstPatientName}}, the rider I was out with.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, that's what {{he}} goes by."
       ]
     },
     "address": {
       "answers": [
-        "We're on the bridleway near {{address}}",
-        "{{address}}"
+        "We're at {{address}}, we're out on the bridleway.",
+        "It's {{address}}, we're out on the bridleway.",
+        "{{address}}, we're out on the bridleway.",
+        "The address is {{address}}, we're out on the bridleway.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, we're out on the bridleway.",
+        "{{address}} is where we are, we're out on the bridleway.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The horse spooked and threw her, she landed hard on her head, we're out on the bridleway"
+        "The horse spooked and threw {{him}}, {{he}} landed hard on {{his}} head, we're out on the bridleway.",
+        "{{His}} horse bolted and {{he}} came off, hitting {{his}} head on the ground.",
+        "The horse reared up and {{he}} was thrown off, landing on {{his}} head.",
+        "Something spooked the horse and {{he}} came off badly, hit {{his}} head hard.",
+        "{{His}} horse stumbled and {{he}} was thrown, {{he}} landed on {{his}} head.",
+        "The horse shied suddenly and {{he}} came off, {{his}} head took the impact.",
+        "{{He}} lost {{his}} balance when the horse spooked and hit {{his}} head on landing.",
+        "The horse bucked and {{he}} was thrown clear, hitting {{his}} head on the ground.",
+        "{{His}} horse spooked at something and {{he}} came off hard, hit {{his}} head.",
+        "The horse jolted and {{he}} came off, landing awkwardly on {{his}} head."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "She was knocked out for a minute, now she's awake but confused"
+        "{{He}} was knocked out for a minute, now {{he}}'s awake but confused.",
+        "{{He}} was unconscious briefly, {{he}}'s awake now but not making sense.",
+        "{{He}} blacked out for a moment, now {{he}}'s conscious but dazed.",
+        "{{He}} was out cold for a bit, {{he}}'s awake now but confused.",
+        "{{He}} lost consciousness briefly, {{he}}'s come round but is muddled.",
+        "{{He}} was unresponsive for a minute, {{he}}'s awake now but disoriented.",
+        "{{He}} knocked {{himself}} out for a short time, {{he}}'s conscious but confused.",
+        "{{He}} was out for a minute or so, now {{he}}'s awake but not quite right.",
+        "{{He}} lost consciousness for a bit, {{he}}'s awake but very dazed.",
+        "{{He}} was knocked out briefly, {{he}}'s conscious now but confused."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Normal, no concerns there.",
+        "Fine, nothing worrying about {{his}} breathing.",
+        "It's fine, {{he}}'s just confused from the fall.",
+        "Normal breathing, no issues.",
+        "Fine, no problems at all.",
+        "Steady, nothing unusual.",
+        "It's fine, no changes noted.",
+        "Normal, no concerns whatsoever.",
+        "Breathing's fine, it's {{his}} head we're worried about."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her head and neck hurt"
+        "{{He}} says {{his}} head and neck hurt.",
+        "{{He}}'s complaining of pain in {{his}} head and neck.",
+        "{{He}} says {{his}} neck's sore along with {{his}} head.",
+        "{{He}}'s in pain, mainly {{his}} head and neck.",
+        "{{He}} says {{his}} head's throbbing and {{his}} neck aches.",
+        "{{He}}'s saying {{his}} head and neck really hurt.",
+        "{{He}} complains of pain across {{his}} head and neck.",
+        "{{He}} says the pain's in {{his}} head, and {{his}} neck too.",
+        "{{He}}'s in obvious pain, {{his}} head and neck especially.",
+        "{{He}} says {{his}} neck and head are both hurting badly."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A graze on her head, not too heavy"
+        "A graze on {{his}} head, not too heavy.",
+        "Yes, a graze on {{his}} head, minor bleeding.",
+        "There's a small graze on {{his}} head, not much blood.",
+        "A bit of bleeding from a graze on {{his}} head.",
+        "{{His}} head's grazed and bleeding lightly.",
+        "Yes, minor bleeding from a graze on {{his}} scalp.",
+        "There's a graze on {{his}} head, light bleeding.",
+        "Yes, a small amount of blood from a graze on {{his}} head.",
+        "A minor graze on {{his}} head, not heavy bleeding.",
+        "Yes, {{he}}'s got a light graze on {{his}} head, minor bleeding."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "None that I know of"
+        "None that I know of.",
+        "Nothing, {{he}}'s usually fit and well.",
+        "Not that I know of, {{he}}'s an experienced rider.",
+        "Nothing I'm aware of.",
+        "No, nothing that {{he}}'s mentioned to me.",
+        "Not that I know, {{he}}'s pretty healthy usually.",
+        "Nothing comes to mind, no.",
+        "No idea, {{he}}'s never had issues that I know of.",
+        "Nothing that I'm aware of, no.",
+        "No, nothing {{he}}'s ever mentioned to me."
       ]
     },
     "medications": {
       "answers": [
-        "None that I know of"
+        "None that I know of.",
+        "No idea, I don't think so.",
+        "Not that I'm aware of.",
+        "No, nothing that I know of.",
+        "I don't think {{he}} takes anything regularly.",
+        "None as far as I know.",
+        "No idea, {{he}}'s never mentioned any.",
+        "Not that I know of, no.",
+        "I don't believe so.",
+        "None that {{he}}'s told me about."
       ]
     },
     "patientAge": {
       "answers": [
-        "17"
+        "17",
+        "About 17",
+        "17, I think",
+        "{{He}}'s 17 years old",
+        "I believe {{he}}'s 17",
+        "Just turned 17 I think",
+        "17, same age as always",
+        "Around 17, give or take",
+        "{{He}} is 17",
+        "I'd say 17 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "We've not moved her, kept her still"
+        "We've not moved {{him}}, kept {{him}} still.",
+        "Okay, we're keeping {{him}} still on the ground.",
+        "Right, we've caught the horse and it's well away from {{him}}.",
+        "Okay, we won't move {{him}} until they arrive.",
+        "Understood, we're keeping {{him}} calm and still.",
+        "Okay, I'm staying with {{him}} out here on the bridleway.",
+        "Right, we've kept {{his}} head and neck supported.",
+        "Okay, we're keeping {{him}} as still as possible.",
+        "Understood, we'll wait here until help arrives.",
+        "Okay, we've moved the horse away and are staying with {{him}}."
       ]
     },
     "refer111": {
       "answers": [
-        "No, she was knocked out, she needs an ambulance"
+        "No, {{he}} was knocked out, {{he}} needs an ambulance.",
+        "No, please, {{he}} lost consciousness, this can't wait.",
+        "No, I really think this needs an ambulance given {{he}} blacked out.",
+        "No, {{he}}'s out on the bridleway and confused, please hurry.",
+        "No, please send someone, {{he}} was unconscious for a bit.",
+        "No, this is too serious for a call back, please hurry.",
+        "No, I don't think 111 is right given {{he}} was knocked out.",
+        "No, please, {{he}}'s confused and we're remote out here.",
+        "No, please send an ambulance, I think every minute counts.",
+        "No, I really believe this needs urgent attention."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

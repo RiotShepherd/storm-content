@@ -47,6 +47,11 @@
     "aerial": 1,
     "fire_officer": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 6
+  },
   "patients": {
     "range": [
       4,
@@ -119,7 +124,14 @@
     "openings": [
       "There's been a crash on one of the rides, several people are badly hurt",
       "I need the fire brigade and ambulance urgently, two cars on the ride have collided, there's casualties everywhere",
-      "Please hurry, the ride's crashed, I can see people not moving"
+      "Please hurry, the ride's crashed, I can see people not moving",
+      "We've had a collision on the roller coaster, several riders are injured",
+      "Fire brigade and ambulance please urgently, two carriages have hit each other on the ride",
+      "There's been a serious crash on the ride, we've stopped it but people are hurt",
+      "Please send everyone you can, the ride's crashed and there's a lot of casualties",
+      "We've an emergency on the ride, cars collided at speed, riders are injured badly",
+      "Fire brigade urgently please, the ride mechanism's stopped but people are trapped in the cars",
+      "There's been a bad accident on the ride, several people are hurt and can't move"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -133,78 +145,230 @@
       "answers": [
         "There's been a crash on one of the rides, several people are badly hurt",
         "I need the fire brigade and ambulance urgently, two cars on the ride have collided, there's casualties everywhere",
-        "Please hurry, the ride's crashed, I can see people not moving"
+        "Please hurry, the ride's crashed, I can see people not moving",
+        "We've had a collision on the roller coaster, several riders are injured",
+        "Fire brigade and ambulance please urgently, two carriages have hit each other on the ride",
+        "There's been a serious crash on the ride, we've stopped it but people are hurt",
+        "Please send everyone you can, the ride's crashed and there's a lot of casualties",
+        "We've an emergency on the ride, cars collided at speed, riders are injured badly",
+        "Fire brigade urgently please, the ride mechanism's stopped but people are trapped in the cars",
+        "There's been a bad accident on the ride, several people are hurt and can't move"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm a member of the ride staff"
+        "It's {{callerName}}, I'm the ride operator",
+        "{{callerName}}, I'm park security, I saw it happen",
+        "My name's {{callerName}}, I'm the duty manager for this ride",
+        "It's {{callerName}}, I've stopped the ride and I'm with the injured",
+        "{{callerName}} speaking, I'm coordinating first aid here",
+        "Name's {{callerName}}, I work at the park",
+        "It's {{callerName}}, please hurry, I'm trying to help several people",
+        "{{callerName}}, I'm a first aider on site",
+        "This is {{callerName}}, I'm at the ride exit now",
+        "{{callerName}} here, please send everyone you can"
       ]
     },
     "patientName": {
       "answers": [
-        "There's several riders hurt, I don't have all their names yet"
+        "There's several, one's called {{firstPatientName}}",
+        "One's {{patientName}}, {{he}}'s the worst hurt that I can see",
+        "I don't know all their names, but one's {{firstPatientName}}",
+        "There's a few casualties, {{firstPatientName}}'s one of them",
+        "One's called {{firstPatientName}}, {{he}}'s not moving",
+        "I've got {{firstPatientName}} here, {{he}}'s conscious but hurt",
+        "There's multiple people, {{firstPatientName}} is one, others I don't know",
+        "One's {{firstPatientName}}, staff are with the others too",
+        "I can only confirm {{firstPatientName}} right now, there's more casualties",
+        "It's {{firstPatientName}} nearest me, others are further along the ride"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the theme park, follow the main path to the ride area"
+        "{{address}}, it's the theme park",
+        "It's {{address}}, come through the staff gate",
+        "{{address}}, we'll have security waiting to guide you",
+        "You want {{address}}, the ride's near the main entrance",
+        "{{address}}, please hurry, come through the service road",
+        "{{address}}, that's confirmed, staff are directing traffic",
+        "{{address}}, the theme park, please hurry",
+        "{{address}}, that's us, the ride's at the back of the park",
+        "{{address}}, come to the staff entrance, it's quicker",
+        "{{address}}, please, we need help fast"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Two of the ride cars collided, several riders are hurt, some are trapped in the wreckage"
+        "Two cars on the ride collided head on at speed",
+        "The braking system failed and one car ran into the back of another",
+        "Not fully clear yet, but two carriages crashed into each other",
+        "We think a sensor fault caused the cars to collide",
+        "One car didn't slow in time and hit the one ahead of it",
+        "The ride malfunctioned somehow and two cars collided",
+        "Not certain of the cause, but the impact was significant",
+        "We believe a mechanical fault caused the collision",
+        "Two cars met at a junction on the track that should never happen",
+        "We're not sure exactly what failed, but the crash was serious"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "A few are conscious and shouting, but a couple aren't responding"
+        "Some are conscious and talking, others aren't responding",
+        "A few are awake and shouting, at least one isn't moving",
+        "Most are conscious, one person's not responding at all",
+        "Some are talking to us, a couple aren't responding",
+        "A number are awake but dazed, one or two aren't moving",
+        "Several are conscious, at least one appears unconscious",
+        "Most are awake, one person's completely still",
+        "Some are responsive, others are not, it's hard to tell with all of them",
+        "A few are conscious and in pain, one's not responding",
+        "Most seem awake, staff are checking the ones who aren't moving"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Some are struggling to breathe, one seems to have gone very quiet"
+        "Most seem to be breathing, we're checking the ones that aren't moving",
+        "As far as we can tell they're breathing, hard to check everyone at once",
+        "Some are breathing fine, we're worried about the ones not responding",
+        "Most look okay breathing wise, we're focused on the worst ones",
+        "We think they're breathing, staff are checking each one now",
+        "Most are breathing normally, a couple we're not sure about",
+        "As far as we can see they're breathing, it's chaotic up here",
+        "We believe most are breathing, staff are checking the unresponsive ones",
+        "Most seem fine, we're concentrating on the ones who aren't moving",
+        "We think everyone's breathing but we need help checking properly"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "The conscious ones are in severe pain, screaming about their necks and legs"
+        "Several are in a lot of pain, mostly legs and backs",
+        "There's various injuries, neck and back pain reported",
+        "A few are screaming in pain, mostly from the impact",
+        "Multiple people report neck and shoulder pain",
+        "Some have visible injuries, others complain of back pain",
+        "There's a range of injuries, head and neck pain mostly",
+        "Several are in obvious pain, we've told them not to move",
+        "A few report chest pain from the seatbelts locking hard",
+        "Multiple casualties in pain, we're keeping them still",
+        "There's a lot of pain being reported, mostly upper body"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's blood, a few visible injuries"
+        "A couple have visible cuts, bleeding from the impact",
+        "Yes, one or two are bleeding from head injuries",
+        "There's some bleeding, mostly cuts from the collision",
+        "A few have blood on them, cuts and grazes mostly",
+        "Yes, one's bleeding from a head wound",
+        "There's minor bleeding on a couple of them",
+        "One's bleeding quite a bit from a cut on the head",
+        "A couple have cuts bleeding, we're applying pressure",
+        "Yes, some bleeding from the impact injuries",
+        "There's bleeding on at least two of the casualties"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know any of them personally, I can't say"
+        "I don't know these people, sorry, they're members of the public",
+        "No idea, we don't hold medical details on visitors",
+        "Sorry, I can't tell you, they're just riders",
+        "No idea of any history, we don't know these people",
+        "I couldn't say, sorry, they're all park guests",
+        "No idea, we've no records on any of them",
+        "Sorry, we don't have that information for visitors",
+        "No idea, staff are just doing what they can right now",
+        "I can't tell you, sorry, we don't know their backgrounds",
+        "No idea, sorry, this information isn't something we hold"
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea, sorry"
+        "I don't know, sorry, they're members of the public",
+        "No idea, we don't hold that information on visitors",
+        "Sorry, I can't tell you anything about that",
+        "No idea, we don't know these people",
+        "I couldn't say, sorry",
+        "No idea, we've no records on any of them",
+        "Sorry, we don't have that information",
+        "No idea at all, sorry",
+        "I can't tell you, sorry, we don't know their details",
+        "No idea, sorry, this isn't something we'd know"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mixed ages, I saw a few younger ones and some adults"
+        "Mixed ages, from teenagers to adults in their forties",
+        "There's a range, some look like teenagers, others older",
+        "Hard to say exactly, mostly seem to be adults and teens",
+        "A mix, some quite young, others middle aged",
+        "There's a range of ages, families were riding together",
+        "Mostly adults and teenagers as far as I can tell",
+        "A wide range, from young teens up to older adults",
+        "Mixed group, some children, mostly adults though",
+        "There's a spread of ages, hard to say exactly for each one",
+        "Various ages, it was a family ride so quite mixed"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've stopped the ride and staff are with them, trying not to move anyone"
+        "Okay, we've stopped the ride completely and staff are with everyone",
+        "Understood, first aiders are already working through the casualties",
+        "Okay, we're keeping everyone still and calm as best we can",
+        "Right, we've cleared the area around the ride for access",
+        "Okay, please hurry, we've got a lot of people to look after",
+        "Understood, we're doing what we can until help arrives",
+        "Okay, we've got staff comforting the less injured ones",
+        "Right, we'll keep the access route clear for your crews",
+        "Okay, thank you, please just get here as quickly as you can",
+        "Understood, we're staying with everyone until you arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is major, people are trapped and not moving, we need everyone"
+        "No, there's multiple serious injuries, this needs ambulances now",
+        "No, absolutely not, this is a major incident",
+        "No, please, we need proper emergency help urgently",
+        "No, this can't wait, people are seriously hurt",
+        "No, this is far too serious for that",
+        "No, please just send everyone you can",
+        "No, we need paramedics here right now",
+        "No, this needs an emergency response, not that",
+        "No, there's too many casualties for that",
+        "No, please, just get help here as fast as possible"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh good, please, we need help keeping the crowd back from the ride",
+        "Thank you, yes, there's a lot of people trying to see what's happened",
+        "Good, please send them quick, we need help controlling everyone here",
+        "Thank you, that's a relief, we can't manage the crowd and the injured together",
+        "Oh good, yes please, visitors keep trying to get close",
+        "Thank you, please hurry them, we need the area kept clear for the ambulances",
+        "Good, yes, we really need that, it's getting chaotic near the ride",
+        "Thank you, please, we're struggling to keep everyone back",
+        "Oh good, that's needed, please send them as fast as you can",
+        "Thank you, yes please, we need help managing the crowd here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry",
+        "Good, please, how long will they be",
+        "Thank you, we're doing what we can, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we'll keep everyone still, please hurry",
+        "Oh good, please send them quickly, people are in a bad way",
+        "Thank you, first aiders are working through the casualties, please hurry them up",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, we've got a lot of people hurt"
       ]
     }
   },

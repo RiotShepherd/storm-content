@@ -50,6 +50,11 @@
     "aerial": 1,
     "rescue_unit": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 4,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -76,8 +81,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's a man stuck up an electricity mast, I think he's been shocked",
-      "I need help, a colleague's fallen or been shocked up the mast, he's not moving right"
+      "There's a {{man}} stuck up an electricity mast, I think {{he}}'s been shocked.",
+      "I need help, a colleague's fallen or been shocked up the mast, {{he}}'s not moving right.",
+      "One of our engineers is stuck up the mast, {{he}} might have touched a live line.",
+      "{{He}}'s not moving properly up the mast, we think {{he}}'s been electrocuted.",
+      "Please hurry, {{he}}'s hanging in {{his}} harness up the mast, not responding much.",
+      "There's been an accident up the mast, {{he}}'s hurt and we can't reach {{him}}.",
+      "A worker's collapsed up the high voltage mast, we daren't touch anything near it.",
+      "{{He}}'s either fallen or been shocked working on the mast, {{he}}'s stuck up there.",
+      "I need the fire brigade and an ambulance, someone's hurt up the electricity mast.",
+      "There's a {{man}} up the mast who's gone limp in {{his}} harness, please send help."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -89,82 +102,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's a man stuck up an electricity mast, I think he's been shocked",
-        "I need help, a colleague's fallen or been shocked up the mast, he's not moving right"
+        "There's a {{man}} stuck up an electricity mast, I think {{he}}'s been shocked.",
+        "I need help, a colleague's fallen or been shocked up the mast, {{he}}'s not moving right.",
+        "One of our engineers is stuck up the mast, {{he}} might have touched a live line.",
+        "{{He}}'s not moving properly up the mast, we think {{he}}'s been electrocuted.",
+        "Please hurry, {{he}}'s hanging in {{his}} harness up the mast, not responding much.",
+        "There's been an accident up the mast, {{he}}'s hurt and we can't reach {{him}}.",
+        "A worker's collapsed up the high voltage mast, we daren't touch anything near it.",
+        "{{He}}'s either fallen or been shocked working on the mast, {{he}}'s stuck up there.",
+        "I need the fire brigade and an ambulance, someone's hurt up the electricity mast.",
+        "There's a {{man}} up the mast who's gone limp in {{his}} harness, please send help."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I work with him",
-        "{{callerName}}"
+        "It's {{callerName}}, I work with {{him}}.",
+        "{{callerName}}, I work with {{him}}.",
+        "My name's {{callerName}}, I work with {{him}}.",
+        "{{callerName}} here, I work with {{him}}.",
+        "It's {{callerName}} speaking, I work with {{him}}.",
+        "You can put me down as {{callerName}}, I work with {{him}}.",
+        "{{callerName}}. I work with {{him}}.",
+        "It's {{callerName}}, I work with {{him}}, please hurry.",
+        "{{callerName}}, that's me, I work with {{him}}.",
+        "It's {{callerName}}, I work with {{him}}, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, he's one of our engineers",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, one of our engineers.",
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's one of our engineers.",
+        "{{He}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}} is one of our engineers.",
+        "The name's {{firstPatientName}}.",
+        "{{firstPatientName}}, one of our engineers, please hurry.",
+        "It's {{firstPatientName}}, one of our engineers.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, that's what {{he}} goes by."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, by the mast access gate",
-        "{{address}}"
+        "We're at {{address}}, by the mast access gate.",
+        "It's {{address}}, by the mast access gate.",
+        "{{address}}, by the mast access gate.",
+        "The address is {{address}}, by the mast access gate.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, by the mast access gate.",
+        "{{address}} is where we are, by the mast access gate.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He was doing maintenance work up the mast and he's either fallen or been electrocuted, he's not moving properly"
+        "{{He}} was doing maintenance up the mast and {{he}}'s either fallen or been electrocuted.",
+        "{{He}} was working near the live conductors and something's gone wrong, {{he}}'s not moving right.",
+        "There was a flash and a bang, and now {{he}}'s hanging in {{his}} harness not responding.",
+        "{{He}} climbed up to check the equipment and then went quiet, we think {{he}}'s been shocked.",
+        "{{He}} was harnessed in doing a routine check, then {{he}} suddenly went limp.",
+        "We heard a shout and then nothing, {{he}}'s slumped in {{his}} harness up the mast.",
+        "{{He}} touched something {{he}} shouldn't have near the live section, {{he}}'s hurt now.",
+        "{{He}} may have slipped and hit part of the structure on the way, {{he}}'s not right.",
+        "{{He}} was up doing inspection work when {{he}} went quiet on the radio.",
+        "{{He}}'s stuck up the mast, we're not sure if it's the fall or the electricity."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious, shouting down to us"
+        "{{He}}'s conscious, shouting down to us.",
+        "Yes, {{he}}'s awake but sounds dazed.",
+        "{{He}}'s responding but only just, mumbling something.",
+        "{{He}}'s conscious, {{he}} can hear us but seems confused.",
+        "Yes, {{he}}'s awake, gripping the harness still.",
+        "{{He}}'s just about conscious, talking a little.",
+        "{{He}}'s awake but not making much sense.",
+        "{{He}} responded when we shouted up, so yes, conscious.",
+        "{{He}}'s conscious but very shaken.",
+        "Yes, {{he}}'s aware but struggling to answer properly."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Seems okay as far as we can tell"
+        "Seems okay as far as we can tell from down here.",
+        "{{He}} looks like {{he}}'s breathing fine.",
+        "We can't tell exactly, but {{his}} chest is moving.",
+        "It looks normal from what we can see.",
+        "Hard to say from here, but {{he}} seems to be breathing.",
+        "Looks steady, no obvious struggle from down here.",
+        "We think {{he}}'s breathing okay, hard to be certain.",
+        "As far as we can see it's fine.",
+        "{{He}} seems to be breathing normally, from what we can tell.",
+        "Looks alright, {{he}}'s not gasping or anything."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says his arm's in agony"
+        "{{He}} says {{his}} arm's in agony.",
+        "{{He}} shouted that {{his}} hand's badly hurt.",
+        "{{He}} says {{his}} side hurts where {{he}} knocked it.",
+        "{{He}}'s in pain, holding {{his}} arm awkwardly.",
+        "{{He}} says it's {{his}} shoulder and arm hurting most.",
+        "{{He}}'s shouting that {{his}} hand feels burnt and sore.",
+        "{{He}} says the pain's bad down {{his}} arm.",
+        "{{He}}'s in a lot of pain, {{he}} keeps saying {{his}} arm.",
+        "{{He}} says {{his}} chest feels tight and painful.",
+        "{{He}} says it's mostly {{his}} arm and shoulder."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No visible bleeding"
+        "No visible bleeding.",
+        "We can't see any blood from down here.",
+        "None that we can see, no.",
+        "No bleeding visible, just the harness holding {{him}}.",
+        "Doesn't look like it, no blood we can spot.",
+        "No, no bleeding as far as we can tell.",
+        "None visible from ground level.",
+        "We haven't seen any blood.",
+        "No, doesn't look like {{he}}'s bleeding.",
+        "Nothing visible, no."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, I'll ask his supervisor"
+        "I don't know, I'll ask {{his}} supervisor.",
+        "No idea, I'm not sure who'd know that.",
+        "I don't have that information, sorry.",
+        "I'll check with HR, I don't know offhand.",
+        "I couldn't tell you, I only work alongside {{him}}.",
+        "I don't know {{his}} medical history I'm afraid.",
+        "No idea, someone in the office might know.",
+        "I'm not sure, we've never discussed it.",
+        "I don't know, sorry, I'll find out.",
+        "Can't say, I don't have that information."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, sorry"
+        "I don't know, sorry.",
+        "No idea, I'm not aware of any.",
+        "I couldn't tell you.",
+        "Not that I know of.",
+        "I don't have that information, sorry.",
+        "No idea, sorry.",
+        "I'm not sure, I don't know {{him}} that well.",
+        "Can't say, sorry.",
+        "I don't know if {{he}} takes anything.",
+        "No idea I'm afraid."
       ]
     },
     "patientAge": {
       "answers": [
-        "He looks about 35"
+        "{{He}} looks about 35.",
+        "I'd guess mid thirties.",
+        "Maybe 35, thereabouts.",
+        "I'm not certain, thirty-five ish.",
+        "Around 35 I'd say.",
+        "Hard to say exactly, mid thirties looks right.",
+        "I think {{he}}'s about 35.",
+        "Somewhere in {{his}} mid thirties.",
+        "I'd guess 35, could be a bit older.",
+        "Roughly 35, I'm not sure exactly."
       ]
     },
     "reassure": {
       "answers": [
-        "We've not touched the mast, we know it's live"
+        "We've not touched the mast, we know it's live.",
+        "Okay, we're keeping everyone well clear of the base.",
+        "Understood, we won't go near the structure.",
+        "Okay, we've called the electricity company as well.",
+        "Right, we'll stay back and wait for the crews.",
+        "Okay, no one's approaching the mast, we know the risk.",
+        "Understood, we're keeping the area clear.",
+        "Okay, we'll keep watching {{him}} from a safe distance.",
+        "Right, we've warned everyone else to stay away.",
+        "Okay, we'll wait here and not touch anything."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need an ambulance, he's stuck up there"
+        "No, please, this can't wait for a call back.",
+        "No, I really think this needs an ambulance now.",
+        "Please no, {{he}} needs help now, not a phone call.",
+        "No, this is an emergency, we need someone now.",
+        "I don't think that's right, {{he}}'s really not well.",
+        "No, please send someone now, I'm begging you.",
+        "That doesn't sound right, this is urgent.",
+        "No, we can't wait for that, please send an ambulance.",
+        "Please, no, {{he}} needs help straight away.",
+        "No, I really think this is serious, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes please, we can't get {{him}} down safely ourselves.",
+        "Thank goodness, we need someone with the right gear to get {{him}} down.",
+        "Okay, please hurry, we're worried about the power still being live.",
+        "Yes, we need the rescue crews for the mast, this is beyond us.",
+        "Thank you, {{he}}'s too high for us to reach safely.",
+        "Okay, that's what we need, we can't risk going up ourselves.",
+        "Yes please, and can they check the power's isolated first.",
+        "Thank you, please send the aerial crew, {{he}}'s right at the top.",
+        "Okay, good, we've been too scared to go near it.",
+        "Yes, please hurry, we don't know how long {{he}}'s been up there."
       ]
     }
   },

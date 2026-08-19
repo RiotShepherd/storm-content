@@ -54,6 +54,12 @@
     "basu": 1,
     "fire_officer": 8
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 30,
+    "ambulance": 5,
+    "police": 10
+  },
   "patients": {
     "range": [
       0,
@@ -116,8 +122,16 @@
   ],
   "caller": {
     "openings": [
-      "Major fire in the multi-storey car park, cars are exploding and people are trapped on the upper levels",
-      "Fire brigade, the car park's on fire, it's spread across several levels, please send everyone"
+      "Fire brigade, major fire in the multi storey car park, there's smoke everywhere",
+      "It's the car park on the high street, cars are exploding, please hurry",
+      "There's a huge fire in the multi storey, some people can't get down the stairwell",
+      "Fire brigade please, the car park's well alight and I can hear tyres bursting",
+      "Help, there's a fire in the multi storey car park, people are trapped on the upper decks",
+      "This is a major fire in the car park, smoke's filling the whole structure",
+      "Please send everyone, it's the multi storey, cars are going up one after another",
+      "There's a fire spreading through the car park, some of us got out but not everyone",
+      "Fire brigade, the multi storey's on fire, I think someone's still stuck up there",
+      "Please hurry, it's the car park by the shops, the fire's spreading fast between levels"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -129,81 +143,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Major fire in the multi-storey car park, cars are exploding and people are trapped on the upper levels",
-        "Fire brigade, the car park's on fire, it's spread across several levels, please send everyone"
+        "Fire brigade, major fire in the multi storey car park, there's smoke everywhere",
+        "It's the car park on the high street, cars are exploding, please hurry",
+        "There's a huge fire in the multi storey, some people can't get down the stairwell",
+        "Fire brigade please, the car park's well alight and I can hear tyres bursting",
+        "Help, there's a fire in the multi storey car park, people are trapped on the upper decks",
+        "This is a major fire in the car park, smoke's filling the whole structure",
+        "Please send everyone, it's the multi storey, cars are going up one after another",
+        "There's a fire spreading through the car park, some of us got out but not everyone",
+        "Fire brigade, the multi storey's on fire, I think someone's still stuck up there",
+        "Please hurry, it's the car park by the shops, the fire's spreading fast between levels"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was parking up when it started"
+        "It's {{callerName}}, I'd just parked when I saw the smoke",
+        "{{callerName}}, I was walking back to my car when it started",
+        "It's {{callerName}}, I'm stood outside the car park now",
+        "{{callerName}} here, I got out down the stairwell",
+        "It's {{callerName}}, I was on the third level when the alarm went",
+        "My name's {{callerName}}, I called as soon as I got clear",
+        "It's {{callerName}}, I'm one of the people who managed to get out",
+        "{{callerName}} speaking, I'm stood well back from the entrance",
+        "It's {{callerName}}, I was near the ramp when the cars started catching",
+        "{{callerName}}, I'm outside now, watching the smoke from the street"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know who, but there's people trapped up on the higher levels, I can hear them"
+        "There's a colleague of mine, {{firstPatientName}}, {{he}} got caught in the smoke on the stairs",
+        "It's {{firstPatientName}}, {{he}} was a level up from me when it started",
+        "{{firstPatientName}}, I don't know {{him}} well, {{he}} was just parked near me",
+        "It's {{firstPatientName}}, {{he}}'s struggling to breathe after the smoke",
+        "There's a few of us out here, but {{firstPatientName}}'s the one worst affected",
+        "{{firstPatientName}}, {{he}} came down the stairs behind me, coughing badly",
+        "It's {{firstPatientName}}, {{he}} was near the cars when they caught",
+        "{{firstPatientName}}'s the one that needs help most, others are shaken but okay",
+        "It's {{firstPatientName}}, I don't know {{him}} personally, just another driver",
+        "{{firstPatientName}}, {{he}}'s sat on the kerb, really struggling with the smoke"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the multi-storey car park, use the pedestrian entrance",
-        "It's {{address}}, the car park by the shopping centre"
+        "{{address}}, the multi storey car park on the high street",
+        "It's {{address}}, come round to the main vehicle entrance",
+        "{{address}}, the pedestrian stairwell is on the side street",
+        "It's {{address}}, you'll see the smoke from a distance",
+        "{{address}}, the car park's next to the shopping precinct",
+        "It's {{address}}, the ramp entrance is off the main road",
+        "{{address}}, I'm stood outside the ground floor entrance",
+        "It's {{address}}, please hurry, there's people still up on the higher levels",
+        "{{address}}, the ticket office is by the main entrance",
+        "It's {{address}}, security are trying to direct people out"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A car caught fire on one of the middle levels and it's spread to other vehicles, there's a lot of smoke trapped inside the structure"
+        "A car caught fire on one of the upper levels and it's spread to the cars parked either side",
+        "It started with one vehicle and now several cars are alight, the smoke's filling the structure",
+        "No idea how it started but it's spreading fast between the parked cars",
+        "One of the cars went up and now it's a major fire across that level",
+        "The fire's jumped between vehicles quickly, there's a lot of smoke logging the levels",
+        "It looks like an electric vehicle caught fire and it's spread to nearby cars",
+        "We're not sure how it started, but tyres are bursting and it's spreading fast",
+        "A vehicle fire's taken hold and spread across most of one level now",
+        "It started small with one car but it's ripped through that whole level",
+        "The fire's spread between several vehicles, smoke's filling the stairwells too"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I believe so, I can hear shouting"
+        "Yes, {{he}}'s conscious, just coughing a lot from the smoke",
+        "{{He}}'s awake and talking, but really struggling to breathe",
+        "Conscious, yes, {{he}}'s just very shaken and short of breath",
+        "{{He}}'s conscious, sat down and trying to catch {{his}} breath",
+        "Yes, {{he}}'s conscious, {{he}} just can't stop coughing",
+        "{{He}}'s awake, talking but clearly affected by the smoke",
+        "Conscious, yes, but {{he}}'s struggling more than the rest of us",
+        "{{He}}'s conscious, just really shaken up by the whole thing",
+        "Yes, {{he}}'s conscious, we're keeping {{him}} sat down and calm",
+        "{{He}}'s conscious, {{he}}'s just finding it hard to breathe properly"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Can't tell from down here, but the smoke's thick where they are"
+        "{{He}}'s struggling quite a bit, the smoke got thick on the stairs",
+        "Breathing's difficult for {{him}}, {{he}}'s coughing constantly",
+        "{{He}}'s wheezing badly, got caught in a lot of smoke coming down",
+        "Not great, {{he}}'s having real trouble catching {{his}} breath",
+        "{{He}}'s coughing a lot, the smoke on that level was thick",
+        "Breathing's laboured, {{he}} was up there a while before getting out",
+        "{{He}}'s struggling for breath, we've moved {{him}} well away from the smoke now",
+        "Not good, {{he}} can barely talk between coughs",
+        "{{He}}'s having difficulty breathing, the smoke really got to {{him}}",
+        "{{He}}'s coughing badly, but we're keeping {{him}} away from the smoke now"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I don't know, I can't see them properly"
+        "{{He}} says {{his}} chest feels tight, probably from the smoke",
+        "Yes, {{he}}'s complaining of chest pain from breathing it in",
+        "{{He}}'s got a sore chest, keeps saying it's tight when {{he}} breathes",
+        "{{He}} says it hurts to breathe deeply, chest pain from the smoke",
+        "Yes, some chest discomfort, {{he}} thinks it's from the smoke",
+        "{{He}}'s in some pain, mostly {{his}} chest and throat from coughing",
+        "{{He}} says {{his}} throat and chest both hurt from the smoke",
+        "Yes, {{he}}'s uncomfortable, chest pain that's worrying {{him}}",
+        "{{He}}'s got some chest pain, we're keeping {{him}} still and calm",
+        "{{He}} says it's a tight, sore feeling in {{his}} chest"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No idea, sorry, I can't get close enough to see"
+        "No bleeding, it's the smoke that's affected {{him}}, not an injury",
+        "No, nothing's bleeding, {{he}}'s just struggling with the smoke",
+        "No bleeding at all, this is purely smoke related",
+        "No, {{he}} hasn't cut {{himself}}, it's the breathing that's the worry",
+        "No bleeding to report, {{his}} chest and breathing are the concern",
+        "No, nothing like that, just the effects of the smoke",
+        "No bleeding, {{he}}'s not been hurt physically, just the smoke",
+        "No, {{he}}'s not cut or bleeding, it's the coughing that's worse",
+        "No bleeding at all, purely a smoke inhalation situation",
+        "No, there's no bleeding, {{he}}'s just really struggling to breathe"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've no idea who they are"
+        "I don't know {{him}} at all, {{he}} was just another driver here",
+        "No idea, sorry, we're complete strangers",
+        "I couldn't tell you, I don't know {{his}} medical history",
+        "Sorry, no idea, {{he}}'s not someone I know",
+        "I don't know {{him}}, sorry, we just happened to be parked nearby",
+        "No idea about that, sorry, we've never met before today",
+        "I can't help with that, sorry, {{he}}'s a stranger to me",
+        "Sorry, I don't know {{his}} history, we don't know each other",
+        "No idea, sorry, I only just met {{him}} coming down the stairs",
+        "I couldn't say, sorry, {{he}}'s not someone I know personally"
       ]
     },
     "medications": {
       "answers": [
-        "Sorry, I can't help with that"
+        "No idea, sorry, I don't know {{him}} at all",
+        "I couldn't tell you, sorry, we're strangers",
+        "No idea about medications, sorry, I don't know {{him}}",
+        "Sorry, I can't help, {{he}}'s not someone I know",
+        "No idea, sorry, we only just met today",
+        "I don't know, sorry, {{he}}'s a complete stranger to me",
+        "Sorry, no idea what {{he}} takes, we don't know each other",
+        "No idea, sorry, I can't help with that",
+        "I couldn't say, sorry, we've never met before",
+        "No idea, sorry, {{he}}'s just another driver here"
       ]
     },
     "patientAge": {
       "answers": [
-        "Can't say, I just heard voices"
+        "{{He}}'s maybe in {{his}} forties, I'd guess",
+        "I'd say {{he}}'s around forty, but I couldn't be certain",
+        "Middle aged I'd say, forties maybe",
+        "{{He}} looks to be in {{his}} forties",
+        "I couldn't say exactly, maybe forty or so",
+        "{{He}}'s an adult, I'd guess forties",
+        "Hard to say, {{he}} looks around forty to me",
+        "{{He}}'s middle aged, forties I'd think",
+        "I'd guess {{he}}'s in {{his}} forties, but I really don't know",
+        "Maybe forty odd, I'm only guessing though"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm well away from the building now",
-        "Please hurry, I can hear people shouting from inside"
+        "Okay, we're sat away from the smoke now",
+        "Please hurry, {{he}}'s really struggling to breathe",
+        "Right, I'm keeping {{him}} sat down and talking to {{him}}",
+        "Okay, we've moved right away from the car park entrance",
+        "Understood, I'll stay with {{him}} until you arrive",
+        "Alright, we're well clear of the building now",
+        "Okay, I'll keep {{him}} calm and still until help gets here",
+        "Right, others are keeping back from the smoke too",
+        "Understood, I'm watching {{him}} closely until the crew arrives",
+        "Okay, we're waiting by the entrance for you to find us"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a major fire with people possibly trapped, we need the fire brigade now"
+        "No, we need the fire brigade and an ambulance, {{he}}'s really struggling to breathe",
+        "No thank you, this is a major fire, we need emergency crews now",
+        "No, {{he}} can't breathe properly, this needs paramedics urgently",
+        "No, this is far too serious for anything other than a full response",
+        "No, please, cars are still catching fire up there",
+        "No, this isn't something 111 can help with, we need crews here",
+        "No, we need fire and ambulance crews, this is urgent",
+        "No, please hurry, {{he}}'s in a bad way with the smoke",
+        "No, this needs a proper emergency response, it's a major incident",
+        "No, please send help, we can't manage this ourselves"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we could use them to keep the road and car park entrance clear",
+        "Yes please, there's a lot of people milling about, we need them moved back",
+        "That's good, someone needs to manage the crowd gathering to watch",
+        "Thank you, they can help keep the surrounding roads open for the crews",
+        "Okay, that's helpful, there's a lot of confusion out here",
+        "Yes, we need them for the cordon, cars are still trying to leave",
+        "Good, they can help direct traffic away from the entrance",
+        "Thank you, we need someone keeping bystanders well back",
+        "Okay, that makes sense, there's people everywhere right now",
+        "Yes please, this is a major incident, we need all the help we can get"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, please hurry, there's still people up on the higher levels",
+        "Okay, we're staying well clear of the entrance, please be quick",
+        "Thank god, how long roughly until they get here",
+        "Right, I'll keep watching for anyone else coming down the stairwell",
+        "Okay, we're away from the car park now, waiting for you",
+        "Thank you, please send everyone you can, it's spreading fast between levels",
+        "Understood, I'll stay here with {{him}} until the crews arrive",
+        "Okay, we're keeping {{him}} away from the smoke until you get here",
+        "Thank you, please hurry, we can still hear cars going up",
+        "Right, I'll wave the crews in when I see them coming"
       ]
     }
   },

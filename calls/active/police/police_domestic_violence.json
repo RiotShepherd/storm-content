@@ -49,6 +49,11 @@
   "units": {
     "irv": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -77,8 +82,15 @@
   "caller": {
     "openings": [
       "Police please, my partner's hit me, I need help now",
-      "Please help me, he's attacked me, I'm scared he's coming back",
-      "I need the police, there's been a domestic assault, I'm hurt"
+      "Please help me, {{callerPartner}}'s attacked me, I'm scared they're coming back",
+      "I need the police, there's been a domestic assault, I'm hurt",
+      "Please, I've been assaulted at home, I need help urgently",
+      "Police, I'm hurt, my partner's just hit me and stormed off",
+      "I need help, there's been violence at home, I'm scared",
+      "Please send someone, I've been hit by my partner and I'm injured",
+      "I need police urgently, I've just been assaulted in my own home",
+      "Please help, I'm hurt and I'm scared they're going to come back",
+      "Police please, I've been attacked at home, I don't feel safe"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -91,91 +103,231 @@
     "start": {
       "answers": [
         "Police please, my partner's hit me, I need help now",
-        "Please help me, he's attacked me, I'm scared he's coming back",
-        "I need the police, there's been a domestic assault, I'm hurt"
+        "Please help me, {{callerPartner}}'s attacked me, I'm scared they're coming back",
+        "I need the police, there's been a domestic assault, I'm hurt",
+        "Please, I've been assaulted at home, I need help urgently",
+        "Police, I'm hurt, my partner's just hit me and stormed off",
+        "I need help, there's been violence at home, I'm scared",
+        "Please send someone, I've been hit by my partner and I'm injured",
+        "I need police urgently, I've just been assaulted in my own home",
+        "Please help, I'm hurt and I'm scared they're going to come back",
+        "Police please, I've been attacked at home, I don't feel safe"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, it's me",
-        "It's {{callerName}}"
+        "It's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} speaking.",
+        "{{callerName}} here.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, please hurry.",
+        "{{callerName}}, that's my name.",
+        "My name is {{callerName}}.",
+        "It's {{callerName}}, I need help."
       ]
     },
     "patientName": {
       "answers": [
         "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}, that's me"
+        "{{firstPatientName}}, that's me",
+        "My name's {{firstPatientName}}",
+        "It's {{firstPatientName}} speaking",
+        "{{firstPatientName}}, that's my name",
+        "I'm {{firstPatientName}}",
+        "You can put me down as {{firstPatientName}}",
+        "It's {{firstPatientName}}, please hurry",
+        "{{firstPatientName}} here",
+        "My name is {{firstPatientName}}"
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, I've locked myself in the bathroom",
-        "I'm at {{address}}, please hurry"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "He grabbed me and hit me across the face, he's still in the house",
-        "It happened a few minutes ago, he's done this before",
-        "He pushed me down the stairs during an argument"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
         "Yes, I'm awake, my face really hurts",
-        "I'm conscious but shaking badly"
+        "I'm conscious but shaking badly",
+        "Yes, I'm awake, just really frightened",
+        "I'm alert, just in a lot of pain and shock",
+        "Yes, I'm conscious, I just can't stop shaking",
+        "I'm awake, my head's throbbing where I was hit",
+        "Yes, I'm conscious, just really scared right now",
+        "I'm awake, everything hurts but I'm alert",
+        "Yes, I'm conscious, I just want them to hurry",
+        "I'm awake, I'm just in shock more than anything"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
         "I'm breathing okay, just in shock",
-        "Fine, just scared"
+        "Fine, just scared and shaking",
+        "I'm okay breathing wise, just very upset",
+        "Yes, I'm breathing fine, just terrified",
+        "I'm alright, just really shaken up",
+        "Breathing's fine, I'm just in a state of shock",
+        "I'm okay, just crying, breathing's fine",
+        "Yes, fine, I'm just really frightened right now",
+        "I'm breathing okay, just very distressed",
+        "Fine, I think, I'm just so shaken up"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
         "Yes, my face and ribs really hurt",
-        "Bad pain in my arm where he grabbed me"
+        "Bad pain in my arm where I was grabbed",
+        "Yes, my jaw hurts a lot where I was hit",
+        "My head's throbbing where I was struck",
+        "Yes, my back hurts from being pushed against the wall",
+        "My wrist really hurts, I think it might be sprained",
+        "Yes, quite a bit of pain in my ribs",
+        "My cheek's swollen and it hurts to touch",
+        "Yes, my shoulder hurts where I was grabbed hard",
+        "My leg hurts where I fell down the stairs"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
         "Yes, my lip's split and bleeding",
-        "A bit of blood from my nose"
+        "A bit of blood from my nose",
+        "Yes, there's a cut above my eyebrow bleeding",
+        "A small cut on my lip, bleeding a little",
+        "Yes, my nose is bleeding quite a lot",
+        "There's a graze on my arm bleeding slightly",
+        "Yes, a cut on my cheek where I was hit",
+        "Just a little blood from my lip",
+        "Yes, my head's bleeding a bit where I hit the wall",
+        "A small amount from a cut on my hand"
       ],
       "diagnostic": true
     },
+    "patientAge": {
+      "answers": [
+        "29",
+        "31",
+        "27",
+        "34",
+        "26",
+        "38",
+        "24",
+        "33",
+        "22",
+        "30"
+      ]
+    },
     "medicalHistory": {
       "answers": [
-        "Nothing relevant",
-        "No, nothing else"
+        "Nothing relevant, no health problems normally",
+        "No, nothing else, I'm usually fine",
+        "Nothing I can think of, no conditions",
+        "No, I don't have anything else going on",
+        "Nothing relevant that I know of",
+        "No, I'm generally healthy otherwise",
+        "Nothing else, no, I'm fine normally",
+        "No conditions I can think of right now",
+        "Nothing relevant, I don't have any health issues",
+        "No, nothing else comes to mind"
       ]
     },
     "medications": {
       "answers": [
         "No, I don't take anything",
-        "Nothing regular"
+        "Nothing regular, no",
+        "No medication, I'm not on anything",
+        "No, I don't take any medicines",
+        "Nothing at all, no",
+        "No, I'm not on any regular medication",
+        "Nothing, I don't take anything usually",
+        "No medication that I take regularly",
+        "No, nothing regular at all",
+        "No, I don't take any tablets"
       ]
     },
-    "patientAge": {
+    "address": {
       "answers": [
-        "29"
-      ]
+        "{{address}}, I've locked myself in the bathroom",
+        "I'm at {{address}}, please hurry",
+        "{{address}}, I'm in the back bedroom with the door locked",
+        "It's {{address}}, please send someone quickly",
+        "{{address}}, I'm hiding in the kitchen right now",
+        "We're at {{address}}, I don't feel safe",
+        "It's {{address}}, I'm stood outside now, too scared to go back in",
+        "{{address}}, please hurry, I'm on my own in the house",
+        "The address is {{address}}, please send help now",
+        "{{address}}, I've gone next door to a neighbour's"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "We were arguing and it turned physical, I got hit across the face",
+        "It happened a few minutes ago, this isn't the first time it's got physical",
+        "I was pushed down the stairs during an argument, I think something's broken",
+        "They grabbed me by the arms and shook me before I managed to get away",
+        "It escalated really quickly, I was hit and now I've locked myself in another room",
+        "We were shouting and then I was struck, I didn't see it coming",
+        "They've been drinking and it turned violent within minutes",
+        "I tried to leave the room and was grabbed and thrown against the wall",
+        "It started as an argument over money and ended with me being hit",
+        "I'm shaking, I was slapped hard and I don't know what to do now"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
         "Okay, I'm staying locked in here",
-        "Please hurry, I'm scared he'll come back"
+        "Please hurry, I'm scared they'll come back",
+        "Okay, thank you, I'll wait for them",
+        "Please, I just want this over with",
+        "Okay, I'll stay where I am until they arrive",
+        "Thank you, please hurry, I'm frightened",
+        "Okay, I'm not moving from here",
+        "Please hurry, I don't feel safe on my own",
+        "Okay, thank you, I'll keep the door locked",
+        "Please, just get here as fast as you can"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'm staying locked in here until they arrive",
+        "Good, please hurry, I don't know if they're coming back",
+        "Thank you, I'll wait right here for them",
+        "Okay, I feel a bit safer knowing that, please hurry",
+        "Thank you, I'll stay where I am",
+        "Okay, please, I really need them here quickly",
+        "Thank you, I'll keep the door locked until they knock",
+        "Okay, I'll stay on the phone until they arrive",
+        "Thank you, please just hurry, I'm still scared",
+        "Okay, I'll wait right here, thank you"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, I don't need that, I need police and an ambulance",
+        "No, this isn't a fire, please, I need police",
+        "I don't need the fire service, I need police urgently",
+        "No, that's not right, I need police here now",
+        "No, please, this is a domestic assault, I need police",
+        "No, I don't need fire, I need police and paramedics",
+        "That's the wrong service, I need police please",
+        "No, there's no fire, I've been assaulted, I need police",
+        "No, please, this isn't a fire, I need police help",
+        "No, I need police, not the fire brigade"
       ]
     },
     "refer111": {
       "answers": [
-        "No, I need police, he's still here!"
+        "No, I need police, they're still here!",
+        "No, please, this isn't something 111 can help with",
+        "No, I need help now, not a callback later",
+        "That won't do, I've been assaulted, I need police",
+        "No, please, I'm scared, I need someone here now",
+        "No, this can't wait, please send police",
+        "That's not right, I need police urgently",
+        "No, please, I need help immediately",
+        "No, this is urgent, I need police right now",
+        "No, please don't make me wait, I need help now"
       ]
     }
   },

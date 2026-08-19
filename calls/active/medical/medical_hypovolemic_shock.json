@@ -48,6 +48,10 @@
   "units": {
     "ambulance": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 4
+  },
   "patients": {
     "range": [
       1,
@@ -82,8 +86,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Please hurry, my husband's gone very pale and he's covered in blood, I think he's in shock",
-      "I need an ambulance, he cut himself badly and now he's gone grey and floppy"
+      "Please hurry, {{he}}'s cut {{his}} arm on broken glass and there's blood everywhere.",
+      "I need an ambulance, {{he}}'s gone pale and shaky after cutting {{himself}} badly.",
+      "There's so much blood, {{he}}'s gone grey, I think {{he}}'s in shock.",
+      "{{He}} sliced {{his}} arm open on some glass, {{he}}'s starting to go floppy.",
+      "Quick, {{he}}'s bleeding badly and {{his}} lips have gone a funny colour.",
+      "I found {{him}} on the kitchen floor, there's blood pooling round {{him}}.",
+      "{{He}}'s cut {{himself}} badly, {{he}}'s cold to touch and barely answering me.",
+      "Please send someone now, {{he}}'s lost a lot of blood from {{his}} arm.",
+      "I can't stop the bleeding, {{he}}'s gone very pale and clammy.",
+      "{{He}}'s had a bad cut and now {{he}}'s dizzy and grey, I'm really worried."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -95,82 +107,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Please hurry, my husband's gone very pale and he's covered in blood, I think he's in shock",
-        "I need an ambulance, he cut himself badly and now he's gone grey and floppy"
+        "Please hurry, {{he}}'s cut {{his}} arm on broken glass and there's blood everywhere.",
+        "I need an ambulance, {{he}}'s gone pale and shaky after cutting {{himself}} badly.",
+        "There's so much blood, {{he}}'s gone grey, I think {{he}}'s in shock.",
+        "{{He}} sliced {{his}} arm open on some glass, {{he}}'s starting to go floppy.",
+        "Quick, {{he}}'s bleeding badly and {{his}} lips have gone a funny colour.",
+        "I found {{him}} on the kitchen floor, there's blood pooling round {{him}}.",
+        "{{He}}'s cut {{himself}} badly, {{he}}'s cold to touch and barely answering me.",
+        "Please send someone now, {{he}}'s lost a lot of blood from {{his}} arm.",
+        "I can't stop the bleeding, {{he}}'s gone very pale and clammy.",
+        "{{He}}'s had a bad cut and now {{he}}'s dizzy and grey, I'm really worried."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm his wife",
-        "{{callerName}}"
+        "It's {{callerName}}, I'm {{his}} {{callerSpouse}}.",
+        "{{callerName}}, I'm {{his}} {{callerSpouse}}.",
+        "My name's {{callerName}}, I'm {{his}} {{callerSpouse}}.",
+        "{{callerName}} here, I'm {{his}} {{callerSpouse}} and I'm with {{him}} now.",
+        "It's {{callerName}} speaking, {{his}} {{callerSpouse}}.",
+        "You can put me down as {{callerName}}, I'm {{his}} {{callerSpouse}}.",
+        "{{callerName}}. I'm {{his}} {{callerSpouse}}, we're together.",
+        "It's {{callerName}}, {{his}} {{callerSpouse}} here, please hurry.",
+        "{{callerName}}, that's me, I'm {{his}} {{callerSpouse}}.",
+        "It's {{callerName}}, I'm {{his}} {{callerSpouse}}, is help on the way?"
       ]
     },
     "patientName": {
       "answers": [
-        "{{firstPatientName}}, that's my husband",
-        "It's {{firstPatientName}}"
+        "{{firstPatientName}}, that's my {{husband}}.",
+        "It's {{firstPatientName}}, my {{husband}}.",
+        "My {{husband}}'s name is {{firstPatientName}}.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, my {{husband}}.",
+        "It's {{firstPatientName}}, that's who I mean.",
+        "My {{husband}} is called {{firstPatientName}}.",
+        "{{firstPatientName}}, please hurry.",
+        "That's {{firstPatientName}}, my {{husband}}.",
+        "{{firstPatientName}}. {{He}}'s my {{husband}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, front door's open"
+        "We're at {{address}}.",
+        "It's {{address}}.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}.",
+        "We're at {{address}}, the door will be open.",
+        "{{address}}, come straight in.",
+        "You need {{address}}.",
+        "{{address}} is where we are.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He cut his arm badly on broken glass, there was so much blood, now he's gone grey and floppy"
+        "{{He}} cut {{his}} arm badly on broken glass, there's so much blood, now {{he}}'s grey and floppy.",
+        "There was a smashed glass and {{he}} caught {{his}} arm on it, deep cut.",
+        "{{He}} slipped and put {{his}} arm through a window pane by accident.",
+        "{{He}} was clearing broken glass and cut {{himself}} right across the arm.",
+        "A glass shattered in {{his}} hand and {{he}}'s bleeding heavily from it.",
+        "{{He}} cut {{his}} arm open, I've never seen so much blood.",
+        "{{He}} tripped onto some broken glass, deep cut, lots of blood.",
+        "{{His}} arm's badly cut on glass, {{he}}'s losing colour fast.",
+        "{{He}} cut {{himself}} maybe ten minutes ago, {{he}}'s getting worse.",
+        "There was an accident with broken glass, {{his}} arm's cut deep."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's still awake but he's really out of it"
+        "{{He}}'s still awake but really out of it.",
+        "Yes, but {{he}}'s drowsy and not making much sense.",
+        "{{He}}'s conscious, just very floppy and slow to answer.",
+        "Barely, {{he}}'s fading in and out.",
+        "{{He}}'s awake but {{his}} eyes keep closing.",
+        "Yes, {{he}}'s talking to me but slurring a bit.",
+        "{{He}}'s conscious but going very quiet.",
+        "{{He}}'s awake, but I can tell {{he}}'s not right.",
+        "Just about, {{he}}'s struggling to keep {{his}} eyes open.",
+        "{{He}}'s conscious for now but getting weaker."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Fast and shallow"
+        "Fast and shallow.",
+        "{{He}}'s breathing quickly, it looks shallow.",
+        "It's quick, shorter breaths than normal.",
+        "Breathing but it seems rapid.",
+        "Fast, I'm counting it, feels too quick.",
+        "Shallow breaths, {{he}}'s panting a bit.",
+        "It's rapid, {{he}} looks like {{he}}'s working hard to breathe.",
+        "Quick and shallow, that's what's worrying me.",
+        "Breathing fast, {{his}} chest is moving quickly.",
+        "It's shallow and quick, not deep at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says it doesn't hurt as much now, which is scaring me"
+        "{{He}} says it doesn't hurt as much now, which is scaring me.",
+        "{{He}} was in agony but now says {{he}} can't feel it.",
+        "Not much pain now, {{he}} says it's gone numb.",
+        "{{He}} says the pain's easing off, I don't think that's good.",
+        "Barely any pain now according to {{him}}.",
+        "{{He}} says it's stopped hurting, {{he}} seems too calm about it.",
+        "{{He}}'s not complaining of pain anymore, {{he}}'s too weak to.",
+        "{{He}} said it hurt a lot at first, now not so much.",
+        "{{He}} can barely tell me if it hurts, {{he}}'s too drowsy.",
+        "The pain seems to have faded, {{he}}'s just very quiet now."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, a lot, I've got towels on it but it's soaking through"
+        "Yes, a lot, I've got towels on it but it's soaking through.",
+        "It won't stop, I've used two towels already.",
+        "Heavy bleeding, I'm pressing hard on the cut.",
+        "It's still coming through the dressing I put on.",
+        "Yes, badly, there's blood all over the floor.",
+        "I'm holding pressure but it keeps soaking the cloth.",
+        "It's a lot, I've raised {{his}} arm like the leaflet says.",
+        "Still bleeding heavily, I don't think it's slowing.",
+        "Yes, a large amount, the towel's completely red.",
+        "It's not stopping, I'm scared it's too much."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He's on blood thinners for his heart"
+        "{{He}}'s on blood thinners for {{his}} heart.",
+        "{{He}} takes warfarin, that's the main thing I know of.",
+        "{{He}}'s got a heart condition and takes tablets for it.",
+        "I know {{he}}'s on blood thinners, nothing else that I'm aware of.",
+        "{{He}} had a heart valve replaced a few years back.",
+        "{{He}}'s on medication that thins {{his}} blood, that's why I'm so worried.",
+        "Nothing else that I know of, just the blood thinners.",
+        "{{He}} mentioned {{his}} blood doesn't clot well because of tablets.",
+        "{{He}}'s got a heart issue, on regular medication for it.",
+        "I believe {{he}}'s on warfarin, nothing else comes to mind."
       ]
     },
     "medications": {
       "answers": [
-        "Warfarin, I think"
+        "Warfarin, I think.",
+        "{{He}}'s on warfarin for {{his}} heart.",
+        "Blood thinning tablets, warfarin I believe.",
+        "I think it's warfarin, it's in the bathroom cabinet.",
+        "Warfarin tablets, {{he}} takes them every day.",
+        "{{He}} takes warfarin, I've got the box here.",
+        "Just the warfarin as far as I know.",
+        "Warfarin, {{his}} doctor put {{him}} on it last year.",
+        "I believe it's warfarin, nothing else regularly.",
+        "Warfarin tablets, that's the only one I know of."
       ]
     },
     "patientAge": {
       "answers": [
-        "63"
+        "63",
+        "About 63",
+        "63, I think",
+        "{{He}}'s 63 years old",
+        "I believe {{he}}'s 63",
+        "Just turned 63 I think",
+        "63, same age as always",
+        "Around 63, give or take",
+        "{{He}} is 63",
+        "I'd say 63 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm keeping pressure on and raising his arm"
+        "Okay, thank you, I'll keep {{him}} still until they arrive.",
+        "Thank you, please hurry.",
+        "Okay, I'll stay on the line with {{him}}.",
+        "Thank goodness, how long will they be?",
+        "Okay, I'll keep watching {{him}} until they get here.",
+        "Thank you, I'll wait by the door for them.",
+        "Okay, that's a relief, please tell them to hurry.",
+        "Thank you, I'll let you know if anything changes.",
+        "Okay, I'll keep {{him}} comfortable until they arrive.",
+        "Thank you, I won't leave {{his}} side."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs an ambulance now"
+        "No, please, this can't wait for a call back.",
+        "No, I really think this needs an ambulance now.",
+        "Please no, {{he}} needs help now, not a phone call.",
+        "No, this is an emergency, we need someone now.",
+        "I don't think that's right, {{he}}'s really not well.",
+        "No, please send someone now, I'm begging you.",
+        "That doesn't sound right, this is urgent.",
+        "No, we can't wait for that, please send an ambulance.",
+        "Please, no, {{he}} needs help straight away.",
+        "No, I really think this is serious, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

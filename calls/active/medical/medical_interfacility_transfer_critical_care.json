@@ -46,6 +46,8 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {},
   "patients": {
     "range": [
       1,
@@ -75,8 +77,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "This is ICU at the hospital, we need a critical care transfer arranged",
-      "It's the unit here, I've got a ventilated patient that needs moving to a specialist centre"
+      "This is ICU at the hospital, we need a critical care transfer arranged.",
+      "It's the unit here, I've got a ventilated patient that needs moving to a specialist centre.",
+      "Calling from intensive care, we need to book an urgent transfer for a critical patient.",
+      "This is the ICU nurse in charge, we have a patient requiring specialist transfer.",
+      "It's the unit here, we need a critical care crew for a ventilated transfer.",
+      "This is ICU, we've got a patient who needs moving urgently to another hospital.",
+      "Calling from the unit, we need a transfer arranged for a sedated, ventilated patient.",
+      "It's the ICU here, we need a critical care ambulance for an interhospital transfer.",
+      "This is intensive care, we have a patient requiring transfer to a tertiary centre.",
+      "It's the bed manager's line, ICU needs a critical care transfer organised today."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -88,82 +98,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "This is ICU at the hospital, we need a critical care transfer arranged",
-        "It's the unit here, I've got a ventilated patient that needs moving to a specialist centre"
+        "This is ICU at the hospital, we need a critical care transfer arranged.",
+        "It's the unit here, I've got a ventilated patient that needs moving to a specialist centre.",
+        "Calling from intensive care, we need to book an urgent transfer for a critical patient.",
+        "This is the ICU nurse in charge, we have a patient requiring specialist transfer.",
+        "It's the unit here, we need a critical care crew for a ventilated transfer.",
+        "This is ICU, we've got a patient who needs moving urgently to another hospital.",
+        "Calling from the unit, we need a transfer arranged for a sedated, ventilated patient.",
+        "It's the ICU here, we need a critical care ambulance for an interhospital transfer.",
+        "This is intensive care, we have a patient requiring transfer to a tertiary centre.",
+        "It's the bed manager's line, ICU needs a critical care transfer organised today."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, ICU nurse in charge",
-        "{{callerName}}, calling from the unit"
+        "It's {{callerName}}, ICU nurse in charge.",
+        "{{callerName}}, ICU nurse in charge.",
+        "My name's {{callerName}}, ICU nurse in charge.",
+        "{{callerName}} here, ICU nurse in charge.",
+        "It's {{callerName}} speaking, ICU nurse in charge.",
+        "You can put me down as {{callerName}}, ICU nurse in charge.",
+        "{{callerName}}. ICU nurse in charge.",
+        "It's {{callerName}}, ICU nurse in charge, please hurry.",
+        "{{callerName}}, that's me, ICU nurse in charge.",
+        "It's {{callerName}}, ICU nurse in charge, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "The patient is {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, the patient we're transferring.",
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's the patient we're transferring.",
+        "{{He}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}} is the patient we're transferring.",
+        "The name's {{firstPatientName}}.",
+        "{{firstPatientName}}, the patient we're transferring, please hurry.",
+        "It's {{firstPatientName}}, the patient we're transferring.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, that's what {{he}} goes by."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, ICU reception, ask for the bed manager",
-        "{{address}}"
+        "We're at {{address}}, ICU reception, ask for the bed manager.",
+        "It's {{address}}, ICU reception, ask for the bed manager.",
+        "{{address}}, ICU reception, ask for the bed manager.",
+        "The address is {{address}}, ICU reception, ask for the bed manager.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, ICU reception, ask for the bed manager.",
+        "{{address}} is where we are, ICU reception, ask for the bed manager.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The patient needs to move to a specialist unit, they're ventilated and stable for transfer"
+        "{{He}} needs to move to a specialist unit, {{he}}'s ventilated and stable for transfer.",
+        "{{He}}'s in a critical but stable condition and needs specialist care elsewhere.",
+        "{{He}} requires a bed at a tertiary centre, {{he}}'s currently ventilated with us.",
+        "{{He}}'s stable on the ventilator, but our unit can't provide the specialist care needed.",
+        "{{He}}'s sedated and ventilated, the receiving unit has agreed to take {{him}}.",
+        "We need {{him}} moved to a unit with the right specialist facilities.",
+        "{{He}}'s critically ill but currently stable, ready for the transfer team.",
+        "{{He}} needs ongoing critical care that we can't provide here, hence the transfer.",
+        "{{He}}'s ventilated and monitored, we just need the transfer crew now.",
+        "{{He}}'s condition is stable for transport, the receiving hospital is expecting {{him}}."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No, they're sedated and ventilated"
+        "No, {{he}}'s sedated and ventilated.",
+        "{{He}}'s deeply sedated for the transfer.",
+        "No, {{he}}'s under sedation, on a ventilator.",
+        "{{He}}'s not conscious, {{he}}'s fully sedated.",
+        "No, sedated throughout, {{he}} won't be aware.",
+        "{{He}}'s sedated and stable, not conscious currently.",
+        "No, {{he}}'s under, on the ventilator.",
+        "{{He}}'s deeply sedated and monitored closely.",
+        "No, we've got {{him}} sedated for safe transport.",
+        "{{He}}'s not responsive, {{he}}'s sedated for the journey."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing is supported by the ventilator"
+        "Breathing is supported by the ventilator.",
+        "Fully ventilated, breathing is managed for {{him}}.",
+        "{{He}}'s on a ventilator, breathing is supported.",
+        "Ventilated throughout, that's being managed.",
+        "{{His}} breathing is fully supported by the machine.",
+        "On the ventilator, breathing is controlled.",
+        "Supported breathing via the ventilator, stable settings.",
+        "Ventilated, we're monitoring {{him}} closely.",
+        "{{He}}'s ventilated, breathing is not spontaneous currently.",
+        "Fully supported, the ventilator is doing the work."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "They're sedated, no signs of pain"
+        "{{He}}'s sedated, no signs of pain.",
+        "No signs of discomfort, {{he}}'s well sedated.",
+        "{{He}}'s pain managed and sedated for transfer.",
+        "No, {{he}}'s comfortable and sedated.",
+        "{{He}} shows no signs of pain currently.",
+        "Sedated and comfortable, no distress noted.",
+        "No pain signs, {{he}}'s deeply sedated.",
+        "{{He}}'s settled and sedated, no discomfort.",
+        "No, {{his}} pain relief is part of the sedation.",
+        "{{He}}'s stable and comfortable, sedated throughout."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No active bleeding"
+        "No active bleeding.",
+        "None, {{he}}'s stable with no bleeding.",
+        "No, nothing active currently.",
+        "None noted, {{his}} observations are stable.",
+        "No bleeding, all lines are secure.",
+        "None, {{he}}'s haemodynamically stable.",
+        "No, nothing of concern currently.",
+        "None, we're monitoring closely regardless.",
+        "No active bleeding to report.",
+        "No, {{he}}'s stable on that front."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "It's all in the transfer notes I'll hand to the crew"
+        "It's all in the transfer notes I'll hand to the crew.",
+        "Full history is documented, I'll send it with the patient.",
+        "I've got the notes ready for the crew.",
+        "It's in the handover pack, everything's documented.",
+        "The full clinical history will go with {{him}} on transfer.",
+        "I'll give the crew the complete notes at handover.",
+        "It's all written up, ready to go with the transfer team.",
+        "The notes cover everything, I'll pass them over.",
+        "I've got a full summary prepared for the crew.",
+        "Everything's documented in the transfer paperwork."
       ]
     },
     "medications": {
       "answers": [
-        "Full drug chart will go with them"
+        "Full drug chart will go with them.",
+        "The drug chart is ready for the crew.",
+        "All current medications are listed on the chart.",
+        "I'll send the full medication chart with {{him}}.",
+        "The chart's up to date, it'll travel with the patient.",
+        "Everything's on the drug chart for the crew to see.",
+        "Full chart prepared, including infusion rates.",
+        "The medication list is ready to hand over.",
+        "I'll make sure the chart goes with the transfer.",
+        "All medications are documented on the chart."
       ]
     },
     "patientAge": {
       "answers": [
-        "54"
+        "54",
+        "About 54",
+        "54, I think",
+        "{{He}}'s 54 years old",
+        "I believe {{he}}'s 54",
+        "Just turned 54 I think",
+        "54, same age as always",
+        "Around 54, give or take",
+        "{{He}} is 54",
+        "I'd say 54 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Thank you, we'll have everything ready"
+        "Thank you, we'll have everything ready when they arrive.",
+        "Okay, I'll let the team know.",
+        "Thank you, that's helpful, we'll prepare the handover.",
+        "Okay, we'll have the paperwork ready.",
+        "Thank you, I'll make sure someone meets them at the door.",
+        "Okay, that's good, I'll update the notes.",
+        "Thank you, we'll be ready for them.",
+        "Okay, I'll let the ward know the timing.",
+        "Thank you, that's much appreciated.",
+        "Okay, we'll have {{him}} ready to go."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this has to be an ambulance transfer, it's already arranged with the bed manager"
+        "No, this has to be an ambulance transfer, it's already arranged with the bed manager.",
+        "No, this needs a critical care crew, it can't be delayed for a call back.",
+        "No, we've already agreed this with the receiving hospital, it needs to go ahead.",
+        "No, {{he}}'s ventilated, this has to be a proper transfer team.",
+        "No, this is time critical, we can't wait for a phone call.",
+        "No, the bed's already confirmed at the other end, we need the crew.",
+        "No, this needs to happen today, it's a critical care transfer.",
+        "No, {{he}} can't be managed without a specialist crew for the move.",
+        "No, this has been through the proper channels already.",
+        "No, we need the transfer crew, this isn't something 111 can help with."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

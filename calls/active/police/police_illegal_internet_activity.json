@@ -48,6 +48,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -68,7 +72,14 @@
     "openings": [
       "Police please, I want to report some illegal activity I've found online",
       "I need to report something, I think someone's been scammed through a website I found",
-      "I've come across something on the internet that I think you need to know about"
+      "I've come across something on the internet that I think you need to know about",
+      "Police please, I've found something suspicious online I want to report",
+      "I need to report an online scam I've come across",
+      "There's something illegal going on through a website I've found",
+      "Police please, I think I've stumbled on a scam operation online",
+      "I need to report something concerning I found on the internet",
+      "There's an online account doing something I think is illegal",
+      "Police please, I want to report suspicious activity on a website"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -82,90 +93,230 @@
       "answers": [
         "Police please, I want to report some illegal activity I've found online",
         "I need to report something, I think someone's been scammed through a website I found",
-        "I've come across something on the internet that I think you need to know about"
+        "I've come across something on the internet that I think you need to know about",
+        "Police please, I've found something suspicious online I want to report",
+        "I need to report an online scam I've come across",
+        "There's something illegal going on through a website I've found",
+        "Police please, I think I've stumbled on a scam operation online",
+        "I need to report something concerning I found on the internet",
+        "There's an online account doing something I think is illegal",
+        "Police please, I want to report suspicious activity on a website"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I found this while browsing",
-        "It's {{callerName}}"
+        "{{callerName}}",
+        "It's {{callerName}} calling",
+        "My name's {{callerName}}",
+        "{{callerName}}, I just saw it happen",
+        "Yeah, it's {{callerName}}",
+        "{{callerName}} here, I'm a member of the public",
+        "It's {{callerName}}, I happened to be passing",
+        "My name is {{callerName}}",
+        "{{callerName}}, that's me",
+        "Sorry, yes, it's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know who's behind it",
-        "No idea who runs the site"
+        "I don't know their name, never seen them before",
+        "No idea who they are, complete strangers to me",
+        "Couldn't tell you, I don't know them",
+        "I don't have a name for you, sorry",
+        "No, I don't know who they are",
+        "Never seen them before in my life",
+        "I can't give you a name, I don't know them",
+        "Sorry, no idea, they're not known to me",
+        "I've got no name for you, they're strangers",
+        "Don't know, I've never seen them around here"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, I'm calling from home",
-        "I'm at {{address}}"
+        "{{address}}, it's my house",
+        "We're at {{address}}",
+        "It's {{address}}, my house",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near my house",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I found a website selling counterfeit goods and using stolen card details",
-        "I've seen posts trying to sell illegal items online, I've taken screenshots",
-        "Someone's set up a fake page pretending to be a charity, taking donations"
+        "I found a website selling things that look counterfeit, using stolen photos",
+        "There's an account online asking for upfront payments then never delivering anything",
+        "I've seen posts trying to sell what look like stolen goods",
+        "It's a scam page pretending to be a legitimate charity, asking for donations",
+        "I found a forum where they're trading things that are clearly illegal",
+        "There's a fake investment scheme online targeting older people",
+        "I've seen messages trying to extort money from people online",
+        "There's a listing selling something that's clearly not legal to sell",
+        "I found an account impersonating a real company to trick people",
+        "There's a group online organising something that sounds illegal"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, this is all online",
-        "No injuries involved"
+        "Nobody's hurt, so there's nothing to report on that front",
+        "N/A, no one's injured here",
+        "No casualties at all, we just need police",
+        "Nobody's hurt, this isn't a medical matter",
+        "Not applicable, no one's been hurt",
+        "No injuries to report, it's not that kind of call",
+        "Nobody's collapsed or hurt, we just need officers down here",
+        "N/A, this is a police matter, no casualties",
+        "No one's been hurt in this, I promise",
+        "Not applicable, there's no patient here"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "No breathing problems, nobody's been hurt",
+        "N/A, there's no injuries here to speak of",
+        "Nobody needs help breathing, this isn't medical",
+        "Not applicable, no one's hurt",
+        "No one's struggling for breath, no casualties at all",
+        "N/A, we just need police, not an ambulance",
+        "Nobody's been affected like that, no injuries",
+        "No breathing issues, nobody's hurt in this",
+        "Not a medical thing at all, no one's struggling",
+        "N/A, there's no patient here"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A",
-        "No one's hurt"
+        "No pain to report, nobody's hurt",
+        "N/A, no injuries at all",
+        "Nobody's in pain, this isn't medical",
+        "Not applicable, no one's been hurt",
+        "No one's complained of any pain",
+        "N/A, we don't need an ambulance for this",
+        "Nobody's hurt themselves, no pain reported",
+        "No injuries, so no pain to speak of",
+        "Not that I'm aware of, nobody's hurt",
+        "N/A, it's purely a police matter"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No bleeding, nobody's hurt",
+        "N/A, there's no injuries",
+        "No one's bleeding, this isn't medical",
+        "Not applicable, nobody's been hurt",
+        "No blood, no injuries at all",
+        "N/A, we just need police here",
+        "Nobody's hurt themselves, no bleeding",
+        "No, there's no injuries to report",
+        "Not that I can see, nobody's hurt",
+        "N/A, it's not a medical call"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A, this is not medical",
-        "Not applicable"
+        "N/A, nobody's hurt so there's no history needed",
+        "Not applicable, no patient involved",
+        "No idea, and it's not relevant, nobody's hurt",
+        "N/A, this isn't a medical matter",
+        "Not applicable, we just need police",
+        "No one's been hurt, so no history to give",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "I couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's a police matter, not medical"
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "N/A, nobody's hurt",
+        "Not applicable, no patient involved",
+        "No idea, and it doesn't matter, no one's hurt",
+        "N/A, this isn't medical",
+        "Not applicable, we need police, not paramedics",
+        "No one's been hurt, so nothing like that to report",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "Couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's not a medical call"
       ]
     },
     "patientAge": {
       "answers": [
-        "Not applicable"
+        "No idea, could be anyone behind the account",
+        "Can't say, I don't know who's running it",
+        "No idea at all, it's just an online account",
+        "Couldn't tell you, no way to know their age",
+        "No idea, I've never seen who's behind it",
+        "Can't say, could be anyone",
+        "No idea, there's no way to tell from online",
+        "Couldn't say, sorry, no information",
+        "No idea, it's all anonymous online",
+        "Can't tell, no idea who it is"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep the screenshots safe",
-        "Thank you, I just wanted to flag it"
+        "Ambulance? No need, nobody's hurt, it's police we're after",
+        "We don't need an ambulance, just get police here please",
+        "No ambulance needed, this is a police matter",
+        "There's no injuries, we just need officers down here",
+        "Nobody's hurt, so an ambulance won't be needed",
+        "That's not necessary, it's police we need, not paramedics",
+        "No thank you, nobody's injured, just send police",
+        "We're fine on that front, it's police we're waiting for",
+        "Not needed, there's no casualties, just police please",
+        "No one's hurt, an ambulance isn't required for this"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police, it's a crime matter"
+        "111? No, this needs police now, not a callback",
+        "We can't wait for 111, this needs officers straight away",
+        "This isn't something 111 can help with, we need police",
+        "No, please, this needs police, not NHS 111",
+        "I don't think 111 is right for this, we need police here",
+        "This is a police matter, 111 won't be able to help",
+        "Please, we really need police, not a 111 callback",
+        "That's not going to help, this needs police attendance",
+        "No, this can't wait for a callback, we need officers now",
+        "111 isn't going to sort this, we need police please"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, how long will they be?",
+        "Good, please hurry, it's getting worse here",
+        "Thank you, we'll wait for them",
+        "Okay, I'll stay on the line if you need anything else",
+        "Please tell them to hurry, we're keeping an eye on things",
+        "Thank goodness, how many are coming?",
+        "Okay, I'll let people know officers are on the way",
+        "Thank you, we'll keep back until they arrive",
+        "Good, we really need them here quickly",
+        "Okay, thank you, I'll stay put until they get here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

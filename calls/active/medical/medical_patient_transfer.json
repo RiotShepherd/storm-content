@@ -46,6 +46,8 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {},
   "patients": {
     "range": [
       1,
@@ -66,8 +68,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "This is the care home, we need a routine transfer booked for one of our residents",
-      "It's the care coordinator here, we've got a resident who needs transport to her hospital appointment"
+      "This is the care home, we need a routine transfer booked for one of our residents.",
+      "It's the care coordinator here, we've got a resident who needs transport to {{his}} hospital appointment.",
+      "Calling from the care home, we need a transfer arranged for a resident.",
+      "This is the care home office, we need to book routine transport for a resident.",
+      "It's the care coordinator, one of our residents needs a lift to {{his}} appointment.",
+      "Calling to arrange a routine hospital transfer for one of our residents.",
+      "This is the care home, we've got a resident who needs transport booking.",
+      "It's the coordinator here, we need transport arranged for {{his}} outpatient appointment.",
+      "Calling from the care home to book a routine transfer for a resident.",
+      "This is the care home reception, we need to arrange transport for a resident's appointment."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -79,82 +89,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "This is the care home, we need a routine transfer booked for one of our residents",
-        "It's the care coordinator here, we've got a resident who needs transport to her hospital appointment"
+        "This is the care home, we need a routine transfer booked for one of our residents.",
+        "It's the care coordinator here, we've got a resident who needs transport to {{his}} hospital appointment.",
+        "Calling from the care home, we need a transfer arranged for a resident.",
+        "This is the care home office, we need to book routine transport for a resident.",
+        "It's the care coordinator, one of our residents needs a lift to {{his}} appointment.",
+        "Calling to arrange a routine hospital transfer for one of our residents.",
+        "This is the care home, we've got a resident who needs transport booking.",
+        "It's the coordinator here, we need transport arranged for {{his}} outpatient appointment.",
+        "Calling from the care home to book a routine transfer for a resident.",
+        "This is the care home reception, we need to arrange transport for a resident's appointment."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the care coordinator",
-        "{{callerName}}, care home reception"
+        "It's {{callerName}}, I'm the care coordinator.",
+        "{{callerName}}, I'm the care coordinator.",
+        "My name's {{callerName}}, I'm the care coordinator.",
+        "{{callerName}} here, I'm the care coordinator.",
+        "It's {{callerName}} speaking, I'm the care coordinator.",
+        "You can put me down as {{callerName}}, I'm the care coordinator.",
+        "{{callerName}}. I'm the care coordinator.",
+        "It's {{callerName}}, I'm the care coordinator, please hurry.",
+        "{{callerName}}, that's me, I'm the care coordinator.",
+        "It's {{callerName}}, I'm the care coordinator, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "The resident's name is {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, one of our residents.",
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's one of our residents.",
+        "{{He}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}} is one of our residents.",
+        "The name's {{firstPatientName}}.",
+        "{{firstPatientName}}, one of our residents, please hurry.",
+        "It's {{firstPatientName}}, one of our residents.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, that's what {{he}} goes by."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, the care home",
-        "{{address}}, ask for the office"
+        "We're at {{address}}, ask for the office.",
+        "It's {{address}}, ask for the office.",
+        "{{address}}, ask for the office.",
+        "The address is {{address}}, ask for the office.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, ask for the office.",
+        "{{address}} is where we are, ask for the office.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She needs to get to her hospital appointment, she can't manage in a car"
+        "{{He}} needs to get to {{his}} hospital appointment, {{he}} can't manage in a car.",
+        "{{He}}'s got an outpatient appointment and needs suitable transport to get there.",
+        "{{He}} requires transport to hospital, {{he}}'s not mobile enough for a regular car.",
+        "{{He}} has a routine appointment and needs assistance getting there safely.",
+        "{{He}} needs transport that can accommodate {{his}} mobility needs to hospital.",
+        "{{He}}'s got a scheduled appointment and we can't transport {{him}} ourselves.",
+        "{{He}} requires a transfer to hospital for a routine check up.",
+        "{{He}} needs to attend an appointment and requires assisted transport.",
+        "{{He}}'s due at hospital today and needs appropriate transport arranged.",
+        "{{He}} has a booked appointment, {{he}} needs help getting there."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, alert as usual"
+        "Yes, alert as usual.",
+        "{{He}}'s fully conscious, no concerns there.",
+        "Yes, {{he}}'s completely alert.",
+        "{{He}}'s awake and as usual for {{him}}.",
+        "Yes, {{he}}'s fine, alert as always.",
+        "{{He}}'s conscious, no changes from normal.",
+        "Yes, {{he}}'s alert, nothing unusual.",
+        "{{He}}'s awake and aware as {{he}} usually is.",
+        "Yes, completely conscious, no concerns.",
+        "{{He}}'s fine, alert as {{he}} normally is."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Normal, no concerns.",
+        "Fine, nothing to note.",
+        "It's fine, as usual for {{him}}.",
+        "Normal breathing, no issues.",
+        "Fine, {{his}} usual self.",
+        "Steady, nothing unusual.",
+        "It's fine, no changes noted.",
+        "Normal, no concerns at all.",
+        "Breathing's fine, as it normally is."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No pain reported"
+        "No pain reported.",
+        "None that's been mentioned.",
+        "No pain, {{he}}'s comfortable.",
+        "None reported by {{him}} or noted by staff.",
+        "No pain, {{he}}'s in {{his}} usual good spirits.",
+        "None at all reported.",
+        "No pain noted, {{he}}'s comfortable as usual.",
+        "None, {{he}}'s fine.",
+        "No pain that we're aware of.",
+        "None reported, {{he}}'s comfortable."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No bleeding.",
+        "None at all.",
+        "No, nothing like that.",
+        "No bleeding whatsoever.",
+        "None, {{he}}'s fine.",
+        "No, not bleeding.",
+        "Nothing, no bleeding.",
+        "No, completely fine on that front.",
+        "None, no.",
+        "No bleeding, this is just a routine transfer."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Dementia, but otherwise stable"
+        "Dementia, but otherwise stable.",
+        "{{He}} has dementia, {{he}}'s otherwise in stable health.",
+        "{{He}}'s living with dementia, {{his}} other health is stable.",
+        "Dementia is {{his}} main diagnosis, otherwise stable.",
+        "{{He}} has a diagnosis of dementia, no other major issues.",
+        "{{He}}'s got dementia, but {{he}}'s physically stable.",
+        "Dementia mainly, {{his}} other conditions are well managed.",
+        "{{He}} has dementia, everything else is stable and managed.",
+        "{{He}}'s got dementia, {{his}} notes cover the rest.",
+        "Dementia is the main condition, otherwise {{he}}'s well."
       ]
     },
     "medications": {
       "answers": [
-        "Regular medication list is with her notes"
+        "Regular medication list is with {{his}} notes.",
+        "The full medication list is in {{his}} care file.",
+        "All {{his}} regular medications are documented in the notes.",
+        "The medication chart is ready to go with {{him}}.",
+        "{{His}} regular medication list will travel with {{him}}.",
+        "It's all listed in {{his}} care notes.",
+        "The full list is with {{his}} paperwork for the appointment.",
+        "{{His}} medications are documented, I'll send the list along.",
+        "The care notes have the full medication list.",
+        "It's all recorded in {{his}} file, ready for the crew."
       ]
     },
     "patientAge": {
       "answers": [
-        "88"
+        "88",
+        "About 88",
+        "88, I think",
+        "{{He}}'s 88 years old",
+        "I believe {{he}}'s 88",
+        "Just turned 88 I think",
+        "88, same age as always",
+        "Around 88, give or take",
+        "{{He}} is 88",
+        "I'd say 88 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Thank you, we'll have her ready"
+        "Thank you, we'll have everything ready when they arrive.",
+        "Okay, I'll let the team know.",
+        "Thank you, that's helpful, we'll prepare the handover.",
+        "Okay, we'll have the paperwork ready.",
+        "Thank you, I'll make sure someone meets them at the door.",
+        "Okay, that's good, I'll update the notes.",
+        "Thank you, we'll be ready for them.",
+        "Okay, I'll let the ward know the timing.",
+        "Thank you, that's much appreciated.",
+        "Okay, we'll have {{him}} ready to go."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this has already been booked as a transfer"
+        "No, this has already been booked as a transfer.",
+        "No, this is a pre arranged transport booking, not an emergency call.",
+        "No, we've already scheduled this appointment, we just need the transport.",
+        "No, this is routine and already confirmed with the hospital.",
+        "No, we just need the transfer booked, it's not urgent care.",
+        "No, this has been arranged in advance, we just need transport.",
+        "No, {{he}}'s appointment is confirmed, we just need the lift there.",
+        "No, this is simply a transport request, already agreed.",
+        "No, we don't need 111, just the transport booking confirmed.",
+        "No, it's already been set up, we just need it actioned."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

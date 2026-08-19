@@ -47,6 +47,12 @@
     "hazmat_unit": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11,
+    "ambulance": 3,
+    "police": 1
+  },
   "patients": {
     "range": [
       1,
@@ -93,7 +99,15 @@
   "caller": {
     "openings": [
       "There's a strong smell of gas near the pipeline markers on the track",
-      "I think the gas pipeline's leaking, there's a hissing sound and people nearby feel unwell"
+      "I think the gas pipeline's leaking, there's a hissing sound and people nearby feel unwell",
+      "The pipeline's leaking, there's a hissing noise and a couple of people have gone dizzy",
+      "Please hurry, the pipeline's leaking gas and some walkers nearby feel really unwell",
+      "There's a loud hissing from the pipeline and a strong gas smell, people are struggling",
+      "The gas pipeline's leaking near the track, a few of us feel awful",
+      "Something's wrong with the pipeline, it's hissing loudly and the smell's terrible",
+      "The pipeline's sprung a leak, a few people nearby are coughing badly",
+      "There's a gas leak from the pipeline, some people close by feel really dizzy",
+      "Please send someone quickly, the pipeline's leaking and people are unwell nearby"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -106,90 +120,231 @@
     "start": {
       "answers": [
         "There's a strong smell of gas near the pipeline markers on the track",
-        "I think the gas pipeline's leaking, there's a hissing sound and people nearby feel unwell"
+        "I think the gas pipeline's leaking, there's a hissing sound and people nearby feel unwell",
+        "The pipeline's leaking, there's a hissing noise and a couple of people have gone dizzy",
+        "Please hurry, the pipeline's leaking gas and some walkers nearby feel really unwell",
+        "There's a loud hissing from the pipeline and a strong gas smell, people are struggling",
+        "The gas pipeline's leaking near the track, a few of us feel awful",
+        "Something's wrong with the pipeline, it's hissing loudly and the smell's terrible",
+        "The pipeline's sprung a leak, a few people nearby are coughing badly",
+        "There's a gas leak from the pipeline, some people close by feel really dizzy",
+        "Please send someone quickly, the pipeline's leaking and people are unwell nearby"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
-        "A few of us feel dizzy, {{firstPatientName}}'s the worst affected",
-        "{{firstPatientName}} has started struggling to breathe"
+        "There's a few of them, I don't have all their names",
+        "A group of walkers, I can't give you every name",
+        "A couple of people affected, I don't know them well",
+        "There's a few of us and some strangers, no full names",
+        "A small group nearby, I only know a couple of names",
+        "A few people, sorry, I haven't got everyone's details",
+        "There's several affected, I can't confirm all their names",
+        "A handful of people nearby, names I don't fully know",
+        "A few of them, sorry, we only just met on the track",
+        "There's a group affected, I don't have a full list"
       ]
     },
     "address": {
       "answers": [
-        "It's near {{address}}, by the pipeline markers",
-        "{{address}}, along the track"
+        "It's {{address}}, please hurry",
+        "{{address}}, quickly please",
+        "We're at {{address}}, please send someone fast",
+        "The address is {{address}}, please hurry",
+        "{{address}}, by the pipeline, please hurry",
+        "It's {{address}}, oh please be quick",
+        "{{address}}, come quickly please",
+        "{{address}} is the address, please hurry",
+        "Please, it's {{address}}",
+        "{{address}}, by the pipeline, quickly please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's a hissing sound and a strong gas smell coming from the pipeline, some of us are feeling unwell",
-        "The ground near the pipeline is bubbling and there's a strong smell, people nearby have gone dizzy"
+        "The pipeline's leaking gas, there's a loud hissing and a few people feel unwell",
+        "There's a strong gas smell and a hissing sound coming from the pipeline",
+        "The leak's been going a few minutes, people nearby are feeling dizzy and sick",
+        "It's hissing loudly near the pipeline markers, the smell's really strong",
+        "A few walkers have been overcome by the smell near the leak",
+        "The pipeline's clearly damaged, gas is escaping with a loud hiss",
+        "People nearby started coughing and feeling faint once the smell hit",
+        "The leak seems to be getting worse, the hissing's louder now",
+        "We're well back from it now, but a few people got caught in the fumes",
+        "It's a bad leak, some people were quite close when it started"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, we're all awake",
-        "{{firstPatientName}}'s awake but very woozy"
+        "Most are conscious, one or two feel like they might pass out",
+        "Everyone's awake but a couple feel very unsteady",
+        "Conscious for now, but a couple are struggling to stay upright",
+        "Most are alert, one person seems quite out of it",
+        "Everyone's talking, though a couple feel faint",
+        "Conscious, but some are clearly not doing well",
+        "Most are okay, one or two are very groggy",
+        "Everyone's awake, a couple feel like they'll go down soon",
+        "Conscious but shaky, a few feel really unwell",
+        "Most are alert, though it's touch and go with a couple"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple of us are struggling to breathe now",
-        "{{firstPatientName}}'s breathing is getting worse"
+        "A few are really struggling to breathe from the fumes",
+        "Breathing's bad for a couple of them, the rest are coughing",
+        "Some are gasping, we've moved them away from the smell now",
+        "A number are wheezing badly and finding it hard to breathe",
+        "Breathing's difficult for several of them right now",
+        "Some are coughing hard and struggling for breath",
+        "A couple are really fighting for breath, please hurry",
+        "Several are short of breath from the gas",
+        "Breathing's poor for a few, we've got them further back now",
+        "Some are wheezing badly, it's the gas that's done it"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Headaches and nausea",
-        "Chest feels tight, a few of us say"
+        "Some have chest pain from coughing so much",
+        "A couple mention chest tightness and headaches",
+        "Some pain in the chest for a couple of them",
+        "A few have headaches and sore throats from the fumes",
+        "Some chest discomfort, mostly from the coughing",
+        "A couple have chest pain, others just feel very unwell",
+        "Headaches and chest tightness for a few of them",
+        "Some discomfort in the chest and throat for a couple",
+        "A few have chest pain, we're trying to keep them calm",
+        "Some pain reported, mostly chest and throat"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "None"
+        "No, nobody's bleeding, it's the gas that's the problem",
+        "No bleeding, everyone's affected by the fumes, not injuries",
+        "No, this isn't a bleeding incident, it's the gas leak",
+        "No bleeding reported, it's all breathing related",
+        "No, nobody's hurt like that, just unwell from the fumes",
+        "No bleeding, the concern is the gas exposure",
+        "No, we've not seen any bleeding among them",
+        "No bleeding, it's respiratory symptoms from the leak",
+        "No, nobody's injured that way, just unwell",
+        "No bleeding, this is all down to the gas"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of",
-        "I don't know everyone's history"
+        "I don't know their medical histories, sorry, we're strangers really",
+        "No idea, sorry, I only just met most of these people",
+        "Can't say, sorry, I don't know them well enough",
+        "Sorry, no idea about anyone's medical background here",
+        "No, I couldn't tell you, we're not from the same group",
+        "I don't know, sorry, we only just crossed paths on the track",
+        "Sorry, no idea about their history, we're not friends",
+        "Can't say for certain, sorry, I don't know these people well",
+        "No idea, sorry, we've never met before today",
+        "Sorry, I can't give you that, we're strangers to each other"
       ]
     },
     "medications": {
       "answers": [
-        "Not that I'm aware of",
-        "I don't know"
+        "I don't know what any of them take, sorry",
+        "No idea, sorry, I don't know these people well",
+        "Can't say, sorry, we're not from the same group",
+        "Sorry, no idea what anyone else is on",
+        "No, I couldn't tell you, we only just met",
+        "I don't know, sorry, that's not something we've discussed",
+        "Sorry, no idea, we're strangers really",
+        "Can't say for the group, sorry",
+        "No idea, sorry, I really can't help with that",
+        "Sorry, I can't give you that information"
       ]
     },
     "patientAge": {
       "answers": [
-        "Adults, working age",
-        "A mix of adults"
+        "Mixed ages, mostly adults out walking",
+        "A range, all adults as far as I can tell",
+        "Varied ages, nobody young involved",
+        "Mixed adult ages, thirties to sixties I'd guess",
+        "A spread of ages, all grown adults",
+        "Mostly middle aged, a mixed group of walkers",
+        "Mixed, sorry, I can't be precise for everyone",
+        "A range of adult ages among the group",
+        "Varied ages, all adults nearby",
+        "Mixed, mostly working age or older"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're moving away from the pipeline now",
-        "Right, we're heading upwind"
+        "Okay, thank you, we'll keep them as comfortable as we can",
+        "Right, that's a relief, there's quite a few of them",
+        "Okay, we'll wait for them by the entrance",
+        "Thank you, I'll let everyone know help's coming",
+        "Okay, we're keeping them together until they arrive",
+        "Right, thank you, please send as many as you can",
+        "Okay, we'll point them to where everyone is",
+        "Thank you, that's good, some of them are quite unwell",
+        "Okay, we'll stay with them until they get here",
+        "Right, thank you, we'll keep everyone calm"
       ]
     },
     "refer111": {
       "answers": [
-        "No, people are struggling to breathe near a leaking pipeline, this can't wait",
-        "Definitely not, this is dangerous"
+        "No, please, people are unwell, this can't wait",
+        "No, we need help here now, not a call back",
+        "No, please send someone, people are struggling",
+        "No, this is urgent, there's people affected here",
+        "No, please, I don't think this can wait for 111",
+        "No, we really need help on scene, not advice over the phone",
+        "No, please hurry, this isn't something that can wait",
+        "No, people need treatment now, please send someone",
+        "No, I don't think 111 is enough, please send help",
+        "No, please, this needs an urgent response"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, good, we could do with them helping keep people back",
+        "Right, that's good, some of this area needs cordoning off",
+        "Okay, that'll help keep everyone clear of the area",
+        "Good, they can help control who comes near",
+        "Okay, thank you, it's getting crowded here",
+        "Right, that's useful, we need the area kept clear",
+        "Okay, good, there's a few onlookers we could do with moving back",
+        "Thank you, that'll help with keeping the road clear too",
+        "Okay, good, we could use the extra hands keeping people away",
+        "Right, thank you, that's reassuring"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, good, we really need them here",
+        "Right, that's a relief, thank you",
+        "Okay, thank you, please tell them to hurry",
+        "Good, we need them to deal with this properly",
+        "Okay, that's good news, thank you",
+        "Right, thank you, this needs specialist help",
+        "Okay, good, we've been trying to keep everyone clear",
+        "Thank you, that's reassuring to hear",
+        "Okay, good, we need them to make this safe",
+        "Right, thank you, please hurry them along"
       ]
     }
   },

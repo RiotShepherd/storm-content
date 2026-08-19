@@ -50,6 +50,11 @@
     "traffic_car": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -106,7 +111,15 @@
   "caller": {
     "openings": [
       "A lorry carrying chemicals has crashed and there's a leak, the driver's trapped",
-      "I need the fire brigade, a tanker's overturned and something's leaking from it"
+      "I need the fire brigade, a tanker's overturned and something's leaking from it",
+      "Please hurry, a chemical lorry's crashed on the road, the driver's stuck in the cab",
+      "There's been a crash, a hazardous goods truck has overturned and it's leaking",
+      "Fire brigade urgently please, a tanker's flipped and there's a chemical spill",
+      "Please send help fast, a lorry's crashed and the driver's trapped in the cab",
+      "There's a dangerous goods truck on its side, something's leaking onto the road",
+      "Fire brigade please urgently, a chemical tanker's crashed and the driver's hurt",
+      "Please hurry, a hazmat lorry's overturned, the driver can't get out",
+      "There's been a serious crash, a chemical truck's on its side and leaking"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -119,78 +132,231 @@
     "start": {
       "answers": [
         "A lorry carrying chemicals has crashed and there's a leak, the driver's trapped",
-        "I need the fire brigade, a tanker's overturned and something's leaking from it"
+        "I need the fire brigade, a tanker's overturned and something's leaking from it",
+        "Please hurry, a chemical lorry's crashed on the road, the driver's stuck in the cab",
+        "There's been a crash, a hazardous goods truck has overturned and it's leaking",
+        "Fire brigade urgently please, a tanker's flipped and there's a chemical spill",
+        "Please send help fast, a lorry's crashed and the driver's trapped in the cab",
+        "There's a dangerous goods truck on its side, something's leaking onto the road",
+        "Fire brigade please urgently, a chemical tanker's crashed and the driver's hurt",
+        "Please hurry, a hazmat lorry's overturned, the driver can't get out",
+        "There's been a serious crash, a chemical truck's on its side and leaking"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was driving behind it"
+        "It's {{callerName}}, I was driving behind the lorry",
+        "{{callerName}}, I saw it happen from the other carriageway",
+        "My name's {{callerName}}, I stopped to help",
+        "It's {{callerName}}, I'm keeping my distance because of the leak",
+        "{{callerName}} speaking, I'm a passing motorist",
+        "Name's {{callerName}}, I've pulled over just up the road",
+        "It's {{callerName}}, I can see the driver but can't get close",
+        "{{callerName}}, I'm stood well back from the spill",
+        "This is {{callerName}}, I called as soon as I saw it happen",
+        "{{callerName}} here, I'm staying upwind of it like you said"
       ]
     },
     "patientName": {
       "answers": [
-        "It's the driver, I don't know his name, he's stuck in the cab"
+        "I don't know {{his}} name, {{he}}'s the lorry driver",
+        "No idea of a name, {{he}}'s trapped in the cab",
+        "Can't tell you, sorry, I don't know {{him}}",
+        "I think someone said {{firstPatientName}}, not certain",
+        "No idea, {{he}}'s the driver, that's all I know",
+        "Not sure of {{his}} name, {{he}}'s the {{man}} driving the lorry",
+        "I don't know, sorry, {{he}}'s a stranger to me",
+        "No idea at all, {{he}}'s trapped and I can't get close",
+        "Can't say, {{he}}'s the HGV driver, no other details",
+        "No idea of a name, sorry, I just saw the crash happen"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's on the road just past the junction"
+        "{{address}}, it's on the road there",
+        "It's {{address}}, on the dual carriageway",
+        "{{address}}, near the junction",
+        "You want {{address}}, on the main road heading out of town",
+        "{{address}}, please hurry, traffic's backing up",
+        "{{address}}, that's confirmed, you'll see the lorry on its side",
+        "{{address}}, the crash is blocking both lanes",
+        "{{address}}, that's the spot, please come quickly",
+        "{{address}}, come from the eastbound side if you can",
+        "{{address}}, please hurry, there's a strong smell here"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The lorry's gone off the road and rolled, there's a strong smell and something's leaking underneath"
+        "The lorry seems to have skidded and gone over onto its side",
+        "It looks like it swerved to avoid something and overturned",
+        "Not sure exactly, but it's on its side and leaking something",
+        "We think it may have taken the bend too fast and rolled",
+        "Not certain, but there was a bang and then it was on its side",
+        "It looks like a tyre blew and the lorry lost control",
+        "Not sure of the cause, but it's clearly leaking chemicals now",
+        "We think another vehicle may have clipped it, not certain",
+        "Not certain, but the cab's crumpled and the tank's split",
+        "We don't know exactly, but there's definitely a chemical spill now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious, calling out from the cab"
+        "{{He}}'s conscious, talking to us through the window",
+        "{{He}}'s awake but trapped in the cab",
+        "{{He}}'s conscious, quite shaken and in pain",
+        "{{He}}'s awake, {{he}} can't move much though",
+        "{{He}}'s conscious, we're keeping {{him}} talking",
+        "{{He}}'s awake, {{he}} seems dazed but responsive",
+        "{{He}}'s conscious, trapped by the pedals it looks like",
+        "{{He}}'s awake and talking but clearly in pain",
+        "{{He}}'s conscious, {{he}}'s asking about the leak too",
+        "{{He}}'s awake, staying calm considering the situation"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He sounds okay but he's trapped and can't get free"
+        "{{He}}'s breathing okay as far as we can tell",
+        "{{He}} seems to be breathing fine, just trapped",
+        "{{He}}'s breathing normally, we're a bit worried about the fumes though",
+        "{{He}} seems okay breathing wise, we're keeping our distance",
+        "{{He}}'s breathing fine, {{he}}'s more worried about {{his}} leg",
+        "{{He}} seems to be breathing steadily, still trapped though",
+        "{{He}}'s breathing okay, we can hear {{him}} talking clearly",
+        "{{He}} seems fine breathing wise from what we can tell",
+        "{{He}}'s breathing normally, we're staying back from the spill",
+        "{{He}} seems to be breathing okay, still stuck in the cab"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says his leg's trapped and it hurts badly"
+        "{{He}} says {{his}} leg's trapped and it's very painful",
+        "{{He}}'s in pain, {{he}} thinks {{his}} leg might be broken",
+        "{{He}} says {{his}} chest hurts from the seatbelt",
+        "{{He}}'s in a lot of pain, {{he}}'s pinned by the pedals",
+        "{{He}} says {{his}} arm hurts, {{he}} hit it on the door",
+        "{{He}}'s in pain, {{he}} can't move {{his}} legs freely",
+        "{{He}} says the pain's bad in {{his}} lower leg",
+        "{{He}}'s in discomfort, mostly from being trapped",
+        "{{He}} says {{his}} back hurts from the impact",
+        "{{He}}'s in pain, {{he}}'s asking us not to move the cab"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I can't see clearly, there might be some blood on his head"
+        "Yes, a bit of blood from a cut on {{his}} head",
+        "There's some bleeding from {{his}} arm",
+        "Yes, {{he}}'s bleeding a little from a cut, not too bad",
+        "A small amount of blood on {{his}} face from glass",
+        "Yes, there's some bleeding but {{he}} seems stable",
+        "There's a bit of blood from where {{he}} hit the dashboard",
+        "Yes, a small cut bleeding on {{his}} forehead",
+        "Not much bleeding that I can see, mostly the trapped leg",
+        "Yes, {{he}}'s bleeding slightly from a cut on {{his}} hand",
+        "A little blood, nothing that looks too serious"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him, sorry"
+        "I don't know, {{he}}'s a stranger to me, sorry",
+        "No idea, I don't know {{him}} at all",
+        "Can't tell you, sorry, I'm just a passing driver",
+        "No idea about that, sorry",
+        "I couldn't say, sorry, I don't know {{him}}",
+        "No idea, {{he}}'s just the driver of the lorry",
+        "Sorry, I don't know anything about {{his}} health",
+        "No idea, sorry, I've never met {{him}} before today",
+        "Can't help with that, sorry, I don't know {{him}}",
+        "No idea, sorry, that's not something I'd know"
       ]
     },
     "medications": {
       "answers": [
-        "No idea"
+        "I don't know, sorry, {{he}}'s a stranger to me",
+        "No idea, I couldn't tell you",
+        "Sorry, I don't know {{him}} at all",
+        "No idea about that, sorry",
+        "Can't say, sorry, I'm just a passer by",
+        "No idea, sorry, I don't know {{his}} details",
+        "Sorry, I couldn't tell you anything about that",
+        "No idea at all, sorry",
+        "Can't help with that, sorry",
+        "No idea, sorry, that's not something I'd know"
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks like a man in his fifties"
+        "{{He}}'s maybe in {{his}} forties",
+        "{{He}}'s hard to say exactly, maybe fifty",
+        "{{He}}'s middle aged, I'd guess forties",
+        "{{He}}'s around thirty five I'd say",
+        "{{He}}'s hard to tell, maybe mid forties",
+        "{{He}}'s probably in {{his}} fifties",
+        "{{He}}'s I'd guess late thirties",
+        "{{He}}'s middle aged, maybe forty five",
+        "{{He}}'s hard to say, could be fifty odd",
+        "{{He}}'s I'd guess in {{his}} forties"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've stopped traffic and I'm keeping people away from the leak"
+        "Okay, I'm staying well back like you said, just talking to {{him}}",
+        "Understood, I'll keep my distance from the leak",
+        "Okay, {{he}}'s still talking to me, that's good isn't it",
+        "Right, I'm keeping other traffic well away from the spill",
+        "Okay, please hurry, I can smell something quite strong now",
+        "Understood, I'll stay upwind and keep watching",
+        "Okay, {{he}}'s calmer now knowing help's coming",
+        "Right, I'll keep everyone back from the vehicle",
+        "Okay, thank you, I'll stay on the line if you need me",
+        "Understood, please just get here as quickly as you can"
       ]
     },
     "refer111": {
       "answers": [
-        "No, there's a chemical leak and he's trapped, we need you now"
+        "No, {{he}}'s trapped after a crash, this needs urgent help",
+        "No, absolutely not, this is a serious emergency",
+        "No, please, we need the fire brigade and ambulance now",
+        "No, this can't wait, there's a chemical leak too",
+        "No, this is far too serious for that",
+        "No, please just send everyone you can",
+        "No, we need help here urgently, not that",
+        "No, this needs an emergency response",
+        "No, {{he}}'s trapped and there's a spill, please hurry",
+        "No, please, just get help here as fast as possible"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh good, please, we need the road closed, traffic's still coming through",
+        "Thank you, yes, other cars keep getting close to the leak",
+        "Good, please send them quick, we need this road shut properly",
+        "Thank you, that's a relief, I can't stop traffic on my own",
+        "Oh good, yes please, it's dangerous with the spill and cars still passing",
+        "Thank you, please hurry them, we need the road closed both ways",
+        "Good, yes, we really need that, this stretch needs closing off",
+        "Thank you, please, I'm trying to wave people back myself",
+        "Oh good, that's needed, please send them as fast as you can",
+        "Thank you, yes please, we need help keeping the road clear"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry",
+        "Good, please, how long will they be, {{he}}'s still trapped",
+        "Thank you, I'm staying back like you said, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, I'll keep upwind, please hurry",
+        "Oh good, please send them quickly, the smell's getting stronger",
+        "Thank you, {{he}}'s still talking to me, please hurry them up",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, I'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, {{he}} needs help"
       ]
     }
   },

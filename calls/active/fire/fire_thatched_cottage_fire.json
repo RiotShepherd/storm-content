@@ -50,6 +50,11 @@
     "iccu": 1,
     "fire_officer": 4
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13,
+    "ambulance": 2
+  },
   "patients": {
     "range": [
       0,
@@ -105,7 +110,15 @@
   "caller": {
     "openings": [
       "Fire brigade, my cottage roof is on fire, it's thatch, please hurry, it'll go up fast.",
-      "There's a fire in the thatch of our cottage, flames are already showing, we've got out."
+      "There's a fire in the thatch of our cottage, flames are already showing, we've got out.",
+      "The roof of my cottage is alight, it's thatch, we're all outside now.",
+      "Fire service please, the thatch on my roof has caught fire, we've got well clear.",
+      "There's flames on my cottage roof, it's a thatched roof, please hurry, it spreads so fast.",
+      "My roof's on fire, it's thatched, we've all got out and we're standing well back.",
+      "The thatch has caught alight on our cottage, we're all safely outside now.",
+      "There's a serious fire on my thatched roof, we've evacuated the house already.",
+      "Fire brigade, the roof of the cottage is burning, thatch catches fast, please hurry.",
+      "We've got flames visible on the thatched roof, everyone's out of the house."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -118,82 +131,231 @@
     "start": {
       "answers": [
         "Fire brigade, my cottage roof is on fire, it's thatch, please hurry, it'll go up fast.",
-        "There's a fire in the thatch of our cottage, flames are already showing, we've got out."
+        "There's a fire in the thatch of our cottage, flames are already showing, we've got out.",
+        "The roof of my cottage is alight, it's thatch, we're all outside now.",
+        "Fire service please, the thatch on my roof has caught fire, we've got well clear.",
+        "There's flames on my cottage roof, it's a thatched roof, please hurry, it spreads so fast.",
+        "My roof's on fire, it's thatched, we've all got out and we're standing well back.",
+        "The thatch has caught alight on our cottage, we're all safely outside now.",
+        "There's a serious fire on my thatched roof, we've evacuated the house already.",
+        "Fire brigade, the roof of the cottage is burning, thatch catches fast, please hurry.",
+        "We've got flames visible on the thatched roof, everyone's out of the house."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{callerName}}, and my husband, we live here."
+        "No, there's no patient, it's the cottage fire I'm calling about.",
+        "Nobody's hurt, I'm ringing about the cottage fire.",
+        "There's no injured person, just the incident to report.",
+        "No one to name, no one's been hurt here.",
+        "It's not a person hurt, it's the cottage fire, nobody's involved.",
+        "No patient, no one's been injured.",
+        "There isn't anyone hurt, so no name to give you.",
+        "Nobody's been hurt, I'm just reporting the cottage fire.",
+        "No casualties, it's just the cottage fire I need you for.",
+        "No one's injured, there's no patient to give a name for."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "The chimney fire's caught the thatch, there's flames visible on the roof now, spreading quickly.",
-        "We noticed sparks landing on the roof and now the thatch itself is alight, it's going up fast."
+        "We noticed sparks landing on the roof and now the thatch itself is alight, it's going up fast.",
+        "It started small on one corner of the roof and it's spreading across the thatch.",
+        "We got everyone out as soon as we saw flames on the roof, it's spreading fast.",
+        "The fire's taken hold of a large section of thatch already, it moves so quickly.",
+        "It looks like it started near the chimney stack and spread out across the roof.",
+        "We can see flames along most of the ridge now, thatch really does go up fast.",
+        "It's spreading across the roof section by section, we've moved well away from the house.",
+        "The thatch caught within minutes of the sparks landing, it's a big fire on the roof now.",
+        "We're standing well back, the whole roof looks like it could go at any moment."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone's out and accounted for, standing in the garden."
+        "Everyone's fine, no one's hurt, so nothing to report there.",
+        "There's no patient, so nobody's unconscious or anything like that.",
+        "No one's collapsed or anything, the cottage fire is the only issue.",
+        "Nobody's hurt at all, we're all fine here.",
+        "No casualties, so that question doesn't really apply.",
+        "Everybody's up and about, no one's been affected.",
+        "No one's hurt, we're all stood well back and fine.",
+        "There's no injured person, everyone here is okay.",
+        "No, nobody's collapsed, it's just the cottage fire, no one's hurt.",
+        "All fine here, no one's been knocked about or hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "One of us breathed in some smoke getting the dog out, coughing a bit."
+        "No breathing problems, nobody's been affected by anything.",
+        "Everyone's breathing fine, there's no patient to worry about.",
+        "No one's struggling for breath, we're all outside and fine.",
+        "No issues there, nobody's hurt or affected.",
+        "Breathing's fine for everyone, it's just the cottage fire.",
+        "No one's had any trouble breathing here.",
+        "Not a problem, there's no casualty, everyone's breathing normally.",
+        "No, nobody's affected, we're all fine and clear of it.",
+        "No breathing issues, nobody's been caught up in it.",
+        "Everyone's absolutely fine, no breathing problems at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No real pain, just a bit shaken."
+        "No, nobody's in any pain, there's no patient.",
+        "No one's hurt, so no pain to report.",
+        "Nobody's in pain, we're all fine here.",
+        "No injuries, no pain, just the cottage fire to deal with.",
+        "No, everyone's fine, nobody's been hurt.",
+        "There's no casualty, so no, nobody's in pain.",
+        "No pain, no injuries, nobody's been affected.",
+        "Nobody's hurt at all, so no pain to speak of.",
+        "No, we're all fine, no injuries here.",
+        "No one's in any discomfort, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, no injuries."
+        "No, no bleeding, nobody's hurt.",
+        "No injuries at all, so no bleeding.",
+        "Nobody's cut or bleeding, we're all fine.",
+        "No, there's no patient, no bleeding to report.",
+        "No blood, no injuries, everyone's fine here.",
+        "No one's bleeding, it's just the cottage fire.",
+        "No injuries whatsoever, nobody's bleeding.",
+        "No, nobody's hurt, so no bleeding.",
+        "No blood, no casualties, we're all okay.",
+        "No, not a scratch on anyone, we're fine."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing relevant that I can think of."
+        "There's no patient, so I've nothing medical to tell you.",
+        "Sorry, no patient here, nothing to report medically.",
+        "No one's hurt, so there's no medical history needed.",
+        "Not applicable, nobody's been injured here.",
+        "No patient, so nothing to add on that front.",
+        "There's no one hurt, so no medical details needed.",
+        "No casualties, so nothing medical to report.",
+        "Sorry, there's no patient for me to tell you about.",
+        "No injuries, so I can't help with that one.",
+        "Nobody's hurt, there's no medical history to give you."
       ]
     },
     "medications": {
       "answers": [
-        "No, nothing."
+        "No idea, there's no one hurt here.",
+        "No patient, so no medication to mention.",
+        "Not applicable, nobody's injured.",
+        "No one's hurt, so that doesn't apply here.",
+        "No idea, sorry, there's no casualty.",
+        "No patient, nothing to report on that.",
+        "Not relevant, nobody's been hurt.",
+        "No one's affected, so no medication to give you.",
+        "N/A, there's no patient here.",
+        "No injuries, so nothing on medication to add."
       ]
     },
     "patientAge": {
       "answers": [
-        "Just the two of us, both in our sixties."
+        "There's no patient, nobody's been injured.",
+        "No one hurt, so no age to give you.",
+        "Not applicable, there's no casualty here.",
+        "No patient, sorry, nobody's been hurt.",
+        "No one's injured, so that doesn't apply.",
+        "N/A, there's no one hurt at this job.",
+        "No casualties, no age to report.",
+        "Nobody's hurt, so there's no patient age to give.",
+        "No injuries at all, no patient to speak of.",
+        "There's no one hurt, no age needed."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "No thank you, nobody's hurt, it's just the cottage fire.",
+        "An ambulance won't be needed, there's no injuries with the cottage fire.",
+        "No one's hurt here, so no ambulance needed thanks.",
+        "There's no patient, the cottage fire hasn't hurt anyone.",
+        "Not necessary, we're all fine, nobody's injured.",
+        "No, save the ambulance for someone who needs it, nobody's hurt.",
+        "Everyone's unhurt, so no ambulance required, thanks.",
+        "No injuries at all with the cottage fire, no ambulance needed.",
+        "That's not needed, nobody here has been hurt.",
+        "No thanks, there's no patient, just the cottage fire to deal with."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's a fire matter, I need the fire brigade for the cottage fire.",
+        "No, we don't need police, just the fire crew please.",
+        "Sorry, no, this isn't a police matter, it's the cottage fire.",
+        "No thanks, no police needed, just send the fire engine.",
+        "That's not necessary, the cottage fire just needs the fire brigade.",
+        "No, there's no crime here, just get the fire service out.",
+        "Police aren't needed, the cottage fire isn't a police job.",
+        "No, thank you, I only need the fire brigade for this.",
+        "Sorry, no, the cottage fire doesn't need the police involved.",
+        "No, it's not a police matter, please just send the fire crew."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, it's getting worse.",
+        "Good, thank you, the cottage fire isn't slowing down.",
+        "Okay, thank you, we'll wait for them to arrive.",
+        "Right, thank you, please tell them to get here quickly.",
+        "Thank you, that's good to hear, we're keeping clear of it.",
+        "Okay, good, we really need them here for the cottage fire.",
+        "Thanks, we'll stay well back until the crew turns up.",
+        "That's a relief, please hurry, the cottage fire is getting worse.",
+        "Okay, thank you, we're staying out of the way now.",
+        "Good, thank you, we're keeping everyone clear until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "What? No, I need the fire brigade, not 111.",
+        "No, this is a fire, I don't need 111.",
+        "Sorry, no, I called 999 for the fire brigade.",
+        "No, nobody needs a doctor, I need the fire service out here.",
+        "I don't think 111 can help with a fire, sorry.",
+        "No, I need someone to come and put this out, not 111.",
+        "It's not medical, it's a fire, please send a crew.",
+        "No thank you, I need the fire brigade urgently.",
+        "Sorry, no, this needs the fire brigade, not 111.",
+        "No, I'm not after medical advice, I need the fire brigade."
       ]
     }
   },

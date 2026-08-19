@@ -43,6 +43,11 @@
     "irv": 6,
     "traffic_car": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 5,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -70,8 +75,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's a car coming the wrong way down the motorway, straight at us!",
-      "Police, quick, there's a driver going the wrong way on the dual carriageway, head on into traffic!"
+      "Hello, please hurry, there's a car driving the wrong way down the dual carriageway.",
+      "Hi, I need to report a car going against the traffic on a fast road.",
+      "Yeah hiya, please, there's a car heading into oncoming traffic right now.",
+      "Oh hello, I'm really worried, a car's driving the wrong way on the motorway.",
+      "Hi there, please send someone, there's a car going the wrong way at speed.",
+      "Hello, this is urgent, a vehicle's driving towards oncoming traffic.",
+      "Hi, please, I can see a car going the wrong way down the dual carriageway.",
+      "Oh, hello, I'm scared, there's a car heading straight into oncoming cars.",
+      "Hiya, please hurry, a car's going the wrong way on the fast road.",
+      "Hello, please, there's a car driving against the flow of traffic right now."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -83,91 +96,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's a car coming the wrong way down the motorway, straight at us!",
-        "Police, quick, there's a driver going the wrong way on the dual carriageway, head on into traffic!"
+        "Hello, please hurry, there's a car driving the wrong way down the dual carriageway.",
+        "Hi, I need to report a car going against the traffic on a fast road.",
+        "Yeah hiya, please, there's a car heading into oncoming traffic right now.",
+        "Oh hello, I'm really worried, a car's driving the wrong way on the motorway.",
+        "Hi there, please send someone, there's a car going the wrong way at speed.",
+        "Hello, this is urgent, a vehicle's driving towards oncoming traffic.",
+        "Hi, please, I can see a car going the wrong way down the dual carriageway.",
+        "Oh, hello, I'm scared, there's a car heading straight into oncoming cars.",
+        "Hiya, please hurry, a car's going the wrong way on the fast road.",
+        "Hello, please, there's a car driving against the flow of traffic right now."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm still driving, hands free.",
-        "{{callerName}}, I had to pull onto the hard shoulder."
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}.",
+        "{{callerName}} speaking.",
+        "It's {{callerName}} here.",
+        "Name's {{callerName}}.",
+        "{{callerName}}, yes.",
+        "This is {{callerName}}."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know, I haven't seen the driver up close.",
-        "No idea, they just went straight past me."
+        "There's nobody hurt, it's just a car driving the wrong way, no crash yet.",
+        "No patient, it's only a car driving the wrong way, no crash yet I'm calling about.",
+        "Nobody's hurt, this is just about a car driving the wrong way, no crash yet.",
+        "No one needs a name, no one's hurt, it's a car driving the wrong way, no crash yet.",
+        "Not applicable, nobody's injured, just a car driving the wrong way, no crash yet.",
+        "There's no casualty, purely a car driving the wrong way, no crash yet.",
+        "No injuries here, it's simply a car driving the wrong way, no crash yet.",
+        "Nobody to name, it's not a medical thing, it's a car driving the wrong way, no crash yet.",
+        "No patient involved, just a car driving the wrong way, no crash yet I'm reporting.",
+        "There's no one hurt, this is only about a car driving the wrong way, no crash yet."
       ]
     },
     "address": {
       "answers": [
-        "I'm on {{address}}, heading northbound.",
-        "{{address}}, near the last junction, it's still coming this way."
+        "It's {{address}}.",
+        "The address is {{address}}, can you get someone there quickly.",
+        "{{address}}, that's where I am.",
+        "We're at {{address}}.",
+        "It's {{address}}, just past the corner.",
+        "{{address}}, that's the postcode area.",
+        "I'm calling from {{address}}.",
+        "You need {{address}}, that's the one.",
+        "It's {{address}}, look for the front door.",
+        "{{address}}, please hurry."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's a car coming the wrong way down the carriageway, everyone's swerving to avoid it.",
-        "An old silver car just came straight at us on the wrong side, I don't know if the driver's had a funny turn."
+        "It's just pulled onto the carriageway and is driving straight at oncoming cars.",
+        "The car's going the wrong way down the dual carriageway at full speed.",
+        "Cars are swerving to avoid it, it doesn't seem to be slowing down at all.",
+        "It came off the slip road the wrong way and is now facing oncoming traffic.",
+        "The driver seems completely unaware, everyone's flashing their lights at them.",
+        "It's weaving between lanes going the wrong direction, near misses already.",
+        "I saw it turn the wrong way at the junction and carry on down the carriageway.",
+        "It's heading towards the tunnel the wrong way, other drivers are braking hard.",
+        "The car's driving at speed against the traffic, I've never seen anything like it.",
+        "It looks like the driver's disorientated, still going the wrong way past the services."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I don't know, I've not been able to get near it.",
-        "He seemed to slump at the wheel just before he swerved."
+        "Nobody's hurt, so that doesn't apply here.",
+        "There's no patient, no one's unconscious or anything.",
+        "No one's collapsed, nobody's hurt at all.",
+        "Not applicable, there's no casualty.",
+        "No one's affected like that, nobody's injured.",
+        "There's nobody down, no injuries here.",
+        "No, nobody's hurt, so there's no one to check.",
+        "That doesn't apply, no one's been hurt.",
+        "No casualty, nobody's collapsed or anything.",
+        "Nobody's hurt, everyone's fine physically."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I can't tell from here, I've not got close.",
-        "I don't know, sorry, it's still moving."
+        "No one's struggling to breathe, nobody's hurt.",
+        "That's not an issue, there's no injuries.",
+        "Nobody needs that, no one's hurt at all.",
+        "No, there's no casualty, nobody's affected.",
+        "Not applicable, no one's hurt here.",
+        "No breathing problems, nobody's injured.",
+        "There's no patient, so no, nothing like that.",
+        "No one's hurt, that doesn't come into it.",
+        "Not a medical thing, nobody's hurt.",
+        "No, nobody's hurt, everyone's breathing fine."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I've no idea, I haven't spoken to him.",
-        "Can't say, I've kept my distance."
+        "No one's in pain, nobody's hurt.",
+        "Nobody's hurt, so no pain to report.",
+        "No, there's no casualty in pain.",
+        "Not applicable, no one's injured.",
+        "No pain, nobody's hurt at all.",
+        "There's no patient, so no.",
+        "No one's suffering, nobody's hurt.",
+        "No, everyone's fine, nobody's hurt.",
+        "Not a medical call really, no pain involved.",
+        "No one's hurt, so no pain to speak of."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I can't see, sorry.",
-        "I don't know, I haven't got near the car."
+        "No bleeding, nobody's hurt.",
+        "No, there's no injuries at all.",
+        "Nobody's bleeding, no one's hurt.",
+        "Not applicable, no casualty here.",
+        "No, no one's hurt, no bleeding.",
+        "There's no patient, so no bleeding.",
+        "No injuries, nobody's hurt.",
+        "No, everyone's unhurt.",
+        "Not a medical emergency, no bleeding.",
+        "No, nobody's hurt at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No idea, I don't know the driver.",
-        "I've never seen them before."
+        "There's no patient, so that's not relevant.",
+        "Not applicable, nobody's hurt.",
+        "No one's involved medically, nobody's hurt.",
+        "N/A, no casualty here.",
+        "There's no one to ask that about.",
+        "Not a medical matter, no one's hurt.",
+        "No patient, so no history to give.",
+        "Nobody's hurt, that doesn't apply.",
+        "Not relevant, no one's injured.",
+        "No, there's no patient for that."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry.",
-        "I couldn't tell you."
+        "Not applicable, no one's hurt.",
+        "No patient, so no medication to mention.",
+        "N/A, nobody's involved medically.",
+        "No one's hurt, that doesn't apply.",
+        "Not relevant, no casualty here.",
+        "No, there's no patient.",
+        "Nobody needs that, no one's hurt.",
+        "Not a medical matter, no medication needed.",
+        "No one's hurt, so no.",
+        "N/A, no injuries here."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looked like an older man, maybe seventies.",
-        "Hard to say, it went past fast, maybe middle aged."
+        "There's no patient, so no age to give.",
+        "Not applicable, nobody's hurt.",
+        "N/A, no casualty here.",
+        "No one's hurt, that doesn't apply.",
+        "Not relevant, no injuries.",
+        "No patient involved, no age needed.",
+        "Nobody's hurt, so no.",
+        "Not a medical thing, no age to give.",
+        "No one's injured, that doesn't apply.",
+        "N/A, there's no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay clear on the hard shoulder.",
-        "Understood, I'll keep flashing my lights to warn others."
+        "Ambulance? No, nobody's hurt, I don't need that.",
+        "I don't think we need an ambulance, no one's injured.",
+        "Sorry, why an ambulance, nobody's hurt here.",
+        "No, there's no injuries, I don't need paramedics.",
+        "I think you've misunderstood, nobody needs medical help.",
+        "No ambulance needed, nobody's hurt at all.",
+        "No, no one's hurt, just cancel that if you can.",
+        "I'm confused, why would I need an ambulance.",
+        "No thank you, nobody's hurt, we're all fine.",
+        "No need for that, nobody's injured here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police now, someone's going to get killed!"
+        "111? No, this needs a proper response now, not a call back.",
+        "I don't think 111 is right for this, please send someone.",
+        "This can't wait for 111, I need help now.",
+        "No, please, this needs someone out here, not 111.",
+        "I really don't think 111 is going to cut it here.",
+        "Please, I need this dealt with now, not a call back later.",
+        "No, this is urgent, 111 won't do.",
+        "I don't understand, this needs a response, not 111.",
+        "Please don't fob me off to 111, this needs attention.",
+        "No, I need someone here, not a phone call from 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Thank you, I'll keep an eye out for the officers.",
+        "Okay, good, how long will the police be please.",
+        "Right, I'll wait here till they arrive.",
+        "That's a relief, thank you for sending someone.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, I'll point them in the right direction when they get here.",
+        "Good, I was starting to worry, thank you.",
+        "Okay, I'll keep back and let them deal with it.",
+        "Thanks, I'll watch out for the patrol car.",
+        "Alright, I'll stay put until the officers arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, I need police, there's no fire.",
+        "I don't need the fire service, this is a police matter.",
+        "Sorry, why fire brigade, I need police out here.",
+        "No, there's no fire, I called about a police issue.",
+        "I think you've misunderstood, I need officers, not firefighters.",
+        "Fire crews won't help with this, I need the police.",
+        "No, no fire brigade needed, just send police please.",
+        "I'm confused, this isn't a fire, is it.",
+        "I don't think I need fire, it's a police problem.",
+        "No thank you, I just need police, not the fire brigade."
       ]
     }
   },

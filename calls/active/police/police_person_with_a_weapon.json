@@ -50,6 +50,10 @@
     "dog_unit": 1,
     "arv": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 8
+  },
   "patients": {
     "range": [
       0,
@@ -80,8 +84,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police, quick, there's a man with a knife outside",
-      "Help, someone's got a weapon and he's waving it around"
+      "Police, quick, there's someone with a knife outside",
+      "Help, someone's got a weapon and they're waving it around",
+      "Police please, there's someone brandishing a knife nearby",
+      "I need urgent help, someone's got a weapon outside",
+      "Police, hurry, there's someone waving a knife around outside",
+      "Help, someone's threatening people with a weapon",
+      "Police please, there's a person with a knife out on the street",
+      "I need urgent police, someone's got a weapon and is scaring people",
+      "Police, quick, someone's outside with what looks like a knife",
+      "Help, there's someone with a weapon near the shops"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -93,91 +105,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police, quick, there's a man with a knife outside",
-        "Help, someone's got a weapon and he's waving it around"
+        "Police, quick, there's someone with a knife outside",
+        "Help, someone's got a weapon and they're waving it around",
+        "Police please, there's someone brandishing a knife nearby",
+        "I need urgent help, someone's got a weapon outside",
+        "Police, hurry, there's someone waving a knife around outside",
+        "Help, someone's threatening people with a weapon",
+        "Police please, there's a person with a knife out on the street",
+        "I need urgent police, someone's got a weapon and is scaring people",
+        "Police, quick, someone's outside with what looks like a knife",
+        "Help, there's someone with a weapon near the shops"
       ]
     },
     "callerName": {
       "answers": [
+        "{{callerName}}",
+        "It's {{callerName}} calling",
+        "My name's {{callerName}}",
         "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "Yeah, it's {{callerName}}",
+        "{{callerName}} here, I'm a member of the public",
+        "It's {{callerName}}, I happened to be passing",
+        "My name is {{callerName}}",
+        "{{callerName}}, that's me",
+        "Sorry, yes, it's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "Nobody's hurt yet, but everyone's kept clear",
-        "No one's hurt, people are running from him"
+        "I don't know their name, never seen them before",
+        "No idea who they are, complete strangers to me",
+        "Couldn't tell you, I don't know them",
+        "I don't have a name for you, sorry",
+        "No, I don't know who they are",
+        "Never seen them before in my life",
+        "I can't give you a name, I don't know them",
+        "Sorry, no idea, they're not known to me",
+        "I've got no name for you, they're strangers",
+        "Don't know, I've never seen them around here"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, he's right outside",
-        "It's at {{address}}, near the entrance"
+        "{{address}}, it's outside, on the street",
+        "We're at {{address}}",
+        "It's {{address}}, outside, on the street",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near outside, on the street",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He's got what looks like a large knife, shouting at people to stay back",
-        "A man's pulled out something that looks like a machete"
+        "They're waving the knife around, shouting at anyone who comes close",
+        "They pulled it out during an argument and haven't put it away",
+        "They're pacing up and down with the knife still in their hand",
+        "It happened suddenly, they just pulled out a blade and started shouting",
+        "They're threatening people who walk past with the weapon",
+        "They pulled the knife during a row and now everyone's keeping their distance",
+        "They're stood in the middle of the street with the knife still out",
+        "It escalated from an argument, now they've got a weapon out",
+        "They're shouting and waving the knife, people are running the other way",
+        "They've had the knife out for a few minutes now, people are scared"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt yet, everyone's kept clear",
-        "No one's been hit that I've seen"
+        "Nobody's hurt, so there's nothing to report on that front",
+        "N/A, no one's injured here",
+        "No casualties at all, we just need police",
+        "Nobody's hurt, this isn't a medical matter",
+        "Not applicable, no one's been hurt",
+        "No injuries to report, it's not that kind of call",
+        "Nobody's collapsed or hurt, we just need officers down here",
+        "N/A, this is a police matter, no casualties",
+        "No one's been hurt in this, I promise",
+        "Not applicable, there's no patient here"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No one's hurt, everyone's just running",
-        "N/A, nobody's been hurt"
+        "No breathing problems, nobody's been hurt",
+        "N/A, there's no injuries here to speak of",
+        "Nobody needs help breathing, this isn't medical",
+        "Not applicable, no one's hurt",
+        "No one's struggling for breath, no casualties at all",
+        "N/A, we just need police, not an ambulance",
+        "Nobody's been affected like that, no injuries",
+        "No breathing issues, nobody's hurt in this",
+        "Not a medical thing at all, no one's struggling",
+        "N/A, there's no patient here"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt, people have kept away",
-        "Not that I've seen"
+        "No pain to report, nobody's hurt",
+        "N/A, no injuries at all",
+        "Nobody's in pain, this isn't medical",
+        "Not applicable, no one's been hurt",
+        "No one's complained of any pain",
+        "N/A, we don't need an ambulance for this",
+        "Nobody's hurt themselves, no pain reported",
+        "No injuries, so no pain to speak of",
+        "Not that I'm aware of, nobody's hurt",
+        "N/A, it's purely a police matter"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, not that I've seen"
+        "No bleeding, nobody's hurt",
+        "N/A, there's no injuries",
+        "No one's bleeding, this isn't medical",
+        "Not applicable, nobody's been hurt",
+        "No blood, no injuries at all",
+        "N/A, we just need police here",
+        "Nobody's hurt themselves, no bleeding",
+        "No, there's no injuries to report",
+        "Not that I can see, nobody's hurt",
+        "N/A, it's not a medical call"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him",
-        "No idea who he is"
+        "N/A, nobody's hurt so there's no history needed",
+        "Not applicable, no patient involved",
+        "No idea, and it's not relevant, nobody's hurt",
+        "N/A, this isn't a medical matter",
+        "Not applicable, we just need police",
+        "No one's been hurt, so no history to give",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "I couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's a police matter, not medical"
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea",
-        "Couldn't say"
+        "N/A, nobody's hurt",
+        "Not applicable, no patient involved",
+        "No idea, and it doesn't matter, no one's hurt",
+        "N/A, this isn't medical",
+        "Not applicable, we need police, not paramedics",
+        "No one's been hurt, so nothing like that to report",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "Couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's not a medical call"
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks like he's in his twenties",
-        "Hard to tell, maybe thirties"
+        "Hard to say, maybe twenties",
+        "Can't be certain, but they look young, twenties maybe",
+        "Difficult to say exactly, but not a teenager, twenties I'd guess",
+        "Hard to tell from here, maybe late twenties",
+        "Can't confirm precisely, but they look to be in their twenties",
+        "Difficult to judge, but I'd say twenties",
+        "Hard to say, but definitely an adult, maybe thirties",
+        "Can't be sure, but they look to be in their twenties or thirties",
+        "Difficult to tell exactly, maybe mid twenties",
+        "Hard to judge, but adult for sure, maybe thirties"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're staying well back",
-        "Right, please hurry, he's still got it out"
+        "Ambulance? No need, nobody's hurt, it's police we're after",
+        "We don't need an ambulance, just get police here please",
+        "No ambulance needed, this is a police matter",
+        "There's no injuries, we just need officers down here",
+        "Nobody's hurt, so an ambulance won't be needed",
+        "That's not necessary, it's police we need, not paramedics",
+        "No thank you, nobody's injured, just send police",
+        "We're fine on that front, it's police we're waiting for",
+        "Not needed, there's no casualties, just police please",
+        "No one's hurt, an ambulance isn't required for this"
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "111? No, this needs police now, not a callback",
+        "We can't wait for 111, this needs officers straight away",
+        "This isn't something 111 can help with, we need police",
+        "No, please, this needs police, not NHS 111",
+        "I don't think 111 is right for this, we need police here",
+        "This is a police matter, 111 won't be able to help",
+        "Please, we really need police, not a 111 callback",
+        "That's not going to help, this needs police attendance",
+        "No, this can't wait for a callback, we need officers now",
+        "111 isn't going to sort this, we need police please"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes please, hurry, everyone's keeping well back",
+        "Thank you, please hurry, they've still got the knife out",
+        "Okay, we're staying well away, please be quick",
+        "Yes, please hurry, this is really frightening people",
+        "Thank you, I'll stay back and keep watching from a distance",
+        "Okay, please tell them to hurry, it's very tense out here",
+        "Yes please, we're all keeping our distance, please be quick",
+        "Thank you, please get them here fast",
+        "Okay, I'm staying well back until they arrive",
+        "Yes, please hurry, I'm really worried someone's going to get hurt"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

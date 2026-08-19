@@ -45,6 +45,10 @@
     "single_pump": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6
+  },
   "patients": {
     "range": [
       0,
@@ -77,7 +81,15 @@
   "caller": {
     "openings": [
       "There's a fire in one of the cells, we've got it contained but need the brigade",
-      "I need the fire brigade, a prisoner's set fire to bedding in his cell"
+      "I need the fire brigade, a prisoner's set fire to bedding in the cell",
+      "We've had a fire start in a cell, it's out of the prisoner's reach and contained",
+      "Fire brigade please, bedding's alight in a cell, the wing's being ventilated",
+      "There's a small fire in a cell, staff have moved the prisoner to a safe area",
+      "Calling from the prison, a fire's started in a cell, it's under control for now",
+      "We've a cell fire on B wing, smoke's building in the corridor",
+      "Fire in a cell, the prisoner's out and safe, we need it put out properly",
+      "There's smoke coming from under a cell door, we've evacuated that section",
+      "Fire brigade please, a mattress has caught in a cell, contained but smoking"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -90,78 +102,231 @@
     "start": {
       "answers": [
         "There's a fire in one of the cells, we've got it contained but need the brigade",
-        "I need the fire brigade, a prisoner's set fire to bedding in his cell"
+        "I need the fire brigade, a prisoner's set fire to bedding in the cell",
+        "We've had a fire start in a cell, it's out of the prisoner's reach and contained",
+        "Fire brigade please, bedding's alight in a cell, the wing's being ventilated",
+        "There's a small fire in a cell, staff have moved the prisoner to a safe area",
+        "Calling from the prison, a fire's started in a cell, it's under control for now",
+        "We've a cell fire on B wing, smoke's building in the corridor",
+        "Fire in a cell, the prisoner's out and safe, we need it put out properly",
+        "There's smoke coming from under a cell door, we've evacuated that section",
+        "Fire brigade please, a mattress has caught in a cell, contained but smoking"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm a prison officer on this wing"
+        "It's {{callerName}}, I'm the duty officer here",
+        "{{callerName}}, I'm on the wing tonight",
+        "My name's {{callerName}}, I'm a prison officer",
+        "It's {{callerName}}, I raised the alarm on the wing",
+        "{{callerName}} speaking, I'm the officer in charge of B wing",
+        "Name's {{callerName}}, I work here as a custody officer",
+        "It's {{callerName}}, control room passed this to me",
+        "{{callerName}}, I'm the senior officer on duty",
+        "This is {{callerName}}, I'm at the gatehouse now",
+        "{{callerName}} here, I'll meet the crew at reception"
       ]
     },
     "patientName": {
       "answers": [
-        "The prisoner's been moved out, no injuries"
+        "There's nobody hurt, the fire's contained, the prisoner's out safe",
+        "No patient to give a name for, the fire's contained, the prisoner's out safe",
+        "There's no one involved, the fire's contained, the prisoner's out safe",
+        "Nobody's hurt, the fire's contained, the prisoner's out safe",
+        "No casualty at all, the fire's contained, the prisoner's out safe",
+        "There's no one to report, the fire's contained, the prisoner's out safe",
+        "Not applicable, the fire's contained, the prisoner's out safe",
+        "No injuries, the fire's contained, the prisoner's out safe",
+        "Nobody to name, the fire's contained, the prisoner's out safe",
+        "No patient, the fire's contained, the prisoner's out safe"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the prison, report to the gate lodge"
+        "{{address}}, it's the prison, use the main gate",
+        "It's {{address}}, we'll have someone at the gatehouse",
+        "{{address}}, come to the visitor's entrance and we'll direct you",
+        "You want {{address}}, security will let you straight in",
+        "{{address}}, that's the prison off the main road",
+        "{{address}}, please radio ahead, we'll open the gate",
+        "{{address}}, gate staff are expecting you",
+        "{{address}}, come to the front gate, it's B wing you want",
+        "{{address}}, we'll have it all clear for you at the entrance",
+        "{{address}}, that's us, the wing with the fire is at the back"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A prisoner set fire to bedding in his cell, staff have moved him out and the wing's being ventilated"
+        "A prisoner set fire to some bedding, staff have moved the prisoner along the wing",
+        "Looks like it was started deliberately, we've secured the area",
+        "Not fully clear yet, but it started in the cell, contained for now",
+        "We think it's bedding or paper set alight, smoke is building",
+        "A prisoner's lit something in the cell, staff responded quickly",
+        "Cause under investigation, but the fire's confined to one cell",
+        "We believe it's deliberate, the prisoner's now out of the cell",
+        "Unclear cause, staff spotted smoke and evacuated the immediate area",
+        "Possibly a lighter and paper, we're keeping the door shut for now",
+        "We think the prisoner started it deliberately, the prisoner's safe and away from it"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious and out of the cell, unharmed"
+        "No one's hurt, the fire's contained, the prisoner's out safe",
+        "There's no patient here, the fire's contained, the prisoner's out safe",
+        "Not applicable, the fire's contained, the prisoner's out safe",
+        "Nobody's involved, the fire's contained, the prisoner's out safe",
+        "No injuries at all, the fire's contained, the prisoner's out safe",
+        "No one to check on, the fire's contained, the prisoner's out safe",
+        "There's no casualty, the fire's contained, the prisoner's out safe",
+        "No patient at all, the fire's contained, the prisoner's out safe",
+        "Nobody's hurt, thankfully, the fire's contained, the prisoner's out safe",
+        "No one's affected, the fire's contained, the prisoner's out safe"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No breathing problems reported"
+        "No one to worry about, the fire's contained, the prisoner's out safe",
+        "Not applicable, the fire's contained, the prisoner's out safe",
+        "Nobody's struggling to breathe, the fire's contained, the prisoner's out safe",
+        "No casualty, the fire's contained, the prisoner's out safe",
+        "No one's affected by any smoke, the fire's contained, the prisoner's out safe",
+        "There's no patient, the fire's contained, the prisoner's out safe",
+        "No breathing issues to report, the fire's contained, the prisoner's out safe",
+        "Nobody's been near any smoke, the fire's contained, the prisoner's out safe",
+        "No one's hurt, the fire's contained, the prisoner's out safe",
+        "Not applicable, no one's involved, the fire's contained, the prisoner's out safe"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No injuries reported"
+        "Nobody's in pain, the fire's contained, the prisoner's out safe",
+        "No one's hurt at all, the fire's contained, the prisoner's out safe",
+        "Not applicable, the fire's contained, the prisoner's out safe",
+        "No injuries to report, the fire's contained, the prisoner's out safe",
+        "There's no patient, the fire's contained, the prisoner's out safe",
+        "No one's complaining of anything, the fire's contained, the prisoner's out safe",
+        "Nobody's hurt, the fire's contained, the prisoner's out safe",
+        "No pain to report, the fire's contained, the prisoner's out safe",
+        "Not applicable, no casualty, the fire's contained, the prisoner's out safe",
+        "No one's injured, the fire's contained, the prisoner's out safe"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No, no one's involved, the fire's contained, the prisoner's out safe",
+        "No bleeding, there's no patient, the fire's contained, the prisoner's out safe",
+        "Not applicable, the fire's contained, the prisoner's out safe",
+        "No, everyone's uninjured, the fire's contained, the prisoner's out safe",
+        "No, nobody's hurt, the fire's contained, the prisoner's out safe",
+        "No bleeding to report, the fire's contained, the prisoner's out safe",
+        "Not applicable, no casualties, the fire's contained, the prisoner's out safe",
+        "No, no one's been near it, the fire's contained, the prisoner's out safe",
+        "No, we're all fine, the fire's contained, the prisoner's out safe",
+        "No, there's no one injured, the fire's contained, the prisoner's out safe"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable, no one's hurt"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient, prisoner is unharmed"
+        "No patient, the fire's contained, the prisoner's out safe",
+        "Not applicable, the fire's contained, the prisoner's out safe",
+        "No one to give an age for, the fire's contained, the prisoner's out safe",
+        "N/A, the fire's contained, the prisoner's out safe",
+        "No age to give, the fire's contained, the prisoner's out safe",
+        "Not applicable, no one's hurt, the fire's contained, the prisoner's out safe",
+        "No casualty, the fire's contained, the prisoner's out safe",
+        "Nobody's involved, the fire's contained, the prisoner's out safe",
+        "Not applicable at all, the fire's contained, the prisoner's out safe",
+        "No patient to speak of, the fire's contained, the prisoner's out safe"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've got extra staff on the wing"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire, not a medical matter"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

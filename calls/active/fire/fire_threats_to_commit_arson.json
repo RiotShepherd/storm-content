@@ -47,6 +47,11 @@
     "irv": 2,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 5,
+    "police": 4
+  },
   "patients": {
     "range": [
       1,
@@ -81,8 +86,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "I need to report someone threatening to set fire to my neighbour's house.",
-      "Someone's just threatened to burn my shed down, I think they meant it."
+      "I need to report someone threatening to set fire to my property.",
+      "Someone's just threatened to burn my shed down, I think they meant it.",
+      "I've had someone come to my door threatening to set fire to my house.",
+      "Someone's told me they're going to torch my car, I'm quite shaken up.",
+      "I want to report a threat of arson, someone said they'd burn the place down.",
+      "There's been an argument and now someone's threatening to set fire to our house.",
+      "Someone shouted that they'd burn my house down before storming off.",
+      "I've just had a threat made against me, they said they'd set fire to my shed.",
+      "Someone's threatened arson against my property, I'm really worried they'll do it.",
+      "I need to report a threat to burn down my house, it happened just now."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -94,83 +107,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "I need to report someone threatening to set fire to my neighbour's house.",
-        "Someone's just threatened to burn my shed down, I think they meant it."
+        "I need to report someone threatening to set fire to my property.",
+        "Someone's just threatened to burn my shed down, I think they meant it.",
+        "I've had someone come to my door threatening to set fire to my house.",
+        "Someone's told me they're going to torch my car, I'm quite shaken up.",
+        "I want to report a threat of arson, someone said they'd burn the place down.",
+        "There's been an argument and now someone's threatening to set fire to our house.",
+        "Someone shouted that they'd burn my house down before storming off.",
+        "I've just had a threat made against me, they said they'd set fire to my shed.",
+        "Someone's threatened arson against my property, I'm really worried they'll do it.",
+        "I need to report a threat to burn down my house, it happened just now."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "It's me really, the one who was threatened, I'm just shaken up."
+        "No, there's no patient, it's the threat I'm calling about.",
+        "Nobody's hurt, I'm ringing about the threat.",
+        "There's no injured person, just the incident to report.",
+        "No one to name, no one's been hurt here.",
+        "It's not a person hurt, it's the threat, nobody's involved.",
+        "No patient, no one's been injured.",
+        "There isn't anyone hurt, so no name to give you.",
+        "Nobody's been hurt, I'm just reporting the threat.",
+        "No casualties, it's just the threat I need you for.",
+        "No one's injured, there's no patient to give a name for."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A man came to the door shouting threats, said he was going to torch the place, then walked off down the street.",
-        "There's been an argument next door and now they're saying they'll set fire to the house, I'm worried they mean it."
+        "Someone came to the door shouting threats, said they were going to torch the place, then walked off down the street.",
+        "There's been an argument next door and now they're saying they'll set fire to the house, I'm worried they mean it.",
+        "It was during an argument, they said they'd burn my shed down and left in a hurry.",
+        "They shouted the threat from the street then walked off, I didn't recognise them.",
+        "It happened after a dispute, they said they'd torch my car if I didn't back down.",
+        "They banged on the door, made the threat, then left before I could say anything.",
+        "It was a neighbour, they've threatened this before but this time it felt more serious.",
+        "They said it quite calmly actually, which worried me more than shouting would have.",
+        "It followed an argument over parking, they said they'd set the house alight.",
+        "They made the threat then drove off, I got a description but not much else."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I'm fine, just really rattled by it."
+        "Everyone's fine, no one's hurt, so nothing to report there.",
+        "There's no patient, so nobody's unconscious or anything like that.",
+        "No one's collapsed or anything, the threat is the only issue.",
+        "Nobody's hurt at all, we're all fine here.",
+        "No casualties, so that question doesn't really apply.",
+        "Everybody's up and about, no one's been affected.",
+        "No one's hurt, we're all stood well back and fine.",
+        "There's no injured person, everyone here is okay.",
+        "No, nobody's collapsed, it's just the threat, no one's hurt.",
+        "All fine here, no one's been knocked about or hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I'm breathing okay, just my heart's racing."
+        "No breathing problems, nobody's been affected by anything.",
+        "Everyone's breathing fine, there's no patient to worry about.",
+        "No one's struggling for breath, we're all outside and fine.",
+        "No issues there, nobody's hurt or affected.",
+        "Breathing's fine for everyone, it's just the threat.",
+        "No one's had any trouble breathing here.",
+        "Not a problem, there's no casualty, everyone's breathing normally.",
+        "No, nobody's affected, we're all fine and clear of it.",
+        "No breathing issues, nobody's been caught up in it.",
+        "Everyone's absolutely fine, no breathing problems at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No physical pain, just shock really."
+        "No, nobody's in any pain, there's no patient.",
+        "No one's hurt, so no pain to report.",
+        "Nobody's in pain, we're all fine here.",
+        "No injuries, no pain, just the threat to deal with.",
+        "No, everyone's fine, nobody's been hurt.",
+        "There's no casualty, so no, nobody's in pain.",
+        "No pain, no injuries, nobody's been affected.",
+        "Nobody's hurt at all, so no pain to speak of.",
+        "No, we're all fine, no injuries here.",
+        "No one's in any discomfort, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, he didn't touch me, just shouted."
+        "No, no bleeding, nobody's hurt.",
+        "No injuries at all, so no bleeding.",
+        "Nobody's cut or bleeding, we're all fine.",
+        "No, there's no patient, no bleeding to report.",
+        "No blood, no injuries, everyone's fine here.",
+        "No one's bleeding, it's just the threat.",
+        "No injuries whatsoever, nobody's bleeding.",
+        "No, nobody's hurt, so no bleeding.",
+        "No blood, no casualties, we're all okay.",
+        "No, not a scratch on anyone, we're fine."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing relevant."
+        "There's no patient, so I've nothing medical to tell you.",
+        "Sorry, no patient here, nothing to report medically.",
+        "No one's hurt, so there's no medical history needed.",
+        "Not applicable, nobody's been injured here.",
+        "No patient, so nothing to add on that front.",
+        "There's no one hurt, so no medical details needed.",
+        "No casualties, so nothing medical to report.",
+        "Sorry, there's no patient for me to tell you about.",
+        "No injuries, so I can't help with that one.",
+        "Nobody's hurt, there's no medical history to give you."
       ]
     },
     "medications": {
       "answers": [
-        "No, I don't take anything."
+        "No idea, there's no one hurt here.",
+        "No patient, so no medication to mention.",
+        "Not applicable, nobody's injured.",
+        "No one's hurt, so that doesn't apply here.",
+        "No idea, sorry, there's no casualty.",
+        "No patient, nothing to report on that.",
+        "Not relevant, nobody's been hurt.",
+        "No one's affected, so no medication to give you.",
+        "N/A, there's no patient here.",
+        "No injuries, so nothing on medication to add."
       ]
     },
     "patientAge": {
       "answers": [
-        "I'm forty two."
+        "There's no patient, nobody's been injured.",
+        "No one hurt, so no age to give you.",
+        "Not applicable, there's no casualty here.",
+        "No patient, sorry, nobody's been hurt.",
+        "No one's injured, so that doesn't apply.",
+        "N/A, there's no one hurt at this job.",
+        "No casualties, no age to report.",
+        "Nobody's hurt, so there's no patient age to give.",
+        "No injuries at all, no patient to speak of.",
+        "There's no one hurt, no age needed."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "No, nobody's hurt, it's just the threat that's worrying me.",
+        "No ambulance needed, I'm just shaken up, not hurt.",
+        "No, no one's injured, I just want this taken seriously.",
+        "No thanks, I'm fine physically, just upset by what was said.",
+        "No, there's no injury, just the threat itself.",
+        "No ambulance necessary, nobody's been hurt.",
+        "No, I'm okay, just rattled by what they said.",
+        "No thank you, no one's hurt, I just want someone to deal with this.",
+        "No, it's not medical, nobody's been hurt.",
+        "No ambulance needed, I just want this on record."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, yes please, I want this taken seriously.",
+        "Thank you, I'm worried they'll actually do it.",
+        "Yes please, I'd feel a lot safer with police here.",
+        "Good, someone needs to speak to them properly.",
+        "Thank you, I really think they meant what they said.",
+        "Yes, please send them, I don't want this ignored.",
+        "Good, I'll wait in until they arrive.",
+        "Thank you, I want it on record that they threatened this.",
+        "Yes please, this needs dealing with properly.",
+        "Good, I'll stay in and wait for them."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "There's no fire yet, but okay, if they can check things over.",
+        "Nothing's alight at the moment, but thank you for sending someone.",
+        "Okay, I suppose it's worth them checking the property's safe.",
+        "There's no fire, just the threat, but okay if that helps.",
+        "Right, nothing's burning yet, but I appreciate them coming.",
+        "Okay, I understand, better safe than sorry I suppose.",
+        "There's no fire at the moment, but thank you for taking it seriously.",
+        "Okay, nothing's happened yet, but I'm glad someone's coming.",
+        "Right, I hope it doesn't come to that, but thank you.",
+        "Okay, there's no fire yet, but I'd rather they checked things over."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, this isn't medical, someone's threatened to burn my property.",
+        "No, I need someone out for this threat, not 111.",
+        "No, 111 can't help with a threat like this, please send someone.",
+        "Sorry, no, this is a police matter really, not something 111 handles.",
+        "No, I don't need medical advice, I need this dealt with properly.",
+        "No thank you, this needs a proper response, not a phone line.",
+        "Sorry, no, someone's threatened arson, I need this taken seriously.",
+        "No, 111's for medical things, this is a threat of fire and crime.",
+        "No, please, I'm worried they'll come back and do it.",
+        "No, this can't wait for 111, I need someone to come out."
       ]
     }
   },

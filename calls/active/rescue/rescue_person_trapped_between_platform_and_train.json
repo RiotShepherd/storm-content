@@ -46,6 +46,12 @@
     "irv": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 5,
+    "police": 1,
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -83,8 +89,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Someone's fallen between the train and the platform, they're trapped and the train can't move!",
-      "Emergency, a passenger's gone down the gap and is trapped between the platform edge and the train."
+      "A passenger's fallen between the platform and the train, {{he}}'s trapped!",
+      "Please help, someone's slipped down the gap and the train can't move!",
+      "We've got a passenger stuck between the train and the platform edge!",
+      "Someone's fallen into the gap between the platform and the train, {{he}}'s trapped!",
+      "I'm station staff, a passenger's gone down between the train and the platform!",
+      "Please hurry, {{firstPatientName}}'s trapped between the train and the platform edge!",
+      "There's been an incident, a passenger's fallen into the gap and can't get out!",
+      "We need urgent help, someone's stuck between the platform and the train!",
+      "A passenger's slipped and got trapped in the gap, {{he}} can't move at all!",
+      "Please send help, {{firstPatientName}}'s trapped between the train and platform!"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -96,91 +110,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Someone's fallen between the train and the platform, they're trapped and the train can't move!",
-        "Emergency, a passenger's gone down the gap and is trapped between the platform edge and the train."
+        "A passenger's fallen between the platform and the train, {{he}}'s trapped!",
+        "Please help, someone's slipped down the gap and the train can't move!",
+        "We've got a passenger stuck between the train and the platform edge!",
+        "Someone's fallen into the gap between the platform and the train, {{he}}'s trapped!",
+        "I'm station staff, a passenger's gone down between the train and the platform!",
+        "Please hurry, {{firstPatientName}}'s trapped between the train and the platform edge!",
+        "There's been an incident, a passenger's fallen into the gap and can't get out!",
+        "We need urgent help, someone's stuck between the platform and the train!",
+        "A passenger's slipped and got trapped in the gap, {{he}} can't move at all!",
+        "Please send help, {{firstPatientName}}'s trapped between the train and platform!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm platform staff.",
-        "{{callerName}}, I saw it happen right in front of me."
+        "It's {{callerName}}, I'm station staff here.",
+        "{{callerName}}, I'm the platform supervisor.",
+        "My name's {{callerName}}, I work for the rail operator.",
+        "{{callerName}} here, I'm on duty at the station.",
+        "It's {{callerName}} calling, I'm in the control room.",
+        "{{callerName}}, I'm one of the platform staff.",
+        "My name is {{callerName}}, I saw it happen.",
+        "{{callerName}}, I'm calling from the platform.",
+        "It's {{callerName}}, I'm the duty manager.",
+        "{{callerName}} speaking, I'm right by the train."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know his name, he's a passenger.",
-        "She told me her name's {{firstPatientName}}."
+        "It's {{firstPatientName}}, {{he}}'s one of our passengers.",
+        "{{firstPatientName}}, {{he}}'s a season ticket holder, I recognise {{him}}.",
+        "{{patientName}}, that's what {{he}} told me.",
+        "It's {{firstPatientName}}, I don't know {{him}} well, just a passenger.",
+        "{{firstPatientName}}'s the name {{he}} gave me.",
+        "{{his}} name's {{firstPatientName}}, {{he}} was able to tell me.",
+        "It's {{firstPatientName}}, {{he}} was travelling alone.",
+        "{{firstPatientName}}, that's {{his}} name.",
+        "{{patientName}}'s the name, {{he}} managed to tell us.",
+        "It's {{firstPatientName}}, I got {{his}} name from {{him}} directly."
       ]
     },
     "address": {
       "answers": [
-        "It's {{address}}, platform two.",
-        "{{address}}, come to the station, we've held the train."
+        "We're at {{address}}, it's platform two.",
+        "{{address}}, come through the main entrance, staff will guide you.",
+        "It's {{address}}, the train's stopped in the platform.",
+        "{{address}}, access via the staff gate is quickest.",
+        "We're at {{address}}, I'll have someone waiting at the barriers.",
+        "{{address}}, follow signs for the platforms, we're waiting for you.",
+        "It's {{address}}, the incident's right at the platform edge.",
+        "{{address}}, come round to the side entrance if the front's busy.",
+        "We're at {{address}}, mind the crowd, it's getting busy.",
+        "{{address}}, I'll meet you at the main doors."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He slipped as the train was pulling in and his leg's gone down the gap between the platform and the train.",
-        "She fell as she was boarding and now she's trapped between the train and the edge."
+        "{{He}} slipped while boarding and went down into the gap, the train's stayed still since.",
+        "{{He}} lost {{his}} footing getting off and fell between the train and the platform.",
+        "{{He}} stumbled at the doors and slipped straight down into the gap.",
+        "{{He}} was rushing for the train and missed {{his}} footing, {{he}}'s trapped in the gap now.",
+        "{{He}} caught {{his}} foot on the step and went down between the train and the edge.",
+        "{{He}} slipped on the wet platform and fell into the gap by the train.",
+        "{{He}} was pushed slightly in the crowd and lost {{his}} footing into the gap.",
+        "{{He}} misjudged the step and went straight down into the gap.",
+        "{{He}} tripped boarding the train and {{his}} leg's gone down into the gap.",
+        "{{He}} lost balance at the doors and slipped down between the train and platform."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious and talking, but very frightened.",
-        "Yes, she's awake, in a lot of pain."
+        "{{He}}'s conscious, {{he}}'s talking to us but very frightened.",
+        "Yes, {{he}}'s awake, shouting up to us.",
+        "{{He}}'s conscious, {{he}} sounds shaken but alert.",
+        "Yes, conscious, {{he}}'s in obvious pain though.",
+        "{{He}}'s alert, talking to the staff nearby.",
+        "Yes, {{he}}'s conscious, just very distressed.",
+        "{{He}}'s awake, {{he}} keeps asking to be got out.",
+        "Conscious, yes, {{he}}'s calling out for help.",
+        "{{He}}'s conscious and responding, just trapped fast.",
+        "Yes, {{he}}'s conscious, {{he}}'s frightened but talking."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, he's breathing, but panicking.",
-        "Yes, breathing fast, she's very scared."
+        "Yes, {{he}}'s breathing, just very distressed.",
+        "{{He}} seems okay breathing wise, just trapped.",
+        "Yes, no breathing problems that I can tell.",
+        "{{He}}'s breathing fine, {{he}}'s shouting to us.",
+        "Yes, {{he}} sounds fine breathing wise.",
+        "{{His}} breathing seems normal from what I can hear.",
+        "Yes, breathing okay, {{he}}'s just trapped and in pain.",
+        "{{He}}'s breathing fine as far as I can tell.",
+        "Yes, {{he}}'s fine breathing wise, just can't move.",
+        "{{His}} breathing sounds normal, {{he}}'s talking to us."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's screaming that his leg is crushed.",
-        "She says her leg is trapped and it's agony."
+        "{{He}} says {{his}} leg's trapped and it really hurts.",
+        "{{He}}'s in a lot of pain, {{he}} can't move {{his}} leg at all.",
+        "{{He}} says {{he}}'s in agony, {{his}} leg's wedged badly.",
+        "{{He}}'s screaming that {{his}} leg hurts, please hurry.",
+        "{{He}} says {{he}}'s in a lot of pain from the trapped leg.",
+        "{{He}} mentioned {{his}} hip hurts as well as {{his}} leg.",
+        "{{He}} says {{he}}'s in real pain, please send help quickly.",
+        "{{He}}'s saying {{his}} leg's badly hurting where it's trapped.",
+        "{{He}} says {{he}}'s in a lot of discomfort, {{his}} leg won't move.",
+        "{{He}} mentioned severe pain in {{his}} leg where it's caught."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's blood, it looks bad.",
-        "Yes, quite a bit of blood from the leg."
+        "I can't see clearly, but {{he}} may be bleeding from the leg.",
+        "There might be some bleeding, it's hard to see from up here.",
+        "I think there's some blood but I can't get close enough to check.",
+        "Not sure, {{he}}'s trapped so I can't see fully.",
+        "Possibly, I can't get a clear view of {{his}} leg.",
+        "I'm not certain, it's difficult to see from the platform.",
+        "There could be bleeding, I can't confirm from here.",
+        "I can't tell for sure, but {{he}} seems to be in a lot of pain.",
+        "Not sure, we've kept the train from moving and are waiting for you.",
+        "I can't confirm, please hurry, {{he}}'s trapped and in pain."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, he's a stranger.",
-        "No idea, I don't know her."
+        "I don't know, {{he}}'s a passenger, not someone I know personally.",
+        "No idea, sorry, I don't know {{his}} history.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "No idea, sorry, we've only just met {{him}} today.",
+        "I don't have that information, sorry.",
+        "Not sure, sorry, I don't know {{him}} personally.",
+        "I couldn't tell you, {{he}}'s just a passenger.",
+        "No idea about {{his}} medical history, sorry.",
+        "Can't say, sorry, I don't know {{him}} at all.",
+        "No idea, sorry, {{he}}'s a stranger to us."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry.",
-        "I couldn't tell you."
+        "No idea, sorry, I don't know {{him}} personally.",
+        "I couldn't tell you, {{he}}'s just a passenger.",
+        "Not a clue, sorry, we've only just met.",
+        "I don't know, sorry, {{he}}'s a stranger to me.",
+        "No idea on medications, sorry.",
+        "Can't help with that, sorry, I don't know {{him}}.",
+        "I've no idea what {{he}}'s on, sorry.",
+        "Not sure, sorry, {{he}}'s not someone I know.",
+        "No idea, honestly, we're just trying to help {{him}}.",
+        "I couldn't say, sorry, I don't know {{his}} medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks about thirty.",
-        "She's maybe in her twenties."
+        "{{He}} looks to be in {{his}} thirties.",
+        "Maybe late twenties, I'd say.",
+        "{{He}} looks about forty to me.",
+        "I'd guess {{he}}'s in {{his}} thirties.",
+        "Hard to say exactly, maybe mid twenties.",
+        "{{He}} looks like {{he}}'s in {{his}} forties.",
+        "I'd say {{he}}'s about thirty.",
+        "Not sure exactly, maybe late thirties.",
+        "{{He}} looks fairly young, twenties I'd guess.",
+        "I'd estimate {{he}}'s in {{his}} thirties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've stopped the train from moving.",
-        "Please hurry, he's in so much pain."
+        "Okay, thank you, we're keeping {{him}} talking and calm.",
+        "Right, I'll stay with {{him}} until the ambulance gets here.",
+        "Okay, that's good, please hurry, {{he}}'s in a lot of pain.",
+        "Thank you, we're keeping the train from moving until help arrives.",
+        "Alright, I'll keep reassuring {{him}} until they get here.",
+        "Okay, we'll wait right here for the paramedics.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we're keeping {{him}} as calm as we can.",
+        "Thank you, we'll do what we can until they get here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is an emergency, someone is trapped by a train!"
+        "No, {{he}}'s trapped between the train and the platform, this can't wait!",
+        "111 won't help, {{he}}'s physically stuck, please send crews now!",
+        "No, please, {{he}}'s in a lot of pain, we need help now!",
+        "This can't wait for a callback, {{he}}'s trapped right now!",
+        "No, we need a proper rescue team here, not 111!",
+        "Please, this is urgent, {{he}}'s trapped and hurting badly!",
+        "No, this needs the fire brigade now, not a phone line!",
+        "I don't think 111 can help free someone trapped like this!",
+        "No, please, we need people here right now!",
+        "This is too serious for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, they'll help keep the platform clear.",
+        "Right, that's good, we could do with them managing the crowd.",
+        "Okay, I'll let them know where to find us.",
+        "Thank you, please send them, the platform's getting busy.",
+        "Alright, I'll flag them down when they arrive.",
+        "Okay, that's a relief, we need help keeping people back.",
+        "Right, thank you, I'll brief them once they're on scene.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay with {{him}} until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, that's who we need to free {{him}} safely.",
+        "Okay, good, I'll direct them straight to the platform.",
+        "Thank you, that's a relief, {{he}}'s still trapped.",
+        "Right, I'll clear the way for them when they get here.",
+        "Okay, thank you, we've kept the train from moving.",
+        "Yes please, we really need help getting {{him}} out safely.",
+        "Thank you, I'll wait here to guide them in.",
+        "Okay, that's good news, please hurry.",
+        "Right, thank you, we'll keep everyone back until they arrive.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

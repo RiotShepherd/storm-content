@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 4
+  },
   "patients": {
     "range": [
       1,
@@ -71,8 +75,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My husband's got terrible cramp from the heat, he was out gardening for hours",
-      "Somebody's collapsed with cramp, it's been so hot today"
+      "My {{husband}}'s got terrible cramp from the heat, {{he}} was out gardening for hours",
+      "Somebody's collapsed with cramp, it's been so hot today",
+      "My {{husband}}'s legs have seized up with cramp in this heat",
+      "My {{husband}}'s been out in the sun too long, {{he}}'s got awful cramps",
+      "My {{husband}}'s doubled over with cramp, {{he}}'s been working outside all day",
+      "My {{husband}}'s muscles have locked up, it's this heat",
+      "My {{husband}}'s had really bad cramp after being out in the garden",
+      "My {{husband}}'s in a lot of pain with cramp, {{he}}'s been in the sun for hours",
+      "My {{husband}}'s got severe cramping, {{he}} was out doing the garden in this heat",
+      "My {{husband}}'s legs have cramped up badly, {{he}}'s struggling to move"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -84,82 +96,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My husband's got terrible cramp from the heat, he was out gardening for hours",
-        "Somebody's collapsed with cramp, it's been so hot today"
+        "My {{husband}}'s got terrible cramp from the heat, {{he}} was out gardening for hours",
+        "Somebody's collapsed with cramp, it's been so hot today",
+        "My {{husband}}'s legs have seized up with cramp in this heat",
+        "My {{husband}}'s been out in the sun too long, {{he}}'s got awful cramps",
+        "My {{husband}}'s doubled over with cramp, {{he}}'s been working outside all day",
+        "My {{husband}}'s muscles have locked up, it's this heat",
+        "My {{husband}}'s had really bad cramp after being out in the garden",
+        "My {{husband}}'s in a lot of pain with cramp, {{he}}'s been in the sun for hours",
+        "My {{husband}}'s got severe cramping, {{he}} was out doing the garden in this heat",
+        "My {{husband}}'s legs have cramped up badly, {{he}}'s struggling to move"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm his wife",
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, my husband",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}, my {{husband}}",
+        "{{firstPatientName}}, {{he}}'s my {{husband}}",
+        "My {{husband}}'s name is {{firstPatientName}}",
+        "{{firstPatientName}}, that's {{him}}",
+        "It's my {{husband}} {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "{{firstPatientName}}, {{he}}'s fifty five",
+        "My {{husband}} is called {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s in a lot of pain",
+        "{{firstPatientName}}, my {{husband}}, please can you help"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, in the back garden",
-        "{{address}}"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He was out gardening in the heat and now he's doubled over with cramp in his legs and stomach"
+        "{{He}} was out gardening for hours in the heat and {{his}} legs have seized up with cramp",
+        "{{He}}'s been working outside all day without much water and now {{he}}'s cramping badly",
+        "{{He}} was doing physical work in the sun and {{his}} muscles have locked up",
+        "{{He}} overdid it in the heat and now {{he}} can't straighten {{his}} legs",
+        "{{He}}'s been sweating heavily all day and now {{he}}'s got severe cramp",
+        "{{He}} was out in the garden without a break and {{his}} calves have cramped up",
+        "{{He}}'s not drunk enough water today and now {{he}}'s doubled over with cramp",
+        "{{He}} was mowing the lawn in the heat and {{his}} legs seized up suddenly",
+        "{{He}}'s been out in direct sun for hours and now {{he}}'s in agony with cramp",
+        "{{He}} pushed {{himself}} too hard in the heat and now {{he}} can't move properly"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's awake and talking to me"
+        "Yes, {{he}}'s awake, just in a lot of pain",
+        "Conscious, yes, but really shaken up",
+        "{{He}}'s awake and talking to me",
+        "Yes, {{he}}'s alert, wincing every time {{he}} moves",
+        "Conscious, yes, {{he}}'s gritting {{his}} teeth",
+        "{{He}}'s awake, just shaken and sore",
+        "Yes, {{he}}'s conscious throughout",
+        "{{He}}'s alert, just very shaken up",
+        "Yes, {{he}}'s talking to me, clearly in pain",
+        "Conscious, yes, {{he}}'s embarrassed more than anything"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Yes, breathing fine, just winded from the fall",
+        "{{He}}'s breathing okay, just shaken",
+        "Fine, {{his}} breathing's normal",
+        "Yes, {{he}}'s breathing normally",
+        "{{His}} breathing seems fine to me",
+        "Yes, no problem breathing",
+        "{{He}}'s breathing okay, a bit out of breath from the shock",
+        "Normal breathing, yes",
+        "Fine, {{he}}'s just shaken, breathing's okay",
+        "Yes, breathing's fine"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Bad cramping, eight out of ten"
+        "{{He}}'s in agony, {{his}} legs have completely seized up",
+        "Yes, {{he}}'s in a lot of pain, {{his}} calves are rock hard",
+        "{{He}} can't straighten {{his}} legs, {{he}} says it's agony",
+        "Bad cramping pain in both legs, {{he}} says",
+        "{{He}}'s wincing badly, {{his}} muscles are locked tight",
+        "Yes, {{he}}'s in real pain, the cramp's not easing at all",
+        "{{He}} says it's the worst cramp {{he}}'s ever had",
+        "{{His}} legs are seized solid, {{he}}'s in a lot of discomfort",
+        "Yes, painful cramping, {{he}} can barely move {{his}} legs",
+        "{{He}}'s in pain, {{his}} muscles keep spasming"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No, no bleeding, {{he}}'s just unwell",
+        "No blood involved, no",
+        "No, this isn't that kind of thing",
+        "No bleeding, {{he}}'s just really weak",
+        "No, nothing like that at all",
+        "No, {{he}}'s not injured, just poorly",
+        "No blood, no",
+        "Not that I've seen, no",
+        "No, no cuts or blood, {{he}}'s just unwell",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing that I know of"
+        "No, nothing that I know of",
+        "Not that I'm aware of, no",
+        "No history I know of, {{he}}'s usually fit and well",
+        "No, {{he}}'s never had anything like this before",
+        "Nothing at all, {{he}}'s normally very healthy",
+        "No, no medical conditions that I know of",
+        "Not that I know of, no",
+        "No, {{he}}'s never had any real health problems",
+        "Nothing I know of, {{he}}'s generally fine",
+        "No history at all as far as I know"
       ]
     },
     "medications": {
       "answers": [
-        "Nothing that I know of"
+        "No, {{he}} doesn't take anything",
+        "None that I know of",
+        "No medication, no",
+        "Not that I'm aware of, no",
+        "No, nothing regular",
+        "None at all as far as I know",
+        "No, {{he}}'s not on anything",
+        "Nothing, {{he}} doesn't take any tablets",
+        "No medication that I know of",
+        "None, no"
       ]
     },
     "patientAge": {
       "answers": [
-        "45"
+        "{{He}}'s 55",
+        "About 55, I think",
+        "{{He}}'s 55 years old",
+        "55, {{he}}'ll be 56 next year",
+        "I think {{he}}'s 55 or thereabouts",
+        "55 years of age",
+        "{{He}}'s in {{his}} 50s, about 55",
+        "Just turned 55",
+        "{{He}}'s 55, always been fit for {{his}} age",
+        "55, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've got him in the shade with water"
+        "Okay, I've got {{him}} in the shade and given {{him}} water like you said",
+        "Right, I'm stretching {{his}} legs gently like you told me",
+        "I've got {{him}} cooled down and sipping water now",
+        "Okay, {{he}}'s in the shade, I'm massaging {{his}} legs gently",
+        "Yes, doing that now, the cramp seems to be easing a bit",
+        "Okay, I've got {{him}} lying down in the cool with water",
+        "Right, {{he}}'s drinking slowly, still in a lot of pain though",
+        "I'm keeping {{him}} cool and hydrated like you said",
+        "Okay, doing that now, {{he}}'s a bit more comfortable",
+        "Right, {{he}}'s resting in the shade, sipping water steadily"
       ]
     },
     "refer111": {
       "answers": [
-        "If you think that's best, I just don't know what to do"
+        "I did wonder about that, but {{he}}'s really not right, can you send someone",
+        "Maybe, but I'd feel better if someone came out",
+        "I'm not sure, {{he}} seems worse than that to me",
+        "Could do, but it's been going on a while now",
+        "I did think about ringing them, but this seemed more urgent",
+        "Possibly, but I'd rather not risk it, can you send someone",
+        "I don't know, {{he}}'s in a fair bit of discomfort",
+        "Maybe not a bad idea, but can you just send someone anyway",
+        "I'm not sure that's enough somehow, {{he}}'s really struggling",
+        "Could be, but it's been hours now, I'd rather someone came out"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, it's an ambulance {{he}} needs",
+        "No, no police needed, this is a medical matter, not police",
+        "No thank you, just the ambulance, there's nothing for police here",
+        "No, wrong service, {{he}} just needs medical help, not police",
+        "No police required, {{he}}'s just unwell, we only need paramedics",
+        "No, nothing for police to do here, it's purely medical",
+        "No, we're fine on that front, just the ambulance for {{him}} please",
+        "Police? No, I don't think that's needed, {{he}} just needs help",
+        "No, no crime or anything like that, just an ambulance please",
+        "No police necessary, {{he}} just needs to be seen by paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, we just need an ambulance for {{him}}",
+        "No, no fire brigade needed, it's an ambulance {{he}} needs",
+        "Fire service? No, wrong service, {{he}}'s just unwell",
+        "No, nothing's on fire, {{he}} just needs a paramedic",
+        "No thank you, no need for fire, just the ambulance please",
+        "Fire brigade? No, {{he}}'s not trapped or anything, {{he}}'s just poorly",
+        "No, that's not necessary, {{he}} only needs medical help",
+        "No fire involved, we just need the ambulance to get here",
+        "Fire? No, I don't think that's needed, {{he}} just needs paramedics",
+        "No, no fire service required, it's purely a medical matter"
       ]
     }
   },

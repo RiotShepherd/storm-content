@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -65,8 +69,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Hi, I've got a ring stuck on my finger and it's swelling up, can you help",
-      "My finger's swollen and the ring won't come off, it's starting to really hurt"
+      "Hi, I've got a ring stuck on my finger and it's swelling up, can you help.",
+      "My finger's swollen and the ring won't come off, it's starting to really hurt.",
+      "Hi, I've had a ring stuck on my finger for hours now, it won't budge.",
+      "Could you help, my finger's gone quite tight and the ring's stuck fast.",
+      "I've got a ring I can't get off, my finger's swelling more by the minute.",
+      "Hi there, my ring's stuck and my finger's going a funny colour.",
+      "Could someone come out, I can't get this ring off and it's cutting into my finger.",
+      "I've tried soap and everything but the ring just won't come off my finger.",
+      "Hi, my finger's swollen up and the ring's really stuck now.",
+      "Could you help me, this ring won't come off and it's starting to throb a bit."
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -78,79 +90,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Hi, I've got a ring stuck on my finger and it's swelling up, can you help",
-        "My finger's swollen and the ring won't come off, it's starting to really hurt"
+        "Hi, I've got a ring stuck on my finger and it's swelling up, can you help.",
+        "My finger's swollen and the ring won't come off, it's starting to really hurt.",
+        "Hi, I've had a ring stuck on my finger for hours now, it won't budge.",
+        "Could you help, my finger's gone quite tight and the ring's stuck fast.",
+        "I've got a ring I can't get off, my finger's swelling more by the minute.",
+        "Hi there, my ring's stuck and my finger's going a funny colour.",
+        "Could someone come out, I can't get this ring off and it's cutting into my finger.",
+        "I've tried soap and everything but the ring just won't come off my finger.",
+        "Hi, my finger's swollen up and the ring's really stuck now.",
+        "Could you help me, this ring won't come off and it's starting to throb a bit."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, it's me"
+        "It's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "Sorry, yes, it's {{callerName}} here.",
+        "{{callerName}} is my name.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}, calling from nearby.",
+        "{{callerName}}, if you need it.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} speaking.",
+        "{{callerName}}, yes."
       ]
     },
     "patientName": {
       "answers": [
-        "It's just me, I'm the one with the ring stuck"
+        "It's me, {{firstPatientName}}, I'm the one who called.",
+        "Just me, {{firstPatientName}}, it's only my finger that's the problem.",
+        "{{firstPatientName}}, that's me, I'm on my own here.",
+        "It's just me, {{firstPatientName}}, otherwise I'm fine.",
+        "I'm {{firstPatientName}}, it's just my hand that's the issue.",
+        "Me, {{firstPatientName}}, I'm not hurt anywhere else.",
+        "It's only me affected, {{firstPatientName}}.",
+        "{{firstPatientName}}, yes, that's me, just my finger.",
+        "Just myself, {{firstPatientName}}, nothing else wrong.",
+        "I'm the one with the ring stuck, {{firstPatientName}}, it's just me."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "We're at {{address}}.",
+        "That's {{address}}, yes.",
+        "{{address}}, that's the address.",
+        "You'll find it at {{address}}.",
+        "It's {{address}}, just so you know.",
+        "The location is {{address}}.",
+        "{{address}} is where we are.",
+        "That's the postcode and address, {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I've had it stuck for a while now and my finger's gone red and swollen around it"
+        "I put the ring on this morning and now my finger's swollen and it won't come off.",
+        "My finger's swollen up over the day and now the ring's stuck fast.",
+        "I've had the ring on for years but my finger's swollen and now it's stuck.",
+        "It's been on for a while but my finger's puffed up and it won't slide off now.",
+        "I think the heat's made my finger swell and now the ring's properly stuck.",
+        "My hand's swollen a bit today and the ring just won't come off anymore.",
+        "I've tried soap, oil, everything, but my finger's too swollen for it to budge.",
+        "It went on fine originally but my finger's swollen up and now it's stuck.",
+        "My finger's been getting more swollen through the day, the ring's stuck fast now.",
+        "I noticed my finger swelling earlier and now I can't get the ring off at all."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I'm fine, it's just my finger"
+        "Yes, I'm completely fine, just my finger's the problem.",
+        "I'm conscious, obviously, it's only my finger that's swollen.",
+        "Yes, I'm fine, just a bit fed up with this ring.",
+        "I'm totally fine, just annoyed about my finger.",
+        "Yes, I'm okay, it's only my finger giving me trouble.",
+        "I'm fine, just uncomfortable because of the swelling.",
+        "Yes, completely fine otherwise, just my finger.",
+        "I'm okay, just want this ring off my finger.",
+        "Yes, I'm fine, it's just this ring causing the bother.",
+        "I'm completely fine, just my hand's the issue."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I'm breathing fine, it's just my hand"
+        "Yes, I'm breathing absolutely fine.",
+        "No problems there, breathing's completely normal.",
+        "Yes, I'm fine that way, it's just my finger.",
+        "No issues breathing, honestly I'm fine apart from my hand.",
+        "Yes, breathing's fine, it's only my finger that's the problem.",
+        "I'm fine breathing wise, nothing wrong there.",
+        "Yes, no problems at all with my breathing.",
+        "I'm okay that way, it's just the ring that's the issue.",
+        "Yes, breathing's normal, I'm fine apart from my hand.",
+        "No breathing trouble at all, just my finger's the bother."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "It's throbbing now, quite uncomfortable"
+        "It's throbbing a bit now, the ring's quite tight.",
+        "It's uncomfortable, a dull ache where the ring's cutting in.",
+        "It's starting to sting a bit where it's tight.",
+        "There's a bit of pain now, my finger's quite swollen.",
+        "It's aching a little, mostly from the swelling.",
+        "It throbs a bit, but it's not unbearable.",
+        "There's some discomfort, the ring's really tight now.",
+        "It's sore where it's pressing in, not too bad though.",
+        "It's a dull throb, my finger's gone quite puffy.",
+        "It's starting to hurt a bit more as it swells."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, just swollen"
+        "No, no bleeding, just swollen and tight.",
+        "No, nothing like that, just the swelling.",
+        "No blood, no, just my finger's puffed up.",
+        "No bleeding at all, just uncomfortable.",
+        "No, nothing like that, just tight and sore.",
+        "No, I'm not bleeding, just swollen round the ring.",
+        "No blood, no, it's just tight and throbbing a bit.",
+        "No bleeding, no, just my finger's gone a funny colour.",
+        "No, nothing like that, just swollen and sore.",
+        "No, no bleeding, just the ring's cutting in a bit."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing relevant"
+        "I'm generally fit and well, nothing you need to worry about.",
+        "No real medical history to speak of, I'm usually fine.",
+        "Nothing major, I don't have any conditions.",
+        "I'm healthy normally, no history to mention.",
+        "No, nothing like that, I'm usually quite well.",
+        "Nothing significant, I don't have any ongoing conditions.",
+        "I don't have any medical issues normally.",
+        "No history worth mentioning, I'm generally okay.",
+        "Nothing really, I'm fit and well as a rule.",
+        "No, I don't have anything like that."
       ]
     },
     "medications": {
       "answers": [
-        "No, nothing"
+        "No, I'm not on any medication.",
+        "I don't take anything regularly, no.",
+        "No medication, no, nothing like that.",
+        "I'm not on anything at the moment.",
+        "No, I don't take any tablets or anything.",
+        "Nothing, no, I don't take medication.",
+        "No, I'm not on any regular medication.",
+        "I don't take anything, no.",
+        "No medication to mention, no.",
+        "No, nothing like that at all."
       ]
     },
     "patientAge": {
       "answers": [
-        "I'm forty one"
+        "I'm in my thirties.",
+        "I'm forty two.",
+        "I'm in my twenties.",
+        "I'm fifty odd.",
+        "I'm in my sixties.",
+        "I'm about thirty five.",
+        "I'm in my late forties.",
+        "I'm in my twenties still.",
+        "I'm sixty three.",
+        "I'm in my fifties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll try to keep my hand up"
+        "Okay, thank you, I'll keep my hand up like you said.",
+        "Right, thank you, I'll try to keep it elevated.",
+        "Okay, I'll wait here and keep it up as advised.",
+        "Alright, thank you, I'll do that while I wait.",
+        "Okay, that's helpful, thank you, I'll try that.",
+        "Right you are, I'll keep my hand raised.",
+        "Okay, I'll do that now, thank you.",
+        "Thanks, I'll keep it elevated while I wait for you.",
+        "Alright, will do, appreciate the advice.",
+        "Okay, thank you, I'll try to keep calm and wait."
       ]
     },
     "refer111": {
       "answers": [
-        "No, I need the fire brigade to cut it off, not 111"
+        "No, I think I need someone to cut it off, not 111.",
+        "No, I don't think 111 could help remove a ring, thank you though.",
+        "No, it's not really a medical emergency, just an awkward ring.",
+        "No, I think the fire brigade's better placed to help with this.",
+        "No, thank you, but I don't think 111 can cut it free.",
+        "No, it's fine, I just need it cut off safely, not a callback.",
+        "No, I don't think this needs 111, just someone to remove the ring.",
+        "No thank you, I think you're the right people to help with this.",
+        "No, it's not urgent medically, I just need the ring off.",
+        "No, I think this is more your sort of job than 111's."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's not that sort of thing, it's a ring stuck on my finger.",
+        "We don't need the police, just the fire brigade.",
+        "No, there's no need for police, it's only a ring stuck on my finger.",
+        "Police aren't needed here, it's a fire matter.",
+        "No thanks, it's a ring stuck on my finger, not a police job.",
+        "We're alright for police, we just need the fire service.",
+        "No, this doesn't need police, just the fire brigade please.",
+        "No, it's a ring stuck on my finger, nothing for the police to deal with.",
+        "We don't need police here, thank you.",
+        "No, just the fire brigade will do, thank you."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them.",
+        "Right, thank you, I'll keep an eye out.",
+        "Okay, that's great, thank you.",
+        "Alright, thank you, I'll stay by the door for them.",
+        "Okay, good, I'll wait outside.",
+        "Thank you, I'll keep watching for the engine.",
+        "Right, thanks, I'll wait here for them.",
+        "Okay, that's good to know, thank you.",
+        "Alright, thank you, I appreciate it.",
+        "Okay, thank you, I'll look out for them."
       ]
     }
   },

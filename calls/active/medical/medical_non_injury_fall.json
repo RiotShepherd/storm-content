@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -70,8 +74,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My mum's had a fall, she doesn't think she's hurt but she can't get up",
-      "It's not really an emergency, my mum's on the floor and needs a hand getting up"
+      "My {{dad}}'s had a fall, {{he}} doesn't think {{he}}'s hurt but {{he}} can't get up.",
+      "It's not really an emergency, my {{dad}}'s on the floor and needs a hand getting up.",
+      "{{He}}'s fallen and can't get up, {{he}} says nothing hurts.",
+      "My {{dad}} slipped and is stuck on the floor, {{he}} seems okay otherwise.",
+      "{{He}}'s had a bit of a fall, {{he}}'s not hurt but can't manage to stand.",
+      "I need some help getting my {{dad}} up off the floor, {{he}} says {{he}}'s fine.",
+      "{{He}}'s on the floor after a fall, no injuries as far as {{he}} can tell.",
+      "My {{dad}}'s had a slip, {{he}}'s just stuck, not hurt.",
+      "{{He}}'s down on the floor, seems unhurt but can't get {{himself}} up.",
+      "Not an emergency really, just need help lifting my {{dad}} up."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -83,82 +95,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My mum's had a fall, she doesn't think she's hurt but she can't get up",
-        "It's not really an emergency, my mum's on the floor and needs a hand getting up"
+        "My {{dad}}'s had a fall, {{he}} doesn't think {{he}}'s hurt but {{he}} can't get up.",
+        "It's not really an emergency, my {{dad}}'s on the floor and needs a hand getting up.",
+        "{{He}}'s fallen and can't get up, {{he}} says nothing hurts.",
+        "My {{dad}} slipped and is stuck on the floor, {{he}} seems okay otherwise.",
+        "{{He}}'s had a bit of a fall, {{he}}'s not hurt but can't manage to stand.",
+        "I need some help getting my {{dad}} up off the floor, {{he}} says {{he}}'s fine.",
+        "{{He}}'s on the floor after a fall, no injuries as far as {{he}} can tell.",
+        "My {{dad}}'s had a slip, {{he}}'s just stuck, not hurt.",
+        "{{He}}'s down on the floor, seems unhurt but can't get {{himself}} up.",
+        "Not an emergency really, just need help lifting my {{dad}} up."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, her daughter",
-        "{{callerName}}"
+        "It's {{callerName}}, I'm {{his}} {{callerChild}}.",
+        "{{callerName}}, I'm {{his}} {{callerChild}}.",
+        "My name's {{callerName}}, I'm {{his}} {{callerChild}}.",
+        "{{callerName}} here, I'm {{his}} {{callerChild}} and I'm with {{him}} now.",
+        "It's {{callerName}} speaking, {{his}} {{callerChild}}.",
+        "You can put me down as {{callerName}}, I'm {{his}} {{callerChild}}.",
+        "{{callerName}}. I'm {{his}} {{callerChild}}, we're together.",
+        "It's {{callerName}}, {{his}} {{callerChild}} here, please hurry.",
+        "{{callerName}}, that's me, I'm {{his}} {{callerChild}}.",
+        "It's {{callerName}}, I'm {{his}} {{callerChild}}, is help on the way?"
       ]
     },
     "patientName": {
       "answers": [
-        "{{firstPatientName}}, my mum",
-        "It's {{firstPatientName}}"
+        "{{firstPatientName}}, that's my {{dad}}.",
+        "It's {{firstPatientName}}, my {{dad}}.",
+        "My {{dad}}'s name is {{firstPatientName}}.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, my {{dad}}.",
+        "It's {{firstPatientName}}, that's who I mean.",
+        "My {{dad}} is called {{firstPatientName}}.",
+        "{{firstPatientName}}, please hurry.",
+        "That's {{firstPatientName}}, my {{dad}}.",
+        "{{firstPatientName}}. {{He}}'s my {{dad}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, the door's on the latch"
+        "We're at {{address}}.",
+        "It's {{address}}.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}.",
+        "We're at {{address}}, the door will be open.",
+        "{{address}}, come straight in.",
+        "You need {{address}}.",
+        "{{address}} is where we are.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She slipped getting out of the chair, she's on the floor but says nothing hurts"
+        "{{He}} slipped getting out of the chair, {{he}}'s on the floor but says nothing hurts.",
+        "{{He}} lost {{his}} footing in the kitchen and went down gently.",
+        "{{He}} tripped on the rug and ended up on the floor.",
+        "{{He}} slid down while getting up, no injury that {{he}} can feel.",
+        "{{He}} misjudged a step and ended up sat on the floor.",
+        "{{He}} slipped slightly and just can't get {{himself}} back up.",
+        "{{He}} lowered {{himself}} down awkwardly and got stuck there.",
+        "{{He}} stumbled and sat down hard, but says {{he}}'s not hurt.",
+        "{{He}} lost {{his}} balance for a moment and ended up on the floor.",
+        "{{He}} slipped while walking, {{he}}'s just unable to get up unaided."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's alert and chatting"
+        "Yes, {{he}}'s alert and chatting.",
+        "{{He}}'s fully conscious, just can't get up.",
+        "Yes, {{he}}'s talking normally, no confusion.",
+        "{{He}}'s awake and completely aware of what happened.",
+        "Yes, {{he}}'s conscious, joking about it even.",
+        "{{He}}'s alert, just a bit embarrassed about it.",
+        "Yes, {{he}}'s fine mentally, just stuck physically.",
+        "{{He}}'s awake and talking, no issues there.",
+        "Yes, {{he}}'s conscious and calm about the whole thing.",
+        "{{He}}'s completely alert, just can't manage to stand."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Normal, no concerns there.",
+        "Fine, nothing worrying about {{his}} breathing.",
+        "It's fine, {{he}}'s just stuck on the floor.",
+        "Normal breathing, {{he}}'s fine in {{himself}}.",
+        "Fine, no issues at all.",
+        "Steady, nothing unusual.",
+        "It's fine, {{he}}'s just a bit shaken.",
+        "Normal, no concerns whatsoever.",
+        "Breathing's fine, {{he}}'s just unable to stand."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says she's fine, just shaken"
+        "{{He}} says {{he}}'s fine, just shaken.",
+        "No pain reported, just a bit embarrassed.",
+        "{{He}} says nothing hurts, {{he}}'s just stuck.",
+        "No, {{he}} says {{he}}'s not in any pain.",
+        "{{He}}'s saying {{he}} feels okay, just can't get up.",
+        "No pain that {{he}}'s mentioned, just annoyed at {{himself}}.",
+        "{{He}} says {{he}}'s absolutely fine, just needs a hand.",
+        "No, {{he}} insists {{he}}'s not hurt at all.",
+        "{{He}} says nothing's sore, {{he}}'s just weak getting up.",
+        "No pain reported, {{he}}'s more frustrated than anything."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No bleeding.",
+        "None at all.",
+        "No, nothing like that.",
+        "No bleeding whatsoever.",
+        "None, no injuries visible.",
+        "No, {{he}}'s not cut or bleeding.",
+        "Nothing, no bleeding at all.",
+        "No, completely fine on that front.",
+        "None visible, no.",
+        "No bleeding, {{he}}'s just stuck."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Arthritis, that's about it"
+        "Arthritis, that's about it.",
+        "{{He}}'s got arthritis in {{his}} knees.",
+        "Just arthritis, nothing else major.",
+        "{{He}} has arthritis, that's {{his}} main issue.",
+        "Arthritis mainly, otherwise {{he}}'s in good health.",
+        "Just {{his}} arthritis, nothing else that I know of.",
+        "{{He}}'s got arthritis, {{he}}'s otherwise quite well.",
+        "Arthritis in {{his}} hips and knees, that's it really.",
+        "Just arthritis, nothing else significant.",
+        "{{He}} has arthritis, no other conditions really."
       ]
     },
     "medications": {
       "answers": [
-        "Just her arthritis tablets"
+        "Just {{his}} arthritis tablets.",
+        "{{He}} takes something for arthritis, that's all.",
+        "Arthritis medication, nothing else regularly.",
+        "Just tablets for {{his}} arthritis.",
+        "{{He}}'s on arthritis medication only.",
+        "Just the arthritis tablets, nothing else.",
+        "{{He}} takes anti inflammatories for the arthritis.",
+        "Only the arthritis medication as far as I know.",
+        "Just {{his}} usual arthritis tablets.",
+        "Arthritis medication, that's the only regular one."
       ]
     },
     "patientAge": {
       "answers": [
-        "84"
+        "84",
+        "About 84",
+        "84, I think",
+        "{{He}}'s 84 years old",
+        "I believe {{he}}'s 84",
+        "Just turned 84 I think",
+        "84, same age as always",
+        "Around 84, give or take",
+        "{{He}} is 84",
+        "I'd say 84 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep her comfortable on the floor"
+        "Okay, I'll keep {{him}} comfortable on the floor.",
+        "Thank you, I'll stay with {{him}} until you're here.",
+        "Okay, I'll put a cushion under {{him}} while we wait.",
+        "Thank you, I'll keep {{him}} warm on the floor.",
+        "Okay, I'll sit with {{him}} and keep {{him}} company.",
+        "Thank you, I won't try to lift {{him}} myself.",
+        "Okay, I'll keep chatting to {{him}} while we wait.",
+        "Thank you, I'll make sure {{he}}'s comfortable.",
+        "Okay, I'll stay by {{him}} until help arrives.",
+        "Thank you, I'll keep an eye on {{him}} until then."
       ]
     },
     "refer111": {
       "answers": [
-        "Actually that might be right, she says she's not hurt, just stuck"
+        "Actually that might be right, {{he}} says {{he}}'s not hurt, just stuck.",
+        "That sounds sensible, {{he}}'s fine, just can't get up alone.",
+        "Okay, that makes sense, {{he}}'s not injured at all.",
+        "Alright, {{he}}'s not hurt, we just needed a hand really.",
+        "Okay, that's fair, {{he}}'s completely unhurt.",
+        "That's probably right, we just need someone to help {{him}} up.",
+        "Alright, {{he}}'s fine, it's really just about getting {{him}} standing.",
+        "Okay, that sounds about right for us.",
+        "Alright, {{he}} agrees {{he}}'s not injured, just embarrassed.",
+        "Okay, that seems sensible given {{he}}'s not hurt."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

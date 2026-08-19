@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -68,7 +72,15 @@
   "caller": {
     "openings": [
       "The barbecue's gone up, flames are getting into the fence and decking",
-      "I need the fire brigade, our barbecue's caught fire and it's spreading to the garden"
+      "I need the fire brigade, our barbecue's caught fire and it's spreading to the garden",
+      "Our barbecue's flared up badly and now the fence is starting to catch",
+      "Can someone come quickly, the barbecue's out of control in the garden",
+      "There's a barbecue fire spreading along our decking",
+      "The disposable barbecue's gone up and it's caught the grass",
+      "Our garden barbecue's blazing and it's close to the shed",
+      "The coals have flared up and set the fence alight",
+      "There's a fire from the barbecue spreading towards the house",
+      "The barbecue's tipped over and now the decking's alight"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -81,78 +93,231 @@
     "start": {
       "answers": [
         "The barbecue's gone up, flames are getting into the fence and decking",
-        "I need the fire brigade, our barbecue's caught fire and it's spreading to the garden"
+        "I need the fire brigade, our barbecue's caught fire and it's spreading to the garden",
+        "Our barbecue's flared up badly and now the fence is starting to catch",
+        "Can someone come quickly, the barbecue's out of control in the garden",
+        "There's a barbecue fire spreading along our decking",
+        "The disposable barbecue's gone up and it's caught the grass",
+        "Our garden barbecue's blazing and it's close to the shed",
+        "The coals have flared up and set the fence alight",
+        "There's a fire from the barbecue spreading towards the house",
+        "The barbecue's tipped over and now the decking's alight"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, it's my garden"
+        "It's {{callerName}}, it's my garden",
+        "{{callerName}} here, we were having a barbecue when it flared up",
+        "It's {{callerName}}, I'm the homeowner",
+        "{{callerName}}, I live here, it's my back garden",
+        "It's {{callerName}}, we're hosting a barbecue that's got out of hand",
+        "My name's {{callerName}}, it's happening in my garden",
+        "It's {{callerName}}, I'm outside with the family",
+        "{{callerName}} speaking, it's our barbecue that's caught",
+        "It's {{callerName}}, I'm stood in the garden watching it",
+        "{{callerName}}, I called as soon as it flared up"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, we've all moved away from it"
+        "There's no one hurt, nobody was anywhere near it.",
+        "No patient to report, it's just the fire itself.",
+        "Nobody's hurt, I haven't seen anyone go near it.",
+        "No casualties, no one was involved when it caught.",
+        "There's no one to name, no one's injured.",
+        "Nobody was caught up in it, no injuries at all.",
+        "No one's hurt, everyone's kept well clear.",
+        "There's nobody involved, it's not touched anyone.",
+        "No injuries to report, no one's anywhere near it.",
+        "Nobody's hurt, there's no patient here."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, round the back, through the side gate"
+        "{{address}}, round the back, through the side gate",
+        "It's {{address}}, the garden's accessed from the side alley",
+        "{{address}}, come round to the back garden",
+        "It's {{address}}, there's a gate down the side of the house",
+        "{{address}}, the fire's in the back garden",
+        "It's {{address}}, use the side entrance, the garden's fenced",
+        "{{address}}, the barbecue's on the decking out back",
+        "It's {{address}}, please hurry round to the rear garden",
+        "{{address}}, the side gate's open for you",
+        "It's {{address}}, it's the garden behind the house"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The barbecue flared up and the flames have caught the fence, it's spreading along the decking"
+        "The barbecue flared up and the flames have caught the fence, it's spreading along the decking",
+        "We put too much fuel on and it flared badly, now the grass is catching",
+        "A gust of wind blew the flames into the fence and it's taken hold",
+        "The barbecue tipped over and the coals have set light to the decking",
+        "It flared up while we were cooking and we couldn't get it under control",
+        "The disposable barbecue was put down still hot and it's set the grass alight",
+        "The flames caught the parasol and now it's spreading towards the shed",
+        "It's been building up for a few minutes and now the fence is well alight",
+        "We tried to smother it but it's already caught the decking boards",
+        "The barbecue's flared right up and it's too hot to get near now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone's fine, we've all moved back"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so there's nothing to report there.",
+        "Everyone's fine, nobody's anywhere near it.",
+        "No casualties, no one's been affected by it.",
+        "There's no patient, nobody's hurt at all.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No one's struggling, just smoke in the garden"
+        "No one's struggling, just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smoke that's bothering us.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's near enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke.",
+        "No breathing problems, nobody's close enough to it.",
+        "We've kept clear, so no one's had any trouble breathing.",
+        "No one's affected, just a bit of a smell in the air.",
+        "Nothing to report, we're all well away from the smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No injuries, nobody's hurt"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected.",
+        "Not applicable, there's no patient in pain.",
+        "No injuries, nobody's hurt in any way.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, everyone's clear of it"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all.",
+        "Not applicable, nobody's been hurt.",
+        "No, no one's involved, so no injuries.",
+        "No bleeding to report, everyone's clear.",
+        "No injuries at all, nobody's near it.",
+        "No, there's no one hurt to report bleeding.",
+        "Not applicable, no one's been affected.",
+        "No, everyone's well away from it.",
+        "No bleeding, nobody's been caught up in it."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable, no one's hurt"
+        "Not applicable, there's no one hurt.",
+        "No patient, so nothing to tell you there.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter.",
+        "No patient here, nothing to report.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that.",
+        "Not applicable, nobody's hurt.",
+        "No patient involved, nothing to tell you."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not medical.",
+        "No patient, nothing to tell you.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected.",
+        "No casualty, so nothing there.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient"
+        "There's no patient, nobody's hurt.",
+        "No one involved, so no age to give.",
+        "Not applicable, it's just the fire.",
+        "No casualty, there's no one to report.",
+        "Nobody's hurt, no patient here.",
+        "No one's involved, so nothing there.",
+        "Not applicable, there's no injuries.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping the kids well back"
+        "Okay, we're keeping the kids well back",
+        "Right, I've turned the hose on the fence to slow it down",
+        "Okay, everyone's moved to the front of the house",
+        "Understood, we're staying clear of the smoke",
+        "Alright, I've got the kids inside now",
+        "Okay, we're all well away from the flames",
+        "Right, I'll keep watching where it's spreading",
+        "Okay, I've shut the back door to stop smoke getting in",
+        "Understood, we're waiting out front for you",
+        "Okay, I'm keeping everyone off the decking"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's the barbecue that's caught fire, not a police matter",
+        "Sorry, why police, I need the fire brigade for the flames",
+        "No, this isn't a crime, it's just the barbecue got out of hand",
+        "There's no need for police, just send the fire engine",
+        "No, it's the fence and decking on fire, nobody's done anything wrong",
+        "Sorry, I don't need police, I need someone for the fire",
+        "No thank you, it's not a police job, it's a garden fire",
+        "That's not right, it's a barbecue fire, not a police matter",
+        "No, please, just the fire brigade for the garden",
+        "Sorry, there's no crime here, just the barbecue's got away from us"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, there's a gas canister right next to it",
+        "Okay, good, we've got the kids well back",
+        "Please hurry, it's caught the fence now",
+        "Thank you, we're keeping everyone away from the decking",
+        "Okay, I can see them pulling up, thank god",
+        "Good, hurry, the flames are spreading along the fence",
+        "Thank you, we've moved the gas bottle as far as we dare",
+        "Okay, please tell them to hurry, it's getting bigger",
+        "Thank goodness, we're all stood well clear now",
+        "Good, hurry please, the decking's really caught now"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire, not medical"
+        "No, it's a fire, not medical",
+        "No, nobody's hurt, it's just the barbecue and fence",
+        "No thank you, I need the fire brigade not 111",
+        "No, there's no injury, just send the fire service",
+        "No, it's purely a fire in the garden",
+        "No, I don't need that, please send firefighters",
+        "No, nobody's hurt, it's the fence and decking burning",
+        "No, this isn't a medical call, it's a fire",
+        "No, please just get the fire brigade here quickly",
+        "No, it's a fire call, not a health one"
       ]
     }
   },

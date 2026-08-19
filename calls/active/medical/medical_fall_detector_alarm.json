@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -70,7 +74,15 @@
   "caller": {
     "openings": [
       "This is the monitoring centre, we've had a fall alarm activate and no response from the resident",
-      "We've received a fall detector signal and can't reach the client by voice"
+      "We've received a fall detector signal and can't reach the client by voice",
+      "This is the alarm monitoring service, a fall pendant's triggered with no response",
+      "We've had a fall alert come through and the resident isn't answering",
+      "This is the response centre, a fall sensor's gone off, no verbal contact yet",
+      "We're calling from the monitoring centre, a client's fall alarm has activated",
+      "This is the telecare service, a fall detector's triggered and we can't reach {{him}}",
+      "We've had an automatic fall alert, the resident hasn't responded to us",
+      "This is the alarm centre, a pendant fall alarm's gone off with silence since",
+      "We've received a fall signal from a client's home, no answer on the speaker"
     ],
     "phoneArea": "auto",
     "callerType": "alarm_company"
@@ -83,89 +95,231 @@
     "start": {
       "answers": [
         "This is the monitoring centre, we've had a fall alarm activate and no response from the resident",
-        "We've received a fall detector signal and can't reach the client by voice"
+        "We've received a fall detector signal and can't reach the client by voice",
+        "This is the alarm monitoring service, a fall pendant's triggered with no response",
+        "We've had a fall alert come through and the resident isn't answering",
+        "This is the response centre, a fall sensor's gone off, no verbal contact yet",
+        "We're calling from the monitoring centre, a client's fall alarm has activated",
+        "This is the telecare service, a fall detector's triggered and we can't reach {{him}}",
+        "We've had an automatic fall alert, the resident hasn't responded to us",
+        "This is the alarm centre, a pendant fall alarm's gone off with silence since",
+        "We've received a fall signal from a client's home, no answer on the speaker"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, monitoring centre operator"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "The client on file is {{firstPatientName}}",
-        "{{firstPatientName}}, according to our records"
+        "The account holder's listed as {{firstPatientName}}",
+        "Our records show {{firstPatientName}} as the resident",
+        "It's {{firstPatientName}}, that's the name on the account",
+        "{{firstPatientName}}, that's who the alarm's registered to",
+        "Our system has {{him}} listed as {{firstPatientName}}",
+        "{{firstPatientName}} is the client's name on file",
+        "The resident is {{firstPatientName}}, according to our records",
+        "{{firstPatientName}}, that's the name we have for this address",
+        "Our database shows the client as {{firstPatientName}}",
+        "It's {{firstPatientName}}, that's on the account details"
       ]
     },
     "address": {
       "answers": [
-        "The registered address is {{address}}",
-        "{{address}}, that's on our system"
+        "The address we have on file is {{address}}",
+        "Our system shows {{address}}",
+        "It's {{address}}, that's the registered address",
+        "{{address}} is the property on our records",
+        "The client's address is {{address}}",
+        "We have {{address}} listed for this alarm",
+        "{{address}}, that's the address on the account",
+        "Our records show the property as {{address}}",
+        "It's {{address}} according to our database",
+        "The monitored address is {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The fall detector has triggered automatically, we've tried calling through the unit but there's no response",
-        "It's an automatic fall signal, we can't get a verbal response from the resident"
+        "The fall detector on {{his}} pendant has triggered and we've had no verbal response",
+        "Our system logged a fall alert, we've tried the two way speaker with no answer",
+        "The alarm activated automatically, suggesting {{he}}'s had a fall, no contact since",
+        "We've had a fall signal and attempted contact several times with no response",
+        "The pendant alarm triggered on its own, which usually means a fall's occurred",
+        "Our monitoring picked up a fall event, we can't raise {{him}} on the speaker",
+        "The device detected a fall automatically, we've had total silence since",
+        "We've tried calling through the base unit but there's no response from {{him}}",
+        "The fall alarm's gone off and we've had no reply despite several attempts",
+        "Our system flagged a fall, we've been unable to make contact with {{him}}"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Unable to confirm, no response through the unit",
-        "Unknown from here"
+        "We can't tell from here, there's no camera at the property",
+        "Unknown, {{he}} isn't answering the intercom at all",
+        "We don't know, we've had no response to our calls",
+        "Can't say, our system only shows the alarm activation",
+        "Unknown I'm afraid, we've no way to see or speak to {{him}}",
+        "We can't establish that, {{he}}'s not responding to us",
+        "No idea, sorry, we just get the signal, not a picture",
+        "We don't know, that's exactly why we're calling",
+        "Can't tell, there's been total silence from the property",
+        "Unknown, we've tried the speaker several times with no reply"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Can't confirm from the monitoring centre",
-        "No way to know from here"
+        "We can't tell, there's no way to check breathing from here",
+        "Unknown, we've no visual on {{him}} at all",
+        "We don't know, our system doesn't show that",
+        "Can't say I'm afraid, we just get the alarm signal",
+        "Unknown, that's why we need someone to check on {{him}}",
+        "We can't establish that from the monitoring centre",
+        "No idea, sorry, we've no way of knowing",
+        "We don't know, there's been no response at all",
+        "Can't tell, we only get an alert, not a picture",
+        "Unknown, we've tried the intercom several times"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "We've no way of knowing",
-        "Unable to confirm"
+        "We've no way to know, sorry",
+        "Unknown, we can't assess that from here",
+        "We don't know, {{he}}'s not responding to us",
+        "Can't say, there's no way to tell over the intercom",
+        "Unknown I'm afraid, that's why we're calling you",
+        "We can't establish that, sorry",
+        "No idea, we've had no response at all",
+        "Can't tell, we only get the alarm signal",
+        "Unknown, we've no visual or verbal contact",
+        "We don't know, sorry, we just monitor the signal"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "We can't say from here",
-        "No way to confirm"
+        "We've no way to know, sorry, there's no visual or verbal contact",
+        "Unknown, we can't assess that from the monitoring centre",
+        "We don't know, {{he}}'s not responding to us at all",
+        "Can't say, there's no way to tell without someone attending",
+        "Unknown I'm afraid, that's exactly why we're calling you",
+        "We can't establish that, sorry, we only get the alarm signal",
+        "No idea, we've had no response at all since the alert",
+        "Can't tell, we only get the alert, not a picture or sound",
+        "Unknown, we've no visual or verbal contact with {{him}}",
+        "We don't know, sorry, we just monitor the signal remotely"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Our notes mention some mobility issues",
-        "I can check the file, one moment"
+        "We've got some notes on file, {{he}}'s got a history of falls",
+        "Our records show {{he}}'s had previous falls in the past year",
+        "There's a note on file about mobility problems",
+        "Our system shows {{he}}'s got arthritis noted on the account",
+        "We have a note that {{he}}'s had a fall before",
+        "Our records mention {{he}} lives alone and has limited mobility",
+        "There's a flag on file for previous falls",
+        "Our notes show {{he}}'s got some mobility issues on record",
+        "We've got a note that {{he}}'s fallen twice before this year",
+        "Our system has a mobility concern flagged on the account"
       ]
     },
     "medications": {
       "answers": [
-        "Not something we hold on our system",
-        "I don't have that information"
+        "We don't hold medication details on our system, sorry",
+        "That's not something we have on file I'm afraid",
+        "We don't have medication information, only the alarm account details",
+        "Sorry, that's not information we hold at the monitoring centre",
+        "We don't record medications, only fall and alarm history",
+        "That's not on our system, sorry, you'd need the GP for that",
+        "We don't have that information, only the account and alarm details",
+        "Sorry, medications aren't something we hold here",
+        "That's not information we have access to, I'm afraid",
+        "We don't hold that on file, only alarm response history"
       ]
     },
     "patientAge": {
       "answers": [
-        "88"
+        "{{He}}'s 84",
+        "About 84, I think",
+        "{{He}}'s 84 years old",
+        "84, {{he}}'ll be 85 next year",
+        "I think {{he}}'s 84 or thereabouts",
+        "84 years of age",
+        "{{He}}'s in {{his}} 80s, about 84",
+        "Just turned 84",
+        "{{He}}'s 84, always been fit for {{his}} age",
+        "84, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Understood, we'll keep trying to reach them",
-        "We'll stay on the line while you attend"
+        "Understood, we'll keep trying the intercom",
+        "Okay, we'll stay on the line while you attend",
+        "Noted, I'll update our records once you're on scene",
+        "That's fine, we'll keep attempting contact in the meantime",
+        "Understood, I'll flag this as a priority on our system",
+        "Okay, we'll keep monitoring in case there's any update",
+        "Noted, I'll try the keyholder again in the meantime",
+        "That's fine, we'll stand by for your update",
+        "Understood, thank you, we'll log the response time",
+        "Okay, I'll note that down on the account"
       ]
     },
     "refer111": {
       "answers": [
-        "Given there's no response, we think this needs checking in person",
-        "We'd rather someone attended given the lack of contact"
+        "No, we've had no verbal response, this needs a welfare check",
+        "No, this is a fall alarm with no response, please attend",
+        "No, 111 won't help, we need someone to check on {{him}} in person",
+        "No, this is an unresponsive alarm activation, please send someone",
+        "No, we can't reach {{him}} at all, this needs checking in person",
+        "No, our protocol is to call 999 when there's no response",
+        "No, this needs a physical check, we can't assess it over the phone",
+        "No, please send someone, we've had silence since the alarm triggered",
+        "No, this is exactly the kind of call that needs an ambulance",
+        "No, we need eyes on {{him}}, please send someone"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "No, this is a medical alarm, there's nothing for police here",
+        "Police? No, our system only shows a medical or fall activation",
+        "No police needed, this is a personal alarm activation only",
+        "No, there's nothing to suggest a crime, just a welfare concern",
+        "No, our records show no reason for police, just a medical signal",
+        "Police service isn't needed, this is a monitored medical alert",
+        "No, this isn't a police matter, we just need someone to check on {{him}}",
+        "No police indicated, this is purely a welfare and medical concern",
+        "No, nothing on our system points to police being needed, just the ambulance",
+        "No police required, this is a fall alarm, not a security alarm"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "No, this is a medical alarm, there's no fire indicated on our system",
+        "Fire? No, our system only shows a medical or fall activation",
+        "No fire brigade needed, this is a personal alarm activation only",
+        "No, there's nothing to suggest a fire, just the welfare concern",
+        "No, our records show no fire alarm, just a fall or medical signal",
+        "Fire service isn't needed, this is a monitored medical alert",
+        "No, this isn't a fire activation, we just need someone to check on {{him}}",
+        "No fire indicated, this is purely a welfare and medical concern",
+        "No, nothing on our system points to fire, just send the ambulance please",
+        "No fire brigade required, this is a fall alarm, not a fire alarm"
       ]
     }
   },

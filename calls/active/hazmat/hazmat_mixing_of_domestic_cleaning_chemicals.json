@@ -48,6 +48,10 @@
     "hazmat_unit": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11
+  },
   "patients": {
     "range": [
       0,
@@ -83,8 +87,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "I've mixed bleach and another cleaner by accident and now I can't stop coughing",
-      "My mum's mixed some cleaning chemicals in the bathroom and the fumes are awful"
+      "My {{dad}}'s mixed bleach with another cleaner and {{he}}'s struggling to breathe.",
+      "I need help, my {{dad}}'s mixed some cleaning products and the fumes are awful.",
+      "My {{dad}}'s been overcome by fumes after mixing bleach and another cleaner.",
+      "There's a strong chemical smell here, my {{dad}} mixed bleach with something else.",
+      "My {{dad}}'s coughing badly, {{he}} mixed two cleaning sprays in the bathroom.",
+      "Please hurry, my {{dad}}'s mixed cleaning chemicals and {{he}} can't stop coughing.",
+      "My {{dad}}'s in trouble, {{he}} mixed bleach and another cleaner by accident.",
+      "The fumes are really strong, my {{dad}} mixed two cleaning products together.",
+      "My {{dad}}'s really struggling to breathe after mixing cleaning chemicals.",
+      "I've just found my {{dad}} coughing badly, {{he}}'d mixed bleach with another cleaner."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -96,90 +108,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "I've mixed bleach and another cleaner by accident and now I can't stop coughing",
-        "My mum's mixed some cleaning chemicals in the bathroom and the fumes are awful"
+        "My {{dad}}'s mixed bleach with another cleaner and {{he}}'s struggling to breathe.",
+        "I need help, my {{dad}}'s mixed some cleaning products and the fumes are awful.",
+        "My {{dad}}'s been overcome by fumes after mixing bleach and another cleaner.",
+        "There's a strong chemical smell here, my {{dad}} mixed bleach with something else.",
+        "My {{dad}}'s coughing badly, {{he}} mixed two cleaning sprays in the bathroom.",
+        "Please hurry, my {{dad}}'s mixed cleaning chemicals and {{he}} can't stop coughing.",
+        "My {{dad}}'s in trouble, {{he}} mixed bleach and another cleaner by accident.",
+        "The fumes are really strong, my {{dad}} mixed two cleaning products together.",
+        "My {{dad}}'s really struggling to breathe after mixing cleaning chemicals.",
+        "I've just found my {{dad}} coughing badly, {{he}}'d mixed bleach with another cleaner."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}, she's in the bathroom"
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my {{dad}}.",
+        "{{His}} name's {{firstPatientName}}.",
+        "{{firstPatientName}} is {{his}} name.",
+        "You can put {{him}} down as {{firstPatientName}}.",
+        "It's {{firstPatientName}}, my {{dad}}.",
+        "{{firstPatientName}}, {{he}}'s fifty eight.",
+        "My {{dad}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}}, sorry, I should have said straight away.",
+        "It's {{firstPatientName}}, {{he}}'s my {{dad}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, I've opened the windows"
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She mixed bleach with another cleaning spray and the fumes filled the bathroom",
-        "There's a strong chemical smell, she started coughing straight away"
+        "{{He}} mixed bleach with another cleaning spray and the fumes filled the bathroom.",
+        "There's a strong chemical smell, {{he}} started coughing straight away after mixing them.",
+        "{{He}} was cleaning the bathroom and mixed two products that shouldn't go together.",
+        "{{He}}'d used bleach then sprayed another cleaner on top, the fumes built up fast.",
+        "It happened while {{he}} was cleaning, two chemicals mixed and gave off strong fumes.",
+        "{{He}} mixed bleach and an ammonia based cleaner without realising the danger.",
+        "The bathroom's small and poorly ventilated, the fumes hit {{him}} straight away.",
+        "{{He}} was doing the cleaning and didn't realise the two products would react.",
+        "It's the fumes from mixing bleach with another cleaning product, quite strong in there.",
+        "{{He}} sprayed one cleaner then another on the same surface, the fumes overwhelmed {{him}}."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's awake",
-        "Yes, coughing but conscious"
+        "Yes, {{he}}'s awake.",
+        "{{He}}'s conscious, just coughing a lot.",
+        "Yes, awake, but really struggling to talk.",
+        "{{He}}'s conscious, sat on the floor coughing.",
+        "Yes, {{he}}'s awake, quite distressed though.",
+        "{{He}}'s conscious but going a bit pale.",
+        "Awake, yes, but finding it hard to answer me.",
+        "{{He}}'s conscious, I've got {{him}} sat up by the window.",
+        "Yes, awake, just very shaken and coughing.",
+        "{{He}}'s conscious, but {{his}} breathing's getting worse."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "She's coughing a lot and finding it hard to breathe",
-        "Breathing's a bit ragged, she's wheezing"
+        "{{He}}'s coughing a lot and finding it hard to breathe.",
+        "Breathing's a bit ragged, {{he}}'s wheezing.",
+        "{{He}}'s struggling for breath, coughing constantly.",
+        "{{His}} breathing's laboured, quite a lot of wheezing.",
+        "{{He}} can't seem to catch {{his}} breath properly.",
+        "Breathing's difficult, {{he}}'s gasping between coughs.",
+        "{{He}}'s wheezing badly and finding it hard to speak.",
+        "{{His}} chest sounds tight, {{he}}'s really struggling.",
+        "{{He}}'s breathing fast and shallow, coughing a lot.",
+        "It's not good, {{he}}'s really struggling to breathe."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Her throat and chest hurt, she says",
-        "Yes, burning in her throat"
+        "{{His}} throat and chest hurt, {{he}} says.",
+        "Yes, burning in {{his}} throat.",
+        "{{He}} says {{his}} chest feels tight and sore.",
+        "{{His}} eyes are stinging and {{his}} throat's burning.",
+        "{{He}}'s in pain when {{he}} breathes in, {{he}} says.",
+        "Yes, {{he}} says it burns when {{he}} coughs.",
+        "{{His}} chest and throat both hurt, according to {{him}}.",
+        "{{He}} says {{his}} throat feels raw and sore.",
+        "Yes, {{he}}'s in discomfort, mostly {{his}} chest and throat.",
+        "{{He}} keeps saying {{his}} throat's on fire."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No bleeding.",
+        "No, nothing like that.",
+        "No, {{he}}'s not bleeding at all.",
+        "No blood, no, it's just the fumes.",
+        "No, there's no bleeding, just breathing trouble.",
+        "No, not bleeding, thankfully.",
+        "No, no injuries, just the coughing.",
+        "No bleeding, no cuts or anything.",
+        "No, nothing like that, just struggling to breathe.",
+        "No, no bleeding at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No, she's normally fit and well",
-        "Not that I know of"
+        "No, {{he}}'s normally fit and well.",
+        "Not that I know of, no health problems usually.",
+        "{{He}}'s never had breathing problems before, no.",
+        "No history that I know of, {{he}}'s generally healthy.",
+        "Nothing I'm aware of, {{he}} doesn't normally have issues like this.",
+        "No, {{he}}'s not one for illness normally.",
+        "Not as far as I know, no medical conditions.",
+        "No, nothing chronic that I know of.",
+        "I don't think so, {{he}}'s usually pretty healthy.",
+        "No history of anything like this before, no."
       ]
     },
     "medications": {
       "answers": [
-        "No regular medication",
-        "None that I know of"
+        "No regular medication.",
+        "None that I know of.",
+        "No, {{he}} doesn't take anything regularly.",
+        "Not that I'm aware of, no.",
+        "No, nothing regular, no.",
+        "I don't think {{he}} takes anything, no.",
+        "No medication as far as I know.",
+        "No, {{he}}'s not on anything regular.",
+        "None I know of, no.",
+        "No, nothing that I'm aware of."
       ]
     },
     "patientAge": {
       "answers": [
-        "58"
+        "{{He}}'s fifty eight.",
+        "Fifty eight, {{he}} is.",
+        "{{He}} just turned fifty eight.",
+        "Fifty eight years old.",
+        "{{He}}'s fifty eight, yes.",
+        "About fifty eight, I believe.",
+        "{{He}}'s in {{his}} late fifties, fifty eight.",
+        "Fifty eight, that's {{his}} age.",
+        "{{He}} is fifty eight.",
+        "{{He}}'s fifty eight years of age."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've got her out into the garden for fresh air",
-        "Right, I'll keep the door open"
+        "Okay, thank you, we'll keep them comfortable till the paramedics arrive.",
+        "Right, I'll stay with them until the ambulance gets here.",
+        "Okay, that's good, please hurry, they're not looking great.",
+        "Thank you, we'll keep them still and wait for the crew.",
+        "Alright, I'll keep talking to them until the ambulance arrives.",
+        "Okay, we're keeping them warm and calm, waiting for you.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we'll keep everyone together until the ambulance turns up.",
+        "Thank you, I'll do what I can until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "No, she can hardly breathe, I need an ambulance",
-        "Should I try that instead"
+        "No, they need proper help now, not 111, please send someone.",
+        "I don't think 111 can deal with this, we need paramedics and fire out here.",
+        "No, this can't wait for 111, people are struggling to breathe.",
+        "Sorry, no, we need an ambulance and the fire brigade now.",
+        "No, 111's too slow for this, please send help quickly.",
+        "I really think we need 999 crews here, not 111.",
+        "No, this is urgent, please don't put me through to 111.",
+        "Sorry, I don't think 111 is right for this, people are unwell.",
+        "No, we need someone out here now, not a phone line.",
+        "No, please, this needs paramedics, not 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, it's a fire we need dealt with.",
+        "No, this isn't a police matter, it's just the fire brigade we need.",
+        "Sorry, no, there's no need for police here, it's a fire call.",
+        "No thank you, we don't need officers, just the crews to put this out.",
+        "I don't think police are needed, it's purely a fire situation.",
+        "No, no police needed, nobody's done anything wrong, it's just a fire.",
+        "That's alright, we don't need police, just the fire brigade please.",
+        "No, this doesn't need police, just someone to deal with the fire.",
+        "Sorry, no, police aren't needed for this, it's a fire, not a crime.",
+        "No, we're fine on the police front, just need the fire crews here."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay back until the crews get here.",
+        "Right, that's a relief, please send them as quickly as you can.",
+        "Okay, we'll keep everyone well clear until the fire engines arrive.",
+        "Thank you, I'll wait here and point them in the right direction.",
+        "Alright, understood, we won't go near it till they arrive.",
+        "Okay, good, we're all outside and waiting for the crews.",
+        "Thank you, we'll keep our distance until the brigade gets here.",
+        "Right, please hurry, it's not looking any better.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, we'll wait here for them."
       ]
     }
   },

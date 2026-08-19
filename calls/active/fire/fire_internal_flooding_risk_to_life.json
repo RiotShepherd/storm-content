@@ -45,6 +45,11 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -72,9 +77,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Please, there's water coming through my ceiling and I can hear my neighbour shouting",
-      "It's flooding badly inside, my mum's inside and she can't get to the door",
-      "There's a burst pipe or something, water's pouring through the flat below and the old boy who lives there isn't answering"
+      "Please, there's water coming through my ceiling and I can hear my neighbour shouting.",
+      "It's flooding badly inside, my neighbour's inside and can't get to the door.",
+      "There's a burst pipe or something, water's pouring through the flat below.",
+      "Please help, there's flooding in the building and my neighbour's not answering properly.",
+      "Can you send someone, water's coming through and I'm worried about the elderly {{gentleman}} downstairs.",
+      "Please hurry, there's water everywhere and my neighbour sounds confused.",
+      "We've got flooding inside, I can hear my neighbour but {{he}}'s not making sense.",
+      "Please send help, the flat downstairs is flooding and {{he}}'s not opening the door.",
+      "There's water pouring through the building, I'm worried about my neighbour.",
+      "Please hurry, it's flooding badly and my neighbour's stuck inside."
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -86,82 +98,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Please, there's water coming through my ceiling and I can hear my neighbour shouting",
-        "It's flooding badly inside, my mum's inside and she can't get to the door",
-        "There's a burst pipe or something, water's pouring through the flat below and the old boy who lives there isn't answering"
+        "Please, there's water coming through my ceiling and I can hear my neighbour shouting.",
+        "It's flooding badly inside, my neighbour's inside and can't get to the door.",
+        "There's a burst pipe or something, water's pouring through the flat below.",
+        "Please help, there's flooding in the building and my neighbour's not answering properly.",
+        "Can you send someone, water's coming through and I'm worried about the elderly {{gentleman}} downstairs.",
+        "Please hurry, there's water everywhere and my neighbour sounds confused.",
+        "We've got flooding inside, I can hear my neighbour but {{he}}'s not making sense.",
+        "Please send help, the flat downstairs is flooding and {{he}}'s not opening the door.",
+        "There's water pouring through the building, I'm worried about my neighbour.",
+        "Please hurry, it's flooding badly and my neighbour's stuck inside."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I live upstairs"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, he's my downstairs neighbour"
+        "It's {{firstPatientName}}, {{he}}'s my neighbour downstairs.",
+        "{{firstPatientName}}, {{he}} lives in the flat below me.",
+        "It's {{firstPatientName}}, {{he}}'s elderly, {{he}} lives alone.",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s my downstairs neighbour.",
+        "It's {{firstPatientName}}, please, {{he}}'s not answering properly.",
+        "{{firstPatientName}}, that's {{him}}, {{he}} lives on {{his}} own.",
+        "It's {{firstPatientName}}, {{he}}'s an elderly {{gentleman}} from downstairs.",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s elderly and confused.",
+        "It's {{firstPatientName}}, {{he}}'s stuck in the flooding.",
+        "{{firstPatientName}}, {{he}}'s my neighbour, please hurry."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the ground floor flat",
-        "It's {{address}}, the water's coming from in there"
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The flat downstairs, water's been coming through for a while now, I think a pipe's burst and I can't reach him",
-        "There's water pouring through the ceiling and he's not answering his door"
+        "A pipe's burst somewhere upstairs, water's pouring down through the flats.",
+        "The water's been rising for a while, I can hear {{him}} but {{he}} won't open the door.",
+        "No idea what caused it, water's just pouring through the ceiling and walls.",
+        "It's coming through fast, I'm worried about the electrics near the water.",
+        "I don't know the cause, but the flat below's filling with water quickly.",
+        "There's standing water building up, {{he}} sounds confused when I shout through.",
+        "No idea how it started, the water's been getting worse for the last while.",
+        "It's coming from above somewhere, {{his}} flat's taking the worst of it.",
+        "I can't get the door open, the water's rising and {{he}}'s not responding properly.",
+        "No idea what's caused it, but it's flooding fast and {{he}}'s stuck inside."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He answered when I shouted through but sounded confused and out of breath"
+        "{{He}} answered when I shouted, but {{he}} sounded confused.",
+        "{{He}}'s conscious, just very muddled, not making sense.",
+        "{{He}} responded but {{he}}'s slurring {{his}} words a bit.",
+        "{{He}}'s awake, {{he}} sounds frightened and confused.",
+        "{{He}} answered me, but {{he}}'s not really with it.",
+        "{{He}}'s conscious, {{he}} keeps repeating {{himself}}.",
+        "{{He}} shouted back but {{he}} sounds very disoriented.",
+        "{{He}}'s awake, {{he}}'s confused about what's happening.",
+        "{{He}} responded when I banged on the door, sounded dazed.",
+        "{{He}}'s conscious but {{he}}'s not making much sense to me."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He said he was struggling to breathe with all the damp and cold"
+        "{{He}} sounded out of breath when {{he}} answered me.",
+        "{{His}} breathing sounded laboured through the door.",
+        "{{He}}'s struggling a bit, {{he}} sounded breathless.",
+        "{{He}} sounded wheezy when {{he}} shouted back.",
+        "I couldn't tell exactly, but {{he}} sounded short of breath.",
+        "{{He}} sounded like {{he}} was struggling to breathe properly.",
+        "{{His}} voice sounded breathless and weak through the door.",
+        "{{He}} sounded out of puff, I'm worried about {{him}}.",
+        "{{He}} sounded breathless, maybe from the panic of it all.",
+        "{{His}} breathing sounded off, {{he}} was gasping a bit."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He didn't mention pain, just that he's stuck and can't get to the door"
+        "I don't know, {{he}} hasn't said anything about pain.",
+        "{{He}} didn't mention pain, just sounded confused and scared.",
+        "I can't tell, {{he}}'s not said anything about hurting.",
+        "{{He}} hasn't said, {{he}}'s mostly just sounded muddled.",
+        "I don't know, {{he}}'s not mentioned any pain to me.",
+        "Can't say, {{he}} just sounded frightened through the door.",
+        "{{He}} hasn't mentioned pain, mostly {{he}} sounds confused.",
+        "I'm not sure, {{he}}'s not said anything hurts.",
+        "No idea, {{he}} just sounded disoriented when {{he}} answered.",
+        "{{He}} hasn't said, I can't get a clear answer out of {{him}}."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding that I know of"
+        "I can't see, {{he}}'s behind the door, I don't know.",
+        "I've no idea, I can't get in to check.",
+        "I can't tell, {{he}} won't open the door properly.",
+        "No idea, I can't see {{him}} properly from here.",
+        "I don't know, I can't get to {{him}} to check.",
+        "Can't say, the water's stopping me getting in properly.",
+        "I've no idea, I can only hear {{him}}, not see {{him}}.",
+        "No idea, sorry, I can't get a proper look at {{him}}.",
+        "I can't tell, {{he}}'s stuck the other side of the door.",
+        "No idea, I can't get close enough to check."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I think he's got a bad chest, he's older"
+        "I know {{he}} lives alone, not sure about {{his}} health though.",
+        "I think {{he}}'s got mobility problems, that's all I really know.",
+        "Not sure, sorry, we're just neighbours, we don't talk much.",
+        "I know {{he}}'s getting on a bit, don't know more than that.",
+        "Not certain, sorry, I think {{he}} might have a bad hip.",
+        "I don't know much, {{he}} keeps to {{himself}} really.",
+        "Not sure, sorry, I only really see {{him}} in passing.",
+        "I think {{he}}'s elderly and lives on {{his}} own, that's all I know.",
+        "Not certain, sorry, we've never really spoken about that.",
+        "I don't know for sure, {{he}}'s elderly, that's about all I can say."
       ]
     },
     "medications": {
       "answers": [
-        "I'm not sure, sorry"
+        "No idea, sorry, we're not that close.",
+        "I don't know, sorry, I've never asked {{him}}.",
+        "No idea what {{he}} takes, sorry, I don't know {{him}} well.",
+        "Not sure, sorry, we just say hello really.",
+        "No idea, sorry, I couldn't tell you that.",
+        "I don't know, sorry, we've never talked about it.",
+        "No idea what {{he}} takes, I'm afraid.",
+        "Not certain, sorry, I don't know {{him}} that well.",
+        "No idea, sorry, that's not something I'd know.",
+        "I couldn't say, sorry, we're just neighbours."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's elderly, seventies I'd say"
+        "{{He}}'s elderly, seventies I'd say.",
+        "{{He}}'s an older {{gentleman}}, maybe late seventies.",
+        "I'd guess {{he}}'s in {{his}} eighties.",
+        "{{He}}'s elderly, {{he}} must be seventy odd.",
+        "{{He}}'s quite old, {{he}} lives alone, maybe mid seventies.",
+        "I'd say {{he}}'s in {{his}} late seventies, early eighties maybe.",
+        "{{He}}'s elderly, definitely retired, seventies I'd guess.",
+        "Getting on a bit, {{he}}'s maybe seventy five or so.",
+        "{{He}}'s an older {{gentleman}}, I'd guess {{his}} late seventies.",
+        "{{He}}'s elderly, I'd guess {{him}} at about eighty."
       ]
     },
     "reassure": {
       "answers": [
-        "Please hurry, the water's still rising"
+        "Okay, thank you, I'll keep {{him}} sat up and calm.",
+        "Please hurry, {{he}}'s really struggling to breathe.",
+        "Okay, I'll stay with {{him}}, try and keep {{him}} calm.",
+        "Thank you, I've got {{him}} away from the smoke now.",
+        "Okay, good, I'll keep talking to {{him}} till you arrive.",
+        "Thank you, please hurry, {{his}} breathing's not good.",
+        "Okay, I'm right here with {{him}}.",
+        "Right, thank you, I'll keep the window open for air.",
+        "Okay, I'll let {{him}} know help's on the way.",
+        "Thank you, I'll stay on the line and with {{him}}."
       ]
     },
     "refer111": {
       "answers": [
-        "No it's an emergency, he's trapped in there with the water coming in"
+        "No, {{he}}'s hurt, this can't wait for 111, please send help.",
+        "No, I really think {{he}} needs an ambulance now, not 111.",
+        "Please, no, {{he}}'s in a bad way, we need paramedics here.",
+        "No, this is serious, {{he}} was hurt in this, please send help.",
+        "I don't think 111 can help with this, {{he}} needs urgent care.",
+        "No, please, {{he}}'s hurt, we need an ambulance.",
+        "No, this needs 999, {{he}}'s badly hurt.",
+        "Please, {{he}} can't wait for a phone call back, send someone now.",
+        "No, I really need an ambulance here, not 111, {{he}}'s in pain.",
+        "No, this is urgent, {{he}} needs help, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's a fire, I need the fire brigade.",
+        "I don't think we need police, it's just the fire that's the problem.",
+        "No, sorry, this isn't a police matter, it's a fire.",
+        "Why would police come, it's the fire brigade I need.",
+        "No, there's no need for police, nobody's done anything wrong.",
+        "Sorry, I think you mean the fire brigade, not the police.",
+        "No, it's not a police thing, just send the fire crew please.",
+        "I'm confused, why police, it's just a fire.",
+        "No thank you, we don't need officers here, just the fire brigade.",
+        "Sorry, no, this is a fire, not something for the police."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay well back until you get here.",
+        "Right, thank you, we're keeping clear of it.",
+        "Okay, I've got everyone away from it.",
+        "Thanks, I'll wait here till the crews arrive.",
+        "Alright, we've kept the area clear for now.",
+        "Okay, I'll keep everyone back and wait for you.",
+        "Thank you, we're staying clear, please hurry.",
+        "Right, understood, we won't go near it.",
+        "Okay, we're all keeping our distance.",
+        "Thanks, we'll wait here for the crews."
       ]
     }
   },

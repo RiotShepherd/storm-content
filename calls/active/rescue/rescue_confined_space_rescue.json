@@ -46,6 +46,11 @@
     "rescue_unit": 1,
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 4,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -74,8 +79,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "One of our lads has gone down in the tank, we can't get him out and another one's gone in after him.",
-      "We need help urgently, a worker's collapsed in a confined space and a colleague's stuck trying to reach him."
+      "One of my colleagues has collapsed in a confined space, we think there's gas in there!",
+      "We need help urgently, {{firstPatientName}}'s gone down in the tank and can't get out!",
+      "There's a worker down in a confined space, another colleague went in to help and now needs help too.",
+      "Please hurry, {{firstPatientName}}'s collapsed inside the chamber and we can't reach {{him}}.",
+      "One of the team's gone into the tank and collapsed, I think it's the fumes.",
+      "We've got someone trapped in a confined space and struggling to breathe.",
+      "It's an emergency, {{firstPatientName}}'s down in the tank and not responding.",
+      "Someone's gone into the confined space and collapsed, we've stopped everyone else going near it.",
+      "We need the fire brigade, one of our workers is stuck and unresponsive in a tank.",
+      "Please send help, {{firstPatientName}}'s collapsed in a confined space and another colleague's struggling too."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -87,91 +100,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "One of our lads has gone down in the tank, we can't get him out and another one's gone in after him.",
-        "We need help urgently, a worker's collapsed in a confined space and a colleague's stuck trying to reach him."
+        "One of my colleagues has collapsed in a confined space, we think there's gas in there!",
+        "We need help urgently, {{firstPatientName}}'s gone down in the tank and can't get out!",
+        "There's a worker down in a confined space, another colleague went in to help and now needs help too.",
+        "Please hurry, {{firstPatientName}}'s collapsed inside the chamber and we can't reach {{him}}.",
+        "One of the team's gone into the tank and collapsed, I think it's the fumes.",
+        "We've got someone trapped in a confined space and struggling to breathe.",
+        "It's an emergency, {{firstPatientName}}'s down in the tank and not responding.",
+        "Someone's gone into the confined space and collapsed, we've stopped everyone else going near it.",
+        "We need the fire brigade, one of our workers is stuck and unresponsive in a tank.",
+        "Please send help, {{firstPatientName}}'s collapsed in a confined space and another colleague's struggling too."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, I'm the site supervisor.",
-        "{{callerName}}, I work with them."
+        "{{callerName}}, I work with {{him}} on site.",
+        "My name's {{callerName}}, I'm the shift manager here.",
+        "{{callerName}}, I'm one of the site team.",
+        "It's {{callerName}} calling, I'm the health and safety officer.",
+        "{{callerName}}, I work at the same site.",
+        "My name is {{callerName}}, I'm a colleague of {{his}}.",
+        "It's {{callerName}}, I run the site office.",
+        "{{callerName}} here, I'm the foreman on this job.",
+        "My name's {{callerName}}, I'm on site with {{him}} now."
       ]
     },
     "patientName": {
       "answers": [
-        "One's {{firstPatientName}}, I don't know the other one as well.",
-        "It's {{firstPatientName}}, he's one of our engineers."
+        "It's {{firstPatientName}}, {{he}}'s one of our engineers.",
+        "{{firstPatientName}}, {{he}}'s worked here about five years.",
+        "{{patientName}}, I've got {{his}} emergency contact details if you need them.",
+        "It's {{firstPatientName}} who went down first, there's another colleague in there too.",
+        "{{firstPatientName}}'s the main one down, I don't know the other one as well.",
+        "{{his}} name's {{firstPatientName}}, {{he}}'s our site engineer.",
+        "It's {{firstPatientName}}, I've worked with {{him}} for years.",
+        "{{firstPatientName}}, that's the one who went in first.",
+        "{{patientName}}'s the name, {{he}}'s one of the site team.",
+        "It's {{firstPatientName}}, I can get you {{his}} details from the office."
       ]
     },
     "address": {
       "answers": [
         "We're at {{address}}, it's the industrial unit.",
-        "{{address}}, come to the main gate, I'll direct you."
+        "{{address}}, come to the main gate, I'll direct you in.",
+        "It's {{address}}, the entrance is round the side.",
+        "{{address}}, I'll be waiting to let you through security.",
+        "We're at {{address}}, there's a barrier, I'll open it for you.",
+        "{{address}}, follow the signs for the loading bay.",
+        "It's {{address}}, the site office will point you the right way.",
+        "{{address}}, I'll meet you at the gate.",
+        "We're at {{address}}, it's the unit at the back of the estate.",
+        "{{address}}, I'll have someone waiting to guide you in."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "One of the lads went into the tank to check something and just collapsed, another went in to help and now he's not right either.",
-        "There was a fault in the confined space, our worker went down and we think there's a gas issue."
+        "One of the team went into the tank to check something and collapsed, another went in after {{him}} and now needs help too.",
+        "There was a fault in the confined space and {{firstPatientName}} went down, we think it's gas or fumes.",
+        "{{firstPatientName}} went in to do a routine check and just collapsed, we can't get {{him}} out.",
+        "We think there's a gas build up in the chamber, {{firstPatientName}} went down almost straight away.",
+        "{{firstPatientName}} was working inside the confined space and stopped responding to us.",
+        "There's been an incident in the tank, {{firstPatientName}}'s down and we can't reach {{him}} safely.",
+        "{{firstPatientName}} went into the space to fix something and collapsed within minutes.",
+        "We think {{he}} was overcome by fumes in the confined space, {{he}} went down fast.",
+        "{{firstPatientName}} was doing routine maintenance in the tank and hasn't responded since.",
+        "It looks like a gas issue in the confined space, {{firstPatientName}} collapsed almost immediately."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "One's not responding at all, the other is but he's confused.",
-        "Both are conscious but they sound very disorientated."
+        "{{He}}'s not responding to us at all.",
+        "{{He}}'s conscious but very confused and disorientated.",
+        "I can't tell, {{he}}'s not moving and we can't get close enough.",
+        "{{He}} was talking a minute ago but's gone quiet now.",
+        "{{He}}'s in and out, sort of mumbling.",
+        "{{He}} seems to be awake but not making sense.",
+        "No response from {{him}} when we shout down.",
+        "{{He}}'s slumped over, we can't tell if {{he}}'s conscious.",
+        "{{He}} was conscious when {{he}} went in but we've lost contact now.",
+        "{{He}}'s barely responding, just groaning."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, but it sounds laboured.",
-        "I think so, hard to tell from up here."
+        "I think so, but it sounds laboured from here.",
+        "I honestly can't tell from up here.",
+        "{{He}} seemed to be struggling to breathe before {{he}} went quiet.",
+        "Hard to say, we can't get close enough to check.",
+        "I think {{he}}'s still breathing but it's shallow.",
+        "We can't tell, that's why we need you here fast.",
+        "It looked laboured the last time we could see {{him}}.",
+        "I'm not sure, please hurry.",
+        "{{He}} was coughing badly before {{he}} went down.",
+        "Can't confirm, we're keeping everyone else well back."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "One's saying he feels sick and dizzy.",
-        "They're both saying they can't breathe properly."
+        "{{He}} was saying {{he}} felt dizzy and sick before {{he}} collapsed.",
+        "I don't know, {{he}}'s not able to tell us anything now.",
+        "{{He}} mentioned {{his}} chest felt tight just before {{he}} went down.",
+        "Can't say, {{he}}'s not responding to us.",
+        "{{He}} said {{he}} felt faint right before this happened.",
+        "No idea, we couldn't ask {{him}} in time.",
+        "{{He}} complained of a headache just before {{he}} collapsed.",
+        "I don't know, {{he}}'s unconscious now.",
+        "{{He}} said {{his}} head was spinning right before.",
+        "Can't tell you, {{he}} went down too fast to say."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, it's not that kind of injury.",
-        "No visible bleeding."
+        "No, it's not that kind of injury, we think it's the gas.",
+        "No visible bleeding that we can see.",
+        "Not that I can see from here.",
+        "No, {{he}} just collapsed, no blood.",
+        "Doesn't look like it, no.",
+        "No bleeding, it's more that {{he}}'s not responding.",
+        "None that I can see.",
+        "No, this is a gas or fumes issue, not an injury.",
+        "Not visible, no.",
+        "No, nothing like that."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing I know of.",
-        "Not that I'm aware of."
+        "I don't know off the top of my head, I'd need to check with HR.",
+        "Not that I'm aware of, sorry.",
+        "I'm not sure, I can find out from the office.",
+        "Nothing that I know of.",
+        "I don't have that information to hand.",
+        "Not sure, I'll ask the site office.",
+        "No idea, sorry, I'm just a colleague.",
+        "I don't know {{his}} medical history I'm afraid.",
+        "Can't say for certain, we can check {{his}} file.",
+        "Not that I know of, no."
       ]
     },
     "medications": {
       "answers": [
         "I don't know, I'd need to check with HR.",
-        "Not sure, sorry."
+        "Not sure, sorry.",
+        "No idea, we don't keep that information here.",
+        "Can't say, I'll have to check.",
+        "I'm not aware of anything, no.",
+        "Not sure, sorry, I don't know {{him}} that well personally.",
+        "I don't have that information.",
+        "No idea, I'm afraid.",
+        "Not that I know of.",
+        "Can't tell you, sorry."
       ]
     },
     "patientAge": {
       "answers": [
-        "Both in their thirties.",
-        "One's about twenty five, the other older, maybe forty."
+        "{{He}}'s in {{his}} thirties I think.",
+        "About twenty five, maybe a bit older.",
+        "{{He}}'s late twenties, I believe.",
+        "Around forty, I'd say.",
+        "I think {{he}}'s in {{his}} thirties.",
+        "Not sure exactly, maybe mid twenties.",
+        "{{He}}'s one of our younger engineers, twenties I think.",
+        "I'd guess {{he}}'s about thirty five.",
+        "Somewhere in {{his}} thirties, I believe.",
+        "I'm not certain, maybe late twenties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've stopped anyone else going in.",
-        "Please hurry, we don't know what's down there."
+        "Okay, thank you, we've stopped anyone else going near the tank.",
+        "Please hurry, we don't know what's down there.",
+        "Right, thank you, I'll wait by the entrance for them.",
+        "Okay, that's good, we're keeping everyone well clear.",
+        "Thank you, I'll stay on the line if you need anything else.",
+        "Okay, please send them quickly, {{he}}'s not looking good.",
+        "Right, we'll keep the area clear until the paramedics arrive.",
+        "Thank you, that's a relief, we're all worried here.",
+        "Okay, I'll flag them down when they get here.",
+        "Thank you, please hurry."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need the fire brigade for a confined space rescue!"
+        "No, we need the fire brigade for a confined space rescue now!",
+        "111 won't cut it, {{he}}'s trapped and not responding!",
+        "No, please, this is an emergency, {{he}} needs help right now!",
+        "This can't wait for a callback, please send someone now!",
+        "No, we need a proper rescue team, not 111!",
+        "Please, this is urgent, {{he}}'s not responding at all!",
+        "No, this needs fire crews now, not a phone line!",
+        "I don't think 111 can help with a rescue like this!",
+        "No, please, we need people here right now!",
+        "This is too serious for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I think we need the fire brigade for this, not police.",
+        "Do we need police as well? Okay, if you think that's needed.",
+        "I wasn't expecting police, but alright, whatever helps.",
+        "Police, right, okay, though it's really a rescue we need.",
+        "Okay, I suppose they can help keep the area clear.",
+        "Fine, but it's the fire brigade doing the rescue, isn't it?",
+        "Alright, if you think police are needed, that's fine.",
+        "Okay, though I'm not sure what police can do down there.",
+        "Right, I'll let them know when they arrive.",
+        "Okay, understood, whatever you think's best."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, that's who we need, please hurry.",
+        "Okay, good, I'll meet them at the gate.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, I'll clear the way for them when they get here.",
+        "Okay, thank you, we've got the area cordoned off ready.",
+        "Yes please, we really need the rescue crews here fast.",
+        "Thank you, I'll wait here to guide them in.",
+        "Okay, that's good news, please hurry.",
+        "Right, thank you, we'll keep everyone back until they arrive.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

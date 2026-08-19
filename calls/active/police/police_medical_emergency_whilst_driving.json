@@ -48,6 +48,11 @@
   "units": {
     "irv": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 2,
+    "police": 4
+  },
   "patients": {
     "range": [
       0,
@@ -77,7 +82,14 @@
     "openings": [
       "Police please, the driver's collapsed at the wheel, the car's stopped in the road",
       "Help, someone's had a medical episode while driving, the car's mounted the kerb",
-      "There's a driver who's collapsed, the car's still running, I don't think he's conscious"
+      "There's a driver who's collapsed, the car's still running, I don't think {{he}}'s conscious",
+      "Please hurry, a driver's gone unconscious behind the wheel",
+      "Help, the driver in front of me has just collapsed at the wheel",
+      "There's a car stopped in the road, the driver's slumped over",
+      "Please send an ambulance, the driver's not responding, the engine's still on",
+      "Help, I think the driver's had a heart attack or something, the car's stopped",
+      "There's a driver unconscious in their car, it's blocking the road",
+      "Please hurry, the driver's collapsed, I've managed to stop the car"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -91,90 +103,230 @@
       "answers": [
         "Police please, the driver's collapsed at the wheel, the car's stopped in the road",
         "Help, someone's had a medical episode while driving, the car's mounted the kerb",
-        "There's a driver who's collapsed, the car's still running, I don't think he's conscious"
+        "There's a driver who's collapsed, the car's still running, I don't think {{he}}'s conscious",
+        "Please hurry, a driver's gone unconscious behind the wheel",
+        "Help, the driver in front of me has just collapsed at the wheel",
+        "There's a car stopped in the road, the driver's slumped over",
+        "Please send an ambulance, the driver's not responding, the engine's still on",
+        "Help, I think the driver's had a heart attack or something, the car's stopped",
+        "There's a driver unconscious in their car, it's blocking the road",
+        "Please hurry, the driver's collapsed, I've managed to stop the car"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I was driving behind him",
-        "It's {{callerName}}"
+        "{{callerName}}",
+        "It's {{callerName}} calling",
+        "My name's {{callerName}}",
+        "{{callerName}}, I just saw it happen",
+        "Yeah, it's {{callerName}}",
+        "{{callerName}} here, I'm a member of the public",
+        "It's {{callerName}}, I happened to be passing",
+        "My name is {{callerName}}",
+        "{{callerName}}, that's me",
+        "Sorry, yes, it's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know his name, I just saw it happen",
-        "No idea, I stopped to help a stranger"
+        "I don't know {{his}} name, {{he}}'s a stranger to me",
+        "No idea, I don't know the driver",
+        "Couldn't tell you, {{he}}'s not known to me",
+        "I don't have a name, sorry",
+        "No, I don't know who {{he}} is",
+        "Never seen {{him}} before, no idea",
+        "I can't give you a name, {{he}}'s a stranger",
+        "Sorry, no idea, {{he}}'s not conscious to tell me",
+        "I've got no name for you",
+        "Don't know, I've never seen {{him}} before"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the car's stopped right here",
-        "We're at {{address}}"
+        "{{address}}, it's the road where the car's stopped",
+        "We're at {{address}}",
+        "It's {{address}}, the road where the car's stopped",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near the road where the car's stopped",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He just slumped over the wheel and the car drifted to a stop",
-        "It happened seconds ago, I don't think he's responsive",
-        "The car mounted the kerb slowly and stopped against a wall"
+        "The car was driving normally then just drifted and stopped, the driver's slumped over",
+        "I saw the car veer and come to a stop, the driver's not moving",
+        "The car rolled to a stop against the kerb, {{he}}'s unresponsive at the wheel",
+        "It just slowed down and stopped in the road, {{he}}'s slumped forward",
+        "The driver seemed to lose control briefly then the car stopped, {{he}}'s not responding",
+        "I think {{he}} had some kind of medical episode, the car just stopped",
+        "The car drifted to a stop, {{he}}'s collapsed over the wheel",
+        "It happened suddenly, the car slowed and stopped, {{he}}'s unconscious",
+        "The car mounted the kerb slowly and stopped, {{he}}'s not responding to anyone",
+        "I saw it happen, the car just stopped in the road, {{he}}'s slumped in the seat"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No, he's not responding to me at all",
-        "Barely, he's making noises but not talking"
+        "No, {{he}}'s not responding at all",
+        "{{He}}'s not conscious, I've tried tapping the window",
+        "No response from {{him}}, {{he}} seems unconscious",
+        "{{He}}'s not answering, doesn't look conscious",
+        "No, {{he}}'s out cold at the wheel",
+        "{{He}}'s not responding, eyes are closed",
+        "No, I can't get {{him}} to respond",
+        "{{He}} seems unconscious, slumped over the wheel",
+        "No, {{he}}'s not conscious as far as I can tell",
+        "{{He}}'s unresponsive, I've knocked on the window"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, he's breathing but it sounds odd",
-        "He's breathing, but it's shallow"
+        "I think so, I can see {{his}} chest moving a little",
+        "Yes, {{he}} seems to be breathing, just not responding",
+        "I think {{he}}'s breathing, hard to tell through the window",
+        "Yes, {{his}} chest is moving, {{he}}'s breathing",
+        "I believe so, {{he}} looks like {{he}}'s breathing",
+        "Yes, I can see {{him}} breathing, just not waking up",
+        "I think {{he}}'s breathing okay, just unconscious",
+        "Yes, {{he}} seems to be breathing fine",
+        "I think so, but it's hard to see clearly",
+        "Yes, {{he}}'s breathing, just not responsive"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He can't tell me, he's not responsive enough",
-        "Can't say, he's not talking"
+        "I can't tell, {{he}}'s not responding to anything",
+        "No idea, {{he}}'s unconscious, can't ask {{him}}",
+        "Can't say, {{he}}'s not able to tell me",
+        "I don't know, {{he}}'s completely unresponsive",
+        "Can't tell, {{he}}'s out cold",
+        "No idea, {{he}}'s not conscious to say",
+        "I can't ask {{him}}, {{he}}'s unresponsive",
+        "No way to know, {{he}}'s unconscious",
+        "Can't tell, sorry, {{he}}'s not responding",
+        "I don't know, {{he}} can't tell me"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No visible bleeding",
-        "None that I can see"
+        "No, I can't see any blood",
+        "Not that I can see, no",
+        "No, doesn't look like it",
+        "I don't see any bleeding, no",
+        "No, no visible injuries that I can see",
+        "Not as far as I can tell, no",
+        "No, I can't see any blood from here",
+        "No, doesn't appear to be bleeding",
+        "No, nothing visible",
+        "No, I don't think so"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him at all",
-        "No idea, complete stranger"
+        "I don't know {{him}}, no idea about {{his}} history",
+        "No idea, {{he}}'s a stranger to me",
+        "I don't know {{him}} at all, sorry",
+        "No idea, I've never met {{him}}",
+        "Couldn't tell you, {{he}}'s not known to me",
+        "No idea, I don't know {{him}}",
+        "Sorry, no idea, I don't know {{him}}",
+        "No idea, {{he}}'s a complete stranger",
+        "Couldn't say, I don't know {{him}}",
+        "No idea at all, sorry"
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "No idea, I don't know {{him}}",
+        "Couldn't tell you, {{he}}'s a stranger",
+        "No idea, sorry",
+        "I don't know {{him}}, can't help with that",
+        "Not that I'm aware of, no",
+        "Couldn't say, I don't know {{him}}",
+        "No idea at all",
+        "Sorry, no information",
+        "No idea, I've never met {{him}}",
+        "Couldn't tell you, sorry"
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks to be in his sixties"
+        "Hard to say, maybe fifties",
+        "I'd guess middle aged, forties or fifties",
+        "Not sure, could be sixty or so",
+        "Hard to tell from here, maybe fifties",
+        "I'd guess {{he}}'s older, maybe sixties",
+        "Not certain, but looks like an older adult",
+        "Hard to judge, maybe fifties or sixties",
+        "I'd say middle aged to elderly",
+        "Can't be sure, maybe fifties",
+        "Not certain, {{he}} looks older, maybe sixties"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've put the handbrake on and I'm staying with him",
-        "Please hurry, he doesn't look good"
+        "Yes please, hurry, {{he}}'s not responding at all",
+        "Please, yes, get them here fast",
+        "Thank you, please hurry, {{he}} looks in a bad way",
+        "Yes please, I'm stood by the car keeping an eye on {{him}}",
+        "Okay, thank you, how long will they be",
+        "Please hurry, {{he}}'s completely unresponsive",
+        "Yes, thank you, I'll stay here until they arrive",
+        "Please, as quick as you can, {{he}} needs help now",
+        "Thank you, I've got the hazards on to warn other traffic",
+        "Yes please, hurry, I'm really worried about {{him}}"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs an ambulance urgently, he's collapsed"
+        "No, {{he}}'s unconscious at the wheel, this can't wait",
+        "Please, no, {{he}} needs help now, not a callback",
+        "No, this is an emergency, {{he}}'s not responding",
+        "Please, {{he}} can't wait for 111, send help now",
+        "No, I really think {{he}} needs an ambulance urgently",
+        "Please, no, {{he}}'s out cold in the car",
+        "No, this is serious, please send help straight away",
+        "Please, {{he}} needs help now, not later",
+        "No, I'm begging you, please send an ambulance",
+        "Please, no, this really can't wait"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, how long will they be?",
+        "Good, please hurry, it's getting worse here",
+        "Thank you, we'll wait for them",
+        "Okay, I'll stay on the line if you need anything else",
+        "Please tell them to hurry, we're keeping an eye on things",
+        "Thank goodness, how many are coming?",
+        "Okay, I'll let people know officers are on the way",
+        "Thank you, we'll keep back until they arrive",
+        "Good, we really need them here quickly",
+        "Okay, thank you, I'll stay put until they get here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

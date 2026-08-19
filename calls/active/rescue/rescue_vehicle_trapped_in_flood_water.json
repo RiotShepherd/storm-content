@@ -48,6 +48,11 @@
     "rescue_unit": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       0,
@@ -92,8 +97,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My car's stuck in flood water and it's coming in fast, I can't get the door open!",
-      "Help, I've driven into deep water, the car's filling up and I'm stuck inside."
+      "Help, my car's stuck in flood water and it's rising fast around me!",
+      "I'm trapped in my car, the water's coming up over the wheels!",
+      "Please help, I drove into flood water and now the car won't move, water's rising!",
+      "My car's stuck in deep water, I can't get the door open!",
+      "Help, I'm stuck in my car in flood water, it's getting higher!",
+      "Please hurry, my car's flooding and I can't get out!",
+      "I'm trapped in my vehicle, the water's up to the windows nearly!",
+      "Help, the water's rising around my car and I can't get the door open!",
+      "Please send help, my car's stuck in the flood and water's coming inside!",
+      "I'm in my car in deep water, it's not moving and the water's still rising!"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -105,91 +118,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My car's stuck in flood water and it's coming in fast, I can't get the door open!",
-        "Help, I've driven into deep water, the car's filling up and I'm stuck inside."
+        "Help, my car's stuck in flood water and it's rising fast around me!",
+        "I'm trapped in my car, the water's coming up over the wheels!",
+        "Please help, I drove into flood water and now the car won't move, water's rising!",
+        "My car's stuck in deep water, I can't get the door open!",
+        "Help, I'm stuck in my car in flood water, it's getting higher!",
+        "Please hurry, my car's flooding and I can't get out!",
+        "I'm trapped in my vehicle, the water's up to the windows nearly!",
+        "Help, the water's rising around my car and I can't get the door open!",
+        "Please send help, my car's stuck in the flood and water's coming inside!",
+        "I'm in my car in deep water, it's not moving and the water's still rising!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}.",
-        "My name's {{callerName}}, I'm stuck in the car."
+        "It's {{callerName}}, that's me.",
+        "My name's {{callerName}}.",
+        "I'm {{callerName}}.",
+        "It's {{callerName}} calling.",
+        "My name is {{callerName}}, I'm stuck in the car.",
+        "I'm {{callerName}}, please hurry.",
+        "It's me, {{callerName}}.",
+        "{{callerName}}, that's my name.",
+        "I'm {{callerName}}, I'm the one trapped in the car.",
+        "It's {{callerName}} speaking, please send help."
       ]
     },
     "patientName": {
       "answers": [
-        "It's just me, {{firstPatientName}}.",
-        "I'm {{firstPatientName}}, my kids are with me too."
+        "It's me, {{firstPatientName}}.",
+        "My name's {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, please hurry.",
+        "It's {{firstPatientName}} here.",
+        "My name is {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, that's me.",
+        "It's me calling, I'm {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my name.",
+        "I'm {{firstPatientName}}, please send help.",
+        "It's {{firstPatientName}} speaking."
       ]
     },
     "address": {
       "answers": [
-        "I'm on {{address}}, the water came out of nowhere.",
-        "{{address}}, near the dip in the road."
+        "I'm at {{address}}, on the road that's flooded.",
+        "{{address}}, the water's really deep here.",
+        "It's {{address}}, I'm stuck right in the middle of the flood.",
+        "{{address}}, please hurry, the water's still rising.",
+        "I'm at {{address}}, near the dip in the road.",
+        "{{address}}, I can't see the road anymore, it's all water.",
+        "It's {{address}}, I'm stuck on the flooded section.",
+        "{{address}}, please send someone quickly.",
+        "I'm at {{address}}, the water's up to my doors.",
+        "{{address}}, I'll flash my hazards so you can see me."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I drove into what I thought was a puddle and it's much deeper than I realised, the car's stuck and water's coming in.",
-        "The road's completely flooded and the car's stalled, the water's rising around us."
+        "I drove into the flood water not realising how deep it was and now I'm stuck.",
+        "The road just disappeared under water and my car's stalled in the middle of it.",
+        "I got caught out by the flash flooding and now the car won't move.",
+        "The water came up really fast and now I'm stuck in the middle of it.",
+        "I tried to drive through and the engine's cut out, now the water's rising.",
+        "I didn't realise how deep it was until I was already in it, now I'm stuck.",
+        "The car's stalled in the flood water and I can't get it started again.",
+        "I got trapped when the water rose quicker than I expected.",
+        "The engine's died in the water and now I can't move the car at all.",
+        "I drove in slowly but the car's stuck fast now and the water's still coming up."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, we're all awake, just scared.",
-        "Yes, I'm fine, just can't get out."
+        "Yes, I'm fully conscious, just really scared.",
+        "Yes, I'm awake and talking to you, just frightened.",
+        "I'm conscious, yes, just panicking a bit.",
+        "Yes, I'm alert, please just get here quickly.",
+        "I'm fine consciousness wise, just terrified.",
+        "Yes, conscious, I'm trying to stay calm.",
+        "I'm okay, just really scared, the water's rising.",
+        "Yes, I'm awake, please hurry.",
+        "I'm conscious and talking to you, just very frightened.",
+        "Yes, I'm alright, just panicking about the water."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, we're all breathing fine, just frightened.",
-        "Yes, I'm okay, just panicking a bit."
+        "Yes, I'm breathing okay, just terrified.",
+        "I'm breathing fine, just really scared.",
+        "Yes, no problems breathing, just panicking.",
+        "I'm okay breathing wise, please just hurry.",
+        "Yes, breathing's fine, I'm just frightened.",
+        "I'm fine on that front, just scared of the water.",
+        "Yes, no issues breathing, just terrified.",
+        "I'm breathing normally, just very frightened.",
+        "Yes, I'm fine, breathing's not a problem, please hurry.",
+        "I'm okay, breathing's fine, just scared."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No, nobody's hurt, just stuck.",
-        "No pain, just terrified."
+        "No pain, no, I'm just terrified of the water.",
+        "No, I'm not hurt, just really scared.",
+        "No pain at all, just panicking about the water rising.",
+        "No, nothing hurts, I'm just frightened.",
+        "No pain, I'm just really scared right now.",
+        "No, I'm completely fine physically, just terrified.",
+        "No pain, no, just want to get out now.",
+        "No, nothing hurts, I'm not injured, just scared.",
+        "No pain at all, just very frightened by the water.",
+        "No, I'm fine, nothing's wrong physically, please hurry."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries.",
-        "No, we're not hurt."
+        "No, no bleeding, I'm fine.",
+        "No, nothing like that.",
+        "No, no cuts or anything.",
+        "No bleeding, no.",
+        "No, I'm not hurt like that.",
+        "No, nothing at all.",
+        "No, no bleeding, just scared.",
+        "No, I'm fine on that front.",
+        "No, absolutely not.",
+        "No, nothing like that at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No, nothing relevant.",
-        "No health issues."
+        "Nothing relevant, no, I'm generally fine.",
+        "No, nothing like that, I'm healthy.",
+        "No medical conditions to speak of.",
+        "No, nothing, I'm fine health wise.",
+        "Nothing to mention really, no.",
+        "No, I've got no health problems.",
+        "No, nothing relevant at all.",
+        "No conditions, no, I'm fine.",
+        "No, nothing to report there.",
+        "No, I'm generally in good health."
       ]
     },
     "medications": {
       "answers": [
-        "No, not on anything.",
-        "No medications needed."
+        "No, I don't take anything regularly.",
+        "No medications, no.",
+        "No, nothing regular, no.",
+        "No, I'm not on anything.",
+        "No, nothing at all.",
+        "No medications that I take.",
+        "No, I don't need anything regularly.",
+        "No, nothing, no.",
+        "No, I'm not on any medication.",
+        "No, I take nothing regularly."
       ]
     },
     "patientAge": {
       "answers": [
-        "I'm thirty six, my children are young.",
-        "I'm in my forties."
+        "I'm thirty four.",
+        "I'm forty one.",
+        "I'm twenty nine.",
+        "I'm fifty two.",
+        "I'm thirty eight.",
+        "I'm twenty five.",
+        "I'm forty six.",
+        "I'm thirty six.",
+        "I'm twenty seven.",
+        "I'm forty nine."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're staying inside the car with the windows shut for now.",
-        "Please hurry, the water's still rising."
+        "Okay, thank you, please just hurry, the water's still rising.",
+        "Right, I'll stay in the car and wait, please hurry.",
+        "Okay, that's good, please hurry, I'm really scared.",
+        "Thank you, I'll try to stay calm until they arrive.",
+        "Alright, I'll wait here, please hurry, it's getting higher.",
+        "Okay, I'll try to stay as calm as I can.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll just wait here, please hurry.",
+        "Thank you, I'll do my best to stay calm until they come."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we're trapped in flood water, we need help now!"
+        "No, I'm trapped in flood water right now, this can't wait for 111!",
+        "111 won't help, the water's rising around my car, please send someone!",
+        "No, please, this is an emergency, the water's getting higher!",
+        "This can't wait for a callback, I'm stuck in rising water!",
+        "No, we need a proper rescue team, not 111!",
+        "Please, this is urgent, the water's still coming up!",
+        "No, this needs the fire brigade now, not a phone line!",
+        "I don't think 111 can help with a car stuck in flood water!",
+        "No, please, we need someone here right now!",
+        "This is too urgent for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, though I mainly need someone to get me out of the water.",
+        "Right, that's good, I suppose they can close the road.",
+        "Okay, if you think that helps, please just hurry either way.",
+        "I wasn't expecting police, but that's fine if it helps.",
+        "Alright, though I think it's really the fire brigade I need for the water.",
+        "Okay, understood, though the water's the main problem.",
+        "Fine, if that's needed, but please just get someone here fast.",
+        "Okay, whatever you think's best, please hurry.",
+        "Alright, I'll wait for them, thank you.",
+        "Okay, though I'm not sure what police can do about the flood water."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, please hurry, the water's still rising around me!",
+        "Okay, good, please send them quickly, I'm getting really scared.",
+        "Thank you, that's a relief, please hurry!",
+        "Right, I'll stay in the car and wait for them.",
+        "Okay, thank you, please hurry, the water's up to the doors now.",
+        "Yes please, we really need help getting out of the water.",
+        "Thank you, I'll wait here for them.",
+        "Okay, that's good news, please hurry!",
+        "Right, thank you, I'll try to stay calm until they arrive.",
+        "Okay, thank you, please hurry, I'm frightened."
       ]
     }
   },

@@ -44,6 +44,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -66,7 +70,15 @@
   "caller": {
     "openings": [
       "Fire brigade, my tractor's caught fire in the field, I've got clear of it.",
-      "There's smoke coming from the engine of my tractor, now there's flames underneath it."
+      "There's smoke coming from the engine of my tractor, now there's flames underneath it.",
+      "My tractor's on fire out in the field, I've moved well away from it.",
+      "There's a fire under the bonnet of my tractor, I've got down and moved clear.",
+      "Fire service please, my tractor's alight, it's out in the middle of the field.",
+      "There's flames coming from my tractor's engine, I've backed away from it.",
+      "My tractor's caught fire while I was working, I've got well clear now.",
+      "There's a fire on my tractor, smoke's pouring from under the engine cover.",
+      "Fire brigade, I've got a tractor fire in the field, please send someone out.",
+      "There's a fire under my tractor, I've switched it off and got away from it."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -79,82 +91,231 @@
     "start": {
       "answers": [
         "Fire brigade, my tractor's caught fire in the field, I've got clear of it.",
-        "There's smoke coming from the engine of my tractor, now there's flames underneath it."
+        "There's smoke coming from the engine of my tractor, now there's flames underneath it.",
+        "My tractor's on fire out in the field, I've moved well away from it.",
+        "There's a fire under the bonnet of my tractor, I've got down and moved clear.",
+        "Fire service please, my tractor's alight, it's out in the middle of the field.",
+        "There's flames coming from my tractor's engine, I've backed away from it.",
+        "My tractor's caught fire while I was working, I've got well clear now.",
+        "There's a fire on my tractor, smoke's pouring from under the engine cover.",
+        "Fire brigade, I've got a tractor fire in the field, please send someone out.",
+        "There's a fire under my tractor, I've switched it off and got away from it."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "There's nobody hurt, it's just the tractor fire."
+        "No, there's no patient, it's the tractor fire I'm calling about.",
+        "Nobody's hurt, I'm ringing about the tractor fire.",
+        "There's no injured person, just the incident to report.",
+        "No one to name, no one's been hurt here.",
+        "It's not a person hurt, it's the tractor fire, nobody's involved.",
+        "No patient, no one's been injured.",
+        "There isn't anyone hurt, so no name to give you.",
+        "Nobody's been hurt, I'm just reporting the tractor fire.",
+        "No casualties, it's just the tractor fire I need you for.",
+        "No one's injured, there's no patient to give a name for."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "The engine started smoking while I was ploughing, then it caught, I've jumped down and moved away.",
-        "Something's shorted under the bonnet, there's flames coming from the engine bay now."
+        "Something's shorted under the bonnet, there's flames coming from the engine bay now.",
+        "It started with a burning smell, then I saw smoke and pulled over straight away.",
+        "The fire's spread from the engine to underneath the cab, it's getting bigger.",
+        "I think it's a fuel leak that's caught, there's flames along the underside now.",
+        "It started small under the bonnet but it's spreading towards the fuel tank.",
+        "There was a bang from the engine then smoke started pouring out.",
+        "It's an old tractor, I think an electrical fault caused it, the engine's well alight now.",
+        "I noticed smoke first, by the time I stopped there were flames underneath.",
+        "The fire's spread along the underside of the tractor, I'm keeping well back given the fuel."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I'm fine, I got off it straight away."
+        "Everyone's fine, no one's hurt, so nothing to report there.",
+        "There's no patient, so nobody's unconscious or anything like that.",
+        "No one's collapsed or anything, the tractor fire is the only issue.",
+        "Nobody's hurt at all, we're all fine here.",
+        "No casualties, so that question doesn't really apply.",
+        "Everybody's up and about, no one's been affected.",
+        "No one's hurt, we're all stood well back and fine.",
+        "There's no injured person, everyone here is okay.",
+        "No, nobody's collapsed, it's just the tractor fire, no one's hurt.",
+        "All fine here, no one's been knocked about or hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Nobody's been near enough to breathe any of it in."
+        "No breathing problems, nobody's been affected by anything.",
+        "Everyone's breathing fine, there's no patient to worry about.",
+        "No one's struggling for breath, we're all outside and fine.",
+        "No issues there, nobody's hurt or affected.",
+        "Breathing's fine for everyone, it's just the tractor fire.",
+        "No one's had any trouble breathing here.",
+        "Not a problem, there's no casualty, everyone's breathing normally.",
+        "No, nobody's affected, we're all fine and clear of it.",
+        "No breathing issues, nobody's been caught up in it.",
+        "Everyone's absolutely fine, no breathing problems at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No, nobody's hurt at all."
+        "No, nobody's in any pain, there's no patient.",
+        "No one's hurt, so no pain to report.",
+        "Nobody's in pain, we're all fine here.",
+        "No injuries, no pain, just the tractor fire to deal with.",
+        "No, everyone's fine, nobody's been hurt.",
+        "There's no casualty, so no, nobody's in pain.",
+        "No pain, no injuries, nobody's been affected.",
+        "Nobody's hurt at all, so no pain to speak of.",
+        "No, we're all fine, no injuries here.",
+        "No one's in any discomfort, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, there's no injuries, nobody's been near it."
+        "No, no bleeding, nobody's hurt.",
+        "No injuries at all, so no bleeding.",
+        "Nobody's cut or bleeding, we're all fine.",
+        "No, there's no patient, no bleeding to report.",
+        "No blood, no injuries, everyone's fine here.",
+        "No one's bleeding, it's just the tractor fire.",
+        "No injuries whatsoever, nobody's bleeding.",
+        "No, nobody's hurt, so no bleeding.",
+        "No blood, no casualties, we're all okay.",
+        "No, not a scratch on anyone, we're fine."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, so I can't help with that."
+        "There's no patient, so I've nothing medical to tell you.",
+        "Sorry, no patient here, nothing to report medically.",
+        "No one's hurt, so there's no medical history needed.",
+        "Not applicable, nobody's been injured here.",
+        "No patient, so nothing to add on that front.",
+        "There's no one hurt, so no medical details needed.",
+        "No casualties, so nothing medical to report.",
+        "Sorry, there's no patient for me to tell you about.",
+        "No injuries, so I can't help with that one.",
+        "Nobody's hurt, there's no medical history to give you."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, there's nobody hurt to ask."
+        "No idea, there's no one hurt here.",
+        "No patient, so no medication to mention.",
+        "Not applicable, nobody's injured.",
+        "No one's hurt, so that doesn't apply here.",
+        "No idea, sorry, there's no casualty.",
+        "No patient, nothing to report on that.",
+        "Not relevant, nobody's been hurt.",
+        "No one's affected, so no medication to give you.",
+        "N/A, there's no patient here.",
+        "No injuries, so nothing on medication to add."
       ]
     },
     "patientAge": {
       "answers": [
-        "Nobody's been hurt, so there's no patient."
+        "There's no patient, nobody's been injured.",
+        "No one hurt, so no age to give you.",
+        "Not applicable, there's no casualty here.",
+        "No patient, sorry, nobody's been hurt.",
+        "No one's injured, so that doesn't apply.",
+        "N/A, there's no one hurt at this job.",
+        "No casualties, no age to report.",
+        "Nobody's hurt, so there's no patient age to give.",
+        "No injuries at all, no patient to speak of.",
+        "There's no one hurt, no age needed."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "No thank you, nobody's hurt, it's just the tractor fire.",
+        "An ambulance won't be needed, there's no injuries with the tractor fire.",
+        "No one's hurt here, so no ambulance needed thanks.",
+        "There's no patient, the tractor fire hasn't hurt anyone.",
+        "Not necessary, we're all fine, nobody's injured.",
+        "No, save the ambulance for someone who needs it, nobody's hurt.",
+        "Everyone's unhurt, so no ambulance required, thanks.",
+        "No injuries at all with the tractor fire, no ambulance needed.",
+        "That's not needed, nobody here has been hurt.",
+        "No thanks, there's no patient, just the tractor fire to deal with."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's a fire matter, I need the fire brigade for the tractor fire.",
+        "No, we don't need police, just the fire crew please.",
+        "Sorry, no, this isn't a police matter, it's the tractor fire.",
+        "No thanks, no police needed, just send the fire engine.",
+        "That's not necessary, the tractor fire just needs the fire brigade.",
+        "No, there's no crime here, just get the fire service out.",
+        "Police aren't needed, the tractor fire isn't a police job.",
+        "No, thank you, I only need the fire brigade for this.",
+        "Sorry, no, the tractor fire doesn't need the police involved.",
+        "No, it's not a police matter, please just send the fire crew."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, it's getting worse.",
+        "Good, thank you, the tractor fire isn't slowing down.",
+        "Okay, thank you, we'll wait for them to arrive.",
+        "Right, thank you, please tell them to get here quickly.",
+        "Thank you, that's good to hear, we're keeping clear of it.",
+        "Okay, good, we really need them here for the tractor fire.",
+        "Thanks, we'll stay well back until the crew turns up.",
+        "That's a relief, please hurry, the tractor fire is getting worse.",
+        "Okay, thank you, we're staying out of the way now.",
+        "Good, thank you, we're keeping everyone clear until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "What? No, I need the fire brigade, not 111.",
+        "No, this is a fire, I don't need 111.",
+        "Sorry, no, I called 999 for the fire brigade.",
+        "No, nobody needs a doctor, I need the fire service out here.",
+        "I don't think 111 can help with a fire, sorry.",
+        "No, I need someone to come and put this out, not 111.",
+        "It's not medical, it's a fire, please send a crew.",
+        "No thank you, I need the fire brigade urgently.",
+        "Sorry, no, this needs the fire brigade, not 111.",
+        "No, I'm not after medical advice, I need the fire brigade."
       ]
     }
   },

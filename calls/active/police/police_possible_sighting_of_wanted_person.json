@@ -48,6 +48,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,15 @@
   "caller": {
     "openings": [
       "Police, I think I've just seen someone from the news, the wanted appeal",
-      "I recognised a man from a police appeal, he's just gone into the shop"
+      "I recognised a {{man}} from a police appeal, {{he}}'s just gone into the shop",
+      "I think I've spotted the {{man}} you're appealing for, {{he}}'s nearby",
+      "Police, I'm fairly sure I've just seen your wanted {{man}}",
+      "I recognise {{him}} from the appeal you put out, {{he}}'s just up the road",
+      "Police, I think that's the {{man}} from your appeal, walking this way",
+      "I saw someone matching your appeal photo just now",
+      "I think I've found {{him}}, the {{man}} from the police appeal",
+      "Police, I'm almost certain I've seen the {{man}} you're looking for",
+      "I've just spotted a {{man}} I think matches your wanted appeal"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -80,91 +92,231 @@
     "start": {
       "answers": [
         "Police, I think I've just seen someone from the news, the wanted appeal",
-        "I recognised a man from a police appeal, he's just gone into the shop"
+        "I recognised a {{man}} from a police appeal, {{he}}'s just gone into the shop",
+        "I think I've spotted the {{man}} you're appealing for, {{he}}'s nearby",
+        "Police, I'm fairly sure I've just seen your wanted {{man}}",
+        "I recognise {{him}} from the appeal you put out, {{he}}'s just up the road",
+        "Police, I think that's the {{man}} from your appeal, walking this way",
+        "I saw someone matching your appeal photo just now",
+        "I think I've found {{him}}, the {{man}} from the police appeal",
+        "Police, I'm almost certain I've seen the {{man}} you're looking for",
+        "I've just spotted a {{man}} I think matches your wanted appeal"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I saw the whole thing.",
+        "{{callerName}}, I was just walking past.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} here, I'm the one who called.",
+        "{{callerName}}, yes, that's me.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}.",
+        "{{callerName}} speaking, I saw it happen.",
+        "Name's {{callerName}}.",
+        "It's {{callerName}}, I'm just a witness."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, I'm just reporting a sighting",
-        "Nobody involved, just wanted to flag it"
+        "I don't know {{his}} name, never seen the wanted person from the appeal before.",
+        "No name, sorry, {{he}} didn't exactly introduce {{himself}}.",
+        "Couldn't tell you, the wanted person from the appeal was a stranger to me.",
+        "No idea who {{he}} is, I've got no name to give you.",
+        "Don't know {{him}} personally, the wanted person from the appeal, that's all I can say.",
+        "No, never seen {{him}} before, can't give you a name.",
+        "Can't help with a name, only a description of the wanted person from the appeal.",
+        "No name I'm afraid, {{he}} was gone before I could ask.",
+        "Nobody round here knows {{his}} name, the wanted person from the appeal.",
+        "I've got no name for you, just what {{he}} looked like."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, he's just gone in there",
-        "It's {{address}}, outside the shop"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He looks exactly like the man in your appeal, same jacket and everything",
-        "I'm fairly sure it's him, he's stood right outside the shop now"
+        "{{He}} looks exactly like the {{man}} in your appeal, same jacket and everything",
+        "I'm fairly sure it's {{him}}, {{he}}'s stood right outside the shop now",
+        "Same face, same build, I really think it's the {{man}} you're after",
+        "{{He}} matches the photo closely, right down to the tattoo on {{his}} neck",
+        "I recognised {{him}} straight away from your appeal, same haircut too",
+        "It's a strong match, same scar above the eyebrow as the photo",
+        "{{He}}'s dressed exactly like the description, grey hoodie and jeans",
+        "I did a double take, I'm sure it's the {{man}} from your appeal",
+        "Same walk, same build, I'm almost certain it's {{him}}",
+        "{{He}} looked straight at me and I recognised {{him}} from your appeal photo"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, they've made off",
-        "No one's injured that I can see"
+        "Nobody's hurt, so there's nobody to check on for that.",
+        "There's no injured person here, the wanted person from the appeal, {{he}}'s just gone.",
+        "No one's collapsed or anything, {{he}} was moving fine.",
+        "It's not that kind of call, nobody's unconscious.",
+        "No casualties here, nobody needs checking over.",
+        "There isn't a patient as such, the wanted person from the appeal.",
+        "{{He}} was on {{his}} feet the whole time, no one's hurt.",
+        "No, nobody's hurt, this isn't a medical one.",
+        "Nobody needs an ambulance, no one's injured.",
+        "No one's out cold, nobody's been hurt at all."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt, they've gone"
+        "Nobody's struggling to breathe, no one's hurt.",
+        "There's no injuries at all here, so nothing like that.",
+        "No, {{he}} was breathing fine, running off quick enough.",
+        "It's not a medical call, nobody's had trouble breathing.",
+        "No casualties, nobody needs checking for that.",
+        "Nobody's hurt, the wanted person from the appeal, that's the whole problem.",
+        "No, this isn't that kind of emergency.",
+        "Everyone's fine physically as far as I can see.",
+        "No one's been injured, so no breathing issues to report.",
+        "Not a medical one, nobody's struggling with anything like that."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's in pain, nobody's hurt",
-        "Not that I saw"
+        "No one's in pain, nobody's hurt.",
+        "Nobody's complaining of any pain, the wanted person from the appeal.",
+        "No injuries, so no pain that I know of.",
+        "Not that I've seen, nobody's hurt here.",
+        "No, nobody's been hurt at all.",
+        "There's no one in pain, this isn't medical.",
+        "No casualties, nobody's said they're in pain.",
+        "Not a soul hurt, the wanted person from the appeal.",
+        "No, nobody needs anything for pain.",
+        "No injuries to report, everyone's fine that way."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's bleeding",
-        "No, nothing like that"
+        "No, no one's bleeding.",
+        "Nobody's bleeding, there's no injuries at all.",
+        "No, nothing like that, the wanted person from the appeal.",
+        "No blood, no injuries, nobody's hurt.",
+        "Not that I've seen, no one's bleeding.",
+        "No, it's not that kind of call.",
+        "Nobody's injured, so no bleeding to report.",
+        "No, the wanted person from the appeal, nobody's hurt.",
+        "No blood anywhere that I can see.",
+        "Not at all, no one's been hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them, so I couldn't say",
-        "No idea, never seen them before"
+        "I wouldn't know, the wanted person from the appeal.",
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, never met {{him}} before.",
+        "No idea about that, sorry.",
+        "I don't know {{him}} well enough to say.",
+        "Not a clue, the wanted person from the appeal.",
+        "No, I've no idea about {{his}} health.",
+        "Couldn't say, I don't know {{him}} personally.",
+        "No idea whatsoever, sorry.",
+        "I really wouldn't know, never spoken to {{him}}."
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea",
-        "Couldn't tell you"
+        "I've no idea.",
+        "Couldn't tell you, sorry.",
+        "No idea at all, the wanted person from the appeal.",
+        "I wouldn't know, never met {{him}}.",
+        "No clue, sorry.",
+        "Couldn't say, I don't know {{him}}.",
+        "No idea, I'm afraid.",
+        "Not a clue what {{he}} takes.",
+        "I really couldn't tell you.",
+        "No idea, sorry, I don't know {{him}}."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looked to be in his thirties",
-        "Hard to say exactly, maybe forties"
+        "Hard to say, maybe in {{his}} twenties.",
+        "I'd guess {{him}} as thirtyish, but I couldn't be certain.",
+        "Looked youngish, maybe late teens, from what I saw.",
+        "Not sure exactly, {{he}} looked middle aged.",
+        "Couldn't tell you exactly, mid twenties at a guess.",
+        "I'd say {{he}} was in {{his}} forties, but don't quote me.",
+        "Maybe early twenties, hard to tell from a distance.",
+        "I only got a quick look, {{he}} seemed fairly young.",
+        "Roughly thirty, that's my best guess.",
+        "Somewhere around {{his}} twenties or thirties, I'd say."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep watching from here",
-        "Right, understood, I'll wait"
+        "Ambulance? No, nobody's hurt, it's a police matter.",
+        "No, we don't need an ambulance, nobody's injured here.",
+        "Sorry, why an ambulance, nobody's hurt, I just need police.",
+        "No, there's no injury, I only need the police out here.",
+        "That's not needed, nobody's been hurt, it's police I want.",
+        "No ambulance required, nobody's injured, just send police please.",
+        "No, I don't think that's right, nobody's hurt, it's a police job.",
+        "There's no injury here, I only asked for police.",
+        "No, nobody needs an ambulance, this isn't medical.",
+        "No thank you, nobody's hurt, just the police please."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "No, this isn't a health thing, I need the police out here.",
+        "This isn't a 111 matter, someone's committing an offence, I need police.",
+        "No, I don't need a doctor, I need the police to come now.",
+        "That's not right, nobody's ill, this needs police attention.",
+        "No, please, this is a crime, not a medical thing, send police.",
+        "I don't need 111, I need officers here, this is a police matter.",
+        "No, nobody's poorly, I need police, not a callback.",
+        "That won't help, this needs police, not health advice.",
+        "No, please don't fob me off, I need police out here.",
+        "This isn't medical at all, I need the police, please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll keep an eye out until they arrive.",
+        "Right, good, I'll wait here for them.",
+        "Thank you, I'll point them the right way when they get here.",
+        "Okay, that's good to hear, I'll stay on the line if you need.",
+        "Right, thanks, I'll let you know if anything changes.",
+        "Good, thank you, I'll stay well back until they turn up.",
+        "Okay, I'll keep watching from here until they arrive.",
+        "Thanks, that's a relief, I'll wait for them outside.",
+        "Right, understood, I'll stay put until they get here.",
+        "Okay, thank you, appreciate it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

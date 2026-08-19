@@ -48,6 +48,10 @@
     "water_carrier": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 8
+  },
   "patients": {
     "range": [
       0,
@@ -97,7 +101,15 @@
   "caller": {
     "openings": [
       "Fire, quick, one of the garages is on fire and it's spreading down the row.",
-      "There's a fire in the garages behind our block, I can hear things exploding inside, tins or something."
+      "There's a fire in the garages behind our block, I can hear things exploding inside, tins or something.",
+      "Please hurry, the garages are on fire and it's spreading to the next one.",
+      "There's a fire in the row of garages, it's getting bigger fast.",
+      "Fire brigade please, the garages are alight and I can hear things going off inside.",
+      "Please send someone quickly, the garage fire's spreading down the row.",
+      "There's a serious fire in the garages, it's already caught the one next door.",
+      "Please hurry, the garages are burning and there's loud bangs coming from inside.",
+      "There's a fire spreading through the garages, it's getting worse by the minute.",
+      "Fire service please, the row of garages is on fire and it's spreading fast."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -110,82 +122,231 @@
     "start": {
       "answers": [
         "Fire, quick, one of the garages is on fire and it's spreading down the row.",
-        "There's a fire in the garages behind our block, I can hear things exploding inside, tins or something."
+        "There's a fire in the garages behind our block, I can hear things exploding inside, tins or something.",
+        "Please hurry, the garages are on fire and it's spreading to the next one.",
+        "There's a fire in the row of garages, it's getting bigger fast.",
+        "Fire brigade please, the garages are alight and I can hear things going off inside.",
+        "Please send someone quickly, the garage fire's spreading down the row.",
+        "There's a serious fire in the garages, it's already caught the one next door.",
+        "Please hurry, the garages are burning and there's loud bangs coming from inside.",
+        "There's a fire spreading through the garages, it's getting worse by the minute.",
+        "Fire service please, the row of garages is on fire and it's spreading fast."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "It's {{callerName}}, please just send someone.",
+        "{{callerName}}, look I just need help quickly.",
+        "My name's {{callerName}}, can you hurry.",
+        "{{callerName}}, yes, now please send someone.",
+        "It's {{callerName}} calling, please.",
+        "{{callerName}}, that's me, please get someone here.",
+        "Sorry, {{callerName}}, I'm a bit shaken.",
+        "{{callerName}} here, please just send help.",
+        "My name is {{callerName}}, please hurry.",
+        "It's {{callerName}}, can you send someone now."
       ]
     },
     "patientName": {
       "answers": [
-        "There's nobody hurt, it's just the row of garages on fire."
+        "There's nobody hurt, it's just the garages on fire.",
+        "No patient here, it's only the garages on fire going up.",
+        "Nobody to name, there's no one hurt, just the garages on fire.",
+        "No casualties, it's purely the garages on fire we've got.",
+        "There's no one involved, just the garages on fire itself.",
+        "No patient to speak of, it's the garages on fire that's the issue.",
+        "Nobody's hurt so there's no name to give, it's just the garages on fire.",
+        "No one injured, it's only the garages on fire.",
+        "There's no patient, just the garages on fire needs sorting.",
+        "Nobody hurt at all, it's the garages on fire, that's it."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}, please hurry.",
+        "{{address}}, quickly please.",
+        "We're at {{address}}, send someone now.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are, please.",
+        "It's {{address}}, can you send someone fast.",
+        "{{address}}, please, as quick as you can.",
+        "We're at {{address}}, please get here quickly.",
+        "That's {{address}}, please hurry up.",
+        "{{address}}, I need someone here now."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "One garage went up first and now the fire's jumped along the roofline, two or three more are alight.",
-        "There's black smoke pouring out of the garages, I heard a bang, might be paint tins or a gas can inside."
+        "I don't know how it started, but it's already spread to two of the garages.",
+        "There's stuff stored inside that's exploding, probably paint tins or gas canisters.",
+        "It's caught quickly along the row, I think there's fuel or something stored in there.",
+        "I heard a bang and then saw flames, now it's spreading down the whole row.",
+        "It looks like it started in one garage and it's jumping to the next ones.",
+        "I don't know the cause, but there's clearly something flammable stored inside.",
+        "It's spreading fast along the row, I can hear things popping and banging.",
+        "I think something inside is exploding, there's loud bangs every so often.",
+        "It's caught two garages already and it's still spreading down the row.",
+        "I have no idea how it started, but it's getting worse very quickly."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's nobody in them as far as I know, they're just used for storage."
+        "Nobody's hurt, there's no one to check on.",
+        "No one's involved, so nothing like that applies.",
+        "There's no patient, no one to ask that about.",
+        "Nobody's affected, it's just the garages on fire.",
+        "No, there's no casualty here at all.",
+        "There's no one hurt, so no need for that.",
+        "Nobody to check, everyone's clear of it.",
+        "No patient here, so that doesn't apply.",
+        "There's nobody involved like that, just the garages on fire.",
+        "No one's hurt, so there's nothing to check."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "We've all moved well back, the smoke's really thick."
+        "No one's affected, everyone's well clear of it.",
+        "There's no patient, so nothing like that to report.",
+        "Nobody's breathing in anything, we're all well away from it.",
+        "No, nobody's affected, it's just the garages on fire.",
+        "There's no one hurt, so that doesn't apply here.",
+        "Everyone's fine, nobody's near enough to be affected.",
+        "No casualties, no breathing problems, nothing like that.",
+        "Nobody's affected at all, we're all clear.",
+        "There's no patient to ask about that.",
+        "No, we're all outside and fine, nobody's affected."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No, nobody's hurt at all."
+        "No one's hurt as far as I can tell.",
+        "There's no patient, so no pain to report.",
+        "Nobody's in any pain, there's no one hurt.",
+        "No, nobody's injured, it's just the garages on fire.",
+        "There's no casualty, so that doesn't apply.",
+        "No one's hurt, nothing like that going on.",
+        "Nobody's in pain, there's no patient at all.",
+        "No injuries reported, nobody's hurt.",
+        "There's no one involved that way, just the garages on fire.",
+        "No, nobody's hurt, no pain, nothing like that."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, there's no injuries, nobody's been near it."
+        "No, no injuries that I can see.",
+        "There's no patient, so no bleeding to report.",
+        "Nobody's bleeding, there's no one hurt.",
+        "No, nothing like that, it's just the garages on fire.",
+        "There's no casualty here, no bleeding, nothing.",
+        "No one's injured at all, no bleeding.",
+        "Nobody's hurt, so there's no bleeding to speak of.",
+        "No, there's no patient, nothing like that.",
+        "There's no injury, no bleeding, just the garages on fire.",
+        "No, nobody's bleeding, nobody's hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, so I can't help with that."
+        "There's no patient, I can't help with that.",
+        "No one's hurt, so there's no history to give.",
+        "Nobody involved that way, there's no patient.",
+        "No, there's no casualty, nothing like that applies.",
+        "There's no one to give history for, it's just the garages on fire.",
+        "No patient here, so I wouldn't know that.",
+        "Nobody's hurt, so that doesn't come into it.",
+        "There's no one injured, no history needed.",
+        "No casualty involved, so nothing like that.",
+        "There's no patient, that question doesn't apply here."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, there's nobody hurt to ask."
+        "No idea, there's nobody hurt.",
+        "There's no patient, so no medication to mention.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No, there's no one involved that way.",
+        "There's no casualty, nothing like that to say.",
+        "No patient here, so I can't answer that.",
+        "Nobody's hurt at all, no medication needed.",
+        "There's no one injured, so that's not relevant.",
+        "No, it's just the garages on fire, no patient involved.",
+        "There's no patient, so nothing to report there."
       ]
     },
     "patientAge": {
       "answers": [
-        "Nobody's been hurt, so there's no patient."
+        "There's nobody hurt, no patient involved.",
+        "No one to give an age for, there's no patient.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No casualty here, just the garages on fire.",
+        "There's no one injured, so no age to give.",
+        "No patient at all, it's only the garages on fire.",
+        "Nobody's affected, so that question doesn't apply.",
+        "There's no one hurt, no age needed.",
+        "No, there's no patient here.",
+        "Nobody's involved that way, just the garages on fire, no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Ambulance? No, nobody's hurt, it's just the garages on fire.",
+        "Oh, we don't need an ambulance, nobody's injured here.",
+        "No need for that, nobody's hurt, it's only the garages on fire.",
+        "There's no one hurt, we just need the fire brigade.",
+        "No, thank you, nobody's injured, it's just the garages on fire.",
+        "We're fine, nobody's hurt, just get the fire engine here.",
+        "No ambulance needed, nobody's been hurt.",
+        "No one's injured, it's only the garages on fire that's the problem.",
+        "That's alright, nobody's hurt, we just need the fire service.",
+        "No, no one's injured, just send the fire brigade please."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, I don't think 111 can help with the garages on fire, but thank you.",
+        "No, that's alright, it's the garages on fire, not really a medical thing.",
+        "No, I think I need the fire brigade for the garages on fire, not 111.",
+        "No, this isn't really a medical matter, thank you though.",
+        "No, I don't think that's quite right for the garages on fire.",
+        "No, it's not medical, it's the garages on fire, so I think I need the fire brigade.",
+        "No, I don't think 111 would be able to help with this one.",
+        "No, thank you, but the garages on fire isn't really a 111 sort of job.",
+        "No, I think this needs the fire brigade rather than 111.",
+        "No, it's fine, but the garages on fire really needs the fire service."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's not that sort of thing, it's the garages on fire.",
+        "We don't need the police, just the fire brigade.",
+        "No, there's no need for police, it's only the garages on fire.",
+        "Police aren't needed here, it's a fire matter.",
+        "No thanks, it's the garages on fire, not a police job.",
+        "We're alright for police, we just need the fire service.",
+        "No, this doesn't need police, just the fire brigade please.",
+        "No, it's the garages on fire, nothing for the police to deal with.",
+        "We don't need police here, thank you.",
+        "No, just the fire brigade will do, thank you."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, please hurry.",
+        "Right, thank you, please get here quickly.",
+        "Okay, please, as fast as you can.",
+        "Thank you, please hurry, it's getting worse.",
+        "Okay, thank god, please hurry.",
+        "Right, okay, please just get here fast.",
+        "Okay, thank you, please be quick.",
+        "Thank you, please hurry, I'm really worried.",
+        "Okay, good, please hurry them up.",
+        "Okay, thank you, please come quickly."
       ]
     }
   },

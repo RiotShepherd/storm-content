@@ -48,6 +48,11 @@
     "rescue_unit": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 5,
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       0,
@@ -85,8 +90,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Part of the wall's come down on the house next door, I think someone might still be inside.",
-      "Fire brigade please, there's been a partial collapse at the flats, some people are hurt."
+      "Part of a building's just come down, there's dust everywhere and people were near it!",
+      "There's been a partial collapse, part of the wall's come down on the pavement!",
+      "A building's partly collapsed near me, I think there might be people caught under it!",
+      "Please help, part of a building's come crashing down, there's rubble everywhere!",
+      "I've just seen a wall collapse on a building, I'm worried someone might be under it!",
+      "There's been a structural collapse, part of the building's come down onto the street!",
+      "Help, a section of a building's just collapsed, there's debris and dust everywhere!",
+      "Part of the roof's come down on a building nearby, it sounds like people are trapped!",
+      "There's been a partial building collapse, I heard people shouting from inside!",
+      "Please send help, part of a building's collapsed and I think people are hurt!"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -98,91 +111,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Part of the wall's come down on the house next door, I think someone might still be inside.",
-        "Fire brigade please, there's been a partial collapse at the flats, some people are hurt."
+        "Part of a building's just come down, there's dust everywhere and people were near it!",
+        "There's been a partial collapse, part of the wall's come down on the pavement!",
+        "A building's partly collapsed near me, I think there might be people caught under it!",
+        "Please help, part of a building's come crashing down, there's rubble everywhere!",
+        "I've just seen a wall collapse on a building, I'm worried someone might be under it!",
+        "There's been a structural collapse, part of the building's come down onto the street!",
+        "Help, a section of a building's just collapsed, there's debris and dust everywhere!",
+        "Part of the roof's come down on a building nearby, it sounds like people are trapped!",
+        "There's been a partial building collapse, I heard people shouting from inside!",
+        "Please send help, part of a building's collapsed and I think people are hurt!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I live next door.",
-        "{{callerName}}, I was outside when it happened."
+        "It's {{callerName}}, I was walking past when it happened.",
+        "{{callerName}}, I saw the whole thing from across the road.",
+        "My name's {{callerName}}.",
+        "{{callerName}} here, I don't know anyone involved, I just saw it.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm just a bystander really.",
+        "My name is {{callerName}}, I was nearby when it came down.",
+        "{{callerName}}, I've stayed back but I'm keeping watch.",
+        "It's {{callerName}}, I heard the collapse and came to look.",
+        "{{callerName}} speaking, I'm right outside the building."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know all of them, a few residents were caught in it.",
-        "One of them is {{firstPatientName}}, she lives on the ground floor."
+        "I don't know anyone's name, I just saw it happen.",
+        "No idea, I don't know who was inside.",
+        "I can't say, I don't know the people affected.",
+        "No names, sorry, I just saw the wall come down.",
+        "I don't know anyone involved, I'm just a passer by.",
+        "Sorry, no idea, there might be more than one person hurt.",
+        "No names I can give you, I don't know these people.",
+        "I can't help with names, sorry, it's chaos out here.",
+        "No idea who's affected, I just saw the collapse happen.",
+        "Sorry, I don't know any of them, I just witnessed it."
       ]
     },
     "address": {
       "answers": [
-        "It's {{address}}.",
-        "{{address}}, the side wall's come down."
+        "It's {{address}}, you can see the debris from the street.",
+        "{{address}}, come carefully, there's rubble on the pavement.",
+        "It's {{address}}, the collapsed part is at the front.",
+        "{{address}}, I'll wave you down when I see you.",
+        "It's {{address}}, mind the debris near the entrance.",
+        "{{address}}, it's the building with the scaffolding.",
+        "It's {{address}}, there's dust everywhere, you can't miss it.",
+        "{{address}}, I'll stay back but point you the right way.",
+        "It's {{address}}, part of the wall's come down onto the road.",
+        "{{address}}, I'll be waiting a safe distance away."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Part of the wall and roof have collapsed, some people got out but I think a couple are still trapped.",
-        "There was a loud crack and part of the building came down, a few people are hurt."
+        "Part of the wall's just come away and crashed down, there could be people underneath.",
+        "A section of the roof's given way and come down onto the floor below.",
+        "The building's partly collapsed, I heard a loud crack and then rubble everywhere.",
+        "It looks like scaffolding and part of the wall came down together.",
+        "A chunk of the structure's given way, there's dust and debris all over the pavement.",
+        "Part of the building just crumbled, I think there were people inside at the time.",
+        "There was a loud bang and then part of the building came down in front of me.",
+        "It looks like the floor above has given way and collapsed down.",
+        "Part of the facade's peeled away and come crashing down onto the street.",
+        "The building's partly caved in, I could hear shouting from inside afterwards."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Most are conscious, one lady's not responding.",
-        "A few are talking, but one man seems out of it."
+        "I heard someone shouting from inside, so at least one person's conscious.",
+        "I can't see anyone clearly, but I did hear voices after it came down.",
+        "I think someone's trapped, I heard them calling out.",
+        "I'm not sure, I can hear movement but can't see anyone.",
+        "I heard someone shout for help, so they must be conscious.",
+        "I can't tell for certain, but there's definitely noise coming from the rubble.",
+        "I think I heard more than one voice, hard to say how many.",
+        "I heard crying and shouting, so someone's conscious under there.",
+        "I can't see anyone from here, but I did hear a voice calling out.",
+        "I'm not sure how many, but I definitely heard someone shouting."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, they're breathing, coughing from the dust though.",
-        "I think so, hard to tell from here."
+        "I can't tell, I can't get close enough to check.",
+        "I honestly don't know, there's too much dust and debris.",
+        "Can't say, but I heard coughing from under the rubble.",
+        "I'm not sure, that's why we need you here quickly.",
+        "Can't tell from here, I just heard shouting.",
+        "I don't know, please hurry, I can't get near enough.",
+        "Hard to say, there's a lot of dust in the air.",
+        "I can't confirm, I've kept everyone else well back.",
+        "I don't know, I heard someone coughing though.",
+        "Can't tell you, sorry, it's too dangerous to get close."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "A few are holding their arms and legs, saying they're broken.",
-        "One's screaming that her leg's trapped."
+        "I heard someone shouting that their leg was trapped.",
+        "I can't say for certain, but I heard cries of pain.",
+        "I don't know exactly, but it sounded like someone was in a lot of pain.",
+        "Can't tell you, I just heard shouting and crying.",
+        "I heard someone say they couldn't move their leg.",
+        "I don't know, but the shouting sounded like real pain.",
+        "Can't say exactly, but it sounded serious from the noise.",
+        "I heard crying out, I think someone's badly hurt.",
+        "I don't know for sure, but it sounded painful.",
+        "Can't tell you, please just hurry, it sounded bad."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, a couple have cuts that are bleeding quite badly.",
-        "There's blood on at least two of them."
+        "I can't see, I'm too far back to tell.",
+        "I don't know, I can't get close enough to check.",
+        "Can't say, there's too much dust and rubble in the way.",
+        "I honestly don't know, I've stayed well back.",
+        "Can't tell from here, sorry.",
+        "I don't know, please just send someone quickly.",
+        "Can't say, I can't see through all the debris.",
+        "I don't know, I've kept everyone back from the building.",
+        "Can't tell you, sorry, it's too dangerous to get closer.",
+        "I don't know, no idea from where I'm stood."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know most of them well enough.",
-        "No idea, there's a few different households."
+        "No idea, I don't know anyone involved.",
+        "I can't say, they're strangers to me.",
+        "No idea, sorry, I just saw it happen.",
+        "I don't know any of them, so no idea on that.",
+        "Sorry, no idea, I don't know these people.",
+        "No, I can't help with that, I'm just a witness.",
+        "I've no idea, I don't know anyone inside.",
+        "Sorry, no, I don't know anything about them.",
+        "No idea at all, they're strangers to me.",
+        "Can't say, sorry, I only just came across this."
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea, sorry.",
-        "I don't know, sorry."
+        "No idea, I don't know anyone involved.",
+        "I can't say, they're strangers to me.",
+        "No idea, sorry, I just witnessed the collapse.",
+        "I don't know any of them, so no idea on that.",
+        "Sorry, no idea at all.",
+        "No, I can't help with that, I'm just a witness.",
+        "I've no idea, I don't know anyone inside.",
+        "Sorry, no, I don't know anything about them.",
+        "No idea at all, sorry.",
+        "Can't say, sorry, I only just saw this happen."
       ]
     },
     "patientAge": {
       "answers": [
-        "Mixed ages, there's an elderly resident and some younger ones.",
-        "A range, from kids to an older man."
+        "I don't know, I couldn't see who was inside.",
+        "No idea, sorry, I can't tell from out here.",
+        "Can't say, I don't know how many people or their ages.",
+        "I don't know, sorry, I just heard voices.",
+        "No idea at all, I can't see anyone clearly.",
+        "Can't tell you, sorry, I'm too far back.",
+        "I don't know, there could be more than one person of any age.",
+        "No idea, sorry, I really can't say.",
+        "Can't tell, I just heard shouting, no idea on ages.",
+        "I don't know, sorry, please just send help."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay well back in case more falls.",
-        "Please hurry, I can hear someone under the rubble."
+        "Okay, thank you, I'll stay back and keep watching the building.",
+        "Right, I'll listen out and let you know if anything changes.",
+        "Okay, that's good, please hurry, I can still hear someone in there.",
+        "Thank you, I'll stay a safe distance away and wait.",
+        "Alright, I'll keep everyone else back until help arrives.",
+        "Okay, we'll wait here for the crews.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll keep listening for any sounds from the rubble.",
+        "Thank you, I'll do what I can until they get here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a building collapse, we need fire and ambulance!"
+        "No, this needs urgent help, a building's collapsed, this can't wait for 111!",
+        "111 won't cut it, someone's trapped under rubble, please send crews now!",
+        "No, please, this is an emergency, people could be trapped!",
+        "This can't wait for a callback, part of a building's come down!",
+        "No, we need a proper rescue team, not 111!",
+        "Please, this is urgent, there's people possibly trapped inside!",
+        "No, this needs fire crews now, not a phone line!",
+        "I don't think 111 can help with a building collapse!",
+        "No, please, we need people here right now!",
+        "This is too serious for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, we could do with them keeping people back.",
+        "Right, that's good, it's getting a crowd here already.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, people keep coming to look.",
+        "Alright, I'll keep an eye out for them.",
+        "Okay, that's a relief, we need them to help keep the area clear.",
+        "Right, thank you, I'll let them know what's happened when they arrive.",
+        "Okay, good, we could use some help managing the crowd.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, that's who we need, please hurry.",
+        "Okay, good, I'll point them to the collapsed section.",
+        "Thank you, that's a relief, I think someone's still trapped.",
+        "Right, I'll show them where the rubble is when they get here.",
+        "Okay, thank you, I've kept people well back from it.",
+        "Yes please, we really need the rescue crews here fast.",
+        "Thank you, I'll wait here to guide them in.",
+        "Okay, that's good news, please hurry.",
+        "Right, thank you, we'll keep everyone back until they arrive.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

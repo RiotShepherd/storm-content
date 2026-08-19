@@ -49,6 +49,11 @@
     "fire_officer": 1,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -82,8 +87,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "A parachutist has come down wrong and he's stuck up a tree, he's not able to get himself down.",
-      "Fire brigade please, someone doing a skydive has landed in a tree and looks hurt."
+      "There's a parachutist stuck up a tree, {{he}} can't get down!",
+      "Someone's landed in a tree while parachuting, {{he}}'s stuck up there!",
+      "I've just seen a parachutist come down into a tree, {{he}} looks stuck fast!",
+      "There's someone hanging in a tree, {{he}} came down under a parachute!",
+      "Please help, a parachutist's landed in a tree and can't free {{himself}}!",
+      "I need help, someone's parachute got caught in a tree and {{he}}'s stuck up there!",
+      "There's a person stuck in a tree, {{he}} was skydiving and landed badly!",
+      "Someone's tangled up in a tree with a parachute, {{he}} can't move!",
+      "I've seen someone come down into a tree under a parachute, {{he}}'s stuck!",
+      "There's a parachutist caught in the branches, {{he}}'s quite high up!"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -95,91 +108,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "A parachutist has come down wrong and he's stuck up a tree, he's not able to get himself down.",
-        "Fire brigade please, someone doing a skydive has landed in a tree and looks hurt."
+        "There's a parachutist stuck up a tree, {{he}} can't get down!",
+        "Someone's landed in a tree while parachuting, {{he}}'s stuck up there!",
+        "I've just seen a parachutist come down into a tree, {{he}} looks stuck fast!",
+        "There's someone hanging in a tree, {{he}} came down under a parachute!",
+        "Please help, a parachutist's landed in a tree and can't free {{himself}}!",
+        "I need help, someone's parachute got caught in a tree and {{he}}'s stuck up there!",
+        "There's a person stuck in a tree, {{he}} was skydiving and landed badly!",
+        "Someone's tangled up in a tree with a parachute, {{he}} can't move!",
+        "I've seen someone come down into a tree under a parachute, {{he}}'s stuck!",
+        "There's a parachutist caught in the branches, {{he}}'s quite high up!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I saw him come down.",
-        "{{callerName}}, I was in the garden when it happened."
+        "It's {{callerName}}, I was just out walking.",
+        "{{callerName}}, I saw it happen from the field.",
+        "My name's {{callerName}}.",
+        "{{callerName}} here, I don't know {{him}}, I just saw {{him}} come down.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm just a passer by.",
+        "My name is {{callerName}}, I was nearby when it happened.",
+        "{{callerName}}, I've been keeping an eye on {{him}} while I called.",
+        "It's {{callerName}}, I saw the parachute come down wrong.",
+        "{{callerName}} speaking, I'm right underneath the tree."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know him, he's a stranger to me.",
-        "He told me his name's {{firstPatientName}}."
+        "I don't know {{him}}, I just saw {{him}} come down.",
+        "No idea, I've never seen {{him}} before, {{he}}'s a stranger to me.",
+        "I don't know {{his}} name, I just spotted {{him}} in the tree.",
+        "No idea who {{he}} is, I only saw {{him}} land.",
+        "I can't tell you, I don't know {{him}} at all.",
+        "No name, sorry, I just happened to be walking by.",
+        "I don't know {{him}}, I've called it in as soon as I saw {{him}} stuck.",
+        "Sorry, no idea, I've never met {{him}} before.",
+        "No, I don't know {{his}} name, I just saw the parachute in the tree.",
+        "I can't help with a name, {{he}}'s a stranger to me."
       ]
     },
     "address": {
       "answers": [
-        "It's near {{address}}, he's caught in a tree in the garden.",
-        "{{address}}, you can see the parachute from the road."
+        "It's near {{address}}, in the field by the treeline.",
+        "{{address}}, come through the gate at the top of the lane.",
+        "It's near {{address}}, the tree's easy to spot from the road.",
+        "{{address}}, park on the verge and I'll show you where.",
+        "It's near {{address}}, follow the footpath down.",
+        "{{address}}, the tree's just past the farm buildings.",
+        "It's near {{address}}, there's a stile you'll need to get through.",
+        "{{address}}, I'll wait by the gate for you.",
+        "It's near {{address}}, {{he}}'s stuck high up in one of the big trees.",
+        "{{address}}, I'll wave you down from the field."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "His parachute got caught in the branches on the way down and he's stuck about halfway up.",
-        "He came down off course and ended up tangled in a tree, he can't free himself."
+        "{{His}} parachute caught in the branches and {{he}}'s stuck high up in the tree.",
+        "{{He}} came down off target and landed right in the tree, {{he}} can't get free.",
+        "The parachute's tangled in the branches and {{he}}'s left dangling.",
+        "It looks like the wind carried {{him}} off course and {{he}} landed in the tree.",
+        "{{He}}'s stuck fast in the branches, {{his}} lines are all tangled up.",
+        "The chute snagged on the tree and {{he}}'s been left hanging there.",
+        "{{He}} misjudged the landing and ended up caught in the tree instead.",
+        "It looks like {{he}} drifted into the treeline and got caught up in it.",
+        "{{His}} parachute's wrapped around the branches and {{he}} can't climb down.",
+        "{{He}} came down hard into the tree and now {{he}}'s stuck and can't move."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's talking to me from up there.",
-        "Yes, he's awake, but he sounds in pain."
+        "{{He}}'s conscious, {{he}}'s shouting down to me.",
+        "Yes, {{he}}'s awake and talking, just stuck.",
+        "{{He}}'s conscious, {{he}} sounds a bit shaken but okay.",
+        "Yes, conscious, {{he}}'s asking for help getting down.",
+        "{{He}}'s alert, talking to me from up there.",
+        "Yes, {{he}}'s conscious, just can't move much.",
+        "{{He}}'s awake, {{he}} says {{his}} leg hurts a bit.",
+        "Conscious, yes, {{he}}'s calling out to me.",
+        "{{He}}'s conscious and responding, just stuck fast.",
+        "Yes, {{he}}'s conscious, {{he}} seems more annoyed than hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, he's breathing okay.",
-        "Yes, but he says his chest hurts when he breathes."
+        "Yes, {{he}}'s breathing fine, {{he}}'s talking to me.",
+        "{{He}} seems okay breathing wise, just stuck.",
+        "Yes, no breathing problems that I can tell.",
+        "{{He}}'s breathing fine, {{he}}'s shouting down to me.",
+        "Yes, {{he}} sounds fine breathing wise.",
+        "{{His}} breathing seems normal from what I can hear.",
+        "Yes, breathing okay, {{he}}'s just stuck and a bit sore.",
+        "{{He}}'s breathing fine as far as I can tell.",
+        "Yes, {{he}}'s fine breathing wise, just can't get down.",
+        "{{His}} breathing sounds normal, {{he}}'s talking clearly."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says his leg's hurt from hitting a branch.",
-        "Yes, he's saying his back and shoulder hurt."
+        "{{He}} says {{his}} leg hurts a bit from the landing.",
+        "{{He}} mentioned {{his}} shoulder's sore where the harness dug in.",
+        "{{He}} says {{he}}'s a bit bruised but otherwise okay.",
+        "{{He}}'s complaining {{his}} ankle hurts.",
+        "{{He}} says {{he}}'s uncomfortable hanging in the harness.",
+        "{{He}} mentioned some pain in {{his}} back from the impact.",
+        "{{He}} says {{he}}'s sore all over but nothing seems broken.",
+        "{{He}}'s saying {{his}} arm hurts a bit.",
+        "{{He}} says {{he}}'s okay, just a bit banged about.",
+        "{{He}} mentioned {{his}} leg's painful where it hit a branch."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "There's a cut on his arm, bleeding a little.",
-        "No, not that I can see from here."
+        "No, I can't see any bleeding from down here.",
+        "No, doesn't look like it, just some scratches maybe.",
+        "No bleeding that I can see.",
+        "No, {{he}}'s not mentioned any bleeding.",
+        "No visible bleeding, no.",
+        "No, just a few scratches from the branches by the look of it.",
+        "No, {{he}} looks alright, no blood that I can see.",
+        "No bleeding as far as I can tell.",
+        "No, {{he}}'s not bleeding, just stuck.",
+        "No, nothing like that visible from here."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, I don't know him.",
-        "No idea, he's a stranger to me."
+        "No idea, I don't know {{him}} at all.",
+        "I can't tell you, {{he}}'s a stranger to me.",
+        "No idea, sorry, I've never met {{him}} before.",
+        "I don't know {{him}}, so no idea on that.",
+        "Sorry, no idea, I've just come across {{him}} stuck.",
+        "No, I can't help with that, I don't know {{him}}.",
+        "I've no idea, {{he}}'s not someone I know.",
+        "Sorry, no, I don't know {{his}} medical history.",
+        "No idea at all, {{he}}'s a stranger to me.",
+        "Can't say, sorry, I only just found {{him}} stuck."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry.",
-        "I couldn't tell you."
+        "No idea, I don't know {{him}}.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "No idea, sorry, I've never met {{him}}.",
+        "I don't know {{him}}, so no idea on that.",
+        "Sorry, no idea at all.",
+        "No, I can't help with that, I don't know {{him}}.",
+        "I've no idea, {{he}}'s not someone I know.",
+        "Sorry, no, I don't know anything about {{him}}.",
+        "No idea at all, sorry.",
+        "Can't say, sorry, I only just found {{him}} stuck up there."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks like he's in his thirties.",
-        "Hard to say, maybe forties."
+        "{{He}} looks to be in {{his}} thirties.",
+        "Maybe late twenties, hard to tell from down here.",
+        "{{He}} looks about forty to me.",
+        "I'd guess {{he}}'s in {{his}} thirties.",
+        "Hard to say exactly, maybe mid twenties.",
+        "{{He}} looks like {{he}}'s in {{his}} forties.",
+        "I'd say {{he}}'s about thirty.",
+        "Not sure exactly, maybe late thirties.",
+        "{{He}} looks fairly young, twenties I'd guess.",
+        "I'd estimate {{he}}'s in {{his}} thirties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying here talking to him.",
-        "Please hurry, he's struggling to hold on."
+        "Okay, thank you, I'll stay here and keep talking to {{him}}.",
+        "Right, I'll keep {{him}} calm until the ambulance gets here.",
+        "Okay, that's good, please hurry, {{he}}'s stuck quite high up.",
+        "Thank you, I'll stay right here below the tree.",
+        "Alright, I'll keep reassuring {{him}} until help arrives.",
+        "Okay, we'll wait right here for the paramedics.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll keep {{him}} talking until help arrives.",
+        "Thank you, I'll do what I can until they get here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's stuck in a tree, we need the fire brigade!"
+        "No, {{he}}'s stuck in a tree right now, this can't wait for 111!",
+        "111 won't help, {{he}}'s physically trapped up there, please send someone!",
+        "No, please, {{he}}'s stuck and could fall, we need help now!",
+        "This can't wait for a callback, {{he}}'s hanging in a tree!",
+        "No, we need someone here to get {{him}} down, not 111!",
+        "Please, this is urgent, {{he}}'s stuck quite high up!",
+        "No, this needs the fire brigade now, not a phone line!",
+        "I don't think 111 can help get someone out of a tree!",
+        "No, please, we need someone here right now!",
+        "This is too urgent for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, {{he}}'s just stuck in a tree.",
+        "Do we need police as well? I really just need someone to get {{him}} down.",
+        "Okay, if you think that helps, though it's really the fire brigade we need.",
+        "I wasn't expecting police, but that's fine if it helps.",
+        "Alright, though I think it's really just a rescue matter, not police.",
+        "Okay, understood, though it's getting {{him}} down that's the issue.",
+        "Fine, if that's needed, but nothing's gone wrong like that.",
+        "Okay, whatever you think's best, just please hurry.",
+        "Alright, I'll let them know when they arrive.",
+        "Okay, though I'm not sure what police can do about {{him}} being stuck up there."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, that's who we need, please hurry.",
+        "Okay, good, I'll be waiting under the tree for them.",
+        "Thank you, that's a relief, {{he}}'s still stuck up there.",
+        "Right, I'll show them exactly where the tree is.",
+        "Okay, thank you, I've been keeping {{him}} calm while I wait.",
+        "Yes please, we really need help getting {{him}} down.",
+        "Thank you, I'll point them straight to the tree.",
+        "Okay, that's good news, please send them quickly.",
+        "Right, thank you, I'll stay here until they arrive.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

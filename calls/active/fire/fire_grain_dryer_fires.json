@@ -54,6 +54,12 @@
     "bulk_foam_unit": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 15,
+    "ambulance": 1,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -104,8 +110,16 @@
   ],
   "caller": {
     "openings": [
-      "There's a fire at the grain dryer on the farm, it's really smoking",
-      "Fire brigade please, the grain dryer's caught fire, I got everyone clear"
+      "There's a fire at the grain dryer, one of my workers got caught in the smoke.",
+      "Fire brigade please, the grain dryer's caught fire, one of my lads breathed in smoke.",
+      "We've got a fire at the dryer, a worker's coughing badly from the smoke.",
+      "Please send someone, the grain dryer's on fire and one of my staff is hurt.",
+      "There's a fire at the silo, one of my workers got a lungful of smoke shutting it down.",
+      "Please hurry, we've got a dryer fire and a worker's struggling to breathe.",
+      "There's smoke and fire at the grain dryer, one of my men's coughing really badly.",
+      "We've had a fire break out at the dryer, a worker got caught in the smoke trying to shut it off.",
+      "Please send help, the grain dryer's alight and one of my workers is affected by smoke.",
+      "There's a fire at the grain dryer, my worker went in to shut it down and got smoke inhalation."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -117,81 +131,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's a fire at the grain dryer on the farm, it's really smoking",
-        "Fire brigade please, the grain dryer's caught fire, I got everyone clear"
+        "There's a fire at the grain dryer, one of my workers got caught in the smoke.",
+        "Fire brigade please, the grain dryer's caught fire, one of my lads breathed in smoke.",
+        "We've got a fire at the dryer, a worker's coughing badly from the smoke.",
+        "Please send someone, the grain dryer's on fire and one of my staff is hurt.",
+        "There's a fire at the silo, one of my workers got a lungful of smoke shutting it down.",
+        "Please hurry, we've got a dryer fire and a worker's struggling to breathe.",
+        "There's smoke and fire at the grain dryer, one of my men's coughing really badly.",
+        "We've had a fire break out at the dryer, a worker got caught in the smoke trying to shut it off.",
+        "Please send help, the grain dryer's alight and one of my workers is affected by smoke.",
+        "There's a fire at the grain dryer, my worker went in to shut it down and got smoke inhalation."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I run the farm"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "It's one of my workers, he got a lungful of smoke getting the dryer shut down"
+        "It's {{firstPatientName}}, {{he}}'s one of my workers.",
+        "{{firstPatientName}}, {{he}} was shutting the dryer down.",
+        "It's {{firstPatientName}}, {{he}} got a lungful of smoke.",
+        "{{His}} name's {{firstPatientName}}, {{he}} works for me.",
+        "It's {{firstPatientName}}, {{he}}'s coughing badly.",
+        "{{firstPatientName}}, that's {{him}}, one of my farmhands.",
+        "It's {{firstPatientName}}, {{he}} breathed in a lot of smoke.",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s one of my staff.",
+        "It's {{firstPatientName}}, {{he}} was nearest the dryer.",
+        "{{firstPatientName}}, {{he}}'s one of my workers, {{he}}'s coughing a lot."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the farm with the grain dryers",
-        "It's {{address}}, come in through the main gate"
+        "It's {{address}}, come down the farm track off the main road.",
+        "{{address}}, the farm entrance, there's a gate you'll need opening.",
+        "It's {{address}}, follow the track past the farmhouse.",
+        "{{address}}, I'll open the gate for you at the farm.",
+        "We're at {{address}}, it's the field behind the farm buildings.",
+        "It's {{address}}, the access is a bit narrow so come steady.",
+        "{{address}}, I can send someone to wave you in off the road.",
+        "That's {{address}}, the farm track can be muddy this time of year.",
+        "It's {{address}}, there's a cattle grid before the yard.",
+        "{{address}}, I'll be waiting by the gate to let you in."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The grain dryer overheated and caught fire, there was a lot of dust so it went up quickly, one of the workers got caught by the smoke getting clear"
+        "The dryer overheated and caught fire, {{he}} went to shut it down and got caught in the smoke.",
+        "It started smoking heavily before the flames came, {{he}} was right by it trying to isolate it.",
+        "No idea exactly what caused it, but {{he}} was nearest when the smoke really built up.",
+        "{{He}} tried to get the dryer switched off but the smoke got too thick before {{he}} could get clear.",
+        "It caught fire fast, {{he}} breathed in a lot of smoke trying to deal with it {{himself}}.",
+        "The grain dust probably didn't help, it went up quickly and {{he}} was too close.",
+        "{{He}} was doing {{his}} job, trying to shut it down, and got caught in the smoke.",
+        "No idea what started it, {{he}} just came out coughing badly a few minutes ago.",
+        "It's still smoking heavily, {{he}} got the worst of it before backing away.",
+        "{{He}} tried to isolate the machine but the smoke overcame {{him}} before {{he}} could finish."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious, just coughing a lot"
+        "{{He}}'s conscious but coughing badly.",
+        "{{He}}'s awake, a bit confused, breathing's rough.",
+        "{{He}}'s conscious, groggy, keeps drifting off mid sentence.",
+        "{{He}}'s awake but weak, struggling to keep talking to me.",
+        "{{He}} responded when I got to {{him}}, but {{he}}'s very drowsy.",
+        "{{He}}'s conscious, just really out of breath.",
+        "{{He}}'s awake, confused, asking what's happening.",
+        "{{He}}'s conscious but going quiet between coughing fits.",
+        "{{He}}'s awake, {{he}} seems dazed from the smoke.",
+        "{{He}}'s conscious, {{he}}'s frightened and struggling to breathe properly."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He's coughing badly, struggling a bit for breath"
+        "{{He}}'s struggling, {{his}} breathing's wheezy and fast.",
+        "{{He}}'s coughing a lot, breathing's really laboured.",
+        "{{He}}'s got a rasp to {{his}} breathing, {{he}} was in the smoke a while.",
+        "{{He}}'s breathing fast and shallow, {{he}} looks exhausted.",
+        "{{He}}'s wheezing badly, I think {{he}}'s swallowed a lot of smoke.",
+        "{{He}}'s breathing but it's noisy, like it's catching in {{his}} throat.",
+        "{{He}} keeps coughing, can barely get a full breath in.",
+        "{{His}} breathing's ragged, {{he}} says {{his}} chest feels tight.",
+        "{{He}}'s struggling for breath, I've got {{him}} sat up.",
+        "{{He}}'s breathing but it's rough, {{he}} needs help quickly."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says his throat and chest feel tight"
+        "{{He}} says {{his}} chest feels tight and sore.",
+        "{{He}}'s in some discomfort, mostly {{his}} chest {{he}} says.",
+        "{{He}} says {{his}} throat's burning from the smoke.",
+        "{{He}}'s uncomfortable, {{he}} keeps rubbing {{his}} chest.",
+        "{{He}} says it hurts to breathe in deeply.",
+        "{{He}}'s got a headache and {{his}} chest hurts, {{he}} says.",
+        "{{He}} says {{his}} eyes are stinging and {{his}} throat's sore.",
+        "{{He}}'s not in agony but says {{his}} chest is tight.",
+        "{{He}} says {{he}}'s sore all over from coughing so much.",
+        "{{He}}'s uncomfortable, says {{his}} chest feels heavy."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, it's the smoke that's the problem"
+        "No, no bleeding, it's the smoke that's the problem.",
+        "{{He}}'s not bleeding, just really affected by the smoke.",
+        "No blood that I can see, {{he}}'s struggling to breathe though.",
+        "No, no cuts, it's {{his}} breathing that's the worry.",
+        "{{He}}'s not bleeding, no injuries like that.",
+        "No, nothing like that, just the smoke {{he}}'s taken in.",
+        "No bleeding, {{his}} chest is the problem, not any wound.",
+        "No, {{he}}'s not cut anywhere, it's all from the smoke.",
+        "No blood, {{he}}'s just really struggling for breath.",
+        "No bleeding at all, {{he}} just can't stop coughing."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of, he's never mentioned anything"
+        "I don't know, we just work together, not close friends.",
+        "No idea, sorry, I don't know much about {{his}} health.",
+        "I can't say, we're colleagues, I don't know {{him}} that well.",
+        "Sorry, no idea, that's not something we've ever talked about.",
+        "I couldn't tell you, {{he}}'s just someone I work with.",
+        "No idea, sorry, maybe HR would have something on file.",
+        "I don't really know {{him}} outside of work, sorry.",
+        "Sorry, I can't say, we don't know each other that well.",
+        "No idea, I've never had reason to ask {{him}} that.",
+        "I can't help with that, sorry, we're just colleagues."
       ]
     },
     "medications": {
       "answers": [
-        "I don't think he's on anything regular"
+        "No idea, sorry, we don't really talk about that.",
+        "I couldn't tell you, we just work together.",
+        "No idea what {{he}} takes, sorry, that's private really.",
+        "Sorry, I don't know, maybe {{his}} emergency contact would.",
+        "No idea, I've never seen {{him}} take anything at work.",
+        "I can't say, sorry, we're not that close.",
+        "No idea, sorry, I wouldn't know that about {{him}}.",
+        "Sorry, can't help, we just work together.",
+        "No idea what {{he}} takes, I'm afraid.",
+        "I don't know, sorry, that's not something I'd know."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's in his thirties"
+        "{{He}} looks maybe forties, hard to tell from here.",
+        "I'd guess {{he}}'s in {{his}} thirties or forties.",
+        "Hard to say exactly, {{he}} looks middle aged.",
+        "{{He}} looks like {{he}}'s in {{his}} fifties maybe.",
+        "I really can't tell, {{he}}'s covered in dust and blood.",
+        "Maybe thirty five, forty, that's my best guess.",
+        "{{He}} looks like a working age adult, sorry, can't be more precise.",
+        "I'd say {{he}}'s somewhere around forty.",
+        "Hard to tell like this, {{he}} looks fairly young though.",
+        "I couldn't say for certain, {{he}} looks to be in {{his}} thirties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've shut the dryer down and got everyone away",
-        "Please hurry, grain dust fires can flash up fast"
+        "Okay, thank you, I'll keep {{him}} sat up and calm.",
+        "Please hurry, {{he}}'s really struggling to breathe.",
+        "Okay, I'll stay with {{him}}, try and keep {{him}} calm.",
+        "Thank you, I've got {{him}} away from the smoke now.",
+        "Okay, good, I'll keep talking to {{him}} till you arrive.",
+        "Thank you, please hurry, {{his}} breathing's not good.",
+        "Okay, I'm right here with {{him}}.",
+        "Right, thank you, I'll keep the window open for air.",
+        "Okay, I'll let {{him}} know help's on the way.",
+        "Thank you, I'll stay on the line and with {{him}}."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we've got someone affected by smoke, we need an ambulance as well as the fire brigade"
+        "No, {{he}}'s hurt, this can't wait for 111, please send help.",
+        "No, I really think {{he}} needs an ambulance now, not 111.",
+        "Please, no, {{he}}'s in a bad way, we need paramedics here.",
+        "No, this is serious, {{he}} was hurt in this, please send help.",
+        "I don't think 111 can help with this, {{he}} needs urgent care.",
+        "No, please, {{he}}'s hurt, we need an ambulance.",
+        "No, this needs 999, {{he}}'s badly hurt.",
+        "Please, {{he}} can't wait for a phone call back, send someone now.",
+        "No, I really need an ambulance here, not 111, {{he}}'s in pain.",
+        "No, this is urgent, {{he}} needs help, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, that'll help with the traffic here.",
+        "Good, we could do with some help keeping people back.",
+        "Thanks, that makes sense, it's chaos here.",
+        "Okay, I'll let them know when they arrive.",
+        "Right, thank you, they can help clear the road.",
+        "Okay, that's good, we need some order here.",
+        "Thanks, they'll be needed to keep everyone safe.",
+        "Okay, understood, I'll watch out for them.",
+        "Good, thank you, it's getting busy here.",
+        "Okay, thanks, that'll help a lot."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay well back until you get here.",
+        "Right, thank you, we're keeping clear of it.",
+        "Okay, I've got everyone away from it.",
+        "Thanks, I'll wait here till the crews arrive.",
+        "Alright, we've kept the area clear for now.",
+        "Okay, I'll keep everyone back and wait for you.",
+        "Thank you, we're staying clear, please hurry.",
+        "Right, understood, we won't go near it.",
+        "Okay, we're all keeping our distance.",
+        "Thanks, we'll wait here for the crews."
       ]
     }
   },

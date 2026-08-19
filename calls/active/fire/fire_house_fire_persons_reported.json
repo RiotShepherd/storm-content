@@ -49,6 +49,11 @@
     "fire_officer": 1,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 4
+  },
   "patients": {
     "range": [
       1,
@@ -123,8 +128,16 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade please, my house is on fire and my dad's still inside, he can't get down the stairs",
-      "Please hurry, there's someone trapped upstairs, the house is filling with smoke"
+      "Fire brigade please, my house is on fire and my {{dad}}'s still inside.",
+      "Please hurry, there's someone trapped upstairs, the house is filling with smoke.",
+      "My house is on fire, my {{dad}} can't get down the stairs, please hurry.",
+      "Please send help, my {{dad}}'s trapped inside, the house is on fire.",
+      "There's a fire at my house, my {{dad}}'s still upstairs and can't get out.",
+      "Please hurry, my house is burning and my {{dad}}'s trapped inside.",
+      "My {{dad}}'s still in the house, it's on fire and filling with smoke.",
+      "Please send someone quickly, my {{dad}} can't get down, the house is alight.",
+      "There's a fire at my house, my {{dad}}'s stuck upstairs, please help {{him}}.",
+      "Please hurry, my house is on fire, my {{dad}}'s trapped and can't move fast."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -136,81 +149,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade please, my house is on fire and my dad's still inside, he can't get down the stairs",
-        "Please hurry, there's someone trapped upstairs, the house is filling with smoke"
+        "Fire brigade please, my house is on fire and my {{dad}}'s still inside.",
+        "Please hurry, there's someone trapped upstairs, the house is filling with smoke.",
+        "My house is on fire, my {{dad}} can't get down the stairs, please hurry.",
+        "Please send help, my {{dad}}'s trapped inside, the house is on fire.",
+        "There's a fire at my house, my {{dad}}'s still upstairs and can't get out.",
+        "Please hurry, my house is burning and my {{dad}}'s trapped inside.",
+        "My {{dad}}'s still in the house, it's on fire and filling with smoke.",
+        "Please send someone quickly, my {{dad}} can't get down, the house is alight.",
+        "There's a fire at my house, my {{dad}}'s stuck upstairs, please help {{him}}.",
+        "Please hurry, my house is on fire, my {{dad}}'s trapped and can't move fast."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, it's my house"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, he's my dad"
+        "It's {{firstPatientName}}, {{he}}'s my {{callerParent}}.",
+        "{{firstPatientName}}, that's {{him}}, {{he}}'s stuck upstairs.",
+        "It's {{firstPatientName}}, I'm {{his}} {{callerChild}}, please hurry.",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s my {{callerParent}}.",
+        "It's {{firstPatientName}}, please, {{he}}'s still up there.",
+        "{{firstPatientName}}, {{he}}'s my {{callerParent}}, {{he}} can't get down.",
+        "It's {{firstPatientName}}, {{he}}'s on the first floor, please hurry.",
+        "{{His}} name's {{firstPatientName}}, I'm so scared for {{him}}.",
+        "It's {{firstPatientName}}, {{he}}'s my {{callerParent}}, {{he}}'s trapped.",
+        "{{firstPatientName}}, that's {{him}}, please, {{he}} needs help now."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's my house, I'm outside now",
-        "It's {{address}}, please hurry, he's upstairs"
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Smoke's filling the downstairs and my dad's upstairs, he uses a stick and can't move fast, I couldn't get up to him"
+        "The fire started downstairs, {{he}}'s upstairs and can't get past the smoke.",
+        "{{He}}'s got mobility problems so {{he}} can't get down the stairs quickly, please hurry.",
+        "The smoke's really thick now, {{he}}'s shouted back to me but can't move fast.",
+        "It's spreading up through the house, {{he}}'s stuck on the landing I think.",
+        "I don't know exactly how it started, but {{he}}'s trapped and it's getting worse.",
+        "The stairs are smoke logged, {{he}} can't get past them on {{his}} own.",
+        "It started in the kitchen I think, {{he}}'s upstairs and the smoke's building up.",
+        "{{He}} can't move quickly because of {{his}} hip, please, {{he}} needs help fast.",
+        "The whole downstairs is smoke logged, {{he}}'s stuck up there, please hurry.",
+        "I got out but {{he}} couldn't follow fast enough, please, {{he}}'s still up there."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He was answering me a minute ago, so yes I think so"
+        "{{He}}'s conscious but coughing badly.",
+        "{{He}}'s awake, a bit confused, breathing's rough.",
+        "{{He}}'s conscious, groggy, keeps drifting off mid sentence.",
+        "{{He}}'s awake but weak, struggling to keep talking to me.",
+        "{{He}} responded when I got to {{him}}, but {{he}}'s very drowsy.",
+        "{{He}}'s conscious, just really out of breath.",
+        "{{He}}'s awake, confused, asking what's happening.",
+        "{{He}}'s conscious but going quiet between coughing fits.",
+        "{{He}}'s awake, {{he}} seems dazed from the smoke.",
+        "{{He}}'s conscious, {{he}}'s frightened and struggling to breathe properly."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He sounded like he was coughing quite a bit"
+        "{{He}}'s struggling, {{his}} breathing's wheezy and fast.",
+        "{{He}}'s coughing a lot, breathing's really laboured.",
+        "{{He}}'s got a rasp to {{his}} breathing, {{he}} was in the smoke a while.",
+        "{{He}}'s breathing fast and shallow, {{he}} looks exhausted.",
+        "{{He}}'s wheezing badly, I think {{he}}'s swallowed a lot of smoke.",
+        "{{He}}'s breathing but it's noisy, like it's catching in {{his}} throat.",
+        "{{He}} keeps coughing, can barely get a full breath in.",
+        "{{His}} breathing's ragged, {{he}} says {{his}} chest feels tight.",
+        "{{He}}'s struggling for breath, I've got {{him}} sat up.",
+        "{{He}}'s breathing but it's rough, {{he}} needs help quickly."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He didn't say anything about pain, just that he was scared"
+        "{{He}} says {{his}} chest feels tight and sore.",
+        "{{He}}'s in some discomfort, mostly {{his}} chest {{he}} says.",
+        "{{He}} says {{his}} throat's burning from the smoke.",
+        "{{He}}'s uncomfortable, {{he}} keeps rubbing {{his}} chest.",
+        "{{He}} says it hurts to breathe in deeply.",
+        "{{He}}'s got a headache and {{his}} chest hurts, {{he}} says.",
+        "{{He}} says {{his}} eyes are stinging and {{his}} throat's sore.",
+        "{{He}}'s not in agony but says {{his}} chest is tight.",
+        "{{He}} says {{he}}'s sore all over from coughing so much.",
+        "{{He}}'s uncomfortable, says {{his}} chest feels heavy."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Not that I know of, no"
+        "No, no bleeding, it's the smoke that's the problem.",
+        "{{He}}'s not bleeding, just really affected by the smoke.",
+        "No blood that I can see, {{he}}'s struggling to breathe though.",
+        "No, no cuts, it's {{his}} breathing that's the worry.",
+        "{{He}}'s not bleeding, no injuries like that.",
+        "No, nothing like that, just the smoke {{he}}'s taken in.",
+        "No bleeding, {{his}} chest is the problem, not any wound.",
+        "No, {{he}}'s not cut anywhere, it's all from the smoke.",
+        "No blood, {{he}}'s just really struggling for breath.",
+        "No bleeding at all, {{he}} just can't stop coughing."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He's got bad hips, that's why he uses a stick, and he's got a heart condition"
+        "{{He}}'s got a bad hip, that's why {{he}} can't get down the stairs quickly.",
+        "{{He}}'s got COPD, {{he}}'s really not going to cope well with the smoke.",
+        "{{He}} had a hip replacement last year, {{he}} can't move fast.",
+        "{{He}}'s diabetic and {{he}}'s got arthritis in {{his}} knees.",
+        "{{He}}'s got a heart condition, please hurry, the smoke will be awful for {{him}}.",
+        "{{He}} uses a stick normally, {{his}} mobility's not great.",
+        "{{He}}'s got asthma, the smoke's going to make it so much worse.",
+        "{{He}} had a stroke a couple of years back, {{his}} left side's weak.",
+        "{{He}}'s got bad lungs, please, {{he}} needs to get out quickly.",
+        "{{He}}'s got high blood pressure and dodgy knees, that's why {{he}}'s stuck up there."
       ]
     },
     "medications": {
       "answers": [
-        "He takes heart tablets, I don't know the names"
+        "{{He}} takes tablets for {{his}} heart, they're by the kettle in the kitchen.",
+        "{{He}}'s on inhalers for {{his}} chest, they should be in {{his}} bedroom.",
+        "{{He}} takes something for blood pressure every morning, I don't know the name.",
+        "{{He}}'s on insulin for {{his}} diabetes, it's in the fridge.",
+        "{{He}} takes a few tablets, I can't remember what they're all for.",
+        "{{He}}'s on warfarin I think, for {{his}} heart.",
+        "{{He}} has an inhaler {{he}} keeps in {{his}} pocket usually.",
+        "{{He}} takes something daily but I honestly don't know the name.",
+        "{{He}}'s on medication for {{his}} chest, it's on the side in the kitchen.",
+        "{{He}} takes tablets every day, I couldn't tell you exactly what for."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's seventy eight"
+        "{{He}}'s in {{his}} seventies.",
+        "{{He}}'s about seventy five.",
+        "{{He}}'s getting on, {{he}}'s in {{his}} late sixties.",
+        "{{He}}'s seventy odd, {{he}}'s not steady on {{his}} feet.",
+        "{{He}}'s in {{his}} early seventies I think.",
+        "{{He}}'s about seventy, {{he}}'s got mobility problems.",
+        "{{He}}'s in {{his}} seventies, {{he}} struggles with stairs normally.",
+        "{{He}}'s roughly seventy five years old.",
+        "{{He}}'s getting on in years, {{his}} seventies I'd say.",
+        "{{He}}'s about seventy, please hurry, {{he}} can't move fast."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm outside but I can still hear him",
-        "Please hurry, he can't get himself down"
+        "Okay, thank you, I'll keep {{him}} sat up and calm.",
+        "Please hurry, {{he}}'s really struggling to breathe.",
+        "Okay, I'll stay with {{him}}, try and keep {{him}} calm.",
+        "Thank you, I've got {{him}} away from the smoke now.",
+        "Okay, good, I'll keep talking to {{him}} till you arrive.",
+        "Thank you, please hurry, {{his}} breathing's not good.",
+        "Okay, I'm right here with {{him}}.",
+        "Right, thank you, I'll keep the window open for air.",
+        "Okay, I'll let {{him}} know help's on the way.",
+        "Thank you, I'll stay on the line and with {{him}}."
       ]
     },
     "refer111": {
       "answers": [
-        "No, my dad's trapped in a house fire, we need the fire brigade now"
+        "No, {{he}}'s hurt, this can't wait for 111, please send help.",
+        "No, I really think {{he}} needs an ambulance now, not 111.",
+        "Please, no, {{he}}'s in a bad way, we need paramedics here.",
+        "No, this is serious, {{he}} was hurt in this, please send help.",
+        "I don't think 111 can help with this, {{he}} needs urgent care.",
+        "No, please, {{he}}'s hurt, we need an ambulance.",
+        "No, this needs 999, {{he}}'s badly hurt.",
+        "Please, {{he}} can't wait for a phone call back, send someone now.",
+        "No, I really need an ambulance here, not 111, {{he}}'s in pain.",
+        "No, this is urgent, {{he}} needs help, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's a fire, I need the fire brigade.",
+        "I don't think we need police, it's just the fire that's the problem.",
+        "No, sorry, this isn't a police matter, it's a fire.",
+        "Why would police come, it's the fire brigade I need.",
+        "No, there's no need for police, nobody's done anything wrong.",
+        "Sorry, I think you mean the fire brigade, not the police.",
+        "No, it's not a police thing, just send the fire crew please.",
+        "I'm confused, why police, it's just a fire.",
+        "No thank you, we don't need officers here, just the fire brigade.",
+        "Sorry, no, this is a fire, not something for the police."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay well back until you get here.",
+        "Right, thank you, we're keeping clear of it.",
+        "Okay, I've got everyone away from it.",
+        "Thanks, I'll wait here till the crews arrive.",
+        "Alright, we've kept the area clear for now.",
+        "Okay, I'll keep everyone back and wait for you.",
+        "Thank you, we're staying clear, please hurry.",
+        "Right, understood, we won't go near it.",
+        "Okay, we're all keeping our distance.",
+        "Thanks, we'll wait here for the crews."
       ]
     }
   },

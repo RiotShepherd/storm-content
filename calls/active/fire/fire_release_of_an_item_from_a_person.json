@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -65,8 +69,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My daughter's got a bangle stuck on her wrist, it won't come off and her hand's swelling",
-      "Hi, I've got a jar stuck on my hand and I can't get it off"
+      "My {{son}}'s got a bangle stuck on {{his}} wrist, it won't come off and {{his}} hand's swelling.",
+      "Hi, my {{son}}'s got a ring stuck on {{his}} finger and I can't get it off.",
+      "Could you help, my {{son}}'s got a toy stuck on {{his}} hand and it won't budge.",
+      "My {{son}}'s got a bangle jammed on {{his}} arm, {{his}} wrist's a bit swollen now.",
+      "Hi, my {{son}}'s got something stuck round {{his}} finger and it's starting to swell.",
+      "Could you send someone, my {{son}}'s hand's stuck in a jar and we can't get it out.",
+      "My {{son}}'s bangle won't come off {{his}} wrist, it's getting a bit tight.",
+      "Hi, my {{son}}'s got a metal ring stuck on {{his}} finger, it's swelling a bit.",
+      "Could someone come, my {{son}}'s got {{his}} hand stuck in something and it won't come free.",
+      "My {{son}}'s wrist is stuck in a bracelet that won't come off, {{his}} hand's swelling slightly."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -78,79 +90,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My daughter's got a bangle stuck on her wrist, it won't come off and her hand's swelling",
-        "Hi, I've got a jar stuck on my hand and I can't get it off"
+        "My {{son}}'s got a bangle stuck on {{his}} wrist, it won't come off and {{his}} hand's swelling.",
+        "Hi, my {{son}}'s got a ring stuck on {{his}} finger and I can't get it off.",
+        "Could you help, my {{son}}'s got a toy stuck on {{his}} hand and it won't budge.",
+        "My {{son}}'s got a bangle jammed on {{his}} arm, {{his}} wrist's a bit swollen now.",
+        "Hi, my {{son}}'s got something stuck round {{his}} finger and it's starting to swell.",
+        "Could you send someone, my {{son}}'s hand's stuck in a jar and we can't get it out.",
+        "My {{son}}'s bangle won't come off {{his}} wrist, it's getting a bit tight.",
+        "Hi, my {{son}}'s got a metal ring stuck on {{his}} finger, it's swelling a bit.",
+        "Could someone come, my {{son}}'s got {{his}} hand stuck in something and it won't come free.",
+        "My {{son}}'s wrist is stuck in a bracelet that won't come off, {{his}} hand's swelling slightly."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, it's my daughter"
+        "It's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "Sorry, yes, it's {{callerName}} here.",
+        "{{callerName}} is my name.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}, calling from nearby.",
+        "{{callerName}}, if you need it.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} speaking.",
+        "{{callerName}}, yes."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, she's my daughter"
+        "It's {{firstPatientName}}, {{he}}'s my {{son}}.",
+        "{{firstPatientName}}, my {{son}}, {{he}}'s got it stuck.",
+        "That's {{firstPatientName}}, my {{son}}.",
+        "{{firstPatientName}} is {{his}} name, my {{son}}.",
+        "It's {{firstPatientName}}, my {{son}}, {{he}}'s not too bothered.",
+        "{{firstPatientName}}, that's my {{son}} with the stuck hand.",
+        "It's {{firstPatientName}}, my {{son}}, {{he}}'s being very patient about it.",
+        "That's {{firstPatientName}}, {{he}}'s my {{son}}.",
+        "{{firstPatientName}}, my {{son}}, {{he}}'s fine otherwise.",
+        "It's {{firstPatientName}}, my little {{son}}, {{he}}'s stuck."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "We're at {{address}}.",
+        "That's {{address}}, yes.",
+        "{{address}}, that's the address.",
+        "You'll find it at {{address}}.",
+        "It's {{address}}, just so you know.",
+        "The location is {{address}}.",
+        "{{address}} is where we are.",
+        "That's the postcode and address, {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She was trying it on and now it's stuck fast, her fingers are starting to swell"
+        "{{He}} was playing with it and now it's stuck fast, we've tried soap and everything.",
+        "{{He}} put it on earlier and now it won't come off, {{his}} hand's a bit swollen.",
+        "{{He}} was playing dress up and got {{his}} hand stuck, we can't budge it.",
+        "It went on fine but now it won't come off, {{his}} wrist's swelling a little.",
+        "{{He}} was messing about and now it's properly stuck, we've tried everything we can think of.",
+        "{{He}} put {{his}} hand in and now can't pull it back out.",
+        "It's been stuck for a while now, we've tried soap and oil with no luck.",
+        "{{He}} slipped it on earlier and {{his}} finger's swollen up a bit since.",
+        "{{He}} was curious and put {{his}} hand in, now it won't come out.",
+        "We've tried everything at home, it just won't budge off {{his}} wrist."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's fine, just worried"
+        "Yes, {{he}}'s absolutely fine, just annoyed about {{his}} hand.",
+        "{{He}}'s conscious and chatting away, just wants it off.",
+        "Yes, {{he}}'s completely fine, just a bit fed up with it.",
+        "{{He}}'s totally fine, just finding it a bit uncomfortable.",
+        "Yes, {{he}}'s fine, {{he}}'s just watching telly waiting for you.",
+        "{{He}}'s absolutely fine, just wants {{his}} hand free.",
+        "Yes, {{he}}'s okay, just a bit bored of waiting now.",
+        "{{He}}'s fine, {{he}}'s not worried at all, just wants it off.",
+        "Yes, {{he}}'s completely fine in {{himself}}.",
+        "{{He}}'s fine, just keeps looking at {{his}} hand."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "She's breathing fine, it's just her wrist"
+        "Yes, {{he}}'s breathing absolutely fine.",
+        "{{He}}'s fine breathing wise, no issues at all.",
+        "Yes, no problems there, {{he}}'s breathing normally.",
+        "{{He}}'s completely fine, breathing's not an issue.",
+        "Yes, {{he}}'s fine, no breathing trouble at all.",
+        "{{He}}'s breathing normally, {{he}}'s totally fine.",
+        "Yes, no issues with {{his}} breathing at all.",
+        "{{He}}'s fine, breathing's completely normal.",
+        "Yes, {{he}}'s okay, no breathing problems.",
+        "{{He}}'s breathing fine, it's just {{his}} hand that's the issue."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "It's starting to ache from the swelling"
+        "{{He}} says it's a bit uncomfortable but not really painful.",
+        "Not really pain, just feels tight and a bit sore.",
+        "{{He}} says it's uncomfortable, not exactly painful.",
+        "A little sore where it's tight, but not really painful.",
+        "{{He}} says it's just tight, not painful as such.",
+        "Not much pain, just uncomfortable from the swelling.",
+        "{{He}} says {{his}} finger feels a bit sore, not painful.",
+        "Not painful exactly, just uncomfortable and a bit tight.",
+        "{{He}} says it doesn't really hurt, just feels odd.",
+        "A bit sore from the swelling, but {{he}}'s not in real pain."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, just stuck"
+        "No, no bleeding, just the swelling.",
+        "No, {{he}}'s not bleeding, just a bit puffy round it.",
+        "No blood, no, just swollen a little.",
+        "No, nothing like that, just a bit of swelling.",
+        "No bleeding at all, just tight and a bit red.",
+        "No, {{he}}'s fine, no bleeding, just swollen.",
+        "No, nothing like that, just a bit puffy.",
+        "No bleeding, no, just tight and uncomfortable.",
+        "No, {{he}}'s not bleeding, just a little swollen.",
+        "No, no blood, just the swelling round it."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing relevant, she's healthy otherwise"
+        "No, {{he}}'s a healthy little one, nothing like that.",
+        "Nothing at all, {{he}}'s fit and well normally.",
+        "No history to mention, {{he}}'s usually fine.",
+        "No, nothing like that, {{he}}'s a healthy {{son}}.",
+        "Nothing to report, {{he}}'s never had any issues.",
+        "No, {{he}}'s completely healthy normally.",
+        "Nothing like that, no ongoing conditions at all.",
+        "No, {{he}}'s a fit and healthy {{son}}, nothing to mention.",
+        "Nothing at all, {{he}}'s usually really healthy.",
+        "No history, {{he}}'s fine health wise normally."
       ]
     },
     "medications": {
       "answers": [
-        "No, nothing"
+        "No, {{he}} doesn't take anything.",
+        "No medication, no, {{he}}'s a healthy {{son}}.",
+        "No, nothing like that at all.",
+        "No, {{he}}'s not on anything.",
+        "Nothing, no, {{he}} doesn't take medication.",
+        "No medication needed normally, no.",
+        "No, {{he}} doesn't take anything at all.",
+        "Nothing to mention, no medication.",
+        "No, {{he}}'s not on any medication.",
+        "No, nothing like that, {{he}}'s fine normally."
       ]
     },
     "patientAge": {
       "answers": [
-        "She's twelve"
+        "{{He}}'s only five.",
+        "{{He}}'s six, still quite little.",
+        "{{He}}'s four, {{he}}'s only tiny.",
+        "{{He}}'s seven years old.",
+        "{{He}}'s three, {{he}}'s still very small.",
+        "{{He}}'s eight.",
+        "{{He}}'s only four years old.",
+        "{{He}}'s about six, small for {{his}} age.",
+        "{{He}}'s five years old.",
+        "{{He}}'s only just turned four."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep her calm"
+        "Okay, thank you, we'll wait here for you.",
+        "Right, thank you, {{he}}'ll be pleased to hear that.",
+        "Okay, we'll stay put until you arrive.",
+        "Alright, thank you, we're not going anywhere.",
+        "Okay, good, {{he}}'s looking forward to getting it off.",
+        "Right, thank you, we'll be here waiting.",
+        "Okay, thank you, that's put {{his}} mind at ease.",
+        "Alright, thank you, we'll wait for the crew.",
+        "Okay, thank you, {{he}}'s happy to hear that.",
+        "Right, we'll wait right here, thank you."
       ]
     },
     "refer111": {
       "answers": [
-        "No, I need the fire brigade to cut it off, not 111"
+        "No, I don't think 111 can cut it off, we need the fire brigade for that.",
+        "No, it's not really medical, {{he}} just needs it cut free.",
+        "No, I think the fire brigade's better suited for this one.",
+        "No, thank you, but I don't think 111 can help remove it.",
+        "No, it's not urgent medically, {{he}} just needs it off safely.",
+        "No, I think this is more a job for the fire brigade.",
+        "No, it's not a health issue as such, just needs cutting off.",
+        "No, thank you, but I think you're better placed to help with this.",
+        "No, I don't think 111 would be able to remove it.",
+        "No, it's fine, but I think the fire brigade's the right people for this."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's not that sort of thing, it's a stuck bangle.",
+        "We don't need the police, just the fire brigade.",
+        "No, there's no need for police, it's only a stuck bangle.",
+        "Police aren't needed here, it's a fire matter.",
+        "No thanks, it's a stuck bangle, not a police job.",
+        "We're alright for police, we just need the fire service.",
+        "No, this doesn't need police, just the fire brigade please.",
+        "No, it's a stuck bangle, nothing for the police to deal with.",
+        "We don't need police here, thank you.",
+        "No, just the fire brigade will do, thank you."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them.",
+        "Right, thank you, I'll keep an eye out.",
+        "Okay, that's great, thank you.",
+        "Alright, thank you, I'll stay by the door for them.",
+        "Okay, good, I'll wait outside.",
+        "Thank you, I'll keep watching for the engine.",
+        "Right, thanks, I'll wait here for them.",
+        "Okay, that's good to know, thank you.",
+        "Alright, thank you, I appreciate it.",
+        "Okay, thank you, I'll look out for them."
       ]
     }
   },

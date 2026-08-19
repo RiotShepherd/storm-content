@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 2
+  },
   "patients": {
     "range": [
       1,
@@ -73,7 +77,15 @@
   "caller": {
     "openings": [
       "I've breathed in loads of smoke from the fire, I can't stop coughing",
-      "I need some help, I got caught in smoke before I got out of the building"
+      "I need some help, I got caught in smoke before I got out of the building",
+      "I'm out safely now but I breathed in a lot of smoke, my chest feels tight",
+      "Can someone check me over, I got a lungful of smoke escaping the fire",
+      "I'm okay, just coughing a lot, I was caught in the smoke for a bit",
+      "I need some advice, my throat's really sore from the smoke",
+      "I got out of the building but I swallowed a lot of smoke on the way",
+      "My chest feels really tight after breathing in the smoke",
+      "I'm coughing badly, I was stuck in a smoky room for a few minutes",
+      "Could someone come and check me over, I've inhaled quite a bit of smoke"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -86,81 +98,231 @@
     "start": {
       "answers": [
         "I've breathed in loads of smoke from the fire, I can't stop coughing",
-        "I need some help, I got caught in smoke before I got out of the building"
+        "I need some help, I got caught in smoke before I got out of the building",
+        "I'm out safely now but I breathed in a lot of smoke, my chest feels tight",
+        "Can someone check me over, I got a lungful of smoke escaping the fire",
+        "I'm okay, just coughing a lot, I was caught in the smoke for a bit",
+        "I need some advice, my throat's really sore from the smoke",
+        "I got out of the building but I swallowed a lot of smoke on the way",
+        "My chest feels really tight after breathing in the smoke",
+        "I'm coughing badly, I was stuck in a smoky room for a few minutes",
+        "Could someone come and check me over, I've inhaled quite a bit of smoke"
       ]
     },
     "callerName": {
       "answers": [
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
         "{{callerName}}, that's me",
-        "It's {{callerName}}"
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "It's me, {{firstPatientName}}, I'm the one who called.",
+        "Just me, {{firstPatientName}}, nobody else is hurt.",
+        "{{firstPatientName}}, that's me, I'm on my own here.",
+        "It's just me, {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, there's no one else involved.",
+        "Me, {{firstPatientName}}, I live here alone.",
+        "It's only me affected, {{firstPatientName}}.",
+        "{{firstPatientName}}, yes, that's me.",
+        "Just myself, {{firstPatientName}}, no one else here.",
+        "I'm the patient, {{firstPatientName}}, it's just me."
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}",
-        "{{address}}"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There was a fire and I got caught in the smoke before I got out, my chest feels tight"
+        "I got caught in the smoke trying to get out of the building",
+        "There was a fire inside and I breathed in a lot of smoke escaping it",
+        "I was in the room when it filled with smoke before I got out",
+        "I got trapped for a minute in the smoke before finding my way out",
+        "The smoke was really thick, I breathed a lot of it in getting clear",
+        "I went back for the dog and got a lungful of smoke doing it",
+        "I was stuck on the stairs in the smoke for a bit before getting out",
+        "The room filled with smoke fast, I couldn't avoid breathing it in",
+        "I was near the fire helping others out and swallowed a lot of smoke",
+        "I got out through the smoke, it was thick, I've been coughing since"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, I'm awake, just coughing a lot"
+        "Yes, I'm conscious, just a bit shaken and coughing",
+        "Yes, I'm awake, my chest feels tight though",
+        "Yes, I'm fine that way, just breathed in some smoke",
+        "I'm okay, conscious, just coughing a lot",
+        "Yes, I'm alert, just a bit dizzy from the smoke",
+        "I'm conscious, yes, just really shaken up",
+        "Yes, I'm awake and talking to you, aren't I",
+        "I'm fine that way, just my chest's a bit tight",
+        "Yes, conscious, just coughing quite badly",
+        "I'm okay, yes, just shaken and a bit breathless"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Coughing a lot, a bit wheezy"
+        "I'm breathing, yes, but I've got a bad cough from the smoke",
+        "Yes, I'm breathing, my chest just feels tight",
+        "I can breathe, yes, but I've swallowed a lot of smoke",
+        "Yes, I'm breathing okay, just coughing a lot",
+        "I'm alright breathing wise, just a bit wheezy",
+        "Yes, I'm breathing, my throat's sore from the smoke though",
+        "I can breathe fine, just coughing quite a bit",
+        "Yes, breathing's okay, just feels tight in my chest",
+        "I'm breathing, yes, just a bit short of breath from the smoke",
+        "Yes, I'm breathing, just coughing my lungs up a bit"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "My throat and chest hurt"
+        "No real pain, just my chest feels tight from the smoke",
+        "Not really pain, just sore from coughing so much",
+        "No, no pain, just a bit breathless and shaken",
+        "Not pain exactly, just my throat's sore from the smoke",
+        "No, I'm alright, just coughing and a bit shaken up",
+        "No real pain, just feels tight when I breathe in",
+        "Not much pain, just my chest feels heavy",
+        "No, no pain as such, just shaken and coughing",
+        "Not pain, just a sore throat from the smoke",
+        "No, I'm okay, just a bit light headed from it all"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No, I'm not bleeding, just shaken up",
+        "No bleeding, no, just coughing from the smoke",
+        "No, no injuries like that, just smoke",
+        "No, I'm not cut anywhere, just breathed in a lot of smoke",
+        "No bleeding at all, just a bit shaken",
+        "No, nothing like that, just coughing quite badly",
+        "No, I'm not bleeding, just my chest's tight",
+        "No, no cuts or anything, just the smoke",
+        "No bleeding, no, just really shaken up",
+        "No, nothing like that, just a bit breathless"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing significant"
+        "I'm generally fit and well, nothing you need to worry about.",
+        "No real medical history to speak of, I'm usually fine.",
+        "Nothing major, I don't have any conditions.",
+        "I'm healthy normally, no history to mention.",
+        "No, nothing like that, I'm usually quite well.",
+        "Nothing significant, I don't have any ongoing conditions.",
+        "I don't have any medical issues normally.",
+        "No history worth mentioning, I'm generally okay.",
+        "Nothing really, I'm fit and well as a rule.",
+        "No, I don't have anything like that."
       ]
     },
     "medications": {
       "answers": [
-        "None"
+        "No, I'm not on any medication.",
+        "I don't take anything regularly, no.",
+        "No medication, no, nothing like that.",
+        "I'm not on anything at the moment.",
+        "No, I don't take any tablets or anything.",
+        "Nothing, no, I don't take medication.",
+        "No, I'm not on any regular medication.",
+        "I don't take anything, no.",
+        "No medication to mention, no.",
+        "No, nothing like that at all."
       ]
     },
     "patientAge": {
       "answers": [
-        "37"
+        "{{He}}'s 33",
+        "About 33, I think",
+        "{{He}}'s 33 years old",
+        "33, {{he}}'ll be 34 next year",
+        "I think {{he}}'s 33 or thereabouts",
+        "33 years of age",
+        "{{He}}'s in {{his}} 30s, about 33",
+        "Just turned 33",
+        "{{He}}'s 33, always been fit for {{his}} age",
+        "33, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm outside in fresh air now"
+        "Okay, thank you, I'll stay where I am",
+        "Right, I'll try not to move until they get here",
+        "Okay, that's a relief, thank you",
+        "Thank you, I'll wait by the door for them",
+        "Okay, I'll keep as still as I can",
+        "Right, thank you, how long roughly",
+        "Okay, I'll stay on the line until they arrive",
+        "Thank you, I'm just going to sit tight",
+        "Okay, that's good, I'm in a lot of discomfort",
+        "Right, thank you, I appreciate it"
       ]
     },
     "refer111": {
       "answers": [
-        "No, I think I need to be checked over"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, I just need an ambulance",
+        "No, no police needed, this is medical, not police",
+        "No thank you, just the ambulance, there's nothing for police here",
+        "No, wrong service, I just need medical help, not police",
+        "No police required, I'm just unwell, I only need paramedics",
+        "No, nothing for police to do here, it's purely medical",
+        "No, I'm fine on that front, just the ambulance for me please",
+        "Police? No, I don't think that's needed, I just need help",
+        "No, no crime or anything like that, just an ambulance please",
+        "No police necessary, I just need to be seen by paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "The fire brigade already got me out, thanks, I'm just coughing now",
+        "They're already dealing with the fire, I got myself clear",
+        "No need, the crews are already here putting it out",
+        "Someone already called the fire brigade, they're on their way",
+        "The fire engine's already outside, I just need the ambulance",
+        "They're already tackling it, I just got caught in the smoke",
+        "No, the fire brigade's already on scene, it's just me that needs help",
+        "They're already here for the fire, I just need checking over",
+        "Thanks, I think they're already coming for the fire itself",
+        "The fire's already being dealt with, I just can't stop coughing"
       ]
     }
   },

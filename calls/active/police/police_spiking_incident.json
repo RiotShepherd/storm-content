@@ -43,6 +43,10 @@
     "irv": 2,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 2
+  },
   "patients": {
     "range": [
       1,
@@ -66,8 +70,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Ambulance and police please, I think my friend's drink's been spiked",
-      "Help, my mate's collapsed, we think someone's put something in her drink"
+      "Police, I think my friend's been spiked, {{he}}'s acting really strange",
+      "Please help, I think someone's put something in {{his}} drink",
+      "Police, my mate's gone really unwell suddenly, we think {{he}}'s been spiked",
+      "Please hurry, {{he}} was fine a minute ago and now {{he}}'s in a bad way",
+      "Police, I think {{he}}'s been drugged, {{he}}'s barely making sense",
+      "Please send help, {{he}}'s collapsed, we think {{his}} drink was spiked",
+      "Police, {{he}}'s gone really strange all of a sudden, we're scared",
+      "Please hurry, I think somebody's spiked {{his}} drink",
+      "Police, {{he}}'s not making sense and can barely stand",
+      "Please send someone, {{he}}'s really unwell and we think {{he}}'s been spiked"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -79,90 +91,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Ambulance and police please, I think my friend's drink's been spiked",
-        "Help, my mate's collapsed, we think someone's put something in her drink"
+        "Police, I think my friend's been spiked, {{he}}'s acting really strange",
+        "Please help, I think someone's put something in {{his}} drink",
+        "Police, my mate's gone really unwell suddenly, we think {{he}}'s been spiked",
+        "Please hurry, {{he}} was fine a minute ago and now {{he}}'s in a bad way",
+        "Police, I think {{he}}'s been drugged, {{he}}'s barely making sense",
+        "Please send help, {{he}}'s collapsed, we think {{his}} drink was spiked",
+        "Police, {{he}}'s gone really strange all of a sudden, we're scared",
+        "Please hurry, I think somebody's spiked {{his}} drink",
+        "Police, {{he}}'s not making sense and can barely stand",
+        "Please send someone, {{he}}'s really unwell and we think {{he}}'s been spiked"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I saw the whole thing.",
+        "{{callerName}}, I was just walking past.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} here, I'm the one who called.",
+        "{{callerName}}, yes, that's me.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}.",
+        "{{callerName}} speaking, I saw it happen.",
+        "Name's {{callerName}}.",
+        "It's {{callerName}}, I'm just a witness."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, she's my mate",
-        "It's {{firstPatientName}}, he's a friend of mine"
+        "{{His}} name's {{firstPatientName}}, we're out together tonight.",
+        "It's {{firstPatientName}}, my mate, I'm really worried about {{him}}.",
+        "{{firstPatientName}}, that's {{his}} name.",
+        "{{His}} name's {{firstPatientName}}.",
+        "That's {{firstPatientName}}, we came out together.",
+        "{{firstPatientName}}, {{he}}'s a mate of mine.",
+        "It's {{firstPatientName}}, please hurry.",
+        "{{His}} name is {{firstPatientName}}.",
+        "{{firstPatientName}}, yes, that's {{him}}.",
+        "That's {{firstPatientName}}, we're together tonight."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, we're just inside",
-        "It's {{address}}, near the bar"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She was fine ten minutes ago and now she can barely stand or speak properly",
-        "He's gone really drowsy and confused, none of us saw anyone near his drink"
+        "{{He}} was fine, then suddenly went really dizzy and confused",
+        "{{He}} only had a couple of drinks and now can barely stand",
+        "One minute {{he}} was fine, then {{he}} just went strange and unsteady",
+        "{{He}} left {{his}} drink for a minute and now {{he}}'s not making sense",
+        "{{He}}'s gone really drowsy and confused out of nowhere",
+        "{{He}} suddenly couldn't focus and started slurring {{his}} words",
+        "{{He}} went from fine to barely able to stand in minutes",
+        "{{He}}'s acting completely out of character, we think it's {{his}} drink",
+        "{{He}} came over dizzy and disorientated really suddenly",
+        "{{He}}'s not making sense and keeps drifting off, it came on so fast"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "She's drowsy, hard to keep her awake",
-        "He's in and out, not making sense"
+        "{{He}}'s conscious but really confused, not making sense.",
+        "{{He}}'s awake but {{his}} speech is slurred and odd.",
+        "{{He}}'s in and out, sort of drifting off then coming back.",
+        "{{He}}'s conscious, just really disoriented.",
+        "{{He}}'s awake but can't focus on anything I say.",
+        "{{He}}'s conscious but very drowsy, keeps closing {{his}} eyes.",
+        "{{He}}'s awake, just really out of it.",
+        "{{He}}'s conscious but {{he}} doesn't seem to know where {{he}} is.",
+        "{{He}}'s drifting in and out, hard to keep {{him}} talking.",
+        "{{He}}'s awake but very confused and unsteady."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, but slow",
-        "Yes, but shallow"
+        "{{His}} breathing seems okay, just a bit fast.",
+        "{{He}}'s breathing, but it's shallow and quick.",
+        "{{His}} breathing's fine as far as I can tell, just {{he}}'s very out of it.",
+        "{{He}}'s breathing okay, I'm keeping a close eye on {{him}}.",
+        "{{His}} breathing seems alright, just laboured a little.",
+        "{{He}}'s breathing, yes, but it's not quite normal.",
+        "{{His}} breathing's a bit odd, faster than usual.",
+        "{{He}} seems to be breathing okay for now.",
+        "{{His}} breathing's fine at the moment, just very drowsy.",
+        "{{He}}'s breathing, but I'm worried it might get worse."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She's not really responding to say",
-        "He's not able to tell us"
+        "{{He}} said {{his}} chest felt tight just before {{he}} went quiet.",
+        "{{He}}'s holding {{his}} chest now, says it hurts.",
+        "{{He}} mentioned chest pain a minute ago.",
+        "{{He}}'s clutching at {{his}} chest, looks uncomfortable.",
+        "{{He}} said {{he}} had a strange pain in {{his}} chest.",
+        "{{He}}'s not said much about pain, just seems very unwell.",
+        "{{He}} mumbled something about {{his}} chest hurting.",
+        "{{He}}'s holding {{his}} chest and looks really unwell.",
+        "{{He}} said {{his}} chest felt tight and heavy.",
+        "{{He}}'s not really responding when I ask about pain."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No"
+        "No, no bleeding, it's not that kind of injury.",
+        "No blood, {{he}}'s just really out of it.",
+        "No, nothing like that, {{he}} hasn't hurt {{himself}}.",
+        "No bleeding, {{he}} just went really strange all of a sudden.",
+        "No, {{he}}'s not bleeding, this is different.",
+        "No blood anywhere, it's how {{he}}'s acting that's worrying me.",
+        "No, nothing like that, no injuries.",
+        "No bleeding, {{he}} just can't stand up properly.",
+        "No, {{he}}'s not cut or bleeding, just really unwell.",
+        "No bleeding at all, it's {{his}} behaviour that's the problem."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of, she's fit and healthy",
-        "No idea, don't know his history"
+        "Not that I know of, {{he}}'s usually fit and healthy.",
+        "No, {{he}} doesn't have anything I know of.",
+        "Not as far as I know, {{he}}'s never had problems like this.",
+        "No, nothing like that, {{he}}'s usually fine.",
+        "Not that {{he}}'s ever mentioned to me.",
+        "No, {{he}}'s healthy normally, this isn't like {{him}}.",
+        "Not that I know of, no.",
+        "No, I've never known {{him}} to have any health problems.",
+        "Not that I'm aware of, {{he}}'s always been fine.",
+        "No, nothing, this has come completely out of nowhere."
       ]
     },
     "medications": {
       "answers": [
-        "No, she doesn't take anything",
-        "Not that I know of"
+        "No, {{he}} doesn't take anything as far as I know.",
+        "Not that I know of, no.",
+        "No, {{he}}'s not on anything.",
+        "Not that {{he}}'s ever mentioned.",
+        "No, nothing that I'm aware of.",
+        "No, {{he}} doesn't take medication normally.",
+        "Not as far as I know, no.",
+        "No, {{he}}'s never needed anything like that.",
+        "Not that I know of, sorry.",
+        "No, {{he}} isn't on any medication."
       ]
     },
     "patientAge": {
       "answers": [
-        "She's twenty two",
-        "He's about twenty five"
+        "{{He}}'s in {{his}} twenties.",
+        "{{He}}'s about twenty five.",
+        "Early twenties, {{he}}'s a similar age to me.",
+        "{{He}}'s twenty three.",
+        "{{He}}'s in {{his}} mid twenties.",
+        "About twenty four, {{he}}'s young.",
+        "{{He}}'s twenty two, we're all a similar age.",
+        "Mid twenties, {{he}}'s young and fit normally.",
+        "{{He}}'s about twenty six.",
+        "Early to mid twenties, {{he}}'s usually fine."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry, she's getting worse",
-        "Right, we're staying with him"
+        "Oh thank god, yes please, {{he}} really needs help.",
+        "Yes, please hurry, {{he}}'s getting worse.",
+        "Thank you, that's a relief, please be quick.",
+        "Yes please, I'm really scared for {{him}}.",
+        "Thank you, please hurry, {{he}} doesn't look right at all.",
+        "Yes, please, {{he}} needs someone now.",
+        "Thank god, yes, please hurry for {{him}}.",
+        "Yes please, I'll stay with {{him}} till they arrive.",
+        "Thank you, please be quick, {{he}}'s really not well.",
+        "Yes please, that's good, {{he}} needs help fast."
       ]
     },
     "refer111": {
       "answers": [
-        "She needs an ambulance now, not 111!"
+        "No, please, {{he}} needs help now, not a phone call.",
+        "That's not good enough, {{he}}'s really not right, I need paramedics.",
+        "No, this can't wait, {{he}}'s getting worse.",
+        "Please, no, this is urgent, {{he}} needs help now.",
+        "No, don't do that, {{he}} needs someone to come now.",
+        "That's not right, this is an emergency, {{he}} needs an ambulance.",
+        "No, please, I really think {{he}} needs paramedics now.",
+        "Don't leave it to 111, {{he}}'s genuinely unwell.",
+        "No, this is serious, {{he}} needs help sent out now.",
+        "Please no, this can't wait, {{he}} needs medical help now."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh thank god, please hurry, I don't know how long this can go on for.",
+        "Okay, okay, please tell them to hurry, I'm really worried.",
+        "Thank you, please, how long will they be, I'm scared.",
+        "Right, okay, thank you, please just get them here fast.",
+        "Oh good, thank you, I'll stay on the line until they arrive.",
+        "Please hurry, I don't feel safe until they get here.",
+        "Okay, thank you, I'm staying back, just please be quick.",
+        "Thank god, yes please, tell them to hurry.",
+        "Right, thank you, I'm shaking, please just get them here.",
+        "Okay, thank you, I'll wait, just please don't be long."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

@@ -48,6 +48,11 @@
     "aerial": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -101,11 +106,19 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade please, my house is well alight, there's so much stuff in here it's spreading fast",
-      "There's a serious fire at my house, it's packed full of belongings and I can't get through"
+      "Fire brigade please, my house is well alight, there's so much stuff in here it's spreading fast.",
+      "There's a serious fire at my house, it's packed full of belongings and I can't get through.",
+      "Please hurry, my house is really on fire now, it's spreading fast with all my things in there.",
+      "There's a big fire at mine, I've got so much stuff it's really taken hold, I got out coughing.",
+      "Fire service please, my home's badly alight, it's full of my belongings and burning fast.",
+      "Please send help, my house is properly on fire, I struggled to get out through all my things.",
+      "My house is well alight, I've got a lot piled up and it's spreading through it quickly.",
+      "Please hurry, there's a serious fire at my home, I breathed in a lot of smoke getting out.",
+      "There's a big fire in my house, it's full of my things and going up fast.",
+      "Fire brigade please, my home's badly on fire, I only just managed to get out."
     ],
     "phoneArea": "auto",
-    "callerType": "witness"
+    "callerType": "patient"
   },
   "callerBehaviour": {
     "type": "panicked",
@@ -114,79 +127,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade please, my house is well alight, there's so much stuff in here it's spreading fast",
-        "There's a serious fire at my house, it's packed full of belongings and I can't get through"
+        "Fire brigade please, my house is well alight, there's so much stuff in here it's spreading fast.",
+        "There's a serious fire at my house, it's packed full of belongings and I can't get through.",
+        "Please hurry, my house is really on fire now, it's spreading fast with all my things in there.",
+        "There's a big fire at mine, I've got so much stuff it's really taken hold, I got out coughing.",
+        "Fire service please, my home's badly alight, it's full of my belongings and burning fast.",
+        "Please send help, my house is properly on fire, I struggled to get out through all my things.",
+        "My house is well alight, I've got a lot piled up and it's spreading through it quickly.",
+        "Please hurry, there's a serious fire at my home, I breathed in a lot of smoke getting out.",
+        "There's a big fire in my house, it's full of my things and going up fast.",
+        "Fire brigade please, my home's badly on fire, I only just managed to get out."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, it's my house"
+        "It's {{callerName}}, please just send someone.",
+        "{{callerName}}, look I just need help quickly.",
+        "My name's {{callerName}}, can you hurry.",
+        "{{callerName}}, yes, now please send someone.",
+        "It's {{callerName}} calling, please.",
+        "{{callerName}}, that's me, please get someone here.",
+        "Sorry, {{callerName}}, I'm a bit shaken.",
+        "{{callerName}} here, please just send help.",
+        "My name is {{callerName}}, please hurry.",
+        "It's {{callerName}}, can you send someone now."
       ]
     },
     "patientName": {
       "answers": [
-        "It's just me here, I only just got out"
+        "It's me, {{firstPatientName}}, I'm the one who called.",
+        "Just me, {{firstPatientName}}, nobody else is hurt.",
+        "{{firstPatientName}}, that's me, I'm on my own here.",
+        "It's just me, {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, there's no one else involved.",
+        "Me, {{firstPatientName}}, I live here alone.",
+        "It's only me affected, {{firstPatientName}}.",
+        "{{firstPatientName}}, yes, that's me.",
+        "Just myself, {{firstPatientName}}, no one else here.",
+        "I'm the patient, {{firstPatientName}}, it's just me."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}"
+        "It's {{address}}, please hurry.",
+        "{{address}}, quickly please.",
+        "We're at {{address}}, send someone now.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are, please.",
+        "It's {{address}}, can you send someone fast.",
+        "{{address}}, please, as quick as you can.",
+        "We're at {{address}}, please get here quickly.",
+        "That's {{address}}, please hurry up.",
+        "{{address}}, I need someone here now."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The fire's taken hold quickly because of everything stacked up inside, I only just managed to get out"
+        "It's spread fast because there's so much piled up in there, I couldn't stay any longer.",
+        "It started small but with all my belongings it's taken hold quickly.",
+        "The fire's got into most of the front rooms now, there's just too much in there.",
+        "I don't know the exact cause but it's spread through my things really fast.",
+        "It's caught onto a lot of my belongings now, the whole place is filling with smoke.",
+        "With everything piled up it's spread quicker than I expected.",
+        "The fire's taken hold of a lot of the house now, it's really bad.",
+        "I couldn't stop it, it's spread through most of my belongings already.",
+        "It's a lot worse now, the fire's got into several rooms because of all the stuff.",
+        "I had to leave quickly, the fire's spread through most of my things."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I'm okay, but I've breathed in a lot of smoke"
+        "I'm conscious, yes, just a bit shaken and coughing.",
+        "I'm awake, yes, my chest feels tight though.",
+        "Yes, I'm fine that way, just breathed in some smoke.",
+        "I'm okay, conscious, just coughing a lot.",
+        "Yes, I'm alert, just a bit dizzy from the smoke.",
+        "I'm conscious, yes, just really shaken up.",
+        "Yes, I'm awake and talking to you, aren't I.",
+        "I'm fine that way, just my chest's a bit tight.",
+        "Yes, conscious, just coughing quite badly.",
+        "I'm okay, yes, just shaken and a bit breathless."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I'm struggling a bit, coughing quite badly"
+        "I'm breathing, yes, but I've got a bad cough from the smoke.",
+        "Yes, I'm breathing, my chest just feels tight.",
+        "I can breathe, yes, but I've swallowed a lot of smoke.",
+        "Yes, I'm breathing okay, just coughing a lot.",
+        "I'm alright breathing wise, just a bit wheezy.",
+        "Yes, I'm breathing, my throat's sore from the smoke though.",
+        "I can breathe fine, just coughing quite a bit.",
+        "Yes, breathing's okay, just feels tight in my chest.",
+        "I'm breathing, yes, just a bit short of breath from the smoke.",
+        "Yes, I'm breathing, just coughing my lungs up a bit."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "My chest feels tight from the smoke"
+        "No real pain, just my chest feels tight from the smoke.",
+        "Not really pain, just sore from coughing so much.",
+        "No, no pain, just a bit breathless and shaken.",
+        "Not pain exactly, just my throat's sore from the smoke.",
+        "No, I'm alright, just coughing and a bit shaken up.",
+        "No real pain, just feels tight when I breathe in.",
+        "Not much pain, just my chest feels heavy.",
+        "No, no pain as such, just shaken and coughing.",
+        "Not pain, just a sore throat from the smoke.",
+        "No, I'm okay, just a bit light headed from it all."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No, I'm not bleeding, just shaken up.",
+        "No bleeding, no, just coughing from the smoke.",
+        "No, no injuries like that, just smoke.",
+        "No, I'm not cut anywhere, just breathed in a lot of smoke.",
+        "No bleeding at all, just a bit shaken.",
+        "No, nothing like that, just coughing quite badly.",
+        "No, I'm not bleeding, just my chest's tight.",
+        "No, no cuts or anything, just the smoke.",
+        "No bleeding, no, just really shaken up.",
+        "No, nothing like that, just a bit breathless."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've got a bad chest, this smoke isn't helping"
+        "I'm generally fit and well, nothing you need to worry about.",
+        "No real medical history to speak of, I'm usually fine.",
+        "Nothing major, I don't have any conditions.",
+        "I'm healthy normally, no history to mention.",
+        "No, nothing like that, I'm usually quite well.",
+        "Nothing significant, I don't have any ongoing conditions.",
+        "I don't have any medical issues normally.",
+        "No history worth mentioning, I'm generally okay.",
+        "Nothing really, I'm fit and well as a rule.",
+        "No, I don't have anything like that."
       ]
     },
     "medications": {
       "answers": [
-        "I use an inhaler"
+        "No, I'm not on any medication.",
+        "I don't take anything regularly, no.",
+        "No medication, no, nothing like that.",
+        "I'm not on anything at the moment.",
+        "No, I don't take any tablets or anything.",
+        "Nothing, no, I don't take medication.",
+        "No, I'm not on any regular medication.",
+        "I don't take anything, no.",
+        "No medication to mention, no.",
+        "No, nothing like that at all."
       ]
     },
     "patientAge": {
       "answers": [
-        "I'm fifty eight"
+        "I'm in my thirties.",
+        "I'm forty two.",
+        "I'm in my twenties.",
+        "I'm fifty odd.",
+        "I'm in my sixties.",
+        "I'm about thirty five.",
+        "I'm in my late forties.",
+        "I'm in my twenties still.",
+        "I'm sixty three.",
+        "I'm in my fifties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm outside now"
+        "Okay, okay, I'll do that.",
+        "Right, yes, I'll stay back, just please hurry.",
+        "Okay, thank you, please send them quickly.",
+        "Alright, I'll wait, but please hurry.",
+        "Okay okay, I'm moving back now.",
+        "Yes, alright, I'll do what you say.",
+        "Okay, thank you, I'm staying clear.",
+        "Right, understood, please just get here soon.",
+        "Okay, I will, please hurry though.",
+        "Alright, thank you, I'm keeping everyone back."
       ]
     },
     "refer111": {
       "answers": [
-        "No, my house is on fire, I need the fire brigade"
+        "No, I need the fire brigade, my house is on fire.",
+        "No, this can't wait for 111, my house is burning.",
+        "No thank you, I need someone out for the fire, not 111.",
+        "No, it's a fire emergency, not something for 111.",
+        "No, please, I need the fire service now.",
+        "No, I really need help now, my house is on fire.",
+        "No, 111 can't help with a house fire.",
+        "No, this is urgent, I need the fire brigade.",
+        "No thanks, I need proper help, my home's on fire.",
+        "No, please, this needs the fire brigade straight away."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's not that sort of thing, it's .",
+        "We don't need the police, just the fire brigade.",
+        "No, there's no need for police, it's only .",
+        "Police aren't needed here, it's a fire matter.",
+        "No thanks, it's , not a police job.",
+        "We're alright for police, we just need the fire service.",
+        "No, this doesn't need police, just the fire brigade please.",
+        "No, it's , nothing for the police to deal with.",
+        "We don't need police here, thank you.",
+        "No, just the fire brigade will do, thank you."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, please hurry.",
+        "Right, thank you, please get here quickly.",
+        "Okay, please, as fast as you can.",
+        "Thank you, please hurry, it's getting worse.",
+        "Okay, thank god, please hurry.",
+        "Right, okay, please just get here fast.",
+        "Okay, thank you, please be quick.",
+        "Thank you, please hurry, I'm really worried.",
+        "Okay, good, please hurry them up.",
+        "Okay, thank you, please come quickly."
       ]
     }
   },

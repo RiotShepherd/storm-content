@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -70,7 +74,15 @@
   "caller": {
     "openings": [
       "I've been aching all over for a couple of days and it's getting worse",
-      "I feel absolutely dreadful, aching everywhere, thought I should get checked"
+      "I feel absolutely dreadful, aching everywhere, thought I should get checked",
+      "I've got aches all over my body, it's been building for a couple of days",
+      "I feel really unwell, aching all over, not sure what's causing it",
+      "I've had body aches for days now, they're not easing off at all",
+      "I feel terrible, aching in every joint and muscle",
+      "I've been feeling rough for days, aching all over my body",
+      "I'm aching everywhere and feeling quite unwell with it",
+      "I've had aches all over for a while, thought I'd better call",
+      "I feel dreadful, aching all over and just generally unwell"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -83,89 +95,231 @@
     "start": {
       "answers": [
         "I've been aching all over for a couple of days and it's getting worse",
-        "I feel absolutely dreadful, aching everywhere, thought I should get checked"
+        "I feel absolutely dreadful, aching everywhere, thought I should get checked",
+        "I've got aches all over my body, it's been building for a couple of days",
+        "I feel really unwell, aching all over, not sure what's causing it",
+        "I've had body aches for days now, they're not easing off at all",
+        "I feel terrible, aching in every joint and muscle",
+        "I've been feeling rough for days, aching all over my body",
+        "I'm aching everywhere and feeling quite unwell with it",
+        "I've had aches all over for a while, thought I'd better call",
+        "I feel dreadful, aching all over and just generally unwell"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, that's me",
+        "My name's {{firstPatientName}}",
+        "It's {{firstPatientName}}, I'm the one feeling unwell",
+        "{{firstPatientName}}",
+        "Yes, {{firstPatientName}}",
+        "{{firstPatientName}} here",
+        "It's {{firstPatientName}} speaking",
+        "{{firstPatientName}}, that's right",
+        "{{firstPatientName}}, that's my name"
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}",
-        "{{address}}"
+        "It's {{address}}",
+        "{{address}}, at home",
+        "We're at {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, at home",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, at home, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I've had aching all over my body for a couple of days, it's not going away",
-        "Every joint and muscle aches, I've also got a bit of a temperature"
+        "I've just felt increasingly achy and unwell over the last couple of days",
+        "It started as a bit of tiredness and now I'm aching everywhere",
+        "I've had aches building up since the weekend, no obvious cause",
+        "I woke up feeling dreadful, aching in every muscle",
+        "It's come on gradually over a few days, aching all over now",
+        "I've felt run down for a while and now I'm aching badly",
+        "I can't think what's caused it, I've just felt worse each day",
+        "I've had general aches for a few days, thought I'd get it checked",
+        "It's been building steadily, I ache all over now",
+        "I've felt unwell for days, the aching's the main thing now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, fully awake",
-        "Yes, fine that way"
+        "Yes, I'm fully conscious, just feel rough",
+        "Yes, I'm awake and talking fine",
+        "Yes, conscious, just feeling really unwell",
+        "Yes, I'm alert, just aching all over",
+        "Yes, wide awake, just feel dreadful",
+        "Yes, conscious, I just feel exhausted",
+        "Yes, I'm fine that way, just feel unwell",
+        "Yes, I'm conscious, just really achy",
+        "Yes, awake and fine, just feeling rough",
+        "Yes, conscious, just generally unwell"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Normal, no problems there",
-        "Fine"
+        "Yes, breathing's fine",
+        "Yes, no problems breathing",
+        "Yes, breathing normally",
+        "Yes, that's fine, it's just the aches",
+        "Yes, no issues there",
+        "Yes, breathing's completely normal",
+        "Yes, that's not a problem",
+        "Yes, breathing fine, thank you",
+        "Yes, no trouble breathing at all",
+        "Yes, breathing's okay, it's purely the aching"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "A dull ache all over, six out of ten maybe",
-        "Yes, everywhere really"
+        "Yes, I ache all over, mostly my joints and back",
+        "Yes, it's a dull ache everywhere, quite uncomfortable",
+        "Yes, moderate pain, mostly muscle aches",
+        "Yes, I'm sore all over, nothing sharp though",
+        "Yes, general aching, worse in my legs and back",
+        "Yes, I'm uncomfortable, it's more aching than sharp pain",
+        "Yes, aches all over, especially my joints",
+        "Yes, a general soreness through my whole body",
+        "Yes, dull aching everywhere, it's been building for days",
+        "Yes, I ache all over, it's quite miserable"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No, no bleeding at all",
+        "No bleeding, it's just general aching",
+        "No, there's no injury involved",
+        "No, it's not that kind of thing, just aches",
+        "No bleeding, it's purely how I'm feeling generally",
+        "No, nothing like that",
+        "No bleeding, no injury",
+        "No, I'm not bleeding",
+        "No bleeding, just the aching",
+        "No, no bleeding, it's just general unwellness"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing significant",
-        "No, I'm generally healthy"
+        "No, I'm generally healthy, this is unusual for me",
+        "I've got mild arthritis but this feels different",
+        "No significant history, no",
+        "I sometimes get aches like this with a virus",
+        "No, nothing major, I'm usually quite well",
+        "I've had something similar before with flu",
+        "No history of anything serious",
+        "I get achy sometimes with colds, this feels worse though",
+        "No, I don't have any ongoing conditions",
+        "No major history, I'm generally fit and well"
       ]
     },
     "medications": {
       "answers": [
         "I've taken some paracetamol",
-        "Just over the counter painkillers"
+        "No, I don't take anything regular",
+        "I've taken ibuprofen for the aches",
+        "No medication that's regular, no",
+        "I take vitamins but nothing else",
+        "I've taken some over the counter painkillers",
+        "No, I'm not on anything",
+        "I've taken paracetamol but it's not helping much",
+        "No regular medication, just what I've taken today",
+        "No, nothing at all normally"
       ]
     },
     "patientAge": {
       "answers": [
-        "38"
+        "I'm thirty four",
+        "I'm in my thirties",
+        "Thirty five",
+        "I'm thirty three",
+        "I'm in my early thirties",
+        "Thirty six, if that helps",
+        "I'm in my mid thirties",
+        "Thirty four years old",
+        "I'm around thirty five",
+        "I'm thirty, just had a birthday recently"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you",
-        "I'll try to rest"
+        "Okay, thank you, I'll stay where I am",
+        "Right, I'll try not to move until they get here",
+        "Okay, that's a relief, thank you",
+        "Thank you, I'll wait by the door for them",
+        "Okay, I'll keep as still as I can",
+        "Right, thank you, how long roughly",
+        "Okay, I'll stay on the line until they arrive",
+        "Thank you, I'm just going to sit tight",
+        "Okay, that's good, I'm in a lot of discomfort",
+        "Right, thank you, I appreciate it"
       ]
     },
     "refer111": {
       "answers": [
-        "Maybe that's better, I wasn't sure who to call",
-        "Yes, that sounds sensible actually"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

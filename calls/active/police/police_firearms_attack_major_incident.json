@@ -52,6 +52,11 @@
     "otl": 1,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 18,
+    "ambulance": 9
+  },
   "patients": {
     "range": [
       8,
@@ -112,7 +117,14 @@
     "openings": [
       "Please help, there's been a mass shooting, there's so many people down!",
       "Police, ambulance, everyone, there's multiple shooters, people are dying!",
-      "I don't know how to explain it, there's been gunfire, dozens of people hurt!"
+      "I don't know how to explain it, there's been gunfire, dozens of people hurt!",
+      "Please, there's been a massive shooting, so many people are down!",
+      "Help, there's gunfire everywhere, I can see dozens of people hurt!",
+      "Please send everyone, there's been a huge attack, people are dying here!",
+      "There's been multiple shooters, people are down everywhere, please hurry!",
+      "Please, this is a massive emergency, so many people have been shot!",
+      "I can see so many people down, please send everyone you have!",
+      "Help, there's been a terrible attack, dozens of people are hurt or worse!"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -126,90 +138,230 @@
       "answers": [
         "Please help, there's been a mass shooting, there's so many people down!",
         "Police, ambulance, everyone, there's multiple shooters, people are dying!",
-        "I don't know how to explain it, there's been gunfire, dozens of people hurt!"
+        "I don't know how to explain it, there's been gunfire, dozens of people hurt!",
+        "Please, there's been a massive shooting, so many people are down!",
+        "Help, there's gunfire everywhere, I can see dozens of people hurt!",
+        "Please send everyone, there's been a huge attack, people are dying here!",
+        "There's been multiple shooters, people are down everywhere, please hurry!",
+        "Please, this is a massive emergency, so many people have been shot!",
+        "I can see so many people down, please send everyone you have!",
+        "Help, there's been a terrible attack, dozens of people are hurt or worse!"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm sheltering nearby",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I just saw it happen.",
+        "{{callerName}}, I'm a member of the public.",
+        "My name's {{callerName}}, I was passing by.",
+        "It's {{callerName}} here, I witnessed the whole thing.",
+        "{{callerName}}, that's me, I saw it from across the road.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I happened to be nearby.",
+        "{{callerName}} speaking, I saw everything.",
+        "My name is {{callerName}}, I was right there.",
+        "It's {{callerName}}, just a bystander really."
       ]
     },
     "patientName": {
       "answers": [
-        "I can't tell you names, there's so many down",
-        "I don't know, there's too many people hurt"
+        "I don't know any of them, please just send help",
+        "No idea who they are, I don't know any of them",
+        "I can't tell you, please, they just need help now",
+        "No names, I don't know any of them, please hurry",
+        "I don't know them, please just get here fast",
+        "Sorry, no idea, please just send help",
+        "I can't focus on names right now, please hurry",
+        "No idea who any of them are, please help",
+        "I don't know them, please, just send everyone",
+        "No names, please, this is an emergency"
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, it's happening right here",
-        "It's at {{address}}, it's chaos"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "Gunfire broke out across the whole area, there's people down everywhere",
-        "It happened minutes ago and it might still be going on",
-        "I heard sustained shooting, it sounded like more than one gun"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are conscious and screaming, a lot aren't moving",
-        "Too many to tell, some are awake, many aren't"
+        "Some are moving and crying out, but so many aren't responding at all",
+        "A few are conscious and screaming, but most look really bad",
+        "Some are trying to move, but there's so many who aren't responding",
+        "I can see a few moving, but most aren't responding at all",
+        "Some are conscious, calling out, but so many look critical",
+        "A few are alert and terrified, but most aren't moving",
+        "Some are trying to crawl, most are completely still",
+        "I think a few are conscious, but there's so many not responding",
+        "Some are groaning, but the majority aren't responding at all",
+        "A few are awake and in shock, but most look critical"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I can't tell for most of them",
-        "Some seem to be breathing, I really don't know about the rest"
+        "I can't tell for most of them, it's too chaotic, please hurry",
+        "Some look like they're struggling to breathe, there's so many of them",
+        "I don't know, it's carnage here, please just send help",
+        "Some seem to be breathing, but there's so many I can't check",
+        "I can't check properly, please, just get here as fast as you can",
+        "A few seem to be breathing, others I really can't tell",
+        "I don't know for certain, please, this is a huge scene",
+        "Some are breathing heavily, there's too many to check properly",
+        "I can't tell for everyone, it's overwhelming, please hurry",
+        "Please, just send everyone, I can't assess them all"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "The ones who can speak are in agony",
-        "Can't tell for most"
+        "Yes, the ones who are conscious are screaming in agony",
+        "Some are in absolute agony, there's screaming everywhere",
+        "Yes, terrible pain, so many people crying out at once",
+        "The ones awake are in unbearable pain, please hurry",
+        "Yes, they're in agony, I can hear screaming from everywhere",
+        "Some are crying out, others have gone completely quiet",
+        "Yes, so much pain, please, they need help right now",
+        "The conscious ones are in terrible pain, it's horrific",
+        "Yes, unbearable pain from what I can hear everywhere",
+        "Some are in agony, please, this is a catastrophe"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's blood everywhere, it's a massacre",
-        "Multiple people bleeding heavily, it's horrific"
+        "Yes, there's blood everywhere, so many of them are bleeding badly",
+        "Yes, heavy bleeding everywhere, please send everyone you have",
+        "So many are bleeding badly, please hurry, it's horrific",
+        "Yes, it's catastrophic, blood everywhere, please send help fast",
+        "Yes, multiple people are bleeding heavily, please hurry",
+        "There's blood everywhere, so many of them are badly hurt",
+        "Yes, so many of them are bleeding really badly",
+        "Yes, blood everywhere, this is a mass casualty situation",
+        "So many are bleeding heavily, please, send everything you have",
+        "Yes, terrible bleeding everywhere, please, they need help now"
       ],
       "diagnostic": true
     },
+    "patientAge": {
+      "answers": [
+        "All ages, I really can't tell right now, it's chaos everywhere",
+        "All different ages, children and adults, please hurry",
+        "I can't say exactly, there's every age you can imagine",
+        "A huge range of ages, please, I can't focus on that right now",
+        "Mixed ages, please, they just need help urgently",
+        "I don't know, all ages, please just send everyone",
+        "Every age, I really can't give you numbers right now",
+        "A mix of everyone, young and old, please send help now",
+        "I really can't tell right now, please just send everyone",
+        "All ages, please, I can't think straight right now"
+      ]
+    },
     "medicalHistory": {
       "answers": [
-        "I don't know any of them",
-        "No idea"
+        "I don't know anyone's medical history, sorry.",
+        "No idea, I don't know any of them well enough.",
+        "Not that I'm aware of for any of them.",
+        "I couldn't say, you'd need to ask them directly.",
+        "No idea about their health, sorry.",
+        "Nothing I know of, I don't know their backgrounds.",
+        "I'm not sure, you'll have to check when you arrive.",
+        "No idea, I can't tell you anything about that.",
+        "Not that I know of, sorry, no idea.",
+        "Couldn't say, I don't know any of their histories."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "I don't know what any of them take, sorry.",
+        "No idea on medication for any of them.",
+        "Not that I'm aware of, sorry.",
+        "I couldn't say, you'd need to ask them directly.",
+        "No idea, sorry, I can't help with that.",
+        "I'm not sure what medication anyone's on.",
+        "No idea what any of them take.",
+        "Not that I know of, sorry.",
+        "I couldn't tell you their medical details.",
+        "No idea, you'll have to check when you get here."
       ]
     },
-    "patientAge": {
+    "address": {
       "answers": [
-        "All ages, men, women, I think I saw children too"
-      ]
+        "{{address}}, please, send everyone you have",
+        "It's {{address}}, I'm hiding, please hurry",
+        "{{address}}, please, this is a huge area affected",
+        "We're at {{address}}, I don't know if it's safe anywhere",
+        "It's {{address}}, please hurry, there's so many people down",
+        "{{address}}, that's where it's happening",
+        "The address is {{address}}, please send everyone",
+        "{{address}}, I'm keeping hidden, please hurry",
+        "It's {{address}}, please, people need help everywhere",
+        "{{address}}, hurry, I don't know if the shooters are still here"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There were multiple shooters and they've hit dozens of people across a wide area",
+        "It started with gunfire from more than one direction, there's people down everywhere",
+        "I saw several attackers firing into the crowd, it's an absolute massacre out here",
+        "There's been sustained gunfire for what felt like minutes, so many people are hit",
+        "Multiple people opened fire in different spots, the whole area is full of casualties",
+        "It's spread across a huge area, I can see dozens of people down and not moving",
+        "There were several attackers, they moved through firing as they went",
+        "The gunfire went on for ages, there's people down in every direction I look",
+        "I saw at least two shooters, people are down everywhere, it's horrific",
+        "It's chaos, there's shooting from multiple points, dozens of casualties everywhere"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying hidden and safe",
-        "Please, send everyone, there's so many hurt"
+        "Okay, please, so many of them need help right now",
+        "Thank you, please, this is a mass casualty situation, hurry",
+        "Please, I'm begging you, send everyone, this is catastrophic",
+        "Okay, please hurry, so many of them have stopped moving",
+        "Thank you, please, this is the worst thing, hurry",
+        "Okay, I'll stay on the line, please just get here fast",
+        "Please hurry, this is overwhelming, so many people need help",
+        "Thank you, please, I don't know what else to do, hurry",
+        "Okay, please, send absolutely everyone you have",
+        "Please, just get here as fast as you possibly can"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, please, I don't know if the attackers are still here",
+        "Thank you, please hurry, I'm too scared to move",
+        "Okay, I'll stay hidden until they arrive",
+        "Please, hurry, this whole area doesn't feel safe",
+        "Thank you, I'll stay down and keep as low as I can",
+        "Okay, please, I really need them here fast",
+        "Thank you, I'll stay where I am until they arrive",
+        "Okay, please hurry, I don't know what's happening now",
+        "Thank you, I'm staying hidden, please hurry",
+        "Okay, please, just send everyone you possibly can"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, there's no fire, I need police.",
+        "No, this isn't a fire, it's a police matter.",
+        "I don't need the fire service, just police please.",
+        "No fire here at all, just send officers.",
+        "That's the wrong service, there's no fire involved.",
+        "No, I need police, not the fire brigade.",
+        "There's no fire, just police please.",
+        "No thank you, nothing's alight, I need police.",
+        "That's not right, no fire here, just police.",
+        "No, nothing's on fire, just send police please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a mass casualty situation, I need everyone here now!"
+        "No, this can't wait for a callback, I need police right now.",
+        "No, this needs a response now, not a phone call later.",
+        "That's not right, this is urgent, please send police.",
+        "No, I need someone here immediately, this isn't medical.",
+        "This can't wait, please, I need police straight away.",
+        "No, this is happening right now, I need officers here.",
+        "That won't help, this is urgent, not a 111 matter.",
+        "No, please, I need police now, not a callback.",
+        "This is too urgent for that, I need police straight away.",
+        "No, this needs police now, it can't wait."
       ]
     }
   },

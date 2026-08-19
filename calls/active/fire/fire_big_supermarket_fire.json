@@ -49,6 +49,12 @@
     "irv": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 8,
+    "ambulance": 3,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -116,7 +122,15 @@
   "caller": {
     "openings": [
       "The supermarket's on fire, it's spreading fast through the store and we're evacuating",
-      "I need the fire brigade, there's a big fire at the supermarket, smoke's filling the aisles"
+      "I need the fire brigade, there's a big fire at the supermarket, smoke's filling the aisles",
+      "Please hurry, the store's well alight, we're getting everyone out",
+      "There's a serious fire in the supermarket, it's spreading through the aisles",
+      "The store's on fire and we're evacuating customers and staff now",
+      "Please send help, the supermarket's burning and smoke's everywhere",
+      "There's a big fire at the store, we've triggered the evacuation",
+      "Quick, the whole store's filling with smoke, there's a fire spreading fast",
+      "There's been a fire break out in the supermarket, it's getting worse quickly",
+      "Please hurry, the store's on fire and we're still getting people out"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -129,78 +143,231 @@
     "start": {
       "answers": [
         "The supermarket's on fire, it's spreading fast through the store and we're evacuating",
-        "I need the fire brigade, there's a big fire at the supermarket, smoke's filling the aisles"
+        "I need the fire brigade, there's a big fire at the supermarket, smoke's filling the aisles",
+        "Please hurry, the store's well alight, we're getting everyone out",
+        "There's a serious fire in the supermarket, it's spreading through the aisles",
+        "The store's on fire and we're evacuating customers and staff now",
+        "Please send help, the supermarket's burning and smoke's everywhere",
+        "There's a big fire at the store, we've triggered the evacuation",
+        "Quick, the whole store's filling with smoke, there's a fire spreading fast",
+        "There's been a fire break out in the supermarket, it's getting worse quickly",
+        "Please hurry, the store's on fire and we're still getting people out"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the store manager"
+        "It's {{callerName}}, I'm the store manager",
+        "{{callerName}} here, I'm the duty manager",
+        "It's {{callerName}}, I've triggered the fire alarm",
+        "{{callerName}}, I'm managing the evacuation now",
+        "It's {{callerName}}, I'm coordinating with staff outside",
+        "My name's {{callerName}}, I'm the manager on shift",
+        "It's {{callerName}}, I'm stood in the car park now",
+        "{{callerName}} speaking, I'm the fire marshal for the store",
+        "It's {{callerName}}, I've called as soon as we saw the flames",
+        "{{callerName}}, I'm with the evacuated staff and customers"
       ]
     },
     "patientName": {
       "answers": [
-        "A few of the staff and customers got some smoke, I don't have all their names"
+        "A few of the staff and customers got some smoke, I don't have all their names",
+        "I don't have names for everyone affected yet",
+        "There's a few people who got smoke, I'm still checking on them",
+        "I can't give you all their names right now",
+        "A few people are coughing badly, I don't have full names",
+        "I don't have complete names, we're doing a headcount now",
+        "There's a few affected by smoke, I'm still checking who",
+        "I don't have all the names yet, we're still counting people",
+        "A few staff and shoppers got smoke, names to follow",
+        "I don't have names for everyone, we're still checking"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the big supermarket, main entrance is on the front"
+        "{{address}}, it's the big supermarket, main entrance is on the front",
+        "It's {{address}}, come round to the car park",
+        "{{address}}, the store's fully evacuated to the front",
+        "It's {{address}}, use the main entrance, we're gathered outside",
+        "{{address}}, follow signs to the supermarket car park",
+        "It's {{address}}, I'll meet you at the front doors",
+        "{{address}}, we're all gathered in the car park",
+        "It's {{address}}, the fire's coming from inside the store",
+        "{{address}}, come to the main car park entrance",
+        "It's {{address}}, security will guide you in"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Fire's broken out somewhere near the storeroom and it's spreading through the store, we're evacuating everyone"
+        "Fire's broken out somewhere near the storeroom and it's spreading through the store, we're evacuating everyone",
+        "It started in the back of the store and it's spreading through the aisles fast",
+        "We think it started near the stockroom, it's spreading quickly now",
+        "The fire's broken out and smoke's filling the whole store",
+        "It started somewhere in the back and it's spreading through the building",
+        "We're not sure of the cause, but it's spreading fast through the store",
+        "It began near the storage area and it's now affecting most of the shop floor",
+        "The fire alarm went off and we found smoke and flames near the back",
+        "It's spreading through the store quickly, we've had to evacuate everyone",
+        "We don't know the cause yet, but the fire's growing fast"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone we know of is out and conscious, a few coughing from smoke"
+        "Everyone we know of is out and conscious, a few coughing from smoke",
+        "Everyone's conscious, a few are struggling a bit with the smoke",
+        "All conscious as far as we know, some are shaken up",
+        "Everyone's awake and out, a few coughing from the smoke",
+        "All accounted for and conscious, some are quite shaken",
+        "Everyone's conscious, we're doing a full headcount now",
+        "All awake and out, a couple got a lungful of smoke",
+        "Everyone's conscious and outside, some are coughing",
+        "All accounted for so far, conscious and out of the building",
+        "Everyone's conscious, we're still checking everyone's accounted for"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A handful of people got smoke in their lungs on the way out, they're struggling a bit"
+        "A handful of people got smoke in their lungs on the way out, they're struggling a bit",
+        "Some are coughing badly from the smoke",
+        "A few are struggling to breathe after getting out",
+        "Some got a lungful of smoke, they're coughing quite a bit",
+        "A few are breathless from the smoke on the way out",
+        "Some are struggling with the smoke inhalation",
+        "A handful are coughing hard from the smoke",
+        "Some are wheezing a bit after breathing in smoke",
+        "A few got smoke in their lungs, they're struggling now",
+        "Some are coughing badly, we're keeping them in fresh air"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No serious injuries reported, mostly smoke effects"
+        "No serious injuries reported, mostly smoke effects",
+        "No pain reported, mostly people are just shaken and coughing",
+        "Nothing serious, mostly discomfort from the smoke",
+        "No major injuries, mostly people are coughing and shaken",
+        "No serious pain, mostly smoke related discomfort",
+        "Nothing too serious, mainly smoke inhalation effects",
+        "No major injuries reported, mostly coughing from smoke",
+        "No serious pain, everyone's mostly just shaken",
+        "Nothing severe, mostly people are just coughing a lot",
+        "No serious injuries, mainly people affected by the smoke"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding reported, just smoke inhalation"
+        "No bleeding reported, just smoke inhalation",
+        "No blood, mostly just smoke effects",
+        "No bleeding that we know of, mostly coughing",
+        "No injuries like that, mostly smoke related",
+        "No bleeding reported, everyone's mostly just shaken",
+        "No blood, the issue is mainly the smoke",
+        "No bleeding, mostly people are coughing from smoke",
+        "No injuries of that kind, mainly smoke effects",
+        "No bleeding reported, mostly just smoke inhalation",
+        "No blood that we're aware of, mainly smoke related"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know their medical histories, sorry"
+        "I don't know their medical histories, sorry",
+        "I'm not sure, I don't know all of the customers",
+        "I can't say, I don't have that information for everyone",
+        "I don't know, especially not for the customers involved",
+        "I'm not sure of their histories, sorry",
+        "I don't have that information, especially for shoppers",
+        "I can't tell you, I don't know most of them",
+        "I'm not sure, sorry, there's too many to know individually",
+        "I don't know, I can check for staff but not customers",
+        "I'm not certain, sorry, I don't have those details"
       ]
     },
     "medications": {
       "answers": [
-        "I can't say, I don't know them personally"
+        "I can't say, I don't know them personally",
+        "I don't know, especially for the customers",
+        "I'm not sure, sorry, I don't have that information",
+        "I can't tell you, I don't know most of them",
+        "I don't know, sorry, there's too many to check",
+        "I'm not certain, especially not for shoppers",
+        "I can't say, I don't have those details",
+        "I don't know, sorry, I can't say for everyone",
+        "I'm not sure, especially for the customers involved",
+        "I can't tell you, sorry, I don't have that information"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mixed ages, staff and customers"
+        "Mixed ages, staff and customers",
+        "All sorts of ages, it's a mix of staff and shoppers",
+        "Mixed, a wide range of ages among the customers and staff",
+        "A real mix, staff and customers of all ages",
+        "Mixed ages, hard to say exactly",
+        "All ages, a mix of staff and members of the public",
+        "Mixed, quite a range from young to old",
+        "A mix of ages among staff and shoppers",
+        "Mixed ages, staff and customers together",
+        "All sorts, a broad mix of ages"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've got everyone in the car park, the store's fully evacuated"
+        "Okay, we've got everyone in the car park, the store's fully evacuated",
+        "Right, everyone's outside and we're doing a headcount",
+        "Okay, we're keeping everyone together in the car park",
+        "Understood, we're checking everyone's accounted for",
+        "Alright, we've got first aiders with those affected",
+        "Okay, everyone's safely outside now",
+        "Right, we'll have someone meet you at the entrance",
+        "Okay, we're keeping everyone calm while we wait",
+        "Understood, we're doing a full headcount of staff and customers",
+        "Okay, everyone's out and we're monitoring those affected by smoke"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we need help keeping the evacuated crowd in the car park",
+        "Yes please, it's chaos with this many people evacuated",
+        "Thank you, customers keep asking to go back for their bags",
+        "Okay, good, can they help manage the crowd out here",
+        "Yes, send them, the car park's packed with everyone out",
+        "Good, we could use help keeping people well back from the store",
+        "Thank you, some people won't stay away from the entrance",
+        "Okay, they can help us keep this crowd organised",
+        "Good, it's getting busy and people are getting anxious",
+        "Yes please, we need help managing everyone out here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, it's spreading fast through the store",
+        "Okay, good, we've got everyone out in the car park now",
+        "Please hurry, the smoke's getting really thick inside",
+        "Thank you, the whole store's been evacuated already",
+        "Okay, I can see the engines coming in now, thank god",
+        "Good, hurry, we're worried about the racking collapsing",
+        "Thank you, we've done a headcount, everyone's out",
+        "Okay, please tell them to hurry, it's a big fire",
+        "Thank goodness, nobody's still inside as far as we know",
+        "Good, hurry please, the smoke's rolling out of the doors now"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need the fire brigade, the store's well alight"
+        "No, we need the fire brigade, the store's well alight",
+        "No, this is an emergency, please send help now",
+        "No thank you, the store's on fire, we need urgent help",
+        "No, please, this is a serious fire, we need you here",
+        "No, this isn't something 111 can help with",
+        "No, please just send help urgently, the fire's spreading",
+        "No, this is too serious for that, please hurry",
+        "No, please, we need emergency services here now",
+        "No, the fire's spreading fast, we need help urgently",
+        "No, it's an emergency, please hurry"
       ]
     }
   },

@@ -46,6 +46,11 @@
     "dual_pump": 1,
     "irv": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -69,7 +74,15 @@
   "caller": {
     "openings": [
       "Fire brigade, a sinkhole's opened up in the middle of the road, a car's nearly gone in.",
-      "There's a huge hole opened up in the road, it's swallowed part of the pavement."
+      "There's a huge hole opened up in the road, it's swallowed part of the pavement.",
+      "The road's collapsed into a big hole, traffic's stopping right beside it.",
+      "There's a sinkhole in the road, it looks like it's getting bigger.",
+      "A hole's appeared in the road surface, it's deep, cars are having to swerve round it.",
+      "The tarmac's given way outside our house, there's a huge hole in the road now.",
+      "There's a sinkhole near the junction, it's swallowed most of the lane.",
+      "The road's caved in, it's a big drop, I'm worried someone will drive into it.",
+      "A sinkhole's opened up by the shops, water seems to be pooling in the bottom of it.",
+      "There's a large hole in the road, part of the pavement's gone with it too."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -82,82 +95,231 @@
     "start": {
       "answers": [
         "Fire brigade, a sinkhole's opened up in the middle of the road, a car's nearly gone in.",
-        "There's a huge hole opened up in the road, it's swallowed part of the pavement."
+        "There's a huge hole opened up in the road, it's swallowed part of the pavement.",
+        "The road's collapsed into a big hole, traffic's stopping right beside it.",
+        "There's a sinkhole in the road, it looks like it's getting bigger.",
+        "A hole's appeared in the road surface, it's deep, cars are having to swerve round it.",
+        "The tarmac's given way outside our house, there's a huge hole in the road now.",
+        "There's a sinkhole near the junction, it's swallowed most of the lane.",
+        "The road's caved in, it's a big drop, I'm worried someone will drive into it.",
+        "A sinkhole's opened up by the shops, water seems to be pooling in the bottom of it.",
+        "There's a large hole in the road, part of the pavement's gone with it too."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "There's nobody hurt, it's just the sinkhole opened up in road."
+        "No, there's no patient, it's the sinkhole in the road I'm calling about.",
+        "Nobody's hurt, I'm ringing about the sinkhole in the road.",
+        "There's no injured person, just the incident to report.",
+        "No one to name, no one's been hurt here.",
+        "It's not a person hurt, it's the sinkhole in the road, nobody's involved.",
+        "No patient, no one's been injured.",
+        "There isn't anyone hurt, so no name to give you.",
+        "Nobody's been hurt, I'm just reporting the sinkhole in the road.",
+        "No casualties, it's just the sinkhole in the road I need you for.",
+        "No one's injured, there's no patient to give a name for."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "The road just gave way, there's a big hole now, one car's front wheel is stuck in the edge of it.",
-        "A section of tarmac's collapsed into a hole, must be six feet deep, traffic's stopping right by it."
+        "A section of tarmac's collapsed into a hole, must be six feet deep, traffic's stopping right by it.",
+        "It happened suddenly, the road surface just dropped, there's a gap wide enough to lose a car in.",
+        "The hole's getting bigger as bits keep crumbling into it, we've kept everyone well back.",
+        "It looks like the ground underneath has given way, the hole's deep and the edges keep breaking off.",
+        "A lorry drove over that spot earlier and now there's a huge hole where the road was.",
+        "The pavement and part of the road have both collapsed into the same hole.",
+        "We can see water at the bottom, might be a burst pipe that's caused the ground to give way.",
+        "It's spread since I first noticed it, the hole's wider than it was ten minutes ago.",
+        "The road's completely open now, there's a real risk of a car driving straight into it."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's fallen in, the car's stuck but the driver's out and fine."
+        "Everyone's fine, no one's hurt, so nothing to report there.",
+        "There's no patient, so nobody's unconscious or anything like that.",
+        "No one's collapsed or anything, the sinkhole in the road is the only issue.",
+        "Nobody's hurt at all, we're all fine here.",
+        "No casualties, so that question doesn't really apply.",
+        "Everybody's up and about, no one's been affected.",
+        "No one's hurt, we're all stood well back and fine.",
+        "There's no injured person, everyone here is okay.",
+        "No, nobody's collapsed, it's just the sinkhole in the road, no one's hurt.",
+        "All fine here, no one's been knocked about or hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, nobody's hurt, it's just the road."
+        "No breathing problems, nobody's been affected by anything.",
+        "Everyone's breathing fine, there's no patient to worry about.",
+        "No one's struggling for breath, we're all outside and fine.",
+        "No issues there, nobody's hurt or affected.",
+        "Breathing's fine for everyone, it's just the sinkhole in the road.",
+        "No one's had any trouble breathing here.",
+        "Not a problem, there's no casualty, everyone's breathing normally.",
+        "No, nobody's affected, we're all fine and clear of it.",
+        "No breathing issues, nobody's been caught up in it.",
+        "Everyone's absolutely fine, no breathing problems at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No, nobody's hurt at all."
+        "No, nobody's in any pain, there's no patient.",
+        "No one's hurt, so no pain to report.",
+        "Nobody's in pain, we're all fine here.",
+        "No injuries, no pain, just the sinkhole in the road to deal with.",
+        "No, everyone's fine, nobody's been hurt.",
+        "There's no casualty, so no, nobody's in pain.",
+        "No pain, no injuries, nobody's been affected.",
+        "Nobody's hurt at all, so no pain to speak of.",
+        "No, we're all fine, no injuries here.",
+        "No one's in any discomfort, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, there's no injuries, nobody's been near it."
+        "No, no bleeding, nobody's hurt.",
+        "No injuries at all, so no bleeding.",
+        "Nobody's cut or bleeding, we're all fine.",
+        "No, there's no patient, no bleeding to report.",
+        "No blood, no injuries, everyone's fine here.",
+        "No one's bleeding, it's just the sinkhole in the road.",
+        "No injuries whatsoever, nobody's bleeding.",
+        "No, nobody's hurt, so no bleeding.",
+        "No blood, no casualties, we're all okay.",
+        "No, not a scratch on anyone, we're fine."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, so I can't help with that."
+        "There's no patient, so I've nothing medical to tell you.",
+        "Sorry, no patient here, nothing to report medically.",
+        "No one's hurt, so there's no medical history needed.",
+        "Not applicable, nobody's been injured here.",
+        "No patient, so nothing to add on that front.",
+        "There's no one hurt, so no medical details needed.",
+        "No casualties, so nothing medical to report.",
+        "Sorry, there's no patient for me to tell you about.",
+        "No injuries, so I can't help with that one.",
+        "Nobody's hurt, there's no medical history to give you."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, there's nobody hurt to ask."
+        "No idea, there's no one hurt here.",
+        "No patient, so no medication to mention.",
+        "Not applicable, nobody's injured.",
+        "No one's hurt, so that doesn't apply here.",
+        "No idea, sorry, there's no casualty.",
+        "No patient, nothing to report on that.",
+        "Not relevant, nobody's been hurt.",
+        "No one's affected, so no medication to give you.",
+        "N/A, there's no patient here.",
+        "No injuries, so nothing on medication to add."
       ]
     },
     "patientAge": {
       "answers": [
-        "Nobody's been hurt, so there's no patient."
+        "There's no patient, nobody's been injured.",
+        "No one hurt, so no age to give you.",
+        "Not applicable, there's no casualty here.",
+        "No patient, sorry, nobody's been hurt.",
+        "No one's injured, so that doesn't apply.",
+        "N/A, there's no one hurt at this job.",
+        "No casualties, no age to report.",
+        "Nobody's hurt, so there's no patient age to give.",
+        "No injuries at all, no patient to speak of.",
+        "There's no one hurt, no age needed."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "No thank you, nobody's hurt, it's just the sinkhole in the road.",
+        "An ambulance won't be needed, there's no injuries with the sinkhole in the road.",
+        "No one's hurt here, so no ambulance needed thanks.",
+        "There's no patient, the sinkhole in the road hasn't hurt anyone.",
+        "Not necessary, we're all fine, nobody's injured.",
+        "No, save the ambulance for someone who needs it, nobody's hurt.",
+        "Everyone's unhurt, so no ambulance required, thanks.",
+        "No injuries at all with the sinkhole in the road, no ambulance needed.",
+        "That's not needed, nobody here has been hurt.",
+        "No thanks, there's no patient, just the sinkhole in the road to deal with."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, yes, someone needs to close the road properly.",
+        "Thank you, cars keep nearly driving into it.",
+        "Yes please, we need someone directing traffic round it.",
+        "Good, it's not safe for cars to keep coming this way.",
+        "Thank you, I've been trying to wave people round it myself.",
+        "Yes, good, someone needs to shut this stretch of road.",
+        "Good, traffic's building up, we need it controlled.",
+        "Thank you, I'm worried another car will hit it in poor light.",
+        "Yes please, this really needs the road closed off.",
+        "Good, I'll keep warning drivers until they arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, it's getting worse.",
+        "Good, thank you, the sinkhole in the road isn't slowing down.",
+        "Okay, thank you, we'll wait for them to arrive.",
+        "Right, thank you, please tell them to get here quickly.",
+        "Thank you, that's good to hear, we're keeping clear of it.",
+        "Okay, good, we really need them here for the sinkhole in the road.",
+        "Thanks, we'll stay well back until the crew turns up.",
+        "That's a relief, please hurry, the sinkhole in the road is getting worse.",
+        "Okay, thank you, we're staying out of the way now.",
+        "Good, thank you, we're keeping everyone clear until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "What? No, I need the fire brigade, not 111.",
+        "No, this is a fire, I don't need 111.",
+        "Sorry, no, I called 999 for the fire brigade.",
+        "No, nobody needs a doctor, I need the fire service out here.",
+        "I don't think 111 can help with a fire, sorry.",
+        "No, I need someone to come and put this out, not 111.",
+        "It's not medical, it's a fire, please send a crew.",
+        "No thank you, I need the fire brigade urgently.",
+        "Sorry, no, this needs the fire brigade, not 111.",
+        "No, I'm not after medical advice, I need the fire brigade."
       ]
     }
   },

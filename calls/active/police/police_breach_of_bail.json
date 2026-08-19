@@ -48,6 +48,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -68,9 +72,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police please, I think I've just seen someone who's not supposed to be here, he's on bail conditions",
+      "Police please, I think I've just seen someone who's not supposed to be here, {{he}}'s on bail conditions",
       "I want to report a breach of bail, my neighbour's ex has turned up again",
-      "There's a man here who I know isn't allowed near this address"
+      "There's a {{man}} here who I know isn't allowed near this address",
+      "Police, I need to report a bail breach, {{he}} shouldn't be anywhere near here",
+      "Someone under bail conditions has just shown up outside, I need police here",
+      "I've spotted {{him}} again, {{he}}'s not meant to come near this street",
+      "Please send someone, {{he}}'s in breach of {{his}} bail right now",
+      "I need to report someone breaking their bail conditions, {{he}}'s stood right outside",
+      "There's a {{bloke}} outside who's banned from coming here, {{he}}'s in breach of bail",
+      "Police please, {{he}}'s turned up again even though {{he}}'s not allowed near this address"
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -82,92 +93,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police please, I think I've just seen someone who's not supposed to be here, he's on bail conditions",
+        "Police please, I think I've just seen someone who's not supposed to be here, {{he}}'s on bail conditions",
         "I want to report a breach of bail, my neighbour's ex has turned up again",
-        "There's a man here who I know isn't allowed near this address"
+        "There's a {{man}} here who I know isn't allowed near this address",
+        "Police, I need to report a bail breach, {{he}} shouldn't be anywhere near here",
+        "Someone under bail conditions has just shown up outside, I need police here",
+        "I've spotted {{him}} again, {{he}}'s not meant to come near this street",
+        "Please send someone, {{he}}'s in breach of {{his}} bail right now",
+        "I need to report someone breaking their bail conditions, {{he}}'s stood right outside",
+        "There's a {{bloke}} outside who's banned from coming here, {{he}}'s in breach of bail",
+        "Police please, {{he}}'s turned up again even though {{he}}'s not allowed near this address"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I live next door",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I live next door.",
+        "{{callerName}}, I'm a neighbour.",
+        "My name's {{callerName}}, I live nearby.",
+        "It's {{callerName}}, I live just up the road.",
+        "{{callerName}} here, I live in the next house.",
+        "You can put me down as {{callerName}}, I'm the neighbour.",
+        "It's {{callerName}}, I live right beside them.",
+        "{{callerName}} speaking, I live just along the street.",
+        "My name is {{callerName}}, I live opposite.",
+        "It's {{callerName}}, I'm from next door."
       ]
     },
     "patientName": {
       "answers": [
-        "I know him only as her ex partner",
-        "I don't know his full name, but I recognise his face"
+        "I don't know {{his}} name, I've never seen {{him}} before.",
+        "No idea what {{he}}'s called, {{he}}'s a stranger to me.",
+        "I don't know {{him}}, so I can't tell you {{his}} name.",
+        "No name I'm afraid, I've not met {{him}} before today.",
+        "I can't tell you {{his}} name, I don't recognise {{him}}.",
+        "Sorry, I don't know {{him}} at all.",
+        "No idea, {{he}}'s not someone I know.",
+        "I don't have a name for {{him}}, never seen {{him}} round here.",
+        "Can't help with a name, I don't know {{him}} personally.",
+        "No, I've no idea what {{his}} name is."
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, he's just gone up to the front door",
-        "It's {{address}}, he's still outside"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "He's not meant to come anywhere near here, it's a condition of his bail, but he's stood right outside",
-        "He turned up about five minutes ago and started knocking on the door",
-        "I know he was arrested last month and told to stay away, but he's back again"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, he's just stood there",
-        "No injuries, just very worrying"
+        "{{He}}'s wide awake, no injuries at all, just being difficult.",
+        "Nobody's hurt, {{he}}'s fully alert and causing trouble.",
+        "{{He}}'s fine, no injuries, just refusing to leave.",
+        "No injuries, {{he}}'s stood right there, completely conscious.",
+        "{{He}}'s not hurt at all, just very uncooperative.",
+        "No one's injured, {{he}}'s perfectly alert.",
+        "{{He}}'s conscious and unhurt, just kicking off.",
+        "Nobody's hurt, {{he}}'s awake and shouting the odds.",
+        "{{He}}'s fine physically, no injuries to speak of.",
+        "No injuries at all, {{he}}'s just being a nuisance."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "{{He}}'s breathing fine, no injuries here.",
+        "No problems breathing, {{he}}'s not hurt.",
+        "{{He}}'s fine, breathing normally, nobody's hurt.",
+        "No issues there, {{he}}'s not injured.",
+        "{{He}}'s breathing okay, this isn't a medical matter.",
+        "Nobody's hurt, {{his}} breathing's fine.",
+        "{{He}}'s not struggling at all, no injuries.",
+        "No, {{he}}'s breathing normally, just being difficult.",
+        "{{He}}'s fine, no breathing problems at all.",
+        "Not an issue, {{he}}'s not hurt."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A, no one's hurt",
-        "No one's been hurt"
+        "No pain, {{he}}'s not injured.",
+        "{{He}}'s not in any pain, nobody's hurt.",
+        "No, {{he}}'s fine, this isn't a medical thing.",
+        "{{He}} says {{he}}'s not hurt, just angry.",
+        "No pain that I can see, {{he}}'s unhurt.",
+        "{{He}}'s not injured, no pain involved.",
+        "Nobody's hurt, so no pain to report.",
+        "{{He}}'s fine, no pain, just being aggressive.",
+        "No, {{he}} isn't hurt at all.",
+        "Not that I can tell, {{he}}'s not injured."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No, {{he}}'s not bleeding, {{he}}'s not hurt.",
+        "None that I can see, {{he}}'s unhurt.",
+        "No injuries, {{he}}'s not bleeding at all.",
+        "No, nobody's hurt, {{he}}'s fine.",
+        "Not that I can see, {{he}}'s uninjured.",
+        "No bleeding, {{he}}'s not hurt.",
+        "None, {{he}}'s completely unhurt.",
+        "No, {{he}}'s fine, no blood at all.",
+        "Not at all, {{he}}'s uninjured.",
+        "No, there's no injury on {{him}} at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know his medical details",
-        "No idea"
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, {{he}}'s a stranger to me.",
+        "No idea about {{his}} health, I don't know {{him}}.",
+        "I've no idea, never met {{him}} before.",
+        "Can't help, I don't know anything about {{him}}.",
+        "No idea, this isn't really medical anyway.",
+        "I wouldn't know, {{he}}'s not hurt anyway.",
+        "No idea about {{him}} at all, sorry.",
+        "Couldn't say, I don't know {{his}} background.",
+        "No idea, I've never spoken to {{him}} before today."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, {{he}}'s a stranger to me.",
+        "No idea what {{he}} takes, I don't know {{him}}.",
+        "I've no clue, never met {{him}} before.",
+        "Can't help with that, sorry.",
+        "No idea, this isn't medical, {{he}}'s just causing trouble.",
+        "I wouldn't know, {{he}}'s not hurt anyway.",
+        "No idea about {{him}} at all.",
+        "Couldn't say, I don't know {{him}} personally.",
+        "No idea, never spoken to {{him}} before."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks about thirty"
+        "{{He}} looks to be in {{his}} thirties, hard to say exactly.",
+        "Maybe mid twenties, I'm only guessing.",
+        "I'd guess {{he}}'s in {{his}} forties.",
+        "Hard to say, maybe late twenties.",
+        "{{He}} looks around thirty to me.",
+        "I'd say {{he}}'s in {{his}} twenties, could be wrong.",
+        "Somewhere in {{his}} thirties I'd guess.",
+        "Hard to tell, maybe mid forties.",
+        "{{He}} looks about twenty five, roughly.",
+        "I'm only guessing, but maybe {{his}} late thirties."
       ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, {{he}}'s just gone up to the front door",
+        "It's {{address}}, {{he}}'s still stood outside",
+        "{{address}}, that's where I am, {{he}}'s pacing up and down outside",
+        "We're at {{address}}, {{he}}'s knocking on the door right now",
+        "{{address}}, please hurry, {{he}}'s still out there",
+        "It's {{address}}, {{he}}'s loitering by the gate",
+        "{{address}}, {{he}}'s just walked round the side of the house",
+        "The address is {{address}}, {{he}}'s stood right by the window",
+        "{{address}}, {{he}} hasn't left yet",
+        "It's {{address}}, {{he}}'s still outside the front door"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "{{He}}'s not meant to come anywhere near here, it's a condition of {{his}} bail, but {{he}}'s stood right outside",
+        "{{He}} turned up about five minutes ago and started knocking on the door",
+        "I know {{he}} was arrested last month and told to stay away, but {{he}}'s back again",
+        "{{He}}'s breached the conditions of {{his}} bail by coming to this address",
+        "My neighbour got a court order keeping {{him}} away, and {{he}}'s just shown up",
+        "{{He}} came round the back, {{he}}'s not supposed to be within a mile of here",
+        "I recognised {{him}} straight away, {{he}}'s banned from coming near this house",
+        "{{He}}'s been hanging round outside for a while now, {{he}} shouldn't be here at all",
+        "{{He}} showed up out of nowhere, I know {{he}}'s on bail with conditions not to come here",
+        "{{He}}'s stood right outside despite the bail conditions saying {{he}} can't come near"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep an eye from my window",
-        "Thank you, please hurry, she's scared"
+        "Ambulance? No, nobody's hurt, it's police I need, {{he}}'s just stood outside",
+        "I don't need an ambulance, it's the police, {{he}} shouldn't be here at all",
+        "No ambulance needed, nobody's injured, just send police please",
+        "There's no injury, I just need officers here quickly",
+        "No, that's not it, I need police, not an ambulance",
+        "Nobody's hurt, I just need someone to come and deal with {{him}}",
+        "No ambulance, thank you, just police as soon as possible",
+        "I don't think that's needed, it's a police matter, not medical",
+        "No, no one's injured, I just want {{him}} moved away from here",
+        "That's not necessary, nobody's hurt, just send the police"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll stay inside and watch from the window",
+        "Good, I'll keep an eye on {{him}} until they get here",
+        "Thank you, I'll let you know if {{he}} moves off",
+        "Okay, I won't approach {{him}}, I'll just watch from a distance",
+        "Please hurry, I don't want {{him}} to see me watching",
+        "Thank you, I'll stay on the phone until they arrive",
+        "Okay, I'll keep the door locked until officers get here",
+        "Good, {{he}}'s still here, I'll let you know if that changes",
+        "Thank you, I'll stay back and just keep watching",
+        "Okay, I'll wait here and update you if anything changes"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, there's no fire, it's a bail breach, I need police",
+        "No, this isn't a fire, I need officers here for a bail breach",
+        "I don't need the fire service, it's a police matter",
+        "No fire here, just send police please",
+        "That's not right, there's no fire, just a person who shouldn't be here",
+        "No, I need police, not the fire brigade",
+        "There's no fire involved, just police please",
+        "No thank you, it's not a fire, I need officers",
+        "That's the wrong service, there's no fire, just police needed",
+        "No, nothing's on fire, I just need police to deal with {{him}}"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs the police, he shouldn't be here at all"
+        "No, this can't wait for a callback, I need police right now.",
+        "No, this needs a response now, not a phone call later.",
+        "That's not right, this is urgent, please send police.",
+        "No, I need someone here immediately, this isn't medical.",
+        "This can't wait, please, I need police straight away.",
+        "No, this is happening right now, I need officers here.",
+        "That won't help, this is urgent, not a 111 matter.",
+        "No, please, I need police now, not a callback.",
+        "This is too urgent for that, I need police straight away.",
+        "No, this needs police now, it can't wait."
       ]
     }
   },

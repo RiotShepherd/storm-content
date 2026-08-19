@@ -41,6 +41,11 @@
   "units": {
     "irv": 8
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 6,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -70,7 +75,14 @@
     "openings": [
       "Police please, there's a massive party going on next door, it's completely out of control",
       "I need to report a house party, it's way too big and it's breaching all the rules",
-      "There's an illegal party at the student house, dozens of people, it's chaos"
+      "There's an illegal party at the student house, dozens of people, it's chaos",
+      "Can you send police, there's a huge party next door and it's getting out of hand",
+      "I've had enough, there's a party raging next door with way too many people",
+      "Please send someone, the party next door is completely overcrowded",
+      "There's an unlicensed party going on, it's rammed and spilling into the street",
+      "I need police out, next door's throwing a massive party and it's not stopping",
+      "The house next door is packed with people, music blaring, it's out of control",
+      "Please, there's a huge party next door, I'm worried it's too crowded in there"
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -84,90 +96,230 @@
       "answers": [
         "Police please, there's a massive party going on next door, it's completely out of control",
         "I need to report a house party, it's way too big and it's breaching all the rules",
-        "There's an illegal party at the student house, dozens of people, it's chaos"
+        "There's an illegal party at the student house, dozens of people, it's chaos",
+        "Can you send police, there's a huge party next door and it's getting out of hand",
+        "I've had enough, there's a party raging next door with way too many people",
+        "Please send someone, the party next door is completely overcrowded",
+        "There's an unlicensed party going on, it's rammed and spilling into the street",
+        "I need police out, next door's throwing a massive party and it's not stopping",
+        "The house next door is packed with people, music blaring, it's out of control",
+        "Please, there's a huge party next door, I'm worried it's too crowded in there"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I live next door to the student house",
-        "It's {{callerName}}"
+        "{{callerName}}, I live next door",
+        "It's {{callerName}}, I'm a neighbour",
+        "My name's {{callerName}}, I live nearby",
+        "{{callerName}} calling, I live on the same street",
+        "Yeah, it's {{callerName}}, I'm next door",
+        "{{callerName}} here, I live just along from them",
+        "It's {{callerName}}, I'm their neighbour",
+        "My name is {{callerName}}, I live close by",
+        "{{callerName}}, that's me, I'm from next door",
+        "Sorry, yes, it's {{callerName}}, I live opposite"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know anyone there",
-        "No idea who's inside"
+        "I don't know any of them, they're mostly students I don't recognise",
+        "No idea, I don't know that house well enough to say",
+        "Couldn't tell you, I don't know who's in there",
+        "I don't have any names, sorry, they're not known to me",
+        "No, I don't know any of them personally",
+        "Never really spoken to any of them, no idea",
+        "I can't give you a name, they're strangers to me really",
+        "Sorry, no idea, I don't know that household",
+        "I've got no names for you, I don't know them well",
+        "Don't know, I've only seen them coming and going"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the house with all the noise",
-        "We're at {{address}}"
+        "{{address}}, it's the student house down the road",
+        "We're at {{address}}",
+        "It's {{address}}, the student house down the road",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near the student house down the road",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's dozens of people crammed into the house and garden, music blasting",
-        "It's been going on for hours, it's getting louder and rowdier",
-        "People are climbing on the roof and there's broken glass in the street"
+        "It's a house party that's gotten way too big, there must be a hundred people crammed in",
+        "Music's been blaring for hours and people keep arriving, it's spilling into the garden",
+        "There's people climbing over the fence to get in, it's completely out of hand",
+        "It started small earlier but now the whole street's rammed with cars and people",
+        "They've broken a window getting in, there's glass on the pavement",
+        "It's absolutely packed inside, I can see people pressed against the windows",
+        "There's shouting, breaking bottles, and way too many people for that house",
+        "It's an organised thing, tickets and everything, way over what the house can hold",
+        "People are climbing on the roof of the porch, it's dangerous with that many in there",
+        "It's been building all evening, now there's a queue right down the street"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt that I've seen",
-        "No injuries reported to me"
+        "Someone said a couple of people fainted in the crush but I think they're sat outside now",
+        "I heard someone's not doing too well inside, feeling faint from the heat and crowd",
+        "Not sure, someone mentioned a person collapsed but I can't see from here",
+        "I don't know, I've heard shouting for help inside a couple of times",
+        "As far as I know everyone's on their feet, just very drunk",
+        "Nobody's mentioned anyone being unconscious, just very rowdy",
+        "I think someone's feeling unwell but they're still talking, from what I heard",
+        "Can't say for certain, but I haven't heard anyone say someone's collapsed",
+        "Someone shouted that a person's gone down in the crush by the door",
+        "I've not seen anyone unconscious myself, just very loud and packed"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "I heard someone struggling to breathe in the crush earlier, might be the smoke and heat",
+        "There's a lot of vaping and smoke in there, someone might be feeling it",
+        "Not that I know of, but it's stuffy and crowded enough that it wouldn't surprise me",
+        "I couldn't tell you, I'm outside, I can only hear what's going on",
+        "Someone was coughing a lot by the door earlier, from the smoke in there",
+        "No idea on breathing, I just know it's rammed and hot in there",
+        "I haven't heard anything about breathing problems specifically",
+        "It's very smoky and crowded, so it's possible, but I can't confirm",
+        "Can't say, but with that many people in a small house it's worth checking",
+        "Not that anyone's told me, no"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A",
-        "No one's hurt"
+        "I don't know, I haven't heard anything about anyone in pain",
+        "Not that I've heard, mostly just noise and shouting",
+        "Can't say, someone mentioned a twisted ankle from the crush earlier",
+        "No idea, I'm not inside, I can only see from my window",
+        "Not that I'm aware of, no",
+        "I heard someone yelp when the crowd surged but that's all I know",
+        "Can't confirm, no one's told me anything about injuries",
+        "Not sure, but it's rammed enough that someone could easily get hurt",
+        "No pain reported to me, just a lot of noise",
+        "I couldn't say, sorry, I'm outside looking in"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "Not that I've seen, no",
+        "I don't know, I haven't seen anyone bleeding",
+        "Can't say, there was broken glass from a window earlier though",
+        "No idea, I'm outside, I can't see that clearly",
+        "Not that anyone's mentioned to me",
+        "I haven't heard anything about bleeding",
+        "Can't confirm, sorry",
+        "Not as far as I know, no",
+        "No, nothing like that reported to me",
+        "I couldn't tell you from out here"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A, don't know them",
-        "Not applicable"
+        "I've no idea, I don't know most of these people",
+        "Couldn't tell you, I don't know who's in there",
+        "No idea, sorry, I don't know them",
+        "Can't help with that, I don't know the people at the party",
+        "I don't know anyone in there well enough to say",
+        "No idea, they're mostly students I don't know",
+        "Couldn't say, sorry",
+        "I've no information on that",
+        "No idea, I only know it's rammed in there",
+        "Sorry, I can't help with that, I don't know them"
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "No idea, I don't know them",
+        "Couldn't tell you, sorry",
+        "No idea, I don't know the people at the party",
+        "Can't help with that, sorry",
+        "I don't know, they're mostly strangers to me",
+        "No idea, sorry",
+        "Couldn't say",
+        "I've no information on that",
+        "No idea at all",
+        "Sorry, I can't help with that"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mostly students, so late teens to early twenties"
+        "Sounds like it's mostly students, so late teens to early twenties",
+        "I'd guess early twenties, it's near the university",
+        "Young, mostly students by the sound of the voices",
+        "Can't say exactly but they all sound quite young",
+        "Probably eighteen to twenty five, it's a student area",
+        "Young crowd, I'd say twenties mostly",
+        "Hard to tell, but it sounds like a young, student crowd",
+        "I'd guess most of them are in their late teens or twenties",
+        "Young adults, students I'd imagine",
+        "Can't be sure, but they all sound fairly young"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep the windows shut",
-        "Thank you, it's been going on for hours now"
+        "Might be worth it, I did hear someone wasn't feeling great in there",
+        "Okay, if you think that's needed, there's a lot of people crammed in",
+        "Maybe, I heard someone struggling earlier, could be the heat",
+        "If you think so, but honestly it's police I really need out here",
+        "Okay, that might help if someone really has gone down in there",
+        "Possibly, but my main worry is how many people are crammed in",
+        "Alright, if that's what you think, better safe than sorry",
+        "Okay, though I mainly need police to sort the numbers out",
+        "If someone really has collapsed then yes, that would help",
+        "Okay, thank you, though it's really the crowd I'm worried about"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a noise and disorder issue, I need police"
+        "No, this needs police out here, it's completely out of control",
+        "111 won't sort this out, I need officers here now",
+        "Please, this needs police, not a callback from 111",
+        "No, it's too big for a callback, we need people down here",
+        "That won't help, please send police, it's getting worse",
+        "No, this is a police matter with how many are in there",
+        "I don't think 111 can do anything about a party this size",
+        "Please, we need police, not 111, it's spiralling",
+        "No, this can't wait, we need officers here",
+        "That's not going to help with this many people, please send police"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, how long will they be?",
+        "Good, please hurry, it's getting worse here",
+        "Thank you, we'll wait for them",
+        "Okay, I'll stay on the line if you need anything else",
+        "Please tell them to hurry, we're keeping an eye on things",
+        "Thank goodness, how many are coming?",
+        "Okay, I'll let people know officers are on the way",
+        "Thank you, we'll keep back until they arrive",
+        "Good, we really need them here quickly",
+        "Okay, thank you, I'll stay put until they get here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

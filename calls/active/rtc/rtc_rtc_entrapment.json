@@ -50,6 +50,12 @@
     "traffic_car": 1,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3,
+    "ambulance": 2,
+    "police": 1
+  },
   "patients": {
     "range": [
       1,
@@ -86,7 +92,15 @@
   "caller": {
     "openings": [
       "There's been a crash and someone's trapped in the car, they can't get out.",
-      "Emergency, a car's crashed and the driver's trapped, the doors are jammed shut."
+      "Emergency, a car's crashed and the driver's trapped, the doors are jammed shut.",
+      "There's been an accident, the driver's stuck inside the car.",
+      "Please hurry, a car's crashed and someone can't get free.",
+      "A car's come off the road and the driver's trapped inside.",
+      "Emergency, there's been a crash, the door's jammed and someone's stuck.",
+      "Please send help, a car's crashed and the driver can't get out.",
+      "There's been a bad crash, someone's trapped in the wreckage.",
+      "A car's hit something and the driver's stuck, can't move at all.",
+      "Please hurry, there's been a crash and someone's trapped inside."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -99,90 +113,231 @@
     "start": {
       "answers": [
         "There's been a crash and someone's trapped in the car, they can't get out.",
-        "Emergency, a car's crashed and the driver's trapped, the doors are jammed shut."
+        "Emergency, a car's crashed and the driver's trapped, the doors are jammed shut.",
+        "There's been an accident, the driver's stuck inside the car.",
+        "Please hurry, a car's crashed and someone can't get free.",
+        "A car's come off the road and the driver's trapped inside.",
+        "Emergency, there's been a crash, the door's jammed and someone's stuck.",
+        "Please send help, a car's crashed and the driver can't get out.",
+        "There's been a bad crash, someone's trapped in the wreckage.",
+        "A car's hit something and the driver's stuck, can't move at all.",
+        "Please hurry, there's been a crash and someone's trapped inside."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, I stopped straight away.",
-        "{{callerName}}, I saw it happen right in front of me."
+        "{{callerName}}, I saw it happen right in front of me.",
+        "My name's {{callerName}}, I'm right by the car.",
+        "{{callerName}} here, I'm trying to keep {{him}} calm.",
+        "It's {{callerName}} speaking, I'm talking to {{him}} through the window.",
+        "{{callerName}}, I'm the one who called it in.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I've stopped to help.",
+        "{{callerName}}, I'm stood right by the wreckage.",
+        "Name's {{callerName}}, please hurry."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know them, they're a stranger.",
-        "He told me his name's {{firstPatientName}}."
+        "I don't know {{him}}, {{he}}'s a stranger.",
+        "{{He}} told me {{his}} name's {{firstPatientName}}.",
+        "I've no idea, never met {{him}} before.",
+        "{{He}} managed to say it's {{firstPatientName}}.",
+        "I don't know {{him}} at all, sorry.",
+        "{{He}} said {{his}} name's {{firstPatientName}}, {{he}}'s in a lot of pain.",
+        "No idea, I only just got here.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "{{He}} told me it's {{firstPatientName}} through the window.",
+        "I don't know, {{he}}'s finding it hard to talk."
       ]
     },
     "address": {
       "answers": [
         "We're on {{address}}.",
-        "{{address}}, the car's badly damaged on the side of the road."
+        "{{address}}, the car's badly damaged on the side of the road.",
+        "It's on {{address}}, near the bend.",
+        "{{address}}, you'll see the wreckage.",
+        "We're at {{address}}, right where it happened.",
+        "{{address}}, close to the junction.",
+        "It's happened on {{address}}.",
+        "{{address}}, just past the layby.",
+        "We're on {{address}}, near the field.",
+        "{{address}}, right by the barrier."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The car's spun off the road and hit a barrier, the driver's stuck, the door won't budge.",
-        "It's crashed and the frame's bent in on the driver's side, he can't get out."
+        "The car's spun off the road and hit a barrier, {{he}}'s stuck, the door won't budge.",
+        "It's crashed and the frame's bent in on {{his}} side, {{he}} can't get out.",
+        "{{He}}'s lost control and gone into the barrier, {{he}}'s trapped by the door.",
+        "The car's rolled and landed on its side, {{he}}'s stuck inside.",
+        "It looks like {{he}} skidded and hit the barrier hard, {{he}}'s pinned in.",
+        "The car's hit something solid and the door's jammed shut on {{him}}.",
+        "{{He}}'s gone off the road and the car's crumpled in on {{his}} side.",
+        "It's a bad crash, the frame's caved in and {{he}} can't move.",
+        "{{He}}'s spun off and hit the barrier, {{he}}'s trapped by the pedals.",
+        "The car's badly crushed and {{he}} can't free {{himself}} at all."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious, talking to us.",
-        "Yes, she's awake but in a lot of pain."
+        "Yes, {{he}}'s conscious, talking to us.",
+        "Yes, {{he}}'s awake but in a lot of pain.",
+        "{{He}}'s conscious, quite dazed though.",
+        "Yes, {{he}}'s responding to me okay.",
+        "{{He}}'s awake, just very shaken.",
+        "Yes, {{he}}'s talking, but weakly.",
+        "{{He}}'s conscious, drifting in and out a bit.",
+        "Yes, {{he}}'s awake, groaning in pain.",
+        "{{He}}'s conscious but struggling to focus.",
+        "Yes, {{he}}'s talking to me, just scared."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
         "Yes, but it's laboured.",
-        "Yes, she's breathing okay."
+        "Yes, {{he}}'s breathing okay.",
+        "Yes, a bit fast.",
+        "Yes, {{he}}'s breathing, just shaky.",
+        "Yes, seems okay on that front.",
+        "Yes, {{he}}'s breathing, but strained.",
+        "Yes, {{he}}'s breathing normally I think.",
+        "Yes, a little quick.",
+        "Yes, {{he}}'s breathing, just winded.",
+        "Yes, but not entirely steady."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's saying his leg's trapped and it's agony.",
-        "She's saying her ribs really hurt."
+        "{{He}}'s saying {{his}} leg's trapped and it's agony.",
+        "{{He}}'s saying {{his}} ribs really hurt.",
+        "{{He}} says the pain in {{his}} leg is unbearable.",
+        "{{He}}'s complaining about {{his}} back and leg.",
+        "{{He}} keeps saying {{he}}'s in agony from being trapped.",
+        "{{He}}'s saying {{his}} chest is really sore.",
+        "{{He}} says it hurts all down {{his}} side.",
+        "{{He}}'s in a lot of pain, mostly {{his}} leg.",
+        "{{He}} says {{his}} back hurts badly.",
+        "{{He}}'s wincing, says {{his}} leg is crushed."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
         "Yes, there's blood, quite a bit.",
-        "A cut on her arm, bleeding steadily."
+        "A cut on {{his}} arm, bleeding steadily.",
+        "Yes, {{his}} head's bleeding a little.",
+        "There's blood on {{his}} hands and face.",
+        "Yes, a graze on {{his}} arm, bleeding slowly.",
+        "Yes, I can see blood on {{him}}.",
+        "There's a fair bit of blood, mostly {{his}} arm.",
+        "Yes, {{he}}'s bleeding from a cut on {{his}} head.",
+        "Yes, {{his}} hand's cut and bleeding.",
+        "Yes, there's blood near where {{he}}'s trapped."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them, sorry.",
-        "No idea, sorry."
+        "I don't know {{him}}, sorry.",
+        "No idea, {{he}}'s a stranger to me.",
+        "I've no idea, never met {{him}} before.",
+        "I don't know anything about {{him}}.",
+        "No idea, sorry.",
+        "I can't say, {{he}}'s a stranger.",
+        "Sorry, I don't know {{him}} at all.",
+        "No idea, {{he}} hasn't said anything.",
+        "I couldn't tell you, we don't know each other.",
+        "No idea at all, sorry."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, I don't know them.",
-        "I couldn't say."
+        "No idea, I don't know {{him}}.",
+        "I couldn't say.",
+        "No idea, {{he}}'s a stranger to me.",
+        "I've no clue, sorry.",
+        "No idea, I only just got here.",
+        "I don't know anything about {{him}}.",
+        "Sorry, I can't tell you that.",
+        "No idea, {{he}} hasn't said.",
+        "I couldn't tell you, we don't know each other.",
+        "No idea at all, sorry."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks like he's in his thirties.",
-        "She's maybe twenty five."
+        "Looks like {{he}}'s in {{his}} thirties.",
+        "{{He}}'s maybe twenty five.",
+        "Hard to say, {{he}} looks fairly young.",
+        "I'd guess {{he}}'s in {{his}} forties.",
+        "{{He}} looks middle aged.",
+        "Hard to tell exactly, {{he}}'s an adult.",
+        "{{He}} looks maybe twenty.",
+        "I'd say {{he}}'s in {{his}} late twenties.",
+        "{{He}} looks like {{he}}'s in {{his}} sixties.",
+        "Hard to say, {{he}}'s not elderly."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying with him, keeping him talking.",
-        "Please hurry, he really can't move."
+        "Okay, I'm staying with {{him}}, keeping {{him}} talking.",
+        "Please hurry, {{he}} really can't move.",
+        "Thank you, I'll keep {{him}} calm until you're here.",
+        "Good, please be quick, {{he}}'s in a lot of pain.",
+        "Okay, I won't leave {{him}}, I'll stay right here.",
+        "Thank you, {{he}}'s getting more anxious.",
+        "Please hurry, {{he}} really needs help.",
+        "Okay, I'll keep talking to {{him}} till you arrive.",
+        "Thank you, {{he}}'s asking when help's coming.",
+        "Good, I'll stay with {{him}} the whole time."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, thank you, we need the road closing off.",
+        "Yes please, traffic's building up around us.",
+        "Thank goodness, cars keep getting close to the barrier.",
+        "Good, we really need them managing the traffic.",
+        "Thanks, I'll flag them down when they arrive.",
+        "Good, this road really needs closing.",
+        "Yes, please send them, it's dangerous here.",
+        "Thank you, they'll need to close a lane I think.",
+        "Good, that's a relief, thank you.",
+        "Perfect, we need them here quickly."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, they can cut {{him}} free.",
+        "Thank goodness, {{he}}'s properly trapped, we need them.",
+        "Good, please hurry them along, {{he}} can't move.",
+        "Thank you, the door's jammed, they'll need tools.",
+        "Good, that's a relief, {{he}} really needs cutting free.",
+        "Thanks, I'll let {{him}} know they're coming.",
+        "Good, please hurry, {{he}}'s properly stuck.",
+        "Thank you, {{he}} can't free {{himself}} at all.",
+        "Good, we really need them to get {{him}} out.",
+        "Thank you, that's exactly what we need."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's trapped in the car, we need help now!"
+        "No, {{he}}'s trapped in the car, we need help now!",
+        "No, that's not right, {{he}} can't get out, this is an emergency.",
+        "Please, no, {{he}}'s trapped and in pain, we can't wait.",
+        "I don't think so, {{he}} needs cutting free right now.",
+        "No, absolutely not, {{he}}'s trapped, we need help urgently.",
+        "That doesn't sound right, {{he}}'s stuck in the wreckage.",
+        "No, please, this can't wait, {{he}}'s trapped in there.",
+        "I really don't think 111 is right, {{he}}'s trapped in a car.",
+        "No, this is urgent, {{he}} can't move at all.",
+        "Please, no, don't make us wait, {{he}}'s trapped."
       ]
     }
   },

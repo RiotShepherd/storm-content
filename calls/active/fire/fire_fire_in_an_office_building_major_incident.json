@@ -49,6 +49,12 @@
     "iccu": 1,
     "fire_officer": 8
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 15,
+    "police": 3,
+    "ambulance": 2
+  },
   "patients": {
     "range": [
       0,
@@ -118,7 +124,14 @@
     "openings": [
       "Fire brigade, major fire at the office block, there's people trapped on the upper floors",
       "It's the office building on the high street, it's fully alight and people are still inside",
-      "Please send everyone, the office is on fire and I can see people at the windows"
+      "Please send everyone, the office is on fire and I can see people at the windows",
+      "There's a huge fire at our office, some of us got out but others are still up there",
+      "Help, the office block's ablaze, I can hear people shouting from the higher floors",
+      "Fire brigade please, we've evacuated but not everyone made it out of the building",
+      "The whole office is on fire, there's smoke pouring from every floor",
+      "Please hurry, people are stuck up on the top floors of the office block",
+      "There's a major fire here, I got out but I know colleagues are still inside",
+      "Fire at the office building, it's spread fast, some people couldn't get to the stairs"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -132,81 +145,230 @@
       "answers": [
         "Fire brigade, major fire at the office block, there's people trapped on the upper floors",
         "It's the office building on the high street, it's fully alight and people are still inside",
-        "Please send everyone, the office is on fire and I can see people at the windows"
+        "Please send everyone, the office is on fire and I can see people at the windows",
+        "There's a huge fire at our office, some of us got out but others are still up there",
+        "Help, the office block's ablaze, I can hear people shouting from the higher floors",
+        "Fire brigade please, we've evacuated but not everyone made it out of the building",
+        "The whole office is on fire, there's smoke pouring from every floor",
+        "Please hurry, people are stuck up on the top floors of the office block",
+        "There's a major fire here, I got out but I know colleagues are still inside",
+        "Fire at the office building, it's spread fast, some people couldn't get to the stairs"
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, I work on the second floor",
-        "{{callerName}}, I got out but some colleagues didn't make it down"
+        "{{callerName}}, I got out but some colleagues didn't make it down",
+        "It's {{callerName}}, I'm one of the staff who escaped",
+        "{{callerName}} here, I was on my way out when the alarm went",
+        "It's {{callerName}}, I work in the building",
+        "My name's {{callerName}}, I'm stood at the assembly point",
+        "It's {{callerName}}, I managed to get down the fire escape",
+        "{{callerName}} speaking, I'm one of the office workers here",
+        "It's {{callerName}}, I called as soon as I got outside",
+        "{{callerName}}, I'm one of the people who got clear"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know all the names, there's a few of us out here who got clear"
+        "I don't know all the names, there's a few of us out here who got clear",
+        "There's several colleagues involved, I can't list everyone right now",
+        "I can't give you names, there's too many of us affected",
+        "A few of us, I don't know everyone's name, we're spread across departments",
+        "There's a group of colleagues here, I couldn't name them all",
+        "No single name, there's several people affected from different floors",
+        "I can't say exactly who, there's a number of us out here",
+        "Several people, I don't know all of them personally",
+        "There's a few of us, sorry, I can't reel off names right now",
+        "A number of colleagues, I really can't list them all at the moment"
       ]
     },
     "address": {
       "answers": [
         "{{address}}, the office block, main entrance is on the corner",
-        "It's {{address}}, there's smoke coming from most floors now"
+        "It's {{address}}, there's smoke coming from most floors now",
+        "{{address}}, come round to the front of the building",
+        "It's {{address}}, the fire escape is round the side",
+        "{{address}}, you'll see the smoke from the street",
+        "It's {{address}}, the assembly point's out the front",
+        "{{address}}, please hurry, people are still up there",
+        "It's {{address}}, the main doors are propped open",
+        "{{address}}, the building's on the corner of the high street",
+        "It's {{address}}, I'm stood outside to point you in"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The fire alarm went off and then we saw smoke coming up the stairwell, it's spread fast through the building"
+        "The fire alarm went off and then we saw smoke coming up the stairwell, it's spread fast through the building",
+        "It started on one of the lower floors and now it's ripping through the whole block",
+        "No one's sure how it started but it's spread to nearly every floor now",
+        "We think it started near the server room, it's spread quickly through the offices",
+        "The fire alarm sounded and smoke filled the stairwell before everyone could get down",
+        "It's a major fire, several floors are now affected and people couldn't reach the exits",
+        "It looks like it started in a kitchen area and spread through the building fast",
+        "We don't know the cause, but it's now affecting most of the office block",
+        "The fire's spread through the ceiling voids, it's much worse than when it started",
+        "It began small but has taken hold of several floors very quickly"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Most of us are conscious, one woman's gone very pale and shaky"
+        "Most of us are conscious, but I can't say for the people still upstairs",
+        "The ones who got out are conscious, we're not sure about those still inside",
+        "As far as I know everyone who's out is conscious and talking",
+        "They're conscious down here, but we're worried about the ones still trapped",
+        "Everyone I can see is conscious, just very shaken up",
+        "Down here everyone's conscious, we don't know about the floors above",
+        "They're all awake and talking, but panicking about their colleagues",
+        "Conscious as far as I can tell, but some are struggling with the smoke",
+        "The people out here are conscious, we just need to know about the rest",
+        "Everyone's conscious that's made it out, that's all I can confirm"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A few of us are coughing badly from the smoke on the stairs"
+        "A few of us are coughing badly from the smoke on the stairs",
+        "Some are struggling to breathe properly after coming down through the smoke",
+        "A couple of people are wheezing quite badly from the smoke inhalation",
+        "Most are breathing okay but a few are coughing a lot",
+        "Some people are really struggling for breath after getting down the stairwell",
+        "A few are gasping and coughing, the smoke was thick on the way out",
+        "Breathing's laboured for a few of them, the smoke got into the stairwell badly",
+        "Most are okay but a handful are having real trouble breathing",
+        "Some are coughing continuously, they were caught in the smoke on the stairs",
+        "A few people can barely talk, the smoke's really affected their breathing"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "One man's holding his arm, he banged it getting down the stairs"
+        "One colleague's holding their arm, they banged it getting down the stairs",
+        "A few people are complaining of chest pain from the smoke",
+        "Some are saying their chests hurt after breathing in all that smoke",
+        "One person twisted an ankle rushing down the stairwell",
+        "A couple are in pain from bumps and knocks getting out in the crush",
+        "Some are reporting tight chests, could be from the smoke",
+        "One colleague hurt their knee coming down the fire escape too fast",
+        "A few are complaining their throats and chests hurt from the fumes",
+        "Someone's got a sore wrist from falling on the stairs in the rush",
+        "A number of people are saying their chests feel tight and sore"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "One lady's got a cut to her head from the stairwell, it's bleeding"
+        "One colleague's got a cut to their head from the stairwell, it's bleeding",
+        "A couple of people have small cuts from broken glass near the exit",
+        "One person's grazed their arm getting through a doorway in a hurry",
+        "There's a bit of blood from someone's hand, they caught it on a railing",
+        "One colleague's got a cut on the leg from debris on the stairs",
+        "A small cut on someone's forehead, nothing too serious as far as I can see",
+        "One person's bleeding a bit from a scrape on their elbow",
+        "There's a cut to someone's hand from broken glass in the stairwell",
+        "One of them has a graze that's bleeding a little on the shin",
+        "A couple of minor cuts from the rush to get out, nothing severe looking"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know their medical history, we don't all know each other"
+        "I don't know their medical history, we don't all know each other",
+        "Sorry, I couldn't tell you, there's a lot of us and I don't know everyone well",
+        "No idea, we're mostly just colleagues, not close friends",
+        "I can't say, there's too many people affected to know all their histories",
+        "Sorry, I don't know most of them well enough to say",
+        "No idea about medical history, it's chaos out here",
+        "I couldn't tell you, we've never really discussed that at work",
+        "Sorry, no idea, there's quite a few of us out here",
+        "I don't know, we work together but don't know personal details like that",
+        "No idea, sorry, everyone's still trying to figure out who's out and who isn't"
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry, it's chaos out here"
+        "No idea, sorry, it's chaos out here",
+        "I couldn't tell you what anyone's on, sorry",
+        "No idea about medications, we're all just trying to account for everyone",
+        "Sorry, I don't know any of that about my colleagues",
+        "No idea, we're not that close, I just work with them",
+        "Sorry, can't help with that, everyone's still in shock out here",
+        "I don't know, sorry, there's too much going on to ask",
+        "No idea about medication, sorry, I really can't say",
+        "I couldn't tell you, sorry, we're all just trying to stay calm",
+        "No idea, sorry, that's not something I'd know about colleagues"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mostly working age, twenties to fifties"
+        "Mostly working age, twenties to fifties",
+        "A real mix of ages, we've got younger and older staff here",
+        "Working age mostly, I'd say twenties through to sixties",
+        "A range of ages, it's a big office with all sorts working here",
+        "Mostly adults of working age, nothing unusual there",
+        "A mix, some in their twenties, some much older",
+        "Working age across the board, twenties up to near retirement",
+        "A good spread of ages, this is a big employer",
+        "Mostly middle aged staff but some younger ones too",
+        "A mix of ages, I couldn't give you an exact range"
       ]
     },
     "reassure": {
       "answers": [
         "Okay, we're at the assembly point",
-        "Please hurry, there's definitely still people up there"
+        "Please hurry, there's definitely still people up there",
+        "Right, we're all stood well back from the building now",
+        "Okay, I'll keep the group together at the assembly point",
+        "Understood, we're doing a headcount now",
+        "Alright, we're staying clear of the entrance",
+        "Okay, I'll let you know if anyone else comes out",
+        "Right, we're keeping everyone calm out here as best we can",
+        "Understood, I'll wait here to update you",
+        "Okay, we're well away from the building, watching the windows"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a major fire with people trapped, not a GP matter"
+        "No, this is a major fire with people trapped, not a GP matter",
+        "No thank you, we need the fire brigade and ambulances here now",
+        "No, people are still inside, this is far more urgent than that",
+        "No, I need emergency services, not a phone line",
+        "No, please just get everyone here as fast as you can",
+        "No, this isn't something 111 can help with, people are trapped",
+        "No, we need the fire brigade urgently, this is a major incident",
+        "No, please, there's colleagues still up there",
+        "No, this needs proper emergency response right now",
+        "No, it's a major fire, we need crews here immediately"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we could really use them to close the road and keep the crowd back",
+        "Yes please, it's chaos out here, we need help keeping people clear",
+        "That's good, someone needs to manage the road while the crews work",
+        "Thank you, there's a lot of people gathering, we need them moved back",
+        "Okay, that's helpful, they can keep the entrance clear for the crews",
+        "Yes, we need them for the cordon, it's getting crowded out here",
+        "Good, they can help with the traffic building up around the block",
+        "Thank you, we need someone managing the crowd near the assembly point",
+        "Okay, that makes sense, there's a lot of people to keep back",
+        "Yes please, this is a major incident, we need all the help we can get"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, please hurry, there's still people trapped up there",
+        "Okay, we're staying at the assembly point, please be quick",
+        "Thank god, how long until they get here, people are still inside",
+        "Right, I'll keep watching the windows and let you know what I see",
+        "Okay, we're well clear of the building, waiting for you now",
+        "Thank you, please send everyone you can, it's spreading fast",
+        "Understood, I'll stay here and update you if anything changes",
+        "Okay, we're doing a headcount while we wait for them to arrive",
+        "Thank you, please hurry, we can still hear people up there",
+        "Right, I'll keep the group together until the crews arrive"
       ]
     }
   },

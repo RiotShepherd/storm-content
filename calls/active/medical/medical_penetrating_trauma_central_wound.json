@@ -49,6 +49,10 @@
     "ambulance": 1,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 4
+  },
   "patients": {
     "range": [
       1,
@@ -85,8 +89,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "He's been stabbed in the chest, there's so much blood, please hurry",
-      "I need an ambulance now, there's been a stabbing and he's bleeding badly"
+      "{{He}}'s been stabbed in the chest, there's so much blood, please hurry.",
+      "I need an ambulance now, there's been a stabbing and {{he}}'s bleeding badly.",
+      "Please send help, {{he}}'s been knifed in the chest.",
+      "There's been a stabbing, {{he}}'s bleeding heavily from {{his}} chest.",
+      "Someone's stabbed {{him}}, {{he}}'s lying here bleeding badly.",
+      "Please hurry, {{he}}'s been stabbed and there's blood everywhere.",
+      "I need help now, {{he}}'s been knifed right in the chest.",
+      "There's been an attack, {{he}}'s been stabbed and {{he}}'s bleeding a lot.",
+      "Please send an ambulance and police, {{he}}'s been stabbed in the chest.",
+      "{{He}}'s bleeding badly from a stab wound, please hurry."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -98,82 +110,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "He's been stabbed in the chest, there's so much blood, please hurry",
-        "I need an ambulance now, there's been a stabbing and he's bleeding badly"
+        "{{He}}'s been stabbed in the chest, there's so much blood, please hurry.",
+        "I need an ambulance now, there's been a stabbing and {{he}}'s bleeding badly.",
+        "Please send help, {{he}}'s been knifed in the chest.",
+        "There's been a stabbing, {{he}}'s bleeding heavily from {{his}} chest.",
+        "Someone's stabbed {{him}}, {{he}}'s lying here bleeding badly.",
+        "Please hurry, {{he}}'s been stabbed and there's blood everywhere.",
+        "I need help now, {{he}}'s been knifed right in the chest.",
+        "There's been an attack, {{he}}'s been stabbed and {{he}}'s bleeding a lot.",
+        "Please send an ambulance and police, {{he}}'s been stabbed in the chest.",
+        "{{He}}'s bleeding badly from a stab wound, please hurry."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was with him",
-        "{{callerName}}"
+        "It's {{callerName}}, I was with {{him}} when it happened.",
+        "{{callerName}}, I was with {{him}} when it happened.",
+        "My name's {{callerName}}, I was with {{him}} when it happened.",
+        "{{callerName}} here, I was with {{him}} when it happened.",
+        "It's {{callerName}} speaking, I was with {{him}} when it happened.",
+        "You can put me down as {{callerName}}, I was with {{him}} when it happened.",
+        "{{callerName}}. I was with {{him}} when it happened.",
+        "It's {{callerName}}, I was with {{him}} when it happened, please hurry.",
+        "{{callerName}}, that's me, I was with {{him}} when it happened.",
+        "It's {{callerName}}, I was with {{him}} when it happened, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, I know him from round here",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, someone I know from round here.",
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's someone I know from round here.",
+        "{{He}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}} is someone I know from round here.",
+        "The name's {{firstPatientName}}.",
+        "{{firstPatientName}}, someone I know from round here, please hurry.",
+        "It's {{firstPatientName}}, someone I know from round here.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, that's what {{he}} goes by."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, please hurry",
-        "{{address}}"
+        "We're at {{address}}, please hurry.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}, please hurry.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, please hurry.",
+        "{{address}} is where we are, please hurry.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There was a fight and he's been stabbed, it's right in the middle of his chest"
+        "There was a fight and {{he}}'s been stabbed, it's right in the middle of {{his}} chest.",
+        "Someone attacked {{him}} with a knife, {{he}}'s been stabbed in the chest.",
+        "There was an argument that turned violent, {{he}}'s been stabbed centrally in the chest.",
+        "{{He}} was attacked suddenly and stabbed once in the chest.",
+        "A fight broke out and {{he}} ended up stabbed in the chest.",
+        "{{He}} was confronted by someone with a knife and stabbed in the chest.",
+        "It happened really fast, {{he}}'s been stabbed right in the middle of {{his}} chest.",
+        "There was some kind of altercation and {{he}}'s been stabbed.",
+        "{{He}} was attacked from behind and stabbed in the chest.",
+        "It was over in seconds, {{he}}'s got a stab wound to the chest."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes but he's fading, barely talking now"
+        "Yes but {{he}}'s fading, barely talking now.",
+        "{{He}}'s conscious but getting weaker.",
+        "Yes, {{he}}'s awake but really struggling to stay with us.",
+        "{{He}}'s just about conscious, {{his}} eyes keep closing.",
+        "Yes, but {{he}}'s becoming less responsive by the minute.",
+        "{{He}}'s conscious but very weak now.",
+        "Yes, barely, {{he}}'s fading fast.",
+        "{{He}}'s awake but losing consciousness slowly.",
+        "Yes, just about, {{he}}'s struggling to respond.",
+        "{{He}}'s conscious but I'm worried {{he}}'s slipping."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Really struggling, gasping"
+        "Really struggling, gasping.",
+        "{{He}}'s gasping for breath.",
+        "It's really laboured, {{he}}'s struggling badly.",
+        "Fast and gasping, it looks really bad.",
+        "{{He}}'s fighting for breath, it's frightening.",
+        "Really shallow and gasping, {{he}}'s struggling hard.",
+        "It's bad, {{he}}'s gasping with each breath.",
+        "{{His}} breathing is really laboured and fast.",
+        "{{He}}'s gasping, it's getting worse.",
+        "It's very laboured, {{he}}'s clearly struggling."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He was screaming but he's gone quiet now"
+        "{{He}} was screaming but {{he}}'s gone quiet now.",
+        "{{He}} was in agony at first, now {{he}}'s barely responding.",
+        "{{He}} was crying out, now {{he}}'s gone very quiet.",
+        "{{He}} was screaming in pain, now {{he}} can't speak much.",
+        "{{He}} was shouting in agony, now {{he}}'s fading.",
+        "{{He}} was in terrible pain, {{he}}'s too weak to say now.",
+        "{{He}} was screaming, that's stopped and it's worrying me.",
+        "{{He}} was crying out in pain, now {{he}}'s gone still.",
+        "{{He}} was in agony a minute ago, now {{he}}'s quiet.",
+        "{{He}} was screaming before, {{he}}'s stopped responding much now."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Bleeding badly, I'm pressing on it with a towel"
+        "Bleeding badly, I'm pressing on it with a towel.",
+        "It's a lot of blood, I've got a towel pressed on the wound.",
+        "Heavy bleeding, I'm holding pressure as hard as I can.",
+        "There's blood everywhere, I'm pressing down hard.",
+        "It's severe bleeding, I've got my hands on the wound.",
+        "Very heavy, I've got a jumper pressed against it now.",
+        "It won't stop, I'm keeping pressure on it.",
+        "There's so much blood, I'm doing everything I can to stop it.",
+        "Heavy and steady, I'm pressing as hard as I can manage.",
+        "It's soaking through everything I've put on it."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, sorry"
+        "I don't know, sorry.",
+        "No idea, I don't know {{him}} that well.",
+        "I couldn't tell you, sorry.",
+        "No idea, sorry, this all happened so fast.",
+        "I don't have that information, sorry.",
+        "No idea I'm afraid.",
+        "Not sure, I only know {{him}} from round here.",
+        "I can't say, sorry.",
+        "No idea, sorry, I don't know {{him}} well enough.",
+        "Sorry, I couldn't tell you {{his}} history."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, sorry"
+        "I don't know, sorry.",
+        "No idea, sorry.",
+        "I couldn't tell you.",
+        "No idea I'm afraid.",
+        "I don't have that information, sorry.",
+        "Not sure, sorry.",
+        "I can't say, sorry.",
+        "Sorry, I've no idea what {{he}} takes.",
+        "I really don't know, sorry.",
+        "No idea at all, sorry."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks about 25"
+        "Looks about 25.",
+        "I'd guess around 25.",
+        "Maybe 25, thereabouts.",
+        "Around twenty five I'd say.",
+        "I think {{he}}'s about 25.",
+        "Roughly 25, give or take.",
+        "I'd guess {{he}}'s in {{his}} mid twenties.",
+        "About 25, I believe.",
+        "Somewhere around twenty five.",
+        "I'd say 25, maybe a bit younger."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm keeping pressure on"
+        "Okay, I'm keeping pressure on.",
+        "Thank you, I won't stop pressing on the wound.",
+        "Okay, I'll keep {{him}} talking to me.",
+        "Thank you, I'm keeping firm pressure on it.",
+        "Okay, I'll stay right here with {{him}}.",
+        "Thank you, I'm not letting up on the pressure.",
+        "Okay, I'll keep {{him}} as still as I can.",
+        "Thank you, I'll keep pressing until they arrive.",
+        "Okay, I won't move {{him}} unless I have to.",
+        "Thank you, I'm doing everything you've told me."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs an ambulance right now"
+        "No, please, this can't wait for a call back.",
+        "No, I really think this needs an ambulance now.",
+        "Please no, {{he}} needs help now, not a phone call.",
+        "No, this is an emergency, we need someone now.",
+        "I don't think that's right, {{he}}'s really not well.",
+        "No, please send someone now, I'm begging you.",
+        "That doesn't sound right, this is urgent.",
+        "No, we can't wait for that, please send an ambulance.",
+        "Please, no, {{he}} needs help straight away.",
+        "No, I really think this is serious, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes, thank you, whoever did this might still be nearby.",
+        "Okay, good, I'm worried they're still around here somewhere.",
+        "Yes please, I saw them run off but they can't have gone far.",
+        "Thank you, please hurry, I don't feel safe here.",
+        "Yes, good, I think we need them here too.",
+        "Okay, thank you, I'm scared they might come back.",
+        "Yes please, this was a deliberate attack, we need them.",
+        "Thank you, I saw the direction they ran, I'll tell them.",
+        "Yes, that's good, I don't want to be here alone if they're around.",
+        "Okay, thank you, please send them quickly."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

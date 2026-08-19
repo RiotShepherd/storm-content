@@ -49,6 +49,12 @@
     "basu": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11,
+    "ambulance": 15,
+    "police": 5
+  },
   "patients": {
     "range": [
       35,
@@ -102,8 +108,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's loads of people collapsing at the station, I don't know what's happening",
-      "I need every ambulance you can send, dozens of people are being sick and collapsing on the platform"
+      "There's loads of people collapsing at the station, I don't know what's happening.",
+      "I need every ambulance you can send, dozens of people are being sick and collapsing.",
+      "Something's happened on the platform, people are dropping like flies.",
+      "We've got a mass casualty situation here, dozens are unwell all at once.",
+      "Please send everyone you can, people are collapsing all over the concourse.",
+      "There's some kind of incident, loads of passengers are being sick and passing out.",
+      "I've never seen anything like this, dozens of people are collapsing on the platform.",
+      "We need major help here, there's a huge number of people suddenly unwell.",
+      "It's chaos here, people are going down all over the station, please hurry.",
+      "There's been some sort of incident, we've got a huge number of casualties."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -115,82 +129,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's loads of people collapsing at the station, I don't know what's happening",
-        "I need every ambulance you can send, dozens of people are being sick and collapsing on the platform"
+        "There's loads of people collapsing at the station, I don't know what's happening.",
+        "I need every ambulance you can send, dozens of people are being sick and collapsing.",
+        "Something's happened on the platform, people are dropping like flies.",
+        "We've got a mass casualty situation here, dozens are unwell all at once.",
+        "Please send everyone you can, people are collapsing all over the concourse.",
+        "There's some kind of incident, loads of passengers are being sick and passing out.",
+        "I've never seen anything like this, dozens of people are collapsing on the platform.",
+        "We need major help here, there's a huge number of people suddenly unwell.",
+        "It's chaos here, people are going down all over the station, please hurry.",
+        "There's been some sort of incident, we've got a huge number of casualties."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, station staff here",
-        "{{callerName}}"
+        "It's {{callerName}}, station staff here.",
+        "{{callerName}}, station staff here.",
+        "My name's {{callerName}}, station staff here.",
+        "{{callerName}} here, station staff here.",
+        "It's {{callerName}} speaking, station staff here.",
+        "You can put me down as {{callerName}}, station staff here.",
+        "{{callerName}}. station staff here.",
+        "It's {{callerName}}, station staff here, please hurry.",
+        "{{callerName}}, that's me, station staff here.",
+        "It's {{callerName}}, station staff here, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "There's too many to give you one name, I'm sorry",
-        "I can't say, there's dozens of people"
+        "There's too many to give you one name, I'm sorry.",
+        "I can't say, there's dozens of people affected.",
+        "I honestly don't know, there's so many casualties.",
+        "I couldn't tell you, there's too many people down.",
+        "I can't give individual names, there's too many people.",
+        "There's no way to say, it's dozens of people at once.",
+        "I don't have names, we're just trying to help people.",
+        "Too many to name, honestly, it's chaos here.",
+        "I can't pick one out, there's so many affected.",
+        "There's just too many people, I can't give you a name."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, the railway station",
-        "{{address}}, main concourse"
+        "We're at {{address}}, main concourse.",
+        "It's {{address}}, main concourse.",
+        "{{address}}, main concourse.",
+        "The address is {{address}}, main concourse.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, main concourse.",
+        "{{address}} is where we are, main concourse.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "People just started being sick and collapsing all over the platform, there's dozens of them"
+        "People just started being sick and collapsing all over the platform, there's dozens.",
+        "Something's affected loads of people at once, they're collapsing and vomiting.",
+        "It happened really quickly, dozens of people going down together.",
+        "People started coughing and collapsing all around the concourse.",
+        "It seems to have hit everyone on the platform around the same time.",
+        "There's some kind of substance or gas maybe, people are collapsing fast.",
+        "It spread through the crowd quickly, people dropping one after another.",
+        "Passengers just started falling ill together, no obvious cause yet.",
+        "It's affected a huge number of people all at once, very sudden.",
+        "People are collapsing across the whole platform, we don't know why."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are, some aren't, it's chaos"
+        "Some are, some aren't, it's chaos.",
+        "It's mixed, some are talking, others aren't responding.",
+        "A lot are conscious but confused, some aren't responding at all.",
+        "Some are alert, quite a few aren't responding to us.",
+        "It varies, some are awake and scared, others are out cold.",
+        "Mixed picture, some conscious, several not responding.",
+        "Some are talking to us, others are completely unresponsive.",
+        "It's hard to tell overall, some are awake, some aren't.",
+        "A number are conscious and frightened, others aren't responding.",
+        "Some are alert, but a good number are not responding at all."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Some are struggling to breathe"
+        "Some are struggling to breathe.",
+        "A lot of them seem to be coughing and short of breath.",
+        "Several are breathing fast and struggling.",
+        "Some seem fine, others are really struggling for breath.",
+        "A number are wheezing and finding it hard to breathe.",
+        "It varies, some breathing okay, others really struggling.",
+        "Quite a few are coughing badly and short of breath.",
+        "Some look fine, but several are gasping for air.",
+        "A lot are breathing quickly and seem distressed.",
+        "Mixed again, some fine, several clearly struggling."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I can't tell, there's too many people"
+        "I can't tell, there's too many people.",
+        "Some are saying their chest hurts, it's hard to keep track.",
+        "I can't get details from everyone, there's just too many.",
+        "A few have mentioned chest pain, but I can't confirm for all.",
+        "I can't say for certain, there's so many people to check.",
+        "Some are complaining of pain, I can't say exactly what for all.",
+        "I honestly can't keep track with this many people.",
+        "A number have said they feel unwell, hard to say more than that.",
+        "I can't give you specifics, there's just too many casualties.",
+        "It's impossible to check everyone individually right now."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I haven't seen any blood, more people just collapsing"
+        "I haven't seen any blood, more people just collapsing.",
+        "No bleeding that I've noticed, it's more people passing out.",
+        "None that I can see, mostly people being sick or collapsing.",
+        "I haven't spotted any blood, it seems more medical than injury.",
+        "No visible bleeding, just people going down and being unwell.",
+        "Not that I've seen, it's mostly collapses and sickness.",
+        "No blood as far as I can tell, more people falling ill.",
+        "I haven't seen any bleeding among the people affected.",
+        "None visible, this looks like a mass illness, not injuries.",
+        "No bleeding that I've noticed among any of them."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've no idea, there's so many people"
+        "I've no idea, there's so many people.",
+        "I can't possibly know that for everyone here.",
+        "No idea, we don't know most of these people.",
+        "I couldn't tell you, there's dozens of strangers involved.",
+        "No way to know, they're just passengers, not people we know.",
+        "I've no information on any of them, sorry.",
+        "I can't say, there's far too many people to ask.",
+        "No idea at all, we don't know any of them personally.",
+        "I don't have that information for anyone here.",
+        "No, sorry, there's just too many people to find out."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, sorry"
+        "I don't know, sorry.",
+        "No idea, there's too many people to check.",
+        "I can't say for any of them, sorry.",
+        "No information on that for anyone here.",
+        "I don't know, there's dozens of people involved.",
+        "No idea at all, sorry.",
+        "I can't tell you that, there's too many casualties.",
+        "No, I don't have any of that information.",
+        "I don't know, we don't know these people personally.",
+        "No idea, sorry, it's chaos here."
       ]
     },
     "patientAge": {
       "answers": [
-        "All sorts, adults and children"
+        "All sorts, adults and children.",
+        "A real mix, young and old, right across the platform.",
+        "Every age really, from kids to elderly passengers.",
+        "There's people of every age affected, it's a real mix.",
+        "Adults, children, elderly, it's affecting everyone.",
+        "A wide range, I've seen kids and older people both.",
+        "All ages, it doesn't seem to be picking anyone in particular.",
+        "Mixed ages, definitely some children and some elderly too.",
+        "Every age group really, this has hit a real cross section.",
+        "A real spread, young commuters and older passengers alike."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please send everyone you can"
+        "Okay, please send everyone you can.",
+        "Thank you, we're trying to keep people calm and seated.",
+        "Okay, we're doing what we can until crews arrive.",
+        "Thank you, we've started moving people to one area.",
+        "Okay, we'll keep the concourse clear for access.",
+        "Thank you, we're checking on people as best we can.",
+        "Okay, please hurry, there's so many people here.",
+        "Thank you, we're trying to keep everyone together and calm.",
+        "Okay, we'll do what we can until more help arrives.",
+        "Thank you, we've got staff helping where we can."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need multiple ambulances now"
+        "No, we need multiple ambulances now.",
+        "No, this is way beyond what 111 could handle.",
+        "No, we've got dozens of people down, we need help now.",
+        "No, please, this is a major incident, we need everyone you can send.",
+        "No, this can't wait, there's too many people affected.",
+        "No, we need proper emergency help right now.",
+        "No, this is way too serious for anything other than ambulances.",
+        "No, please, there's people collapsing all around us.",
+        "No, we need urgent help, not a call back.",
+        "No, this needs a full emergency response right now."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes please, we need help managing the crowds here too.",
+        "Thank you, it's getting chaotic, we could use them for crowd control.",
+        "Okay, good, we need help keeping people back and calm.",
+        "Yes, that would help, it's very crowded and panicked here.",
+        "Thank you, we need support managing everyone on the concourse.",
+        "Okay, that's a relief, we can't control the crowd alone.",
+        "Yes please, people are panicking and it's getting difficult to manage.",
+        "Thank you, we need help keeping order while the ambulances arrive.",
+        "Okay, good, the crowd's building and we need assistance.",
+        "Yes, please hurry, we need help managing this many people."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes please, we don't know if it's something in the air.",
+        "Thank you, if there's a substance involved we need their help.",
+        "Okay, good, we're worried it might be something environmental.",
+        "Yes, that would help, we don't know the cause yet.",
+        "Thank you, we need help checking if it's safe here.",
+        "Okay, we're not sure what's caused this, so yes please.",
+        "Yes please, in case it's something we need decontaminating.",
+        "Thank you, we really don't know what's triggered all this.",
+        "Okay, good, better safe than sorry given how many are affected.",
+        "Yes, please hurry, we need to know if the area's safe."
       ]
     }
   },

@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -71,8 +75,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My husband's face has suddenly drooped on one side, I think it's a stroke",
-      "Something's wrong, one side of his face isn't moving properly and his speech is slurred"
+      "My {{husband}}'s face has suddenly drooped on one side, I think it's a stroke",
+      "Something's wrong, one side of my {{husband}}'s face isn't moving properly",
+      "My {{husband}}'s speech has gone slurred and {{his}} face looks wrong",
+      "I think my {{husband}}'s having a stroke, {{his}} face has dropped on one side",
+      "My {{husband}}'s face has gone crooked and {{he}} can't talk properly",
+      "Please help, my {{husband}}'s face has drooped and {{his}} arm feels weak",
+      "My {{husband}}'s slurring {{his}} words and one side of {{his}} face has dropped",
+      "I think it's a stroke, my {{husband}}'s face isn't moving right",
+      "My {{husband}} suddenly couldn't smile properly, one side's gone weak",
+      "My {{husband}}'s face has drooped and {{he}} can't lift {{his}} arm properly"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -84,90 +96,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My husband's face has suddenly drooped on one side, I think it's a stroke",
-        "Something's wrong, one side of his face isn't moving properly and his speech is slurred"
+        "My {{husband}}'s face has suddenly drooped on one side, I think it's a stroke",
+        "Something's wrong, one side of my {{husband}}'s face isn't moving properly",
+        "My {{husband}}'s speech has gone slurred and {{his}} face looks wrong",
+        "I think my {{husband}}'s having a stroke, {{his}} face has dropped on one side",
+        "My {{husband}}'s face has gone crooked and {{he}} can't talk properly",
+        "Please help, my {{husband}}'s face has drooped and {{his}} arm feels weak",
+        "My {{husband}}'s slurring {{his}} words and one side of {{his}} face has dropped",
+        "I think it's a stroke, my {{husband}}'s face isn't moving right",
+        "My {{husband}} suddenly couldn't smile properly, one side's gone weak",
+        "My {{husband}}'s face has drooped and {{he}} can't lift {{his}} arm properly"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}, my husband"
+        "It's {{firstPatientName}}, my {{husband}}",
+        "{{firstPatientName}}, {{he}}'s my {{husband}}",
+        "My {{husband}}'s name is {{firstPatientName}}",
+        "{{firstPatientName}}, that's {{him}}",
+        "It's my {{husband}} {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "{{firstPatientName}}, {{he}}'s sixty five",
+        "My {{husband}} is called {{firstPatientName}}",
+        "{{firstPatientName}}, please hurry",
+        "{{firstPatientName}}, my {{husband}}, please come quickly"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, please hurry"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "His face suddenly drooped on one side and his speech went slurred, it happened in the last few minutes",
-        "One side of his mouth has dropped and he can't lift his arm properly, I think it's a stroke"
+        "{{His}} face suddenly drooped on one side and {{his}} speech went slurred",
+        "{{He}} tried to smile and one side of {{his}} face wouldn't move properly",
+        "{{He}} suddenly couldn't lift {{his}} arm and {{his}} face looked crooked",
+        "{{His}} speech went slurred out of nowhere and {{his}} mouth's drooping",
+        "{{He}} was talking normally then suddenly {{his}} words came out wrong",
+        "One side of {{his}} face has gone completely weak and droopy",
+        "{{He}} can't hold a cup properly and {{his}} face looks lopsided",
+        "{{His}} face dropped suddenly while we were watching television",
+        "{{He}} suddenly seemed confused and {{his}} face went crooked on one side",
+        "{{His}} arm went weak at the same time {{his}} face started drooping"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake but confused",
-        "Yes, conscious, frightened"
+        "{{He}}'s awake but not making much sense",
+        "Yes, {{he}}'s conscious, just very confused",
+        "{{He}}'s awake, {{he}} doesn't seem to know where {{he}} is",
+        "Conscious, yes, but {{he}}'s saying odd things",
+        "{{He}}'s awake, {{he}} keeps asking the same questions",
+        "Yes, {{he}}'s conscious, {{he}}'s just really muddled",
+        "{{He}}'s talking but it's not making sense",
+        "Yes, awake, but {{he}} doesn't know what day it is",
+        "{{He}}'s conscious, {{he}}'s just very disorientated",
+        "Awake, yes, but {{he}}'s not {{himself}} at all"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
+        "Yes, {{his}} breathing's fine",
+        "Fine, no problems breathing",
         "Yes, breathing normally",
-        "Fine"
+        "{{He}}'s breathing okay",
+        "Normal, as far as I can tell",
+        "Yes, {{he}}'s breathing fine, just unwell",
+        "{{His}} breathing seems okay to me",
+        "Fine, no distress with {{his}} breathing",
+        "Yes, breathing's steady",
+        "{{He}}'s breathing normally, yes"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He hasn't mentioned pain",
-        "Not that he's said"
+        "No real pain, just feels dreadful all over",
+        "Not pain exactly, just very weak and unwell",
+        "No, {{he}} says {{he}} just feels awful",
+        "No pain as such, just really lethargic",
+        "Not pain, just no energy at all",
+        "No, {{he}}'s not in pain, just very unwell",
+        "No pain, just feels rough and shaky",
+        "Not really, just generally unwell",
+        "No, no pain, {{he}}'s just exhausted",
+        "No pain, {{he}} just seems really off colour"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No, no bleeding, {{he}}'s just unwell",
+        "No blood involved, no",
+        "No, this isn't that kind of thing",
+        "No bleeding, {{he}}'s just really weak",
+        "No, nothing like that at all",
+        "No, {{he}}'s not injured, just poorly",
+        "No blood, no",
+        "Not that I've seen, no",
+        "No, no cuts or blood, {{he}}'s just unwell",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "High blood pressure",
-        "He's had a mini stroke before, I think"
+        "Yes, {{he}}'s got high blood pressure and high cholesterol",
+        "{{He}}'s known with high blood pressure and high cholesterol",
+        "Yes, {{he}} has high blood pressure and high cholesterol, has done for years",
+        "{{He}}'s got high blood pressure and high cholesterol, it's on file with the GP",
+        "Yes, {{he}} suffers with high blood pressure and high cholesterol",
+        "{{He}} has high blood pressure and high cholesterol, diagnosed a while back",
+        "Yes, {{he}}'s had high blood pressure and high cholesterol for some time",
+        "{{He}}'s got a history of high blood pressure and high cholesterol",
+        "Yes, high blood pressure and high cholesterol, {{he}}'s had it for years",
+        "{{He}}'s known to have high blood pressure and high cholesterol"
       ]
     },
     "medications": {
       "answers": [
-        "He takes blood pressure tablets",
-        "Blood thinners, I believe"
+        "Yes, {{he}} takes blood pressure tablets and statins",
+        "{{He}}'s on blood pressure tablets and statins",
+        "Yes, {{he}} takes blood pressure tablets and statins regularly",
+        "{{He}}'s prescribed blood pressure tablets and statins",
+        "Yes, blood pressure tablets and statins, {{he}} takes it every day",
+        "{{He}} takes blood pressure tablets and statins for it",
+        "Yes, {{he}}'s on blood pressure tablets and statins, has been for a while",
+        "{{He}} takes blood pressure tablets and statins regularly, yes",
+        "Yes, blood pressure tablets and statins is what {{he}}'s on",
+        "{{He}}'s on blood pressure tablets and statins at the moment"
       ]
     },
     "patientAge": {
       "answers": [
-        "66"
+        "{{He}}'s 65",
+        "About 65, I think",
+        "{{He}}'s 65 years old",
+        "65, {{he}}'ll be 66 next year",
+        "I think {{he}}'s 65 or thereabouts",
+        "65 years of age",
+        "{{He}}'s in {{his}} 60s, about 65",
+        "Just turned 65",
+        "{{He}}'s 65, always been fit for {{his}} age",
+        "65, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm noting the time it started like you said",
-        "I'm staying right with him"
+        "Okay, I'm staying on the line with {{him}}",
+        "Right, I'm keeping {{him}} sitting up like you said",
+        "I'm with {{him}}, talking {{him}} through it",
+        "Okay, I've opened a window, trying to keep {{him}} cool and calm",
+        "Yes, I'm doing that now, {{he}}'s still talking to me",
+        "Okay, I've got {{him}} comfortable, waiting with {{him}}",
+        "I'm keeping {{him}} calm, {{he}}'s frightened",
+        "Right, I'll stay with {{him}} till they arrive",
+        "Okay, doing that now, {{he}}'s still with me",
+        "I'm not leaving {{his}} side, promise"
       ]
     },
     "refer111": {
       "answers": [
-        "No, absolutely not, this looks like a stroke",
-        "No, this needs an ambulance now"
+        "No, this looks like a stroke, {{he}} needs an ambulance now",
+        "No, please, {{his}} face is still drooping, this can't wait",
+        "I don't think that's enough, this looks really serious",
+        "No, please, {{he}} needs to be seen urgently, it's the signs of a stroke",
+        "I'd rather someone came now, time matters with this",
+        "No, this needs an ambulance, {{he}}'s still slurring {{his}} words",
+        "I don't think 111 can help with this, please send someone straight away",
+        "No, {{he}}'s getting worse, this can't wait for a call back",
+        "Please just send an ambulance, I think {{he}}'s having a stroke",
+        "No, I think this is an emergency, please hurry"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, why would we need police, please just send the ambulance",
+        "No, no police, please, {{he}} just needs help right now",
+        "No, I don't understand, there's no crime, just get an ambulance here",
+        "No police needed, please, {{he}}'s really unwell, just paramedics",
+        "No, please, no police, {{he}} just needs medical help urgently",
+        "No, nothing like that, please just send the ambulance quickly",
+        "Police? No, please, {{he}} just needs paramedics, hurry",
+        "No, definitely not police, please, {{he}} needs an ambulance now",
+        "No, please, there's no need for police, just help {{him}}",
+        "No police, please, I'm begging you, just get an ambulance here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, no, there's no fire, please just get the ambulance here",
+        "No, no fire, why would we need that, {{he}} just needs help now",
+        "There's no fire, I don't understand, just send the ambulance please",
+        "No fire brigade, please, {{he}}'s not trapped, {{he}}'s just in a bad way",
+        "No, no, nothing's burning, please, {{he}} just needs paramedics",
+        "Fire service? No, please, just the ambulance, {{he}}'s really unwell",
+        "No, there's no fire here, I just need someone to help {{him}} now",
+        "No fire, please, I don't know why you'd say that, just hurry",
+        "No, please, no fire brigade, {{he}} just needs an ambulance urgently",
+        "There's definitely no fire, please just send the paramedics quickly"
       ]
     }
   },

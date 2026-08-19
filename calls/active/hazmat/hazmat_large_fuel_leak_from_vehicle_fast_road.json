@@ -47,6 +47,11 @@
     "irv": 2,
     "traffic_car": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 2,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -70,8 +75,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's a lorry leaking loads of fuel on the dual carriageway",
-      "Big fuel leak from a vehicle on the fast road, traffic's building up"
+      "There's a big fuel leak from a lorry on the dual carriageway, traffic's building up.",
+      "A lorry's leaking fuel badly on the fast road, it's really dangerous for other traffic.",
+      "I want to report a large fuel spill on the A road, cars are having to swerve around it.",
+      "There's fuel pouring from a lorry on the hard shoulder, it's spreading into the lanes.",
+      "A vehicle's leaking a lot of fuel on the dual carriageway, traffic's slowing right down.",
+      "I'm calling about a serious fuel leak on the fast road, it's a real hazard.",
+      "There's a big spill on the A road, fuel's covering more than one lane now.",
+      "A lorry's stopped on the hard shoulder and it's leaking a large amount of fuel.",
+      "There's fuel spreading across the fast road, traffic's backing up because of it.",
+      "I want to report a fuel leak on the dual carriageway, it's dangerous with the speed of traffic."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -83,91 +96,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's a lorry leaking loads of fuel on the dual carriageway",
-        "Big fuel leak from a vehicle on the fast road, traffic's building up"
+        "There's a big fuel leak from a lorry on the dual carriageway, traffic's building up.",
+        "A lorry's leaking fuel badly on the fast road, it's really dangerous for other traffic.",
+        "I want to report a large fuel spill on the A road, cars are having to swerve around it.",
+        "There's fuel pouring from a lorry on the hard shoulder, it's spreading into the lanes.",
+        "A vehicle's leaking a lot of fuel on the dual carriageway, traffic's slowing right down.",
+        "I'm calling about a serious fuel leak on the fast road, it's a real hazard.",
+        "There's a big spill on the A road, fuel's covering more than one lane now.",
+        "A lorry's stopped on the hard shoulder and it's leaking a large amount of fuel.",
+        "There's fuel spreading across the fast road, traffic's backing up because of it.",
+        "I want to report a fuel leak on the dual carriageway, it's dangerous with the speed of traffic."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "No patient, the driver's safely out of the vehicle",
-        "Nobody's hurt"
+        "No, there's no patient, it's the fuel leak I'm calling about.",
+        "Nobody's hurt, I'm ringing about the fuel leak.",
+        "There's no injured person, just the incident to report.",
+        "No one to name, no one's been hurt here.",
+        "It's not a person hurt, it's the fuel leak, nobody's involved.",
+        "No patient, no one's been injured.",
+        "There isn't anyone hurt, so no name to give you.",
+        "Nobody's been hurt, I'm just reporting the fuel leak.",
+        "No casualties, it's just the fuel leak I need you for.",
+        "No one's injured, there's no patient to give a name for."
       ]
     },
     "address": {
       "answers": [
-        "It's on the dual carriageway near {{address}}",
-        "{{address}}, on the hard shoulder"
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A lorry's fuel tank has split, it's leaking heavily across the carriageway",
-        "There's fuel all over the road, cars are having to swerve round it"
+        "A lorry's leaking a lot of fuel on the dual carriageway, it's spreading into the live lanes.",
+        "It's on the hard shoulder but the fuel's reaching into the running lane now.",
+        "There's a large spill covering part of the fast road, traffic's slowing right down to avoid it.",
+        "The lorry's tank is leaking heavily, fuel's spreading fast because of the road camber.",
+        "It's a serious leak on a fast road, quite dangerous with vehicles going past at speed.",
+        "The fuel's covering more than one lane now, traffic's backing up behind it.",
+        "It's spreading quickly on the dual carriageway, drivers are having to swerve round it.",
+        "The lorry's stopped on the hard shoulder but fuel's tracking into the live lane.",
+        "There's a big patch of fuel on the fast road, it's a real skid risk for other traffic.",
+        "It's a substantial leak right on the carriageway, traffic's crawling past it now."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No patient",
-        "N/A"
+        "Everyone's fine, no one's hurt, so nothing to report there.",
+        "There's no patient, so nobody's unconscious or anything like that.",
+        "No one's collapsed or anything, the fuel leak is the only issue.",
+        "Nobody's hurt at all, we're all fine here.",
+        "No casualties, so that question doesn't really apply.",
+        "Everybody's up and about, no one's been affected.",
+        "No one's hurt, we're all stood well back and fine.",
+        "There's no injured person, everyone here is okay.",
+        "No, nobody's collapsed, it's just the fuel leak, no one's hurt.",
+        "All fine here, no one's been knocked about or hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No patient involved",
-        "N/A"
+        "No breathing problems, nobody's been affected by anything.",
+        "Everyone's breathing fine, there's no patient to worry about.",
+        "No one's struggling for breath, we're all outside and fine.",
+        "No issues there, nobody's hurt or affected.",
+        "Breathing's fine for everyone, it's just the fuel leak.",
+        "No one's had any trouble breathing here.",
+        "Not a problem, there's no casualty, everyone's breathing normally.",
+        "No, nobody's affected, we're all fine and clear of it.",
+        "No breathing issues, nobody's been caught up in it.",
+        "Everyone's absolutely fine, no breathing problems at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No injuries",
-        "Nobody's hurt"
+        "No, nobody's in any pain, there's no patient.",
+        "No one's hurt, so no pain to report.",
+        "Nobody's in pain, we're all fine here.",
+        "No injuries, no pain, just the fuel leak to deal with.",
+        "No, everyone's fine, nobody's been hurt.",
+        "There's no casualty, so no, nobody's in pain.",
+        "No pain, no injuries, nobody's been affected.",
+        "Nobody's hurt at all, so no pain to speak of.",
+        "No, we're all fine, no injuries here.",
+        "No one's in any discomfort, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No, no bleeding, nobody's hurt.",
+        "No injuries at all, so no bleeding.",
+        "Nobody's cut or bleeding, we're all fine.",
+        "No, there's no patient, no bleeding to report.",
+        "No blood, no injuries, everyone's fine here.",
+        "No one's bleeding, it's just the fuel leak.",
+        "No injuries whatsoever, nobody's bleeding.",
+        "No, nobody's hurt, so no bleeding.",
+        "No blood, no casualties, we're all okay.",
+        "No, not a scratch on anyone, we're fine."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A",
-        "No patient"
+        "There's no patient, so I've nothing medical to tell you.",
+        "Sorry, no patient here, nothing to report medically.",
+        "No one's hurt, so there's no medical history needed.",
+        "Not applicable, nobody's been injured here.",
+        "No patient, so nothing to add on that front.",
+        "There's no one hurt, so no medical details needed.",
+        "No casualties, so nothing medical to report.",
+        "Sorry, there's no patient for me to tell you about.",
+        "No injuries, so I can't help with that one.",
+        "Nobody's hurt, there's no medical history to give you."
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "No patient"
+        "No idea, there's no one hurt here.",
+        "No patient, so no medication to mention.",
+        "Not applicable, nobody's injured.",
+        "No one's hurt, so that doesn't apply here.",
+        "No idea, sorry, there's no casualty.",
+        "No patient, nothing to report on that.",
+        "Not relevant, nobody's been hurt.",
+        "No one's affected, so no medication to give you.",
+        "N/A, there's no patient here.",
+        "No injuries, so nothing on medication to add."
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient",
-        "N/A"
+        "There's no patient, nobody's been injured.",
+        "No one hurt, so no age to give you.",
+        "Not applicable, there's no casualty here.",
+        "No patient, sorry, nobody's been hurt.",
+        "No one's injured, so that doesn't apply.",
+        "N/A, there's no one hurt at this job.",
+        "No casualties, no age to report.",
+        "Nobody's hurt, so there's no patient age to give.",
+        "No injuries at all, no patient to speak of.",
+        "There's no one hurt, no age needed."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay well back from the traffic",
-        "Right, I'm on the hard shoulder, away from the road"
+        "Oh, we don't need an ambulance, nobody's hurt here, but thank you.",
+        "No need for paramedics, everyone's fine, it's just the incident we need dealt with.",
+        "There's no one injured, so no ambulance necessary, but I appreciate it.",
+        "No thank you, nobody's hurt, we just need the crews out here.",
+        "We're all fine here, no one needs an ambulance.",
+        "No injuries at all, so there's no need for paramedics, thanks anyway.",
+        "Nobody's hurt, so I don't think we need an ambulance, just the crews.",
+        "That's kind, but no one's injured, we don't need paramedics.",
+        "No, honestly, everyone's fine, it's just the incident itself we need sorted.",
+        "No need, thank you, nobody's been hurt here at all."
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's not medical, it's the fuel leak on a fast road",
-        "No injuries, just very dangerous with the traffic"
+        "No, it's a fuel spill, I need the fire brigade not 111.",
+        "Sorry, no, nobody's hurt, but it needs clearing up properly.",
+        "No, 111 won't help with this, it's a spillage.",
+        "No thank you, I need someone out here for the leak.",
+        "Sorry, no, it's not medical, it's fuel on the road.",
+        "No, I don't need 111, I need the fire brigade for this.",
+        "No, this needs a proper clean up, not a phone line.",
+        "Sorry, no, please just send someone for the spill.",
+        "No, it's not a person hurt, it's the fuel leaking.",
+        "No thanks, I need the brigade out for the spillage, not 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll point them to where they're needed when they arrive.",
+        "Right, that's good, we could do with them here to sort the traffic.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting a bit chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay back until the crews get here.",
+        "Right, that's a relief, please send them as quickly as you can.",
+        "Okay, we'll keep everyone well clear until the fire engines arrive.",
+        "Thank you, I'll wait here and point them in the right direction.",
+        "Alright, understood, we won't go near it till they arrive.",
+        "Okay, good, we're all outside and waiting for the crews.",
+        "Thank you, we'll keep our distance until the brigade gets here.",
+        "Right, please hurry, it's not looking any better.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, we'll wait here for them."
       ]
     }
   },

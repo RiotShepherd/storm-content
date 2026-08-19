@@ -46,6 +46,11 @@
     "single_pump": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -83,7 +88,15 @@
   "caller": {
     "openings": [
       "There's been an explosion in the bakery at the back of the supermarket, staff are hurt",
-      "I need the fire brigade, the bakery oven's blown, there's smoke and a few of us are hurt"
+      "I need the fire brigade, the bakery oven's blown, there's smoke and a few of us are hurt",
+      "Please hurry, there's been an oven explosion in our bakery, staff are injured",
+      "The bakery oven's exploded, there's smoke everywhere and people hurt",
+      "There's been a blast in the in store bakery, a few staff are injured",
+      "Please send help, the oven's exploded and there's staff caught in the blast",
+      "There's smoke and injuries after an oven explosion in our bakery department",
+      "Quick, the bakery's had an explosion, some of the team are hurt",
+      "There's been an accident, the oven's blown up and staff are injured",
+      "Please hurry, there's an explosion in the bakery and people are hurt"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -96,78 +109,231 @@
     "start": {
       "answers": [
         "There's been an explosion in the bakery at the back of the supermarket, staff are hurt",
-        "I need the fire brigade, the bakery oven's blown, there's smoke and a few of us are hurt"
+        "I need the fire brigade, the bakery oven's blown, there's smoke and a few of us are hurt",
+        "Please hurry, there's been an oven explosion in our bakery, staff are injured",
+        "The bakery oven's exploded, there's smoke everywhere and people hurt",
+        "There's been a blast in the in store bakery, a few staff are injured",
+        "Please send help, the oven's exploded and there's staff caught in the blast",
+        "There's smoke and injuries after an oven explosion in our bakery department",
+        "Quick, the bakery's had an explosion, some of the team are hurt",
+        "There's been an accident, the oven's blown up and staff are injured",
+        "Please hurry, there's an explosion in the bakery and people are hurt"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the duty manager"
+        "It's {{callerName}}, I'm the duty manager",
+        "{{callerName}} here, I'm the store manager",
+        "It's {{callerName}}, I run the bakery department",
+        "{{callerName}}, I'm the manager on shift",
+        "It's {{callerName}}, I heard the explosion from the front of store",
+        "My name's {{callerName}}, I'm managing the evacuation",
+        "It's {{callerName}}, I got to the bakery straight after it happened",
+        "{{callerName}} speaking, I'm the shift supervisor",
+        "It's {{callerName}}, I've called an ambulance too",
+        "{{callerName}}, I'm coordinating with staff outside now"
       ]
     },
     "patientName": {
       "answers": [
-        "It's a few of the bakery staff, I don't have all their names yet"
+        "It's a few of the bakery staff, I don't have all their names yet",
+        "I've got some names but not all of them yet",
+        "There's a few of them hurt, I'm still checking names",
+        "I don't have all the names, they're bakery team members",
+        "A few of my staff are hurt, I'm getting names together now",
+        "I don't have a full list of names yet, sorry",
+        "There's several of the bakery team injured, I'm checking on names",
+        "I can't give you all the names right now, there's a few of them",
+        "I don't have complete names yet, I'm trying to account for everyone",
+        "A few staff are hurt, I'm still working out exactly who"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the supermarket, come round to the loading bay at the back"
+        "{{address}}, it's the supermarket, come round to the loading bay at the back",
+        "It's {{address}}, use the staff entrance at the rear",
+        "{{address}}, the bakery's at the back of the store",
+        "It's {{address}}, I'll meet you at the loading bay",
+        "{{address}}, follow signs to the staff car park",
+        "It's {{address}}, come through the back service road",
+        "{{address}}, the bakery department is near the rear exit",
+        "It's {{address}}, security will let you straight in",
+        "{{address}}, we've evacuated to the front car park",
+        "It's {{address}}, I'll have someone waiting at the entrance"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "One of the ovens exploded in the in store bakery, there's smoke and a few staff caught the blast"
+        "One of the ovens exploded in the in store bakery, there's smoke and a few staff caught the blast",
+        "There was a loud bang from the oven and then smoke and flames",
+        "The oven blew suddenly, a few of the bakery staff were caught nearby",
+        "It exploded without warning, there's staff injured from the blast",
+        "The oven malfunctioned and exploded, a few people were caught by it",
+        "There was a bang and a flash, some staff got caught in the blast",
+        "The oven's gone, it exploded and injured a few of the bakery team",
+        "It blew up suddenly while staff were working nearby",
+        "There was an explosion from the oven, it's caused injuries and a fire",
+        "The oven exploded and the blast caught several members of staff"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "They're all conscious, a bit shaken and some are coughing"
+        "They're all conscious, a bit shaken and some are coughing",
+        "Everyone's conscious, just very shaken up by the blast",
+        "They're all awake, some are in a lot of shock",
+        "Everyone's conscious but shaken, a few are struggling with the smoke",
+        "They're conscious, mostly just shaken and coughing",
+        "All conscious, but a couple are quite badly shaken",
+        "They're awake, just very shocked by what happened",
+        "Everyone's responding, a few are coughing from the smoke",
+        "They're conscious, we're keeping them calm",
+        "All awake and talking, though a couple are quite distressed"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple are struggling with the smoke, we've got them out into the car park"
+        "A couple are struggling with the smoke, we've got them out into the car park",
+        "Some are coughing from the smoke, we've moved them outside",
+        "A few are struggling to breathe from the smoke in the bakery",
+        "Some are wheezing from the smoke, we've got them into fresh air",
+        "A couple are having trouble breathing, we've moved them out",
+        "Some are coughing badly, we've got everyone out of the smoke now",
+        "A few are struggling, we've moved them to the car park for fresh air",
+        "Some are breathless from the smoke, they're outside now",
+        "A couple are coughing hard, we've got them clear of the smoke",
+        "Some are struggling with the smoke, we're keeping them outside"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "A few are saying their arms and faces are sore, might be burns"
+        "A few are saying their arms and faces are sore, might be burns",
+        "Some are complaining of burns to their hands and arms",
+        "A few have burns, they're saying it's quite painful",
+        "Some are in pain from what looks like burns",
+        "A few are saying their skin's sore, possible burns from the blast",
+        "Some have burns and are in a fair bit of pain",
+        "A few are complaining of pain, mostly to their hands and arms",
+        "Some have what look like burns, they're in discomfort",
+        "A few are in pain from burns to their arms and faces",
+        "Some are saying they're sore, likely burns from the explosion"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "One's got a cut from flying debris, not too bad"
+        "One's got a cut from flying debris, not too bad",
+        "There's a cut or two from the debris, nothing severe",
+        "A couple have small cuts from the blast, not heavy bleeding",
+        "There's some minor bleeding from debris cuts",
+        "One has a graze from flying debris, it's minor",
+        "A couple of small cuts, nothing too serious",
+        "There's light bleeding from a cut or two, from the debris",
+        "One's got a small cut, we've put a dressing on it",
+        "A couple of minor cuts from flying glass and debris",
+        "There's some minor bleeding, mostly small debris cuts"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know all of their medical histories, I can find out"
+        "I don't know all of their medical histories, I can find out",
+        "I'm not sure, I can check personnel files if needed",
+        "I don't have that information for all of them, sorry",
+        "I'm not certain, I'll try to find out from HR",
+        "I don't know, I can check their staff records",
+        "I'm not sure of everyone's history, I'll look into it",
+        "I don't have full details, I can check with HR",
+        "I'm not sure, sorry, I'll try to find out",
+        "I don't know all their histories, I'll check what I can",
+        "I'm not certain, I can ask HR to check"
       ]
     },
     "medications": {
       "answers": [
-        "Not sure, I'll check with HR"
+        "Not sure, I'll check with HR",
+        "I don't know, I can check their staff files",
+        "I'm not certain, I'll try to find out",
+        "I don't have that information, sorry",
+        "Not sure, I'll ask HR to check for you",
+        "I don't know off hand, I can look into it",
+        "I'm not sure, sorry, I don't have that detail",
+        "I don't know, I'll try to find out what I can",
+        "Not sure, I can check with HR if needed",
+        "I don't have that information right now, sorry"
       ]
     },
     "patientAge": {
       "answers": [
-        "All adults, staff members, ages vary"
+        "All adults, staff members, ages vary",
+        "They're all adults, various ages",
+        "All working age adults, a mix of ages",
+        "They're all staff, adults of different ages",
+        "All adults, a fairly wide range of ages",
+        "They're all grown adults, various ages",
+        "All working staff, ages vary quite a bit",
+        "They're all adults, a mix of younger and older staff",
+        "All adults, different ages across the team",
+        "They're all adults, a good range of ages"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've evacuated the bakery and store, everyone's out front"
+        "Okay, we've evacuated the bakery and store, everyone's out front",
+        "Right, we've got everyone in the car park now",
+        "Okay, the store's been fully evacuated",
+        "Understood, we're keeping everyone together outside",
+        "Alright, we've got first aid trained staff with them",
+        "Okay, everyone's accounted for and outside now",
+        "Right, we'll have someone meet you at the entrance",
+        "Okay, we're keeping them calm while we wait",
+        "Understood, we're doing headcounts of all staff",
+        "Okay, everyone's safely outside the building now"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we need help keeping the evacuated crowd calm in the car park",
+        "Yes please, customers keep trying to go back in for their shopping",
+        "Thank you, it's chaos out here with everyone evacuated",
+        "Okay, good, can they help manage the car park, it's getting crowded",
+        "Yes, send them, people are asking lots of questions we can't answer",
+        "Good, we could use help keeping the crowd back from the doors",
+        "Thank you, some customers won't stay clear of the entrance",
+        "Okay, they can help us keep everyone organised out here",
+        "Good, the car park's getting busy with everyone stood about",
+        "Yes please, we need help keeping order while we wait"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, there's smoke logging the bakery",
+        "Okay, good, we've got everyone out front, just waiting on you now",
+        "Please hurry, a few of the staff caught the blast quite badly",
+        "Thank you, the gas supply to the ovens is still a worry",
+        "Okay, I can see them pulling in now, thank god",
+        "Good, hurry, the smoke's spreading through the store",
+        "Thank you, we've kept the whole bakery section clear",
+        "Okay, please tell them to hurry, staff are still shaken up",
+        "Thank goodness, everyone's accounted for and out front",
+        "Good, hurry please, we can smell gas near the ovens"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need the fire brigade, there's been an explosion and people are hurt"
+        "No, we need the fire brigade, there's been an explosion and people are hurt",
+        "No, this is an emergency, please send help now",
+        "No thank you, there's been an explosion, we need urgent help",
+        "No, please, several staff are hurt from the blast",
+        "No, this isn't something 111 can help with",
+        "No, please just send help urgently, there's been an explosion",
+        "No, this is too serious for that, please hurry",
+        "No, please, we need emergency services here now",
+        "No, several people are injured, we need help urgently",
+        "No, it's an emergency, please hurry"
       ]
     }
   },

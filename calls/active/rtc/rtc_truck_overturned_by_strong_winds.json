@@ -50,6 +50,12 @@
     "irv": 2,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 2,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -84,7 +90,15 @@
   "caller": {
     "openings": [
       "A lorry's been blown right over by the wind, it's on its side across the road!",
-      "Emergency, a high sided truck has overturned in the wind, the driver might be hurt."
+      "Emergency, a high sided truck has overturned in the wind, the driver might be hurt.",
+      "A lorry's toppled over in the wind, it's blocking the whole road!",
+      "Please hurry, a truck's blown over onto its side, the driver's still inside.",
+      "There's been an accident, a lorry's overturned in the strong wind.",
+      "A high sided vehicle's gone over in the wind, it's on its side.",
+      "Emergency, a truck's blown over, the driver sounds hurt.",
+      "A lorry's just toppled over in this wind, please send help.",
+      "There's a lorry on its side across the road, the wind's blown it right over.",
+      "Please hurry, a truck's overturned in the wind and the driver's shaken up."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -97,90 +111,231 @@
     "start": {
       "answers": [
         "A lorry's been blown right over by the wind, it's on its side across the road!",
-        "Emergency, a high sided truck has overturned in the wind, the driver might be hurt."
+        "Emergency, a high sided truck has overturned in the wind, the driver might be hurt.",
+        "A lorry's toppled over in the wind, it's blocking the whole road!",
+        "Please hurry, a truck's blown over onto its side, the driver's still inside.",
+        "There's been an accident, a lorry's overturned in the strong wind.",
+        "A high sided vehicle's gone over in the wind, it's on its side.",
+        "Emergency, a truck's blown over, the driver sounds hurt.",
+        "A lorry's just toppled over in this wind, please send help.",
+        "There's a lorry on its side across the road, the wind's blown it right over.",
+        "Please hurry, a truck's overturned in the wind and the driver's shaken up."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was driving behind him.",
-        "{{callerName}}, I've pulled over to help."
+        "It's {{callerName}}, I was driving behind {{him}}.",
+        "{{callerName}}, I've pulled over to help.",
+        "My name's {{callerName}}, I saw it happen.",
+        "{{callerName}} here, I'm right by the cab.",
+        "It's {{callerName}} speaking, I'm talking to {{him}} now.",
+        "{{callerName}}, I'm the one who called it in.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I've stopped to check on {{him}}.",
+        "{{callerName}}, I'm stood by the lorry.",
+        "Name's {{callerName}}, please hurry."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know him, he's a stranger.",
-        "I don't know his name, sorry."
+        "I don't know {{him}}, {{he}}'s a stranger.",
+        "I don't know {{his}} name, sorry.",
+        "I've no idea, never met {{him}} before.",
+        "{{He}} told me {{his}} name's {{firstPatientName}}.",
+        "I don't know {{him}} at all, sorry.",
+        "{{He}} said {{his}} name's {{firstPatientName}}.",
+        "No idea, I only just stopped.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "{{He}} managed to tell me it's {{firstPatientName}}.",
+        "I don't know, {{he}}'s a bit shaken to talk much."
       ]
     },
     "address": {
       "answers": [
         "We're on {{address}}.",
-        "{{address}}, the lorry's on its side across both lanes."
+        "{{address}}, the lorry's on its side across both lanes.",
+        "It's on {{address}}, near the open stretch of road.",
+        "{{address}}, you can't miss it, the lorry's blocking everything.",
+        "We're at {{address}}, right where it went over.",
+        "{{address}}, close to the bridge.",
+        "It's happened on {{address}}.",
+        "{{address}}, just past the exposed bit of road.",
+        "We're on {{address}}, near the fields.",
+        "{{address}}, right by where the wind caught it."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "A big gust caught the trailer and just tipped the whole thing over.",
-        "The wind's been really bad and it's blown the lorry clean onto its side."
+        "The wind's been really bad and it's blown the lorry clean onto its side.",
+        "A sudden gust caught {{him}} side on and the whole thing went over.",
+        "The wind's picked up the trailer and toppled it right onto its side.",
+        "{{He}} says a gust just caught {{him}} out of nowhere and it went over.",
+        "The crosswind's been terrible, it's blown the lorry flat onto its side.",
+        "It looks like the wind caught the high side and tipped it right over.",
+        "{{He}}'s said the gust was so strong it just flipped the trailer over.",
+        "The wind's been gusting badly and it's knocked the lorry onto its side.",
+        "A strong gust hit it broadside and the whole lorry's gone over."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious, talking to me, but shaken.",
-        "Yes, he's awake, just very shocked."
+        "{{He}}'s conscious, talking to me, but shaken.",
+        "Yes, {{he}}'s awake, just very shocked.",
+        "{{He}}'s conscious, a bit dazed from the shock.",
+        "Yes, {{he}}'s responding okay, just rattled.",
+        "{{He}}'s awake, still quite shaken up.",
+        "Yes, {{he}}'s talking, just very shocked.",
+        "{{He}}'s conscious, mostly just badly shaken.",
+        "Yes, {{he}}'s awake and talking to me.",
+        "{{He}}'s conscious, sounds quite shaken still.",
+        "Yes, {{he}}'s alert, just rattled by it."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
         "Yes, breathing fine.",
-        "Yes, he's okay, just shaken up."
+        "Yes, {{he}}'s okay, just shaken up.",
+        "Yes, {{he}}'s breathing normally.",
+        "Yes, no problems there.",
+        "Yes, {{he}}'s breathing steadily.",
+        "Yes, {{he}}'s fine on that front.",
+        "Yes, breathing okay, just shocked.",
+        "Yes, {{he}}'s breathing normally, just shaken.",
+        "Yes, no issues there.",
+        "Yes, {{he}}'s breathing fine, just rattled."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says his shoulder hurts where the belt caught him.",
-        "He's holding his arm, says it's sore."
+        "{{He}} says {{his}} shoulder hurts where the belt caught {{him}}.",
+        "{{He}}'s holding {{his}} arm, says it's sore.",
+        "{{He}} says {{his}} neck's a bit sore from the jolt.",
+        "{{He}}'s complaining about {{his}} shoulder and arm.",
+        "{{He}} says it hurts a bit where the belt dug in.",
+        "{{He}}'s got a sore chest from the impact.",
+        "{{He}} says {{his}} wrist hurts, {{he}} braced on the wheel.",
+        "{{He}}'s saying {{his}} shoulder's the main pain.",
+        "{{He}} says {{his}} neck's stiff and sore.",
+        "{{He}}'s wincing a bit, mostly {{his}} shoulder."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
         "No, no visible injuries.",
-        "A small cut on his head, nothing major."
+        "A small cut on {{his}} head, nothing major.",
+        "No, {{he}} doesn't seem to be bleeding.",
+        "There's a small graze on {{his}} arm.",
+        "No bleeding that I can see.",
+        "Just a tiny cut on {{his}} hand, nothing much.",
+        "No, {{he}}'s not bleeding at all.",
+        "A small mark on {{his}} forehead, no real bleeding.",
+        "No, nothing like that.",
+        "No bleeding, just shaken and bruised."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him, sorry.",
-        "No idea, I don't know him."
+        "I don't know {{him}}, sorry.",
+        "No idea, I don't know {{him}}.",
+        "I've no idea, {{he}}'s a stranger to me.",
+        "I don't know anything about {{him}}.",
+        "No idea, I only just stopped.",
+        "I can't say, {{he}}'s a stranger.",
+        "Sorry, I don't know {{him}} at all.",
+        "No idea, {{he}} hasn't said anything.",
+        "I couldn't tell you, we don't know each other.",
+        "No idea at all, sorry."
       ]
     },
     "medications": {
       "answers": [
         "No idea, sorry.",
-        "I couldn't say."
+        "I couldn't say.",
+        "No idea, {{he}}'s a stranger to me.",
+        "I've no clue, sorry.",
+        "No idea, I only just stopped.",
+        "I don't know anything about {{him}}.",
+        "Sorry, I can't tell you that.",
+        "No idea, {{he}} hasn't said.",
+        "I couldn't tell you, we don't know each other.",
+        "No idea at all, sorry."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks like he's in his fifties.",
-        "Hard to say, middle aged."
+        "Looks like {{he}}'s in {{his}} fifties.",
+        "Hard to say, middle aged.",
+        "{{He}}'s maybe forty five.",
+        "I'd guess {{he}}'s in {{his}} sixties.",
+        "{{He}} looks middle aged, maybe fifty.",
+        "Hard to tell exactly, {{he}}'s an adult.",
+        "{{He}} looks maybe thirty five.",
+        "I'd say {{he}}'s in {{his}} forties.",
+        "{{He}} looks like {{he}}'s in {{his}} fifties or so.",
+        "Hard to say, {{he}}'s not young."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying with him out of the wind.",
-        "Please hurry, it's still really gusty out here."
+        "Okay, I'm staying with {{him}} out of the wind.",
+        "Please hurry, it's still really gusty out here.",
+        "Thank you, I'll keep {{him}} talking till you arrive.",
+        "Good, please be quick, it's very exposed here.",
+        "Okay, {{he}}'s sat with me out of the wind now.",
+        "Thank you, {{he}}'s still quite shaken.",
+        "Please hurry, the wind's making it worse.",
+        "Okay, I'll keep {{him}} calm until you're here.",
+        "Thank you, {{he}}'s asking when help's coming.",
+        "Good, we're staying sheltered until you arrive."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, thank you, the road really needs closing.",
+        "Yes please, it's dangerous with the wind and the lorry blocking everything.",
+        "Thank goodness, we need someone managing the traffic.",
+        "Good, we really need them to close this stretch.",
+        "Thanks, I'll flag them down when they arrive.",
+        "Good, this road's completely blocked, they'll need to divert traffic.",
+        "Yes, please send them, other lorries could be affected too.",
+        "Thank you, they'll need to close the road I think.",
+        "Good, that's a relief, thank you.",
+        "Perfect, we need them here quickly."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, they can help get {{him}} out safely.",
+        "Thank goodness, the cab's on its side, {{he}} needs help getting clear.",
+        "Good, please hurry them along, the wind's still bad.",
+        "Thank you, {{he}}'s stuck at an odd angle in the cab.",
+        "Good, that's a relief, thank you very much.",
+        "Thanks, I'll let {{him}} know they're coming.",
+        "Good, please hurry, it's still really windy out here.",
+        "Thank you, {{he}} could do with a hand getting out safely.",
+        "Good, we really need them to check the lorry's stable.",
+        "Thank you, that's exactly what we need."
       ]
     },
     "refer111": {
       "answers": [
-        "No, a lorry's overturned with the driver hurt, we need help!"
+        "No, a lorry's overturned with the driver hurt, we need help!",
+        "No, that's not right, this is a proper emergency, please send someone.",
+        "Please, no, the lorry could still be unstable, we need help now.",
+        "I don't think so, {{he}}'s shaken and needs checking properly.",
+        "No, absolutely not, we need help here right now.",
+        "That doesn't sound right, a lorry's overturned, this can't wait.",
+        "No, please, this can't wait, the driver's still shaken.",
+        "I really don't think 111 is right for an overturned lorry.",
+        "No, this is urgent, please send someone now.",
+        "Please, no, don't make us wait, {{he}} needs checking."
       ]
     }
   },

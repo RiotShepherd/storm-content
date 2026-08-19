@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -66,8 +70,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Please help, my little boy's got his head stuck between the railings",
-      "I need some help, my son's stuck, he's got his arm trapped in the fence and he's upset"
+      "Please help, my little {{lad}}'s got {{his}} head stuck between the railings.",
+      "I need some help, my {{son}}'s stuck, {{he}}'s got {{his}} arm trapped in the fence and {{he}}'s upset.",
+      "Please can someone come, my {{son}}'s got {{his}} arm caught in the railings.",
+      "My {{son}}'s stuck fast in the fence, please send someone quickly.",
+      "Please hurry, {{he}}'s trapped {{his}} leg between the bars of the railings.",
+      "Help, my {{son}}'s got {{himself}} wedged between the railings and can't get out.",
+      "Please, my little {{lad}} is stuck in the fence, {{he}}'s crying and scared.",
+      "My {{son}}'s trapped {{his}} hand in the gate, please send someone.",
+      "Please hurry, {{he}}'s stuck fast in the railings and {{he}}'s getting upset.",
+      "Help, my {{son}}'s wedged {{his}} head through the railings and can't get free."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -79,79 +91,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Please help, my little boy's got his head stuck between the railings",
-        "I need some help, my son's stuck, he's got his arm trapped in the fence and he's upset"
+        "Please help, my little {{lad}}'s got {{his}} head stuck between the railings.",
+        "I need some help, my {{son}}'s stuck, {{he}}'s got {{his}} arm trapped in the fence and {{he}}'s upset.",
+        "Please can someone come, my {{son}}'s got {{his}} arm caught in the railings.",
+        "My {{son}}'s stuck fast in the fence, please send someone quickly.",
+        "Please hurry, {{he}}'s trapped {{his}} leg between the bars of the railings.",
+        "Help, my {{son}}'s got {{himself}} wedged between the railings and can't get out.",
+        "Please, my little {{lad}} is stuck in the fence, {{he}}'s crying and scared.",
+        "My {{son}}'s trapped {{his}} hand in the gate, please send someone.",
+        "Please hurry, {{he}}'s stuck fast in the railings and {{he}}'s getting upset.",
+        "Help, my {{son}}'s wedged {{his}} head through the railings and can't get free."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm his mum"
+        "It's {{callerName}}, please just send someone.",
+        "{{callerName}}, look I just need help quickly.",
+        "My name's {{callerName}}, can you hurry.",
+        "{{callerName}}, yes, now please send someone.",
+        "It's {{callerName}} calling, please.",
+        "{{callerName}}, that's me, please get someone here.",
+        "Sorry, {{callerName}}, I'm a bit shaken.",
+        "{{callerName}} here, please just send help.",
+        "My name is {{callerName}}, please hurry.",
+        "It's {{callerName}}, can you send someone now."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, he's my son"
+        "It's {{firstPatientName}}, {{he}}'s my {{son}}.",
+        "{{firstPatientName}}, {{he}}'s my little {{lad}}.",
+        "That's {{firstPatientName}}, my {{son}}.",
+        "{{firstPatientName}} is {{his}} name, {{he}}'s my {{son}}.",
+        "It's {{firstPatientName}}, my {{son}}, {{he}}'s only little.",
+        "{{firstPatientName}}, that's my {{son}} stuck in there.",
+        "It's {{firstPatientName}}, {{he}}'s my {{son}}, please hurry.",
+        "That's {{firstPatientName}}, {{he}}'s my {{son}}, {{he}}'s scared.",
+        "{{firstPatientName}}, my {{son}}, please send someone quickly.",
+        "It's {{firstPatientName}}, my little {{son}}, {{he}}'s stuck fast."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}"
+        "It's {{address}}, please hurry.",
+        "{{address}}, quickly please.",
+        "We're at {{address}}, send someone now.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are, please.",
+        "It's {{address}}, can you send someone fast.",
+        "{{address}}, please, as quick as you can.",
+        "We're at {{address}}, please get here quickly.",
+        "That's {{address}}, please hurry up.",
+        "{{address}}, I need someone here now."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He was playing and got his head through the railings, now he can't get it back out"
+        "{{He}} was playing near the railings and got {{his}} head stuck between the bars.",
+        "{{He}} was climbing on the fence and {{his}} arm's gone through and got trapped.",
+        "{{He}} tried to squeeze through the railings and now {{he}}'s stuck fast.",
+        "{{He}} put {{his}} leg through the bars while playing and can't get it back out.",
+        "{{He}} was messing about on the fence and got {{himself}} wedged in.",
+        "{{He}} climbed onto the railings and {{his}} hand's got caught in the gate.",
+        "{{He}} was trying to look through the railings and got {{his}} head stuck.",
+        "{{He}} squeezed through a gap and now {{he}} can't get back out.",
+        "{{He}} put {{his}} arm through to reach something and it's stuck fast.",
+        "{{He}} was playing on the railings and {{he}}'s got {{himself}} properly stuck."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes he's awake, just crying and frustrated"
+        "{{He}}'s wide awake, {{he}}'s just upset and crying.",
+        "{{He}}'s fine that way, just really scared and stuck.",
+        "{{He}}'s conscious, just crying because {{he}}'s stuck.",
+        "Yes, {{he}}'s awake and talking to me, just frightened.",
+        "{{He}}'s okay, just upset, {{he}}'s not hurt.",
+        "{{He}}'s alert, just scared because {{he}} can't get free.",
+        "{{He}}'s fine, just crying, {{he}}'s not hurt at all.",
+        "Yes, {{he}}'s conscious, just really frightened.",
+        "{{He}}'s awake and shouting, {{he}}'s just stuck, not hurt.",
+        "{{He}}'s okay that way, just upset about being stuck."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He's breathing fine, just upset"
+        "Yes, {{he}}'s breathing fine, just crying a lot.",
+        "{{He}}'s breathing okay, just upset and a bit out of breath from crying.",
+        "Yes, {{he}}'s fine breathing wise, just scared.",
+        "{{He}}'s breathing normally, just very upset.",
+        "Yes, {{he}}'s okay that way, just crying hard.",
+        "{{He}}'s breathing fine, {{he}}'s just frightened.",
+        "Yes, no problem breathing, just lots of tears.",
+        "{{He}}'s breathing normally, just really upset about being stuck.",
+        "Yes, {{he}}'s fine, just crying because {{he}}'s scared.",
+        "{{He}}'s breathing okay, just very distressed."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says it's uncomfortable but not painful"
+        "No, {{he}}'s not in pain, just stuck and scared.",
+        "{{He}} says it doesn't hurt, just feels stuck.",
+        "No, no pain, {{he}}'s just frightened.",
+        "{{He}} says {{he}}'s not hurt, just can't move.",
+        "No, {{he}}'s not in pain, just uncomfortable being stuck.",
+        "{{He}} isn't hurting, just upset about being trapped.",
+        "No, {{he}} says it doesn't hurt, {{he}}'s just scared.",
+        "{{He}}'s not in any pain, just wants to get free.",
+        "No pain that {{he}}'s mentioned, just very upset.",
+        "{{He}} says {{he}}'s fine, just stuck and crying."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, just stuck"
+        "No, no bleeding, {{he}}'s just stuck.",
+        "No, {{he}}'s not bleeding at all.",
+        "No, nothing like that, {{he}}'s just trapped.",
+        "No blood, no, {{he}}'s just wedged in.",
+        "No, {{he}}'s not cut anywhere, just stuck.",
+        "No, no bleeding, just stuck fast.",
+        "No, {{he}}'s not hurt, no bleeding.",
+        "No, nothing like that, {{he}}'s just trapped in the railings.",
+        "No bleeding at all, {{he}}'s just stuck.",
+        "No, {{he}}'s fine, no bleeding, just can't get free."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No, he's healthy, just stuck"
+        "No, {{he}}'s a healthy little one, nothing like that.",
+        "Nothing at all, {{he}}'s fit and well normally.",
+        "No history to mention, {{he}}'s usually fine.",
+        "No, nothing like that, {{he}}'s a healthy {{son}}.",
+        "Nothing to report, {{he}}'s never had any issues.",
+        "No, {{he}}'s completely healthy normally.",
+        "Nothing like that, no ongoing conditions at all.",
+        "No, {{he}}'s a fit and healthy {{son}}, nothing to mention.",
+        "Nothing at all, {{he}}'s usually really healthy.",
+        "No history, {{he}}'s fine health wise normally."
       ]
     },
     "medications": {
       "answers": [
-        "No, nothing"
+        "No, {{he}} doesn't take anything.",
+        "No medication, no, {{he}}'s a healthy {{son}}.",
+        "No, nothing like that at all.",
+        "No, {{he}}'s not on anything.",
+        "Nothing, no, {{he}} doesn't take medication.",
+        "No medication needed normally, no.",
+        "No, {{he}} doesn't take anything at all.",
+        "Nothing to mention, no medication.",
+        "No, {{he}}'s not on any medication.",
+        "No, nothing like that, {{he}}'s fine normally."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's six"
+        "{{He}}'s only five.",
+        "{{He}}'s six, still quite little.",
+        "{{He}}'s four, {{he}}'s only tiny.",
+        "{{He}}'s seven years old.",
+        "{{He}}'s three, {{he}}'s still very small.",
+        "{{He}}'s eight.",
+        "{{He}}'s only four years old.",
+        "{{He}}'s about six, small for {{his}} age.",
+        "{{He}}'s five years old.",
+        "{{He}}'s only just turned four."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm keeping him calm"
+        "Okay, thank you, I'll keep {{him}} calm until you get here.",
+        "Right, I'll stay with {{him}} and keep {{him}} still.",
+        "Okay, I'm talking to {{him}}, trying to keep {{him}} calm.",
+        "Alright, thank you, I'll wait right here with {{him}}.",
+        "Okay, I'll keep hold of {{him}} and try to settle {{him}} down.",
+        "Right, thank you, I'm staying with {{him}} the whole time.",
+        "Okay, I'll keep {{him}} calm and still until you arrive.",
+        "Alright, thank you, I won't leave {{his}} side.",
+        "Okay, I'm doing my best to keep {{him}} calm.",
+        "Right, thank you, I'll keep talking to {{him}} to keep {{him}} settled."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's physically stuck, I need the fire brigade to free him"
+        "No, {{he}}'s physically stuck, I need the fire brigade, not 111.",
+        "No, this isn't medical, {{he}}'s trapped in the railings.",
+        "No, {{he}} needs someone to free {{him}}, not a callback.",
+        "No thank you, this needs the fire brigade, {{he}}'s properly stuck.",
+        "No, please, {{he}}'s trapped and getting more upset.",
+        "No, this can't wait, {{he}}'s stuck fast in the railings.",
+        "No, it's not a health matter, {{he}} just needs freeing.",
+        "No, please send the fire brigade, {{he}}'s trapped.",
+        "No, {{he}} needs help now, {{he}}'s stuck and scared.",
+        "No, this needs the fire brigade, not 111, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's not that sort of thing, it's a child stuck in railings.",
+        "We don't need the police, just the fire brigade.",
+        "No, there's no need for police, it's only a child stuck in railings.",
+        "Police aren't needed here, it's a fire matter.",
+        "No thanks, it's a child stuck in railings, not a police job.",
+        "We're alright for police, we just need the fire service.",
+        "No, this doesn't need police, just the fire brigade please.",
+        "No, it's a child stuck in railings, nothing for the police to deal with.",
+        "We don't need police here, thank you.",
+        "No, just the fire brigade will do, thank you."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, please hurry.",
+        "Right, thank you, please get here quickly.",
+        "Okay, please, as fast as you can.",
+        "Thank you, please hurry, it's getting worse.",
+        "Okay, thank god, please hurry.",
+        "Right, okay, please just get here fast.",
+        "Okay, thank you, please be quick.",
+        "Thank you, please hurry, I'm really worried.",
+        "Okay, good, please hurry them up.",
+        "Okay, thank you, please come quickly."
       ]
     }
   },

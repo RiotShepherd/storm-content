@@ -46,6 +46,10 @@
     "water_carrier": 1,
     "fire_officer": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 8
+  },
   "patients": {
     "range": [
       0,
@@ -94,7 +98,15 @@
   "caller": {
     "openings": [
       "Fire brigade please, there's a fire on the allotments, it's a big fire, several plots involved",
-      "I'm calling about a fire down the allotments, it's large but spreading"
+      "I'm calling about a fire down the allotments, it's large but spreading",
+      "There's a big fire on the allotments behind our houses, several sheds are alight",
+      "Fire brigade please, the allotments are on fire, it looks like it's spreading between plots",
+      "I can see flames across several allotment plots from my garden",
+      "There's a large fire down at the allotments, sheds and hedges are burning",
+      "Fire brigade please, quite a big fire has taken hold on the allotments",
+      "I'm calling to report a fire spreading across the allotment site",
+      "There's smoke pouring up from the allotments, several plots seem to be alight",
+      "Fire brigade please, the allotment site is well alight, it's spreading fast between plots"
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -107,81 +119,231 @@
     "start": {
       "answers": [
         "Fire brigade please, there's a fire on the allotments, it's a big fire, several plots involved",
-        "I'm calling about a fire down the allotments, it's large but spreading"
+        "I'm calling about a fire down the allotments, it's large but spreading",
+        "There's a big fire on the allotments behind our houses, several sheds are alight",
+        "Fire brigade please, the allotments are on fire, it looks like it's spreading between plots",
+        "I can see flames across several allotment plots from my garden",
+        "There's a large fire down at the allotments, sheds and hedges are burning",
+        "Fire brigade please, quite a big fire has taken hold on the allotments",
+        "I'm calling to report a fire spreading across the allotment site",
+        "There's smoke pouring up from the allotments, several plots seem to be alight",
+        "Fire brigade please, the allotment site is well alight, it's spreading fast between plots"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I've got a plot two rows over",
-        "{{callerName}}, I was watering mine when I saw it"
+        "It's {{callerName}}, I live backing onto the allotments",
+        "{{callerName}}, I'm a neighbour to the site",
+        "My name's {{callerName}}, I noticed it from my garden",
+        "It's {{callerName}}, I have a plot there myself",
+        "{{callerName}} speaking, I live on the road next to the site",
+        "Name's {{callerName}}, I was walking my dog nearby",
+        "It's {{callerName}}, I can see it clearly from my window",
+        "{{callerName}}, I don't have a plot but I live close by",
+        "This is {{callerName}}, I'm stood at the fence line now",
+        "{{callerName}} here, I called as soon as I saw the smoke"
       ]
     },
     "patientName": {
       "answers": [
-        "No, there's no one hurt, most of the plots are empty this time of day"
+        "There's nobody hurt, the allotment fire, it's well away from anyone",
+        "No patient to give a name for, the allotment fire, it's well away from anyone",
+        "There's no one involved, the allotment fire, it's well away from anyone",
+        "Nobody's hurt, the allotment fire, it's well away from anyone",
+        "No casualty at all, the allotment fire, it's well away from anyone",
+        "There's no one to report, the allotment fire, it's well away from anyone",
+        "Not applicable, the allotment fire, it's well away from anyone",
+        "No injuries, the allotment fire, it's well away from anyone",
+        "Nobody to name, the allotment fire, it's well away from anyone",
+        "No patient, the allotment fire, it's well away from anyone"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the allotment site, come in off the access track",
-        "It's {{address}}, the allotments, you'll see the smoke"
+        "{{address}}, that backs onto the allotments",
+        "It's {{address}}, the allotments are behind the houses there",
+        "{{address}}, come down the lane to the allotment gate",
+        "You want {{address}}, that's nearest the site entrance",
+        "{{address}}, that's my house, the allotments are just behind",
+        "{{address}}, that's the road, the gate to the site is at the end",
+        "{{address}}, that's confirmed, you'll see the smoke from there",
+        "{{address}}, that's near the entrance to the allotments",
+        "{{address}}, that's where I am, the fire's spreading across the plots",
+        "{{address}}, that's the address closest to the site"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Someone's shed or plot has gone up on the allotments, it's a large fire and there's smoke drifting over the gardens"
+        "Not sure of the cause, might be a bonfire that's got out of control",
+        "No idea, but it's spread from one plot to several others now",
+        "Could be someone burning garden waste that's caught the hedges",
+        "Not certain, but the wind's helping it spread between the plots",
+        "Unclear cause, but several sheds are now alight as well",
+        "Not sure, but it looks like it started at one end and is spreading",
+        "No idea of the cause, but there's a fair few gas cylinders on some plots",
+        "Could be a discarded cigarette or a bonfire, not sure",
+        "Not certain, but it's a decent sized fire covering several plots now",
+        "We don't know exactly, but it's definitely spreading quickly"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's no one involved, I've not seen anybody hurt"
+        "No one's hurt, the allotment fire, it's well away from anyone",
+        "There's no patient here, the allotment fire, it's well away from anyone",
+        "Not applicable, the allotment fire, it's well away from anyone",
+        "Nobody's involved, the allotment fire, it's well away from anyone",
+        "No injuries at all, the allotment fire, it's well away from anyone",
+        "No one to check on, the allotment fire, it's well away from anyone",
+        "There's no casualty, the allotment fire, it's well away from anyone",
+        "No patient at all, the allotment fire, it's well away from anyone",
+        "Nobody's hurt, thankfully, the allotment fire, it's well away from anyone",
+        "No one's affected, the allotment fire, it's well away from anyone"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, there's nobody to check, it's just the fire"
+        "No one to worry about, the allotment fire, it's well away from anyone",
+        "Not applicable, the allotment fire, it's well away from anyone",
+        "Nobody's struggling to breathe, the allotment fire, it's well away from anyone",
+        "No casualty, the allotment fire, it's well away from anyone",
+        "No one's affected by any smoke, the allotment fire, it's well away from anyone",
+        "There's no patient, the allotment fire, it's well away from anyone",
+        "No breathing issues to report, the allotment fire, it's well away from anyone",
+        "Nobody's been near any smoke, the allotment fire, it's well away from anyone",
+        "No one's hurt, the allotment fire, it's well away from anyone",
+        "Not applicable, no one's involved, the allotment fire, it's well away from anyone"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can see"
+        "Nobody's in pain, the allotment fire, it's well away from anyone",
+        "No one's hurt at all, the allotment fire, it's well away from anyone",
+        "Not applicable, the allotment fire, it's well away from anyone",
+        "No injuries to report, the allotment fire, it's well away from anyone",
+        "There's no patient, the allotment fire, it's well away from anyone",
+        "No one's complaining of anything, the allotment fire, it's well away from anyone",
+        "Nobody's hurt, the allotment fire, it's well away from anyone",
+        "No pain to report, the allotment fire, it's well away from anyone",
+        "Not applicable, no casualty, the allotment fire, it's well away from anyone",
+        "No one's injured, the allotment fire, it's well away from anyone"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries, nobody's here"
+        "No, no one's involved, the allotment fire, it's well away from anyone",
+        "No bleeding, there's no patient, the allotment fire, it's well away from anyone",
+        "Not applicable, the allotment fire, it's well away from anyone",
+        "No, everyone's uninjured, the allotment fire, it's well away from anyone",
+        "No, nobody's hurt, the allotment fire, it's well away from anyone",
+        "No bleeding to report, the allotment fire, it's well away from anyone",
+        "Not applicable, no casualties, the allotment fire, it's well away from anyone",
+        "No, no one's been near it, the allotment fire, it's well away from anyone",
+        "No, we're all fine, the allotment fire, it's well away from anyone",
+        "No, there's no one injured, the allotment fire, it's well away from anyone"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I can't help with that, there's no one hurt"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's no patient, sorry"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no one to ask, nobody's been hurt"
+        "No patient, the allotment fire, it's well away from anyone",
+        "Not applicable, the allotment fire, it's well away from anyone",
+        "No one to give an age for, the allotment fire, it's well away from anyone",
+        "N/A, the allotment fire, it's well away from anyone",
+        "No age to give, the allotment fire, it's well away from anyone",
+        "Not applicable, no one's hurt, the allotment fire, it's well away from anyone",
+        "No casualty, the allotment fire, it's well away from anyone",
+        "Nobody's involved, the allotment fire, it's well away from anyone",
+        "Not applicable at all, the allotment fire, it's well away from anyone",
+        "No patient to speak of, the allotment fire, it's well away from anyone"
       ]
     },
     "reassure": {
       "answers": [
-        "Alright, I'm well clear of it now",
-        "Please hurry, it's near the gas bottles some people keep down there"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire on the allotments, nobody's hurt, I just need it put out"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

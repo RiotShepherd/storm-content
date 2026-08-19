@@ -43,6 +43,10 @@
     "dog_unit": 4,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 8
+  },
   "patients": {
     "range": [
       0,
@@ -65,7 +69,15 @@
   "caller": {
     "openings": [
       "Police, we need more units, hundreds of fans are on the pitch and refusing to leave",
-      "Control, the pitch is completely overrun, stewards can't clear it"
+      "Control, the pitch is completely overrun, stewards can't clear it",
+      "Police please, hundreds of fans have invaded the pitch and won't move",
+      "I need urgent help, the pitch is full of fans refusing to leave",
+      "Police, quick, stewards are overwhelmed, the pitch is packed with fans",
+      "There's hundreds on the pitch now, stewards can't get them off",
+      "Police please, this has turned into a mass pitch invasion",
+      "I need more units, fans have taken over the whole pitch",
+      "Police, hurry, stewards have completely lost control of the pitch",
+      "There's a huge crowd on the pitch and they're refusing to leave"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -78,90 +90,231 @@
     "start": {
       "answers": [
         "Police, we need more units, hundreds of fans are on the pitch and refusing to leave",
-        "Control, the pitch is completely overrun, stewards can't clear it"
+        "Control, the pitch is completely overrun, stewards can't clear it",
+        "Police please, hundreds of fans have invaded the pitch and won't move",
+        "I need urgent help, the pitch is full of fans refusing to leave",
+        "Police, quick, stewards are overwhelmed, the pitch is packed with fans",
+        "There's hundreds on the pitch now, stewards can't get them off",
+        "Police please, this has turned into a mass pitch invasion",
+        "I need more units, fans have taken over the whole pitch",
+        "Police, hurry, stewards have completely lost control of the pitch",
+        "There's a huge crowd on the pitch and they're refusing to leave"
       ]
     },
     "callerName": {
       "answers": [
         "{{callerName}}, I work here",
-        "It's {{callerName}}, I'm on shift"
+        "It's {{callerName}}, I'm on shift",
+        "My name's {{callerName}}, I'm staff here",
+        "{{callerName}} calling, I'm the duty manager",
+        "Yeah it's {{callerName}}, I work on site",
+        "{{callerName}} here, I'm part of the team",
+        "It's {{callerName}}, I'm working tonight",
+        "My name is {{callerName}}, I'm staff",
+        "{{callerName}}, that's me, I work here",
+        "Sorry, yes, it's {{callerName}}, I'm on duty"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt that I can see yet, but it's very crowded",
-        "Nobody down yet, just a huge crowd"
+        "I don't know their name, never seen them before",
+        "No idea who they are, complete strangers to me",
+        "Couldn't tell you, I don't know them",
+        "I don't have a name for you, sorry",
+        "No, I don't know who they are",
+        "Never seen them before in my life",
+        "I can't give you a name, I don't know them",
+        "Sorry, no idea, they're not known to me",
+        "I've got no name for you, they're strangers",
+        "Don't know, I've never seen them around here"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the stadium, pitch side",
-        "It's {{address}}, the main pitch entrance"
+        "{{address}}, it's the stadium pitch",
+        "We're at {{address}}",
+        "It's {{address}}, the stadium pitch",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near the stadium pitch",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "It kicked off at the final whistle, hundreds have come over the barriers onto the pitch",
-        "Stewards are completely overwhelmed, the whole pitch is full of fans"
+        "It started with a few fans jumping the barriers, now hundreds have followed",
+        "Stewards tried to hold the line but they've been completely overwhelmed",
+        "It happened right at the final whistle, the whole crowd surged onto the pitch",
+        "There's people climbing the goalposts now, it's getting more dangerous",
+        "Stewards asked them to leave but they're refusing and more keep coming",
+        "It's spread across the whole pitch now, no sign of it calming down",
+        "The barriers gave way and the crowd just flooded onto the pitch",
+        "Some are celebrating peacefully but others are getting more aggressive",
+        "Stewards have tried announcements but nobody's listening",
+        "It's grown from a small group to hundreds in a matter of minutes"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone's on their feet, but it's very packed",
-        "No one's down, but the crush is building"
+        "Nobody's hurt, so there's nothing to report on that front",
+        "N/A, no one's injured here",
+        "No casualties at all, we just need police",
+        "Nobody's hurt, this isn't a medical matter",
+        "Not applicable, no one's been hurt",
+        "No injuries to report, it's not that kind of call",
+        "Nobody's collapsed or hurt, we just need officers down here",
+        "N/A, this is a police matter, no casualties",
+        "No one's been hurt in this, I promise",
+        "Not applicable, there's no patient here"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, but people are getting squashed together",
-        "Fine so far, but it's very tight out there"
+        "No breathing problems, nobody's been hurt",
+        "N/A, there's no injuries here to speak of",
+        "Nobody needs help breathing, this isn't medical",
+        "Not applicable, no one's hurt",
+        "No one's struggling for breath, no casualties at all",
+        "N/A, we just need police, not an ambulance",
+        "Nobody's been affected like that, no injuries",
+        "No breathing issues, nobody's hurt in this",
+        "Not a medical thing at all, no one's struggling",
+        "N/A, there's no patient here"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Some are saying they're being crushed",
-        "Not injuries yet, just very uncomfortable"
+        "No pain to report, nobody's hurt",
+        "N/A, no injuries at all",
+        "Nobody's in pain, this isn't medical",
+        "Not applicable, no one's been hurt",
+        "No one's complained of any pain",
+        "N/A, we don't need an ambulance for this",
+        "Nobody's hurt themselves, no pain reported",
+        "No injuries, so no pain to speak of",
+        "Not that I'm aware of, nobody's hurt",
+        "N/A, it's purely a police matter"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, not that I've seen"
+        "No bleeding, nobody's hurt",
+        "N/A, there's no injuries",
+        "No one's bleeding, this isn't medical",
+        "Not applicable, nobody's been hurt",
+        "No blood, no injuries at all",
+        "N/A, we just need police here",
+        "Nobody's hurt themselves, no bleeding",
+        "No, there's no injuries to report",
+        "Not that I can see, nobody's hurt",
+        "N/A, it's not a medical call"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A, no patient yet",
-        "Not applicable at this stage"
+        "N/A, nobody's hurt so there's no history needed",
+        "Not applicable, no patient involved",
+        "No idea, and it's not relevant, nobody's hurt",
+        "N/A, this isn't a medical matter",
+        "Not applicable, we just need police",
+        "No one's been hurt, so no history to give",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "I couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's a police matter, not medical"
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "N/A, nobody's hurt",
+        "Not applicable, no patient involved",
+        "No idea, and it doesn't matter, no one's hurt",
+        "N/A, this isn't medical",
+        "Not applicable, we need police, not paramedics",
+        "No one's been hurt, so nothing like that to report",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "Couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's not a medical call"
       ]
     },
     "patientAge": {
       "answers": [
-        "All ages, it's a full stand emptying onto the pitch",
-        "Mixed, families and adults"
+        "Mixed ages, it's a huge crowd, hard to say",
+        "All sorts, mostly younger fans but a real mix",
+        "Can't say for sure, it's too big a crowd",
+        "Mostly young adults from what I can see, but it's mixed",
+        "Hard to tell with this many people, mostly younger",
+        "A real mix of ages, impossible to pin down",
+        "Mostly twenties and thirties as far as I can tell",
+        "Can't confirm, it's too big a crowd to say",
+        "Mixed ages, but a lot look quite young",
+        "Hard to judge with this many people involved"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we need help fast, it's getting dangerous",
-        "Right, we're trying to keep people calm"
+        "Ambulance? No need, nobody's hurt, it's police we're after",
+        "We don't need an ambulance, just get police here please",
+        "No ambulance needed, this is a police matter",
+        "There's no injuries, we just need officers down here",
+        "Nobody's hurt, so an ambulance won't be needed",
+        "That's not necessary, it's police we need, not paramedics",
+        "No thank you, nobody's injured, just send police",
+        "We're fine on that front, it's police we're waiting for",
+        "Not needed, there's no casualties, just police please",
+        "No one's hurt, an ambulance isn't required for this"
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "111? No, this needs police now, not a callback",
+        "We can't wait for 111, this needs officers straight away",
+        "This isn't something 111 can help with, we need police",
+        "No, please, this needs police, not NHS 111",
+        "I don't think 111 is right for this, we need police here",
+        "This is a police matter, 111 won't be able to help",
+        "Please, we really need police, not a 111 callback",
+        "That's not going to help, this needs police attendance",
+        "No, this can't wait for a callback, we need officers now",
+        "111 isn't going to sort this, we need police please"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes please, we really need more officers down here",
+        "Thank you, please hurry, stewards can't hold them back",
+        "Okay, please send as many as you can, it's a huge crowd",
+        "Yes, please hurry, it's getting more chaotic by the minute",
+        "Thank you, we're trying to keep people away from the tunnel",
+        "Okay, please tell them to hurry, we're stretched thin here",
+        "Yes please, this crowd is far too big for our stewards alone",
+        "Thank you, please get as many officers here as possible",
+        "Okay, we'll keep trying to manage it until they arrive",
+        "Yes, please hurry, we're worried about a crush forming"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

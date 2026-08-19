@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -69,8 +73,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My mum's got a temperature that won't come down, I think she needs an ambulance",
-      "It's not an emergency as such, but my mum's really hot and shivery and not herself"
+      "My {{dad}}'s got a temperature that won't come down, I think {{he}} needs an ambulance",
+      "It's not an emergency as such, but my {{dad}}'s really hot and shivery and not {{himself}}",
+      "My {{dad}}'s running a really high fever, {{he}}'s not making much sense",
+      "My {{dad}}'s temperature's been high for hours, {{he}}'s getting worse",
+      "My {{dad}}'s burning up, {{he}}'s shivering despite the heat",
+      "I'm worried about my {{dad}}'s fever, it won't come down at all",
+      "My {{dad}}'s got a really high temperature, {{he}}'s quite unwell with it",
+      "My {{dad}}'s been feverish for a day now, {{he}}'s getting weaker",
+      "My {{dad}}'s temperature's sky high, {{he}}'s shaking and confused",
+      "My {{dad}}'s got a fever that just won't break, I'm getting worried"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -82,83 +94,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My mum's got a temperature that won't come down, I think she needs an ambulance",
-        "It's not an emergency as such, but my mum's really hot and shivery and not herself"
+        "My {{dad}}'s got a temperature that won't come down, I think {{he}} needs an ambulance",
+        "It's not an emergency as such, but my {{dad}}'s really hot and shivery and not {{himself}}",
+        "My {{dad}}'s running a really high fever, {{he}}'s not making much sense",
+        "My {{dad}}'s temperature's been high for hours, {{he}}'s getting worse",
+        "My {{dad}}'s burning up, {{he}}'s shivering despite the heat",
+        "I'm worried about my {{dad}}'s fever, it won't come down at all",
+        "My {{dad}}'s got a really high temperature, {{he}}'s quite unwell with it",
+        "My {{dad}}'s been feverish for a day now, {{he}}'s getting weaker",
+        "My {{dad}}'s temperature's sky high, {{he}}'s shaking and confused",
+        "My {{dad}}'s got a fever that just won't break, I'm getting worried"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm her son",
-        "{{callerName}}, I'm here with my mum"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, my mum",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}, my {{dad}}",
+        "{{firstPatientName}}, {{he}}'s my {{dad}}",
+        "My {{dad}}'s name is {{firstPatientName}}",
+        "{{firstPatientName}}, that's {{him}}",
+        "It's my {{dad}} {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "{{firstPatientName}}, {{he}}'s seventy two",
+        "My {{dad}} is called {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s not {{himself}} at all",
+        "{{firstPatientName}}, my {{dad}}, {{he}}'s really unwell"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, I'll open the door",
-        "{{address}}, come round the back if the front's locked"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She's had a temperature since yesterday, it's now up over thirty nine and she's shivering and confused",
-        "Fever, and it's not getting any better, she's shaking and hot to touch"
+        "{{He}}'s had a temperature for a couple of days that just won't come down",
+        "{{His}} temperature spiked suddenly and {{he}}'s started shivering badly",
+        "{{He}}'s been feeling rough all day and now {{he}}'s burning up",
+        "{{His}} fever's got worse overnight, {{he}}'s hot to the touch",
+        "{{He}} took paracetamol but {{his}} temperature's still really high",
+        "{{He}}'s been shivering and sweating by turns, {{his}} temperature's very high",
+        "{{He}}'s had flu like symptoms and now {{his}} fever's spiked badly",
+        "{{His}} temperature's not coming down despite everything we've tried",
+        "{{He}}'s gone from feeling a bit off to really unwell with a high fever",
+        "{{He}}'s been unwell for a couple of days, now {{he}}'s got a very high temperature"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's talking to me but she's not making much sense"
+        "Yes, {{he}}'s awake, just feels dreadful",
+        "Conscious, yes, but very weak",
+        "{{He}}'s awake and talking to me, just not right",
+        "Yes, {{he}}'s alert, just really unwell",
+        "Conscious, yes, {{he}}'s pale and sweaty though",
+        "{{He}}'s awake, just very lethargic",
+        "Yes, {{he}}'s conscious, {{his}} colour's not good",
+        "{{He}}'s alert, just says {{he}} feels awful",
+        "Yes, {{he}}'s talking to me, just very tired",
+        "Conscious, yes, but not {{himself}} at all"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "It's a bit quick but she's not struggling"
+        "Yes, {{his}} breathing's fine",
+        "Fine, no problems breathing",
+        "Yes, breathing normally",
+        "{{He}}'s breathing okay",
+        "Normal, as far as I can tell",
+        "Yes, {{he}}'s breathing fine, just unwell",
+        "{{His}} breathing seems okay to me",
+        "Fine, no distress with {{his}} breathing",
+        "Yes, breathing's steady",
+        "{{He}}'s breathing normally, yes"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her head's pounding"
+        "No real pain, just feels dreadful all over",
+        "Not pain exactly, just very weak and unwell",
+        "No, {{he}} says {{he}} just feels awful",
+        "No pain as such, just really lethargic",
+        "Not pain, just no energy at all",
+        "No, {{he}}'s not in pain, just very unwell",
+        "No pain, just feels rough and shaky",
+        "Not really, just generally unwell",
+        "No, no pain, {{he}}'s just exhausted",
+        "No pain, {{he}} just seems really off colour"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding at all"
+        "No, no bleeding, {{he}}'s just unwell",
+        "No blood involved, no",
+        "No, this isn't that kind of thing",
+        "No bleeding, {{he}}'s just really weak",
+        "No, nothing like that at all",
+        "No, {{he}}'s not injured, just poorly",
+        "No blood, no",
+        "Not that I've seen, no",
+        "No, no cuts or blood, {{he}}'s just unwell",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She's diabetic and has high blood pressure"
+        "No, nothing that I know of",
+        "Not that I'm aware of, no",
+        "No history I know of, {{he}}'s usually fit and well",
+        "No, {{he}}'s never had anything like this before",
+        "Nothing at all, {{he}}'s normally very healthy",
+        "No, no medical conditions that I know of",
+        "Not that I know of, no",
+        "No, {{he}}'s never had any real health problems",
+        "Nothing I know of, {{he}}'s generally fine",
+        "No history at all as far as I know"
       ]
     },
     "medications": {
       "answers": [
-        "Metformin and a blood pressure tablet, I can find the box"
+        "Yes, {{he}} takes paracetamol for the fever",
+        "{{He}}'s on paracetamol for the fever",
+        "Yes, {{he}} takes paracetamol for the fever regularly",
+        "{{He}}'s prescribed paracetamol for the fever",
+        "Yes, paracetamol for the fever, {{he}} takes it every day",
+        "{{He}} takes paracetamol for the fever for it",
+        "Yes, {{he}}'s on paracetamol for the fever, has been for a while",
+        "{{He}} takes paracetamol for the fever regularly, yes",
+        "Yes, paracetamol for the fever is what {{he}}'s on",
+        "{{He}}'s on paracetamol for the fever at the moment"
       ]
     },
     "patientAge": {
       "answers": [
-        "71"
+        "{{He}}'s 72",
+        "About 72, I think",
+        "{{He}}'s 72 years old",
+        "72, {{he}}'ll be 73 next year",
+        "I think {{he}}'s 72 or thereabouts",
+        "72 years of age",
+        "{{He}}'s in {{his}} 70s, about 72",
+        "Just turned 72",
+        "{{He}}'s 72, always been fit for {{his}} age",
+        "72, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll try and keep her cool, please hurry"
+        "Okay, I'm staying on the line with {{him}}",
+        "Right, I'm keeping {{him}} sitting up like you said",
+        "I'm with {{him}}, talking {{him}} through it",
+        "Okay, I've opened a window, trying to keep {{him}} cool and calm",
+        "Yes, I'm doing that now, {{he}}'s still talking to me",
+        "Okay, I've got {{him}} comfortable, waiting with {{him}}",
+        "I'm keeping {{him}} calm, {{he}}'s frightened",
+        "Right, I'll stay with {{him}} till they arrive",
+        "Okay, doing that now, {{he}}'s still with me",
+        "I'm not leaving {{his}} side, promise"
       ]
     },
     "refer111": {
       "answers": [
-        "No, she's really not herself, I think she needs an ambulance"
+        "I did wonder about that, but {{he}}'s really not right, can you send someone",
+        "Maybe, but I'd feel better if someone came out",
+        "I'm not sure, {{he}} seems worse than that to me",
+        "Could do, but it's been going on a while now",
+        "I did think about ringing them, but this seemed more urgent",
+        "Possibly, but I'd rather not risk it, can you send someone",
+        "I don't know, {{he}}'s in a fair bit of discomfort",
+        "Maybe not a bad idea, but can you just send someone anyway",
+        "I'm not sure that's enough somehow, {{he}}'s really struggling",
+        "Could be, but it's been hours now, I'd rather someone came out"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, it's an ambulance {{he}} needs",
+        "No, no police needed, this is a medical matter, not police",
+        "No thank you, just the ambulance, there's nothing for police here",
+        "No, wrong service, {{he}} just needs medical help, not police",
+        "No police required, {{he}}'s just unwell, we only need paramedics",
+        "No, nothing for police to do here, it's purely medical",
+        "No, we're fine on that front, just the ambulance for {{him}} please",
+        "Police? No, I don't think that's needed, {{he}} just needs help",
+        "No, no crime or anything like that, just an ambulance please",
+        "No police necessary, {{he}} just needs to be seen by paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, we just need an ambulance for {{him}}",
+        "No, no fire brigade needed, it's an ambulance {{he}} needs",
+        "Fire service? No, wrong service, {{he}}'s just unwell",
+        "No, nothing's on fire, {{he}} just needs a paramedic",
+        "No thank you, no need for fire, just the ambulance please",
+        "Fire brigade? No, {{he}}'s not trapped or anything, {{he}}'s just poorly",
+        "No, that's not necessary, {{he}} only needs medical help",
+        "No fire involved, we just need the ambulance to get here",
+        "Fire? No, I don't think that's needed, {{he}} just needs paramedics",
+        "No, no fire service required, it's purely a medical matter"
       ]
     }
   },

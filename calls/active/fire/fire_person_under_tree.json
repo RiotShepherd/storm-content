@@ -48,6 +48,11 @@
     "fire_officer": 1,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 5
+  },
   "patients": {
     "range": [
       1,
@@ -89,8 +94,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "A tree's come down on someone, please hurry, they're trapped",
-      "There's been an accident, a branch or tree's fallen and it's landed on a person"
+      "A tree's come down on someone, please hurry, they're trapped.",
+      "There's been an accident, a branch or tree's fallen and it's landed on a person.",
+      "Please help, a tree's collapsed on top of somebody.",
+      "Someone's trapped under a fallen tree, please send help quickly.",
+      "There's a person pinned under a tree, it just came down.",
+      "Please hurry, a tree's fallen and someone's underneath it.",
+      "A big branch has come down on a person, they can't move.",
+      "Please, a tree just fell on someone, they're trapped under it.",
+      "There's been an accident, a tree's landed on top of a person walking past.",
+      "Help, a tree's come down and it's trapped somebody underneath."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -102,79 +115,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "A tree's come down on someone, please hurry, they're trapped",
-        "There's been an accident, a branch or tree's fallen and it's landed on a person"
+        "A tree's come down on someone, please hurry, they're trapped.",
+        "There's been an accident, a branch or tree's fallen and it's landed on a person.",
+        "Please help, a tree's collapsed on top of somebody.",
+        "Someone's trapped under a fallen tree, please send help quickly.",
+        "There's a person pinned under a tree, it just came down.",
+        "Please hurry, a tree's fallen and someone's underneath it.",
+        "A big branch has come down on a person, they can't move.",
+        "Please, a tree just fell on someone, they're trapped under it.",
+        "There's been an accident, a tree's landed on top of a person walking past.",
+        "Help, a tree's come down and it's trapped somebody underneath."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I saw it happen"
+        "It's {{callerName}}, please just send someone.",
+        "{{callerName}}, look I just need help quickly.",
+        "My name's {{callerName}}, can you hurry.",
+        "{{callerName}}, yes, now please send someone.",
+        "It's {{callerName}} calling, please.",
+        "{{callerName}}, that's me, please get someone here.",
+        "Sorry, {{callerName}}, I'm a bit shaken.",
+        "{{callerName}} here, please just send help.",
+        "My name is {{callerName}}, please hurry.",
+        "It's {{callerName}}, can you send someone now."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know their name, I just saw it happen"
+        "I don't know {{his}} name, {{he}}'s a stranger to me.",
+        "No idea, I've never seen {{him}} before, {{he}} just went down.",
+        "I don't know {{him}}, sorry, {{he}}'s just lying there.",
+        "Couldn't tell you, {{he}}'s not someone I know.",
+        "No idea of {{his}} name, I only just came across {{him}}.",
+        "I don't know, {{he}}'s a total stranger, sorry.",
+        "Sorry, I've no idea, {{he}}'s not someone I recognise.",
+        "I can't say, I don't know {{him}} at all.",
+        "No idea what {{his}} name is, sorry.",
+        "Couldn't tell you {{his}} name, never met {{him}} before."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}"
+        "It's {{address}}, please hurry.",
+        "{{address}}, quickly please.",
+        "We're at {{address}}, send someone now.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are, please.",
+        "It's {{address}}, can you send someone fast.",
+        "{{address}}, please, as quick as you can.",
+        "We're at {{address}}, please get here quickly.",
+        "That's {{address}}, please hurry up.",
+        "{{address}}, I need someone here now."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The tree just came down, I don't know if it was the wind, and it's landed right on them"
+        "The tree just came down, I don't know if it was the wind, and it's landed right on them.",
+        "There was a loud crack and the tree came straight down on top of them.",
+        "The wind must have taken it, the whole tree fell across the path.",
+        "It looked rotten at the base and just gave way, landing right on them.",
+        "I heard it snap and then it came down on the person underneath.",
+        "The tree toppled over suddenly, they didn't have time to move.",
+        "A branch broke off and the whole tree came down with it.",
+        "It happened so fast, the tree fell and they were right underneath it.",
+        "I think the storm loosened the roots, it just came crashing down.",
+        "The tree came down across the path and trapped them where they stood."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "They were shouting at first but they've gone quiet"
+        "{{He}}'s conscious but in a lot of pain.",
+        "{{He}} was talking a second ago, now {{he}}'s gone quiet.",
+        "{{He}}'s awake, groaning, {{he}} knows I'm here.",
+        "{{He}} keeps drifting in and out, {{he}}'s not right.",
+        "{{He}}'s conscious, shouting out in pain.",
+        "{{He}} was responsive but {{he}}'s fading now.",
+        "{{He}}'s awake but not making much sense.",
+        "{{He}}'s conscious, very shaken and in shock.",
+        "{{He}} opened {{his}} eyes when I called out to {{him}}.",
+        "{{He}}'s conscious but really struggling."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I think so, but I can't get close enough to check properly"
+        "{{He}}'s breathing, but it sounds laboured.",
+        "{{He}} seems to be breathing okay, just in pain.",
+        "{{He}}'s breathing fast, {{he}}'s clearly in shock.",
+        "Yes, {{he}}'s breathing, I can see {{his}} chest moving.",
+        "{{He}}'s breathing but it's shallow.",
+        "{{He}} seems to be getting enough air, just distressed.",
+        "{{He}}'s breathing, but struggling with the pain.",
+        "Yes, {{he}}'s breathing, quite fast though.",
+        "{{He}}'s breathing okay as far as I can tell.",
+        "{{He}}'s breathing, but {{he}}'s clearly in a bad way."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "They were screaming in pain when it first happened"
+        "{{He}}'s in agony, screaming out.",
+        "{{He}} says {{his}} leg's the worst of it.",
+        "{{He}}'s in a lot of pain, can barely speak.",
+        "{{He}} keeps saying {{his}} back hurts.",
+        "{{He}}'s clearly in a lot of pain, crying out.",
+        "{{He}} says everything hurts, {{he}}'s in a state.",
+        "{{He}}'s in serious pain, I can tell from {{his}} face.",
+        "{{He}}'s groaning in pain, doesn't want to move.",
+        "{{He}} says {{his}} chest and legs hurt the most.",
+        "{{He}}'s in a lot of pain, {{he}} can't get comfortable."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I can see some blood, hard to tell how bad"
+        "{{He}}'s bleeding from {{his}} head, quite a bit.",
+        "There's blood coming from {{his}} leg.",
+        "{{He}}'s bleeding, I've tried to keep pressure on it.",
+        "Yes, {{he}}'s bleeding quite badly from {{his}} arm.",
+        "{{He}}'s got a nasty cut, bleeding a fair bit.",
+        "{{He}}'s bleeding from {{his}} side, I think.",
+        "There's a lot of blood, {{he}}'s bleeding badly.",
+        "{{He}}'s bleeding, not sure exactly where from.",
+        "Yes, {{he}}'s bleeding, I can see it on the ground.",
+        "{{He}}'s bleeding heavily, {{he}} needs help fast."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them, sorry"
+        "I've no idea, I don't know {{him}} at all.",
+        "Sorry, I can't tell you that, {{he}}'s a stranger.",
+        "No idea about {{his}} health, never met {{him}} before.",
+        "I don't know {{him}}, so I can't say.",
+        "Couldn't tell you, sorry, I don't know {{his}} history.",
+        "No idea, I only just found {{him}} like this.",
+        "I don't know {{him}} personally, sorry.",
+        "Can't say, {{he}}'s not someone I know.",
+        "No idea about that, sorry.",
+        "I wouldn't know, {{he}}'s a stranger to me."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, sorry"
+        "I've no idea what {{he}} takes, sorry.",
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, sorry.",
+        "No idea about medication, I don't know {{him}} at all.",
+        "Sorry, I can't say, {{he}}'s a stranger to me.",
+        "No idea, {{he}}'s not someone I know.",
+        "I wouldn't know, sorry.",
+        "Can't say, I only just came across {{him}}.",
+        "No idea what {{he}}'s on, sorry.",
+        "I don't know, sorry, never met {{him}} before."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looked like an adult"
+        "I'd say {{he}}'s maybe in {{his}} forties, hard to say.",
+        "Looks like {{he}}'s middle aged, that's my guess.",
+        "I couldn't say exactly, maybe thirty odd.",
+        "{{He}} looks like {{he}}'s in {{his}} twenties.",
+        "Hard to say, maybe fifty, I'm not sure.",
+        "I'd guess {{he}}'s an older {{gentleman}}, maybe sixty.",
+        "Can't say for certain, {{he}} looks middle aged.",
+        "Maybe late thirties, that's my best guess.",
+        "I'm not sure exactly, {{he}} looks like an adult, that's all I can say.",
+        "Hard to tell, {{he}}'s an adult, not elderly though."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying with them, please hurry"
+        "Okay, okay, I'll do that.",
+        "Right, yes, I'll stay back, just please hurry.",
+        "Okay, thank you, please send them quickly.",
+        "Alright, I'll wait, but please hurry.",
+        "Okay okay, I'm moving back now.",
+        "Yes, alright, I'll do what you say.",
+        "Okay, thank you, I'm staying clear.",
+        "Right, understood, please just get here soon.",
+        "Okay, I will, please hurry though.",
+        "Alright, thank you, I'm keeping everyone back."
       ]
     },
     "refer111": {
       "answers": [
-        "No, they're trapped under a tree, this is an emergency"
+        "No, {{he}}'s badly hurt, I need an ambulance out here.",
+        "No, this can't wait, {{he}}'s seriously injured.",
+        "No, {{he}} needs paramedics, not a callback from 111.",
+        "No, please, {{he}}'s in a bad way, I need help now.",
+        "No, this is an emergency, {{he}}'s really hurt.",
+        "No, {{he}} can't wait for 111, {{he}} needs an ambulance.",
+        "No, it's serious, {{he}}'s badly injured.",
+        "No thank you, {{he}} needs urgent help, not 111.",
+        "No, please, I need paramedics for {{him}} now.",
+        "No, {{he}}'s hurt too badly for that, I need an ambulance."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes please, it's chaos here, that would help.",
+        "Okay, good, we need someone keeping people back.",
+        "Yes, please send them, it's really busy here.",
+        "Okay, thank you, that would help a lot right now.",
+        "Yes, good, there's people everywhere, please hurry them along.",
+        "Okay, please, we need help keeping this under control.",
+        "Yes, that's needed, it's mayhem here.",
+        "Okay, thank you, please send them quickly.",
+        "Yes please, we could really use them here.",
+        "Okay, good, just please hurry everyone up."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, please hurry.",
+        "Right, thank you, please get here quickly.",
+        "Okay, please, as fast as you can.",
+        "Thank you, please hurry, it's getting worse.",
+        "Okay, thank god, please hurry.",
+        "Right, okay, please just get here fast.",
+        "Okay, thank you, please be quick.",
+        "Thank you, please hurry, I'm really worried.",
+        "Okay, good, please hurry them up.",
+        "Okay, thank you, please come quickly."
       ]
     }
   },

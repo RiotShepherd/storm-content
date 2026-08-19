@@ -50,6 +50,11 @@
     "dog_unit": 1,
     "arv": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 10,
+    "ambulance": 4
+  },
   "patients": {
     "range": [
       1,
@@ -94,8 +99,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Ambulance and police, quick, someone's been stabbed",
-      "Help, there's a man on the floor, he's been stabbed, there's blood everywhere"
+      "Police, quick, someone's been stabbed, there's blood everywhere",
+      "Please hurry, {{he}}'s been stabbed, I don't know what to do",
+      "Police, {{he}}'s bleeding badly, {{he}}'s been stabbed",
+      "Please send an ambulance and police, someone's just been stabbed",
+      "Police, quick, {{he}}'s been knifed, there's so much blood",
+      "Please hurry, {{he}}'s collapsed, {{he}}'s been stabbed",
+      "Police, someone attacked {{him}} with a knife, please hurry",
+      "Please send help now, {{he}}'s been stabbed in the street",
+      "Police, quick, {{he}}'s badly hurt, stabbed right in front of me",
+      "Please hurry, {{he}}'s bleeding so much, {{he}}'s been stabbed"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -107,91 +120,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Ambulance and police, quick, someone's been stabbed",
-        "Help, there's a man on the floor, he's been stabbed, there's blood everywhere"
+        "Police, quick, someone's been stabbed, there's blood everywhere",
+        "Please hurry, {{he}}'s been stabbed, I don't know what to do",
+        "Police, {{he}}'s bleeding badly, {{he}}'s been stabbed",
+        "Please send an ambulance and police, someone's just been stabbed",
+        "Police, quick, {{he}}'s been knifed, there's so much blood",
+        "Please hurry, {{he}}'s collapsed, {{he}}'s been stabbed",
+        "Police, someone attacked {{him}} with a knife, please hurry",
+        "Please send help now, {{he}}'s been stabbed in the street",
+        "Police, quick, {{he}}'s badly hurt, stabbed right in front of me",
+        "Please hurry, {{he}}'s bleeding so much, {{he}}'s been stabbed"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I saw the whole thing.",
+        "{{callerName}}, I was just walking past.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} here, I'm the one who called.",
+        "{{callerName}}, yes, that's me.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}.",
+        "{{callerName}} speaking, I saw it happen.",
+        "Name's {{callerName}}.",
+        "It's {{callerName}}, I'm just a witness."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know him, I just found him like this",
-        "No idea who he is, never seen him before"
+        "I don't know {{his}} name, {{he}}'s a stranger to me.",
+        "No name, {{he}} just went down in front of me.",
+        "I don't know {{him}}, {{he}}'s not someone I recognise.",
+        "No idea, {{he}}'s just lying here, I don't know {{him}}.",
+        "Don't know {{his}} name, sorry, never seen {{him}} before.",
+        "No, never seen {{him}} before, can't give you a name.",
+        "Can't help with a name, I just saw {{him}} go down.",
+        "No name I'm afraid, {{he}} can't tell me right now.",
+        "Nobody round here knows {{his}} name.",
+        "I've got no name for you, {{he}}'s a stranger."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, he's on the ground here",
-        "It's {{address}}, just outside"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A group ran off and left him on the ground, he's been stabbed in the side",
-        "Someone stabbed him and ran, he's bleeding badly"
+        "Someone ran up and stabbed {{him}}, then ran off",
+        "There was an argument and then {{he}} was stabbed, it happened so fast",
+        "Someone came out of nowhere and knifed {{him}} in the street",
+        "{{He}} was attacked from behind, I saw the knife",
+        "It happened in seconds, {{he}} was stabbed and the attacker ran",
+        "I saw someone pull a knife and stab {{him}} once, maybe twice",
+        "{{He}} was jumped by someone with a knife near the bus stop",
+        "There was a scuffle then {{he}} went down, I saw blood straight away",
+        "The attacker stabbed {{him}} and fled towards the shops",
+        "It was over in seconds, {{he}}'s been stabbed and is bleeding badly"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious but going pale",
-        "Yes, conscious, but fading a bit"
+        "{{He}}'s conscious but really pale and scared.",
+        "{{He}}'s awake, just in a lot of pain and frightened.",
+        "{{He}}'s conscious, talking but very weak.",
+        "{{He}}'s awake but going quiet, I'm really worried.",
+        "{{He}}'s conscious, just struggling to stay calm.",
+        "{{He}}'s awake but {{his}} eyes keep closing.",
+        "{{He}}'s conscious, holding onto my hand, very frightened.",
+        "{{He}}'s awake but fading, please hurry.",
+        "{{He}}'s conscious, just very shocked and pale.",
+        "{{He}}'s awake, barely, {{he}}'s losing colour fast."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes but it's shallow",
-        "Yes, but very fast"
+        "{{He}}'s breathing but it sounds fast and shallow.",
+        "{{His}} breathing's quick, {{he}}'s clearly in shock.",
+        "{{He}}'s breathing, just very rapid and panicked.",
+        "{{His}} breathing sounds okay for now but {{he}}'s pale.",
+        "{{He}}'s breathing fast, I think {{he}}'s going into shock.",
+        "{{His}} breathing seems alright, just quick.",
+        "{{He}}'s breathing, yes, but I'm worried it's getting weaker.",
+        "{{His}} breathing's shallow, {{he}} looks really unwell.",
+        "{{He}}'s still breathing, just very fast.",
+        "{{His}} breathing's okay right now, please hurry anyway."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says it really hurts, holding his side",
-        "He's in agony, clutching his stomach"
+        "{{He}}'s in agony, holding the wound.",
+        "{{He}} says it hurts terribly where {{he}}'s been stabbed.",
+        "{{He}}'s in a lot of pain, {{he}} can barely speak.",
+        "{{He}}'s crying out in pain from the wound.",
+        "{{He}} says the pain's really bad, {{he}}'s clutching {{his}} side.",
+        "{{He}}'s in serious pain, I can see it on {{his}} face.",
+        "{{He}} keeps saying it hurts, {{he}}'s in a bad way.",
+        "{{He}}'s in a lot of pain, holding where {{he}}'s bleeding.",
+        "{{He}} says it's agony, please hurry.",
+        "{{He}}'s clearly in severe pain from the wound."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, a lot, from his stomach",
-        "Yes, soaking through his shirt"
+        "{{He}}'s bleeding badly, there's blood everywhere.",
+        "{{He}}'s losing a lot of blood, I'm trying to press on it.",
+        "There's so much blood, {{he}}'s bleeding heavily.",
+        "{{He}}'s bleeding fast, I don't know how to stop it.",
+        "{{He}}'s bleeding badly from {{his}} side, please hurry.",
+        "It's bleeding a lot, I'm holding a jumper on the wound.",
+        "{{He}}'s bleeding heavily, the ground's covered in blood.",
+        "{{He}}'s losing blood quickly, please hurry.",
+        "There's blood pouring from the wound, {{he}} needs help now.",
+        "{{He}}'s bleeding a lot, I'm doing what I can to help."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Don't know him",
-        "No idea, complete stranger"
+        "I don't know {{him}}, I've no idea about {{his}} health.",
+        "No idea, {{he}}'s a stranger to me.",
+        "Couldn't tell you, I don't know {{him}} at all.",
+        "No idea about that, sorry, I just saw {{him}} get stabbed.",
+        "I don't know {{him}} well enough to say.",
+        "Not a clue, {{he}}'s not someone I know.",
+        "No, I've no idea about {{his}} health.",
+        "Couldn't say, I don't know {{him}} personally.",
+        "No idea whatsoever, sorry.",
+        "I really wouldn't know, never met {{him}} before."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "I've no idea.",
+        "Couldn't tell you, sorry.",
+        "No idea at all, I don't know {{him}}.",
+        "I wouldn't know, never met {{him}}.",
+        "No clue, sorry.",
+        "Couldn't say, I don't know {{him}}.",
+        "No idea, I'm afraid.",
+        "Not a clue what {{he}} takes.",
+        "I really couldn't tell you.",
+        "No idea, sorry, {{he}}'s a stranger to me."
       ]
     },
     "patientAge": {
       "answers": [
-        "Young lad, looks about eighteen",
-        "Maybe early twenties"
+        "Hard to say, maybe in {{his}} twenties.",
+        "I'd guess {{him}} as thirtyish.",
+        "Looked youngish, maybe late teens.",
+        "Not sure exactly, {{he}} looked middle aged.",
+        "Couldn't tell you exactly, mid twenties at a guess.",
+        "I'd say {{he}} was in {{his}} thirties.",
+        "Maybe early twenties, it happened so fast.",
+        "I only got a quick look, {{he}} seemed fairly young.",
+        "Roughly thirty, that's my best guess.",
+        "Somewhere around {{his}} twenties or thirties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry, he's losing a lot of blood",
-        "Right, I'm putting pressure on it like you said"
+        "Oh thank god, yes, please hurry, {{he}}'s bleeding so much.",
+        "Yes please, {{he}} needs help right now.",
+        "Thank you, please hurry, {{he}}'s losing a lot of blood.",
+        "Yes, please, {{he}}'s fading, hurry.",
+        "Thank god, yes, please be quick.",
+        "Yes please, I'm doing what I can but {{he}} needs help fast.",
+        "Thank you, please hurry, {{he}}'s in a really bad way.",
+        "Yes please, {{he}} needs it urgently.",
+        "Thank you, I'll keep pressure on it till they arrive.",
+        "Yes please, hurry, {{he}}'s getting weaker."
       ]
     },
     "refer111": {
       "answers": [
-        "This is life threatening, he needs an ambulance now!"
+        "No, please, {{he}} needs paramedics now, not a phone call.",
+        "That's not good enough, {{he}}'s bleeding badly, I need an ambulance.",
+        "No, this can't wait, {{he}}'s been stabbed.",
+        "Please, no, this is a real emergency, {{he}} needs help now.",
+        "No, don't do that, {{he}}'s losing blood fast.",
+        "That's not right, this is an emergency, {{he}} needs an ambulance.",
+        "No, please, {{he}} really needs paramedics now.",
+        "Don't leave it to 111, {{he}}'s been stabbed, please.",
+        "No, this is serious, {{he}} needs help sent out now.",
+        "Please no, this can't wait, {{he}}'s bleeding badly."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh thank god, please hurry, I don't know how long this can go on for.",
+        "Okay, okay, please tell them to hurry, I'm really worried.",
+        "Thank you, please, how long will they be, I'm scared.",
+        "Right, okay, thank you, please just get them here fast.",
+        "Oh good, thank you, I'll stay on the line until they arrive.",
+        "Please hurry, I don't feel safe until they get here.",
+        "Okay, thank you, I'm staying back, just please be quick.",
+        "Thank god, yes please, tell them to hurry.",
+        "Right, thank you, I'm shaking, please just get them here.",
+        "Okay, thank you, I'll wait, just please don't be long."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

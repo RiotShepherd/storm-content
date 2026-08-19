@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -71,7 +75,15 @@
   "caller": {
     "openings": [
       "I've twisted my ankle really badly, I think it might be broken",
-      "I've gone over on my ankle, I heard it crack"
+      "I've gone over on my ankle, I heard it crack",
+      "I've fallen and twisted my ankle, it's really painful and swollen",
+      "I think I've broken my ankle, I heard a snap when I fell",
+      "I've badly turned my ankle, I can't put any weight on it",
+      "I've gone over awkwardly on my ankle, the pain's terrible",
+      "I've hurt my ankle badly, it's swelling up fast",
+      "I think my ankle's broken, I can't stand on it at all",
+      "I've twisted my ankle badly on the kerb, it's really painful",
+      "I've fallen awkwardly and my ankle's in a bad way"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -84,89 +96,231 @@
     "start": {
       "answers": [
         "I've twisted my ankle really badly, I think it might be broken",
-        "I've gone over on my ankle, I heard it crack"
+        "I've gone over on my ankle, I heard it crack",
+        "I've fallen and twisted my ankle, it's really painful and swollen",
+        "I think I've broken my ankle, I heard a snap when I fell",
+        "I've badly turned my ankle, I can't put any weight on it",
+        "I've gone over awkwardly on my ankle, the pain's terrible",
+        "I've hurt my ankle badly, it's swelling up fast",
+        "I think my ankle's broken, I can't stand on it at all",
+        "I've twisted my ankle badly on the kerb, it's really painful",
+        "I've fallen awkwardly and my ankle's in a bad way"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, that's me",
+        "My name's {{firstPatientName}}",
+        "It's {{firstPatientName}}, I'm the one who's hurt",
+        "{{firstPatientName}}",
+        "Yes, {{firstPatientName}}",
+        "{{firstPatientName}} here",
+        "It's {{firstPatientName}} speaking",
+        "{{firstPatientName}}, that's right",
+        "{{firstPatientName}}, that's my name"
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}",
-        "{{address}}"
+        "It's {{address}}",
+        "{{address}}, at home",
+        "We're at {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, at home",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, at home, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I stepped off the kerb awkwardly and my ankle rolled, I heard a crack",
-        "I fell and twisted my ankle, it's swollen up already and I can't put weight on it"
+        "I stepped off the kerb awkwardly and my ankle went",
+        "I was walking down the stairs and missed a step, my ankle twisted badly",
+        "I turned my ankle on some uneven ground and heard it crack",
+        "I tripped over something and came down hard on my ankle",
+        "I misjudged a step and went over on my ankle badly",
+        "I was jogging and my ankle rolled under me",
+        "I stepped in a pothole and my ankle twisted right over",
+        "I slipped on some wet ground and my ankle gave way",
+        "I came down the last step wrong and twisted my ankle badly",
+        "I turned my ankle getting out of the car"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, fully awake",
-        "Yes, fine other than the pain"
+        "Yes, I'm fully conscious, just in a lot of pain",
+        "Yes, I'm awake and talking fine",
+        "Yes, conscious, just can't put any weight on it",
+        "Yes, I'm alert, the pain's just really bad",
+        "Yes, wide awake, just stuck sitting here",
+        "Yes, conscious, I just can't stand on it",
+        "Yes, I'm fine that way, just the pain",
+        "Yes, I'm conscious, just really uncomfortable",
+        "Yes, awake and fine, just can't walk on it",
+        "Yes, conscious, just in a lot of pain with my ankle"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Fine",
-        "Normal"
+        "Yes, breathing's fine",
+        "Yes, no problems breathing",
+        "Yes, breathing normally",
+        "Yes, that's fine, it's just my ankle",
+        "Yes, no issues there at all",
+        "Yes, breathing's completely normal",
+        "Yes, that's not a problem, just the pain",
+        "Yes, breathing fine, thank you",
+        "Yes, no trouble breathing",
+        "Yes, breathing's okay, it's purely my ankle"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Very painful, can't put any weight on it",
-        "Sharp pain, worse when I try to move it"
+        "Yes, it's really painful, especially when I try to move it",
+        "Yes, the pain's quite severe, it's swelling up fast",
+        "Yes, sharp pain right through my ankle",
+        "Yes, it hurts a lot, I can't put any weight on it",
+        "Yes, it's throbbing badly and quite swollen",
+        "Yes, I'm in a lot of pain, it's very tender",
+        "Yes, the pain's bad, especially if I try to stand",
+        "Yes, severe pain around my ankle, it's swollen already",
+        "Yes, it's really sore, worse than any sprain I've had before",
+        "Yes, quite a lot of pain, I think it might be broken"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No, just swollen"
+        "No, no bleeding, just swelling",
+        "No bleeding at all",
+        "No, there's no cut, just the swelling and pain",
+        "No, it's not bleeding, just very swollen",
+        "No bleeding, it's purely the ankle injury",
+        "No, nothing like that",
+        "No bleeding, no cuts",
+        "No, I'm not bleeding",
+        "No bleeding, just the swelling and pain",
+        "No, no bleeding, it's just my ankle that's hurt"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing relevant",
-        "No"
+        "No, I'm generally fit and healthy",
+        "I've sprained this same ankle before",
+        "No significant history, no",
+        "I've had ankle problems on this side before",
+        "No, nothing major, I'm usually fine",
+        "I've twisted this ankle a couple of times before",
+        "No history of anything serious",
+        "I've had a similar injury on this ankle a few years back",
+        "No, I don't have any ongoing conditions",
+        "No major history, I'm generally fit and well"
       ]
     },
     "medications": {
       "answers": [
-        "None",
-        "Not on anything"
+        "No, I don't take anything regular",
+        "I've taken some paracetamol already",
+        "No medication that's regular, no",
+        "I've taken ibuprofen for the pain",
+        "No, I'm not on anything",
+        "I've taken some over the counter painkillers",
+        "No regular medication, no",
+        "I've taken paracetamol but the pain's still bad",
+        "No, nothing at all normally",
+        "No regular medication, just what I've taken today"
       ]
     },
     "patientAge": {
       "answers": [
-        "27"
+        "I'm twenty six",
+        "I'm in my twenties",
+        "Twenty seven",
+        "I'm twenty five",
+        "I'm in my early twenties",
+        "Twenty eight, if that helps",
+        "I'm in my mid twenties",
+        "Twenty six years old",
+        "I'm around twenty seven",
+        "I'm twenty four"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay sat down",
-        "I'm keeping it still"
+        "Okay, thank you, I'll stay where I am",
+        "Right, I'll try not to move until they get here",
+        "Okay, that's a relief, thank you",
+        "Thank you, I'll wait by the door for them",
+        "Okay, I'll keep as still as I can",
+        "Right, thank you, how long roughly",
+        "Okay, I'll stay on the line until they arrive",
+        "Thank you, I'm just going to sit tight",
+        "Okay, that's good, I'm in a lot of discomfort",
+        "Right, thank you, I appreciate it"
       ]
     },
     "refer111": {
       "answers": [
-        "I don't think I can walk on it at all",
-        "Maybe, but I really can't put weight on it"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

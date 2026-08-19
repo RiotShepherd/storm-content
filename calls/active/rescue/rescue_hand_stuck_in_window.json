@@ -45,6 +45,11 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -68,8 +73,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My daughter's got her hand stuck in the window and we can't get it free.",
-      "Fire brigade please, someone's hand is trapped in a window frame, they're in a lot of pain."
+      "My {{callerChild}}'s got {{his}} hand stuck in the window, I can't get it free!",
+      "Please help, {{firstPatientName}}'s hand is trapped in the window and {{he}}'s screaming!",
+      "My {{callerChild}}'s hand is stuck fast in the window frame, I can't move it!",
+      "Help, {{firstPatientName}}'s hand's caught in the window and {{he}}'s in a lot of pain!",
+      "I can't get my {{callerChild}}'s hand out of the window, it's really stuck!",
+      "Please come quickly, {{firstPatientName}}'s trapped {{his}} hand in the window!",
+      "My {{callerChild}} got {{his}} hand stuck in the window and now {{he}}'s panicking!",
+      "Help, {{firstPatientName}}'s hand won't come free from the window frame!",
+      "I've got a bit of an emergency, my {{callerChild}}'s hand is jammed in the window.",
+      "Please hurry, {{firstPatientName}}'s hand is stuck fast and {{he}}'s crying in pain!"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -81,91 +94,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My daughter's got her hand stuck in the window and we can't get it free.",
-        "Fire brigade please, someone's hand is trapped in a window frame, they're in a lot of pain."
+        "My {{callerChild}}'s got {{his}} hand stuck in the window, I can't get it free!",
+        "Please help, {{firstPatientName}}'s hand is trapped in the window and {{he}}'s screaming!",
+        "My {{callerChild}}'s hand is stuck fast in the window frame, I can't move it!",
+        "Help, {{firstPatientName}}'s hand's caught in the window and {{he}}'s in a lot of pain!",
+        "I can't get my {{callerChild}}'s hand out of the window, it's really stuck!",
+        "Please come quickly, {{firstPatientName}}'s trapped {{his}} hand in the window!",
+        "My {{callerChild}} got {{his}} hand stuck in the window and now {{he}}'s panicking!",
+        "Help, {{firstPatientName}}'s hand won't come free from the window frame!",
+        "I've got a bit of an emergency, my {{callerChild}}'s hand is jammed in the window.",
+        "Please hurry, {{firstPatientName}}'s hand is stuck fast and {{he}}'s crying in pain!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm her mum.",
-        "{{callerName}}, I'm with them now."
+        "It's {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}}, I'm at home with {{him}}.",
+        "My name's {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}} here, {{he}}'s my {{callerChild}}.",
+        "It's {{callerName}} calling, I'm {{his}} {{callerParent}}.",
+        "{{callerName}}, sorry, I'm just so worried about {{him}}.",
+        "My name is {{callerName}}, {{he}}'s my {{callerChild}}.",
+        "{{callerName}}, I'm looking after {{him}} today.",
+        "It's {{callerName}}, I'm {{his}} {{callerParent}}, please hurry.",
+        "{{callerName}} speaking, I'm right here with {{him}}."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}.",
-        "Her name's {{firstPatientName}}."
+        "It's {{firstPatientName}}, {{he}}'s my {{callerChild}}.",
+        "{{firstPatientName}}, {{he}}'s my {{callerChild}}, please hurry.",
+        "{{his}} name's {{firstPatientName}}.",
+        "It's {{patientName}}, {{he}}'s my {{callerChild}}.",
+        "{{firstPatientName}}, that's {{his}} name.",
+        "It's {{firstPatientName}}, my {{callerChild}}.",
+        "{{firstPatientName}} is {{his}} name, please come quickly.",
+        "It's {{firstPatientName}}, {{his}} hand's still stuck.",
+        "{{patientName}}, {{he}}'s only little.",
+        "It's {{firstPatientName}}, my {{callerChild}}, {{he}}'s in pain."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}.",
-        "{{address}}, it's the upstairs window."
+        "We're at {{address}}, I'll leave the door open for you.",
+        "{{address}}, come straight in, we're upstairs.",
+        "It's {{address}}, I'll be waiting by the front door.",
+        "{{address}}, please hurry, {{he}}'s in a lot of pain.",
+        "We're at {{address}}, it's the window in the front room.",
+        "{{address}}, I'll unlock the door now.",
+        "It's {{address}}, come round the side if the front's locked.",
+        "{{address}}, I'll wave you down from the window.",
+        "We're at {{address}}, please come quickly.",
+        "{{address}}, the door's open, just come straight in."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She was leaning out of the window and it's slammed shut on her hand, we can't move it.",
-        "Their hand's got trapped between the window and the frame and it won't budge."
+        "{{He}} was leaning out of the window and got {{his}} hand caught somehow.",
+        "{{He}} put {{his}} hand through the window to reach something and now it's stuck fast.",
+        "The window slipped shut on {{his}} hand and now it won't move.",
+        "{{He}} was playing near the window and got {{his}} hand trapped in the frame.",
+        "The window's got a narrow gap and {{his}} hand's wedged in it.",
+        "{{He}} reached out to close the window and {{his}} hand got caught in the mechanism.",
+        "Somehow {{his}} hand's gone through the gap and now it's stuck.",
+        "{{He}} was fiddling with the latch and {{his}} hand's got trapped.",
+        "The frame's jammed shut with {{his}} hand still in it.",
+        "{{He}} got {{his}} hand caught trying to open the window wider."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's awake and crying.",
-        "Yes, fully conscious, just in a lot of pain."
+        "Yes, {{he}}'s conscious, just very upset and in pain.",
+        "{{He}}'s wide awake, crying but talking to me fine.",
+        "Yes, {{he}}'s conscious, just scared and hurting.",
+        "{{He}}'s conscious and alert, just really distressed.",
+        "Yes, fully conscious, just very frightened.",
+        "{{He}}'s awake and talking, just in a lot of discomfort.",
+        "Conscious, yes, but understandably very upset.",
+        "{{He}}'s conscious, screaming a bit but responding to me.",
+        "Yes, {{he}}'s aware and talking, just in pain.",
+        "{{He}}'s conscious throughout, just really frightened."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, she's breathing fine, just upset.",
-        "Yes, breathing okay."
+        "Yes, {{he}}'s breathing fine, just crying a lot.",
+        "{{His}} breathing's okay, just upset from the pain.",
+        "Yes, breathing normally, just very distressed.",
+        "{{He}}'s breathing fine, {{he}}'s just scared.",
+        "Yes, no breathing problems, just lots of tears.",
+        "{{His}} breathing seems fine, {{he}}'s just panicking a bit.",
+        "Yes, breathing okay, just crying from the pain.",
+        "{{He}}'s breathing normally as far as I can tell.",
+        "Yes, {{he}}'s fine breathing wise, just very upset.",
+        "{{His}} breathing's okay, {{he}}'s mostly just frightened."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her hand really hurts and it's swelling.",
-        "Yes, quite a lot, their fingers are going a funny colour."
+        "{{He}} says it really hurts, {{he}}'s crying quite a lot.",
+        "Yes, {{he}}'s in a lot of pain, {{his}} hand's still trapped.",
+        "{{He}}'s saying {{his}} hand hurts badly.",
+        "Yes, {{he}}'s in pain, {{he}} can't move {{his}} hand at all.",
+        "{{He}} keeps saying it hurts, {{he}}'s quite distressed.",
+        "Yes, {{his}} hand's clearly causing {{him}} a lot of pain.",
+        "{{He}}'s crying because of the pain in {{his}} hand.",
+        "Yes, {{he}} says it's really hurting {{him}}.",
+        "{{He}}'s in obvious discomfort, {{his}} hand's still stuck.",
+        "Yes, {{he}}'s in pain, please hurry."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A little graze, nothing major.",
-        "No, no bleeding, just swelling."
+        "No, I don't think so, just red and swollen looking.",
+        "No bleeding that I can see, just very sore looking.",
+        "No, no blood, just quite red where it's trapped.",
+        "I don't think it's bleeding, just swollen.",
+        "No, doesn't look like it, just marked from the window.",
+        "No visible bleeding, just very red and sore.",
+        "No, no blood as far as I can tell.",
+        "I can't see any bleeding, just swelling around {{his}} hand.",
+        "No, it looks sore but not bleeding.",
+        "No bleeding that I can see, no."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No, she's healthy otherwise.",
-        "Nothing I'm aware of."
+        "No, nothing relevant that I know of.",
+        "No, {{he}}'s got no medical conditions.",
+        "Nothing that I'm aware of, no.",
+        "No, {{he}}'s a healthy {{callerChild}}, no conditions.",
+        "No, nothing like that, no.",
+        "No health problems that I know of.",
+        "No, {{he}}'s never had anything like this before.",
+        "Nothing to report, no, {{he}}'s fine normally.",
+        "No, no medical history to speak of.",
+        "No, nothing at all, {{he}}'s healthy."
       ]
     },
     "medications": {
       "answers": [
-        "No, not on anything.",
-        "No medications."
+        "No, {{he}} doesn't take anything.",
+        "No medications, no.",
+        "No, nothing regular, no.",
+        "No, {{he}}'s not on anything.",
+        "No, nothing at all.",
+        "No medications that I know of.",
+        "No, {{he}} doesn't need anything regularly.",
+        "No, nothing, no.",
+        "No, {{he}} isn't on any medication.",
+        "No, {{he}} takes nothing regularly."
       ]
     },
     "patientAge": {
       "answers": [
-        "She's six.",
-        "She's ten years old."
+        "{{He}}'s six years old.",
+        "{{He}}'s only four.",
+        "{{He}} just turned eight.",
+        "{{He}}'s five.",
+        "{{He}}'s seven years old.",
+        "{{He}}'s nine, nearly ten.",
+        "{{He}}'s only three.",
+        "{{He}}'s six, {{he}} started school this year.",
+        "{{He}}'s four years old.",
+        "{{He}}'s eight years old."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm holding her other hand and keeping her calm.",
-        "Please hurry, her hand's going white."
+        "Okay, thank you, I'll keep talking to {{him}} until they arrive.",
+        "Right, I'll try to keep {{him}} calm until the ambulance gets here.",
+        "Okay, that's good, please hurry, {{he}}'s really upset.",
+        "Thank you, I'll stay right here with {{him}}.",
+        "Alright, I'll keep {{him}} as still as I can.",
+        "Okay, we'll wait right here for the paramedics.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll keep comforting {{him}} until help arrives.",
+        "Thank you, I'll do what I can until they get here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, her hand is physically trapped, we need the fire brigade!"
+        "No, {{he}}'s trapped right now, this can't wait for 111!",
+        "111 won't help, {{he}}'s physically stuck, please send someone!",
+        "No, please, {{he}}'s in pain and stuck, we need help now!",
+        "This can't wait for a callback, {{his}} hand is trapped!",
+        "No, we need someone here to free {{him}}, not 111!",
+        "Please, this is urgent, {{he}}'s stuck and in pain!",
+        "No, this needs the fire brigade now, not a phone line!",
+        "I don't think 111 can help free a trapped hand!",
+        "No, please, we need someone here right now!",
+        "This is too urgent for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just {{his}} hand stuck.",
+        "Do we need police as well? I really just need someone to free {{his}} hand.",
+        "Okay, if you think that helps, though it's really the fire brigade we need.",
+        "I wasn't expecting police, but that's fine if it helps.",
+        "Alright, though I think it's really just a rescue matter, not police.",
+        "Okay, understood, though it's {{his}} hand that's the problem.",
+        "Fine, if that's needed, but nothing's gone wrong like that.",
+        "Okay, whatever you think's best, just please hurry.",
+        "Alright, I'll let them know when they arrive.",
+        "Okay, though I'm not sure what police can do about a stuck hand."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, that's who we need, please hurry.",
+        "Okay, good, I'll be waiting at the door for them.",
+        "Thank you, that's a relief, {{he}}'s still in pain.",
+        "Right, I'll let them straight in when they get here.",
+        "Okay, thank you, I've been trying to keep {{him}} calm.",
+        "Yes please, we really need help freeing {{his}} hand.",
+        "Thank you, I'll clear the way to the window for them.",
+        "Okay, that's good news, please send them quickly.",
+        "Right, thank you, we'll keep waiting for them.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

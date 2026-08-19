@@ -43,6 +43,10 @@
     "dual_pump": 1,
     "rescue_unit": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6
+  },
   "patients": {
     "range": [
       0,
@@ -61,8 +65,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "I need the fire brigade, there's a dog stuck down a ditch by the track and it can't get out.",
-      "Fire service please, an animal's got itself stuck on the embankment, it's been stuck for ages."
+      "Hello, we've got an animal stuck and it can't get itself free.",
+      "Hi, one of the animals on the farm is stuck, we can't move it ourselves.",
+      "Yeah hiya, I need to report an animal that's got itself trapped.",
+      "Oh hello, we've got a cow stuck in the mud and it can't get out.",
+      "Hi there, I wanted to report an animal rescue needed on the farm.",
+      "Hello, quick one, one of our animals is trapped and needs help getting free.",
+      "Hi, I'm ringing because an animal's stuck and we can't shift it ourselves.",
+      "Oh, hello, sorry, we've got livestock stuck that needs the fire brigade.",
+      "Hiya, can someone come out, we've an animal trapped on the farm.",
+      "Hello, I need to report an animal that's stuck and needs rescuing."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -74,91 +86,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "I need the fire brigade, there's a dog stuck down a ditch by the track and it can't get out.",
-        "Fire service please, an animal's got itself stuck on the embankment, it's been stuck for ages."
+        "Hello, we've got an animal stuck and it can't get itself free.",
+        "Hi, one of the animals on the farm is stuck, we can't move it ourselves.",
+        "Yeah hiya, I need to report an animal that's got itself trapped.",
+        "Oh hello, we've got a cow stuck in the mud and it can't get out.",
+        "Hi there, I wanted to report an animal rescue needed on the farm.",
+        "Hello, quick one, one of our animals is trapped and needs help getting free.",
+        "Hi, I'm ringing because an animal's stuck and we can't shift it ourselves.",
+        "Oh, hello, sorry, we've got livestock stuck that needs the fire brigade.",
+        "Hiya, can someone come out, we've an animal trapped on the farm.",
+        "Hello, I need to report an animal that's stuck and needs rescuing."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was out walking when I found it.",
-        "{{callerName}}, I heard it whining and went to look."
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}.",
+        "{{callerName}} speaking.",
+        "It's {{callerName}} here.",
+        "Name's {{callerName}}.",
+        "{{callerName}}, yes.",
+        "This is {{callerName}}."
       ]
     },
     "patientName": {
       "answers": [
-        "There's no patient, it's an animal, not a person.",
-        "No one's hurt, it's just the dog stuck."
+        "There's nobody hurt, it's just an animal stuck and unable to get free.",
+        "No patient, it's only an animal stuck and unable to get free I'm calling about.",
+        "Nobody's hurt, this is just about an animal stuck and unable to get free.",
+        "No one needs a name, no one's hurt, it's an animal stuck and unable to get free.",
+        "Not applicable, nobody's injured, just an animal stuck and unable to get free.",
+        "There's no casualty, purely an animal stuck and unable to get free.",
+        "No injuries here, it's simply an animal stuck and unable to get free.",
+        "Nobody to name, it's not a medical thing, it's an animal stuck and unable to get free.",
+        "No patient involved, just an animal stuck and unable to get free I'm reporting.",
+        "There's no one hurt, this is only about an animal stuck and unable to get free."
       ]
     },
     "address": {
       "answers": [
-        "It's just off {{address}}, along the track.",
-        "{{address}}, near the gate onto the track."
+        "It's {{address}}.",
+        "The address is {{address}}, can you get someone there quickly.",
+        "{{address}}, that's where I am.",
+        "We're at {{address}}.",
+        "It's {{address}}, just past the corner.",
+        "{{address}}, that's the postcode area.",
+        "I'm calling from {{address}}.",
+        "You need {{address}}, that's the one.",
+        "It's {{address}}, look for the front door.",
+        "{{address}}, please hurry."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A dog's got itself stuck down the bank by the track and can't climb back up.",
-        "There's an animal stuck in the ditch, it's been crying for a while now."
+        "One of the cows has got stuck in a muddy ditch and can't pull itself out.",
+        "A horse has got its leg caught in some fencing and we can't free it.",
+        "There's a sheep stuck down a slope, it's tangled in brambles.",
+        "The cow's sunk into the mud up to its belly, we've tried but can't shift it.",
+        "One of our animals is wedged between two fence posts, really struggling.",
+        "There's livestock trapped in the pond edge, we can't get near enough to help.",
+        "A calf's got itself stuck under a gate and it's panicking.",
+        "The horse is stuck in boggy ground near the stream, we've called a vet too.",
+        "There's an animal caught in some old machinery in the barn, can't reach it.",
+        "One of the pigs has got wedged under a fallen fence panel."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "It's awake and moving about, just can't get free.",
-        "It's alert, just stuck fast."
+        "Nobody's hurt, so that doesn't apply here.",
+        "There's no patient, no one's unconscious or anything.",
+        "No one's collapsed, nobody's hurt at all.",
+        "Not applicable, there's no casualty.",
+        "No one's affected like that, nobody's injured.",
+        "There's nobody down, no injuries here.",
+        "No, nobody's hurt, so there's no one to check.",
+        "That doesn't apply, no one's been hurt.",
+        "No casualty, nobody's collapsed or anything.",
+        "Nobody's hurt, everyone's fine physically."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "It's breathing fine, just distressed.",
-        "Seems fine, just frightened."
+        "No one's struggling to breathe, nobody's hurt.",
+        "That's not an issue, there's no injuries.",
+        "Nobody needs that, no one's hurt at all.",
+        "No, there's no casualty, nobody's affected.",
+        "Not applicable, no one's hurt here.",
+        "No breathing problems, nobody's injured.",
+        "There's no patient, so no, nothing like that.",
+        "No one's hurt, that doesn't come into it.",
+        "Not a medical thing, nobody's hurt.",
+        "No, nobody's hurt, everyone's breathing fine."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "It doesn't seem to be hurt, just stuck.",
-        "Hard to tell, it's not letting me near it."
+        "No one's in pain, nobody's hurt.",
+        "Nobody's hurt, so no pain to report.",
+        "No, there's no casualty in pain.",
+        "Not applicable, no one's injured.",
+        "No pain, nobody's hurt at all.",
+        "There's no patient, so no.",
+        "No one's suffering, nobody's hurt.",
+        "No, everyone's fine, nobody's hurt.",
+        "Not a medical call really, no pain involved.",
+        "No one's hurt, so no pain to speak of."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, I can't see any blood.",
-        "No, doesn't look injured."
+        "No bleeding, nobody's hurt.",
+        "No, there's no injuries at all.",
+        "Nobody's bleeding, no one's hurt.",
+        "Not applicable, no casualty here.",
+        "No, no one's hurt, no bleeding.",
+        "There's no patient, so no bleeding.",
+        "No injuries, nobody's hurt.",
+        "No, everyone's unhurt.",
+        "Not a medical emergency, no bleeding.",
+        "No, nobody's hurt at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "It's not my dog, I don't know.",
-        "No idea, it's not mine."
+        "There's no patient, so that's not relevant.",
+        "Not applicable, nobody's hurt.",
+        "No one's involved medically, nobody's hurt.",
+        "N/A, no casualty here.",
+        "There's no one to ask that about.",
+        "Not a medical matter, no one's hurt.",
+        "No patient, so no history to give.",
+        "Nobody's hurt, that doesn't apply.",
+        "Not relevant, no one's injured.",
+        "No, there's no patient for that."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable, it's an animal.",
-        "No idea, sorry."
+        "Not applicable, no one's hurt.",
+        "No patient, so no medication to mention.",
+        "N/A, nobody's involved medically.",
+        "No one's hurt, that doesn't apply.",
+        "Not relevant, no casualty here.",
+        "No, there's no patient.",
+        "Nobody needs that, no one's hurt.",
+        "Not a medical matter, no medication needed.",
+        "No one's hurt, so no.",
+        "N/A, no injuries here."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient, it's an animal.",
-        "Not applicable."
+        "There's no patient, so no age to give.",
+        "Not applicable, nobody's hurt.",
+        "N/A, no casualty here.",
+        "No one's hurt, that doesn't apply.",
+        "Not relevant, no injuries.",
+        "No patient involved, no age needed.",
+        "Nobody's hurt, so no.",
+        "Not a medical thing, no age to give.",
+        "No one's injured, that doesn't apply.",
+        "N/A, there's no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay here so it doesn't panic more.",
-        "Understood, I'll keep talking to it so it stays calm."
+        "Ambulance? No, nobody's hurt, I don't need that.",
+        "I don't think we need an ambulance, no one's injured.",
+        "Sorry, why an ambulance, nobody's hurt here.",
+        "No, there's no injuries, I don't need paramedics.",
+        "I think you've misunderstood, nobody needs medical help.",
+        "No ambulance needed, nobody's hurt at all.",
+        "No, no one's hurt, just cancel that if you can.",
+        "I'm confused, why would I need an ambulance.",
+        "No thank you, nobody's hurt, we're all fine.",
+        "No need for that, nobody's injured here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is for the fire brigade, not a doctor!"
+        "111? No, this needs a proper response now, not a call back.",
+        "I don't think 111 is right for this, please send someone.",
+        "This can't wait for 111, I need help now.",
+        "No, please, this needs someone out here, not 111.",
+        "I really don't think 111 is going to cut it here.",
+        "Please, I need this dealt with now, not a call back later.",
+        "No, this is urgent, 111 won't do.",
+        "I don't understand, this needs a response, not 111.",
+        "Please don't fob me off to 111, this needs attention.",
+        "No, I need someone here, not a phone call from 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, I don't think we need police for this.",
+        "I'm not sure why police, this needs the fire brigade really.",
+        "No, it's not a police matter, it just needs the fire service.",
+        "I think you've misunderstood, this needs the fire brigade.",
+        "Police aren't going to help with this, I need firefighters.",
+        "No, no police needed, just get the fire engine here.",
+        "I'm confused, this isn't a police job, is it.",
+        "I don't think I need police for this, it's a fire brigade job.",
+        "No thank you, I just need the fire service, not police.",
+        "Sorry, why police, I called about a rescue, not a crime."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, that's what we need, how long will they be.",
+        "Okay, good, I'll wait for the fire engine.",
+        "Right, thank you, I'll stay clear until they arrive.",
+        "That's a relief, thank you for sending the crew.",
+        "Okay, I'll keep everyone back until the fire brigade gets here.",
+        "Thanks, I'll watch out for the engine.",
+        "Good, I was hoping you'd send fire crews.",
+        "Okay, I'll stay on the line if needed.",
+        "Thank you, I'll point them the right way when they arrive.",
+        "Alright, I'll wait here for them."
       ]
     }
   },

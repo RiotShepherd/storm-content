@@ -47,6 +47,11 @@
     "single_pump": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 5
+  },
   "patients": {
     "range": [
       0,
@@ -109,7 +114,15 @@
   "caller": {
     "openings": [
       "The bus I'm driving has caught fire at the back, I've got passengers off but a few got smoke",
-      "I need the fire brigade, my bus is on fire, everyone's off but some passengers are coughing badly"
+      "I need the fire brigade, my bus is on fire, everyone's off but some passengers are coughing badly",
+      "There's a fire on my bus, I've evacuated everyone but a few got smoke",
+      "Please hurry, my bus has caught fire, passengers are off but some are struggling with smoke",
+      "The bus is on fire, I've got everyone off but a few are coughing badly",
+      "Please send help, my bus caught fire and some passengers breathed in smoke",
+      "There's smoke and flames from the back of my bus, everyone's off now",
+      "Quick, my bus is well alight, passengers are off but some need checking over",
+      "There's been a fire on the bus I drive, everyone's out but a few got smoke",
+      "Please hurry, the bus is on fire, some passengers are coughing quite badly"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -122,78 +135,231 @@
     "start": {
       "answers": [
         "The bus I'm driving has caught fire at the back, I've got passengers off but a few got smoke",
-        "I need the fire brigade, my bus is on fire, everyone's off but some passengers are coughing badly"
+        "I need the fire brigade, my bus is on fire, everyone's off but some passengers are coughing badly",
+        "There's a fire on my bus, I've evacuated everyone but a few got smoke",
+        "Please hurry, my bus has caught fire, passengers are off but some are struggling with smoke",
+        "The bus is on fire, I've got everyone off but a few are coughing badly",
+        "Please send help, my bus caught fire and some passengers breathed in smoke",
+        "There's smoke and flames from the back of my bus, everyone's off now",
+        "Quick, my bus is well alight, passengers are off but some need checking over",
+        "There's been a fire on the bus I drive, everyone's out but a few got smoke",
+        "Please hurry, the bus is on fire, some passengers are coughing quite badly"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the driver"
+        "It's {{callerName}}, I'm the driver",
+        "{{callerName}} here, I'm driving this bus",
+        "It's {{callerName}}, I got everyone off as quick as I could",
+        "{{callerName}}, I'm the bus driver, please hurry",
+        "It's {{callerName}}, I'm stood with the passengers now",
+        "My name's {{callerName}}, I've called this in myself",
+        "It's {{callerName}}, I'm checking on the passengers now",
+        "{{callerName}} speaking, I'm the driver of this bus",
+        "It's {{callerName}}, everyone's off and I'm counting heads",
+        "{{callerName}}, I'm with the passengers on the pavement"
       ]
     },
     "patientName": {
       "answers": [
-        "A few of the passengers got smoke, I don't have all their names"
+        "A few of the passengers got smoke, I don't have all their names",
+        "I don't have names for everyone, there's a few affected by smoke",
+        "There's a few passengers coughing, I'm still checking on them",
+        "I can't give you all their names right now",
+        "A few got smoke, I don't have complete names",
+        "I don't have all the names, we're still doing a headcount",
+        "There's a few affected, I don't know all their names",
+        "I don't have names for everyone, sorry",
+        "A few passengers got smoke, names to follow",
+        "I don't have all the details yet, I'm checking on everyone"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, I've pulled up on the road here"
+        "{{address}}, I've pulled up on the road here",
+        "It's {{address}}, I'm stopped at the side of the road",
+        "{{address}}, the bus is pulled over here",
+        "It's {{address}}, we're all stood on the pavement",
+        "{{address}}, follow the smoke, you'll see the bus",
+        "It's {{address}}, I've stopped near the bus stop",
+        "{{address}}, the bus is on the road just here",
+        "It's {{address}}, everyone's off and waiting nearby",
+        "{{address}}, please hurry, we're all outside now",
+        "It's {{address}}, you'll see us stood by the bus"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Smoke started coming from the engine at the back, I stopped and got everyone off quickly"
+        "Smoke started coming from the engine at the back, I stopped and got everyone off quickly",
+        "The engine caught fire and I evacuated the bus straight away",
+        "There was smoke from the back, I pulled over and got everyone out fast",
+        "The bus started smoking and I stopped immediately to evacuate",
+        "Fire broke out at the back, I got everyone off as quickly as I could",
+        "The engine's caught fire, I managed to get everyone off in time",
+        "Smoke filled the back of the bus so I stopped and evacuated everyone",
+        "The engine started smoking badly and I got everyone off straight away",
+        "There was a fire at the rear, I stopped and cleared the bus quickly",
+        "The bus caught fire at the back, everyone's off now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone's conscious, a few are coughing quite badly"
+        "Everyone's conscious, a few are coughing quite badly",
+        "All conscious, some are shaken but everyone's awake",
+        "Everyone's conscious, a couple got a bit of smoke",
+        "All awake and out, a few coughing from the smoke",
+        "Everyone's conscious, we're all stood outside now",
+        "All conscious, a few are quite shaken by it",
+        "Everyone's awake, some are coughing from the smoke",
+        "All accounted for and conscious, a few need checking over",
+        "Everyone's conscious, we're doing a headcount now",
+        "All awake, a couple are struggling a bit with the smoke"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A handful of passengers got a lungful of smoke before I got them off"
+        "A handful of passengers got a lungful of smoke before I got them off",
+        "Some are coughing badly from the smoke on the bus",
+        "A few are struggling to breathe after getting off",
+        "Some got smoke in their lungs, they're coughing a lot",
+        "A few are breathless from the smoke",
+        "Some are wheezing a bit from breathing in smoke",
+        "A handful got a lot of smoke, they're struggling now",
+        "Some are coughing hard, we're keeping them in fresh air",
+        "A few got smoke before we got off, they're struggling",
+        "Some are struggling with the smoke inhalation"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No injuries reported, mostly the smoke"
+        "No injuries reported, mostly the smoke",
+        "No pain, mostly people are coughing from the smoke",
+        "Nothing serious, mainly smoke discomfort",
+        "No major injuries, mostly coughing and shaken",
+        "No serious pain, mostly smoke effects",
+        "Nothing too serious, mainly people are coughing",
+        "No major injuries reported, mostly smoke related",
+        "No serious pain, everyone's mostly shaken",
+        "Nothing severe, mostly coughing from the smoke",
+        "No serious injuries, mainly smoke inhalation"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, just smoke effects"
+        "No bleeding, just smoke effects",
+        "No blood, mostly just smoke related",
+        "No bleeding that I know of, mostly coughing",
+        "No injuries like that, mainly the smoke",
+        "No bleeding reported, everyone's mostly shaken",
+        "No blood, the main issue is the smoke",
+        "No bleeding, mostly people coughing from smoke",
+        "No injuries of that kind, mainly smoke effects",
+        "No bleeding reported, mostly smoke inhalation",
+        "No blood that I'm aware of, mainly smoke related"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know the passengers, sorry"
+        "I don't know the passengers, sorry",
+        "I don't know, I don't know any of them personally",
+        "I can't say, they're just passengers to me",
+        "I don't know their histories, sorry",
+        "I'm not sure, I don't know most of them",
+        "I don't have that information, sorry",
+        "I can't tell you, I don't know them",
+        "I'm not sure, sorry, there's too many to know",
+        "I don't know, they're just regular passengers",
+        "I'm not certain, sorry, I don't have those details"
       ]
     },
     "medications": {
       "answers": [
-        "I can't say, I don't know them"
+        "I can't say, I don't know them",
+        "I don't know, I don't know any of the passengers",
+        "I'm not sure, sorry, I don't have that information",
+        "I can't tell you, I don't know them personally",
+        "I don't know, sorry, there's too many to check",
+        "I'm not certain, especially not for passengers",
+        "I can't say, I don't have those details",
+        "I don't know, sorry, I can't say for everyone",
+        "I'm not sure, especially for the passengers",
+        "I can't tell you, sorry, I don't have that information"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mixed, mostly adults on board"
+        "Mixed, mostly adults on board",
+        "All sorts of ages, it was a fairly full bus",
+        "Mixed ages, mostly adults",
+        "A real mix, mostly working age adults",
+        "Mixed, hard to say exactly, mostly adults",
+        "All ages, a mix of adults mostly",
+        "Mixed, quite a range from young to old",
+        "A mix of ages among the passengers",
+        "Mixed ages, mostly adults on the bus",
+        "All sorts, a broad mix of ages"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, everyone's off the bus and stood back"
+        "Okay, everyone's off the bus and stood back",
+        "Right, we're all stood together away from the bus",
+        "Okay, everyone's off and I'm keeping them together",
+        "Understood, we're all safely off and waiting",
+        "Alright, everyone's clear of the bus now",
+        "Okay, we're keeping calm while we wait",
+        "Right, I'll have everyone ready to talk to you",
+        "Okay, we're doing a headcount now",
+        "Understood, everyone's accounted for and safe",
+        "Okay, we're all stood well back from the smoke"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's the bus on fire, I need the fire brigade",
+        "Sorry, why police, it's just an engine fire, nothing criminal",
+        "No, this isn't a police matter, it's my bus burning",
+        "There's no need for police, just send the fire engine",
+        "No, it's the bus alight, everyone's off safely",
+        "Sorry, I don't need police, I need someone for the fire",
+        "No thank you, it's not a police job, it's a vehicle fire",
+        "That's not right, it's the bus, not a police matter",
+        "No, please, just the fire brigade for the flames",
+        "Sorry, there's no crime here, just the bus caught fire"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, a few passengers got some smoke",
+        "Okay, good, everyone's off and stood well back now",
+        "Please hurry, the smoke's still coming from the engine",
+        "Thank you, I've got everyone away from the bus",
+        "Okay, I can see them coming, thank god",
+        "Good, hurry, it's smoke logging quite badly at the back",
+        "Thank you, I've done a headcount, everyone's accounted for",
+        "Okay, please tell them to hurry, the fumes are strong",
+        "Thank goodness, all my passengers are safe and clear",
+        "Good, hurry please, the smoke's getting thicker"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need the fire brigade, the bus is alight"
+        "No, we need the fire brigade, the bus is alight",
+        "No, this is an emergency, please send help now",
+        "No thank you, the bus is on fire, we need urgent help",
+        "No, please, this is a fire, we need you here",
+        "No, this isn't something 111 can help with",
+        "No, please just send help urgently, it's a bus fire",
+        "No, this is too serious for that",
+        "No, please, we need the fire brigade here now",
+        "No, the bus is on fire, we need help urgently",
+        "No, it's an emergency, please hurry"
       ]
     }
   },

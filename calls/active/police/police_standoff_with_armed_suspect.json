@@ -50,6 +50,11 @@
     "dog_unit": 1,
     "arv": 4
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 8,
+    "ambulance": 4
+  },
   "patients": {
     "range": [
       0,
@@ -93,8 +98,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police, quick, there's a man with a gun barricaded in the house next door",
-      "Help, my neighbour's stood in his doorway with what looks like a firearm, shouting"
+      "Police, please hurry, there's a {{man}} with a gun, {{he}}'s barricaded {{himself}} in the house",
+      "Please send help, my neighbour's got a weapon and won't let anyone near the house",
+      "Police, I think there's a standoff, someone's inside with a weapon",
+      "Please hurry, my neighbour's armed and shouting from inside the house",
+      "Police, I'm terrified, there's an armed {{man}} refusing to come out next door",
+      "Please send help urgently, there's someone armed barricaded inside",
+      "Police, my neighbour's threatening people from inside with a weapon",
+      "Please hurry, I think there's a family still in there with {{him}}",
+      "Police, this is really scary, there's an armed standoff next door",
+      "Please send help now, I don't know who else is in that house"
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -106,91 +119,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police, quick, there's a man with a gun barricaded in the house next door",
-        "Help, my neighbour's stood in his doorway with what looks like a firearm, shouting"
+        "Police, please hurry, there's a {{man}} with a gun, {{he}}'s barricaded {{himself}} in the house",
+        "Please send help, my neighbour's got a weapon and won't let anyone near the house",
+        "Police, I think there's a standoff, someone's inside with a weapon",
+        "Please hurry, my neighbour's armed and shouting from inside the house",
+        "Police, I'm terrified, there's an armed {{man}} refusing to come out next door",
+        "Please send help urgently, there's someone armed barricaded inside",
+        "Police, my neighbour's threatening people from inside with a weapon",
+        "Please hurry, I think there's a family still in there with {{him}}",
+        "Police, this is really scary, there's an armed standoff next door",
+        "Please send help now, I don't know who else is in that house"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I live next door",
-        "It's {{callerName}}, I'm the neighbour"
+        "It's {{callerName}}, I live next door.",
+        "{{callerName}}, I'm a neighbour.",
+        "My name's {{callerName}}, I live just along the street.",
+        "It's {{callerName}} here, I live nearby.",
+        "{{callerName}}, yes, I'm the neighbour.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}, I live opposite.",
+        "{{callerName}} speaking, I'm just next door.",
+        "Name's {{callerName}}.",
+        "It's {{callerName}}, I live a couple of doors down."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt yet, we've all kept clear",
-        "Nobody's hurt, everyone's staying away"
+        "I'm not sure who's in there with {{him}}, maybe {{his}} family.",
+        "I don't know, I think someone else might still be inside.",
+        "I can't say for certain, there could be someone else in the house.",
+        "No idea, I just know {{he}}'s not alone in there.",
+        "I don't know their name, I think it might be a relative.",
+        "I'm not sure, I've seen someone else at the window earlier.",
+        "No name I can give you, I just worry someone's in there.",
+        "I don't know, but I think there's more than just {{him}} inside.",
+        "Can't say for sure, I think someone else lives there too.",
+        "I really don't know, I've not seen anyone else clearly."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the house he's in",
-        "It's {{address}}, next door to me"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He's stood in the doorway with the gun, shouting that he won't come out",
-        "He's threatened anyone who comes near, we've all moved away from our windows"
+        "{{He}}'s barricaded {{himself}} in with a weapon, refusing to come out",
+        "{{He}}'s been shouting threats from an upstairs window for the last hour",
+        "{{He}}'s got a gun, I saw it when {{he}} opened the curtains briefly",
+        "{{He}}'s refusing to let anyone near the house, shouting {{he}}'s armed",
+        "It escalated fast, {{he}}'s now refusing to speak to anyone but police",
+        "{{He}}'s barricaded the door and is shouting {{he}} won't come out",
+        "{{He}}'s been pacing with something in {{his}} hand, looks like a weapon",
+        "{{He}}'s threatened anyone who comes close, says {{he}}'s got a gun",
+        "It's been building for a while, now {{he}}'s refusing to leave the house",
+        "{{He}}'s shut all the curtains and is shouting threats from inside"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, everyone's clear of the area",
-        "Nobody's hurt, we're all kept back"
+        "I honestly don't know, I can't see inside.",
+        "I've no idea, nobody's come to a window in a while.",
+        "Can't tell you, I can't see what's happening inside.",
+        "I don't know, it's gone quiet in there and that's worrying me.",
+        "No idea, I can't see anything from out here.",
+        "I really can't say, the curtains are drawn.",
+        "I don't know, I haven't seen anyone move for a while.",
+        "Can't tell, I'm too far back to see inside properly.",
+        "I've no idea, it's impossible to tell from here.",
+        "I don't know, I just hope everyone's okay in there."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "N/A, no one's been hurt",
-        "No injuries to report"
+        "I can't tell, I can't see inside the house at all.",
+        "No idea, I just hope whoever's in there can breathe okay.",
+        "Can't say, I've no way of knowing from out here.",
+        "I don't know, it's all so uncertain right now.",
+        "I really can't tell, nobody's visible at the windows.",
+        "No idea, I'm just worried about whoever else is in there.",
+        "Can't say for certain, I can't see inside.",
+        "I don't know, I just hope they're alright.",
+        "No idea at all, it's impossible to tell from here.",
+        "Can't tell you, I'm too far away to know."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt",
-        "Not that I know of"
+        "I don't know, I can't see anyone to tell.",
+        "No idea, I just hope nobody's hurt in there.",
+        "Can't say, I've no way of knowing.",
+        "I don't know, it's all guesswork from out here.",
+        "No idea at all, I can't see inside.",
+        "Can't tell you, I'm too far back to know.",
+        "I don't know, I just hope everyone's okay.",
+        "No idea, nobody's visible from here.",
+        "Can't say for certain, it's impossible to tell.",
+        "I don't know, I really hope not."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No"
+        "I don't know, I can't see anything from out here.",
+        "No idea, I hope not, I just can't tell.",
+        "Can't say, there's no way for me to know.",
+        "I don't know, it's all uncertain right now.",
+        "No idea at all, I can't see inside the house.",
+        "Can't tell you, I'm too far away.",
+        "I don't know, I just hope not.",
+        "No idea, nobody's visible from here.",
+        "Can't say for certain, I really can't tell.",
+        "I don't know, I hope everyone's safe."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable, no patient",
-        "N/A"
+        "I don't really know them well enough to say.",
+        "No idea, we're neighbours, not close friends.",
+        "Couldn't tell you, I don't know much about them.",
+        "No idea about their health, sorry.",
+        "I don't know them well enough for that.",
+        "Not a clue, we don't really talk much.",
+        "No, I've no idea about anyone's health in there.",
+        "Couldn't say, I only know them to nod to.",
+        "No idea whatsoever, we're not close.",
+        "I really wouldn't know, we barely speak."
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "I've no idea.",
+        "Couldn't tell you, we're not close.",
+        "No idea at all, sorry.",
+        "I wouldn't know, we barely speak.",
+        "No clue, sorry.",
+        "Couldn't say, I don't know them well.",
+        "No idea, I'm afraid.",
+        "Not a clue about that.",
+        "I really couldn't tell you.",
+        "No idea, sorry, we're just neighbours."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's around fifty, as far as I know",
-        "Mid forties I think"
+        "{{He}}'s maybe in {{his}} forties, I think.",
+        "I'd guess mid thirties for {{him}}, but I'm not certain.",
+        "Looked to be around forty from what I've seen of {{him}}.",
+        "Not sure exactly, thirties or forties maybe.",
+        "Couldn't tell you exactly, {{he}}'s a grown {{man}}, that's all I know.",
+        "I'd say {{he}}'s around forty, but don't quote me.",
+        "Maybe mid thirties, hard to say for sure.",
+        "I only see {{him}} occasionally, {{he}} seems around forty.",
+        "Roughly forty, that's my best guess.",
+        "Somewhere in {{his}} thirties or forties, I'd say."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're all staying well back",
-        "Right, I've got the family away from the windows"
+        "Oh thank you, yes, please, in case anyone needs it.",
+        "Yes please, that's good, just in case someone's hurt in there.",
+        "Thank you, please have them ready, I'm so worried.",
+        "Yes, please, just in case, I don't know what's happening inside.",
+        "Thank you, that's a relief, please hurry.",
+        "Yes please, I hope they're not needed but please send them.",
+        "Thank you, please, just in case anyone in there needs help.",
+        "Yes, that's good, please have them standing by.",
+        "Thank you, please hurry, I'm really scared for whoever's in there.",
+        "Yes please, thank you, just in case."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "No, please, this needs police and paramedics, not a callback.",
+        "That's not good enough, there's an armed {{man}}, I need help now.",
+        "No, this can't wait, someone could be hurt in there.",
+        "Please, no, this is far too serious for that.",
+        "No, don't do that, I need someone here right now.",
+        "That's not right, this is an emergency, please send help.",
+        "No, please, this needs a proper response now.",
+        "Don't leave it to 111, there's a weapon involved.",
+        "No, this is serious, please send help out now.",
+        "Please no, this can't wait, I'm really frightened."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh thank god, please hurry, I don't know how long this can go on for.",
+        "Okay, okay, please tell them to hurry, I'm really worried.",
+        "Thank you, please, how long will they be, I'm scared.",
+        "Right, okay, thank you, please just get them here fast.",
+        "Oh good, thank you, I'll stay on the line until they arrive.",
+        "Please hurry, I don't feel safe until they get here.",
+        "Okay, thank you, I'm staying back, just please be quick.",
+        "Thank god, yes please, tell them to hurry.",
+        "Right, thank you, I'm shaking, please just get them here.",
+        "Okay, thank you, I'll wait, just please don't be long."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

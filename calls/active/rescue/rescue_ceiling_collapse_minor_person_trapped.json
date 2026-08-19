@@ -45,6 +45,11 @@
   "units": {
     "dual_pump": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 5,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -80,8 +85,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "The ceiling's come down on my husband, he's stuck under some of it!",
-      "Fire brigade please, part of the ceiling's collapsed and someone's trapped underneath."
+      "Hello, please hurry, the ceiling's come down on my {{husband}}.",
+      "Hi, please, part of the ceiling's collapsed and my {{husband}}'s trapped under it.",
+      "Yeah hiya, please, my {{husband}}'s pinned under the ceiling that's come down.",
+      "Oh hello, I'm panicking, the ceiling's fallen on my {{husband}}, {{he}}'s stuck.",
+      "Hi there, please send someone, my {{husband}}'s trapped under fallen ceiling.",
+      "Hello, this is an emergency, part of the ceiling's collapsed onto my {{husband}}.",
+      "Hi, please hurry, my {{husband}}'s trapped, the ceiling's come down on {{him}}.",
+      "Oh, hello, I'm so scared, the ceiling's collapsed and my {{husband}}'s under it.",
+      "Hiya, please hurry, my {{husband}}'s stuck under the ceiling that's fallen.",
+      "Hello, please, my {{husband}}'s trapped under the collapsed ceiling, please hurry."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -93,91 +106,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "The ceiling's come down on my husband, he's stuck under some of it!",
-        "Fire brigade please, part of the ceiling's collapsed and someone's trapped underneath."
+        "Hello, please hurry, the ceiling's come down on my {{husband}}.",
+        "Hi, please, part of the ceiling's collapsed and my {{husband}}'s trapped under it.",
+        "Yeah hiya, please, my {{husband}}'s pinned under the ceiling that's come down.",
+        "Oh hello, I'm panicking, the ceiling's fallen on my {{husband}}, {{he}}'s stuck.",
+        "Hi there, please send someone, my {{husband}}'s trapped under fallen ceiling.",
+        "Hello, this is an emergency, part of the ceiling's collapsed onto my {{husband}}.",
+        "Hi, please hurry, my {{husband}}'s trapped, the ceiling's come down on {{him}}.",
+        "Oh, hello, I'm so scared, the ceiling's collapsed and my {{husband}}'s under it.",
+        "Hiya, please hurry, my {{husband}}'s stuck under the ceiling that's fallen.",
+        "Hello, please, my {{husband}}'s trapped under the collapsed ceiling, please hurry."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, it's my husband under there.",
-        "{{callerName}}, I'm his wife, I called as soon as it happened."
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}.",
+        "{{callerName}} speaking.",
+        "It's {{callerName}} here.",
+        "Name's {{callerName}}.",
+        "{{callerName}}, yes.",
+        "This is {{callerName}}."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}.",
-        "His name's {{firstPatientName}}."
+        "It's {{firstPatientName}}, my {{husband}}.",
+        "{{His}} name's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my {{husband}}'s name.",
+        "It's {{firstPatientName}}, please hurry.",
+        "My {{husband}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}}, that's {{him}}, please send help.",
+        "{{His}} name is {{firstPatientName}}.",
+        "It's {{firstPatientName}}, my {{husband}}, please hurry.",
+        "{{firstPatientName}} is {{his}} name.",
+        "My {{husband}} is {{firstPatientName}}."
       ]
     },
     "address": {
       "answers": [
+        "It's {{address}}.",
+        "The address is {{address}}, can you get someone there quickly.",
+        "{{address}}, that's where I am.",
         "We're at {{address}}.",
-        "{{address}}, come round the back, the front door's blocked."
+        "It's {{address}}, just past the corner.",
+        "{{address}}, that's the postcode area.",
+        "I'm calling from {{address}}.",
+        "You need {{address}}, that's the one.",
+        "It's {{address}}, look for the front door.",
+        "{{address}}, please hurry."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Part of the ceiling came down on him while he was in the kitchen, he's pinned under some of the beam.",
-        "The ceiling collapsed and he couldn't get out of the way in time, he's trapped under the debris."
+        "The ceiling just gave way while {{he}} was underneath, {{he}}'s pinned by rubble now.",
+        "It came down without warning, {{he}}'s trapped under plaster and beams.",
+        "A section collapsed right on top of {{him}}, {{he}} can't move.",
+        "There was a loud crack and then it all came down on {{him}}.",
+        "{{He}} was stood right under it when it gave way, now {{he}}'s trapped.",
+        "The ceiling collapsed and {{he}}'s pinned under the debris, can't free {{himself}}.",
+        "It came down suddenly, {{he}}'s stuck under a large chunk of it.",
+        "{{He}} was in the room when the ceiling fell, {{he}}'s trapped from the waist down.",
+        "A big section fell right on {{him}}, {{he}}'s conscious but can't move.",
+        "The ceiling gave way and {{he}}'s trapped, we can't shift the debris ourselves."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's talking to me, but he's in a lot of pain.",
-        "He's conscious, shouting for help."
+        "{{He}}'s conscious, talking to me, but really scared.",
+        "Yes, {{he}}'s awake and can hear me fine.",
+        "{{He}}'s conscious but in a lot of pain.",
+        "Yes, {{he}}'s talking, just can't move at all.",
+        "{{He}}'s awake, shouting for help a minute ago.",
+        "Yes, {{he}}'s conscious, just very frightened.",
+        "{{He}}'s alert, answering me when I call to {{him}}.",
+        "Yes, {{he}}'s awake but going quiet now, please hurry.",
+        "{{He}}'s conscious, keeps asking if help's coming.",
+        "Yes, {{he}}'s talking to me through the debris."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, he's breathing okay.",
-        "Yes, but he sounds winded."
+        "{{He}} says {{he}} can breathe okay, just really uncomfortable.",
+        "Yes, {{he}}'s breathing, sounds a bit laboured though.",
+        "{{He}}'s breathing fine as far as I can tell.",
+        "Yes, {{he}} says {{he}}'s finding it a bit hard to breathe with the weight on {{him}}.",
+        "{{He}}'s breathing okay, just very shaken.",
+        "Yes, {{he}} can breathe, just struggling with the dust.",
+        "{{He}} says {{his}} chest feels tight but {{he}}'s breathing.",
+        "Yes, {{he}}'s breathing fine, just can't move.",
+        "{{He}}'s coughing from the dust but breathing okay.",
+        "Yes, {{he}}'s breathing, just very frightened and in pain."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says his back and shoulder really hurt.",
-        "He's saying his leg's trapped and it's agony."
+        "{{He}}'s in a lot of pain, says {{his}} leg's trapped badly.",
+        "Yes, {{he}}'s in real pain, {{he}} can't feel {{his}} leg properly.",
+        "{{He}}'s in pain, keeps saying {{his}} back hurts.",
+        "Yes, {{he}}'s in a lot of pain from the weight on {{him}}.",
+        "{{He}} says it really hurts where the debris landed.",
+        "Yes, {{he}}'s in pain, mostly {{his}} lower body.",
+        "{{He}}'s in agony, says {{he}} can't feel {{his}} foot.",
+        "Yes, {{he}}'s in pain but trying to stay calm.",
+        "{{He}} says {{his}} chest hurts where something fell on {{him}}.",
+        "Yes, {{he}}'s in a lot of pain, please hurry."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "There's a cut on his head, bleeding a bit.",
-        "Not that I can see, just dust and bruising."
+        "There's a bit of blood on {{his}} head, from falling debris.",
+        "Yes, {{he}}'s got a cut on {{his}} arm, bleeding a little.",
+        "I can see a small bleed on {{his}} forehead.",
+        "Yes, there's some blood, a cut from the falling plaster.",
+        "{{He}}'s got a graze that's bleeding a bit, not too bad.",
+        "Yes, a small cut on {{his}} head, bleeding slightly.",
+        "There's a little blood on {{him}}, from the debris hitting {{him}}.",
+        "Yes, {{he}}'s bleeding a bit from {{his}} hand.",
+        "A small cut, bleeding a little, on {{his}} shoulder.",
+        "Yes, there's some blood on {{his}} face from a scrape."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He's got a bad back normally.",
-        "No major health problems that I know of."
+        "{{He}} doesn't have any major conditions that I know of.",
+        "No, nothing major, {{he}}'s usually fit and healthy.",
+        "{{He}} had {{his}} appendix out years ago, nothing else.",
+        "No major history, {{he}}'s generally very well.",
+        "{{He}} has high blood pressure, that's about it.",
+        "No, nothing significant, {{he}}'s not usually ill.",
+        "{{He}}'s asthmatic but otherwise healthy.",
+        "No major conditions, {{he}}'s generally fine health wise.",
+        "{{He}} had a bad back a few years ago, nothing else really.",
+        "No, {{he}} doesn't have anything major that I know of."
       ]
     },
     "medications": {
       "answers": [
-        "He takes blood pressure tablets, that's all I know.",
-        "I don't think he's on anything."
+        "{{He}} doesn't take anything regularly, as far as I know.",
+        "No, {{he}}'s not on any medication.",
+        "{{He}} takes blood pressure tablets, that's it.",
+        "No regular medication, {{he}}'s generally healthy.",
+        "{{He}} uses an inhaler sometimes, that's all.",
+        "No, nothing that I know of.",
+        "{{He}} takes something for {{his}} blood pressure, I think.",
+        "No medication that I'm aware of.",
+        "{{He}} doesn't take anything regularly, no.",
+        "No, {{he}}'s not on anything as far as I know."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's forty five.",
-        "He's in his fifties."
+        "{{He}}'s in {{his}} forties.",
+        "{{He}}'s about fifty, I think.",
+        "{{He}}'s thirty eight.",
+        "{{He}}'s in {{his}} thirties.",
+        "{{He}}'s sixty two.",
+        "{{He}}'s about forty five.",
+        "{{He}}'s in {{his}} fifties.",
+        "{{He}}'s twenty nine.",
+        "{{He}}'s fifty five.",
+        "{{He}}'s in {{his}} early forties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying with him and talking to him.",
-        "Please hurry, I don't think more of it is safe."
+        "Thank you, please hurry, {{he}} doesn't look good.",
+        "Okay, how long will the ambulance be please.",
+        "Right, I'll stay with {{him}} until they get here.",
+        "That's a relief, thank you, please tell them to hurry.",
+        "Okay, I'll keep {{him}} still until the paramedics arrive.",
+        "Thanks, I'll stay on the line if you need me to.",
+        "Good, I was so worried, thank you.",
+        "Okay, I'll try to keep {{him}} calm until they come.",
+        "Thank you, I'll watch out for the ambulance.",
+        "Alright, please tell them to hurry."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's trapped under a collapsed ceiling, we need the fire brigade!"
+        "111? No, this needs a proper response now, not a call back.",
+        "I don't think 111 is right for this, please send someone.",
+        "This can't wait for 111, I need help now.",
+        "No, please, this needs someone out here, not 111.",
+        "I really don't think 111 is going to cut it here.",
+        "Please, I need this dealt with now, not a call back later.",
+        "No, this is urgent, 111 won't do.",
+        "I don't understand, this needs a response, not 111.",
+        "Please don't fob me off to 111, this needs attention.",
+        "No, I need someone here, not a phone call from 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, I don't think we need police for this.",
+        "I'm not sure why police, this needs the fire brigade really.",
+        "No, it's not a police matter, it just needs the fire service.",
+        "I think you've misunderstood, this needs the fire brigade.",
+        "Police aren't going to help with this, I need firefighters.",
+        "No, no police needed, just get the fire engine here.",
+        "I'm confused, this isn't a police job, is it.",
+        "I don't think I need police for this, it's a fire brigade job.",
+        "No thank you, I just need the fire service, not police.",
+        "Sorry, why police, I called about a rescue, not a crime."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, that's what we need, how long will they be.",
+        "Okay, good, I'll wait for the fire engine.",
+        "Right, thank you, I'll stay clear until they arrive.",
+        "That's a relief, thank you for sending the crew.",
+        "Okay, I'll keep everyone back until the fire brigade gets here.",
+        "Thanks, I'll watch out for the engine.",
+        "Good, I was hoping you'd send fire crews.",
+        "Okay, I'll stay on the line if needed.",
+        "Thank you, I'll point them the right way when they arrive.",
+        "Alright, I'll wait here for them."
       ]
     }
   },

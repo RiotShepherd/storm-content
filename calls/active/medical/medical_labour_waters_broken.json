@@ -48,6 +48,10 @@
   "units": {
     "ambulance": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -68,8 +72,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Her waters have just broken, we think labour's starting",
-      "I need an ambulance, my partner's waters have gone and contractions are starting"
+      "{{His}} waters have just broken, we think labour's starting.",
+      "I need an ambulance, my partner's waters have gone and contractions are starting.",
+      "{{His}} waters broke about twenty minutes ago, contractions are beginning now.",
+      "Labour seems to be starting, {{his}} waters just broke.",
+      "We think it's started, {{his}} waters have gone and some mild contractions.",
+      "{{His}} waters broke a little while ago, we were told to call when that happened.",
+      "Just letting you know {{his}} waters have broken, contractions are starting.",
+      "I think we're heading into labour, {{his}} waters just went.",
+      "{{His}} waters broke not long ago, we're starting to get contractions now.",
+      "It's begun I think, {{his}} waters broke and contractions are coming."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -81,82 +93,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Her waters have just broken, we think labour's starting",
-        "I need an ambulance, my partner's waters have gone and contractions are starting"
+        "{{His}} waters have just broken, we think labour's starting.",
+        "I need an ambulance, my partner's waters have gone and contractions are starting.",
+        "{{His}} waters broke about twenty minutes ago, contractions are beginning now.",
+        "Labour seems to be starting, {{his}} waters just broke.",
+        "We think it's started, {{his}} waters have gone and some mild contractions.",
+        "{{His}} waters broke a little while ago, we were told to call when that happened.",
+        "Just letting you know {{his}} waters have broken, contractions are starting.",
+        "I think we're heading into labour, {{his}} waters just went.",
+        "{{His}} waters broke not long ago, we're starting to get contractions now.",
+        "It's begun I think, {{his}} waters broke and contractions are coming."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, her partner",
-        "{{callerName}}"
+        "It's {{callerName}}, I'm {{his}} {{callerPartner}}.",
+        "{{callerName}}, I'm {{his}} {{callerPartner}}.",
+        "My name's {{callerName}}, I'm {{his}} {{callerPartner}}.",
+        "{{callerName}} here, I'm {{his}} {{callerPartner}} and I'm with {{him}} now.",
+        "It's {{callerName}} speaking, {{his}} {{callerPartner}}.",
+        "You can put me down as {{callerName}}, I'm {{his}} {{callerPartner}}.",
+        "{{callerName}}. I'm {{his}} {{callerPartner}}, we're together.",
+        "It's {{callerName}}, {{his}} {{callerPartner}} here, please hurry.",
+        "{{callerName}}, that's me, I'm {{his}} {{callerPartner}}.",
+        "It's {{callerName}}, I'm {{his}} {{callerPartner}}, is help on the way?"
       ]
     },
     "patientName": {
       "answers": [
-        "{{firstPatientName}}",
-        "It's {{firstPatientName}}, my partner"
+        "{{firstPatientName}}, that's my {{boyfriend}}.",
+        "It's {{firstPatientName}}, my {{boyfriend}}.",
+        "My {{boyfriend}}'s name is {{firstPatientName}}.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, my {{boyfriend}}.",
+        "It's {{firstPatientName}}, that's who I mean.",
+        "My {{boyfriend}} is called {{firstPatientName}}.",
+        "{{firstPatientName}}, please hurry.",
+        "That's {{firstPatientName}}, my {{boyfriend}}.",
+        "{{firstPatientName}}. {{He}}'s my {{boyfriend}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, I'll watch for you"
+        "We're at {{address}}.",
+        "It's {{address}}.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}.",
+        "We're at {{address}}, the door will be open.",
+        "{{address}}, come straight in.",
+        "You need {{address}}.",
+        "{{address}} is where we are.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Waters broke about twenty minutes ago, contractions are starting to come"
+        "Waters broke about twenty minutes ago, contractions are starting to come.",
+        "{{His}} waters went suddenly, and now mild contractions are starting.",
+        "We noticed {{his}} waters had broken, contractions followed shortly after.",
+        "{{His}} waters broke while resting, contractions are just beginning.",
+        "It happened not long ago, waters broke and contractions are starting to build.",
+        "{{His}} waters went about half an hour ago, contractions coming now.",
+        "Waters broke, and contractions have started, still fairly mild.",
+        "It started with the waters breaking, now some early contractions.",
+        "{{His}} waters broke earlier, contractions are just getting going.",
+        "Waters have gone and contractions are starting, spaced apart so far."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's awake and calm so far"
+        "Yes, {{he}}'s awake and calm so far.",
+        "{{He}}'s alert, coping well at this stage.",
+        "Yes, {{he}}'s fine, just aware and a bit excited.",
+        "{{He}}'s conscious and comfortable for now.",
+        "Yes, {{he}}'s awake, taking it in {{his}} stride.",
+        "{{He}}'s aware and calm, nothing worrying yet.",
+        "Yes, {{he}}'s fully alert.",
+        "{{He}}'s conscious, chatting between contractions.",
+        "Yes, {{he}}'s okay, just a bit nervous.",
+        "{{He}}'s aware and coping fine at the moment."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Normal, nothing concerning.",
+        "Fine, no issues at all.",
+        "Steady breathing so far.",
+        "Normal, {{he}}'s calm.",
+        "Fine, nothing unusual.",
+        "It's fine, no worries there.",
+        "Breathing normally, all good.",
+        "Steady and calm.",
+        "Fine, no concerns at this stage."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Manageable so far, but building"
+        "Manageable so far, but building.",
+        "{{He}} says it's mild at the moment.",
+        "Not too bad yet, {{he}} says it's manageable.",
+        "It's building slowly, still bearable.",
+        "{{He}}'s coping fine with the pain so far.",
+        "Mild at the moment, getting a bit stronger.",
+        "{{He}} says it's uncomfortable but okay for now.",
+        "Manageable, {{he}}'s not too worried yet.",
+        "Still fairly mild, coming in waves.",
+        "{{He}}'s handling it well so far, still early."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Just the normal fluid, no blood that we've seen"
+        "Just the normal fluid, no blood that we've seen.",
+        "No blood, just the waters as expected.",
+        "None that we've noticed, just fluid.",
+        "No bleeding, just clear fluid so far.",
+        "Nothing unusual, just the waters breaking.",
+        "No blood, all looks normal.",
+        "None, just the fluid from the waters.",
+        "No bleeding at all that we've seen.",
+        "Just fluid, no blood noticed.",
+        "Nothing concerning, just the normal waters."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Straightforward pregnancy so far, this is her first"
+        "Straightforward pregnancy so far, this is {{his}} first.",
+        "No complications, first pregnancy for {{him}}.",
+        "Nothing of concern, straightforward so far, first baby.",
+        "It's {{his}} first pregnancy, no issues so far.",
+        "Nothing flagged by the midwife, first time round for {{him}}.",
+        "Straightforward so far, no health concerns.",
+        "No problems in the pregnancy, this is the first baby.",
+        "Nothing complicated, first pregnancy, all routine.",
+        "No issues that we know of, first baby.",
+        "Nothing of note, {{his}} first pregnancy has been smooth."
       ]
     },
     "medications": {
       "answers": [
-        "None"
+        "None.",
+        "Just pregnancy vitamins.",
+        "None regularly, just vitamins.",
+        "Just the standard prenatal vitamins.",
+        "Nothing else, just vitamins.",
+        "None, no regular medication.",
+        "Just folic acid and vitamins.",
+        "Nothing beyond the usual vitamins.",
+        "None that I know of.",
+        "Just vitamins, nothing else."
       ]
     },
     "patientAge": {
       "answers": [
-        "24"
+        "24",
+        "About 24",
+        "24, I think",
+        "{{He}}'s 24 years old",
+        "I believe {{he}}'s 24",
+        "Just turned 24 I think",
+        "24, same age as always",
+        "Around 24, give or take",
+        "{{He}} is 24",
+        "I'd say 24 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you"
+        "Okay, thank you.",
+        "Thank you, that's good to know.",
+        "Okay, we'll keep you updated.",
+        "Thank you, we appreciate that.",
+        "Okay, that's reassuring.",
+        "Thank you, we'll carry on as advised.",
+        "Okay, good, thank you.",
+        "Thank you, that helps.",
+        "Okay, we'll let you know if anything changes.",
+        "Thank you, we're glad to hear that."
       ]
     },
     "refer111": {
       "answers": [
-        "We were told to call when this happened"
+        "We were told to call when this happened.",
+        "That's what our midwife advised us to do.",
+        "We're just following what we were told to do at this stage.",
+        "The midwife said to call as soon as the waters went.",
+        "We were just doing as instructed by the midwife.",
+        "That's fine, we were just told to let you know at this point.",
+        "Okay, we were just following the midwife's instructions.",
+        "That's alright, we'll keep monitoring things ourselves.",
+        "We were just calling as we were told to at this stage.",
+        "That's fine, we'll call back if contractions get stronger."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

@@ -46,6 +46,8 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {},
   "patients": {
     "range": [
       1,
@@ -81,8 +83,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My son's having fit after fit, he won't stop, please hurry",
-      "I need an ambulance now, he's had three seizures and isn't coming round properly"
+      "My {{son}}'s having fit after fit, {{he}} won't stop, please hurry.",
+      "I need an ambulance now, {{he}}'s had three seizures and isn't coming round properly.",
+      "{{He}} keeps having fits one after another, please send help.",
+      "My {{son}}'s fitting again, this is the third time in twenty minutes.",
+      "Please hurry, {{he}}'s had multiple seizures and isn't waking up properly.",
+      "{{He}}'s fitting again, {{he}} hasn't come round properly between them.",
+      "I'm scared, {{he}}'s had several seizures back to back.",
+      "My {{son}} keeps seizing over and over, {{he}} won't stop.",
+      "Please send an ambulance, {{he}}'s having repeated fits and I can't wake {{him}}.",
+      "{{He}}'s had seizure after seizure, I don't know what to do."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -94,82 +104,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My son's having fit after fit, he won't stop, please hurry",
-        "I need an ambulance now, he's had three seizures and isn't coming round properly"
+        "My {{son}}'s having fit after fit, {{he}} won't stop, please hurry.",
+        "I need an ambulance now, {{he}}'s had three seizures and isn't coming round properly.",
+        "{{He}} keeps having fits one after another, please send help.",
+        "My {{son}}'s fitting again, this is the third time in twenty minutes.",
+        "Please hurry, {{he}}'s had multiple seizures and isn't waking up properly.",
+        "{{He}}'s fitting again, {{he}} hasn't come round properly between them.",
+        "I'm scared, {{he}}'s had several seizures back to back.",
+        "My {{son}} keeps seizing over and over, {{he}} won't stop.",
+        "Please send an ambulance, {{he}}'s having repeated fits and I can't wake {{him}}.",
+        "{{He}}'s had seizure after seizure, I don't know what to do."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm his mum",
-        "{{callerName}}"
+        "It's {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}}, I'm {{his}} {{callerParent}}.",
+        "My name's {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}} here, I'm {{his}} {{callerParent}} and I'm with {{him}} now.",
+        "It's {{callerName}} speaking, {{his}} {{callerParent}}.",
+        "You can put me down as {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}}. I'm {{his}} {{callerParent}}, we're together.",
+        "It's {{callerName}}, {{his}} {{callerParent}} here, please hurry.",
+        "{{callerName}}, that's me, I'm {{his}} {{callerParent}}.",
+        "It's {{callerName}}, I'm {{his}} {{callerParent}}, is help on the way?"
       ]
     },
     "patientName": {
       "answers": [
-        "{{firstPatientName}}, that's my son",
-        "It's {{firstPatientName}}"
+        "{{firstPatientName}}, that's my {{son}}.",
+        "It's {{firstPatientName}}, my {{son}}.",
+        "My {{son}}'s name is {{firstPatientName}}.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, my {{son}}.",
+        "It's {{firstPatientName}}, that's who I mean.",
+        "My {{son}} is called {{firstPatientName}}.",
+        "{{firstPatientName}}, please hurry.",
+        "That's {{firstPatientName}}, my {{son}}.",
+        "{{firstPatientName}}. {{He}}'s my {{son}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, please hurry"
+        "We're at {{address}}, please hurry.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}, please hurry.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, please hurry.",
+        "{{address}} is where we are, please hurry.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He's had three seizures in the last twenty minutes, he's not properly coming round between them"
+        "{{He}}'s had three seizures in the last twenty minutes, {{he}}'s not properly coming round between them.",
+        "{{He}} started fitting suddenly and it keeps happening again and again.",
+        "{{He}}'s had multiple seizures, each one lasting a minute or two.",
+        "{{He}} keeps seizing, then goes quiet, then starts again.",
+        "{{He}}'s had repeated fits, {{he}}'s exhausted between them.",
+        "{{He}} started with one seizure, now {{he}}'s had several more.",
+        "{{He}} keeps fitting on and off, {{he}} hasn't properly woken up.",
+        "{{He}}'s had a series of seizures, each one seems to blur into the next.",
+        "{{He}}'s been seizing repeatedly for the last while, it's terrifying.",
+        "{{He}} keeps going into another fit before fully coming round."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No, he's not responding between the fits"
+        "No, {{he}}'s not responding between the fits.",
+        "{{He}}'s barely conscious between seizures.",
+        "No, {{he}}'s out of it each time it stops.",
+        "{{He}}'s not really waking up properly between fits.",
+        "No, {{he}}'s completely unresponsive right now.",
+        "{{He}}'s drifting, not fully conscious between episodes.",
+        "No, {{he}} doesn't seem to be coming round properly.",
+        "{{He}}'s not responding to me at all right now.",
+        "No, {{he}}'s still out of it from the last one.",
+        "{{He}}'s barely responsive between the seizures."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "It's hard to tell while he's fitting"
+        "It's hard to tell while {{he}}'s fitting.",
+        "Fast and noisy when {{he}}'s seizing.",
+        "Hard to say exactly, it changes during the fits.",
+        "Noisy breathing during the seizures, worrying me.",
+        "It's difficult to tell properly while {{he}}'s convulsing.",
+        "Fast, especially during the fits themselves.",
+        "It varies, laboured during the seizures.",
+        "Hard to tell clearly, {{he}}'s moving around so much.",
+        "Noisy and irregular while {{he}}'s fitting.",
+        "It's hard to say for certain right now."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He can't tell me, he's unconscious between fits"
+        "{{He}} can't tell me, {{he}}'s unconscious between fits.",
+        "No way to know, {{he}}'s not responsive enough to say.",
+        "{{He}} can't answer, {{he}}'s still out of it.",
+        "I can't tell, {{he}}'s not responding to me.",
+        "No idea, {{he}}'s completely unresponsive right now.",
+        "{{He}} hasn't been able to tell me anything.",
+        "Can't say, {{he}}'s too out of it to respond.",
+        "No way to know right now, {{he}}'s not talking.",
+        "{{He}} can't communicate at the moment.",
+        "I don't know, {{he}}'s unresponsive between the fits."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "He's bitten his tongue, there's some blood"
+        "{{He}}'s bitten {{his}} tongue, there's some blood.",
+        "A little blood from {{his}} mouth, {{he}} bit {{his}} tongue.",
+        "Yes, {{he}}'s bitten {{his}} tongue during one of the fits.",
+        "Some blood in {{his}} mouth from biting {{his}} tongue.",
+        "{{He}}'s got a small cut on {{his}} tongue, bleeding a bit.",
+        "A bit of blood, {{he}} bit down during a seizure.",
+        "Yes, minor bleeding from {{his}} tongue.",
+        "{{He}}'s bitten {{himself}}, there's some blood around {{his}} mouth.",
+        "Some blood from {{his}} mouth, from the biting during the fits.",
+        "A little, {{he}} caught {{his}} tongue during a seizure."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He's epileptic"
+        "{{He}}'s epileptic.",
+        "{{He}} has epilepsy, diagnosed a couple of years ago.",
+        "Yes, {{he}}'s got epilepsy, usually controlled with medication.",
+        "{{He}}'s epileptic, this is much worse than usual though.",
+        "{{He}} has a history of seizures, epilepsy.",
+        "Yes, epilepsy, {{he}}'s had it for a while now.",
+        "{{He}}'s epileptic, {{his}} fits are normally shorter than this.",
+        "{{He}} has epilepsy, this is unusual for {{him}} though.",
+        "Yes, {{he}}'s got a diagnosis of epilepsy.",
+        "{{He}}'s epileptic, but nothing like this many fits before."
       ]
     },
     "medications": {
       "answers": [
-        "He's got emergency medication but I don't know how to use it"
+        "{{He}}'s got emergency medication but I don't know how to use it.",
+        "{{He}} has rescue medication at home, I'm too panicked to give it.",
+        "{{He}} takes anti seizure tablets normally, plus emergency medicine.",
+        "There's emergency medication in {{his}} bag but I'm scared to use it.",
+        "{{He}}'s on regular epilepsy tablets and has emergency medicine too.",
+        "{{He}} has buccal midazolam at home for emergencies.",
+        "{{He}} takes medication daily, plus {{he}}'s got emergency stuff too.",
+        "There's rescue medication here but I don't want to get it wrong.",
+        "{{He}}'s on regular tablets, and has emergency medication prescribed.",
+        "{{He}} takes anti epileptic medication, I have it here if needed."
       ]
     },
     "patientAge": {
       "answers": [
-        "16"
+        "16",
+        "About 16",
+        "16, I think",
+        "{{He}}'s 16 years old",
+        "I believe {{he}}'s 16",
+        "Just turned 16 I think",
+        "16, same age as always",
+        "Around 16, give or take",
+        "{{He}} is 16",
+        "I'd say 16 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm keeping him safe on his side"
+        "Okay, I'm keeping {{him}} safe on {{his}} side.",
+        "Okay, I've moved things away from {{him}}.",
+        "Thank you, I'm timing the fits like you said.",
+        "Okay, I'm staying with {{him}} and keeping {{him}} safe.",
+        "Thank you, I've cleared the space around {{him}}.",
+        "Okay, I've put something soft under {{his}} head.",
+        "Thank you, I'll keep watching {{him}} closely.",
+        "Okay, I'm not putting anything in {{his}} mouth.",
+        "Thank you, I'm keeping {{him}} on {{his}} side like you said.",
+        "Okay, I'll let you know when the fit stops."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this can't wait, he needs an ambulance"
+        "No, please, this can't wait for a call back.",
+        "No, I really think this needs an ambulance now.",
+        "Please no, {{he}} needs help now, not a phone call.",
+        "No, this is an emergency, we need someone now.",
+        "I don't think that's right, {{he}}'s really not well.",
+        "No, please send someone now, I'm begging you.",
+        "That doesn't sound right, this is urgent.",
+        "No, we can't wait for that, please send an ambulance.",
+        "Please, no, {{he}} needs help straight away.",
+        "No, I really think this is serious, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

@@ -42,6 +42,10 @@
     "irv": 3,
     "dog_unit": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 6
+  },
   "patients": {
     "range": [
       0,
@@ -65,7 +69,14 @@
     "openings": [
       "Police please, someone's just thrown a package over the prison wall",
       "I need to report, I've seen someone throwing items into the prison grounds",
-      "There's a man throwing packages over the fence into the prison, I think it's contraband"
+      "There's a {{man}} throwing packages over the fence into the prison, I think it's contraband",
+      "I'd like to report someone throwing a parcel over the perimeter wall",
+      "Someone's just lobbed something over the wall into the exercise yard",
+      "I need to report an attempt to throw contraband into the prison",
+      "There's a {{man}} at the fence throwing something over into the grounds",
+      "I've just seen someone throw a package over the wall, they've run off now",
+      "Can I report someone throwing items over the prison perimeter",
+      "There's been an attempt to throw a package over into the grounds, they've fled"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -79,90 +90,230 @@
       "answers": [
         "Police please, someone's just thrown a package over the prison wall",
         "I need to report, I've seen someone throwing items into the prison grounds",
-        "There's a man throwing packages over the fence into the prison, I think it's contraband"
+        "There's a {{man}} throwing packages over the fence into the prison, I think it's contraband",
+        "I'd like to report someone throwing a parcel over the perimeter wall",
+        "Someone's just lobbed something over the wall into the exercise yard",
+        "I need to report an attempt to throw contraband into the prison",
+        "There's a {{man}} at the fence throwing something over into the grounds",
+        "I've just seen someone throw a package over the wall, they've run off now",
+        "Can I report someone throwing items over the prison perimeter",
+        "There's been an attempt to throw a package over into the grounds, they've fled"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm one of the officers on duty",
-        "It's {{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "No patient involved, this is about the thrower",
-        "N/A, nobody's hurt here"
+        "I don't know {{him}}, {{he}} ran off before I could get close",
+        "No idea, {{he}}'s not someone I recognise",
+        "I don't know {{his}} name, {{he}} legged it straight after",
+        "No idea who {{he}} is, {{he}}'s a stranger to me",
+        "Couldn't tell you, {{he}} was gone before I could see much",
+        "No idea, {{he}} ran off towards the car park",
+        "Sorry, no idea, I only saw {{him}} from a distance",
+        "I don't know {{him}} at all, {{he}} fled straight away",
+        "No idea what {{his}} name is, sorry",
+        "Couldn't say, {{he}} was too far away and ran off fast"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the perimeter fence on the east side",
-        "{{address}}, near the north wall"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "We spotted someone throwing a package wrapped in tape over the wall towards the yard",
-        "It happened a few minutes ago, he ran off after chucking it over",
-        "Someone's using a drone or throwing packages over the wall again, we've recovered one item already"
+        "{{He}} threw a package over the perimeter wall and then ran off",
+        "{{He}} lobbed something over the fence into the exercise yard and fled",
+        "{{He}} threw a parcel over and then legged it before I could stop {{him}}",
+        "{{He}} was stood by the wall and threw something over into the grounds",
+        "{{He}} chucked a package over the fence and ran off towards the road",
+        "{{He}} threw something over near the wing wall and disappeared quickly",
+        "{{He}} lobbed a bag over the perimeter and made off on foot",
+        "{{He}} threw the package over and was gone before staff got there",
+        "{{He}} threw something over near the corner of the fence and fled",
+        "{{He}} threw a parcel over the wall then ran off down the road"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, no patient in this",
-        "N/A"
+        "{{He}}'s up and about, shouting the whole time",
+        "Yes, {{he}}'s fully alert, {{he}}'s not hurt",
+        "{{He}}'s fine that way, {{he}}'s not injured at all",
+        "{{He}}'s conscious, {{he}}'s just being difficult",
+        "Yes, {{he}}'s wide awake, nothing wrong with {{him}} physically",
+        "{{He}}'s fine, {{he}}'s not hurt in any way",
+        "{{He}}'s up and moving about, {{he}}'s not injured",
+        "Yes, {{he}}'s completely alert, {{he}}'s just angry",
+        "{{He}}'s not hurt at all, {{he}}'s fully with it",
+        "{{He}}'s fine that way, {{he}}'s just causing trouble"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, this isn't medical",
-        "N/A"
+        "{{He}}'s breathing fine, {{he}}'s not hurt",
+        "No issues there, {{he}}'s not injured",
+        "{{He}}'s fine, nothing wrong with {{his}} breathing",
+        "Yes, {{he}}'s breathing normally, {{he}}'s not hurt",
+        "No problem there, {{he}}'s not been hurt",
+        "{{He}}'s completely fine physically",
+        "No, {{he}}'s not injured, {{he}}'s breathing fine",
+        "{{He}}'s fine, {{he}}'s just shouting a lot",
+        "Yes, {{he}}'s fine, no injuries at all",
+        "No issues, {{he}}'s not hurt in any way"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt",
-        "N/A"
+        "No, {{he}}'s not hurt at all",
+        "No pain, {{he}}'s not injured",
+        "{{He}}'s fine, {{he}}'s not been hurt",
+        "No, nothing's wrong with {{him}} physically",
+        "{{He}}'s not in any pain, {{he}}'s not injured",
+        "No, {{he}}'s unhurt as far as I can see",
+        "{{He}}'s fine, {{he}}'s just angry, not hurt",
+        "No pain that I can see, {{he}}'s not injured",
+        "{{He}}'s not hurt, no",
+        "No, {{he}}'s completely unhurt"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "N/A"
+        "No, {{he}}'s not bleeding, {{he}}'s not hurt",
+        "No bleeding, {{he}}'s not injured at all",
+        "No, no injuries that I can see",
+        "{{He}}'s not bleeding, no",
+        "No blood, {{he}}'s completely unhurt",
+        "No, {{he}}'s not injured in any way",
+        "No bleeding at all, {{he}}'s fine physically",
+        "No, nothing like that, {{he}}'s not hurt",
+        "No blood, no injuries, {{he}}'s fine",
+        "No, {{he}}'s not bleeding, {{he}}'s unhurt"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "I don't know, I don't know {{him}} at all",
+        "No idea, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}}",
+        "No idea, sorry, never met {{him}} before",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, {{he}}'s not someone I know",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, {{he}}'s a stranger",
+        "I've no idea, I don't know {{him}} personally",
+        "Couldn't tell you, I don't know {{him}} at all"
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "No idea, sorry, I don't know {{him}}",
+        "I couldn't tell you, {{he}}'s a stranger to me",
+        "No idea I'm afraid, sorry",
+        "Sorry, I don't know {{him}} well enough to say",
+        "Can't help with that, I don't know {{him}}",
+        "No idea, sorry, I don't know {{him}} at all",
+        "I've no clue, never met {{him}} before today",
+        "Sorry, I really don't know",
+        "No idea, {{he}}'s not someone I know",
+        "Couldn't tell you, I'm afraid"
       ]
     },
     "patientAge": {
       "answers": [
-        "Not applicable"
+        "I'd say {{he}}'s maybe thirty, hard to say",
+        "Looks like {{he}}'s in {{his}} twenties, that's my guess",
+        "I couldn't say exactly, maybe mid thirties",
+        "{{He}} looks like {{he}}'s in {{his}} forties",
+        "Hard to say, maybe twenty five, I'm not sure",
+        "I'd guess {{he}}'s in {{his}} thirties",
+        "Can't say for certain, {{he}} looks fairly young",
+        "Maybe late twenties, that's my best guess",
+        "I'm not sure exactly, {{he}}'s an adult, that's all I can say",
+        "Hard to tell, {{he}}'s youngish, not elderly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've secured the item and the area",
-        "Thank you, we'll keep watching the fence line"
+        "Oh, we don't need an ambulance, nobody's hurt here, but thank you.",
+        "No need for paramedics, everyone's fine, it's just the incident we need dealt with.",
+        "There's no one injured, so no ambulance necessary, but I appreciate it.",
+        "No thank you, nobody's hurt, we just need the crews out here.",
+        "We're all fine here, no one needs an ambulance.",
+        "No injuries at all, so there's no need for paramedics, thanks anyway.",
+        "Nobody's hurt, so I don't think we need an ambulance, just the crews.",
+        "That's kind, but no one's injured, we don't need paramedics.",
+        "No, honestly, everyone's fine, it's just the incident itself we need sorted.",
+        "No need, thank you, nobody's been hurt here at all."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs the police, not a medical service"
+        "Oh, okay, I suppose it can wait, it's not going anywhere",
+        "Right, fair enough, I'll bear with it",
+        "Okay, that's fine, no rush I suppose",
+        "Alright, I understand, whenever someone's free",
+        "Okay, I'll let you know if anything changes",
+        "Right, no problem, I'll keep an eye on it myself for now",
+        "Okay, that's fine, thanks for letting me know",
+        "Alright, fair enough, I did wonder if it was that urgent",
+        "Okay, I understand, I'll just keep everyone informed here",
+        "Right, that's okay, thank you for taking the details anyway"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll point them to where they're needed when they arrive.",
+        "Right, that's good, we could do with them here to sort the traffic.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting a bit chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, we don't need them, nobody's dealing with a fire here.",
+        "No, this isn't a fire, we don't need the fire engines.",
+        "Sorry, no, there's no fire, it's not something for the fire brigade.",
+        "No thank you, we don't need fire crews, it's not that kind of incident.",
+        "I don't think we need the fire brigade, there's no fire involved.",
+        "No, no fire here, we just need police and paramedics really.",
+        "That's alright, we don't need fire engines, it's not a fire.",
+        "No, this doesn't need the fire brigade, it's a different kind of problem.",
+        "Sorry, no, fire crews aren't needed, there's no fire to speak of.",
+        "No, we're fine on the fire front, it's the other services we need."
       ]
     }
   },

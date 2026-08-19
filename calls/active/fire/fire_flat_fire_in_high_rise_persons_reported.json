@@ -45,6 +45,10 @@
     "aerial": 1,
     "fire_officer": 4
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13
+  },
   "patients": {
     "range": [
       0,
@@ -112,8 +116,16 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade, it's up on one of the higher floors, there's someone still inside the flat, I can hear them",
-      "Please hurry, it's up on one of the higher floors, my neighbour's trapped, I can hear him shouting"
+      "Fire brigade, there's a flat fire in the tower block, I think someone's still inside",
+      "It's the high rise on the estate, one of the flats is alight, persons reported",
+      "Please hurry, there's a fire in the tower and I can see smoke at a window",
+      "Fire brigade please, a flat's on fire in the block, I'm not sure everyone's out",
+      "Help, there's smoke coming from a flat in the tower, someone might still be in there",
+      "There's a fire in the block, I think a neighbour's still inside their flat",
+      "Please send help, a flat's alight in the tower, persons reported",
+      "Fire in the high rise, I saw someone at the window on one of the upper floors",
+      "Please hurry, the tower's got a flat fire and I don't think everyone's evacuated",
+      "There's a fire in one of the flats, I can see flames from the street"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -125,81 +137,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade, it's up on one of the higher floors, there's someone still inside the flat, I can hear them",
-        "Please hurry, it's up on one of the higher floors, my neighbour's trapped, I can hear him shouting"
+        "Fire brigade, there's a flat fire in the tower block, I think someone's still inside",
+        "It's the high rise on the estate, one of the flats is alight, persons reported",
+        "Please hurry, there's a fire in the tower and I can see smoke at a window",
+        "Fire brigade please, a flat's on fire in the block, I'm not sure everyone's out",
+        "Help, there's smoke coming from a flat in the tower, someone might still be in there",
+        "There's a fire in the block, I think a neighbour's still inside their flat",
+        "Please send help, a flat's alight in the tower, persons reported",
+        "Fire in the high rise, I saw someone at the window on one of the upper floors",
+        "Please hurry, the tower's got a flat fire and I don't think everyone's evacuated",
+        "There's a fire in one of the flats, I can see flames from the street"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I live in the flat next door"
+        "It's {{callerName}}, I live in the block next door",
+        "{{callerName}}, I was walking past when I saw the smoke",
+        "It's {{callerName}}, I live on a lower floor of the same building",
+        "{{callerName}} here, I'm stood outside watching",
+        "It's {{callerName}}, a neighbour banged on my door and I came out",
+        "My name's {{callerName}}, I'm one of the residents",
+        "It's {{callerName}}, I saw the smoke from my window",
+        "{{callerName}} speaking, I live nearby and heard the alarms",
+        "It's {{callerName}}, I'm stood in the car park watching the building",
+        "{{callerName}}, I was outside and saw someone at the window"
       ]
     },
     "patientName": {
       "answers": [
-        "I think his name's {{firstPatientName}}, or something like that, we're not close"
+        "I think it's {{firstPatientName}} who lives in that flat, I'm not certain",
+        "I don't know {{him}} well, but I believe {{his}} name's {{firstPatientName}}",
+        "It might be {{firstPatientName}}, {{he}} lives on that floor I think",
+        "I'm not sure of the full details, but I think it's {{firstPatientName}} in there",
+        "I believe it's {{firstPatientName}}, {{he}}'s a resident on that floor",
+        "I don't know {{him}} personally, but neighbours say it's {{firstPatientName}}",
+        "It could be {{firstPatientName}}, I've seen {{him}} around the building before",
+        "I think {{his}} name's {{firstPatientName}}, but I really can't be certain",
+        "Someone said it's {{firstPatientName}}, I don't know {{him}} well myself",
+        "I believe it's {{firstPatientName}} in that flat, based on what neighbours are saying"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, come to the main entrance by the lifts",
-        "It's {{address}}, I'll meet you by the stairs to show you the floor"
+        "{{address}}, the tower block on the estate",
+        "It's {{address}}, come to the main entrance at the front",
+        "{{address}}, you'll see the smoke from a distance",
+        "It's {{address}}, the fire's on one of the upper floors",
+        "{{address}}, residents are gathering in the car park",
+        "It's {{address}}, the stairwell entrance is round the side",
+        "{{address}}, please hurry, I can still see smoke at the window",
+        "It's {{address}}, the tower next to the shops",
+        "{{address}}, I'm stood outside the main doors",
+        "It's {{address}}, come straight to the front, we're all watching from outside"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's smoke coming from a flat, it's up on one of the higher floors, and I can hear my neighbour shouting from inside, I think he's trapped"
+        "A flat's caught fire on one of the upper floors and there's a lot of smoke",
+        "It looks like a bad fire, flames are visible from one of the windows",
+        "One flat's well alight and smoke's pouring out of the window",
+        "No idea how it started, but it's a serious fire on one of the floors",
+        "A window's smashed on one of the upper floors and there's smoke and flames",
+        "It's a bad fire, smoke's filling the corridor on that floor from what I can see",
+        "We're not sure what started it, but it looks like a serious flat fire",
+        "One flat's alight and I can see the smoke getting thicker by the minute",
+        "It started in a flat and the smoke's now visible from several windows",
+        "The fire looks serious, there's flames and smoke from the one window"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He was shouting a minute ago, I think so, yes"
+        "I really can't say, I could see someone moving at the window earlier",
+        "I don't know, I saw someone but I can't tell if they're okay from down here",
+        "I can't tell from here, I just know I saw someone at the window",
+        "I really don't know, we're all just watching and hoping they're alright",
+        "I can't say for certain, someone was at the window a few minutes ago",
+        "I don't know, sorry, it's hard to tell anything from street level",
+        "I can't confirm that, I only saw movement at the window earlier on",
+        "I really can't say, please hurry, I saw someone up there",
+        "I don't know, honestly, I just saw a figure at the window",
+        "I can't tell from down here, sorry, I just saw someone moving"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I can hear him coughing badly"
+        "I can't tell, I'm too far away to know anything about that",
+        "I don't know, sorry, I can only see them from down here",
+        "I can't say, there's a lot of smoke around that window",
+        "I really don't know, I just hope they're okay up there",
+        "I can't tell from here, sorry, it's hard to see clearly",
+        "I don't know, honestly, the smoke's making it hard to see anything",
+        "I can't confirm that, sorry, we're all just watching from the ground",
+        "I really can't say, please just get someone up there quickly",
+        "I don't know, sorry, I can't tell anything from this distance",
+        "I can't say, sorry, there's too much smoke to see properly"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I don't know, he just sounded scared and was coughing"
+        "I've no idea, I can't tell anything from down here, sorry",
+        "I don't know, sorry, we're all just watching from the ground",
+        "I can't say, I just hope they're not hurt up there",
+        "I really don't know, sorry, it's impossible to tell from here",
+        "I can't confirm that, sorry, please just hurry",
+        "I don't know, honestly, I can only see them from a distance",
+        "I can't tell, sorry, there's smoke around the window",
+        "I really can't say, sorry, we're all worried down here",
+        "I don't know, sorry, I just saw movement at the window",
+        "I can't say, sorry, it's hard to tell anything from this far away"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I've no idea, I can't see him"
+        "I've no idea, sorry, I can't see anything like that from here",
+        "I don't know, sorry, I'm too far away to tell",
+        "I can't say, sorry, we're all just watching from the ground",
+        "I really don't know, sorry, please just hurry and get up there",
+        "I can't confirm that, sorry, it's impossible to see from down here",
+        "I don't know, honestly, I can only see the window from a distance",
+        "I can't tell, sorry, there's too much smoke to see clearly",
+        "I really can't say, sorry, we're all hoping they're alright",
+        "I don't know, sorry, I just saw a figure at the window",
+        "I can't say, sorry, it's hard to make out anything from here"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him well enough to say"
+        "I don't know {{him}} personally, sorry, I just live nearby",
+        "No idea, sorry, I don't really know the residents on that floor",
+        "I couldn't say, sorry, I don't know {{him}} at all",
+        "Sorry, no idea, I'm just a neighbour from a different block",
+        "I don't know {{him}}, sorry, we've never really spoken",
+        "No idea about that, sorry, I don't know the family",
+        "I can't help with that, sorry, {{he}}'s not someone I know well",
+        "Sorry, I don't know {{his}} history, I just recognise {{him}} from around",
+        "No idea, sorry, I've only seen {{him}} in passing before",
+        "I couldn't say, sorry, we're not close, just neighbours"
       ]
     },
     "medications": {
       "answers": [
-        "Sorry, I've no idea"
+        "No idea, sorry, I don't know {{him}} that well",
+        "I couldn't tell you, sorry, we've never really spoken",
+        "No idea about medications, sorry",
+        "Sorry, I can't help, I don't know {{him}} personally",
+        "No idea, sorry, I just live nearby",
+        "I don't know, sorry, we're not close",
+        "Sorry, no idea what {{he}} takes, if anything",
+        "No idea, sorry, I can't help with that",
+        "I couldn't say, sorry, I only know {{him}} to see",
+        "No idea, sorry, {{he}}'s just a neighbour I don't know well"
       ]
     },
     "patientAge": {
       "answers": [
-        "He's maybe forties, fifties, I'm not sure"
+        "I think {{he}}'s maybe in {{his}} sixties, but I'm not sure",
+        "I'd guess {{he}}'s around sixty, though I couldn't say for certain",
+        "Older I think, maybe sixties",
+        "I believe {{he}}'s in {{his}} sixties, from what I've seen of {{him}}",
+        "I couldn't say exactly, maybe sixty or so",
+        "I think {{he}}'s an older resident, sixties perhaps",
+        "Hard to say, {{he}} looks to be around sixty to me",
+        "I'd guess {{he}}'s maybe sixty, I'm only going on what I've seen",
+        "I think {{he}}'s in {{his}} sixties, but I really don't know for certain",
+        "Maybe sixty odd, I couldn't say for sure, sorry"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying back but I can still hear him",
-        "Please hurry, he sounds distressed"
+        "Okay, I'll keep watching the window and let you know",
+        "Please hurry, I think I can still see smoke up there",
+        "Right, we're all stood well back from the building now",
+        "Okay, I'll shout if I see anything change up there",
+        "Understood, we're keeping everyone else back from the entrance",
+        "Alright, I'll stay here and update you if I see anything",
+        "Okay, other residents are gathering in the car park too",
+        "Right, I'll keep watching that window until you arrive",
+        "Understood, we're all watching from a safe distance",
+        "Okay, I'll let you know straight away if anything changes"
       ]
     },
     "refer111": {
       "answers": [
-        "No, there's someone trapped in a fire, we need the fire brigade urgently"
+        "No, we need the fire brigade urgently, someone may still be inside",
+        "No thank you, this is a serious fire, we need crews here now",
+        "No, this can't wait, there's a person possibly trapped up there",
+        "No, this is far too serious for anything other than a full response",
+        "No, please, I think I can still see someone at the window",
+        "No, this isn't something 111 can help with, we need crews here",
+        "No, we need fire crews urgently, this is a persons reported fire",
+        "No, please hurry, the smoke's getting worse up there",
+        "No, this needs a proper emergency response right now",
+        "No, please send help, we're really worried about whoever's up there"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we could use help keeping people back from the building",
+        "Yes please, there's a crowd gathering to watch, we need them moved back",
+        "That's good, someone needs to manage the residents coming out",
+        "Thank you, they can help keep the entrance clear for the crews",
+        "Okay, that's helpful, there's a lot of confusion out here",
+        "Yes, we need them for the cordon, people keep trying to go back in",
+        "Good, they can help direct the crowd away from the building",
+        "Thank you, we need someone keeping bystanders well back",
+        "Okay, that makes sense, this is a serious situation",
+        "Yes please, we're all worried, extra help is welcome"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, please hurry, I think someone's still up there",
+        "Okay, we're staying well back, please be as quick as you can",
+        "Thank god, how long roughly until they get here",
+        "Right, I'll keep watching the window until the crew arrives",
+        "Okay, we're clear of the building now, waiting for you",
+        "Thank you, please send everyone you can, the smoke's getting worse",
+        "Understood, I'll stay here and update you if anything changes",
+        "Okay, other residents are gathering in the car park too",
+        "Thank you, please hurry, I can still see smoke at that window",
+        "Right, I'll wave the crews in when I see them arriving"
       ]
     }
   },

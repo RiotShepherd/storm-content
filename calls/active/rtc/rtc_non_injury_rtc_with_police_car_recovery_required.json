@@ -46,6 +46,10 @@
     "irv": 2,
     "traffic_car": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 3
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,15 @@
   "caller": {
     "openings": [
       "A police car's been in a bump with another vehicle, doesn't look like anyone's hurt.",
-      "There's been a minor crash involving a police car, no injuries but it needs recovering."
+      "There's been a minor crash involving a police car, no injuries but it needs recovering.",
+      "A patrol car's clipped another vehicle, both drivers are out and fine.",
+      "There's been a small collision with a police car involved, nobody's hurt though.",
+      "Can you send someone, a police car's had a minor bump, it'll need recovering.",
+      "A police vehicle's been in a shunt, no one's injured but the car's stuck.",
+      "Hello, there's been a bump involving a police car, everyone's okay though.",
+      "A patrol car and another car have collided, no injuries, just damage.",
+      "There's been a small crash, a police car's involved, it can't be driven now.",
+      "A police car's had a minor accident, both drivers are unhurt but it's stuck."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -80,90 +92,231 @@
     "start": {
       "answers": [
         "A police car's been in a bump with another vehicle, doesn't look like anyone's hurt.",
-        "There's been a minor crash involving a police car, no injuries but it needs recovering."
+        "There's been a minor crash involving a police car, no injuries but it needs recovering.",
+        "A patrol car's clipped another vehicle, both drivers are out and fine.",
+        "There's been a small collision with a police car involved, nobody's hurt though.",
+        "Can you send someone, a police car's had a minor bump, it'll need recovering.",
+        "A police vehicle's been in a shunt, no one's injured but the car's stuck.",
+        "Hello, there's been a bump involving a police car, everyone's okay though.",
+        "A patrol car and another car have collided, no injuries, just damage.",
+        "There's been a small crash, a police car's involved, it can't be driven now.",
+        "A police car's had a minor accident, both drivers are unhurt but it's stuck."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, I saw it happen.",
-        "{{callerName}}, I was stopped at the lights nearby."
+        "{{callerName}}, I was stopped at the lights nearby.",
+        "My name's {{callerName}}, I'm parked just up the road.",
+        "{{callerName}} here, I watched the whole thing.",
+        "It's {{callerName}} speaking, I'm still nearby.",
+        "{{callerName}}, I've pulled over to let you know.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I'm across the road from it.",
+        "{{callerName}}, I'm the one who rang it in.",
+        "Name's {{callerName}}, I'm waiting near the junction."
       ]
     },
     "patientName": {
       "answers": [
-        "Nobody's hurt, both drivers are out and talking.",
-        "No injuries that I can see."
+        "Nobody's hurt, it's just the load that's come off.",
+        "No injuries, it's a spillage, there's no patient as such.",
+        "There's no one to name, it's just debris on the road.",
+        "No casualties, everyone involved is out and fine.",
+        "Nobody needs a name taken, no one's been hurt.",
+        "It's just an obstruction, there's no patient involved.",
+        "No injuries here, it's purely a road hazard.",
+        "There's nobody hurt to give you a name for.",
+        "No one's been struck, everyone's fine.",
+        "Not applicable, nobody's been injured."
       ]
     },
     "address": {
       "answers": [
         "We're on {{address}}.",
-        "{{address}}, right by the junction."
+        "{{address}}, right by the junction.",
+        "It's happened on {{address}}, near the lights.",
+        "{{address}}, you'll see the police car pulled over.",
+        "We're at {{address}}, both cars are on the side.",
+        "{{address}}, right by the roundabout.",
+        "It's on {{address}}, close to the shops.",
+        "{{address}} is where it is, nothing's blocking the road though.",
+        "We're stood on {{address}}, near where it happened.",
+        "{{address}}, just past the crossing."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "The police car and another vehicle have had a minor collision, both are damaged but no one's hurt.",
-        "They've clipped each other pulling out, everyone's out of their cars and fine."
+        "They've clipped each other pulling out, everyone's out of their cars and fine.",
+        "The patrol car was pulling away and another vehicle's gone into the side of it.",
+        "It looks like a low speed shunt at the junction, both cars have got damage.",
+        "One car's turned and the police car's gone into the back of it, no one's hurt.",
+        "They've bumped at the roundabout, both drivers are out checking the damage.",
+        "The police car's clipped a parked car reversing, no injuries though.",
+        "It's a minor prang, the police car can't be driven but nobody's hurt.",
+        "Looks like they've collided pulling out of the same junction, both fine.",
+        "The police car's front end is damaged, the other car's got a dent, nobody's hurt."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, everyone's up and about.",
-        "No injuries, both drivers are fine."
+        "Nobody's hurt, everyone involved is fine.",
+        "No injuries, the driver's out and about, no one's hurt.",
+        "There's no one unconscious, nobody's been hurt at all.",
+        "Not applicable, no one's been struck by anything.",
+        "No patient here, everyone involved is fine.",
+        "Everyone's absolutely fine, no one's hurt.",
+        "No casualties, nobody's collapsed or been struck.",
+        "Nobody's hurt, this is just a road hazard.",
+        "No one needs checking, there's no injuries at all.",
+        "Not applicable, no one was hurt in this."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Everyone's fine, this isn't medical.",
-        "No injuries at all."
+        "Everyone's fine, this isn't a medical call.",
+        "No injuries at all.",
+        "Nobody's struggling, there's no patient here.",
+        "Not applicable, no one's hurt.",
+        "Everyone involved is breathing fine, nobody's injured.",
+        "No one needs checking, it's just an obstruction.",
+        "This isn't a medical emergency, no one's hurt.",
+        "There's no patient to check breathing on.",
+        "Not applicable, nobody's been affected physically.",
+        "No injuries reported at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt, just the cars.",
-        "Not applicable."
+        "No one's hurt, it's just the road hazard.",
+        "Not applicable, no injuries.",
+        "Nobody's in pain, no one's been hurt.",
+        "No patient here, so no pain to report.",
+        "There's nothing like that, nobody's injured.",
+        "No one's complaining of anything, they're all fine.",
+        "Not applicable, this is just an obstruction.",
+        "No injuries at all to report.",
+        "Nobody's hurt in any way.",
+        "No, there's no patient in pain here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
         "No, nobody's injured.",
-        "No injuries."
+        "No injuries.",
+        "No, there's no one bleeding, nobody's hurt.",
+        "Not applicable, no patient involved.",
+        "No, everyone's fine, it's just the obstruction.",
+        "No bleeding, no injuries at all.",
+        "Nobody's been cut or hurt in any way.",
+        "No, there's no patient here to check.",
+        "Not applicable, nobody's been struck.",
+        "No, this is purely a road hazard, no injuries."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
         "There's no patient.",
-        "Not applicable."
+        "Not applicable.",
+        "No one to ask about, nobody's hurt.",
+        "There's no patient here to speak of.",
+        "N/A, nobody's been injured.",
+        "No need, there's no casualty.",
+        "Not relevant, no one's hurt.",
+        "There's no patient involved in this.",
+        "No history needed, nobody's injured.",
+        "Not applicable, it's just an obstruction."
       ]
     },
     "medications": {
       "answers": [
         "No one needs medical help.",
-        "Not applicable."
+        "Not applicable.",
+        "There's no patient taking anything.",
+        "N/A, nobody's hurt.",
+        "No need, there's no casualty here.",
+        "Not relevant, no one's injured.",
+        "There's no patient to ask about.",
+        "No medication needed, nobody's hurt.",
+        "Not applicable at all.",
+        "No, there's no one who needs that."
       ]
     },
     "patientAge": {
       "answers": [
         "There's no patient.",
-        "Not applicable."
+        "Not applicable.",
+        "No one to give an age for.",
+        "N/A, there's no casualty.",
+        "Not relevant, nobody's hurt.",
+        "There's no patient here to speak of.",
+        "No age needed, nobody's injured.",
+        "Not applicable, it's just the obstruction.",
+        "No one's hurt, so there's no patient age.",
+        "N/A, this isn't a medical call."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay clear and let them sort it out.",
-        "Understood, I'll keep back from the vehicles."
+        "Ambulance? No, honestly, nobody's hurt, we just need the road sorted.",
+        "Oh, we don't need that, nobody's injured, just help with the road.",
+        "There's no need for an ambulance, nobody's hurt.",
+        "No one's hurt so we won't need that, but thanks.",
+        "That's not necessary, nobody's been injured here.",
+        "We're fine on that front, it's just a road hazard, nobody's hurt.",
+        "No thank you, no injuries at all.",
+        "You can stand that down, nobody's hurt at all.",
+        "That won't be needed, everyone's absolutely fine.",
+        "No, honestly, nobody's injured here."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, thank you, we could really use them to direct the traffic.",
+        "Yes please, it's chaos out here, we need them to close a lane.",
+        "Thank goodness, cars are swerving about, we need them quickly.",
+        "That's great, someone needs to manage this before there's a crash.",
+        "Okay, I'll flag them down when I see them coming.",
+        "Thank you, drivers keep nearly hitting the obstruction.",
+        "Good, we really need someone controlling the traffic here.",
+        "Thanks, I'll point them to the right spot when they arrive.",
+        "That's a relief, it's getting dangerous with the traffic.",
+        "Perfect, we need them here before someone crashes into it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, we just need police for the cars.",
+        "Oh, we don't need them, nobody's trapped, just the vehicles to sort.",
+        "That's not necessary, there's nothing burning or anyone stuck.",
+        "No, honestly, it's just a bump, we don't need the fire brigade.",
+        "You can stand them down, there's no fire risk here.",
+        "That won't be needed, it's only the cars that are damaged.",
+        "No thank you, nothing's on fire, we just need police.",
+        "We're fine without them, it's just a minor collision.",
+        "No need for that, nobody's trapped or hurt.",
+        "That's not required, it's only a road traffic matter."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we just need the vehicle recovered, nobody's hurt!"
+        "No, we just need the vehicle recovered, nobody's hurt!",
+        "111? This isn't medical, we just need the car towed.",
+        "No, it's not that, the police car just needs recovering, that's all.",
+        "I don't think so, nobody's hurt, we just need it sorted for recovery.",
+        "No thanks, it's just the car that needs seeing to, not us.",
+        "That doesn't sound right, we just need someone to arrange recovery.",
+        "No, we're fine, it's just the vehicle that needs sorting.",
+        "I really don't think 111 can arrange a vehicle recovery.",
+        "No, it's just paperwork and recovery needed, nobody's hurt.",
+        "No, that's a police matter for recovery, not something 111 could help with."
       ]
     }
   },

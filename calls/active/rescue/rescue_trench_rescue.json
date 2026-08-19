@@ -49,6 +49,12 @@
     "irv": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 5,
+    "ambulance": 3,
+    "police": 1
+  },
   "patients": {
     "range": [
       1,
@@ -92,8 +98,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "The trench has collapsed on one of our lads, he's buried up to his chest!",
-      "Emergency, we've had a trench collapse on site, at least one worker's trapped and badly hurt."
+      "The trench has collapsed on one of our workers, {{he}}'s buried up to the chest!",
+      "There's been a trench collapse, someone's trapped and we can't dig them out!",
+      "Please help, the trench walls have caved in on {{firstPatientName}}!",
+      "We've got a worker buried in a collapsed trench, please hurry!",
+      "There's been a cave in on site, {{firstPatientName}}'s trapped in the trench!",
+      "Help, the ground's given way and buried one of our team in the trench!",
+      "Please send help, a trench has collapsed with {{firstPatientName}} still inside!",
+      "There's an emergency, the trench has come in on {{firstPatientName}}, {{he}}'s trapped!",
+      "Help, we've got someone trapped and bleeding in a collapsed trench!",
+      "Please hurry, the trench has collapsed and {{firstPatientName}}'s badly hurt!"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -105,91 +119,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "The trench has collapsed on one of our lads, he's buried up to his chest!",
-        "Emergency, we've had a trench collapse on site, at least one worker's trapped and badly hurt."
+        "The trench has collapsed on one of our workers, {{he}}'s buried up to the chest!",
+        "There's been a trench collapse, someone's trapped and we can't dig them out!",
+        "Please help, the trench walls have caved in on {{firstPatientName}}!",
+        "We've got a worker buried in a collapsed trench, please hurry!",
+        "There's been a cave in on site, {{firstPatientName}}'s trapped in the trench!",
+        "Help, the ground's given way and buried one of our team in the trench!",
+        "Please send help, a trench has collapsed with {{firstPatientName}} still inside!",
+        "There's an emergency, the trench has come in on {{firstPatientName}}, {{he}}'s trapped!",
+        "Help, we've got someone trapped and bleeding in a collapsed trench!",
+        "Please hurry, the trench has collapsed and {{firstPatientName}}'s badly hurt!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the site foreman.",
-        "{{callerName}}, I was working right next to him."
+        "It's {{callerName}}, I'm the site supervisor.",
+        "{{callerName}}, I work with {{him}} on site.",
+        "My name's {{callerName}}, I'm the site foreman.",
+        "{{callerName}}, I'm one of the site team.",
+        "It's {{callerName}} calling, I'm the health and safety officer.",
+        "{{callerName}}, I work at the same site.",
+        "My name is {{callerName}}, I'm a colleague of {{his}}.",
+        "It's {{callerName}}, I run the site office.",
+        "{{callerName}} here, I'm the foreman on this job.",
+        "My name's {{callerName}}, I'm on site with {{him}} now."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}.",
-        "His name's {{firstPatientName}}, he's one of the groundworkers."
+        "It's {{firstPatientName}}, {{he}}'s one of our groundworkers.",
+        "{{firstPatientName}}, {{he}}'s worked here a few years.",
+        "{{patientName}}, I've got {{his}} emergency contact if you need it.",
+        "It's {{firstPatientName}}, {{he}}'s the one buried in the trench.",
+        "{{firstPatientName}}'s the name, {{he}}'s one of our labourers.",
+        "{{his}} name's {{firstPatientName}}, {{he}}'s our site engineer.",
+        "It's {{firstPatientName}}, I've worked alongside {{him}} for years.",
+        "{{firstPatientName}}, that's the one trapped in the trench.",
+        "{{patientName}}'s the name, {{he}}'s one of the digging team.",
+        "It's {{firstPatientName}}, I can get you {{his}} details from the office."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, the building site.",
-        "{{address}}, come through the site entrance, I'll wave you in."
+        "We're at {{address}}, it's the groundworks site.",
+        "{{address}}, come to the main gate, I'll direct you in.",
+        "It's {{address}}, the trench is at the back of the site.",
+        "{{address}}, I'll be waiting to let you through security.",
+        "We're at {{address}}, there's a barrier, I'll open it for you.",
+        "{{address}}, follow the signs for the site compound.",
+        "It's {{address}}, the site office will point you the right way.",
+        "{{address}}, I'll meet you at the gate.",
+        "We're at {{address}}, it's the excavation at the rear of the plot.",
+        "{{address}}, I'll have someone waiting to guide you in."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The side of the trench gave way while he was down there and it's come in on top of him.",
-        "The ground collapsed into the trench and buried him from the waist down, we can't dig him out safely ourselves."
+        "The trench walls gave way while {{he}} was working inside and {{he}}'s now buried.",
+        "There was a cave in and {{firstPatientName}} got caught as the sides collapsed.",
+        "The ground gave way suddenly and buried {{him}} up to the chest.",
+        "We think the sides weren't shored up properly and the trench collapsed on {{him}}.",
+        "{{firstPatientName}} was down in the trench when the walls just came in on {{him}}.",
+        "There's been a collapse, the soil's come in around {{him}} and {{he}} can't move.",
+        "The excavation gave way while {{he}} was working and now {{he}}'s trapped.",
+        "We think the vibration from nearby machinery caused the trench to collapse.",
+        "{{firstPatientName}} was working at the bottom when the sides caved in on {{him}}.",
+        "It looks like the trench wasn't properly supported and it's collapsed on {{him}}."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious but he's going very pale.",
-        "Yes, talking to us, but he's in a bad way."
+        "{{He}}'s conscious, {{he}}'s shouting for help.",
+        "Yes, {{he}}'s awake and talking, but in a lot of pain.",
+        "{{He}}'s conscious, {{he}} sounds very frightened.",
+        "Yes, conscious, {{he}}'s asking me to get help fast.",
+        "{{He}}'s alert, talking to me from the trench.",
+        "Yes, {{he}}'s conscious, just can't move at all.",
+        "{{He}}'s awake, {{he}} says {{he}} can't feel {{his}} legs properly.",
+        "Conscious, yes, {{he}}'s calling out in pain.",
+        "{{He}}'s conscious and responding, just buried fast.",
+        "Yes, {{he}}'s conscious, please hurry, {{he}} sounds bad."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, but it's fast and shallow.",
-        "Yes, but he's struggling with the weight on him."
+        "Yes, {{he}}'s breathing, just in a lot of pain.",
+        "{{He}} seems to be breathing okay, but it's hard to tell with the soil around {{him}}.",
+        "Yes, breathing's there, {{he}}'s just in agony.",
+        "{{He}}'s breathing fast, I think it's the shock and the pressure on {{him}}.",
+        "Yes, {{he}}'s breathing, {{he}}'s very distressed.",
+        "{{His}} breathing seems okay from what I can hear.",
+        "Yes, breathing's there as far as I can tell.",
+        "{{He}}'s breathing but struggling, please hurry.",
+        "Yes, {{he}}'s breathing, just please hurry.",
+        "{{His}} breathing sounds laboured, {{he}}'s in a lot of pain."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's in severe pain, he says he can't feel his leg.",
-        "He's screaming in pain, it's really bad."
+        "{{He}}'s in agony, the weight of the soil's crushing {{his}} chest!",
+        "{{He}}'s screaming in pain, please send help quickly!",
+        "{{He}} says the pain's unbearable, please hurry!",
+        "{{He}}'s in terrible pain, {{he}} can't move at all.",
+        "{{He}}'s crying out in pain, I don't know what to do.",
+        "{{He}}'s in a lot of pain, please, we need help now.",
+        "{{He}} says it hurts terribly, please hurry.",
+        "{{He}}'s in severe pain, the soil's pinning {{him}} down.",
+        "{{He}}'s in agony, please send someone right away.",
+        "{{He}}'s in so much pain, please hurry, {{he}} can't breathe properly."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's severe bleeding, it looks very serious.",
-        "Yes, a lot of blood, we've tried to apply pressure."
+        "Yes, {{he}}'s bleeding, we think from a cut when the soil came in.",
+        "Yes, there's blood, {{he}}'s bleeding quite badly.",
+        "Yes, quite a lot of blood, please hurry.",
+        "Yes, {{he}}'s bleeding from where {{he}}'s trapped.",
+        "There's some bleeding, I can't see how bad from up here.",
+        "Yes, {{he}}'s bleeding, it looks serious.",
+        "Yes, there's blood, I'm doing what I can to help.",
+        "Yes, {{he}}'s bleeding quite badly, please hurry.",
+        "There's bleeding, I can't tell how deep it is.",
+        "Yes, {{he}}'s bleeding, please send help fast."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No health problems that I know of.",
-        "Not that I'm aware of."
+        "I don't know off the top of my head, I'd need to check with HR.",
+        "Not that I'm aware of, sorry.",
+        "I'm not sure, I can find out from the office.",
+        "Nothing that I know of.",
+        "I don't have that information to hand.",
+        "Not sure, I'll ask the site office.",
+        "No idea, sorry, I'm just a colleague.",
+        "I don't know {{his}} medical history I'm afraid.",
+        "Can't say for certain, we can check {{his}} file.",
+        "Not that I know of, no."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry.",
-        "I don't know."
+        "I don't know, I'd need to check with HR.",
+        "Not sure, sorry.",
+        "No idea, we don't keep that information here.",
+        "Can't say, I'll have to check.",
+        "I'm not aware of anything, no.",
+        "Not sure, sorry, I don't know {{him}} that well personally.",
+        "I don't have that information.",
+        "No idea, I'm afraid.",
+        "Not that I know of.",
+        "Can't tell you, sorry."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's twenty nine.",
-        "He's in his thirties."
+        "{{He}}'s in {{his}} thirties I think.",
+        "About twenty five, maybe a bit older.",
+        "{{He}}'s late twenties, I believe.",
+        "Around forty, I'd say.",
+        "I think {{he}}'s in {{his}} thirties.",
+        "Not sure exactly, maybe mid twenties.",
+        "{{He}}'s one of our younger labourers, twenties I think.",
+        "I'd guess {{he}}'s about thirty five.",
+        "Somewhere in {{his}} thirties, I believe.",
+        "I'm not certain, maybe late twenties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping pressure on where we can reach.",
-        "Please hurry, he's losing a lot of blood."
+        "Okay, please hurry, {{he}}'s in so much pain.",
+        "Right, I'll stay with {{him}} until the ambulance gets here.",
+        "Okay, that's good, please hurry, {{he}}'s not looking well.",
+        "Thank you, I'll try to keep {{him}} calm and still.",
+        "Alright, I'll keep talking to {{him}} until they arrive.",
+        "Okay, I'm doing what I can to keep {{him}} comfortable.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll stay right here with {{him}}.",
+        "Thank you, I'll do what I can until they get here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's buried in a collapsed trench, we need help now!"
+        "No, {{he}}'s buried in a trench right now, this can't wait for 111!",
+        "111 won't cut it, {{he}}'s bleeding and trapped, please send someone!",
+        "No, please, this is a real emergency, {{he}} needs help right now!",
+        "This can't wait for a callback, please send someone now!",
+        "No, we need a proper rescue team, not 111!",
+        "Please, this is urgent, {{he}}'s in agony!",
+        "No, this needs fire crews and paramedics now, not a phone line!",
+        "I don't think 111 can help with a trench rescue!",
+        "No, please, we need people here right now!",
+        "This is too serious for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I think we need the fire brigade for this, not police.",
+        "Do we need police as well? Okay, if you think that's needed.",
+        "I wasn't expecting police, but alright, whatever helps {{him}}.",
+        "Police, right, okay, though it's really a rescue we need.",
+        "Okay, I suppose they can help keep the area clear.",
+        "Fine, but it's the fire brigade doing the rescue, isn't it?",
+        "Alright, if you think police are needed, that's fine.",
+        "Okay, though I'm not sure what police can do down there.",
+        "Right, I'll let them know when they arrive.",
+        "Okay, understood, whatever you think's best."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, please hurry, {{he}}'s still trapped.",
+        "Okay, good, I'll meet them at the gate.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, I'll clear the way for them when they get here.",
+        "Okay, thank you, we've stopped anyone else going near the trench.",
+        "Yes please, we really need the rescue crews here fast.",
+        "Thank you, I'll wait here to guide them in.",
+        "Okay, that's good news, please hurry.",
+        "Right, thank you, we'll keep waiting for them.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

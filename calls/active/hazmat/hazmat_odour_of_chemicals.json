@@ -49,6 +49,11 @@
     "fire_officer": 3,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11,
+    "ambulance": 5
+  },
   "patients": {
     "range": [
       0,
@@ -94,7 +99,15 @@
   "caller": {
     "openings": [
       "There's a horrible chemical smell across the industrial estate, people are feeling unwell",
-      "I don't know what it is but there's a strong odour and a few of us feel dizzy"
+      "I don't know what it is but there's a strong odour and a few of us feel dizzy",
+      "There's a chemical smell drifting across the estate, a few people have gone light headed",
+      "Something smells really strong and chemical, a couple of people nearby feel sick",
+      "There's an odd smell in the air and a few of us are getting headaches",
+      "A strange chemical odour's come from somewhere, some people are coughing",
+      "I can smell something chemical, a few of us feel a bit unwell now",
+      "There's a strong smell nobody can place, some people feel nauseous",
+      "A chemical odour's spread across the estate, some workers feel dizzy",
+      "There's a strange smell about, a few of us have started feeling unwell"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -107,90 +120,231 @@
     "start": {
       "answers": [
         "There's a horrible chemical smell across the industrial estate, people are feeling unwell",
-        "I don't know what it is but there's a strong odour and a few of us feel dizzy"
+        "I don't know what it is but there's a strong odour and a few of us feel dizzy",
+        "There's a chemical smell drifting across the estate, a few people have gone light headed",
+        "Something smells really strong and chemical, a couple of people nearby feel sick",
+        "There's an odd smell in the air and a few of us are getting headaches",
+        "A strange chemical odour's come from somewhere, some people are coughing",
+        "I can smell something chemical, a few of us feel a bit unwell now",
+        "There's a strong smell nobody can place, some people feel nauseous",
+        "A chemical odour's spread across the estate, some workers feel dizzy",
+        "There's a strange smell about, a few of us have started feeling unwell"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I work on the estate"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "A few of us are affected, {{firstPatientName}}'s feeling the worst",
-        "{{firstPatientName}} came over dizzy first"
+        "A few of us are affected, I don't have everyone's name",
+        "There's a small group feeling unwell, no full list of names",
+        "A handful of people, I can't give you all their names",
+        "A few of us feel dizzy, I don't know everyone's details",
+        "There's a small number affected, names I can pass on when known",
+        "A couple of people nearby are unwell, no full names yet",
+        "Some of us are affected, I haven't got everyone's name",
+        "A few people, sorry, I can't confirm all the names",
+        "There's a small group feeling off, I don't have a full list",
+        "A handful of us, I can get names once things settle"
       ]
     },
     "address": {
       "answers": [
-        "It's at {{address}}, on the industrial estate",
-        "{{address}}, near the units on the east side"
+        "It's {{address}}",
+        "{{address}}, on the industrial estate",
+        "We're at {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, on the industrial estate",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, on the industrial estate, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's a strong chemical smell drifting across the estate and a few people have gone dizzy and started coughing",
-        "Nobody knows where it's coming from, but it's making people feel unwell"
+        "There's a strong chemical smell across part of the estate and people are feeling unwell",
+        "Nobody knows where it's coming from, but a few of us feel dizzy and sick",
+        "The smell's been building for a while, a few people have gone quite pale",
+        "It's a sharp chemical odour, some of us have headaches now",
+        "The smell drifted over from somewhere nearby, a few people feel nauseous",
+        "It's got stronger over the last twenty minutes, a few of us feel off",
+        "We can't identify the smell, some people are coughing and feeling faint",
+        "It's an unusual chemical smell, a small group of us feel unwell",
+        "The odour's spread across the estate, some workers have gone dizzy",
+        "Nobody's sure what it is, but it's making some of us feel quite ill"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, everyone's awake",
-        "{{firstPatientName}}'s awake but feels faint"
+        "Most of us are fine and alert, a couple are quite groggy",
+        "We're all conscious, some feel worse than others",
+        "Everyone's talking, a couple feel faint though",
+        "Most are okay, one or two are struggling a bit more",
+        "All conscious, some feeling much worse than others",
+        "Everyone's alert but a few feel really unsteady",
+        "We're all awake, some just feel very unwell",
+        "Conscious, but a couple of us feel like we might faint",
+        "Everyone's responsive, though some are quite pale",
+        "All conscious for now, but some feel worse by the minute"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple are coughing and a bit short of breath",
-        "Mostly okay, some coughing"
+        "A few of us are struggling to breathe properly",
+        "Some are coughing and finding it hard to breathe",
+        "A couple are wheezing, the rest of us are okay so far",
+        "Breathing's difficult for some, others seem alright",
+        "A few people are short of breath from the smell",
+        "Some of us are coughing badly, breathing's not easy",
+        "A couple are really struggling for breath now",
+        "Most are breathing okay, a few are having real trouble",
+        "Some are wheezing, we're trying to move away from the smell",
+        "A number of us are finding it hard to breathe properly"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Headaches and sore throats mainly",
-        "{{firstPatientName}} has a bad headache"
+        "A few have headaches, nothing worse reported",
+        "Some chest tightness among a couple of us",
+        "A few people have sore throats and headaches",
+        "Some discomfort in the chest for a couple of people",
+        "Mostly headaches and a bit of nausea",
+        "A couple have chest tightness, others just feel sick",
+        "Headaches mainly, and some throat irritation",
+        "A few feel discomfort in the chest and throat",
+        "Mostly headaches, one or two mention chest tightness",
+        "Some throat and chest discomfort among a few of us"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "None"
+        "No, nobody's bleeding, it's the fumes affecting us",
+        "No bleeding at all, it's just the smell making people unwell",
+        "No, this isn't an injury thing, it's the odour",
+        "No bleeding, everyone's affected by the smell, not trauma",
+        "No, nobody's hurt in that way, just feeling unwell",
+        "No bleeding reported, it's respiratory symptoms",
+        "No, it's not that kind of incident, just the fumes",
+        "No bleeding, we're all just feeling the effects of the smell",
+        "No, nobody's injured, just unwell from the odour",
+        "No bleeding, this is all down to the chemical smell"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of",
-        "I don't know everyone's history"
+        "I don't know everyone's medical history, sorry",
+        "No idea for most of us, sorry",
+        "Can't say, there's a few of us and I don't know everyone",
+        "Sorry, I don't have that information for the group",
+        "No, I couldn't tell you everyone's history",
+        "I don't know, sorry, we're not all from the same place",
+        "Sorry, no idea about anyone else's medical background",
+        "Can't say for certain, sorry, there's a few of us",
+        "No idea, sorry, I only really know my own",
+        "Sorry, I can't give you that for the whole group"
       ]
     },
     "medications": {
       "answers": [
-        "Not that I'm aware of",
-        "I don't know"
+        "I don't know what the others take, sorry",
+        "No idea for most of the group, sorry",
+        "Can't say, sorry, I don't know everyone's medications",
+        "Sorry, I only know a little about myself, not the others",
+        "No, I couldn't tell you for the group",
+        "I don't know, sorry, we're not all together normally",
+        "Sorry, no idea what anyone else takes",
+        "Can't say for the whole group, sorry",
+        "No idea, sorry, that's not something we've discussed",
+        "Sorry, I can't give you that for everyone"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mostly working age adults",
-        "All adults, staff on the estate"
+        "Mixed ages, mostly adults working on the estate",
+        "A range, we're all adults, twenties to fifties I'd say",
+        "Varied, all working age as far as I can tell",
+        "Mixed adult ages, nobody young involved",
+        "A spread of ages, all of us are adults",
+        "Mostly thirties to fifties, working age",
+        "Mixed, sorry, I can't be precise for everyone",
+        "A range of adult ages among us",
+        "Varied ages, all adults on the estate today",
+        "Mixed, mostly working age adults"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're moving everyone away from the smell",
-        "Right, we've gone upwind of it"
+        "Okay, thank you, we'll keep them as comfortable as we can",
+        "Right, that's a relief, there's quite a few of them",
+        "Okay, we'll wait for them by the entrance",
+        "Thank you, I'll let everyone know help's coming",
+        "Okay, we're keeping them together until they arrive",
+        "Right, thank you, please send as many as you can",
+        "Okay, we'll point them to where everyone is",
+        "Thank you, that's good, some of them are quite unwell",
+        "Okay, we'll stay with them until they get here",
+        "Right, thank you, we'll keep everyone calm"
       ]
     },
     "refer111": {
       "answers": [
-        "No, more people keep feeling unwell, we need help here",
-        "This is getting worse, not better"
+        "No, please, people are unwell, this can't wait",
+        "No, we need help here now, not a call back",
+        "No, please send someone, people are struggling",
+        "No, this is urgent, there's people affected here",
+        "No, please, I don't think this can wait for 111",
+        "No, we really need help on scene, not advice over the phone",
+        "No, please hurry, this isn't something that can wait",
+        "No, people need treatment now, please send someone",
+        "No, I don't think 111 is enough, please send help",
+        "No, please, this needs an urgent response"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, good, we could do with them helping keep people back",
+        "Right, that's good, some of this area needs cordoning off",
+        "Okay, that'll help keep everyone clear of the area",
+        "Good, they can help control who comes near",
+        "Okay, thank you, it's getting crowded here",
+        "Right, that's useful, we need the area kept clear",
+        "Okay, good, there's a few onlookers we could do with moving back",
+        "Thank you, that'll help with keeping the road clear too",
+        "Okay, good, we could use the extra hands keeping people away",
+        "Right, thank you, that's reassuring"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, good, we really need them here",
+        "Right, that's a relief, thank you",
+        "Okay, thank you, please tell them to hurry",
+        "Good, we need them to deal with this properly",
+        "Okay, that's good news, thank you",
+        "Right, thank you, this needs specialist help",
+        "Okay, good, we've been trying to keep everyone clear",
+        "Thank you, that's reassuring to hear",
+        "Okay, good, we need them to make this safe",
+        "Right, thank you, please hurry them along"
       ]
     }
   },

@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -69,8 +73,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Ambulance please, abdominal Pain, please hurry",
-      "I need an ambulance, it's my husband, abdominal Pain"
+      "Ambulance please, abdominal pain, please hurry",
+      "I need an ambulance, it's my {{husband}}, abdominal pain",
+      "My {{husband}}'s got really bad stomach pain, can you send someone",
+      "I need help, my {{husband}}'s doubled over with stomach pain",
+      "It's my {{husband}}, {{he}}'s got severe pain in {{his}} stomach",
+      "Ambulance please, my {{husband}}'s in a lot of pain in {{his}} abdomen",
+      "My {{husband}}'s got terrible stomach pain, it's been building for hours",
+      "I need an ambulance for my {{husband}}, {{his}} stomach pain's really bad",
+      "Please send someone, my {{husband}}'s abdomen is really painful",
+      "My {{husband}}'s stomach pain has got a lot worse, please help"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -82,91 +94,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Ambulance please, abdominal Pain, please hurry",
-        "I need an ambulance, it's my husband, abdominal Pain"
+        "Ambulance please, abdominal pain, please hurry",
+        "I need an ambulance, it's my {{husband}}, abdominal pain",
+        "My {{husband}}'s got really bad stomach pain, can you send someone",
+        "I need help, my {{husband}}'s doubled over with stomach pain",
+        "It's my {{husband}}, {{he}}'s got severe pain in {{his}} stomach",
+        "Ambulance please, my {{husband}}'s in a lot of pain in {{his}} abdomen",
+        "My {{husband}}'s got terrible stomach pain, it's been building for hours",
+        "I need an ambulance for my {{husband}}, {{his}} stomach pain's really bad",
+        "Please send someone, my {{husband}}'s abdomen is really painful",
+        "My {{husband}}'s stomach pain has got a lot worse, please help"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm with them now",
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
         "It's {{firstPatientName}}",
-        "{{firstPatientName}}, they're right here with me"
+        "{{His}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s my {{husband}}",
+        "It's {{firstPatientName}}, please hurry",
+        "{{firstPatientName}}, that's {{his}} name",
+        "{{He}}'s called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "It's {{firstPatientName}}, I'm {{his}} {{callerSpouse}}",
+        "{{firstPatientName}}, {{he}}'s the one in pain",
+        "{{firstPatientName}}, please send someone"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, come to the front door",
-        "{{address}}, I'll leave the door open"
+        "It's {{address}}",
+        "{{address}}, at home",
+        "We're at {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, at home",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, at home, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Abdominal Pain. It came on about ten minutes ago",
-        "Abdominal Pain, and it's not getting any better"
+        "{{He}}'s had stomach pain since this afternoon and it's got much worse",
+        "{{He}} started with a dull ache and now it's really sharp",
+        "{{His}} stomach pain came on a few hours ago and hasn't eased at all",
+        "{{He}}'s been in pain since lunchtime, it keeps getting worse",
+        "{{He}} woke up with stomach pain and it's steadily got worse",
+        "{{His}} pain started suddenly about an hour ago",
+        "{{He}}'s had abdominal pain building up since yesterday",
+        "{{He}} says the pain's come on quite quickly this evening",
+        "{{His}} stomach's been hurting badly since this morning",
+        "{{He}}'s doubled over with the pain, it started a while ago"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake and talking to me",
-        "Sort of, drifting in and out"
+        "Yes, {{he}}'s conscious, just in a lot of pain",
+        "{{He}}'s awake and talking to me",
+        "Yes, conscious, {{he}}'s just very uncomfortable",
+        "{{He}}'s alert, but clearly struggling with the pain",
+        "Yes, {{he}}'s conscious and responding fine",
+        "Conscious, {{he}}'s just doubled over with it",
+        "Yes, {{he}}'s awake, {{he}}'s just in a lot of discomfort",
+        "{{He}}'s conscious, just very sore",
+        "Yes, awake and talking, just in pain",
+        "Conscious, {{he}}'s just really struggling with the pain"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes but it's laboured",
-        "Breathing's okay I think"
+        "Yes, {{he}}'s breathing fine",
+        "{{His}} breathing's okay, just the pain's bothering {{him}}",
+        "Yes, breathing normally",
+        "{{He}}'s breathing fine, a bit fast from the pain maybe",
+        "Yes, no problems breathing",
+        "{{His}} breathing seems fine to me",
+        "Yes, breathing's okay, it's just the stomach pain",
+        "{{He}}'s breathing normally as far as I can tell",
+        "Yes, {{he}}'s breathing fine, just uncomfortable",
+        "No breathing issues, just the pain"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Yes, a lot",
-        "They say it's bad, about an eight out of ten"
+        "Yes, {{he}}'s in a lot of pain, {{he}} can't sit still",
+        "{{He}}'s in real pain, it's sharp and constant",
+        "Yes, severe pain, {{he}} keeps clutching {{his}} stomach",
+        "{{He}}'s in a lot of discomfort, the pain's quite sharp",
+        "Yes, {{he}}'s in pain, it comes in waves",
+        "{{He}}'s really struggling with the pain right now",
+        "Yes, {{he}} says it's a nine out of ten",
+        "{{He}}'s in significant pain, {{he}} can hardly stand up straight",
+        "Yes, {{he}}'s in a lot of pain, it hasn't let up",
+        "{{He}}'s in pain, it's worse when {{he}} moves"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "A little, I've got a towel on it"
+        "No bleeding, just the stomach pain",
+        "No, no bleeding that I can see",
+        "No bleeding at all",
+        "No, {{he}}'s not bleeding, just in pain",
+        "No bleeding, it's internal pain, not an injury",
+        "No, there's no bleeding involved",
+        "No bleeding, {{he}}'s just very sore",
+        "No, nothing like that, just the abdominal pain",
+        "No bleeding reported",
+        "No, no bleeding, it's just the pain"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Blood pressure, that's all I know of",
-        "Nothing that I know of"
+        "{{He}}'s had stomach issues before but nothing like this",
+        "No history that I know of, {{he}}'s usually fine",
+        "{{He}} has had a stomach ulcer in the past",
+        "No, nothing significant that I'm aware of",
+        "{{He}}'s got a history of acid reflux",
+        "No major history, {{he}}'s generally healthy",
+        "{{He}} had {{his}} appendix out years ago",
+        "No, {{he}}'s never had anything like this before",
+        "{{He}}'s had gallstones before, I think",
+        "No significant history that I know of"
       ]
     },
     "medications": {
       "answers": [
-        "There's a box of tablets in the kitchen, I can check",
-        "Just the usual, statins and something for blood pressure"
+        "{{He}} takes something for indigestion sometimes",
+        "No, {{he}} doesn't take anything regular",
+        "{{He}}'s on medication for acid reflux",
+        "No medications that I'm aware of",
+        "{{He}} takes antacids now and then",
+        "No, nothing regular",
+        "{{He}}'s not on any regular medication",
+        "No, {{he}} doesn't take anything",
+        "{{He}} takes something over the counter sometimes",
+        "No, nothing that I know of"
       ]
     },
     "patientAge": {
       "answers": [
-        "31"
+        "{{He}}'s in {{his}} sixties",
+        "{{He}}'s sixty two",
+        "I'd say {{he}}'s about sixty three",
+        "{{He}}'s in {{his}} mid sixties",
+        "About sixty, I think",
+        "{{He}}'s in {{his}} sixties, generally fit",
+        "{{He}}'s sixty four",
+        "{{He}}'s in {{his}} late sixties",
+        "{{He}}'s around sixty two or three",
+        "{{He}}'s sixty one, I believe"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, please be quick",
-        "I'm trying, I'm scared"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this can't wait, I need an ambulance now",
-        "Okay, if you think that's best"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

@@ -51,6 +51,11 @@
     "rescue_unit": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -96,8 +101,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's been a terrible accident, his arm's gone into the wood chipper",
-      "I need an ambulance and the fire brigade, my colleague's caught his arm in the machine"
+      "There's been a terrible accident, {{his}} arm's gone into the wood chipper.",
+      "I need an ambulance and the fire brigade, my colleague's caught {{his}} arm in the machine.",
+      "Please hurry, {{his}} arm's trapped in the wood chipper.",
+      "There's been a bad accident, {{he}}'s got {{his}} arm caught in the chipper.",
+      "Please send help, {{his}} arm's stuck in the wood chipper and it's serious.",
+      "My colleague's arm has gone into the chipper, please hurry.",
+      "We need help urgently, {{his}} arm's trapped in the machine.",
+      "There's been an accident with the wood chipper, {{he}}'s badly hurt.",
+      "Please, {{his}} arm's caught in the chipper, we've cut the power but {{he}}'s badly hurt.",
+      "I need an ambulance and fire crews, {{he}}'s trapped in the wood chipper."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -109,82 +122,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's been a terrible accident, his arm's gone into the wood chipper",
-        "I need an ambulance and the fire brigade, my colleague's caught his arm in the machine"
+        "There's been a terrible accident, {{his}} arm's gone into the wood chipper.",
+        "I need an ambulance and the fire brigade, my colleague's caught {{his}} arm in the machine.",
+        "Please hurry, {{his}} arm's trapped in the wood chipper.",
+        "There's been a bad accident, {{he}}'s got {{his}} arm caught in the chipper.",
+        "Please send help, {{his}} arm's stuck in the wood chipper and it's serious.",
+        "My colleague's arm has gone into the chipper, please hurry.",
+        "We need help urgently, {{his}} arm's trapped in the machine.",
+        "There's been an accident with the wood chipper, {{he}}'s badly hurt.",
+        "Please, {{his}} arm's caught in the chipper, we've cut the power but {{he}}'s badly hurt.",
+        "I need an ambulance and fire crews, {{he}}'s trapped in the wood chipper."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I work with him",
-        "{{callerName}}"
+        "It's {{callerName}}, I work with {{him}}.",
+        "{{callerName}}, I work with {{him}}.",
+        "My name's {{callerName}}, I work with {{him}}.",
+        "{{callerName}} here, I work with {{him}}.",
+        "It's {{callerName}} speaking, I work with {{him}}.",
+        "You can put me down as {{callerName}}, I work with {{him}}.",
+        "{{callerName}}. I work with {{him}}.",
+        "It's {{callerName}}, I work with {{him}}, please hurry.",
+        "{{callerName}}, that's me, I work with {{him}}.",
+        "It's {{callerName}}, I work with {{him}}, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, my colleague",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, my colleague.",
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my colleague.",
+        "{{He}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}} is my colleague.",
+        "The name's {{firstPatientName}}.",
+        "{{firstPatientName}}, my colleague, please hurry.",
+        "It's {{firstPatientName}}, my colleague.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, that's what {{he}} goes by."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, come round the back to the yard"
+        "We're at {{address}}, come round the back to the yard.",
+        "It's {{address}}, come round the back to the yard.",
+        "{{address}}, come round the back to the yard.",
+        "The address is {{address}}, come round the back to the yard.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, come round the back to the yard.",
+        "{{address}} is where we are, come round the back to the yard.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He was feeding branches in and his arm got pulled in before he could switch it off"
+        "{{He}} was feeding branches in and {{his}} arm got pulled in before {{he}} could switch it off.",
+        "{{He}} was clearing branches and {{his}} sleeve got caught, pulling {{his}} arm in.",
+        "{{He}} lost {{his}} grip and the machine pulled {{his}} arm in.",
+        "{{He}} was loading the chipper when {{his}} glove got caught and dragged {{his}} arm in.",
+        "{{He}} slipped while feeding it and {{his}} arm went in before {{he}} could react.",
+        "{{His}} sleeve got snagged and the chipper pulled {{his}} arm in fast.",
+        "{{He}} was working the machine and it grabbed {{his}} arm before {{he}} could stop it.",
+        "{{He}} reached in to clear a jam and {{his}} arm got caught.",
+        "{{He}} was feeding branches through when {{his}} arm got dragged in.",
+        "{{He}} was too close to the feed and {{his}} arm got pulled in."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious and screaming"
+        "Yes, {{he}}'s conscious and screaming.",
+        "{{He}}'s awake, shouting in pain.",
+        "Yes, {{he}}'s conscious, crying out badly.",
+        "{{He}}'s awake, {{he}}'s in complete shock and pain.",
+        "Yes, {{he}}'s conscious, screaming and panicking.",
+        "{{He}}'s awake, {{he}}'s in terrible distress.",
+        "Yes, {{he}}'s conscious but going into shock.",
+        "{{He}}'s awake, still shouting.",
+        "Yes, {{he}}'s conscious, {{he}}'s terrified.",
+        "{{He}}'s awake, screaming for help."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Yes, breathing okay, just in agony.",
+        "Fine, it's {{his}} arm that's the problem.",
+        "Normal, {{he}}'s just in shock and pain.",
+        "Breathing's okay, nothing wrong there.",
+        "Fine, {{his}} breathing's not the issue.",
+        "Yes, that's fine, {{he}}'s just in a lot of pain.",
+        "Normal breathing, no issues on that front.",
+        "Breathing's fine, it's {{his}} arm we're worried about.",
+        "Yes, all fine there."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Screaming in agony"
+        "Screaming in agony.",
+        "{{He}}'s in absolute agony.",
+        "{{He}}'s screaming, the pain's clearly severe.",
+        "Terrible pain, {{he}} can't stop screaming.",
+        "{{He}}'s in agony, {{he}} won't stop shouting.",
+        "Severe pain, {{he}}'s screaming constantly.",
+        "{{He}}'s in unbearable pain from what I can tell.",
+        "Screaming badly, the pain's obviously severe.",
+        "{{He}}'s in absolute agony, {{he}} can barely think straight.",
+        "Terrible, {{he}}'s screaming in pain."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, very heavy bleeding"
+        "Yes, very heavy bleeding.",
+        "Yes, {{he}}'s bleeding badly from {{his}} arm.",
+        "Heavy bleeding, we're trying to control it.",
+        "Yes, it's severe, there's a lot of blood.",
+        "Very heavy, we're doing what we can to slow it.",
+        "Yes, {{his}} arm's bleeding badly.",
+        "Heavy and continuous, we're really worried.",
+        "Yes, severe bleeding from {{his}} arm.",
+        "It's very heavy, we've applied pressure where we can.",
+        "Yes, {{he}}'s losing a lot of blood."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, sorry"
+        "I don't know, sorry.",
+        "No idea, I'll ask around.",
+        "I don't have that information, sorry.",
+        "Not sure, I don't know {{him}} that well outside work.",
+        "I don't know {{his}} medical history, sorry.",
+        "No idea, I'll try to find out.",
+        "I can't say, sorry.",
+        "Not sure, I'll check with the office.",
+        "I don't know, sorry, I'll find out.",
+        "No idea offhand."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, sorry"
+        "I don't know, sorry.",
+        "No idea, sorry.",
+        "I couldn't tell you.",
+        "No idea I'm afraid.",
+        "I don't have that information, sorry.",
+        "Not that I know of.",
+        "I can't say, sorry.",
+        "Sorry, I've no idea what {{he}} takes.",
+        "I don't know if {{he}} takes anything.",
+        "No idea at all."
       ]
     },
     "patientAge": {
       "answers": [
-        "About 45"
+        "About 45.",
+        "I'd guess around 45.",
+        "Maybe 45, thereabouts.",
+        "Around forty five I'd say.",
+        "I think {{he}}'s about 45.",
+        "Roughly 45, give or take.",
+        "I'd guess {{he}}'s in {{his}} mid forties.",
+        "About 45, I believe.",
+        "Somewhere around forty five.",
+        "I'd say 45, maybe a little older."
       ]
     },
     "reassure": {
       "answers": [
-        "We've cut the power to the machine"
+        "We've cut the power to the machine.",
+        "Okay, the machine's off now, no power to it.",
+        "Right, we've isolated the chipper completely.",
+        "Okay, we're not going to try moving {{him}} ourselves.",
+        "Understood, we'll keep pressure on and wait for you.",
+        "Okay, we've turned everything off at the source.",
+        "Right, {{he}}'s staying put, we won't try to free {{him}}.",
+        "Okay, we're keeping {{him}} talking and calm as we can.",
+        "Understood, the power's definitely off now.",
+        "Okay, we're doing what we can until the crews arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs an ambulance now"
+        "No, please, this can't wait for a call back.",
+        "No, I really think this needs an ambulance now.",
+        "Please no, {{he}} needs help now, not a phone call.",
+        "No, this is an emergency, we need someone now.",
+        "I don't think that's right, {{he}}'s really not well.",
+        "No, please send someone now, I'm begging you.",
+        "That doesn't sound right, this is urgent.",
+        "No, we can't wait for that, please send an ambulance.",
+        "Please, no, {{he}} needs help straight away.",
+        "No, I really think this is serious, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes please, we need help freeing {{his}} arm.",
+        "Thank goodness, we can't get {{him}} free ourselves.",
+        "Yes, please hurry, we need proper equipment for this.",
+        "Thank you, we need the rescue crew for the machine.",
+        "Okay, that's what we need, we can't touch the machine ourselves.",
+        "Yes please, {{his}} arm's properly trapped, we need help.",
+        "Thank you, please send them, we're desperate here.",
+        "Yes, that's a relief, we didn't know what else to do.",
+        "Okay, good, we'll keep {{him}} calm until they arrive.",
+        "Yes please, we need them to free {{him}} safely."
       ]
     }
   },

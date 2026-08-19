@@ -46,6 +46,12 @@
     "ambulance": 1,
     "irv": 7
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3,
+    "police": 5,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -69,7 +75,15 @@
   "caller": {
     "openings": [
       "We've got a crowd safety concern at the concert, security want fire and ambulance on standby at the gate",
-      "I need to report a crush building near the barriers at the front of the stage, no one's hurt yet but it's getting dangerous"
+      "I need to report a crush building near the barriers at the front of the stage, no one's hurt yet but it's getting dangerous",
+      "Security's flagged crowding at the barriers, we'd like crews on standby before it gets worse",
+      "There's a lot of pressure building near the front barrier, wanted to get you aware early",
+      "We're seeing crowd surges near the stage, nothing serious yet but we'd like a presence here",
+      "Calling from the concert, crowd density's getting high near the front, no injuries reported",
+      "Event control here, we've got crowd safety concerns building at the main stage barrier",
+      "We'd like fire and ambulance nearby, the crowd's pushing forward more than we'd like",
+      "No one's hurt but the front of the crowd is getting squashed against the barrier",
+      "Security's requesting a precautionary presence, crowd's building fast near the stage"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -82,78 +96,231 @@
     "start": {
       "answers": [
         "We've got a crowd safety concern at the concert, security want fire and ambulance on standby at the gate",
-        "I need to report a crush building near the barriers at the front of the stage, no one's hurt yet but it's getting dangerous"
+        "I need to report a crush building near the barriers at the front of the stage, no one's hurt yet but it's getting dangerous",
+        "Security's flagged crowding at the barriers, we'd like crews on standby before it gets worse",
+        "There's a lot of pressure building near the front barrier, wanted to get you aware early",
+        "We're seeing crowd surges near the stage, nothing serious yet but we'd like a presence here",
+        "Calling from the concert, crowd density's getting high near the front, no injuries reported",
+        "Event control here, we've got crowd safety concerns building at the main stage barrier",
+        "We'd like fire and ambulance nearby, the crowd's pushing forward more than we'd like",
+        "No one's hurt but the front of the crowd is getting squashed against the barrier",
+        "Security's requesting a precautionary presence, crowd's building fast near the stage"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm on the event security team"
+        "It's {{callerName}}, I'm on the event control team",
+        "{{callerName}}, I'm head of security for tonight",
+        "My name's {{callerName}}, I'm the site safety officer",
+        "It's {{callerName}}, calling from the control tent",
+        "{{callerName}} speaking, I'm coordinating stewards tonight",
+        "Name's {{callerName}}, I manage crowd safety for the event",
+        "It's {{callerName}}, I'm in the gold command room",
+        "{{callerName}}, I'm one of the event stewards near the stage",
+        "This is {{callerName}}, I'm the venue duty manager",
+        "{{callerName}} here, I'll meet you at the production gate"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's injured yet, we're trying to ease the pressure at the front"
+        "There's nobody hurt, it's just a crowd safety concern, no one's hurt yet",
+        "No patient to give a name for, it's just a crowd safety concern, no one's hurt yet",
+        "There's no one involved, it's just a crowd safety concern, no one's hurt yet",
+        "Nobody's hurt, it's just a crowd safety concern, no one's hurt yet",
+        "No casualty at all, it's just a crowd safety concern, no one's hurt yet",
+        "There's no one to report, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, it's just a crowd safety concern, no one's hurt yet",
+        "No injuries, it's just a crowd safety concern, no one's hurt yet",
+        "Nobody to name, it's just a crowd safety concern, no one's hurt yet",
+        "No patient, it's just a crowd safety concern, no one's hurt yet"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the stadium, use the staff entrance on the east side"
+        "{{address}}, it's the venue, use the crew gate",
+        "It's {{address}}, come through the production entrance",
+        "{{address}}, we'll have stewards to guide you in",
+        "You want {{address}}, the stadium off the main road",
+        "{{address}}, come to gate three, that's nearest the stage",
+        "{{address}}, security will wave you straight through",
+        "{{address}}, please use the service road round the back",
+        "{{address}}, that's the venue, main stage is at the north end",
+        "{{address}}, we'll clear a route for you through the crowd",
+        "{{address}}, that's us, the barrier issue is front of stage"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The crowd's pushing forward near the stage barriers, we've stopped the show and are trying to ease people back"
+        "The crowd's pushed forward hard during the last song, barriers are under a lot of pressure",
+        "It's a popular act, more people came forward than we planned for",
+        "Some fans have surged toward the front, stewards are trying to ease it back",
+        "The barrier's holding but people are getting compressed near the front",
+        "We think it's just excitement from the crowd, but it's building quickly",
+        "No trigger event, just numbers building up faster than expected",
+        "The front few rows are getting squashed, stewards are pulling people out",
+        "We're seeing people struggling to breathe in the crush near the barrier",
+        "It built up gradually through the set, now it's at a concerning level",
+        "Stewards say the barrier's flexing under the pressure of the crowd"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone's conscious, a few are distressed but no injuries reported"
+        "No one's hurt, it's just a crowd safety concern, no one's hurt yet",
+        "There's no patient here, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, it's just a crowd safety concern, no one's hurt yet",
+        "Nobody's involved, it's just a crowd safety concern, no one's hurt yet",
+        "No injuries at all, it's just a crowd safety concern, no one's hurt yet",
+        "No one to check on, it's just a crowd safety concern, no one's hurt yet",
+        "There's no casualty, it's just a crowd safety concern, no one's hurt yet",
+        "No patient at all, it's just a crowd safety concern, no one's hurt yet",
+        "Nobody's hurt, thankfully, it's just a crowd safety concern, no one's hurt yet",
+        "No one's affected, it's just a crowd safety concern, no one's hurt yet"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple have said they felt short of breath in the crush, they've been moved to the first aid point"
+        "No one to worry about, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, it's just a crowd safety concern, no one's hurt yet",
+        "Nobody's struggling to breathe, it's just a crowd safety concern, no one's hurt yet",
+        "No casualty, it's just a crowd safety concern, no one's hurt yet",
+        "No one's affected by any smoke, it's just a crowd safety concern, no one's hurt yet",
+        "There's no patient, it's just a crowd safety concern, no one's hurt yet",
+        "No breathing issues to report, it's just a crowd safety concern, no one's hurt yet",
+        "Nobody's been near any smoke, it's just a crowd safety concern, no one's hurt yet",
+        "No one's hurt, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, no one's involved, it's just a crowd safety concern, no one's hurt yet"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No serious pain reported, a few bruises from the crush"
+        "Nobody's in pain, it's just a crowd safety concern, no one's hurt yet",
+        "No one's hurt at all, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, it's just a crowd safety concern, no one's hurt yet",
+        "No injuries to report, it's just a crowd safety concern, no one's hurt yet",
+        "There's no patient, it's just a crowd safety concern, no one's hurt yet",
+        "No one's complaining of anything, it's just a crowd safety concern, no one's hurt yet",
+        "Nobody's hurt, it's just a crowd safety concern, no one's hurt yet",
+        "No pain to report, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, no casualty, it's just a crowd safety concern, no one's hurt yet",
+        "No one's injured, it's just a crowd safety concern, no one's hurt yet"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding reported"
+        "No, no one's involved, it's just a crowd safety concern, no one's hurt yet",
+        "No bleeding, there's no patient, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, it's just a crowd safety concern, no one's hurt yet",
+        "No, everyone's uninjured, it's just a crowd safety concern, no one's hurt yet",
+        "No, nobody's hurt, it's just a crowd safety concern, no one's hurt yet",
+        "No bleeding to report, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, no casualties, it's just a crowd safety concern, no one's hurt yet",
+        "No, no one's been near it, it's just a crowd safety concern, no one's hurt yet",
+        "No, we're all fine, it's just a crowd safety concern, no one's hurt yet",
+        "No, there's no one injured, it's just a crowd safety concern, no one's hurt yet"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable at this stage"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mixed ages in the crowd, mostly young adults"
+        "No patient, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, it's just a crowd safety concern, no one's hurt yet",
+        "No one to give an age for, it's just a crowd safety concern, no one's hurt yet",
+        "N/A, it's just a crowd safety concern, no one's hurt yet",
+        "No age to give, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable, no one's hurt, it's just a crowd safety concern, no one's hurt yet",
+        "No casualty, it's just a crowd safety concern, no one's hurt yet",
+        "Nobody's involved, it's just a crowd safety concern, no one's hurt yet",
+        "Not applicable at all, it's just a crowd safety concern, no one's hurt yet",
+        "No patient to speak of, it's just a crowd safety concern, no one's hurt yet"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've paused the show and are easing the crowd back"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need crews here in case this escalates"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, that'll help keep everyone back from the fire",
+        "Thank you, it'll help having them manage the road for the crews",
+        "Good, we could use the help keeping bystanders clear",
+        "That's helpful, they can keep the traffic moving away from here",
+        "Good, thank you, it's getting busy here, that'll help",
+        "Thank you, that'll help keep the area secure while the crews work",
+        "Good, we could do with the extra hands keeping people back",
+        "Thank you, that'll help with keeping the road clear for the engines",
+        "Good, it's sensible, there's a bit of a crowd gathering already",
+        "Thank you, that'll help, we're struggling to keep people back ourselves"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

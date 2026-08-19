@@ -45,6 +45,10 @@
     "single_pump": 2,
     "fire_officer": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 10
+  },
   "patients": {
     "range": [
       0,
@@ -93,8 +97,16 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade please, there's a fire in one of the wings, we need engines now",
-      "We've got a fire on the wing, it's contained for now but we need the fire brigade"
+      "Fire brigade please, there's a fire in one of the wings, we need engines now.",
+      "We've got a fire on the wing, it's contained for now but we need the fire brigade.",
+      "There's a fire in one of the cells, staff have it under control for the moment.",
+      "Fire service please, we've got smoke coming from one of the wings.",
+      "We need the fire brigade, there's a small fire on one of the landings.",
+      "There's a fire started in a cell, we've moved prisoners clear for now.",
+      "Fire brigade please, we've a fire on B wing, nobody's hurt at the moment.",
+      "We've got a contained fire on the wing, please send engines when you can.",
+      "There's a fire in the prison, staff have got it isolated so far.",
+      "Fire service please, smoke's coming from one of the cells on the wing."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -106,79 +118,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade please, there's a fire in one of the wings, we need engines now",
-        "We've got a fire on the wing, it's contained for now but we need the fire brigade"
+        "Fire brigade please, there's a fire in one of the wings, we need engines now.",
+        "We've got a fire on the wing, it's contained for now but we need the fire brigade.",
+        "There's a fire in one of the cells, staff have it under control for the moment.",
+        "Fire service please, we've got smoke coming from one of the wings.",
+        "We need the fire brigade, there's a small fire on one of the landings.",
+        "There's a fire started in a cell, we've moved prisoners clear for now.",
+        "Fire brigade please, we've a fire on B wing, nobody's hurt at the moment.",
+        "We've got a contained fire on the wing, please send engines when you can.",
+        "There's a fire in the prison, staff have got it isolated so far.",
+        "Fire service please, smoke's coming from one of the cells on the wing."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm a prison officer"
+        "{{callerName}}, I'm a prison officer here.",
+        "It's {{callerName}}, I'm on duty on the wing.",
+        "{{callerName}}, I work here at the prison.",
+        "My name's {{callerName}}, I'm staff on this wing.",
+        "{{callerName}}, I'm the officer who called it in.",
+        "It's {{callerName}}, prison staff, on the wing now.",
+        "{{callerName}} here, I'm on shift at the prison.",
+        "My name is {{callerName}}, I'm a wing officer.",
+        "{{callerName}}, I'm supervising the wing today.",
+        "It's {{callerName}}, staff here at the prison."
       ]
     },
     "patientName": {
       "answers": [
-        "No injuries reported so far, the wing's being evacuated"
+        "There's nobody hurt, it's just the fire on the wing.",
+        "No patient here, it's only the fire on the wing going up.",
+        "Nobody to name, there's no one hurt, just the fire on the wing.",
+        "No casualties, it's purely the fire on the wing we've got.",
+        "There's no one involved, just the fire on the wing itself.",
+        "No patient to speak of, it's the fire on the wing that's the issue.",
+        "Nobody's hurt so there's no name to give, it's just the fire on the wing.",
+        "No one injured, it's only the fire on the wing.",
+        "There's no patient, just the fire on the wing needs sorting.",
+        "Nobody hurt at all, it's the fire on the wing, that's it."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the prison, main gate"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "We're at {{address}}.",
+        "That's {{address}}, yes.",
+        "{{address}}, that's the address.",
+        "You'll find it at {{address}}.",
+        "It's {{address}}, just so you know.",
+        "The location is {{address}}.",
+        "{{address}} is where we are.",
+        "That's the postcode and address, {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "It looks like it started in one of the cells, staff are dealing with it but it's growing"
+        "It looks like bedding's been set alight in one of the cells.",
+        "Something's caught fire in a cell, staff have moved everyone else off the wing.",
+        "A fire started in a cell, we've got it contained to that area for now.",
+        "It looks deliberate, a mattress or bedding's on fire in a cell.",
+        "There's smoke coming from a cell, staff are keeping everyone clear of it.",
+        "It started small in a cell, we've isolated the area while we wait for you.",
+        "Looks like it was started deliberately, we've got the wing locked down.",
+        "A fire's broken out in one of the cells, staff have it contained so far.",
+        "Something's burning in a cell, we've evacuated the immediate area.",
+        "It's a cell fire, staff have kept it isolated to that part of the wing."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, there's no one to check on"
+        "Nobody's hurt, there's no one to check on.",
+        "No one's involved, so nothing like that applies.",
+        "There's no patient, no one to ask that about.",
+        "Nobody's affected, it's just the fire on the wing.",
+        "No, there's no casualty here at all.",
+        "There's no one hurt, so no need for that.",
+        "Nobody to check, everyone's clear of it.",
+        "No patient here, so that doesn't apply.",
+        "There's nobody involved like that, just the fire on the wing.",
+        "No one's hurt, so there's nothing to check."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No one's affected, everyone's clear"
+        "No one's affected, everyone's well clear of it.",
+        "There's no patient, so nothing like that to report.",
+        "Nobody's breathing in anything, we're all well away from it.",
+        "No, nobody's affected, it's just the fire on the wing.",
+        "There's no one hurt, so that doesn't apply here.",
+        "Everyone's fine, nobody's near enough to be affected.",
+        "No casualties, no breathing problems, nothing like that.",
+        "Nobody's affected at all, we're all clear.",
+        "There's no patient to ask about that.",
+        "No, we're all outside and fine, nobody's affected."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can tell"
+        "No one's hurt as far as I can tell.",
+        "There's no patient, so no pain to report.",
+        "Nobody's in any pain, there's no one hurt.",
+        "No, nobody's injured, it's just the fire on the wing.",
+        "There's no casualty, so that doesn't apply.",
+        "No one's hurt, nothing like that going on.",
+        "Nobody's in pain, there's no patient at all.",
+        "No injuries reported, nobody's hurt.",
+        "There's no one involved that way, just the fire on the wing.",
+        "No, nobody's hurt, no pain, nothing like that."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries that I can see"
+        "No, no injuries that I can see.",
+        "There's no patient, so no bleeding to report.",
+        "Nobody's bleeding, there's no one hurt.",
+        "No, nothing like that, it's just the fire on the wing.",
+        "There's no casualty here, no bleeding, nothing.",
+        "No one's injured at all, no bleeding.",
+        "Nobody's hurt, so there's no bleeding to speak of.",
+        "No, there's no patient, nothing like that.",
+        "There's no injury, no bleeding, just the fire on the wing.",
+        "No, nobody's bleeding, nobody's hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, I can't help with that"
+        "There's no patient, I can't help with that.",
+        "No one's hurt, so there's no history to give.",
+        "Nobody involved that way, there's no patient.",
+        "No, there's no casualty, nothing like that applies.",
+        "There's no one to give history for, it's just the fire on the wing.",
+        "No patient here, so I wouldn't know that.",
+        "Nobody's hurt, so that doesn't come into it.",
+        "There's no one injured, no history needed.",
+        "No casualty involved, so nothing like that.",
+        "There's no patient, that question doesn't apply here."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's nobody hurt"
+        "No idea, there's nobody hurt.",
+        "There's no patient, so no medication to mention.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No, there's no one involved that way.",
+        "There's no casualty, nothing like that to say.",
+        "No patient here, so I can't answer that.",
+        "Nobody's hurt at all, no medication needed.",
+        "There's no one injured, so that's not relevant.",
+        "No, it's just the fire on the wing, no patient involved.",
+        "There's no patient, so nothing to report there."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's nobody hurt, no patient involved"
+        "There's nobody hurt, no patient involved.",
+        "No one to give an age for, there's no patient.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No casualty here, just the fire on the wing.",
+        "There's no one injured, so no age to give.",
+        "No patient at all, it's only the fire on the wing.",
+        "Nobody's affected, so that question doesn't apply.",
+        "There's no one hurt, no age needed.",
+        "No, there's no patient here.",
+        "Nobody's involved that way, just the fire on the wing, no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're managing the wing"
+        "Ambulance? No, nobody's hurt, it's just the fire on the wing.",
+        "Oh, we don't need an ambulance, nobody's injured here.",
+        "No need for that, nobody's hurt, it's only the fire on the wing.",
+        "There's no one hurt, we just need the fire brigade.",
+        "No, thank you, nobody's injured, it's just the fire on the wing.",
+        "We're fine, nobody's hurt, just get the fire engine here.",
+        "No ambulance needed, nobody's been hurt.",
+        "No one's injured, it's only the fire on the wing that's the problem.",
+        "That's alright, nobody's hurt, we just need the fire service.",
+        "No, no one's injured, just send the fire brigade please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire, I need the fire brigade"
+        "No, I don't think 111 can help with the fire on the wing, but thank you.",
+        "No, that's alright, it's the fire on the wing, not really a medical thing.",
+        "No, I think I need the fire brigade for the fire on the wing, not 111.",
+        "No, this isn't really a medical matter, thank you though.",
+        "No, I don't think that's quite right for the fire on the wing.",
+        "No, it's not medical, it's the fire on the wing, so I think I need the fire brigade.",
+        "No, I don't think 111 would be able to help with this one.",
+        "No, thank you, but the fire on the wing isn't really a 111 sort of job.",
+        "No, I think this needs the fire brigade rather than 111.",
+        "No, it's fine, but the fire on the wing really needs the fire service."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's not that sort of thing, it's the fire on the wing.",
+        "We don't need the police, just the fire brigade.",
+        "No, there's no need for police, it's only the fire on the wing.",
+        "Police aren't needed here, it's a fire matter.",
+        "No thanks, it's the fire on the wing, not a police job.",
+        "We're alright for police, we just need the fire service.",
+        "No, this doesn't need police, just the fire brigade please.",
+        "No, it's the fire on the wing, nothing for the police to deal with.",
+        "We don't need police here, thank you.",
+        "No, just the fire brigade will do, thank you."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them.",
+        "Right, thank you, I'll keep an eye out.",
+        "Okay, that's great, thank you.",
+        "Alright, thank you, I'll stay by the door for them.",
+        "Okay, good, I'll wait outside.",
+        "Thank you, I'll keep watching for the engine.",
+        "Right, thanks, I'll wait here for them.",
+        "Okay, that's good to know, thank you.",
+        "Alright, thank you, I appreciate it.",
+        "Okay, thank you, I'll look out for them."
       ]
     }
   },

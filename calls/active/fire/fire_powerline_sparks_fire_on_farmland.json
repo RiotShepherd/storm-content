@@ -48,6 +48,12 @@
     "basu": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 3,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -101,11 +107,19 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade please, a power line's come down and set the field alight",
-      "There's sparks from a power line and now the field's on fire"
+      "Fire brigade please, a power line's come down and set the field alight.",
+      "There's sparks from a power line and now the field's on fire.",
+      "A cable's come down on my land and started a fire, I've breathed in some smoke.",
+      "Please hurry, a power line's down and the fire's spreading through the crop.",
+      "There's a fire on my farmland, a line came down and sparked it off.",
+      "I need help, a power line's fallen and set the field alight near me.",
+      "Please send someone, the field's burning after a power line came down.",
+      "There's a fire spreading fast, a cable came down and set it off.",
+      "Help, the line's sparking and the field's caught fire, I got a lungful of smoke.",
+      "Please hurry, my field's on fire and I'm struggling to breathe near the smoke."
     ],
     "phoneArea": "auto",
-    "callerType": "staff"
+    "callerType": "patient"
   },
   "callerBehaviour": {
     "type": "panicked",
@@ -114,79 +128,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade please, a power line's come down and set the field alight",
-        "There's sparks from a power line and now the field's on fire"
+        "Fire brigade please, a power line's come down and set the field alight.",
+        "There's sparks from a power line and now the field's on fire.",
+        "A cable's come down on my land and started a fire, I've breathed in some smoke.",
+        "Please hurry, a power line's down and the fire's spreading through the crop.",
+        "There's a fire on my farmland, a line came down and sparked it off.",
+        "I need help, a power line's fallen and set the field alight near me.",
+        "Please send someone, the field's burning after a power line came down.",
+        "There's a fire spreading fast, a cable came down and set it off.",
+        "Help, the line's sparking and the field's caught fire, I got a lungful of smoke.",
+        "Please hurry, my field's on fire and I'm struggling to breathe near the smoke."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I farm here"
+        "It's {{callerName}}, please just send someone.",
+        "{{callerName}}, look I just need help quickly.",
+        "My name's {{callerName}}, can you hurry.",
+        "{{callerName}}, yes, now please send someone.",
+        "It's {{callerName}} calling, please.",
+        "{{callerName}}, that's me, please get someone here.",
+        "Sorry, {{callerName}}, I'm a bit shaken.",
+        "{{callerName}} here, please just send help.",
+        "My name is {{callerName}}, please hurry.",
+        "It's {{callerName}}, can you send someone now."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't think anyone's hurt but one of the farmhands went near it"
+        "It's me, {{firstPatientName}}, I'm the one who called.",
+        "Just me, {{firstPatientName}}, nobody else is hurt.",
+        "{{firstPatientName}}, that's me, I'm on my own here.",
+        "It's just me, {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, there's no one else involved.",
+        "Me, {{firstPatientName}}, I live here alone.",
+        "It's only me affected, {{firstPatientName}}.",
+        "{{firstPatientName}}, yes, that's me.",
+        "Just myself, {{firstPatientName}}, no one else here.",
+        "I'm the patient, {{firstPatientName}}, it's just me."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the farmland off the track"
+        "{{address}}, it's the field off the lane.",
+        "It's {{address}}, the farm, the fire's in the field behind.",
+        "{{address}}, come down the track to the farm.",
+        "It's {{address}}, the field is past the main gate.",
+        "{{address}}, I'll wait by the gate to show you the way in.",
+        "It's {{address}}, please hurry, the line's still sparking.",
+        "{{address}}, the farm entrance is off the main road.",
+        "It's {{address}}, the fire's spreading through the field.",
+        "{{address}}, please send someone to the farm quickly.",
+        "It's {{address}}, please hurry, I'm not far from the fire."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The line came down in the wind and it's sparked, now there's a fire spreading in the field"
+        "A power line came down in the wind and started sparking, the field's caught fire.",
+        "The cable snapped and hit the ground, it's set the dry grass alight.",
+        "A line came down across the field and it's spread quickly in this wind.",
+        "The power line fell and sparked, now the whole field's on fire.",
+        "I think a branch brought the line down, it's sparking and the field's burning.",
+        "The cable's still live I think, it's arcing and the fire's spreading fast.",
+        "A pole must have gone over, the line's down and the field's alight.",
+        "It's spread quickly through the dry crop since the line came down.",
+        "The line's sparking on the ground and the fire's getting bigger by the minute.",
+        "I saw it come down and then the field just went up."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious, just a bit shaken"
+        "I'm conscious, yes, just a bit shaken and coughing.",
+        "I'm awake, yes, my chest feels tight though.",
+        "Yes, I'm fine that way, just breathed in some smoke.",
+        "I'm okay, conscious, just coughing a lot.",
+        "Yes, I'm alert, just a bit dizzy from the smoke.",
+        "I'm conscious, yes, just really shaken up.",
+        "Yes, I'm awake and talking to you, aren't I.",
+        "I'm fine that way, just my chest's a bit tight.",
+        "Yes, conscious, just coughing quite badly.",
+        "I'm okay, yes, just shaken and a bit breathless."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He's breathing fine, just shaken up"
+        "I'm breathing, yes, but I've got a bad cough from the smoke.",
+        "Yes, I'm breathing, my chest just feels tight.",
+        "I can breathe, yes, but I've swallowed a lot of smoke.",
+        "Yes, I'm breathing okay, just coughing a lot.",
+        "I'm alright breathing wise, just a bit wheezy.",
+        "Yes, I'm breathing, my throat's sore from the smoke though.",
+        "I can breathe fine, just coughing quite a bit.",
+        "Yes, breathing's okay, just feels tight in my chest.",
+        "I'm breathing, yes, just a bit short of breath from the smoke.",
+        "Yes, I'm breathing, just coughing my lungs up a bit."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He said his arm felt odd where he was near the spark"
+        "No real pain, just my chest feels tight from the smoke.",
+        "Not really pain, just sore from coughing so much.",
+        "No, no pain, just a bit breathless and shaken.",
+        "Not pain exactly, just my throat's sore from the smoke.",
+        "No, I'm alright, just coughing and a bit shaken up.",
+        "No real pain, just feels tight when I breathe in.",
+        "Not much pain, just my chest feels heavy.",
+        "No, no pain as such, just shaken and coughing.",
+        "Not pain, just a sore throat from the smoke.",
+        "No, I'm okay, just a bit light headed from it all."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding that I can see"
+        "No, I'm not bleeding, just shaken up.",
+        "No bleeding, no, just coughing from the smoke.",
+        "No, no injuries like that, just smoke.",
+        "No, I'm not cut anywhere, just breathed in a lot of smoke.",
+        "No bleeding at all, just a bit shaken.",
+        "No, nothing like that, just coughing quite badly.",
+        "No, I'm not bleeding, just my chest's tight.",
+        "No, no cuts or anything, just the smoke.",
+        "No bleeding, no, just really shaken up.",
+        "No, nothing like that, just a bit breathless."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, I'll ask him"
+        "I'm generally fit and well, nothing you need to worry about.",
+        "No real medical history to speak of, I'm usually fine.",
+        "Nothing major, I don't have any conditions.",
+        "I'm healthy normally, no history to mention.",
+        "No, nothing like that, I'm usually quite well.",
+        "Nothing significant, I don't have any ongoing conditions.",
+        "I don't have any medical issues normally.",
+        "No history worth mentioning, I'm generally okay.",
+        "Nothing really, I'm fit and well as a rule.",
+        "No, I don't have anything like that."
       ]
     },
     "medications": {
       "answers": [
-        "I'm not sure"
+        "No, I'm not on any medication.",
+        "I don't take anything regularly, no.",
+        "No medication, no, nothing like that.",
+        "I'm not on anything at the moment.",
+        "No, I don't take any tablets or anything.",
+        "Nothing, no, I don't take medication.",
+        "No, I'm not on any regular medication.",
+        "I don't take anything, no.",
+        "No medication to mention, no.",
+        "No, nothing like that at all."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's in his forties"
+        "I'm in my thirties.",
+        "I'm forty two.",
+        "I'm in my twenties.",
+        "I'm fifty odd.",
+        "I'm in my sixties.",
+        "I'm about thirty five.",
+        "I'm in my late forties.",
+        "I'm in my twenties still.",
+        "I'm sixty three.",
+        "I'm in my fifties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping well clear of the line"
+        "Okay, okay, I'll do that.",
+        "Right, yes, I'll stay back, just please hurry.",
+        "Okay, thank you, please send them quickly.",
+        "Alright, I'll wait, but please hurry.",
+        "Okay okay, I'm moving back now.",
+        "Yes, alright, I'll do what you say.",
+        "Okay, thank you, I'm staying clear.",
+        "Right, understood, please just get here soon.",
+        "Okay, I will, please hurry though.",
+        "Alright, thank you, I'm keeping everyone back."
       ]
     },
     "refer111": {
       "answers": [
-        "No, there's a live power line down and a fire, we need the fire brigade"
+        "No, the line's still live and the field's on fire, I need the fire brigade.",
+        "No, this can't wait, there's a live cable down and a fire spreading.",
+        "No, I need urgent help, the power line's still sparking.",
+        "No thank you, this needs the fire brigade, not 111.",
+        "No, please, the field's burning and the line's dangerous.",
+        "No, it's urgent, the fire's spreading fast through the crop.",
+        "No, I can't wait for a callback, the line's still live.",
+        "No, this is an emergency, please send someone now.",
+        "No, the fire's getting worse, I need help straight away.",
+        "No, please hurry, the power line's still sparking near the fire."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes please, it's chaos here, that would help.",
+        "Okay, good, we need someone keeping people back.",
+        "Yes, please send them, it's really busy here.",
+        "Okay, thank you, that would help a lot right now.",
+        "Yes, good, there's people everywhere, please hurry them along.",
+        "Okay, please, we need help keeping this under control.",
+        "Yes, that's needed, it's mayhem here.",
+        "Okay, thank you, please send them quickly.",
+        "Yes please, we could really use them here.",
+        "Okay, good, just please hurry everyone up."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, please hurry.",
+        "Right, thank you, please get here quickly.",
+        "Okay, please, as fast as you can.",
+        "Thank you, please hurry, it's getting worse.",
+        "Okay, thank god, please hurry.",
+        "Right, okay, please just get here fast.",
+        "Okay, thank you, please be quick.",
+        "Thank you, please hurry, I'm really worried.",
+        "Okay, good, please hurry them up.",
+        "Okay, thank you, please come quickly."
       ]
     }
   },

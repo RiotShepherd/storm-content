@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -68,8 +72,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My wife's gone into labour and I think the baby's coming now",
-      "She's in labour, the contractions are really close together, please hurry"
+      "My {{husband}}'s gone into labour and I think the baby's coming now",
+      "My {{husband}}'s in labour, the contractions are really close together, please hurry",
+      "Please, my {{husband}}'s in labour and it's happening really fast",
+      "My {{husband}}'s waters have broken and the contractions are close together",
+      "Please hurry, my {{husband}}'s in labour and I think it's close now",
+      "My {{husband}}'s having really strong contractions, please send someone quickly",
+      "Please, my {{husband}}'s in labour, I don't think we'll make it to the hospital",
+      "My {{husband}}'s contractions are only a couple of minutes apart, please hurry",
+      "Please send someone, my {{husband}}'s in labour and it's progressing fast",
+      "My {{husband}}'s in labour, please hurry, I think the baby's on its way"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -81,90 +93,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My wife's gone into labour and I think the baby's coming now",
-        "She's in labour, the contractions are really close together, please hurry"
+        "My {{husband}}'s gone into labour and I think the baby's coming now",
+        "My {{husband}}'s in labour, the contractions are really close together, please hurry",
+        "Please, my {{husband}}'s in labour and it's happening really fast",
+        "My {{husband}}'s waters have broken and the contractions are close together",
+        "Please hurry, my {{husband}}'s in labour and I think it's close now",
+        "My {{husband}}'s having really strong contractions, please send someone quickly",
+        "Please, my {{husband}}'s in labour, I don't think we'll make it to the hospital",
+        "My {{husband}}'s contractions are only a couple of minutes apart, please hurry",
+        "Please send someone, my {{husband}}'s in labour and it's progressing fast",
+        "My {{husband}}'s in labour, please hurry, I think the baby's on its way"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
         "It's {{firstPatientName}}",
-        "{{firstPatientName}}, my wife"
+        "{{His}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s my {{husband}}",
+        "It's {{firstPatientName}}, please hurry",
+        "{{firstPatientName}}, that's {{his}} name",
+        "{{He}}'s called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "It's {{firstPatientName}}, I'm {{his}} {{callerSpouse}}",
+        "{{firstPatientName}}, please, the contractions are close together",
+        "{{firstPatientName}}, please send someone now"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, please hurry"
+        "It's {{address}}, please hurry",
+        "{{address}}, quickly please",
+        "We're at {{address}}, please send someone fast",
+        "The address is {{address}}, please hurry",
+        "{{address}}, at home, please hurry",
+        "It's {{address}}, oh please be quick",
+        "{{address}}, come quickly please",
+        "{{address}} is the address, please hurry",
+        "Please, it's {{address}}",
+        "{{address}}, at home, quickly please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Her waters broke and the contractions are coming every couple of minutes now",
-        "She says she can feel the baby coming, it's happening fast"
+        "{{His}} waters broke about an hour ago and the contractions started soon after",
+        "{{He}}'s been having contractions for a while, they're very close together now",
+        "{{His}} labour started this morning and it's progressing really quickly",
+        "{{He}} started having strong contractions about forty minutes ago",
+        "{{His}} contractions are about two minutes apart now",
+        "{{He}}'s in established labour, the contractions are coming fast",
+        "{{His}} waters broke suddenly and the contractions followed quickly",
+        "{{He}}'s been in labour for a few hours, it's speeding up now",
+        "{{His}} contractions have got much stronger in the last twenty minutes",
+        "{{He}} says {{he}} feels the urge to push, please hurry"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake, in a lot of pain",
-        "Yes, conscious, breathing through contractions"
+        "Yes, {{he}}'s conscious, just in a lot of discomfort",
+        "{{He}}'s awake, {{he}}'s coping but in pain",
+        "Yes, conscious, {{he}}'s breathing through the contractions",
+        "{{He}}'s alert, just focused on the contractions",
+        "Yes, {{he}}'s conscious and talking between contractions",
+        "Conscious, {{he}}'s managing but it's intense",
+        "Yes, {{he}}'s awake, {{he}}'s just concentrating on breathing",
+        "{{He}}'s conscious, just in a lot of discomfort",
+        "Yes, awake and responding, just focused on the labour",
+        "Conscious, {{he}}'s doing well but it's moving fast"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing hard through the contractions",
-        "Fine between contractions"
+        "Yes, {{he}}'s breathing, using breathing techniques through contractions",
+        "{{His}} breathing's fine, just heavy during contractions",
+        "Yes, breathing normally between contractions",
+        "{{He}}'s breathing okay, just working hard through each contraction",
+        "Yes, no problems breathing, just the effort of labour",
+        "{{His}} breathing's fine, {{he}}'s doing really well",
+        "Yes, breathing's okay, {{he}}'s focused on the contractions",
+        "{{He}}'s breathing normally between contractions",
+        "Yes, {{he}}'s breathing fine, just working hard",
+        "No breathing problems, just the effort of the contractions"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Very strong contractions, close together",
-        "Yes, she says it's intense"
+        "Yes, the contractions are very painful and close together",
+        "Yes, {{he}}'s in a lot of pain with each contraction",
+        "Yes, {{he}} says the pain's intense now",
+        "Yes, {{he}}'s in significant pain, {{he}}'s coping as best {{he}} can",
+        "Yes, the contractions are strong and very close together",
+        "Yes, {{he}}'s in a lot of discomfort, it's progressing fast",
+        "Yes, {{he}} says the pain's building with each contraction",
+        "Yes, {{he}}'s in real pain now, please hurry",
+        "Yes, the contractions are intense and coming quickly",
+        "Yes, {{he}}'s in a lot of pain, {{he}} feels the urge to push"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A little show, nothing heavy",
-        "No, not that I can see"
+        "No bleeding, just the waters breaking earlier",
+        "No, no unusual bleeding",
+        "No bleeding, just normal signs of labour",
+        "No, nothing concerning, just the labour progressing",
+        "No bleeding, {{he}}'s just in established labour",
+        "No, nothing like that, just contractions",
+        "No unusual bleeding reported",
+        "No, no bleeding, just the labour itself",
+        "No bleeding, {{he}}'s just progressing quickly",
+        "No, no bleeding, it's purely the labour"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "This is her second baby",
-        "First baby, no complications so far"
+        "This is {{his}} first baby",
+        "{{He}}'s had one baby before, this is the second",
+        "No complications with the pregnancy so far",
+        "{{He}}'s had a straightforward pregnancy up to now",
+        "This is {{his}} third baby, the others came quickly too",
+        "{{He}}'s been under midwife care throughout, no issues",
+        "No history of complications that I know of",
+        "{{He}}'s had regular checkups, everything's been fine",
+        "This is {{his}} second baby, the first came fast as well",
+        "{{He}}'s had a normal pregnancy, no problems reported"
       ]
     },
     "medications": {
       "answers": [
-        "No, nothing regular",
-        "Just her pregnancy vitamins"
+        "No, {{he}}'s not on anything regular",
+        "{{He}} takes pregnancy vitamins, that's all",
+        "No medication, just the usual pregnancy vitamins",
+        "No, nothing regular besides folic acid",
+        "{{He}}'s not on any medication",
+        "No, just prenatal vitamins",
+        "No regular medication at all",
+        "{{He}} takes iron tablets, that's it",
+        "No, nothing beyond the usual pregnancy supplements",
+        "No regular medication, no"
       ]
     },
     "patientAge": {
       "answers": [
-        "31"
+        "{{He}}'s twenty eight",
+        "{{He}}'s in {{his}} late twenties",
+        "{{He}}'s twenty nine",
+        "{{He}}'s twenty seven",
+        "{{He}}'s in {{his}} late twenties, please hurry",
+        "{{He}}'s twenty six",
+        "{{He}}'s in {{his}} thirties",
+        "{{He}}'s thirty one",
+        "{{He}}'s twenty eight, this is {{his}} first",
+        "{{He}}'s thirty"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm getting towels ready like you said",
-        "I'm staying right with her"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "No, I think the baby's coming, we can't wait",
-        "No, this is happening now"
+        "No, please, this can't wait for a call back, it's urgent",
+        "No, I really think this needs someone out straight away",
+        "No, please don't put this through to 111, it's serious",
+        "No, this needs an ambulance now, not a call back later",
+        "No, please, I don't think this can wait at all",
+        "No, I'm not happy waiting for 111 to call back on this",
+        "No, please send someone now, this feels really serious",
+        "No, this is urgent, we can't wait for a call back",
+        "No, please, I really think this needs seeing to now",
+        "No, I don't think 111 is enough for this, please send someone"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

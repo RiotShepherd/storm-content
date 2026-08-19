@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -72,8 +76,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "He's been electrocuted, he's on the floor, I don't know if he's breathing",
-      "There's been an electric shock, she touched something live and went down"
+      "My {{husband}}'s been electrocuted, {{he}}'s on the floor, I don't know if {{he}}'s breathing",
+      "There's been an electric shock, my {{husband}} touched something live and went down",
+      "My {{husband}}'s had an electric shock, {{he}}'s collapsed on the floor",
+      "My {{husband}}'s been shocked by something electrical, {{he}}'s not moving much",
+      "Please help, my {{husband}}'s touched a live wire and gone down",
+      "There's been an accident, my {{husband}}'s had a big electric shock",
+      "My {{husband}}'s on the floor after an electric shock, I've turned the power off",
+      "My {{husband}}'s been electrocuted, {{he}}'s barely responding",
+      "My {{husband}} touched something live, went flying back and hit the floor",
+      "Please, my {{husband}}'s had a bad electric shock, {{he}}'s lying on the floor"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -85,90 +97,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "He's been electrocuted, he's on the floor, I don't know if he's breathing",
-        "There's been an electric shock, she touched something live and went down"
+        "My {{husband}}'s been electrocuted, {{he}}'s on the floor, I don't know if {{he}}'s breathing",
+        "There's been an electric shock, my {{husband}} touched something live and went down",
+        "My {{husband}}'s had an electric shock, {{he}}'s collapsed on the floor",
+        "My {{husband}}'s been shocked by something electrical, {{he}}'s not moving much",
+        "Please help, my {{husband}}'s touched a live wire and gone down",
+        "There's been an accident, my {{husband}}'s had a big electric shock",
+        "My {{husband}}'s on the floor after an electric shock, I've turned the power off",
+        "My {{husband}}'s been electrocuted, {{he}}'s barely responding",
+        "My {{husband}} touched something live, went flying back and hit the floor",
+        "Please, my {{husband}}'s had a bad electric shock, {{he}}'s lying on the floor"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}, my {{husband}}",
+        "{{firstPatientName}}, {{he}}'s my {{husband}}",
+        "My {{husband}}'s name is {{firstPatientName}}",
+        "{{firstPatientName}}, that's {{him}}",
+        "It's my {{husband}} {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "{{firstPatientName}}, please hurry",
+        "My {{husband}} is called {{firstPatientName}}",
+        "{{firstPatientName}}, my {{husband}}, please come quickly",
+        "{{firstPatientName}}, {{he}}'s forty"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, please hurry"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He was working on some wiring and got a shock, he's collapsed on the floor",
-        "She touched a faulty appliance and it threw her back, she's on the floor now"
+        "{{He}} was fixing a plug and touched a live wire, {{he}} went straight down",
+        "{{He}} touched a faulty appliance and got thrown back, {{he}}'s on the floor now",
+        "{{He}} was doing some DIY and got a massive shock from the wiring",
+        "{{He}} grabbed a live cable by accident and it threw {{him}} across the room",
+        "{{He}} was using a power tool that must have been faulty, {{he}} went down hard",
+        "{{He}} touched the fuse box and got a huge shock, {{he}} collapsed straight away",
+        "{{He}} was changing a light fitting and the power wasn't off, {{he}} got shocked",
+        "{{He}} touched a live socket while moving furniture, {{he}} went flying",
+        "{{He}} was working on the garden lights and got shocked, {{he}}'s not moving much",
+        "{{He}} got a shock from the washing machine, {{he}} collapsed by it"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's semi conscious, not really responding",
-        "Yes, awake but very shaken"
+        "{{He}} was talking a moment ago, not so much now",
+        "I'm not sure, {{he}}'s in and out of it",
+        "{{He}}'s not really responding to me properly",
+        "{{He}} was awake, now {{he}}'s gone very quiet",
+        "{{He}}'s barely responding, just groaning a bit",
+        "I don't think {{he}}'s fully with it, {{his}} eyes keep closing",
+        "{{He}} answered me once, not since",
+        "{{He}}'s drifting in and out, I'm really worried",
+        "Not properly, {{he}}'s making noises but not talking",
+        "{{He}} opened {{his}} eyes but isn't really responding"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, breathing but it seems shallow",
-        "Yes, but fast and shallow"
+        "I'm not sure, it looks shallow to me",
+        "{{His}} breathing seems really shallow",
+        "I can't tell properly, it doesn't sound right",
+        "Shallow I think, {{he}}'s not breathing normally",
+        "I'm not certain, it looks laboured",
+        "It doesn't look right, quite shallow and fast",
+        "I think so but it's hard to tell, {{he}}'s not moving much",
+        "{{His}} breathing looks weak to me",
+        "Not sure, it seems irregular",
+        "I think {{he}}'s breathing but it's very shallow"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's got burns on his hand",
-        "She says her chest hurts"
+        "{{He}} can't tell me, {{he}}'s barely responding",
+        "I don't know, {{he}}'s not talking to me properly",
+        "{{He}}'s not responding enough to say",
+        "Can't tell, {{he}}'s only groaning a little",
+        "{{He}} hasn't said anything, {{he}}'s too out of it",
+        "I don't know, {{he}}'s drifting in and out",
+        "Can't ask {{him}}, {{he}}'s barely conscious",
+        "{{He}}'s not able to tell me anything right now",
+        "No idea, {{he}}'s not responding to questions",
+        "{{He}} can't answer, {{he}}'s only just starting to come round"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, but there's burn marks",
-        "No"
+        "No bleeding, but there's a burn mark on {{his}} hand",
+        "No blood, just a red mark where {{he}} touched it",
+        "Not bleeding, but {{his}} fingers look burnt",
+        "No, no blood, there's a scorch mark on {{his}} palm",
+        "No bleeding, {{he}}'s got a burn on {{his}} hand though",
+        "No blood, just burnt skin where the contact was",
+        "No, {{he}}'s not bleeding, {{his}} hand looks burnt",
+        "No blood, but there's a mark where the current went in",
+        "No bleeding, just a nasty burn on {{his}} fingers",
+        "No, no blood, there's some burning on {{his}} hand"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of",
-        "Nothing I know of"
+        "No, nothing that I know of",
+        "Not that I'm aware of, no",
+        "No history I know of, {{he}}'s usually fit and well",
+        "No, {{he}}'s never had anything like this before",
+        "Nothing at all, {{he}}'s normally very healthy",
+        "No, no medical conditions that I know of",
+        "Not that I know of, no",
+        "No, {{he}}'s never had any real health problems",
+        "Nothing I know of, {{he}}'s generally fine",
+        "No history at all as far as I know"
       ]
     },
     "medications": {
       "answers": [
-        "Not that I know of",
-        "None that I know"
+        "No, {{he}} doesn't take anything",
+        "None that I know of",
+        "No medication, no",
+        "Not that I'm aware of, no",
+        "No, nothing regular",
+        "None at all as far as I know",
+        "No, {{he}}'s not on anything",
+        "Nothing, {{he}} doesn't take any tablets",
+        "No medication that I know of",
+        "None, no"
       ]
     },
     "patientAge": {
       "answers": [
-        "33"
+        "{{He}}'s 40",
+        "About 40, I think",
+        "{{He}}'s 40 years old",
+        "40, {{he}}'ll be 41 next year",
+        "I think {{he}}'s 40 or thereabouts",
+        "40 years of age",
+        "{{He}}'s in {{his}} 40s, about 40",
+        "Just turned 40",
+        "{{He}}'s 40, always been fit for {{his}} age",
+        "40, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "I've made sure the power's off before touching him",
-        "I'm not touching anything electrical, staying clear"
+        "Okay, I've turned the power off at the mains like you said",
+        "Right, I'm not touching {{him}} until you say it's safe",
+        "I've isolated the circuit, I'm staying well clear now",
+        "Okay, the power's definitely off, I'm keeping {{him}} still",
+        "Yes, I've done that, {{he}}'s starting to stir a little",
+        "Okay, I'm keeping {{him}} warm and not moving {{him}}",
+        "Right, the mains is off, I'm just talking to {{him}} now",
+        "I've done that, I'm staying with {{him}}, {{he}}'s still not very responsive",
+        "Okay, power's off, I'm keeping everyone else away from the area",
+        "Right, doing that now, please hurry, {{he}}'s barely responding"
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's been electrocuted, this can't wait",
-        "No, absolutely not, this is serious"
+        "No, {{he}}'s in too much pain for that, please send an ambulance",
+        "No, I really think {{he}} needs to be seen now",
+        "I don't think that's enough, {{he}}'s hurt badly",
+        "No, please, {{he}} can't wait for a call back",
+        "I'd rather someone came out, {{he}}'s in a bad way",
+        "No, this needs an ambulance, {{he}} can't move properly",
+        "I don't think 111 can help with this, please send someone",
+        "No, {{he}}'s really struggling, this can't wait",
+        "Please just send an ambulance, {{he}} needs help now",
+        "No, I think this is an emergency, {{he}} needs to go to hospital"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, why would we need police, please just send the ambulance",
+        "No, no police, please, {{he}} just needs help right now",
+        "No, I don't understand, there's no crime, just get an ambulance here",
+        "No police needed, please, {{he}}'s really unwell, just paramedics",
+        "No, please, no police, {{he}} just needs medical help urgently",
+        "No, nothing like that, please just send the ambulance quickly",
+        "Police? No, please, {{he}} just needs paramedics, hurry",
+        "No, definitely not police, please, {{he}} needs an ambulance now",
+        "No, please, there's no need for police, just help {{him}}",
+        "No police, please, I'm begging you, just get an ambulance here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "No, the power's off already, we just need the ambulance",
+        "Fire? No, I've isolated it myself, just send paramedics",
+        "No, no fire needed, I've turned it off at the mains already",
+        "No, that's not necessary, the electricity's off now",
+        "No fire brigade required, I've made it safe myself",
+        "No, I've dealt with the power, just the ambulance please",
+        "No, wrong service, I've isolated the circuit already",
+        "No fire needed, it's safe now, just send paramedics",
+        "No, the mains is off, {{he}} just needs medical help",
+        "No, that's sorted, I turned it off myself, just the ambulance"
       ]
     }
   },

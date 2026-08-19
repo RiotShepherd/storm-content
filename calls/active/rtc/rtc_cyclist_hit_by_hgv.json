@@ -51,6 +51,11 @@
     "traffic_car": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 4,
+    "police": 2
+  },
   "patients": {
     "range": [
       1,
@@ -96,8 +101,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "A cyclist's been hit by a lorry, he's underneath the wheels, please hurry!",
-      "Ambulance please, an HGV's hit a cyclist, it looks really serious."
+      "A cyclist's been hit by an HGV, {{he}}'s down in the road and not moving much!",
+      "Please help, a lorry's hit a cyclist, {{he}}'s badly hurt in the road!",
+      "There's been a crash, an HGV's hit a cyclist and {{he}}'s trapped underneath!",
+      "Help, a cyclist's gone under an HGV, please send an ambulance quickly!",
+      "There's a cyclist down in the road, an HGV's hit {{him}} and {{he}}'s in a bad way!",
+      "Please hurry, a lorry's collided with a cyclist, {{he}} looks seriously hurt!",
+      "Help, a cyclist's been struck by an HGV, {{he}}'s not moving in the road!",
+      "There's been an accident, an HGV's hit a cyclist at the junction!",
+      "Please send help, a cyclist's under an HGV and {{he}}'s badly injured!",
+      "Help, an HGV's hit a cyclist, {{he}}'s lying in the road not moving!"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -109,91 +122,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "A cyclist's been hit by a lorry, he's underneath the wheels, please hurry!",
-        "Ambulance please, an HGV's hit a cyclist, it looks really serious."
+        "A cyclist's been hit by an HGV, {{he}}'s down in the road and not moving much!",
+        "Please help, a lorry's hit a cyclist, {{he}}'s badly hurt in the road!",
+        "There's been a crash, an HGV's hit a cyclist and {{he}}'s trapped underneath!",
+        "Help, a cyclist's gone under an HGV, please send an ambulance quickly!",
+        "There's a cyclist down in the road, an HGV's hit {{him}} and {{he}}'s in a bad way!",
+        "Please hurry, a lorry's collided with a cyclist, {{he}} looks seriously hurt!",
+        "Help, a cyclist's been struck by an HGV, {{he}}'s not moving in the road!",
+        "There's been an accident, an HGV's hit a cyclist at the junction!",
+        "Please send help, a cyclist's under an HGV and {{he}}'s badly injured!",
+        "Help, an HGV's hit a cyclist, {{he}}'s lying in the road not moving!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I saw it happen right in front of me.",
-        "{{callerName}}, I was cycling behind him."
+        "It's {{callerName}}, I was crossing the road when it happened.",
+        "{{callerName}}, I saw it happen from the pavement.",
+        "My name's {{callerName}}.",
+        "{{callerName}} here, I don't know {{him}}, I just saw the crash.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm just a passer by.",
+        "My name is {{callerName}}, I was nearby when it happened.",
+        "{{callerName}}, I've stayed with {{him}} while I called.",
+        "It's {{callerName}}, I heard the bang and came to look.",
+        "{{callerName}} speaking, I'm right next to {{him}}."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know him, he's a stranger.",
-        "I don't know his name, sorry."
+        "I don't know {{him}}, I just saw the crash happen.",
+        "No idea, {{he}}'s a stranger to me.",
+        "I don't know {{his}} name, I just came across the crash.",
+        "No idea who {{he}} is, I only just arrived at the scene.",
+        "I can't tell you, I don't know {{him}} at all.",
+        "No name, sorry, I just happened to be walking past.",
+        "I don't know {{him}}, I've called it in as soon as I saw {{him}} down.",
+        "Sorry, no idea, I've never met {{him}} before.",
+        "No, I don't know {{his}} name, I just saw the HGV hit {{him}}.",
+        "I can't help with a name, {{he}}'s a stranger to me."
       ]
     },
     "address": {
       "answers": [
-        "We're on {{address}}.",
-        "{{address}}, right by the junction."
+        "It's {{address}}, the junction where the crash happened.",
+        "{{address}}, come carefully, the HGV's still blocking the lane.",
+        "It's {{address}}, you'll see the lorry from the road.",
+        "{{address}}, I'll wave you down when I see you.",
+        "It's {{address}}, mind the traffic, it's a busy junction.",
+        "{{address}}, it's just by the traffic lights.",
+        "It's {{address}}, there's debris across part of the road.",
+        "{{address}}, I'll stay back but point you the right way.",
+        "It's {{address}}, {{he}}'s lying near the front of the HGV.",
+        "{{address}}, I'll be waiting a safe distance away."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The lorry turned left and the cyclist was caught underneath as it turned.",
-        "He was hit as the HGV pulled away from the lights, he went straight under."
+        "The HGV turned and didn't see {{him}}, {{he}} went down under the wheels.",
+        "It looks like {{he}} was alongside the lorry and it turned into {{him}}.",
+        "The lorry pulled out and caught {{him}}, {{he}}'s down in the road.",
+        "It looks like {{he}} was in the blind spot and the HGV turned into {{him}}.",
+        "The HGV's turned left and {{he}}'s been caught underneath it.",
+        "It looks like {{he}} was undertaking the lorry when it turned.",
+        "The lorry's hit {{him}} as it pulled away from the lights.",
+        "It looks like the HGV didn't see {{him}} and turned straight into {{his}} path.",
+        "There was a loud bang, the HGV's hit {{him}} and {{he}}'s gone down.",
+        "The lorry's caught {{him}} as it turned at the junction."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No, he's not responding at all.",
-        "He's barely conscious, mumbling."
+        "{{He}}'s not responding at all, I'm really worried.",
+        "Yes, {{he}}'s conscious but {{he}} sounds very weak.",
+        "{{He}}'s barely conscious, {{he}}'s not making much sense.",
+        "No, {{he}}'s not responding when I talk to {{him}}.",
+        "{{He}}'s in and out, sort of moaning.",
+        "Yes, {{he}}'s conscious, just very dazed and confused.",
+        "No response from {{him}} at all, please hurry.",
+        "{{He}}'s barely responding, just groaning.",
+        "{{He}} was talking a minute ago but's gone quiet now.",
+        "{{He}}'s conscious but very weak, please send help fast."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, but it's very shallow.",
-        "I think so, but it's hard to tell."
+        "Yes, {{he}}'s breathing, but it sounds laboured.",
+        "I think so, but it's hard to tell, please hurry.",
+        "{{He}} seems to be breathing, just very shallow.",
+        "Yes, {{he}}'s breathing but struggling a bit.",
+        "I think {{he}}'s still breathing but it's faint.",
+        "{{His}} breathing sounds okay but {{he}}'s not moving much.",
+        "Yes, breathing's there, please hurry.",
+        "{{He}}'s breathing but I'm really worried, please hurry.",
+        "I'm not sure, it looks laboured, please hurry.",
+        "{{His}} breathing sounds shallow, please send help fast."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's not really responding to us at all.",
-        "He was groaning in pain before he went quiet."
+        "{{He}}'s not really responding to say where it hurts.",
+        "{{He}} groaned when I touched {{his}} leg, it looks broken.",
+        "{{He}} can't really tell me, {{he}}'s too dazed.",
+        "{{His}} leg looks badly injured, {{he}}'s not saying much.",
+        "{{He}} seems to be in a lot of pain but can't speak clearly.",
+        "I think {{he}}'s in a lot of pain, {{he}}'s barely responding.",
+        "{{He}} moaned when I checked {{him}}, {{his}} leg looks bad.",
+        "Can't tell exactly, {{he}}'s not able to say much.",
+        "{{He}} seems to be in serious pain, please hurry.",
+        "{{His}} leg's at a bad angle, {{he}}'s clearly in pain."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's a lot of blood.",
-        "Yes, it looks very serious."
+        "Yes, {{he}}'s bleeding quite badly from {{his}} head.",
+        "There's a lot of blood, please hurry.",
+        "Yes, {{he}}'s bleeding from {{his}} leg and {{his}} head.",
+        "Yes, quite a lot of bleeding, I'm trying to keep pressure on it.",
+        "There's serious bleeding, please send help fast.",
+        "Yes, {{he}}'s bleeding badly, it looks very serious.",
+        "There's blood on the road, {{he}}'s bleeding quite heavily.",
+        "Yes, {{he}}'s bleeding from a few places, please hurry.",
+        "There's a lot of blood, I'm doing what I can to help.",
+        "Yes, {{he}}'s bleeding badly, please send an ambulance fast."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him, sorry.",
-        "No idea, he's a stranger."
+        "No idea, I don't know {{him}} at all.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "No idea, sorry, I've never met {{him}} before.",
+        "I don't know {{him}}, so no idea on that.",
+        "Sorry, no idea, I've just come across the crash.",
+        "No, I can't help with that, I don't know {{him}}.",
+        "I've no idea, {{he}}'s not someone I know.",
+        "Sorry, no, I don't know {{his}} medical history.",
+        "No idea at all, {{he}}'s a stranger to me.",
+        "Can't say, sorry, I only just found {{him}} like this."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry.",
-        "I couldn't say."
+        "No idea, I don't know {{him}}.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "No idea, sorry, I've never met {{him}}.",
+        "I don't know {{him}}, so no idea on that.",
+        "Sorry, no idea at all.",
+        "No, I can't help with that, I don't know {{him}}.",
+        "I've no idea, {{he}}'s not someone I know.",
+        "Sorry, no, I don't know anything about {{him}}.",
+        "No idea at all, sorry.",
+        "Can't say, sorry, I only just found {{him}} like this."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks like he's in his thirties.",
-        "Hard to say, maybe forties."
+        "{{He}} looks to be in {{his}} thirties.",
+        "Maybe late twenties, hard to tell from here.",
+        "{{He}} looks about forty to me.",
+        "I'd guess {{he}}'s in {{his}} thirties.",
+        "Hard to say exactly, maybe mid twenties.",
+        "{{He}} looks like {{he}}'s in {{his}} forties.",
+        "I'd say {{he}}'s about thirty.",
+        "Not sure exactly, maybe late thirties.",
+        "{{He}} looks fairly young, twenties I'd guess.",
+        "I'd estimate {{he}}'s in {{his}} thirties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying with him, I won't move him.",
-        "Please hurry, this looks really bad."
+        "Okay, thank you, I'll stay here with {{him}} and keep {{him}} still.",
+        "Right, I'll stay with {{him}} until the ambulance gets here.",
+        "Okay, that's good, please hurry, {{he}}'s not looking good at all.",
+        "Thank you, I'll stay right here next to {{him}}.",
+        "Alright, I'll keep talking to {{him}} until help arrives.",
+        "Okay, we'll wait right here for the paramedics.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll keep {{him}} as still as possible until help arrives.",
+        "Thank you, I'll do what I can until they get here."
       ]
     },
     "refer111": {
       "answers": [
-        "Are you serious, he's been hit by a lorry, we need an ambulance now!"
+        "No, {{he}}'s seriously hurt in the road, this can't wait for 111!",
+        "111 won't cut it, {{he}}'s bleeding badly, please send an ambulance!",
+        "No, please, this is a real emergency, {{he}} needs help right now!",
+        "This can't wait for a callback, {{he}}'s badly hurt!",
+        "No, we need paramedics here now, not 111!",
+        "Please, this is urgent, {{he}}'s not responding properly!",
+        "No, this needs an ambulance now, not a phone line!",
+        "I don't think 111 can help with an injury this serious!",
+        "No, please, we need people here right now!",
+        "This is too serious for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, we could do with them for the traffic here.",
+        "Right, that's good, the road's going to need closing off.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, traffic's building up.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help with the traffic.",
+        "Right, thank you, I'll let them know what's happened when they arrive.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, if they can help free {{him}} that would be a help.",
+        "Right, thank you, hopefully they can get {{him}} out safely.",
+        "Okay, that's good, please hurry, {{he}}'s trapped under the lorry.",
+        "Thank you, I'll let them know where {{he}} is.",
+        "Alright, thank you, hopefully they can free {{him}} quickly.",
+        "Okay, understood, we need {{him}} out as fast as possible.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, I'll wait here to guide them in.",
+        "Okay, thank you, we need {{him}} freed urgently.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

@@ -43,6 +43,10 @@
     "irv": 4,
     "dog_unit": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,14 @@
     "openings": [
       "Police please, there's a fight broken out on the train, it's between two passengers",
       "Help, people are fighting on the carriage, I don't know how to stop it",
-      "There's a violent argument turned into a fight on the train, it's frightening everyone"
+      "There's a violent argument turned into a fight on the train, it's frightening everyone",
+      "Police, there's a fight happening right now on the train",
+      "I need to report a fight on the carriage, it's getting worse",
+      "There's two passengers fighting on the train, please send someone",
+      "Please hurry, there's a fight breaking out on board the train",
+      "I need police, a fight's started between passengers on the train",
+      "There's a violent fight on the train, other passengers are terrified",
+      "Police please, a fight's broken out on my carriage, please hurry"
     ],
     "phoneArea": "auto",
     "callerType": "passer_by"
@@ -81,90 +92,230 @@
       "answers": [
         "Police please, there's a fight broken out on the train, it's between two passengers",
         "Help, people are fighting on the carriage, I don't know how to stop it",
-        "There's a violent argument turned into a fight on the train, it's frightening everyone"
+        "There's a violent argument turned into a fight on the train, it's frightening everyone",
+        "Police, there's a fight happening right now on the train",
+        "I need to report a fight on the carriage, it's getting worse",
+        "There's two passengers fighting on the train, please send someone",
+        "Please hurry, there's a fight breaking out on board the train",
+        "I need police, a fight's started between passengers on the train",
+        "There's a violent fight on the train, other passengers are terrified",
+        "Police please, a fight's broken out on my carriage, please hurry"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm a passenger on the train",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I was just walking past.",
+        "{{callerName}}, I happened to be passing.",
+        "My name's {{callerName}}, I was in the area.",
+        "It's {{callerName}}, I was just going by.",
+        "{{callerName}} here, I was nearby at the time.",
+        "You can put me down as {{callerName}}, I was just passing through.",
+        "It's {{callerName}}, I saw it while walking past.",
+        "{{callerName}} speaking, I was in the area at the time.",
+        "My name is {{callerName}}, I was just out walking.",
+        "It's {{callerName}}, I happened to be right here."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know either of them",
-        "No idea who they are"
+        "I don't know any of their names, I don't know them.",
+        "No idea who they are, complete strangers to me.",
+        "Couldn't tell you their names, I don't recognise them.",
+        "No names I'm afraid, I don't know any of them.",
+        "I don't know them personally, so no names.",
+        "Sorry, no idea what any of them are called.",
+        "Can't help with names, I don't know them at all.",
+        "No, I've no idea who they are.",
+        "I don't recognise any of them, no names to give.",
+        "Not a clue, they're strangers to me."
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, we're pulling into the station now",
-        "It's on the train approaching {{address}}"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "Two men started arguing over a seat and now they're throwing punches",
-        "It happened a couple of minutes ago, other passengers are trying to get away from them",
-        "One of them's grabbed the other by the collar and it's turned nasty"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Both still conscious, still fighting",
-        "Yes, they're both up and swinging"
+        "They're all awake, nobody's hurt, just causing chaos.",
+        "No injuries, they're all fully alert.",
+        "Nobody's hurt, they're just kicking off.",
+        "They're fine, no injuries, just aggressive.",
+        "No one's hurt, they're all conscious and shouting.",
+        "They're not injured at all, just causing a scene.",
+        "Nobody's hurt, everyone's on their feet.",
+        "No injuries that I can see, they're all up and about.",
+        "They're fine physically, just being a nuisance.",
+        "No one's hurt, they're all wide awake and angry."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing fine as far as I can see, just angry",
-        "Seems okay, just very heated"
+        "They're all breathing fine, nobody's hurt.",
+        "No problems there, no one's injured.",
+        "They're fine, breathing normally, no injuries.",
+        "No issues, nobody's hurt in this.",
+        "They're all breathing okay, this isn't medical.",
+        "Nobody's hurt, everyone's breathing fine.",
+        "No one's struggling, no injuries at all.",
+        "They're all fine, no breathing problems.",
+        "Not an issue, nobody's hurt.",
+        "No, they're all breathing normally."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Don't know, they're too busy fighting to say",
-        "Can't tell"
+        "No pain, nobody's hurt as far as I can see.",
+        "They're not in any pain, no injuries.",
+        "No, they're all fine, this isn't medical.",
+        "Nobody's hurt, so no pain to report.",
+        "No pain that I can see, they're unhurt.",
+        "They're not injured, no pain involved.",
+        "No one's hurt, so nothing there.",
+        "They're fine, no pain, just aggressive.",
+        "No, none of them are hurt.",
+        "Not that I can tell, no injuries."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "One's got a bloody nose",
-        "A little blood on one of them"
+        "No, nobody's bleeding, they're not hurt.",
+        "None that I can see, they're all unhurt.",
+        "No injuries, no bleeding at all.",
+        "No, nobody's hurt, they're all fine.",
+        "Not that I can see, everyone's uninjured.",
+        "No bleeding, nobody's hurt.",
+        "None, they're all completely unhurt.",
+        "No, they're fine, no blood at all.",
+        "Not at all, no injuries.",
+        "No, there's no injuries on any of them."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them",
-        "No idea"
+        "No idea, I don't know any of them.",
+        "Couldn't tell you, they're strangers to me.",
+        "No idea about their health, I don't know them.",
+        "I've no idea, never met any of them before.",
+        "Can't help, I don't know anything about them.",
+        "No idea, this isn't really medical anyway.",
+        "I wouldn't know, nobody's hurt anyway.",
+        "No idea about any of them, sorry.",
+        "Couldn't say, I don't know their backgrounds.",
+        "No idea, I've never spoken to them before today."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "No idea, I don't know any of them.",
+        "Couldn't tell you, they're strangers to me.",
+        "No idea what they take, I don't know them.",
+        "I've no clue, never met them before.",
+        "Can't help with that, sorry.",
+        "No idea, this isn't medical, they're just causing trouble.",
+        "I wouldn't know, nobody's hurt anyway.",
+        "No idea about any of them at all.",
+        "Couldn't say, I don't know them personally.",
+        "No idea, never spoken to them before."
       ]
     },
     "patientAge": {
       "answers": [
-        "Both look to be in their thirties"
+        "Mixed ages, mostly twenties and thirties I'd say.",
+        "Hard to say, a real mix of ages.",
+        "Some look young, others older, hard to pin down.",
+        "I'd guess twenties to forties, a real spread.",
+        "Hard to tell with the group, all sorts of ages.",
+        "Mostly younger, twenties I'd guess.",
+        "A real mix, some teens, some older.",
+        "Can't say exactly, quite a range of ages.",
+        "Mixed group, hard to give one age.",
+        "All different ages, hard to say for certain."
       ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's where I am.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, that's the address.",
+        "We're at {{address}}.",
+        "It's {{address}}, you can't miss it.",
+        "{{address}}, that's the postcode.",
+        "The address is {{address}}.",
+        "{{address}}, I'll wait for you here.",
+        "It's {{address}}, that's the spot.",
+        "{{address}}, that's it exactly."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "An argument over a seat has turned into a full fight between two passengers",
+        "They started shouting at each other and now they're throwing punches",
+        "It kicked off when one of them barged past the other and it's turned physical",
+        "Two passengers are grappling with each other, other people are trying to get away",
+        "One of them shoved the other and now they're fighting between the carriages",
+        "It escalated from an argument to actual punches within a minute",
+        "They're wrestling on the floor of the carriage, people are screaming",
+        "One accused the other of stealing a bag and it turned into a fight",
+        "It's spilled into the aisle, other passengers can't get past them",
+        "They've been arguing since the last station and now they're fighting properly"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, I've moved to the other end of the carriage",
-        "Please hurry, everyone's scared in here"
+        "No ambulance needed, nobody's hurt, thank you.",
+        "I don't need an ambulance, this isn't medical, I just need police.",
+        "No, nobody's injured, just send police please.",
+        "That's not necessary, no one's hurt here.",
+        "No ambulance, thank you, it's a police matter.",
+        "Nobody's hurt, I only need officers here.",
+        "No, that's not needed, this isn't a medical emergency.",
+        "I don't think so, no injuries here at all.",
+        "No, no one's hurt, just police please.",
+        "That's not required, nobody's been injured."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them to arrive.",
+        "Good, I'll stay right here until they get here.",
+        "Thank you, I'll keep everyone back until they arrive.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Please hurry, I'll be watching out for them.",
+        "Thank you, I'll wait outside for the officers.",
+        "Okay, that's a relief, I'll stay put.",
+        "Good, I'll let you know if anything changes before they arrive.",
+        "Thank you, I'll keep an eye on things until they get here.",
+        "Okay, I'll stay close by until the police arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, there's no fire, I need police.",
+        "No, this isn't a fire, it's a police matter.",
+        "I don't need the fire service, just police please.",
+        "No fire here at all, just send officers.",
+        "That's the wrong service, there's no fire involved.",
+        "No, I need police, not the fire brigade.",
+        "There's no fire, just police please.",
+        "No thank you, nothing's alight, I need police.",
+        "That's not right, no fire here, just police.",
+        "No, nothing's on fire, just send police please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police urgently"
+        "No, this can't wait for a callback, I need police right now.",
+        "No, this needs a response now, not a phone call later.",
+        "That's not right, this is urgent, please send police.",
+        "No, I need someone here immediately, this isn't medical.",
+        "This can't wait, please, I need police straight away.",
+        "No, this is happening right now, I need officers here.",
+        "That won't help, this is urgent, not a 111 matter.",
+        "No, please, I need police now, not a callback.",
+        "This is too urgent for that, I need police straight away.",
+        "No, this needs police now, it can't wait."
       ]
     }
   },

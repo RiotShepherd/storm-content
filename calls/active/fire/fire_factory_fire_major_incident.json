@@ -54,6 +54,12 @@
     "fire_officer": 8,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 20,
+    "ambulance": 4,
+    "police": 6
+  },
   "patients": {
     "range": [
       0,
@@ -109,7 +115,14 @@
     "openings": [
       "The whole factory's on fire, we've evacuated but it's a huge blaze",
       "I need the fire brigade urgently, this is a major fire at the factory, flames right through the roof",
-      "The factory's well alight, we can see it from the car park, please send everyone you can"
+      "The factory's well alight, we can see it from the car park, please send everyone you can",
+      "Please hurry, the whole building's on fire, we're all out but a few people are coughing badly",
+      "Fire brigade urgently please, this is a massive fire, everyone's out but the smoke's terrible",
+      "We've evacuated completely but the factory's fully alight now, some staff feel unwell from the smoke",
+      "Please send help fast, the fire's spread through the whole building, we're all outside now",
+      "There's a huge fire at the factory, staff are gathered outside, a few are struggling to breathe",
+      "Fire brigade please urgently, the building's fully alight, we've got some staff coughing badly",
+      "Please hurry, this is a major fire, we're all accounted for but the smoke's affecting a few of us"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -123,78 +136,230 @@
       "answers": [
         "The whole factory's on fire, we've evacuated but it's a huge blaze",
         "I need the fire brigade urgently, this is a major fire at the factory, flames right through the roof",
-        "The factory's well alight, we can see it from the car park, please send everyone you can"
+        "The factory's well alight, we can see it from the car park, please send everyone you can",
+        "Please hurry, the whole building's on fire, we're all out but a few people are coughing badly",
+        "Fire brigade urgently please, this is a massive fire, everyone's out but the smoke's terrible",
+        "We've evacuated completely but the factory's fully alight now, some staff feel unwell from the smoke",
+        "Please send help fast, the fire's spread through the whole building, we're all outside now",
+        "There's a huge fire at the factory, staff are gathered outside, a few are struggling to breathe",
+        "Fire brigade please urgently, the building's fully alight, we've got some staff coughing badly",
+        "Please hurry, this is a major fire, we're all accounted for but the smoke's affecting a few of us"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the site manager"
+        "It's {{callerName}}, I'm the factory manager",
+        "{{callerName}}, I'm health and safety here",
+        "My name's {{callerName}}, I'm counting everyone at the muster point",
+        "It's {{callerName}}, sorry, I'm trying to stay calm",
+        "{{callerName}} speaking, I'm at the main gate",
+        "Name's {{callerName}}, I run the shift",
+        "It's {{callerName}}, everyone's out, I'm checking on the ones coughing",
+        "{{callerName}}, I'm the site manager tonight",
+        "This is {{callerName}}, please hurry, I'm worried about a few staff",
+        "{{callerName}} here, I'll meet you at the entrance"
       ]
     },
     "patientName": {
       "answers": [
-        "Everyone we know of is out, a few got smoke on the way"
+        "A couple of staff are coughing badly, one's called {{firstPatientName}}",
+        "One's {{patientName}}, {{he}} breathed in a lot of smoke getting out",
+        "There's a few affected, {{firstPatientName}}'s the worst",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s struggling a bit",
+        "One's {{firstPatientName}}, {{he}}'s sat down feeling rough",
+        "It's {{firstPatientName}}, {{he}} was near the fire when it took hold",
+        "There's {{firstPatientName}} and a couple of others coughing",
+        "{{He}}'s called {{firstPatientName}}, {{he}}'s the one most affected",
+        "One's {{firstPatientName}}, {{he}}'s with us at the muster point",
+        "It's {{firstPatientName}}, {{he}}'s finding it hard to breathe"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the factory, main gate is the fastest way in"
+        "{{address}}, it's the factory",
+        "It's {{address}}, use the main gate",
+        "{{address}}, we'll have someone waiting to guide you in",
+        "You want {{address}}, the industrial estate off the ring road",
+        "{{address}}, please hurry, you'll see the smoke from far off",
+        "{{address}}, that's confirmed, come through the main entrance",
+        "{{address}}, the factory, everyone's at the muster point in the car park",
+        "{{address}}, that's us, please come quickly",
+        "{{address}}, come through the gate, I'll be waiting there",
+        "{{address}}, please, we need help fast"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Fire broke out on the production floor and has taken hold of the whole building, we've evacuated everyone"
+        "The fire's spread right through the building, we got everyone out in time",
+        "Not sure of the cause, but it went from a small fire to the whole roof very fast",
+        "We think it started in the production area and spread through the building",
+        "Not certain, but by the time we noticed it was already a big fire",
+        "We believe it may be electrical, it's spread extremely quickly",
+        "Not sure exactly, but the whole structure's now well alight",
+        "We got everyone out as soon as the alarm sounded, it's spread fast since",
+        "Unclear cause, but the fire's taken hold of the entire building now",
+        "Not certain, but a few staff got smoke in their lungs on the way out",
+        "We don't know exactly, but it's now a major fire throughout the factory"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone accounted for is conscious, a handful coughing from smoke"
+        "{{He}}'s conscious, coughing a lot but talking to us",
+        "{{He}}'s awake, quite breathless from the smoke",
+        "{{He}}'s conscious, sat down and recovering slowly",
+        "{{He}}'s awake but struggling a bit to catch {{his}} breath",
+        "{{He}}'s conscious, we're keeping {{him}} sat upright",
+        "{{He}}'s awake, coughing hard every so often",
+        "{{He}}'s conscious, quite pale from the smoke exposure",
+        "{{He}}'s awake, {{he}}'s worried about {{his}} chest",
+        "{{He}}'s conscious, we're staying with {{him}} the whole time",
+        "{{He}}'s awake, breathing's a bit better since we got outside"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A few staff struggled with smoke getting out, they're being looked at now"
+        "{{He}}'s breathing but coughing a lot from the smoke",
+        "{{He}}'s wheezing, breathing's laboured",
+        "{{He}}'s struggling a little, we've got {{him}} in fresh air now",
+        "{{He}}'s breathing but says {{his}} chest feels tight",
+        "{{He}}'s coughing frequently, breathing's not great",
+        "{{He}}'s breathing fast, a bit panicked from the smoke",
+        "{{He}}'s wheezing slightly, we're keeping {{him}} calm",
+        "{{He}}'s breathing but shallow, {{he}} inhaled a lot of smoke",
+        "{{He}}'s alright at the moment, just coughing hard",
+        "{{He}}'s breathing okay now we're well clear of the building"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No serious injuries reported yet"
+        "{{He}} says {{his}} throat and chest hurt from the smoke",
+        "{{His}} eyes are stinging and {{his}} throat's very sore",
+        "{{He}}'s got a headache and says {{his}} chest feels tight",
+        "{{He}} says it hurts when {{he}} takes a deep breath",
+        "{{He}}'s complaining of a sore throat and watering eyes",
+        "{{He}} says {{his}} chest hurts a lot from the coughing",
+        "{{He}}'s got a scratchy throat and stinging eyes",
+        "{{He}} says {{he}}'s getting a bad headache",
+        "{{He}}'s uncomfortable, mostly throat and chest irritation",
+        "{{He}} says {{his}} lungs feel sore from the smoke"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding reported"
+        "No, no bleeding, just smoke inhalation",
+        "No, {{he}}'s not bleeding, it's the smoke affecting {{him}}",
+        "No bleeding at all, just coughing and breathlessness",
+        "No, there's no injury, just smoke exposure",
+        "No bleeding, {{his}} eyes are just watering badly",
+        "No, nothing like that, just breathing difficulty",
+        "No, no cuts or blood, purely from the smoke",
+        "No bleeding, {{he}}'s just very shaken and coughing",
+        "No, this is purely from breathing in smoke",
+        "No bleeding, {{he}}'s just struggling a bit to breathe"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't have staff medical details to hand"
+        "I believe {{he}} has asthma, we're checking with HR",
+        "Not sure exactly, we're pulling {{his}} staff file",
+        "{{He}} might have a chest condition, I'm not certain",
+        "I don't know off the top of my head, sorry",
+        "We're checking now, I think {{he}} may be asthmatic",
+        "Not certain, but HR will have {{his}} records",
+        "I believe {{he}} has no known conditions, but I'm checking",
+        "Not sure, we're getting {{his}} file from the office",
+        "I think {{he}} carries an inhaler normally",
+        "Not certain, we're confirming with HR now"
       ]
     },
     "medications": {
       "answers": [
-        "Not something I can confirm right now"
+        "I'm not sure, we're checking {{his}} staff records now",
+        "{{He}} may carry an inhaler, I believe",
+        "Not certain, HR will know",
+        "I don't know off the top of my head, sorry",
+        "We're checking, I think {{he}} might have an inhaler with {{him}}",
+        "Not sure exactly, we're confirming with HR",
+        "I believe {{he}} doesn't take regular medication, not certain",
+        "Not certain, we'll check {{his}} file",
+        "I'm not sure, sorry, we're finding out now",
+        "Not certain, HR are checking now"
       ]
     },
     "patientAge": {
       "answers": [
-        "All adults, our workforce"
+        "{{He}}'s in {{his}} thirties",
+        "{{He}}'s about forty",
+        "{{He}}'s in {{his}} late twenties",
+        "{{He}}'s around fifty years old",
+        "{{He}}'s in {{his}} forties",
+        "{{He}}'s about thirty five",
+        "{{He}}'s in {{his}} early fifties",
+        "{{He}}'s around twenty eight",
+        "{{He}}'s in {{his}} mid forties",
+        "{{He}}'s about thirty years old"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, everyone's at the assembly point in the car park"
+        "Okay, we've got {{him}} sat down outside in fresh air",
+        "Understood, we're keeping {{him}} calm and monitoring {{him}}",
+        "Okay, everyone else is accounted for at the muster point",
+        "Right, we'll keep {{him}} sat still until you arrive",
+        "Okay, thank you, we're staying with {{him}} the whole time",
+        "Understood, we're well clear of the building now",
+        "Okay, {{he}}'s a bit calmer now, still coughing though",
+        "Right, we'll keep the area clear for you when you arrive",
+        "Okay, thank you, we're doing what we can to keep {{him}} comfortable",
+        "Understood, we'll wait right here with {{him}}"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a major fire, we need every crew available"
+        "No, {{he}}'s struggling to breathe, this needs an ambulance",
+        "No, I don't think that's right, {{he}} needs to be seen properly",
+        "No, this is urgent, please send an ambulance",
+        "No, {{he}}'s in a bad way, this can't wait",
+        "No, this needs paramedics, not that",
+        "No, please, {{he}} needs help now",
+        "No, this is too serious for that",
+        "No, {{he}}'s struggling with the smoke, please send help",
+        "No, we need an ambulance here as soon as possible",
+        "No, please just send someone quickly"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh good, please, we need help keeping the road clear near the gate",
+        "Thank you, yes, traffic's building up around the factory",
+        "Good, please send them quick, we need the area secured",
+        "Thank you, that's a relief, we can't manage the crowd and the casualties together",
+        "Oh good, yes please, people keep trying to get closer to look",
+        "Thank you, please hurry them, we need access kept clear for the engines",
+        "Good, yes, we really need that, it's chaotic near the gate",
+        "Thank you, please, we're struggling to keep the road clear ourselves",
+        "Oh good, that's needed, please send them as fast as you can",
+        "Thank you, yes please, we need help managing the scene here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry",
+        "Good, please, how long will they be, the smoke's getting worse",
+        "Thank you, we're all at the muster point, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we're keeping {{him}} sat down, please hurry",
+        "Oh good, please send them quickly, a few of us are coughing badly",
+        "Thank you, everyone's accounted for, please hurry them up",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, {{he}} needs help breathing"
       ]
     }
   },

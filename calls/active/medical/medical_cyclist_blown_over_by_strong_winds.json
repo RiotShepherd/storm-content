@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -71,8 +75,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "A cyclist's just been blown off his bike by the wind, he's come down hard",
-      "Someone's been knocked off their bike in the wind, they're hurt"
+      "A cyclist's just been blown off {{his}} bike by the wind, {{he}}'s come down hard",
+      "Someone's been knocked off their bike in the wind, {{he}}'s hurt",
+      "A cyclist's gone down on the road, the wind caught {{him}} and {{he}} came off",
+      "There's been a bike accident, a gust of wind took {{him}} straight off",
+      "A cyclist's come off {{his}} bike in this wind, {{he}}'s on the ground",
+      "Someone's been thrown off their bicycle by a strong gust",
+      "I've just seen a cyclist blown over, {{he}}'s not getting up easily",
+      "A cyclist's crashed, the wind's really bad out here today",
+      "There's a cyclist down on the road, {{he}} got caught by a gust",
+      "A cyclist's come off {{his}} bike hard, the wind's knocked {{him}} sideways"
     ],
     "phoneArea": "auto",
     "callerType": "passer_by"
@@ -84,91 +96,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "A cyclist's just been blown off his bike by the wind, he's come down hard",
-        "Someone's been knocked off their bike in the wind, they're hurt"
+        "A cyclist's just been blown off {{his}} bike by the wind, {{he}}'s come down hard",
+        "Someone's been knocked off their bike in the wind, {{he}}'s hurt",
+        "A cyclist's gone down on the road, the wind caught {{him}} and {{he}} came off",
+        "There's been a bike accident, a gust of wind took {{him}} straight off",
+        "A cyclist's come off {{his}} bike in this wind, {{he}}'s on the ground",
+        "Someone's been thrown off their bicycle by a strong gust",
+        "I've just seen a cyclist blown over, {{he}}'s not getting up easily",
+        "A cyclist's crashed, the wind's really bad out here today",
+        "There's a cyclist down on the road, {{he}} got caught by a gust",
+        "A cyclist's come off {{his}} bike hard, the wind's knocked {{him}} sideways"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "He said his name's {{firstPatientName}}",
-        "{{firstPatientName}}, that's what he told me"
+        "I don't know, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}} at all",
+        "No idea I'm afraid, never met {{him}} before",
+        "Sorry, I've got no idea, I just saw what happened",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, sorry, we're not together",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I've no idea, I only just met {{him}}"
       ]
     },
     "address": {
       "answers": [
-        "It's at {{address}}",
-        "{{address}}, on the road"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A gust of wind knocked him sideways off his bike, he landed hard on the road",
-        "He was blown into the kerb and came off, hit his shoulder and hip"
+        "A strong gust caught {{him}} side on and blew {{him}} straight off {{his}} bike",
+        "{{He}} was cycling along and the wind just took {{him}} off balance",
+        "A sudden gust knocked {{him}} sideways off the bike into the road",
+        "{{He}} lost control in the wind and came down hard on the tarmac",
+        "The wind caught {{his}} bike and {{he}} went over the handlebars",
+        "{{He}} was blown off {{his}} bike by a gust and landed awkwardly",
+        "A gust of wind pushed {{him}} into the kerb and {{he}} came off",
+        "{{His}} bike was blown sideways and {{he}} hit the ground hard",
+        "The wind knocked {{him}} clean off {{his}} bike, {{he}} went down fast",
+        "{{He}} was struggling with the wind and then just went straight over"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake and talking",
-        "Yes, conscious"
+        "Yes, {{he}}'s awake, just in a lot of pain",
+        "Conscious, yes, but really shaken up",
+        "{{He}}'s awake and talking to me",
+        "Yes, {{he}}'s alert, wincing every time {{he}} moves",
+        "Conscious, yes, {{he}}'s gritting {{his}} teeth",
+        "{{He}}'s awake, just shaken and sore",
+        "Yes, {{he}}'s conscious throughout",
+        "{{He}}'s alert, just very shaken up",
+        "Yes, {{he}}'s talking to me, clearly in pain",
+        "Conscious, yes, {{he}}'s embarrassed more than anything"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Fine, breathing normally",
-        "No problems there"
+        "Yes, breathing fine, just winded from the fall",
+        "{{He}}'s breathing okay, just shaken",
+        "Fine, {{his}} breathing's normal",
+        "Yes, {{he}}'s breathing normally",
+        "{{His}} breathing seems fine to me",
+        "Yes, no problem breathing",
+        "{{He}}'s breathing okay, a bit out of breath from the shock",
+        "Normal breathing, yes",
+        "Fine, {{he}}'s just shaken, breathing's okay",
+        "Yes, breathing's fine"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Yes, his shoulder and hip hurt",
-        "Says his wrist is painful too"
+        "{{He}} says {{his}} shoulder hurts really badly",
+        "{{He}}'s in a lot of pain in {{his}} shoulder",
+        "{{He}} won't let me touch {{his}} shoulder, says it's agony",
+        "Yes, {{he}}'s in pain, {{his}} shoulder mostly",
+        "{{He}}'s holding {{his}} shoulder, says it's really sore",
+        "Bad pain in {{his}} shoulder, {{he}} keeps wincing",
+        "{{He}} says it hurts a lot when {{he}} moves {{his}} shoulder",
+        "{{His}} shoulder is really painful, {{he}}'s in a bad way",
+        "Yes, quite a bit of pain, mostly in {{his}} shoulder",
+        "{{He}} says it's sore all round {{his}} shoulder"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A graze on his arm, nothing serious",
-        "No, just bruising"
+        "Yes, a bit of blood from {{his}} arm",
+        "There's some bleeding from {{his}} arm, not huge but steady",
+        "A small amount from {{his}} arm",
+        "Yes, {{his}} arm is bleeding, I've got something pressed on it",
+        "A bit of blood, coming from {{his}} arm",
+        "Yes, {{his}} arm is cut and bleeding",
+        "Some bleeding from {{his}} arm, I'm keeping pressure on",
+        "There's a fair bit of blood from {{his}} arm",
+        "Yes, {{his}} arm is bleeding, quite a lot actually",
+        "A little blood from {{his}} arm, I've dabbed it with a tissue"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He hasn't said",
-        "Don't know, I'm a stranger to him"
+        "I don't know, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}} at all",
+        "No idea I'm afraid, never met {{him}} before",
+        "Sorry, I've got no idea, I just saw what happened",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, sorry, we're not together",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I've no idea, I only just met {{him}}"
       ]
     },
     "medications": {
       "answers": [
-        "Don't know",
-        "He hasn't said"
+        "No idea, sorry, I don't know {{him}}",
+        "I couldn't tell you, {{he}}'s a stranger to me",
+        "No idea I'm afraid, sorry",
+        "Sorry, I don't know {{him}} well enough to say",
+        "Can't help with that, I don't know {{him}}",
+        "No idea, sorry, I don't know",
+        "I've no clue, never met {{him}} before today",
+        "Sorry, I really don't know",
+        "No idea, we're not together, I just saw {{him}} fall",
+        "Couldn't tell you I'm afraid"
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks about 40",
-        "Mid forties, I'd guess"
+        "I don't know, {{he}} looks about 35",
+        "Not sure, maybe 35, I don't know {{him}}",
+        "I'd guess 35, but I couldn't say for certain",
+        "No idea really, {{he}} looks to be around 35",
+        "I don't know {{him}}, but {{he}} looks about 35",
+        "Hard to say, 35 maybe",
+        "I couldn't tell you exactly, around 35 I'd guess",
+        "Sorry, no idea, 35 perhaps",
+        "I'm not sure, {{he}} looks to be in {{his}} 30s",
+        "Can't say for certain, 35 ish"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying with him",
-        "I've got his bike out of the road"
+        "Okay, I'm keeping {{him}} still, {{he}}'s off the road now",
+        "Right, I've moved {{his}} bike out of the way for now",
+        "I'm staying with {{him}}, talking to {{him}} until you get here",
+        "Okay, I've got my coat over {{him}}, it's cold and windy",
+        "Yes, doing that now, {{he}}'s still in a fair bit of pain",
+        "Okay, I've got {{him}} sat up against the wall out of the wind",
+        "I'm keeping {{him}} calm, {{he}}'s a bit shaken more than anything",
+        "Right, I'm not moving {{him}}, just keeping {{him}} company",
+        "Okay, doing that now, {{he}}'s embarrassed but okay",
+        "I'm staying with {{him}}, {{he}}'s not going anywhere fast"
       ]
     },
     "refer111": {
       "answers": [
-        "He seems in a fair bit of pain, might be worth checking",
-        "Not sure, could go either way really"
+        "I suppose that could work, but {{he}}'s in a fair bit of pain",
+        "Maybe, {{he}} says {{he}}'s okay to wait if that's best",
+        "That could be alright, {{he}}'s not too bad, just shaken",
+        "Possibly, {{he}}'s more shocked than hurt I think",
+        "I think that's fine actually, {{he}}'s able to move about a bit",
+        "Could be, {{he}}'s saying {{he}}'s not too bad now",
+        "That sounds sensible, {{he}}'s calmed down a bit",
+        "I think {{he}}'d rather someone came, {{he}}'s quite sore",
+        "Maybe not, {{he}}'s in more pain than {{he}}'s letting on",
+        "I'm not sure, {{he}} still can't put weight on {{his}} arm properly"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, it's an ambulance {{he}} needs",
+        "No, no police needed, this is a medical matter, not police",
+        "No thank you, just the ambulance, there's nothing for police here",
+        "No, wrong service, {{he}} just needs medical help, not police",
+        "No police required, {{he}}'s just unwell, we only need paramedics",
+        "No, nothing for police to do here, it's purely medical",
+        "No, we're fine on that front, just the ambulance for {{him}} please",
+        "Police? No, I don't think that's needed, {{he}} just needs help",
+        "No, no crime or anything like that, just an ambulance please",
+        "No police necessary, {{he}} just needs to be seen by paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, we just need an ambulance for {{him}}",
+        "No, no fire brigade needed, it's an ambulance {{he}} needs",
+        "Fire service? No, wrong service, {{he}}'s just unwell",
+        "No, nothing's on fire, {{he}} just needs a paramedic",
+        "No thank you, no need for fire, just the ambulance please",
+        "Fire brigade? No, {{he}}'s not trapped or anything, {{he}}'s just poorly",
+        "No, that's not necessary, {{he}} only needs medical help",
+        "No fire involved, we just need the ambulance to get here",
+        "Fire? No, I don't think that's needed, {{he}} just needs paramedics",
+        "No, no fire service required, it's purely a medical matter"
       ]
     }
   },

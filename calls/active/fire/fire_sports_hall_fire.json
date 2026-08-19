@@ -45,6 +45,11 @@
     "aerial": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 9,
+    "ambulance": 2
+  },
   "patients": {
     "range": [
       0,
@@ -99,7 +104,15 @@
   "caller": {
     "openings": [
       "Fire brigade, the sports hall's on fire, we've got a class in there, they're getting out now.",
-      "There's a fire in the school sports hall, smoke's filling the hall fast, some kids are coughing."
+      "There's a fire in the school sports hall, smoke's filling the hall fast, some kids are coughing.",
+      "It's the sports hall, there's a fire and some of the pupils are struggling with the smoke.",
+      "Fire service please, the sports hall's alight, we're getting the children out now.",
+      "There's smoke filling the sports hall, a few pupils are coughing quite badly.",
+      "The sports hall's on fire, we've got children coming out coughing from the smoke.",
+      "Fire brigade, please hurry, there's a class caught in the smoke in the sports hall.",
+      "There's a fire in the school hall, some pupils can't stop coughing from the smoke.",
+      "The sports hall's alight, we're moving the children out but a few are struggling to breathe.",
+      "There's a fire and heavy smoke in the sports hall, some pupils are quite distressed."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -112,82 +125,231 @@
     "start": {
       "answers": [
         "Fire brigade, the sports hall's on fire, we've got a class in there, they're getting out now.",
-        "There's a fire in the school sports hall, smoke's filling the hall fast, some kids are coughing."
+        "There's a fire in the school sports hall, smoke's filling the hall fast, some kids are coughing.",
+        "It's the sports hall, there's a fire and some of the pupils are struggling with the smoke.",
+        "Fire service please, the sports hall's alight, we're getting the children out now.",
+        "There's smoke filling the sports hall, a few pupils are coughing quite badly.",
+        "The sports hall's on fire, we've got children coming out coughing from the smoke.",
+        "Fire brigade, please hurry, there's a class caught in the smoke in the sports hall.",
+        "There's a fire in the school hall, some pupils can't stop coughing from the smoke.",
+        "The sports hall's alight, we're moving the children out but a few are struggling to breathe.",
+        "There's a fire and heavy smoke in the sports hall, some pupils are quite distressed."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't have their names, there's a few pupils affected."
+        "There's a few pupils affected, I know some of their names, others I'd need to check the register.",
+        "I know a couple of them, the rest I'd need to check against the class register.",
+        "A few names I know, the register's with the other teacher who's checking now.",
+        "I can give you some names, there's a handful of pupils affected.",
+        "I know a few of their names, we're checking the register for the rest.",
+        "There's several pupils, I've got some names, checking the rest now.",
+        "A few I know personally, the register will have the full list.",
+        "I can name a couple, there's more we're still checking against the register.",
+        "I know some names, there's a few pupils caught up in this.",
+        "A handful of names I know, the rest are on the class register we're checking."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A fire's started near the equipment store in the sports hall, we've evacuated the PE class but the smoke got quite thick.",
-        "Something caught alight up in the roof space of the hall, we got everyone out but a few pupils breathed in smoke."
+        "A fire started near the equipment store in the sports hall and spread quickly, smoke filled the hall before everyone got out.",
+        "It looks like it started with the lighting rig, smoke filled the hall fast while the class was still in there.",
+        "The fire's spread from the storage area, a number of pupils breathed in smoke before we got them clear.",
+        "It started suddenly, smoke filled the hall within a minute, some of the children got quite a lot of smoke.",
+        "We think it started electrically near the store cupboard, the class was still inside when smoke filled the hall.",
+        "The fire's spreading through the equipment store, some pupils are coughing badly from the smoke they breathed in.",
+        "It caught fast, we got most of the class out but a few got caught in the thick smoke.",
+        "The smoke filled the hall before we could get everyone to the fire exit.",
+        "It's spread from the storage area into the main hall, a number of children are affected by the smoke.",
+        "We think matting near the store caught fire, the smoke filled the hall very quickly."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "They're all conscious, a few coughing, sat on the field with staff."
+        "Most are conscious, coughing and upset, but awake.",
+        "They're all conscious as far as I can see, just shaken up.",
+        "A couple seem a bit dazed but everyone's conscious.",
+        "Yes, conscious, but some are struggling more than others.",
+        "They're awake, frightened, some coughing badly.",
+        "All conscious that I can see, no one's collapsed.",
+        "Conscious but distressed, a lot of coughing going on.",
+        "Everyone I can see is conscious, just very shaken.",
+        "They're conscious, some worse than others with the coughing.",
+        "As far as I know they're all conscious, just unwell."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Two or three are wheezing a bit from the smoke."
+        "Several are struggling to breathe, we've got them into fresh air.",
+        "A few are wheezing badly, the rest seem okay so far.",
+        "Some are really short of breath, it's quite bad for a couple of them.",
+        "Breathing's laboured for a number of them, lots of coughing.",
+        "A handful are having real trouble breathing.",
+        "Most are breathing okay now they're outside, a few still struggling.",
+        "Some are gasping a bit, we've moved them away from it.",
+        "A couple are really struggling for breath, the others are coughing.",
+        "Breathing's an issue for several of them, getting worse by the minute.",
+        "Some are fine, others are really wheezy and short of breath."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "A couple say their chests hurt from coughing."
+        "A few say their chests hurt and their throats are sore from the smoke.",
+        "Some of them say it hurts to breathe in, sore throats mostly.",
+        "There's some chest discomfort and sore eyes among a few of them.",
+        "A couple are holding their chests, say it hurts when they cough.",
+        "Some have got sore eyes and throats from the smoke.",
+        "A few say their chests feel tight, mostly from the coughing.",
+        "Some are uncomfortable, sore throats and coughing mainly.",
+        "There's a bit of chest discomfort reported among a few pupils.",
+        "A number of them say it hurts when they breathe in deeply.",
+        "Some are complaining their throats and chests hurt a bit."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, it's the smoke that's the issue."
+        "No bleeding that I can see, it's all breathing problems.",
+        "No, nobody's bleeding, it's the fumes causing the trouble.",
+        "No blood, just people struggling with the smoke.",
+        "Not that I've seen, it's all coughing and breathing issues.",
+        "No bleeding, thankfully, just everyone feeling unwell.",
+        "No, no injuries like that, just the effects of the smoke.",
+        "Nobody's cut or bleeding, it's the fumes affecting them.",
+        "No bleeding at all, it's a respiratory thing.",
+        "Not bleeding, no, just really struggling to breathe.",
+        "No blood, no, this is all down to the smoke."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I can check with the office, a couple of them have asthma I think."
+        "A couple of them have asthma, I know that much from their records.",
+        "I know one or two have inhalers, not sure about the rest of them.",
+        "Some of them are on the asthma register, I'd need to check exactly who.",
+        "I believe a couple have asthma, the school nurse would know more.",
+        "I know a few have inhalers with them, medical details are with the office.",
+        "Some have known conditions, asthma mostly, on file with the school.",
+        "I'm not certain of all their details, a couple are asthmatic that I know of.",
+        "I know some have inhalers, the full medical details are in the office.",
+        "A few are on our asthma register, I don't have the full list on me.",
+        "I believe one or two have asthma, I'd need to check with the office for certain."
       ]
     },
     "medications": {
       "answers": [
-        "A couple carry inhalers, I'll find out who."
+        "A couple of them carry inhalers, I know that much.",
+        "Some have their own inhalers with them in their bags.",
+        "I know a few carry inhalers for asthma, not sure about anything else.",
+        "Some of them have inhalers on them, the rest I'm not sure about.",
+        "A couple carry inhalers, I don't know of anything else they're on.",
+        "I know some have inhalers, the office would know more about medication.",
+        "A few have their own inhalers, that's all I'm aware of.",
+        "Some carry inhalers for asthma, nothing else that I know of.",
+        "I believe a couple have inhalers on them right now.",
+        "I know of a few inhalers among them, nothing more that I'm aware of."
       ]
     },
     "patientAge": {
       "answers": [
-        "They're all secondary school age, around eleven to fifteen."
+        "They're all around ten to eleven years old, it's a year six class.",
+        "Primary school age, around ten or eleven, it's year six.",
+        "They're year six pupils, so ten to eleven years old.",
+        "All around eleven, it's the year six class that was in there.",
+        "Primary age children, ten and eleven year olds mostly.",
+        "They're year six, so ten or eleven years old.",
+        "All around ten to eleven, it was the year six PE class.",
+        "Primary school pupils, ten to eleven years old.",
+        "They're all year six, around ten or eleven years old.",
+        "Ten and eleven year olds, it's our year six class."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Thank you, please hurry, some of the children are quite distressed.",
+        "Okay, good, we're getting them into the fresh air now.",
+        "Thank you, that's a relief, a few of them are coughing quite badly.",
+        "Right, we're keeping them together outside on the field.",
+        "Okay, thank you, please hurry, a few of them look quite pale.",
+        "Thank you, we'll keep them calm and sat down until you get here.",
+        "Okay, good, we really need someone to check the children over.",
+        "Thank you, a couple of them can barely speak from the coughing.",
+        "Right, we're doing what we can for them, please get here quickly.",
+        "Okay, thank you, we've got them all together on the playing field."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's smoke from a fire, I need fire and ambulance.",
+        "No, we don't need police, just the fire brigade and paramedics please.",
+        "Sorry, no, this isn't a police matter, it's a school fire.",
+        "No thanks, no police needed, just get fire and ambulance here.",
+        "That's not necessary, we need fire and medical help, not police.",
+        "No, there's no crime here, just children caught in smoke.",
+        "Police aren't needed for this, it's a fire and smoke situation.",
+        "No, thank you, I only need fire and ambulance crews.",
+        "Sorry, no, this doesn't need police involved.",
+        "No, it's not a police matter, please just send fire and ambulance."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, the smoke's still bad in the hall.",
+        "Good, thank you, we really need them here quickly.",
+        "Okay, thank you, we're keeping the children calm until they arrive.",
+        "Right, thank you, please tell them to hurry, the children are scared.",
+        "Thank you, that's good to hear, we're doing what we can for now.",
+        "Okay, good, we need them here fast, the smoke's spreading.",
+        "Thanks, we'll keep everyone on the field until they get here.",
+        "That's a relief, please hurry, some of the children are quite upset.",
+        "Okay, thank you, we're keeping the whole class together outside.",
+        "Good, thank you, we need them here as soon as possible."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, they need checking now, not 111, please send an ambulance.",
+        "I don't think 111 can help, these are children struggling to breathe.",
+        "No, this can't wait for 111, we need paramedics and fire out here.",
+        "Sorry, no, we need proper emergency help, these are school children.",
+        "No, 111's too slow for this, please send help quickly.",
+        "I really think we need 999 crews here, not 111, they're children.",
+        "No, some of the children are quite distressed, this needs a response now.",
+        "Sorry, no, this is urgent, please don't refer us to 111.",
+        "No, we need fire and ambulance now, not a phone line.",
+        "No, please, these are children, this needs proper help straight away."
       ]
     }
   },

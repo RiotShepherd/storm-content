@@ -43,6 +43,10 @@
     "irv": 1,
     "traffic_car": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,14 @@
     "openings": [
       "Police please, there's debris in the fast lane of the motorway, it's really dangerous",
       "I need to report a hazard, something's fallen in the road and cars are swerving at speed",
-      "There's debris on the dual carriageway, someone's going to hit it"
+      "There's debris on the dual carriageway, someone's going to hit it",
+      "Police, there's a load of debris scattered across the motorway",
+      "I need to report urgently, there's stuff in the middle lane at high speed",
+      "There's something big in the road on the motorway, cars are braking hard",
+      "Please hurry, there's debris right across the fast lane",
+      "I need to report a hazard, something's fallen off a lorry at speed on the motorway",
+      "There's debris scattered across the carriageway, this is really dangerous at this speed",
+      "Police please, there's a serious hazard on the motorway, debris everywhere"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -81,90 +92,230 @@
       "answers": [
         "Police please, there's debris in the fast lane of the motorway, it's really dangerous",
         "I need to report a hazard, something's fallen in the road and cars are swerving at speed",
-        "There's debris on the dual carriageway, someone's going to hit it"
+        "There's debris on the dual carriageway, someone's going to hit it",
+        "Police, there's a load of debris scattered across the motorway",
+        "I need to report urgently, there's stuff in the middle lane at high speed",
+        "There's something big in the road on the motorway, cars are braking hard",
+        "Please hurry, there's debris right across the fast lane",
+        "I need to report a hazard, something's fallen off a lorry at speed on the motorway",
+        "There's debris scattered across the carriageway, this is really dangerous at this speed",
+        "Police please, there's a serious hazard on the motorway, debris everywhere"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm pulled up on the hard shoulder",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I just saw it happen.",
+        "{{callerName}}, I'm a member of the public.",
+        "My name's {{callerName}}, I was passing by.",
+        "It's {{callerName}} here, I witnessed the whole thing.",
+        "{{callerName}}, that's me, I saw it from across the road.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I happened to be nearby.",
+        "{{callerName}} speaking, I saw everything.",
+        "My name is {{callerName}}, I was right there.",
+        "It's {{callerName}}, just a bystander really."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's involved yet, but it's a matter of time",
-        "N/A, nobody's hurt yet"
+        "There's no patient, nobody's hurt in this.",
+        "No one to name, it's just debris on the motorway.",
+        "N/A, there's no injury here at all.",
+        "Nobody's hurt, so there isn't a name to give.",
+        "There's no casualty, this isn't a medical matter.",
+        "No patient involved, it's not that kind of call.",
+        "It's not about an injured person, there's no name needed.",
+        "No one hurt at all, nothing to report there.",
+        "There's no one to name, it's just debris on the motorway causing the problem.",
+        "Not applicable, nobody's been injured."
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, near the junction",
-        "It's on {{address}}, just past the slip road"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "There's a pallet in the middle lane, cars are swerving at speed to avoid it",
-        "It looks like it's come off a van, no one's stopped",
-        "Traffic's already backing up as people brake hard to avoid it"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt yet, no injuries",
-        "N/A, no one's been hit"
+        "Nobody's hurt, there's no one to check on.",
+        "No injuries at all, it's just debris on the motorway.",
+        "N/A, no one's involved to be conscious or not.",
+        "There's no casualty here, nobody's been hurt.",
+        "No one's hurt, it's purely debris on the motorway.",
+        "Not applicable, there's no injured person.",
+        "No, nobody's been hurt in this at all.",
+        "There isn't anyone hurt, so that doesn't apply.",
+        "No injuries, this is just debris on the motorway, nothing more.",
+        "Nobody to worry about like that, no one's hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "No one's struggling to breathe, nobody's hurt.",
+        "N/A, there's no injured person here.",
+        "Not applicable, it's just debris on the motorway.",
+        "No casualty, so breathing's not an issue.",
+        "Nobody's hurt, that doesn't apply here.",
+        "There's no one affected like that.",
+        "No injuries at all, it's only debris on the motorway.",
+        "Doesn't apply, nobody's been hurt.",
+        "No one to check, there's no patient.",
+        "Not relevant, no one's injured in this."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A",
-        "No one's hurt"
+        "No pain, nobody's hurt at all.",
+        "N/A, there's no one injured here.",
+        "Nobody's in pain, it's just debris on the motorway.",
+        "Not applicable, no casualty involved.",
+        "No one's hurt, so no pain to report.",
+        "Doesn't apply, nobody's been injured.",
+        "No, there's no injured person in this.",
+        "There isn't anyone hurt, no pain at all.",
+        "No pain, it's only debris on the motorway that's the problem.",
+        "Not relevant, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No bleeding, nobody's hurt.",
+        "N/A, there's no one injured.",
+        "None, it's just debris on the motorway.",
+        "No, nobody's been hurt at all.",
+        "Not applicable, no casualty here.",
+        "No blood, no injuries at all.",
+        "Doesn't apply, nobody's hurt in this.",
+        "No, there's no one to bleed, nobody's hurt.",
+        "None at all, it's only debris on the motorway.",
+        "Not relevant, no injuries to report."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "N/A, there's no patient in this.",
+        "No idea, and it's not needed, nobody's hurt.",
+        "Not applicable, it's just debris on the motorway.",
+        "No one's involved medically, nothing to tell you.",
+        "Doesn't apply, no casualty here.",
+        "There's no patient to ask about.",
+        "No idea, this isn't medical, it's debris on the motorway.",
+        "Not relevant, nobody's hurt.",
+        "No patient, so no history to give.",
+        "N/A, no one's been injured."
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "N/A, no patient to ask about.",
+        "No idea, nobody's hurt anyway.",
+        "Not applicable, it's just debris on the motorway.",
+        "No one's involved, nothing to tell you there.",
+        "Doesn't apply, there's no casualty.",
+        "No idea, this isn't a medical call.",
+        "N/A, nobody's been injured.",
+        "No patient, so nothing to report there.",
+        "Not relevant, it's only debris on the motorway.",
+        "No idea, no one's hurt in this."
       ]
     },
     "patientAge": {
       "answers": [
-        "Not applicable"
+        "N/A, there's no patient.",
+        "Doesn't apply, nobody's hurt.",
+        "No age to give, it's just debris on the motorway.",
+        "Not applicable, no one's involved like that.",
+        "There's no casualty, so no age needed.",
+        "N/A, this isn't about a person.",
+        "No idea, there's no patient here.",
+        "Doesn't apply, it's only debris on the motorway.",
+        "Not relevant, nobody's been hurt.",
+        "No age, there's no one injured."
       ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's where I am.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, that's the address.",
+        "We're at {{address}}.",
+        "It's {{address}}, you can't miss it.",
+        "{{address}}, that's the postcode.",
+        "The address is {{address}}.",
+        "{{address}}, I'll wait for you here.",
+        "It's {{address}}, that's the spot.",
+        "{{address}}, that's it exactly."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A lorry's shed part of its load at speed and there's debris right across the fast lane",
+        "Something's come off a vehicle and it's scattered right across the motorway at high speed",
+        "There's a large piece of furniture or sheeting in the middle lane, cars are swerving badly",
+        "A trailer's lost its load on the motorway, there's debris across two lanes",
+        "It looks like a mattress or similar has fallen off a van right in the fast lane",
+        "There's metal or scaffolding poles right across the carriageway at speed",
+        "Something's blown loose from a lorry and it's tumbling across the lanes",
+        "A load's come off a truck at speed and there's debris scattered everywhere",
+        "There's a big chunk of something in the road, cars are having to brake hard at speed",
+        "It looks like building material has spilled right across the fast lane of the motorway"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying well back on the hard shoulder",
-        "Please hurry, someone's going to hit it at that speed"
+        "No ambulance needed, nobody's hurt, thank you.",
+        "I don't need an ambulance, this isn't medical, I just need police.",
+        "No, nobody's injured, just send police please.",
+        "That's not necessary, no one's hurt here.",
+        "No ambulance, thank you, it's a police matter.",
+        "Nobody's hurt, I only need officers here.",
+        "No, that's not needed, this isn't a medical emergency.",
+        "I don't think so, no injuries here at all.",
+        "No, no one's hurt, just police please.",
+        "That's not required, nobody's been injured."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them to arrive.",
+        "Good, I'll stay right here until they get here.",
+        "Thank you, I'll keep everyone back until they arrive.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Please hurry, I'll be watching out for them.",
+        "Thank you, I'll wait outside for the officers.",
+        "Okay, that's a relief, I'll stay put.",
+        "Good, I'll let you know if anything changes before they arrive.",
+        "Thank you, I'll keep an eye on things until they get here.",
+        "Okay, I'll stay close by until the police arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, there's no fire, I need police.",
+        "No, this isn't a fire, it's a police matter.",
+        "I don't need the fire service, just police please.",
+        "No fire here at all, just send officers.",
+        "That's the wrong service, there's no fire involved.",
+        "No, I need police, not the fire brigade.",
+        "There's no fire, just police please.",
+        "No thank you, nothing's alight, I need police.",
+        "That's not right, no fire here, just police.",
+        "No, nothing's on fire, just send police please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a road hazard, I need police urgently"
+        "No, this can't wait for a callback, I need police right now.",
+        "No, this needs a response now, not a phone call later.",
+        "That's not right, this is urgent, please send police.",
+        "No, I need someone here immediately, this isn't medical.",
+        "This can't wait, please, I need police straight away.",
+        "No, this is happening right now, I need officers here.",
+        "That won't help, this is urgent, not a 111 matter.",
+        "No, please, I need police now, not a callback.",
+        "This is too urgent for that, I need police straight away.",
+        "No, this needs police now, it can't wait."
       ]
     }
   },

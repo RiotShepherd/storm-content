@@ -48,6 +48,10 @@
     "iccu": 1,
     "fire_officer": 5
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 15
+  },
   "patients": {
     "range": [
       0,
@@ -97,8 +101,16 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade please, the fire on the wing has really taken hold now, we need a lot of engines",
-      "It's escalated, the wing fire's spread, we need major resources here"
+      "Fire brigade please, the fire on the wing has really taken hold now, we need a lot of engines.",
+      "It's escalated, the wing fire's spread, we need major resources here.",
+      "The fire's out of control now, it's spread across the whole wing.",
+      "Please send everyone, the wing's well alight and it's spreading fast.",
+      "We need major help, the fire's taken hold of the whole wing now.",
+      "It's a lot worse now, the fire's spread right across the wing.",
+      "Please hurry, the wing's properly on fire now, we need more engines.",
+      "The fire's escalated badly, we need as many crews as you can send.",
+      "It's spreading fast, the whole wing could go up, please send help.",
+      "We're overwhelmed here, the fire's spread right across the block."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -110,79 +122,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade please, the fire on the wing has really taken hold now, we need a lot of engines",
-        "It's escalated, the wing fire's spread, we need major resources here"
+        "Fire brigade please, the fire on the wing has really taken hold now, we need a lot of engines.",
+        "It's escalated, the wing fire's spread, we need major resources here.",
+        "The fire's out of control now, it's spread across the whole wing.",
+        "Please send everyone, the wing's well alight and it's spreading fast.",
+        "We need major help, the fire's taken hold of the whole wing now.",
+        "It's a lot worse now, the fire's spread right across the wing.",
+        "Please hurry, the wing's properly on fire now, we need more engines.",
+        "The fire's escalated badly, we need as many crews as you can send.",
+        "It's spreading fast, the whole wing could go up, please send help.",
+        "We're overwhelmed here, the fire's spread right across the block."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm the duty governor"
+        "{{callerName}}, I'm a prison officer, please hurry.",
+        "It's {{callerName}}, staff here, we need help fast.",
+        "{{callerName}}, I work here, please send everyone.",
+        "My name's {{callerName}}, I'm on the wing, please hurry.",
+        "{{callerName}}, prison staff, please get here quickly.",
+        "It's {{callerName}}, please send as many crews as possible.",
+        "{{callerName}} here, staff, this is really serious.",
+        "My name is {{callerName}}, please hurry, it's escalating fast.",
+        "{{callerName}}, I'm supervising, please send help now.",
+        "It's {{callerName}}, staff, please hurry, it's out of control."
       ]
     },
     "patientName": {
       "answers": [
-        "No injuries confirmed yet, we're still accounting for everyone"
+        "There's nobody hurt, it's just the wing fire that's really taken hold.",
+        "No patient here, it's only the wing fire that's really taken hold going up.",
+        "Nobody to name, there's no one hurt, just the wing fire that's really taken hold.",
+        "No casualties, it's purely the wing fire that's really taken hold we've got.",
+        "There's no one involved, just the wing fire that's really taken hold itself.",
+        "No patient to speak of, it's the wing fire that's really taken hold that's the issue.",
+        "Nobody's hurt so there's no name to give, it's just the wing fire that's really taken hold.",
+        "No one injured, it's only the wing fire that's really taken hold.",
+        "There's no patient, just the wing fire that's really taken hold needs sorting.",
+        "Nobody hurt at all, it's the wing fire that's really taken hold, that's it."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the prison, main gate"
+        "It's {{address}}, please hurry.",
+        "{{address}}, quickly please.",
+        "We're at {{address}}, send someone now.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are, please.",
+        "It's {{address}}, can you send someone fast.",
+        "{{address}}, please, as quick as you can.",
+        "We're at {{address}}, please get here quickly.",
+        "That's {{address}}, please hurry up.",
+        "{{address}}, I need someone here now."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The fire's spread beyond the cell it started in, staff can't contain it now"
+        "The small fire's spread right across the wing now, it's completely out of control.",
+        "It went from one cell to the whole landing in minutes, it's really bad now.",
+        "The fire's caught onto more cells and it's spreading fast through the wing.",
+        "It's escalated massively, flames are visible along the whole landing.",
+        "The fire jumped to more cells and now the whole wing's affected.",
+        "It's spread through the ventilation, the whole wing's filling with smoke and fire.",
+        "What started small has taken hold of the entire wing now.",
+        "The fire's spread rapidly, we can't contain it to one area anymore.",
+        "It's got completely out of control, the whole wing is now affected.",
+        "The fire's spread fast, we've had to evacuate the entire wing."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, there's no one to check on"
+        "Nobody's hurt, there's no one to check on.",
+        "No one's involved, so nothing like that applies.",
+        "There's no patient, no one to ask that about.",
+        "Nobody's affected, it's just the wing fire that's really taken hold.",
+        "No, there's no casualty here at all.",
+        "There's no one hurt, so no need for that.",
+        "Nobody to check, everyone's clear of it.",
+        "No patient here, so that doesn't apply.",
+        "There's nobody involved like that, just the wing fire that's really taken hold.",
+        "No one's hurt, so there's nothing to check."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No one's affected, everyone's clear"
+        "No one's affected, everyone's well clear of it.",
+        "There's no patient, so nothing like that to report.",
+        "Nobody's breathing in anything, we're all well away from it.",
+        "No, nobody's affected, it's just the wing fire that's really taken hold.",
+        "There's no one hurt, so that doesn't apply here.",
+        "Everyone's fine, nobody's near enough to be affected.",
+        "No casualties, no breathing problems, nothing like that.",
+        "Nobody's affected at all, we're all clear.",
+        "There's no patient to ask about that.",
+        "No, we're all outside and fine, nobody's affected."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can tell"
+        "No one's hurt as far as I can tell.",
+        "There's no patient, so no pain to report.",
+        "Nobody's in any pain, there's no one hurt.",
+        "No, nobody's injured, it's just the wing fire that's really taken hold.",
+        "There's no casualty, so that doesn't apply.",
+        "No one's hurt, nothing like that going on.",
+        "Nobody's in pain, there's no patient at all.",
+        "No injuries reported, nobody's hurt.",
+        "There's no one involved that way, just the wing fire that's really taken hold.",
+        "No, nobody's hurt, no pain, nothing like that."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries that I can see"
+        "No, no injuries that I can see.",
+        "There's no patient, so no bleeding to report.",
+        "Nobody's bleeding, there's no one hurt.",
+        "No, nothing like that, it's just the wing fire that's really taken hold.",
+        "There's no casualty here, no bleeding, nothing.",
+        "No one's injured at all, no bleeding.",
+        "Nobody's hurt, so there's no bleeding to speak of.",
+        "No, there's no patient, nothing like that.",
+        "There's no injury, no bleeding, just the wing fire that's really taken hold.",
+        "No, nobody's bleeding, nobody's hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, I can't help with that"
+        "There's no patient, I can't help with that.",
+        "No one's hurt, so there's no history to give.",
+        "Nobody involved that way, there's no patient.",
+        "No, there's no casualty, nothing like that applies.",
+        "There's no one to give history for, it's just the wing fire that's really taken hold.",
+        "No patient here, so I wouldn't know that.",
+        "Nobody's hurt, so that doesn't come into it.",
+        "There's no one injured, no history needed.",
+        "No casualty involved, so nothing like that.",
+        "There's no patient, that question doesn't apply here."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's nobody hurt"
+        "No idea, there's nobody hurt.",
+        "There's no patient, so no medication to mention.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No, there's no one involved that way.",
+        "There's no casualty, nothing like that to say.",
+        "No patient here, so I can't answer that.",
+        "Nobody's hurt at all, no medication needed.",
+        "There's no one injured, so that's not relevant.",
+        "No, it's just the wing fire that's really taken hold, no patient involved.",
+        "There's no patient, so nothing to report there."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's nobody hurt, no patient involved"
+        "There's nobody hurt, no patient involved.",
+        "No one to give an age for, there's no patient.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No casualty here, just the wing fire that's really taken hold.",
+        "There's no one injured, so no age to give.",
+        "No patient at all, it's only the wing fire that's really taken hold.",
+        "Nobody's affected, so that question doesn't apply.",
+        "There's no one hurt, no age needed.",
+        "No, there's no patient here.",
+        "Nobody's involved that way, just the wing fire that's really taken hold, no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're doing headcounts at the muster points"
+        "Ambulance? No, nobody's hurt, it's just the wing fire that's really taken hold.",
+        "Oh, we don't need an ambulance, nobody's injured here.",
+        "No need for that, nobody's hurt, it's only the wing fire that's really taken hold.",
+        "There's no one hurt, we just need the fire brigade.",
+        "No, thank you, nobody's injured, it's just the wing fire that's really taken hold.",
+        "We're fine, nobody's hurt, just get the fire engine here.",
+        "No ambulance needed, nobody's been hurt.",
+        "No one's injured, it's only the wing fire that's really taken hold that's the problem.",
+        "That's alright, nobody's hurt, we just need the fire service.",
+        "No, no one's injured, just send the fire brigade please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire, I need the fire brigade"
+        "No, I don't think 111 can help with the wing fire that's really taken hold, but thank you.",
+        "No, that's alright, it's the wing fire that's really taken hold, not really a medical thing.",
+        "No, I think I need the fire brigade for the wing fire that's really taken hold, not 111.",
+        "No, this isn't really a medical matter, thank you though.",
+        "No, I don't think that's quite right for the wing fire that's really taken hold.",
+        "No, it's not medical, it's the wing fire that's really taken hold, so I think I need the fire brigade.",
+        "No, I don't think 111 would be able to help with this one.",
+        "No, thank you, but the wing fire that's really taken hold isn't really a 111 sort of job.",
+        "No, I think this needs the fire brigade rather than 111.",
+        "No, it's fine, but the wing fire that's really taken hold really needs the fire service."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes please, it's chaos here, that would help.",
+        "Okay, good, we need someone keeping people back.",
+        "Yes, please send them, it's really busy here.",
+        "Okay, thank you, that would help a lot right now.",
+        "Yes, good, there's people everywhere, please hurry them along.",
+        "Okay, please, we need help keeping this under control.",
+        "Yes, that's needed, it's mayhem here.",
+        "Okay, thank you, please send them quickly.",
+        "Yes please, we could really use them here.",
+        "Okay, good, just please hurry everyone up."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, please hurry.",
+        "Right, thank you, please get here quickly.",
+        "Okay, please, as fast as you can.",
+        "Thank you, please hurry, it's getting worse.",
+        "Okay, thank god, please hurry.",
+        "Right, okay, please just get here fast.",
+        "Okay, thank you, please be quick.",
+        "Thank you, please hurry, I'm really worried.",
+        "Okay, good, please hurry them up.",
+        "Okay, thank you, please come quickly."
       ]
     }
   },

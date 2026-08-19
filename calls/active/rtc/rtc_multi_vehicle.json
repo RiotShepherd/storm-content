@@ -25,6 +25,8 @@
     "otl": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {},
   "patients": {
     "range": [
       5,
@@ -83,100 +85,251 @@
     "openings": [
       "There's been a massive crash, loads of cars, please send everyone!",
       "Police, ambulance, everything, a lorry's ploughed into the traffic!",
-      "Hello? There's been a pile-up on the dual carriageway, people are trapped"
+      "Hello? There's been a pile-up on the dual carriageway, people are trapped",
+      "Emergency, there's cars everywhere, it's a huge crash, people are hurt!",
+      "Please, there's been a massive pile up, I don't know how many cars!",
+      "Send everyone you've got, there's been a terrible crash on the carriageway!",
+      "Oh god, there's cars piled into each other everywhere, people are trapped!",
+      "Emergency, a huge crash just happened, there's people hurt everywhere!",
+      "Please hurry, it's chaos here, loads of vehicles have crashed!",
+      "There's been a massive multi car crash, I can see people trapped!"
     ],
-    "phoneArea": "auto"
+    "phoneArea": "auto",
+    "callerType": "witness"
   },
   "dialogue": {
     "start": {
       "answers": [
-        "Police and ambulance, there's been a bad crash",
-        "All of them, it's a pile-up, people are hurt"
+        "There's been a massive crash, loads of cars, please send everyone!",
+        "Police, ambulance, everything, a lorry's ploughed into the traffic!",
+        "Hello? There's been a pile-up on the dual carriageway, people are trapped",
+        "Emergency, there's cars everywhere, it's a huge crash, people are hurt!",
+        "Please, there's been a massive pile up, I don't know how many cars!",
+        "Send everyone you've got, there's been a terrible crash on the carriageway!",
+        "Oh god, there's cars piled into each other everywhere, people are trapped!",
+        "Emergency, a huge crash just happened, there's people hurt everywhere!",
+        "Please hurry, it's chaos here, loads of vehicles have crashed!",
+        "There's been a massive multi car crash, I can see people trapped!"
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, I was two cars behind",
-        "{{callerName}}, I've pulled over on the hard shoulder"
+        "{{callerName}}, I've pulled over on the hard shoulder",
+        "My name's {{callerName}}, I'm helping where I can.",
+        "{{callerName}} here, I'm right in the middle of it.",
+        "It's {{callerName}} speaking, I'm trying to help people out.",
+        "{{callerName}}, I'm the one who called it in.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I've stopped my car and got out.",
+        "{{callerName}}, please hurry, I'm doing what I can.",
+        "Name's {{callerName}}, there's so much happening here."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know any of them",
-        "One lad says his name's Connor, he's the one with the leg"
+        "I don't know any of them, there's too many people.",
+        "No idea, there's dozens of casualties out here.",
+        "I can't say, there's too many people to check.",
+        "No idea who they are, it's chaos out here.",
+        "I don't know their names, there's just so many of them.",
+        "Can't tell you, there's people everywhere.",
+        "No idea, I've never seen any of them before.",
+        "I don't know, there's way too many casualties to ask.",
+        "No names I'm afraid, it's complete chaos here.",
+        "I can't say, I'm just trying to help where I can."
       ]
     },
     "address": {
-      "revealsAddress": true,
       "answers": [
         "We're on {{address}}, both lanes are blocked",
-        "{{address}}, just before the roundabout"
-      ]
+        "{{address}}, just before the roundabout",
+        "It's on {{address}}, cars everywhere.",
+        "{{address}}, you can't miss it, it's chaos.",
+        "We're at {{address}}, the whole carriageway's blocked.",
+        "{{address}}, close to the junction.",
+        "It's happened on {{address}}.",
+        "{{address}}, just past the bend.",
+        "We're on {{address}}, near the services.",
+        "{{address}}, right across both lanes."
+      ],
+      "revealsAddress": true
     },
     "whatHappened": {
-      "diagnostic": true,
       "answers": [
         "A lorry's crossed the central reservation and four or five cars have gone into it",
-        "Someone braked hard and about six cars have gone into each other, then a van rolled"
-      ]
+        "Someone braked hard and about six cars have gone into each other, then a van rolled",
+        "It's a massive chain reaction, car after car has gone into the one in front.",
+        "A lorry's jackknifed and cars have piled straight into the back of it.",
+        "Something's started it further up and it just kept happening, one after another.",
+        "There's cars scattered everywhere, it looks like a huge pile up.",
+        "A vehicle's spun out and caused a chain reaction across both lanes.",
+        "It looks like several cars have collided at speed, there's debris everywhere.",
+        "A lorry's lost control and taken out several cars with it.",
+        "It's a proper pile up, vehicles are crumpled up all along the carriageway."
+      ],
+      "diagnostic": true
     },
     "conscious": {
-      "diagnostic": true,
       "answers": [
         "Most are out and walking, but the driver of the blue car isn't moving at all",
-        "Two people are slumped in the front car and not answering me"
-      ]
+        "Two people are slumped in the front car and not answering me",
+        "Some are conscious and walking, others aren't responding at all.",
+        "A few are talking to me, others are completely still.",
+        "Some people are up and moving, some aren't responding.",
+        "A number of them are conscious, but a few aren't moving.",
+        "Some are alert, others look like they're not responding.",
+        "Quite a few are walking wounded, but some are unresponsive.",
+        "It's mixed, some are talking, others aren't moving at all.",
+        "Some are conscious and shouting, others are worryingly still."
+      ],
+      "diagnostic": true
     },
     "breathing": {
-      "diagnostic": true,
       "answers": [
         "The blue car driver, I honestly can't tell",
-        "The lady in the van is breathing but it's really fast and shallow"
-      ]
+        "The one in the van is breathing but it's really fast and shallow",
+        "I can't tell for everyone, there's too many people.",
+        "Some are, it's hard to check them all properly.",
+        "I can't say for certain, there's too much going on.",
+        "A few seem to be, others I honestly can't tell.",
+        "It's impossible to check everyone at once.",
+        "Some look okay, others I really can't tell.",
+        "I can't confirm for all of them, sorry.",
+        "Some are breathing fine, others I'm not sure about."
+      ],
+      "diagnostic": true
     },
     "pain": {
-      "diagnostic": true,
       "answers": [
-        "A woman keeps screaming about her neck",
-        "The lorry driver says his chest is crushed against the wheel"
-      ]
+        "People are screaming about their necks and backs.",
+        "A few are shouting that they're in agony.",
+        "Some are saying their chests hurt badly.",
+        "There's shouting from several directions about pain.",
+        "A number of them are complaining of serious pain.",
+        "Some are saying their legs hurt, others their backs.",
+        "There's people crying out in pain all around.",
+        "A few are saying they can't move for the pain.",
+        "Lots of them are shouting that they're hurt.",
+        "Several are saying they're in a lot of pain."
+      ],
+      "diagnostic": true
     },
     "bleeding": {
-      "diagnostic": true,
       "answers": [
-        "There's a lot of blood on the road by the lorry cab, his leg is a mess",
-        "One man's got a nasty head wound, it's pouring"
-      ]
+        "There's a lot of blood by the lorry cab, someone's leg looks bad.",
+        "One person's got a nasty head wound, it's pouring",
+        "Yes, there's blood on quite a few of them.",
+        "Yes, I can see blood in several places.",
+        "There's definitely bleeding, quite badly on a couple of them.",
+        "Yes, there's blood on the road in a few spots.",
+        "A few of them are bleeding quite heavily.",
+        "Yes, it looks serious for a couple of them.",
+        "There's blood by more than one of the cars.",
+        "Yes, quite a bit, on several of the casualties."
+      ],
+      "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
         "No idea, sorry",
-        "I don't know them"
+        "I don't know them",
+        "No idea, there's too many people.",
+        "I can't say, they're all strangers to me.",
+        "No idea, I've never met any of them.",
+        "Sorry, I don't know any of them.",
+        "No idea, it's complete chaos out here.",
+        "I couldn't tell you, sorry.",
+        "No idea, there's just too many of them.",
+        "Sorry, no idea at all."
       ]
     },
     "medications": {
       "answers": [
         "I don't know",
-        "No idea"
+        "No idea",
+        "No idea, they're all strangers to me.",
+        "I couldn't say, sorry.",
+        "No idea, there's too many people.",
+        "I don't know any of them.",
+        "Sorry, no idea at all.",
+        "No idea, it's chaos out here.",
+        "I couldn't tell you, sorry.",
+        "No idea, there's just too many of them."
       ]
     },
     "patientAge": {
       "answers": [
         "All sorts, there's a child in the back of one car, six or seven maybe",
-        "Mostly adults, one older couple"
+        "Mostly adults, one older couple",
+        "All ages really, there's definitely a few children.",
+        "Mixed, mostly adults but a couple of kids too.",
+        "Hard to say exactly, all ages by the look of it.",
+        "There's a real mix, young and old.",
+        "Mostly adults from what I can see, maybe one child.",
+        "All different ages, hard to say more than that.",
+        "A real mix, there's definitely older people involved.",
+        "Hard to tell exactly, but there's people of all ages."
       ]
     },
     "reassure": {
       "answers": [
         "Okay, we're all on the verge",
-        "Please hurry, the blue car driver still isn't moving"
+        "Please hurry, the blue car driver still isn't moving",
+        "Thank you, we're doing what we can while we wait.",
+        "Good, please be quick, there's a lot of people hurt.",
+        "Okay, we're trying to keep everyone calm.",
+        "Thank you, some of them really need help fast.",
+        "Please hurry, it's getting worse by the minute.",
+        "Okay, we're staying back and keeping clear.",
+        "Thank you, everyone's asking when help's coming.",
+        "Good, we'll keep doing what we can till you're here."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, thank you, we need the whole road closed.",
+        "Yes please, it's chaos, we need them here fast.",
+        "Thank goodness, this needs managing properly.",
+        "Good, we really need them to control the traffic.",
+        "Thanks, I'll point them to where it's worst.",
+        "Good, both lanes need closing completely.",
+        "Yes, please send everyone you can.",
+        "Thank you, they'll need to divert traffic well back.",
+        "Good, that's a relief, thank you.",
+        "Perfect, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we need them to help free people.",
+        "Thank goodness, some of them are trapped in the wreckage.",
+        "Good, please hurry them along, it's really bad here.",
+        "Thank you, there's people stuck in a couple of the cars.",
+        "Good, that's a relief, we really need them.",
+        "Thanks, I'll point them to where it's worst.",
+        "Good, please hurry, people need cutting free.",
+        "Thank you, some of the cars are properly crushed.",
+        "Good, we really need everyone you can send.",
+        "Thank you, that's exactly what we need."
       ]
     },
     "refer111": {
       "answers": [
         "Are you joking? There are people trapped in cars here!",
-        "What? No! Send someone now!"
+        "What? No! Send someone now!",
+        "No, that's not right, this is a massive crash, we need help now.",
+        "Please, no, people are trapped and hurt everywhere.",
+        "I don't think so, this is a huge emergency, please send help.",
+        "No, absolutely not, we need everyone you can send.",
+        "That doesn't sound right, this can't wait at all.",
+        "No, please, this is serious, people are badly hurt.",
+        "I really don't think 111 is right for this.",
+        "Please, no, don't make us wait, it's an emergency."
       ]
     }
+  },
+  "callerBehaviour": {
+    "type": "panicked"
   }
 }

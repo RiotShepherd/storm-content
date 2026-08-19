@@ -42,6 +42,11 @@
     "irv": 3,
     "traffic_car": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 3,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -71,7 +76,14 @@
     "openings": [
       "Police please, there's someone stood on the wrong side of the railings on the bridge",
       "I'm really worried, there's a person on the bridge who looks like they're going to jump",
-      "Please hurry, someone's on the edge of the bridge, I don't think they're safe"
+      "Please hurry, someone's on the edge of the bridge, I don't think they're safe",
+      "There's a {{man}} on the bridge, {{he}}'s climbed over the barrier",
+      "Please send someone urgently, someone's stood right on the edge of the bridge",
+      "I've just seen someone climb over the railings on the bridge",
+      "Help, there's a {{gentleman}} on the wrong side of the bridge railings",
+      "Please hurry, I think someone's about to jump off the bridge",
+      "There's someone in real danger on the bridge, they're right on the edge",
+      "I need help urgently, there's a person stood outside the railings on the bridge"
     ],
     "phoneArea": "auto",
     "callerType": "passer_by"
@@ -85,90 +97,230 @@
       "answers": [
         "Police please, there's someone stood on the wrong side of the railings on the bridge",
         "I'm really worried, there's a person on the bridge who looks like they're going to jump",
-        "Please hurry, someone's on the edge of the bridge, I don't think they're safe"
+        "Please hurry, someone's on the edge of the bridge, I don't think they're safe",
+        "There's a {{man}} on the bridge, {{he}}'s climbed over the barrier",
+        "Please send someone urgently, someone's stood right on the edge of the bridge",
+        "I've just seen someone climb over the railings on the bridge",
+        "Help, there's a {{gentleman}} on the wrong side of the bridge railings",
+        "Please hurry, I think someone's about to jump off the bridge",
+        "There's someone in real danger on the bridge, they're right on the edge",
+        "I need help urgently, there's a person stood outside the railings on the bridge"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I was just driving past",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I was just walking past.",
+        "{{callerName}}, I happened to be passing.",
+        "My name's {{callerName}}, I was in the area.",
+        "It's {{callerName}}, I was just going by.",
+        "{{callerName}} here, I was nearby at the time.",
+        "You can put me down as {{callerName}}, I was just passing through.",
+        "It's {{callerName}}, I saw it while walking past.",
+        "{{callerName}} speaking, I was in the area at the time.",
+        "My name is {{callerName}}, I was just out walking.",
+        "It's {{callerName}}, I happened to be right here."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know them, I've never seen them before",
-        "No idea who they are"
+        "I don't know {{him}}, I've never seen {{him}} before",
+        "No idea, {{he}}'s a complete stranger to me",
+        "I don't know {{his}} name, I just saw {{him}} on the bridge",
+        "No idea, I don't know {{him}} at all",
+        "Sorry, I've no idea who {{he}} is",
+        "I don't know {{him}}, I just happened to be passing",
+        "No name I'm afraid, {{he}}'s a stranger to me",
+        "I can't tell you, I don't know {{him}} personally",
+        "No idea at all, never seen {{him}} before",
+        "Sorry, I don't know {{his}} name"
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, it's the bridge",
-        "It's at {{address}}, on the footbridge"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "They're stood on the other side of the railing, right on the edge",
-        "They've been there a couple of minutes, not moving, just staring down",
-        "I tried calling out to them but they didn't respond"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "They're conscious, stood up on their own",
-        "Yes, they're awake, just very still"
+        "Yes, {{he}}'s awake and moving, just very distressed",
+        "{{He}}'s conscious, pacing along the ledge",
+        "Yes, {{he}}'s alert, but {{he}} looks really upset",
+        "{{He}}'s awake, {{he}} keeps looking down at the traffic",
+        "Yes, {{he}}'s conscious, just not responding when I called out",
+        "{{He}}'s awake and moving about on the ledge",
+        "Yes, {{he}}'s alert, {{he}}'s just not talking to anyone",
+        "{{He}}'s conscious, holding onto the railing, looking very distressed",
+        "Yes, {{he}}'s awake, {{he}} just won't come back over",
+        "{{He}}'s conscious but seems in a really bad way emotionally"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I can't tell from here, but they're standing",
-        "Looks okay from a distance"
+        "{{He}} seems to be breathing okay, just very distressed",
+        "Yes, {{he}}'s breathing fine as far as I can see",
+        "{{He}}'s breathing normally, {{he}}'s just extremely upset",
+        "Yes, no breathing problems that I can see",
+        "{{He}} looks okay breathing wise, just crying",
+        "Yes, {{he}}'s breathing, {{he}} looks distraught though",
+        "{{He}}'s breathing fine, {{he}}'s just not moving",
+        "Yes, {{he}} seems to be breathing normally",
+        "{{He}}'s okay breathing wise, {{he}}'s just very shaken and upset",
+        "Yes, {{he}}'s breathing, but {{he}} looks in real distress"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I don't know, they're not saying anything",
-        "Can't tell"
+        "I can't tell, {{he}} doesn't look physically hurt, just distressed",
+        "I don't think {{he}}'s in pain physically, more emotional distress",
+        "No visible pain that I can see, {{he}} just looks very upset",
+        "I don't know, {{he}} doesn't seem physically injured",
+        "No, I don't think {{he}}'s hurt physically, just very distressed",
+        "I can't say, {{he}} doesn't appear to be in physical pain",
+        "No injuries that I can see, {{he}}'s just in a really bad state",
+        "I don't think so, {{he}} looks physically unharmed but very upset",
+        "No visible injuries, {{he}}'s just extremely distressed",
+        "I can't tell, but {{he}} doesn't look physically hurt"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, not that I can see",
-        "None visible"
+        "No, I can't see any bleeding at all",
+        "No, {{he}} doesn't appear to be injured or bleeding",
+        "No blood that I can see from here",
+        "No, {{he}} looks physically unharmed",
+        "No, I can't see any injuries on {{him}}",
+        "No, no bleeding that I can tell",
+        "No, {{he}} doesn't seem to be hurt physically",
+        "No, nothing like that from what I can see",
+        "No bleeding visible, {{he}} just looks very distressed",
+        "No, I can't see any injury at all"
       ],
       "diagnostic": true
     },
+    "patientAge": {
+      "answers": [
+        "{{He}} looks to be in {{his}} twenties",
+        "Maybe mid twenties, hard to say from here",
+        "I'd guess {{he}}'s in {{his}} thirties",
+        "{{He}} looks fairly young, maybe early twenties",
+        "Hard to say exactly, perhaps late twenties",
+        "I'd say {{he}}'s in {{his}} twenties or thirties",
+        "{{He}} looks quite young, maybe early twenties",
+        "Hard to tell from this distance, maybe thirties",
+        "{{He}} looks about twenty five to me",
+        "I'm only guessing, but maybe {{his}} late twenties"
+      ]
+    },
     "medicalHistory": {
       "answers": [
-        "I don't know them at all",
-        "No idea"
+        "I don't know {{his}} full medical history, sorry.",
+        "Not that I know of, no health problems I'm aware of.",
+        "I think {{he}} might have asthma, but I'm not certain.",
+        "No idea about that, I don't know {{him}} that well.",
+        "Nothing I know of, {{he}}'s usually fit and well.",
+        "I'm not sure, you'd have to ask {{him}} when you arrive.",
+        "No idea, I couldn't tell you {{his}} medical history.",
+        "Not that I'm aware of, no known conditions.",
+        "I don't know, sorry, I can't say for certain.",
+        "Nothing comes to mind, I don't know {{his}} history well."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "I don't know what {{he}} takes, sorry.",
+        "No idea on medication, you'd need to ask {{him}}.",
+        "Not that I'm aware of, I don't know {{his}} medicines.",
+        "I couldn't say, I don't know {{him}} well enough.",
+        "No idea, sorry, I can't help with that.",
+        "I'm not sure, {{he}} might take something but I don't know what.",
+        "No idea what medication {{he}}'s on.",
+        "Not that I know of, sorry.",
+        "I couldn't tell you, I don't know {{his}} medical details.",
+        "No idea, you'll have to check when you get here."
       ]
     },
-    "patientAge": {
+    "address": {
       "answers": [
-        "Looks like a young adult, maybe twenties"
-      ]
+        "{{address}}, that's the bridge",
+        "It's {{address}}, I'm on the near side",
+        "{{address}}, please hurry, I can still see {{him}}",
+        "We're at {{address}}, I'm keeping my distance",
+        "It's {{address}}, {{he}}'s still up there",
+        "{{address}}, that's the bridge over the road",
+        "The address is {{address}}, please hurry",
+        "{{address}}, I'll stay here and watch",
+        "It's {{address}}, {{he}}'s not moved",
+        "{{address}}, please send someone quickly"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "{{He}}'s climbed over the barrier and is stood right on the ledge of the bridge",
+        "{{He}}'s been stood there for a few minutes now, not moving, right on the edge",
+        "I saw {{him}} climb over the railings and now {{he}}'s just stood there looking down",
+        "{{He}} looks really distressed, {{he}}'s pacing along the ledge",
+        "I don't know how long {{he}}'s been there, but {{he}}'s right on the wrong side of the barrier",
+        "{{He}}'s holding onto the railing but leaning right out over the edge",
+        "I tried to call out to {{him}} but {{he}} didn't respond, {{he}}'s still up there",
+        "{{He}}'s sat on the ledge with {{his}} legs over the side",
+        "{{He}} climbed over a few minutes ago and hasn't moved since",
+        "I'm scared {{he}}'s going to jump, {{he}}'s right on the edge"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying nearby but keeping my distance",
-        "Please hurry, I'm scared for them"
+        "Okay, please hurry, I'm scared {{he}}'s going to jump",
+        "Thank you, I'll stay here and keep talking if I can",
+        "Okay, please, this feels really urgent",
+        "Thank you, I'll keep watching until they arrive",
+        "Okay, please hurry, {{he}} hasn't moved",
+        "Thank you, I'm so worried about {{him}}",
+        "Okay, please send someone as fast as you can",
+        "Thank you, I'll stay on the line",
+        "Okay, I really hope they get here in time",
+        "Thank you, please just hurry"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, please hurry, {{he}}'s still up there",
+        "Good, I'll stay here and keep an eye on {{him}}",
+        "Thank you, I'll let you know if anything changes",
+        "Okay, please hurry, I'm really worried",
+        "Thank you, I'll keep watching from here",
+        "Okay, I'll stay on the phone until they arrive",
+        "Good, please send them quickly",
+        "Thank you, I won't approach, I'll just keep watching",
+        "Okay, please hurry, {{he}} looks distressed",
+        "Thank you, I'll stay right here until they come"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? Yes, actually, they might be able to help get {{him}} down",
+        "I hadn't thought of that, but yes, if they can help",
+        "That could help actually, if they've got the right equipment",
+        "Yes, if they can assist getting {{him}} back over safely",
+        "I suppose so, if they can help bring {{him}} to safety",
+        "Yes, if they can help, please send them too",
+        "That might be useful, if they can reach {{him}} safely",
+        "I hadn't considered that, but yes, if it helps",
+        "Yes please, if they can help get {{him}} down safely",
+        "That could be a good idea, if they can assist"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police right now, please"
+        "No, please, this is urgent, {{he}}'s right on the edge",
+        "No, this can't wait, {{he}}'s in real danger right now",
+        "No, please send someone now, this isn't something that can wait",
+        "That's not right, {{he}} needs help immediately",
+        "No, please, I'm terrified {{he}}'s going to jump",
+        "No, this is an emergency, {{he}} could go at any moment",
+        "That won't help, {{he}} needs someone here right now",
+        "No, please hurry, this really can't wait",
+        "No, I need help now, not a callback later",
+        "That's not going to work, {{he}}'s in danger right now"
       ]
     }
   },

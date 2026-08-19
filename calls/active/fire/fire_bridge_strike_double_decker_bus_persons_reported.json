@@ -50,6 +50,12 @@
     "traffic_car": 2,
     "fire_officer": 4
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 12,
+    "ambulance": 16,
+    "police": 8
+  },
   "patients": {
     "range": [
       1,
@@ -115,7 +121,14 @@
     "openings": [
       "A double decker bus has hit the low bridge, the top's been ripped off, there's people hurt on top",
       "I need the fire brigade, a bus has struck the bridge, there's loads of casualties up top",
-      "Emergency, the bus has gone into the bridge, people are screaming, some aren't moving"
+      "Emergency, the bus has gone into the bridge, people are screaming, some aren't moving",
+      "Please hurry, a double decker's hit the bridge, the top deck's completely gone",
+      "There's a major crash, a bus has struck the low bridge, lots of people hurt",
+      "Please send everyone you can, a bus has hit the bridge and the top's torn open",
+      "It's a terrible scene, the bus has hit the bridge, people are hurt everywhere on top",
+      "There's been a bridge strike involving a double decker, lots of casualties",
+      "Please hurry, the bus has gone into the low bridge, the top deck's wrecked",
+      "There's a serious incident, a bus has hit the bridge, many people are injured"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -129,78 +142,230 @@
       "answers": [
         "A double decker bus has hit the low bridge, the top's been ripped off, there's people hurt on top",
         "I need the fire brigade, a bus has struck the bridge, there's loads of casualties up top",
-        "Emergency, the bus has gone into the bridge, people are screaming, some aren't moving"
+        "Emergency, the bus has gone into the bridge, people are screaming, some aren't moving",
+        "Please hurry, a double decker's hit the bridge, the top deck's completely gone",
+        "There's a major crash, a bus has struck the low bridge, lots of people hurt",
+        "Please send everyone you can, a bus has hit the bridge and the top's torn open",
+        "It's a terrible scene, the bus has hit the bridge, people are hurt everywhere on top",
+        "There's been a bridge strike involving a double decker, lots of casualties",
+        "Please hurry, the bus has gone into the low bridge, the top deck's wrecked",
+        "There's a serious incident, a bus has hit the bridge, many people are injured"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was walking underneath when it happened"
+        "It's {{callerName}}, I was walking underneath when it happened",
+        "{{callerName}}, I was driving behind the bus",
+        "It's {{callerName}}, I ran over as soon as I saw it",
+        "{{callerName}} here, I was on the pavement when it happened",
+        "It's {{callerName}}, I'm trying to help where I can",
+        "My name's {{callerName}}, I was nearby when it hit",
+        "It's {{callerName}}, I'm stood by the wreckage now",
+        "{{callerName}} speaking, I saw the whole thing happen",
+        "It's {{callerName}}, I'm helping some of the injured",
+        "{{callerName}}, I called as soon as it hit the bridge"
       ]
     },
     "patientName": {
       "answers": [
-        "There's loads of them, I can't tell you names, some are still on the top deck"
+        "There's loads of them, I can't tell you names, some are still on the top deck",
+        "No names, sorry, there's too many people hurt",
+        "I don't know any of them, there's a lot of casualties",
+        "I can't give you names, there's people all over the top deck",
+        "No idea on names, there's a lot of people injured",
+        "I don't have names, there's too many to ask right now",
+        "No names, sorry, I'm trying to help where I can",
+        "I can't say, there's a large number of casualties up there",
+        "No names, there's a lot of people hurt on the bus",
+        "I don't know any of them, it's chaos up there"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, right under the railway bridge"
+        "{{address}}, right under the railway bridge",
+        "It's {{address}}, by the low bridge on the main road",
+        "{{address}}, you'll see the wreckage from the road",
+        "It's {{address}}, follow the traffic backing up to the bridge",
+        "{{address}}, near the junction just before the bridge",
+        "It's {{address}}, the bus is wedged under the bridge",
+        "{{address}}, please hurry, it's chaos here",
+        "It's {{address}}, right by the low bridge sign",
+        "{{address}}, near the railway bridge on the main road",
+        "It's {{address}}, you can't miss it, the bridge is blocked"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The bus has hit the low bridge, the whole top deck's been torn open, there's people hurt up there"
+        "The bus has hit the low bridge, the whole top deck's been torn open, there's people hurt up there",
+        "It struck the bridge at speed, the roof's ripped off and there's people hurt everywhere",
+        "The bus went into the bridge, the top deck's completely wrecked with people still on it",
+        "It's hit the bridge hard, the top's torn open and there's casualties throughout",
+        "The bus struck the low bridge, there's serious injuries on the top deck",
+        "It's smashed into the bridge, the whole top's been sheared off",
+        "The bus hit the bridge at full height, there's people hurt all over the top deck",
+        "It's a major impact, the bridge has torn the roof off the bus",
+        "The bus went into the bridge and the top deck's destroyed, people are trapped",
+        "It hit the bridge hard, there's debris and casualties everywhere up top"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are moving and shouting, but a few aren't responding at all"
+        "Some are moving and shouting, but a few aren't responding at all",
+        "Most are conscious, but there's real concern for a couple who aren't responding",
+        "Some are awake and shouting, others aren't moving",
+        "A lot are conscious, but a few aren't responding to anyone",
+        "Some are talking, a couple aren't responding at all",
+        "Most are conscious, but there's a few very worrying cases who aren't",
+        "Some are alert, others aren't responding when people call to them",
+        "A number are conscious and shouting, a few are very still",
+        "Some are awake, but there's real concern for those who aren't moving",
+        "Most are conscious, but a few aren't responding at all"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple aren't breathing right, there's people trying to help them"
+        "A couple aren't breathing right, there's people trying to help them",
+        "A few are struggling to breathe, people are trying to help",
+        "Some are having real trouble breathing up there",
+        "A couple aren't breathing properly, it's very worrying",
+        "Some are struggling badly, people nearby are trying to assist",
+        "A few have serious breathing problems, we need help fast",
+        "Some are gasping for breath, it's very concerning",
+        "A couple are really struggling to breathe",
+        "Some have breathing difficulties, people are doing what they can",
+        "A few aren't breathing well at all, it's very serious"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Loads of them are in pain, screaming about their necks and backs"
+        "Loads of them are in pain, screaming about their necks and backs",
+        "Many are in severe pain, mostly their necks and backs",
+        "A lot of them are crying out in pain",
+        "Several are in agony, mostly neck and back injuries",
+        "Many are in a lot of pain from the impact",
+        "There's widespread pain being reported, necks and backs mainly",
+        "A lot are in severe pain, it's a terrible scene",
+        "Several are screaming in pain, mostly from the top deck",
+        "Many are in severe pain, it's very distressing",
+        "A lot of them are in agony, mostly their backs and necks"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "There's blood, quite a few cuts from the glass and metal"
+        "There's blood, quite a few cuts from the glass and metal",
+        "There's a lot of blood, several people are bleeding badly",
+        "Quite a few are bleeding from cuts and impact injuries",
+        "There's significant bleeding among several of the passengers",
+        "A lot of blood from cuts and the impact, it's serious",
+        "There's bleeding from multiple people, mostly from the debris",
+        "Quite a lot of blood, several cuts from glass and metal",
+        "There's serious bleeding among a number of the passengers",
+        "A lot of them are bleeding, it's a bad scene up there",
+        "There's significant blood loss among several casualties"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've no idea, there's too many of them, I don't know any of them"
+        "I've no idea, there's too many of them, I don't know any of them",
+        "I don't know, I can't say for such a large number of people",
+        "I can't tell you, they're all strangers to me",
+        "No idea, sorry, there's far too many people to know",
+        "I don't know any of them, sorry",
+        "I can't say, I don't know their medical details",
+        "No idea, I've never met any of them before",
+        "I don't know, they're all passengers I don't know",
+        "I can't tell you, sorry, I've no idea",
+        "No idea at all, I don't know any of them"
       ]
     },
     "medications": {
       "answers": [
-        "I can't tell you that, sorry"
+        "I can't tell you that, sorry",
+        "I don't know, there's too many of them to say",
+        "I can't say, sorry, I don't know any of them",
+        "No idea, sorry, I don't know their details",
+        "I can't tell you, I don't know them",
+        "Sorry, I've no information on that for anyone here",
+        "I don't know, I don't know any of the passengers",
+        "I can't say, sorry",
+        "No idea, I don't know them at all",
+        "I can't tell you, sorry, I have no idea"
       ]
     },
     "patientAge": {
       "answers": [
-        "All sorts, adults mostly, I think I saw a couple of teenagers too"
+        "All sorts, adults mostly, I think I saw a couple of teenagers too",
+        "Mixed ages, mostly adults, a few younger ones as well",
+        "A wide range of ages, mostly adults on the top deck",
+        "Mixed, adults and a few younger people",
+        "All ages really, it was a packed bus",
+        "Mixed ages, mostly working age adults and some younger",
+        "A real mix, I saw children and adults both",
+        "Mixed, mostly adults but some younger passengers too",
+        "All sorts of ages, the bus was quite full",
+        "Mixed ages, a broad range from young to old"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, people are trying to keep the injured still"
+        "Okay, people are trying to keep the injured still",
+        "Right, we're doing what we can to keep everyone calm",
+        "Okay, people are helping keep the injured still and calm",
+        "Understood, we're trying to help as much as we can",
+        "Alright, bystanders are helping where they can",
+        "Okay, we're keeping people talking and as calm as possible",
+        "Right, we're trying to keep everyone still until help arrives",
+        "Okay, people nearby are doing what they can to help",
+        "Understood, we're staying with them until you arrive",
+        "Okay, please hurry, it's a very serious scene"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we desperately need them for the traffic and the crowd",
+        "Yes please, people are gathering everywhere, it's chaos",
+        "Thank you, the road needs closing off completely",
+        "Okay, good, cars are still trying to get past the bus",
+        "Yes, send as many as you can, this is a huge scene",
+        "Good, we need help keeping the crowd back from the bus",
+        "Thank you, someone needs to control the traffic urgently",
+        "Okay, they can help move people away from the wreckage",
+        "Good, it's getting very crowded round the bus now",
+        "Yes please, we need them here fast, this is major"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, the top deck's completely open",
+        "Okay, good, some of them still can't be reached up there",
+        "Please hurry, there's people trapped and it's a mess up top",
+        "Thank you, we're trying to keep the injured still until you arrive",
+        "Okay, I can hear the sirens now, thank god",
+        "Good, hurry, this is really serious, there's so many hurt",
+        "Thank you, we're doing what we can but we need you fast",
+        "Okay, please tell them to hurry, people are in a bad way",
+        "Thank goodness, send everyone you can, it's a big scene",
+        "Good, hurry please, the bus is properly wrecked up top"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a major incident, we need everyone you can send"
+        "No, this is a major incident, we need everyone you can send",
+        "No, this is a serious emergency, please send everything you have",
+        "No thank you, this is a major incident, we need urgent help",
+        "No, please, this is very serious, we need help now",
+        "No, this isn't something 111 can help with, it's a major incident",
+        "No, please just send help urgently, it's a major crash",
+        "No, this is far too serious for that, please hurry",
+        "No, please, we need every emergency service here now",
+        "No, this is a major incident, we need help immediately",
+        "No, it's an emergency, please hurry"
       ]
     }
   },

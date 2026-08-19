@@ -45,6 +45,11 @@
     "single_pump": 2,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 8,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -110,8 +115,16 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade please, one of our residents is still in her flat and there's smoke coming from under the door",
-      "Please hurry, it's sheltered housing, an elderly resident's trapped by smoke"
+      "Fire brigade please, there's a flat fire in the sheltered housing, one resident's still inside",
+      "It's the sheltered housing scheme, a flat's on fire and the resident can't get out alone",
+      "Please hurry, one of our residents is trapped in {{his}} flat, it's on fire",
+      "Fire brigade, there's a fire in one of our resident's flats, {{he}} has limited mobility",
+      "Help, a flat's alight here at the sheltered scheme, the resident can't self evacuate",
+      "There's a fire in a resident's flat, {{he}} uses a frame and can't move quickly",
+      "Please send help, one of our flats is on fire and the resident's still inside",
+      "Fire at the sheltered housing, {{firstPatientName}}'s flat is alight and {{he}}'s trapped",
+      "Please hurry, {{he}}'s got limited mobility and can't get out of the flat alone",
+      "There's smoke coming from a resident's flat here, {{he}}'s unable to evacuate {{himself}}"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -123,81 +136,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade please, one of our residents is still in her flat and there's smoke coming from under the door",
-        "Please hurry, it's sheltered housing, an elderly resident's trapped by smoke"
+        "Fire brigade please, there's a flat fire in the sheltered housing, one resident's still inside",
+        "It's the sheltered housing scheme, a flat's on fire and the resident can't get out alone",
+        "Please hurry, one of our residents is trapped in {{his}} flat, it's on fire",
+        "Fire brigade, there's a fire in one of our resident's flats, {{he}} has limited mobility",
+        "Help, a flat's alight here at the sheltered scheme, the resident can't self evacuate",
+        "There's a fire in a resident's flat, {{he}} uses a frame and can't move quickly",
+        "Please send help, one of our flats is on fire and the resident's still inside",
+        "Fire at the sheltered housing, {{firstPatientName}}'s flat is alight and {{he}}'s trapped",
+        "Please hurry, {{he}}'s got limited mobility and can't get out of the flat alone",
+        "There's smoke coming from a resident's flat here, {{he}}'s unable to evacuate {{himself}}"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the on duty warden"
+        "It's {{callerName}}, I'm the duty warden here",
+        "{{callerName}}, I'm on shift at the scheme tonight",
+        "It's {{callerName}}, I'm the sheltered housing warden",
+        "{{callerName}} here, I called as soon as the alarm went off",
+        "It's {{callerName}}, I manage the scheme",
+        "My name's {{callerName}}, I'm on duty here this evening",
+        "It's {{callerName}}, I'm the warden on call",
+        "{{callerName}} speaking, I work here at the scheme",
+        "It's {{callerName}}, I'm trying to reach {{him}} now",
+        "{{callerName}}, I'm the warden, I know {{him}} well"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, she's one of our residents"
+        "It's {{firstPatientName}}, {{he}}'s one of our residents, {{he}} has limited mobility",
+        "{{firstPatientName}}, {{he}} lives alone in that flat and uses a frame to get about",
+        "It's {{firstPatientName}}, {{he}}'s elderly and can't move quickly",
+        "{{firstPatientName}}'s the resident, {{he}} struggles to walk without help",
+        "It's {{firstPatientName}}, {{he}}'s been with us a couple of years now",
+        "{{firstPatientName}}, {{he}}'s one of our more vulnerable residents",
+        "It's {{firstPatientName}}, {{he}} can't self evacuate because of {{his}} mobility",
+        "{{firstPatientName}}'s the name, {{he}}'s got a walking frame in the flat",
+        "It's {{firstPatientName}}, {{he}}'s elderly and lives on {{his}} own",
+        "{{firstPatientName}}, {{he}}'s a resident here, {{he}} can't move fast enough to get out alone"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the sheltered housing scheme, main entrance",
-        "It's {{address}}, I'll let you straight in"
+        "{{address}}, the sheltered housing scheme, use the main entrance",
+        "It's {{address}}, I'll let you in through the front door",
+        "{{address}}, the flat's on the ground floor near reception",
+        "It's {{address}}, come straight to the office, I'll direct you from there",
+        "{{address}}, the scheme's just off the main road",
+        "It's {{address}}, I'm waiting by the entrance for you",
+        "{{address}}, please hurry, {{he}}'s still in the flat",
+        "It's {{address}}, the fire's in one of the ground floor flats",
+        "{{address}}, I'll have the door propped open for you",
+        "It's {{address}}, come round to the residents' entrance"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Smoke's coming from Mrs {{callerName}}'s neighbour's flat, sorry, from a resident's flat, and she's not answering when we knock, she doesn't move well"
+        "There's a fire in {{firstPatientName}}'s flat and {{he}} can't get out without help",
+        "Smoke's coming from {{his}} flat, {{he}}'s got limited mobility and can't self evacuate",
+        "The alarm went off and I can see smoke under {{his}} door, {{he}}'s still inside",
+        "There's a fire in one of our flats, the resident uses a frame and can't move quickly",
+        "Smoke's filling the corridor near {{his}} flat, {{he}}'s unable to get out alone",
+        "The fire alarm sounded and {{he}}'s not come out, {{he}} struggles to walk unaided",
+        "There's smoke coming from under {{his}} door, {{he}} can't evacuate without assistance",
+        "A fire's broken out in {{his}} flat, {{he}}'s elderly and can't move fast enough alone",
+        "The alarm's gone off and {{he}}'s still in there, {{he}} needs help to get out",
+        "There's a fire in the flat and {{he}}'s trapped because {{he}} can't move quickly enough"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "She was calling out earlier, I'm not sure now"
+        "I believe so, I heard {{him}} calling out when I got near the door",
+        "I think {{he}}'s conscious, I could hear {{him}} through the door",
+        "Yes, I heard {{him}}, {{he}}'s calling for help from inside",
+        "I believe {{he}}'s conscious, {{he}} responded when I knocked",
+        "I heard {{him}} shouting, so I believe {{he}}'s conscious",
+        "Yes, I think so, {{he}} called back to me through the door",
+        "I believe {{he}}'s conscious, {{he}} was talking to me a moment ago",
+        "Yes, {{he}}'s conscious, I can hear {{him}} from the corridor",
+        "I think so, {{he}} answered when I called {{his}} name",
+        "I believe {{he}}'s conscious, but I can't get to {{him}} because of the smoke"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "She sounded like she was coughing a lot"
+        "I don't know, {{he}}'s coughing when {{he}} talks to me through the door",
+        "I'm not sure, {{he}} sounds like {{he}}'s struggling with the smoke",
+        "{{He}} sounds breathless when {{he}} calls out to me",
+        "I can hear {{him}} coughing quite a bit through the door",
+        "I don't know for certain, but {{he}} sounds distressed",
+        "{{He}}'s coughing when {{he}} speaks, the smoke's getting into the flat",
+        "I'm worried, {{he}} sounds like {{he}}'s finding it hard to breathe",
+        "I can't tell exactly, but {{he}} does sound breathless",
+        "{{He}} sounds like {{he}}'s coughing a lot from the smoke",
+        "I don't know for sure, but {{his}} voice sounds strained"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I don't know, I couldn't get close enough to ask"
+        "I don't know, {{he}} hasn't mentioned any pain, just that {{he}}'s stuck",
+        "Not that {{he}}'s said, {{he}}'s mainly just frightened and can't get out",
+        "I don't think so, {{he}}'s just told me {{he}} can't move to the door easily",
+        "{{He}} hasn't said anything about pain, just that {{he}}'s struggling to move",
+        "No, {{he}} hasn't mentioned pain, {{he}}'s just very frightened",
+        "I don't know, {{he}}'s mostly just told me {{he}} can't get to the door",
+        "Not that {{he}}'s told me, {{he}}'s just very distressed",
+        "{{He}} hasn't said, I think {{he}}'s just focused on staying calm",
+        "I don't believe so, {{he}}'s mainly worried about getting out",
+        "No pain mentioned, {{he}}'s just told me {{he}}'s stuck in there"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Not that I'm aware of"
+        "No, not that I know of, {{he}}'s just trapped by the smoke",
+        "No bleeding that I know of, {{he}}'s mobility's the issue here",
+        "No, {{he}} hasn't mentioned anything like that",
+        "Not that I'm aware of, {{he}}'s just unable to get to the door",
+        "No, I don't believe so, {{he}}'s mainly just stuck in the flat",
+        "No bleeding as far as I know, it's {{his}} mobility that's the problem",
+        "No, {{he}} hasn't said anything about that",
+        "Not that {{he}}'s mentioned, {{he}}'s just frightened and stuck",
+        "No, I don't think so, {{he}}'s just unable to move quickly",
+        "No bleeding that I know of, sorry"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She's got COPD, it's on her file"
+        "{{He}}'s got limited mobility, {{he}} usually needs a frame to get about",
+        "{{He}}'s got mobility problems, that's on {{his}} resident file here",
+        "{{He}} has arthritis I believe, {{he}} finds it hard to move quickly",
+        "{{He}}'s got mobility issues, {{he}} uses a walking frame normally",
+        "I know {{he}}'s got mobility problems, I'd need to check the rest of {{his}} file",
+        "{{He}} has limited mobility, that's the main thing I know from {{his}} records",
+        "{{He}}'s got mobility issues noted on {{his}} file, I can check for more when you arrive",
+        "{{He}} struggles to walk, {{he}}'s got mobility problems on record here",
+        "{{He}}'s got some mobility conditions, I have {{his}} file if it helps",
+        "{{He}} has limited mobility, I believe there's more detail on {{his}} resident file"
       ]
     },
     "medications": {
       "answers": [
-        "She uses inhalers, I know that much"
+        "I'd need to check {{his}} file, but {{he}}'s on regular medication I believe",
+        "{{He}}'s on some tablets, I have {{his}} medication list in the office",
+        "I'm not certain exactly what, but {{he}} takes regular medication",
+        "I can check {{his}} file, I believe {{he}}'s on medication for {{his}} mobility",
+        "I'd have to look it up, but yes, {{he}}'s on some regular medication",
+        "I don't know the exact names, but {{his}} file has {{his}} medication list",
+        "{{He}} takes medication daily I believe, I can get the details from {{his}} file",
+        "I'm not sure exactly, but {{he}}'s on some tablets for {{his}} joints I think",
+        "I'd need to check, but yes, {{he}}'s on regular medication",
+        "I can get the full list from {{his}} file when you arrive"
       ]
     },
     "patientAge": {
       "answers": [
-        "She's in her eighties"
+        "{{He}}'s in {{his}} eighties",
+        "{{He}}'s about eighty five, I believe",
+        "Late eighties, {{he}}'s one of our older residents",
+        "{{He}}'s in {{his}} mid eighties",
+        "I'd say {{he}}'s around eighty two or so",
+        "{{He}}'s in {{his}} eighties, quite frail",
+        "About eighty five, {{he}}'s lived here a few years now",
+        "{{He}}'s in {{his}} late eighties",
+        "{{He}}'s eighty something, I'd need to check the exact age",
+        "{{He}}'s in {{his}} eighties, {{he}}'s one of our long term residents"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying by the door but not going in",
-        "Please hurry, she uses a frame, she can't get out quick"
+        "Okay, I'm staying by the door talking to {{him}}",
+        "Please hurry, {{he}} can't get out on {{his}} own",
+        "Right, I'm keeping {{him}} talking so {{he}} stays calm",
+        "Okay, I've told {{him}} help is on the way",
+        "Understood, I'll stay right here until you arrive",
+        "Alright, I'm keeping other residents back from that corridor",
+        "Okay, I'll keep reassuring {{him}} through the door",
+        "Right, I'm not leaving this spot until you get here",
+        "Understood, I'm doing what I can to keep {{him}} calm",
+        "Okay, I'll let you know straight away if anything changes"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a fire with a resident trapped, we need the fire brigade now"
+        "No, {{he}}'s trapped by smoke and can't move, we need the fire brigade now",
+        "No thank you, this needs emergency crews, {{he}} can't get out alone",
+        "No, this is urgent, {{he}}'s a vulnerable resident stuck in a fire",
+        "No, this is far too serious for anything other than a full response",
+        "No, please, {{he}} really can't get out of that flat by {{himself}}",
+        "No, this isn't something 111 can help with, we need crews here",
+        "No, we need the fire brigade urgently, {{he}}'s trapped",
+        "No, please hurry, {{he}}'s elderly and can't self evacuate",
+        "No, this needs a proper emergency response right now",
+        "No, please send help, {{he}} can't manage this on {{his}} own"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I think we just need the fire brigade for {{him}}, {{he}}'s trapped",
+        "Oh, I suppose they could help keep the other residents calm and back",
+        "Police? I wasn't expecting them, but extra hands are welcome",
+        "That's fine, I imagine they'll help manage the other residents",
+        "Police? There's no trouble here, just {{him}} trapped by the smoke",
+        "Oh right, I suppose someone needs to keep the corridor clear",
+        "I don't think we specifically need them, but thank you for sending them",
+        "That's okay, they can help keep everyone else calm while we wait",
+        "Police? I hadn't thought of that, but it can't hurt to have more help",
+        "Okay, thank you, though it's really the fire brigade {{he}} needs"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, please hurry, {{he}} can't get out on {{his}} own",
+        "Okay, I'm staying right by the door until they arrive",
+        "Thank god, how long roughly until the crew gets here",
+        "Right, I'll keep talking to {{him}} until they arrive",
+        "Okay, I've told {{him}} the fire brigade's on the way",
+        "Thank you, please send them quickly, {{he}}'s trapped in there",
+        "Understood, I'll keep {{him}} calm until help gets here",
+        "Okay, I'm keeping the other residents back from the corridor",
+        "Thank you, I'll wait right here to let them in",
+        "Right, I'll keep reassuring {{him}} until the crew arrives"
       ]
     }
   },

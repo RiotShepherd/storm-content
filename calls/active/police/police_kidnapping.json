@@ -51,6 +51,10 @@
     "dog_unit": 1,
     "arv": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 11
+  },
   "patients": {
     "range": [
       0,
@@ -103,9 +107,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Please help, my daughter's been taken, someone's grabbed her and driven off!",
-      "Police, quick, a man's forced someone into a car against their will!",
-      "I've just seen a kidnapping, they've bundled a woman into a van and driven away!"
+      "Please help, my {{son}} has been taken, someone's grabbed {{him}} and driven off!",
+      "Police, quick, someone's forced my {{son}} into a car against {{his}} will!",
+      "I've just seen my {{son}} bundled into a van and driven away!",
+      "Help, they've taken my {{son}}, I saw the whole thing, please hurry!",
+      "Please, someone's kidnapped my {{son}}, they drove off with {{him}}!",
+      "Quick, my {{son}}'s been grabbed off the street and put in a car!",
+      "Help me please, my {{son}}'s just been taken, I'm following on foot!",
+      "Police, my {{son}}'s missing, I watched {{him}} get forced into a vehicle!",
+      "Please hurry, someone's taken my {{son}}, I don't know where they've gone!",
+      "Help, they've grabbed my {{son}} and sped off, I'm frantic!"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -117,92 +128,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Please help, my daughter's been taken, someone's grabbed her and driven off!",
-        "Police, quick, a man's forced someone into a car against their will!",
-        "I've just seen a kidnapping, they've bundled a woman into a van and driven away!"
+        "Please help, my {{son}} has been taken, someone's grabbed {{him}} and driven off!",
+        "Police, quick, someone's forced my {{son}} into a car against {{his}} will!",
+        "I've just seen my {{son}} bundled into a van and driven away!",
+        "Help, they've taken my {{son}}, I saw the whole thing, please hurry!",
+        "Please, someone's kidnapped my {{son}}, they drove off with {{him}}!",
+        "Quick, my {{son}}'s been grabbed off the street and put in a car!",
+        "Help me please, my {{son}}'s just been taken, I'm following on foot!",
+        "Police, my {{son}}'s missing, I watched {{him}} get forced into a vehicle!",
+        "Please hurry, someone's taken my {{son}}, I don't know where they've gone!",
+        "Help, they've grabbed my {{son}} and sped off, I'm frantic!"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, she's my daughter",
-        "It's {{callerName}}"
+        "{{callerName}}",
+        "It's {{callerName}}",
+        "My name's {{callerName}}",
+        "{{callerName}}, please just help",
+        "Yeah, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, I'm family",
+        "My name is {{callerName}}",
+        "{{callerName}}, that's me",
+        "Please, it's {{callerName}}, hurry"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, that's my daughter",
-        "{{firstPatientName}}"
+        "{{His}} name's {{firstPatientName}}, {{he}}'s my {{son}}",
+        "It's {{firstPatientName}}, my {{son}}",
+        "{{firstPatientName}}, that's my {{son}}'s name",
+        "My {{son}}'s called {{firstPatientName}}",
+        "{{firstPatientName}}, please, that's {{his}} name",
+        "It's {{firstPatientName}}, {{he}}'s my {{son}}",
+        "{{His}} name is {{firstPatientName}}",
+        "My {{son}}, {{firstPatientName}}, please find {{him}}",
+        "{{firstPatientName}} is {{his}} name",
+        "It's {{firstPatientName}}, my {{son}}, please hurry"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it happened right outside",
-        "It was near {{address}}, they drove off towards the main road"
+        "{{address}}, it's the car park where it happened",
+        "We're at {{address}}",
+        "It's {{address}}, the car park where it happened",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near the car park where it happened",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A man grabbed her, put a hand over her mouth and forced her into a car",
-        "It happened less than a minute ago, I couldn't stop them, the car's gone",
-        "She was walking home and a van pulled up, two men dragged her inside"
+        "A car pulled up, two people got out, grabbed my {{son}} and forced {{him}} inside",
+        "They came out of nowhere, bundled {{him}} into the back seat and drove off",
+        "My {{son}} was walking to the car when they grabbed {{him}} from behind",
+        "They pulled up alongside {{him}}, dragged {{him}} in and drove off fast",
+        "It happened so quickly, they forced {{him}} into a dark coloured car",
+        "Two of them got out, overpowered {{him}} and put {{him}} in the boot",
+        "They grabbed {{him}} by the arm, {{he}} struggled but they were too strong",
+        "The car was waiting, they pushed {{him}} in and drove off towards the main road",
+        "I saw them force {{him}} into the back seat, {{he}} was shouting",
+        "They came from a van, dragged {{him}} inside and pulled away fast"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "She was struggling and screaming when they took her, so yes, conscious then",
-        "I don't know now, I couldn't see her clearly"
+        "{{He}} was conscious and shouting when they took {{him}}",
+        "Yes, {{he}} was fighting back and yelling, definitely conscious",
+        "{{He}} was awake, I could hear {{him}} shouting for help",
+        "Yes, {{he}} was struggling the whole time, fully conscious",
+        "{{He}} was alert, screaming as they pulled {{him}} in",
+        "Conscious, yes, {{he}} was trying to get away",
+        "{{He}} was definitely awake, I heard {{him}} calling out",
+        "Yes, {{he}} was conscious and resisting them",
+        "{{He}} was shouting my name as they took {{him}}",
+        "Yes, {{he}} was awake and clearly terrified"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I don't know now, I couldn't tell you",
-        "She was breathing and fighting them off when I last saw her"
+        "{{He}} was fine breathing wise, {{he}} was shouting loudly",
+        "As far as I could see, yes, {{he}} was breathing fine, just terrified",
+        "{{He}} seemed okay physically, just scared and struggling",
+        "Yes, {{he}} was breathing fine, {{he}} was fighting them off",
+        "{{He}} was fine on that front, just very frightened",
+        "No breathing problems that I saw, {{he}} was shouting the whole time",
+        "{{He}} seemed physically okay, {{he}} was just terrified",
+        "Yes, breathing was fine, {{he}} was struggling and calling out",
+        "{{He}} seemed alright physically, just scared out of {{his}} mind",
+        "No issues there, {{he}} was breathing and shouting"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I don't know, I couldn't see if she was hurt",
-        "She might be, I saw them grab her roughly"
+        "I don't know if {{he}}'s hurt, they grabbed {{him}} quite roughly",
+        "{{He}} might be bruised from how they grabbed {{him}}",
+        "I couldn't tell you, it happened too fast to see if {{he}} was hurt",
+        "They handled {{him}} roughly so {{he}} might be in pain",
+        "I don't know, {{he}} was shouting more from fear than pain I think",
+        "Can't say, they grabbed {{him}} hard by the arm",
+        "I don't know if {{he}}'s injured, please just find {{him}}",
+        "No idea, {{he}} might have some bruising from the struggle",
+        "I couldn't see clearly, {{he}} was pulled quite forcefully",
+        "I don't know, please just help {{him}}, I'm so scared"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I don't know, I couldn't see",
-        "Not that I saw, but I'm not sure"
+        "I didn't see any blood, no",
+        "Not that I saw, no",
+        "I don't think so, but it happened so fast",
+        "No, I didn't see any bleeding",
+        "Not that I could tell, no",
+        "I don't know, I couldn't see clearly enough",
+        "No, I don't think {{he}} was bleeding",
+        "Not as far as I saw, no",
+        "I didn't notice any blood, no",
+        "No, not that I could see"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She's not on anything, she's healthy",
-        "Nothing that I know of"
+        "{{He}} doesn't have any conditions I'm aware of",
+        "No, {{he}}'s healthy, nothing like that",
+        "Nothing that I know of, {{he}}'s fit and well normally",
+        "No medical conditions that I know of",
+        "{{He}}'s never had any health problems",
+        "No, nothing, {{he}}'s completely healthy",
+        "Nothing comes to mind, {{he}}'s fine normally",
+        "No conditions, {{he}}'s never had issues",
+        "Not that I know of, no",
+        "No, {{he}} doesn't have anything like that"
       ]
     },
     "medications": {
       "answers": [
-        "No, nothing",
-        "She doesn't take anything"
+        "No, {{he}} doesn't take anything",
+        "Not that I know of, no medication",
+        "No, {{he}} isn't on anything",
+        "None that I'm aware of",
+        "No, {{he}} doesn't take any medication",
+        "Not as far as I know, no",
+        "No, nothing regular",
+        "None, {{he}}'s not on any medication",
+        "No, {{he}} doesn't need anything like that",
+        "Not that I know of"
       ]
     },
     "patientAge": {
       "answers": [
-        "19"
+        "{{He}}'s in {{his}} twenties",
+        "{{He}}'s twenty five",
+        "Mid twenties, {{he}}'s my {{son}}",
+        "{{He}}'s young, early twenties",
+        "{{He}}'s twenty three years old",
+        "Late teens, {{he}}'s still young",
+        "{{He}}'s in {{his}} early twenties",
+        "{{He}}'s twenty six",
+        "{{He}}'s young, mid twenties",
+        "{{He}}'s twenty four years old"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm trying to stay calm but I need you to find her",
-        "Please, please hurry, I'm so scared for her"
+        "Okay, if you think that's needed, please just find {{him}}",
+        "Yes, if {{he}}'s hurt when you find {{him}}, please, whatever's needed",
+        "Okay, thank you, I just want {{him}} found safe",
+        "Alright, if that helps, please just get to {{him}} quickly",
+        "Yes, okay, whatever {{he}} needs when you find {{him}}",
+        "Okay, thank you, please just hurry and find {{him}}",
+        "Alright, if that's needed, but please, find {{him}} first",
+        "Yes, thank you, I just want {{him}} back safely",
+        "Okay, whatever helps {{him}}, please just hurry",
+        "Alright, thank you, please just get to {{him}} in time"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is an emergency, someone's taken my daughter!"
+        "No, absolutely not, my {{son}}'s been taken, this needs police now",
+        "No, this is not something 111 can help with, please send police",
+        "Please, no, {{he}}'s in danger, I need police right now",
+        "No, this can't wait, someone has taken my {{son}}",
+        "Please, no, I need police immediately, not a callback",
+        "No, this is an emergency, {{he}} could be anywhere by now",
+        "Please, no, 111 can't help find my {{son}}",
+        "No, absolutely not, please send police straight away",
+        "Please, no, every minute matters, I need police now",
+        "No, this is not medical, my {{son}} has been taken"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Thank god, please, hurry, they can't get far",
+        "Yes, please, I'm following the direction they went",
+        "Thank you, please hurry, I'm so scared for {{him}}",
+        "Okay, please tell them to hurry, they went towards the main road",
+        "Thank you, I'll stay on the line and keep watching",
+        "Please hurry, I don't want to lose sight of the direction they went",
+        "Okay, thank you, please find {{him}} quickly",
+        "Yes, please, every second counts",
+        "Thank you, I'm staying right here in case they come back",
+        "Okay, please hurry, I'm terrified for {{him}}"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

@@ -46,6 +46,8 @@
     "shopping_centre"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {},
   "patients": {
     "range": [
       0,
@@ -69,7 +71,14 @@
     "openings": [
       "Police please, there's a car just abandoned in the middle of the road, it's causing a right hazard",
       "I need someone to come and move a car, it's been parked blocking the road for hours",
-      "There's an abandoned car blocking traffic outside my house, can you send someone"
+      "There's an abandoned car blocking traffic outside my house, can you send someone",
+      "Can someone come out, there's a car left in the road and it's blocking everyone in",
+      "I'd like to report an abandoned vehicle, it's been sat blocking the road since this morning",
+      "There's a car just left in the middle of the road, nobody's come to move it",
+      "Could you send someone, there's a car dumped across the road causing problems",
+      "I need to report a vehicle left blocking the road, it's been there all day",
+      "There's an abandoned car right across the junction, it's a real hazard",
+      "Can someone attend, there's a car left blocking the road and traffic's building up"
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -83,90 +92,230 @@
       "answers": [
         "Police please, there's a car just abandoned in the middle of the road, it's causing a right hazard",
         "I need someone to come and move a car, it's been parked blocking the road for hours",
-        "There's an abandoned car blocking traffic outside my house, can you send someone"
+        "There's an abandoned car blocking traffic outside my house, can you send someone",
+        "Can someone come out, there's a car left in the road and it's blocking everyone in",
+        "I'd like to report an abandoned vehicle, it's been sat blocking the road since this morning",
+        "There's a car just left in the middle of the road, nobody's come to move it",
+        "Could you send someone, there's a car dumped across the road causing problems",
+        "I need to report a vehicle left blocking the road, it's been there all day",
+        "There's an abandoned car right across the junction, it's a real hazard",
+        "Can someone attend, there's a car left blocking the road and traffic's building up"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I live opposite",
-        "It's {{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "There's no one with the car, it's empty",
-        "Nobody around it at all"
+        "There's nobody hurt, it's just the abandoned car.",
+        "No patient here, it's only the abandoned car going up.",
+        "Nobody to name, there's no one hurt, just the abandoned car.",
+        "No casualties, it's purely the abandoned car we've got.",
+        "There's no one involved, just the abandoned car itself.",
+        "No patient to speak of, it's the abandoned car that's the issue.",
+        "Nobody's hurt so there's no name to give, it's just the abandoned car.",
+        "No one injured, it's only the abandoned car.",
+        "There's no patient, just the abandoned car needs sorting.",
+        "Nobody hurt at all, it's the abandoned car, that's it."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's right outside",
-        "It's on {{address}}, blocking half the road"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "It's been sat there since yesterday, doors unlocked, no one's come for it",
-        "Someone's abandoned a car right across the road, cars are having to mount the kerb to get past"
+        "It's just been left in the middle of the road, no one around it at all",
+        "It's been sat there since this morning, blocking half the road",
+        "Someone's abandoned it right across the junction, causing a real hazard",
+        "It's parked at an odd angle right in the middle of the carriageway",
+        "It's been there for hours, no hazard lights, no note, nothing",
+        "It looks like it's broken down and just been left where it stopped",
+        "It's blocking one whole lane, cars are having to swerve round it",
+        "It's parked right across the entrance to the road, nobody can get past",
+        "It's been abandoned with the door left open, no sign of the driver",
+        "It's just sat there blocking traffic, been there since last night by the look of it"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's no one in it, it's empty",
-        "No one around, just the car"
+        "Nobody's hurt, there's no one to check on.",
+        "No one's involved, so nothing like that applies.",
+        "There's no patient, no one to ask that about.",
+        "Nobody's affected, it's just the abandoned car.",
+        "No, there's no casualty here at all.",
+        "There's no one hurt, so no need for that.",
+        "Nobody to check, everyone's clear of it.",
+        "No patient here, so that doesn't apply.",
+        "There's nobody involved like that, just the abandoned car.",
+        "No one's hurt, so there's nothing to check."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Nobody's hurt, it's just the car causing the obstruction",
-        "No injuries, nobody's even here"
+        "No one's affected, everyone's well clear of it.",
+        "There's no patient, so nothing like that to report.",
+        "Nobody's breathing in anything, we're all well away from it.",
+        "No, nobody's affected, it's just the abandoned car.",
+        "There's no one hurt, so that doesn't apply here.",
+        "Everyone's fine, nobody's near enough to be affected.",
+        "No casualties, no breathing problems, nothing like that.",
+        "Nobody's affected at all, we're all clear.",
+        "There's no patient to ask about that.",
+        "No, we're all outside and fine, nobody's affected."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt",
-        "Not applicable, there's no one involved"
+        "No one's hurt as far as I can tell.",
+        "There's no patient, so no pain to report.",
+        "Nobody's in any pain, there's no one hurt.",
+        "No, nobody's injured, it's just the abandoned car.",
+        "There's no casualty, so that doesn't apply.",
+        "No one's hurt, nothing like that going on.",
+        "Nobody's in pain, there's no patient at all.",
+        "No injuries reported, nobody's hurt.",
+        "There's no one involved that way, just the abandoned car.",
+        "No, nobody's hurt, no pain, nothing like that."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No, no injuries that I can see.",
+        "There's no patient, so no bleeding to report.",
+        "Nobody's bleeding, there's no one hurt.",
+        "No, nothing like that, it's just the abandoned car.",
+        "There's no casualty here, no bleeding, nothing.",
+        "No one's injured at all, no bleeding.",
+        "Nobody's hurt, so there's no bleeding to speak of.",
+        "No, there's no patient, nothing like that.",
+        "There's no injury, no bleeding, just the abandoned car.",
+        "No, nobody's bleeding, nobody's hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know who it belongs to",
-        "No idea"
+        "There's no patient, I can't help with that.",
+        "No one's hurt, so there's no history to give.",
+        "Nobody involved that way, there's no patient.",
+        "No, there's no casualty, nothing like that applies.",
+        "There's no one to give history for, it's just the abandoned car.",
+        "No patient here, so I wouldn't know that.",
+        "Nobody's hurt, so that doesn't come into it.",
+        "There's no one injured, no history needed.",
+        "No casualty involved, so nothing like that.",
+        "There's no patient, that question doesn't apply here."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable",
-        "I couldn't tell you"
+        "No idea, there's nobody hurt.",
+        "There's no patient, so no medication to mention.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No, there's no one involved that way.",
+        "There's no casualty, nothing like that to say.",
+        "No patient here, so I can't answer that.",
+        "Nobody's hurt at all, no medication needed.",
+        "There's no one injured, so that's not relevant.",
+        "No, it's just the abandoned car, no patient involved.",
+        "There's no patient, so nothing to report there."
       ]
     },
     "patientAge": {
       "answers": [
-        "Not applicable, the car's empty"
+        "There's nobody hurt, no patient involved.",
+        "No one to give an age for, there's no patient.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No casualty here, just the abandoned car.",
+        "There's no one injured, so no age to give.",
+        "No patient at all, it's only the abandoned car.",
+        "Nobody's affected, so that question doesn't apply.",
+        "There's no one hurt, no age needed.",
+        "No, there's no patient here.",
+        "Nobody's involved that way, just the abandoned car, no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll leave it be until someone comes",
-        "Thank you, it's causing a real problem for traffic"
+        "Oh, we don't need an ambulance, nobody's hurt here, but thank you.",
+        "No need for paramedics, everyone's fine, it's just the incident we need dealt with.",
+        "There's no one injured, so no ambulance necessary, but I appreciate it.",
+        "No thank you, nobody's hurt, we just need the crews out here.",
+        "We're all fine here, no one needs an ambulance.",
+        "No injuries at all, so there's no need for paramedics, thanks anyway.",
+        "Nobody's hurt, so I don't think we need an ambulance, just the crews.",
+        "That's kind, but no one's injured, we don't need paramedics.",
+        "No, honestly, everyone's fine, it's just the incident itself we need sorted.",
+        "No need, thank you, nobody's been hurt here at all."
       ]
     },
     "refer111": {
       "answers": [
-        "This isn't a medical thing, it's an abandoned car!",
-        "No, I need the police for this, not 111"
+        "Oh, okay, I suppose it can wait, it's not going anywhere",
+        "Right, fair enough, I'll bear with it",
+        "Okay, that's fine, no rush I suppose",
+        "Alright, I understand, whenever someone's free",
+        "Okay, I'll let you know if anything changes",
+        "Right, no problem, I'll keep an eye on it myself for now",
+        "Okay, that's fine, thanks for letting me know",
+        "Alright, fair enough, I did wonder if it was that urgent",
+        "Okay, I understand, I'll just keep everyone informed here",
+        "Right, that's okay, thank you for taking the details anyway"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll point them to where they're needed when they arrive.",
+        "Right, that's good, we could do with them here to sort the traffic.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting a bit chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, we don't need them, nobody's dealing with a fire here.",
+        "No, this isn't a fire, we don't need the fire engines.",
+        "Sorry, no, there's no fire, it's not something for the fire brigade.",
+        "No thank you, we don't need fire crews, it's not that kind of incident.",
+        "I don't think we need the fire brigade, there's no fire involved.",
+        "No, no fire here, we just need police and paramedics really.",
+        "That's alright, we don't need fire engines, it's not a fire.",
+        "No, this doesn't need the fire brigade, it's a different kind of problem.",
+        "Sorry, no, fire crews aren't needed, there's no fire to speak of.",
+        "No, we're fine on the fire front, it's the other services we need."
       ]
     }
   },

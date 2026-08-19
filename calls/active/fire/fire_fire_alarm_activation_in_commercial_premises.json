@@ -45,6 +45,10 @@
     "dual_pump": 1,
     "single_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,15 @@
   "caller": {
     "openings": [
       "This is the monitoring centre, we've had a fire alarm activation at the premises and can't reach anyone on site",
-      "The fire alarm's triggered at the shop, I'm the keyholder and I'm on my way but wanted to report it"
+      "The fire alarm's triggered at the shop, I'm the keyholder and I'm on my way but wanted to report it",
+      "Alarm receiving centre here, we've got an activation at a commercial unit, no keyholder response yet",
+      "This is the monitoring centre, a fire signal's come through for the premises, building should be unoccupied",
+      "Calling from the alarm company, we've had a signal from the shop unit, trying the keyholder now",
+      "This is the alarm receiving centre, activation reported, no answer from the on site number",
+      "Monitoring centre calling, we've a fire alarm signal at the unit, premises should be locked up",
+      "This is the alarm company, we've had a genuine looking activation, keyholder's been paged",
+      "Calling to report a fire alarm activation at a commercial address, no one on site currently",
+      "This is the monitoring centre, signal received from the shop, we can't raise the keyholder"
     ],
     "phoneArea": "auto",
     "callerType": "alarm_company"
@@ -80,78 +92,231 @@
     "start": {
       "answers": [
         "This is the monitoring centre, we've had a fire alarm activation at the premises and can't reach anyone on site",
-        "The fire alarm's triggered at the shop, I'm the keyholder and I'm on my way but wanted to report it"
+        "The fire alarm's triggered at the shop, I'm the keyholder and I'm on my way but wanted to report it",
+        "Alarm receiving centre here, we've got an activation at a commercial unit, no keyholder response yet",
+        "This is the monitoring centre, a fire signal's come through for the premises, building should be unoccupied",
+        "Calling from the alarm company, we've had a signal from the shop unit, trying the keyholder now",
+        "This is the alarm receiving centre, activation reported, no answer from the on site number",
+        "Monitoring centre calling, we've a fire alarm signal at the unit, premises should be locked up",
+        "This is the alarm company, we've had a genuine looking activation, keyholder's been paged",
+        "Calling to report a fire alarm activation at a commercial address, no one on site currently",
+        "This is the monitoring centre, signal received from the shop, we can't raise the keyholder"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm calling from the alarm monitoring centre"
+        "It's {{callerName}}, I'm an operator at the monitoring centre",
+        "{{callerName}}, calling from the alarm receiving centre",
+        "My name's {{callerName}}, I'm the keyholder for this unit",
+        "It's {{callerName}}, I'm at the control room desk",
+        "{{callerName}} speaking, I'm the duty keyholder tonight",
+        "Name's {{callerName}}, I work for the alarm company",
+        "It's {{callerName}}, I'm looking at the alarm log now",
+        "{{callerName}}, I'm the site's registered keyholder",
+        "This is {{callerName}}, I'm an ARC operator",
+        "{{callerName}} here, I've got the account details in front of me"
       ]
     },
     "patientName": {
       "answers": [
-        "We believe the premises are unoccupied at this time"
+        "There's nobody hurt, the alarm, the building's meant to be empty",
+        "No patient to give a name for, the alarm, the building's meant to be empty",
+        "There's no one involved, the alarm, the building's meant to be empty",
+        "Nobody's hurt, the alarm, the building's meant to be empty",
+        "No casualty at all, the alarm, the building's meant to be empty",
+        "There's no one to report, the alarm, the building's meant to be empty",
+        "Not applicable, the alarm, the building's meant to be empty",
+        "No injuries, the alarm, the building's meant to be empty",
+        "Nobody to name, the alarm, the building's meant to be empty",
+        "No patient, the alarm, the building's meant to be empty"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, that is the registered address on our system"
+        "{{address}}, that's the unit on the alarm",
+        "It's {{address}}, the premises should be locked and empty",
+        "{{address}}, that's the registered address for the account",
+        "You want {{address}}, that's the shop unit in question",
+        "{{address}}, I'll confirm that's correct on our system",
+        "{{address}}, that's the site, no vehicle recorded on site",
+        "{{address}}, that's us, I'm on my way there now",
+        "{{address}}, that's the property, should be unoccupied",
+        "{{address}}, that's confirmed on our records",
+        "{{address}}, that's the unit, thank you"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "We've received a fire alarm signal from the premises, we can't get an answer from the keyholder yet"
+        "The panel's showing a fire zone active, we've no camera to confirm",
+        "Signal came through automatically, no confirmation of actual fire",
+        "We can't verify visually, the alarm's simply triggered on the panel",
+        "No CCTV on this site, so we can't confirm if it's genuine",
+        "The system logged a fire alert about ten minutes ago, cause unknown",
+        "We've no way to check remotely, the signal just came through as fire",
+        "Could be a fault or could be genuine, we treat all activations as real",
+        "The account's had no history of false alarms before tonight",
+        "We're unable to see inside, the panel simply shows an active alarm",
+        "No further detail from the panel, just a standard fire zone trigger"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No persons reported on site, it should be unoccupied"
+        "No one's hurt, the alarm, the building's meant to be empty",
+        "There's no patient here, the alarm, the building's meant to be empty",
+        "Not applicable, the alarm, the building's meant to be empty",
+        "Nobody's involved, the alarm, the building's meant to be empty",
+        "No injuries at all, the alarm, the building's meant to be empty",
+        "No one to check on, the alarm, the building's meant to be empty",
+        "There's no casualty, the alarm, the building's meant to be empty",
+        "No patient at all, the alarm, the building's meant to be empty",
+        "Nobody's hurt, thankfully, the alarm, the building's meant to be empty",
+        "No one's affected, the alarm, the building's meant to be empty"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Not applicable, no persons reported"
+        "No one to worry about, the alarm, the building's meant to be empty",
+        "Not applicable, the alarm, the building's meant to be empty",
+        "Nobody's struggling to breathe, the alarm, the building's meant to be empty",
+        "No casualty, the alarm, the building's meant to be empty",
+        "No one's affected by any smoke, the alarm, the building's meant to be empty",
+        "There's no patient, the alarm, the building's meant to be empty",
+        "No breathing issues to report, the alarm, the building's meant to be empty",
+        "Nobody's been near any smoke, the alarm, the building's meant to be empty",
+        "No one's hurt, the alarm, the building's meant to be empty",
+        "Not applicable, no one's involved, the alarm, the building's meant to be empty"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Not applicable"
+        "Nobody's in pain, the alarm, the building's meant to be empty",
+        "No one's hurt at all, the alarm, the building's meant to be empty",
+        "Not applicable, the alarm, the building's meant to be empty",
+        "No injuries to report, the alarm, the building's meant to be empty",
+        "There's no patient, the alarm, the building's meant to be empty",
+        "No one's complaining of anything, the alarm, the building's meant to be empty",
+        "Nobody's hurt, the alarm, the building's meant to be empty",
+        "No pain to report, the alarm, the building's meant to be empty",
+        "Not applicable, no casualty, the alarm, the building's meant to be empty",
+        "No one's injured, the alarm, the building's meant to be empty"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Not applicable"
+        "No, no one's involved, the alarm, the building's meant to be empty",
+        "No bleeding, there's no patient, the alarm, the building's meant to be empty",
+        "Not applicable, the alarm, the building's meant to be empty",
+        "No, everyone's uninjured, the alarm, the building's meant to be empty",
+        "No, nobody's hurt, the alarm, the building's meant to be empty",
+        "No bleeding to report, the alarm, the building's meant to be empty",
+        "Not applicable, no casualties, the alarm, the building's meant to be empty",
+        "No, no one's been near it, the alarm, the building's meant to be empty",
+        "No, we're all fine, the alarm, the building's meant to be empty",
+        "No, there's no one injured, the alarm, the building's meant to be empty"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient, premises reported unoccupied"
+        "No patient, the alarm, the building's meant to be empty",
+        "Not applicable, the alarm, the building's meant to be empty",
+        "No one to give an age for, the alarm, the building's meant to be empty",
+        "N/A, the alarm, the building's meant to be empty",
+        "No age to give, the alarm, the building's meant to be empty",
+        "Not applicable, no one's hurt, the alarm, the building's meant to be empty",
+        "No casualty, the alarm, the building's meant to be empty",
+        "Nobody's involved, the alarm, the building's meant to be empty",
+        "Not applicable at all, the alarm, the building's meant to be empty",
+        "No patient to speak of, the alarm, the building's meant to be empty"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we'll keep trying to reach the keyholder"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a fire alarm signal, not a medical matter"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

@@ -50,6 +50,12 @@
     "fire_officer": 2,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11,
+    "ambulance": 6,
+    "police": 3
+  },
   "patients": {
     "range": [
       0,
@@ -88,7 +94,15 @@
   "caller": {
     "openings": [
       "We've opened a letter with white powder in it and now two of us feel unwell",
-      "I need help, someone's opened a suspicious letter in the post room and there's powder everywhere"
+      "I need help, someone's opened a suspicious letter in the post room and there's powder everywhere",
+      "Please hurry, there's powder from a letter and a couple of us feel really unwell",
+      "We've had a suspicious letter, powder went everywhere and two of us feel sick",
+      "Someone opened a letter with powder inside and now a couple of us feel dizzy",
+      "There's a strange substance from a letter in the post room, two people feel unwell",
+      "We've sealed off the post room but a couple of us got exposed to the powder",
+      "Please send someone, a letter's released powder and a couple of us feel awful",
+      "There's a suspicious letter here, powder's everywhere and two of us are affected",
+      "We've had an incident with a letter, white powder went in the air, a couple feel sick"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -101,90 +115,231 @@
     "start": {
       "answers": [
         "We've opened a letter with white powder in it and now two of us feel unwell",
-        "I need help, someone's opened a suspicious letter in the post room and there's powder everywhere"
+        "I need help, someone's opened a suspicious letter in the post room and there's powder everywhere",
+        "Please hurry, there's powder from a letter and a couple of us feel really unwell",
+        "We've had a suspicious letter, powder went everywhere and two of us feel sick",
+        "Someone opened a letter with powder inside and now a couple of us feel dizzy",
+        "There's a strange substance from a letter in the post room, two people feel unwell",
+        "We've sealed off the post room but a couple of us got exposed to the powder",
+        "Please send someone, a letter's released powder and a couple of us feel awful",
+        "There's a suspicious letter here, powder's everywhere and two of us are affected",
+        "We've had an incident with a letter, white powder went in the air, a couple feel sick"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I work in the post room"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}} and one other colleague",
-        "{{firstPatientName}} opened it, they're the worst affected"
+        "There's a couple of us affected, I can give you names shortly",
+        "Two of my colleagues, I'll get you their names",
+        "A couple of the post room staff, names to follow",
+        "There's two of us who opened it, both feeling unwell now",
+        "A couple of my team, sorry, I'm a bit flustered to give exact names",
+        "Two colleagues from the post room, I can confirm names shortly",
+        "There's a couple affected, I'll pass names on once we're settled",
+        "Two of us, sorry, I can barely think straight right now",
+        "A couple of my staff, names available once things calm down",
+        "There's two people affected, I'll get you the details"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, the post room",
-        "{{address}}, ground floor office"
+        "It's {{address}}, please hurry",
+        "{{address}}, quickly please",
+        "We're at {{address}}, please send someone fast",
+        "The address is {{address}}, please hurry",
+        "{{address}}, in the post room, please hurry",
+        "It's {{address}}, oh please be quick",
+        "{{address}}, come quickly please",
+        "{{address}} is the address, please hurry",
+        "Please, it's {{address}}",
+        "{{address}}, in the post room, quickly please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A letter was opened and white powder came out, {{firstPatientName}} breathed some of it in and now feels unwell",
-        "There's powder on the desk and floor, we've sealed the room but two of us have symptoms"
+        "A letter was opened in the post room and white powder went everywhere",
+        "Someone opened a letter and a cloud of powder came out, a couple of us breathed it in",
+        "The letter released a powder when it was opened, it's now airborne in the room",
+        "We opened what looked like a normal letter and powder spilled out everywhere",
+        "The powder went into the air as soon as the envelope was opened",
+        "It looked suspicious as soon as we opened it, powder went everywhere",
+        "We've sealed the post room off now, but the powder got into the air first",
+        "The letter had powder inside, it went airborne and a couple of us were exposed",
+        "As soon as it was opened, powder puffed out and a couple of us breathed it in",
+        "We didn't expect anything, the letter released powder as soon as it was opened"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, both awake",
-        "{{firstPatientName}}'s awake but anxious"
+        "Yes, both conscious, just feeling very unwell",
+        "They're conscious, sat down and quite shaken",
+        "Yes, both awake and talking to me",
+        "Conscious, but they're both quite frightened",
+        "Yes, they're alert, just feel really unwell",
+        "Both conscious, we've kept them away from the room",
+        "Yes, awake and responding, just feeling terrible",
+        "Conscious, though one seems worse than the other",
+        "Yes, both talking, understandably very worried",
+        "Conscious, we're keeping them calm until you arrive"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A bit tight, coughing occasionally",
-        "{{firstPatientName}} says their throat feels swollen"
+        "Both are struggling to breathe a little, it's frightening them",
+        "A bit of coughing, breathing's not great for either of them",
+        "They're both a bit breathless, we've moved them to fresh air",
+        "Breathing's laboured for both of them right now",
+        "Both coughing and finding it hard to catch their breath",
+        "A little wheezy for both, we're keeping them calm",
+        "Breathing's difficult for them, please hurry",
+        "Both are short of breath and quite anxious about it",
+        "Some breathing difficulty for both, it's worrying them a lot",
+        "They're both struggling a bit for breath right now"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Sore throat and a headache",
-        "{{firstPatientName}} has a burning feeling in the nose and throat"
+        "Both have sore throats and headaches",
+        "Some chest discomfort for both of them",
+        "Headaches and irritated eyes for both",
+        "A bit of chest tightness for one, headache for the other",
+        "Both are uncomfortable, throat and chest mostly",
+        "Sore eyes and throat for both of them",
+        "Some pain in the chest for one, mostly headache for the other",
+        "Both have headaches and feel generally unwell",
+        "Throat irritation and chest discomfort for both",
+        "Some discomfort reported by both, mostly chest and throat"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "None"
+        "No, no bleeding, it's the powder exposure that's the worry",
+        "No bleeding, they're just very unwell from the substance",
+        "No, this isn't a bleeding incident at all",
+        "No bleeding reported, it's respiratory and skin irritation",
+        "No, neither of them is bleeding, just badly shaken",
+        "No bleeding, the concern is what they've been exposed to",
+        "No, we've not seen any bleeding on either of them",
+        "No bleeding, it's the substance that's the main worry",
+        "No, neither is injured that way, just unwell",
+        "No bleeding, this is all down to the powder"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of",
-        "I don't know off hand"
+        "I don't know their full medical history, sorry",
+        "No idea, sorry, that's not something we hold on file",
+        "Can't say for certain, sorry, I don't know them that well",
+        "Sorry, I don't know their medical backgrounds",
+        "No, we don't have that information here",
+        "I don't know, sorry, we're focused on getting them help",
+        "Sorry, not something I can answer right now",
+        "Can't say for certain, sorry",
+        "No idea, sorry, I only know them from work",
+        "Sorry, I can't give you that for either of them"
       ]
     },
     "medications": {
       "answers": [
-        "Not that I'm aware of",
-        "I don't know"
+        "I don't know what either of them takes, sorry",
+        "No idea, sorry, we don't hold that information",
+        "Can't say, sorry, I don't know them well enough",
+        "Sorry, no idea what they're on medication wise",
+        "No, we haven't got that information here",
+        "I can't tell you that right now, sorry",
+        "Sorry, not something I can answer at the moment",
+        "No idea, sorry, we haven't discussed that",
+        "I don't know, sorry, focus is on getting them help",
+        "No, sorry, we don't have that to hand"
       ]
     },
     "patientAge": {
       "answers": [
-        "{{firstPatientName}} is 41, the other colleague's similar age",
-        "Both in their forties"
+        "Both are working age, thirties I'd say",
+        "A similar age, both in their thirties or forties",
+        "Mixed a little, one's younger, one's older, both adults",
+        "Both adults, working age, sorry I can't be more precise",
+        "A similar range, both thirties to forties",
+        "Both working age, no children involved",
+        "Mixed slightly, both are adults in their thirties or so",
+        "A similar age bracket, both middle aged adults",
+        "Both adults, sorry I can't give exact ages",
+        "Working age for both, roughly thirties to forties"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've sealed the room and evacuated the rest of the office",
-        "Right, we're not touching anything else"
+        "Okay, thank you, we'll keep them as comfortable as we can",
+        "Right, that's a relief, there's quite a few of them",
+        "Okay, we'll wait for them by the entrance",
+        "Thank you, I'll let everyone know help's coming",
+        "Okay, we're keeping them together until they arrive",
+        "Right, thank you, please send as many as you can",
+        "Okay, we'll point them to where everyone is",
+        "Thank you, that's good, some of them are quite unwell",
+        "Okay, we'll stay with them until they get here",
+        "Right, thank you, we'll keep everyone calm"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a suspicious substance exposure, we need help now",
-        "Definitely not, we're worried it's something dangerous"
+        "No, please, people are unwell, this can't wait",
+        "No, we need help here now, not a call back",
+        "No, please send someone, people are struggling",
+        "No, this is urgent, there's people affected here",
+        "No, please, I don't think this can wait for 111",
+        "No, we really need help on scene, not advice over the phone",
+        "No, please hurry, this isn't something that can wait",
+        "No, people need treatment now, please send someone",
+        "No, I don't think 111 is enough, please send help",
+        "No, please, this needs an urgent response"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, good, we could do with them helping keep people back",
+        "Right, that's good, some of this area needs cordoning off",
+        "Okay, that'll help keep everyone clear of the area",
+        "Good, they can help control who comes near",
+        "Okay, thank you, it's getting crowded here",
+        "Right, that's useful, we need the area kept clear",
+        "Okay, good, there's a few onlookers we could do with moving back",
+        "Thank you, that'll help with keeping the road clear too",
+        "Okay, good, we could use the extra hands keeping people away",
+        "Right, thank you, that's reassuring"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, good, we really need them here",
+        "Right, that's a relief, thank you",
+        "Okay, thank you, please tell them to hurry",
+        "Good, we need them to deal with this properly",
+        "Okay, that's good news, thank you",
+        "Right, thank you, this needs specialist help",
+        "Okay, good, we've been trying to keep everyone clear",
+        "Thank you, that's reassuring to hear",
+        "Okay, good, we need them to make this safe",
+        "Right, thank you, please hurry them along"
       ]
     }
   },

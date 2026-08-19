@@ -42,6 +42,10 @@
     "park"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -69,8 +73,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Someone's collapsed out on the golf course, we can't get them up",
-      "A walker's fallen on the footpath out on the moorland, quite remote"
+      "Someone's collapsed out on the golf course, we can't get {{him}} up",
+      "A walker's fallen on the footpath out on the moorland, it's quite remote",
+      "Someone's had a fall out on the golf course, {{he}}'s struggling to move",
+      "There's a walker down out on the moor, it's a fair way from the road",
+      "Someone's collapsed on the golf course, {{he}} can't get up on {{his}} own",
+      "A hiker's had a fall out on the heath, it's pretty remote out here",
+      "Someone's gone down on the golf course, {{he}}'s in a bit of a state",
+      "There's been a fall on the moorland path, we're quite far from anywhere",
+      "A walker's collapsed out here, it's rough terrain, access is difficult",
+      "Someone's fallen on the footpath, we're out in the middle of the heath"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -82,91 +94,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Someone's collapsed out on the golf course, we can't get them up",
-        "A walker's fallen on the footpath out on the moorland, quite remote"
+        "Someone's collapsed out on the golf course, we can't get {{him}} up",
+        "A walker's fallen on the footpath out on the moorland, it's quite remote",
+        "Someone's had a fall out on the golf course, {{he}}'s struggling to move",
+        "There's a walker down out on the moor, it's a fair way from the road",
+        "Someone's collapsed on the golf course, {{he}} can't get up on {{his}} own",
+        "A hiker's had a fall out on the heath, it's pretty remote out here",
+        "Someone's gone down on the golf course, {{he}}'s in a bit of a state",
+        "There's been a fall on the moorland path, we're quite far from anywhere",
+        "A walker's collapsed out here, it's rough terrain, access is difficult",
+        "Someone's fallen on the footpath, we're out in the middle of the heath"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "He told me his name's {{firstPatientName}}",
-        "{{firstPatientName}}, that's what he said"
+        "I don't know, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}} at all",
+        "No idea I'm afraid, never met {{him}} before",
+        "Sorry, I've got no idea, I just saw what happened",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, sorry, we're not together",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I've no idea, I only just met {{him}}"
       ]
     },
     "address": {
       "answers": [
-        "It's out near {{address}}",
-        "{{address}}, it's a fair way off the road"
+        "We're out on the golf course near {{address}}, access is tricky",
+        "It's {{address}}, but you'll need to come in on the track, it's remote",
+        "We're near {{address}}, out on the moorland, rough ground",
+        "{{address}}, but it's a fair walk in from the road",
+        "We're out past {{address}}, on the footpath, quite remote",
+        "It's {{address}}, you'll need suitable access for the terrain",
+        "We're near {{address}}, but it's open moorland, no proper road",
+        "{{address}}, come in from the car park, it's a walk from there",
+        "We're out at {{address}}, on rough ground, come carefully",
+        "It's {{address}}, but access is limited, it's all open land here"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He tripped on the uneven ground and went down hard, can't put weight on his leg",
-        "She fell on the path, quite remote out here, will take a while to reach"
+        "{{He}} collapsed suddenly while we were out walking, {{he}}'s not able to get up",
+        "{{He}} tripped on the rough ground and went down hard",
+        "{{He}} said {{he}} felt dizzy then went down on the path",
+        "{{He}} lost {{his}} footing on the uneven ground and fell",
+        "{{He}} just went down without warning, {{he}}'s struggling to move now",
+        "{{He}} stumbled on the moorland and couldn't get back up",
+        "{{He}} collapsed on the fairway, {{he}}'s conscious but can't stand",
+        "{{He}} tripped over a tree root and went down hard",
+        "{{He}} went over on the uneven path and can't put weight on {{his}} leg",
+        "{{He}} just collapsed while walking, {{he}}'s exhausted and hurt"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake and talking",
-        "Yes, conscious"
+        "{{He}} was talking a moment ago, not so much now",
+        "I'm not sure, {{he}}'s in and out of it",
+        "{{He}}'s not really responding to me properly",
+        "{{He}} was awake, now {{he}}'s gone very quiet",
+        "{{He}}'s barely responding, just groaning a bit",
+        "I don't think {{he}}'s fully with it, {{his}} eyes keep closing",
+        "{{He}} answered me once, not since",
+        "{{He}}'s drifting in and out, I'm really worried",
+        "Not properly, {{he}}'s making noises but not talking",
+        "{{He}} opened {{his}} eyes but isn't really responding"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Fine, breathing normally",
-        "No problems there"
+        "I'm not sure, it looks shallow to me",
+        "{{His}} breathing seems really shallow",
+        "I can't tell properly, it doesn't sound right",
+        "Shallow I think, {{he}}'s not breathing normally",
+        "I'm not certain, it looks laboured",
+        "It doesn't look right, quite shallow and fast",
+        "I think so but it's hard to tell, {{he}}'s not moving much",
+        "{{His}} breathing looks weak to me",
+        "Not sure, it seems irregular",
+        "I think {{he}}'s breathing but it's very shallow"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Yes, his ankle or leg, hard to tell",
-        "She says her hip hurts"
+        "{{He}} says {{his}} ankle hurts really badly",
+        "{{He}}'s in a lot of pain in {{his}} ankle",
+        "{{He}} won't let me touch {{his}} ankle, says it's agony",
+        "Yes, {{he}}'s in pain, {{his}} ankle mostly",
+        "{{He}}'s holding {{his}} ankle, says it's really sore",
+        "Bad pain in {{his}} ankle, {{he}} keeps wincing",
+        "{{He}} says it hurts a lot when {{he}} moves {{his}} ankle",
+        "{{His}} ankle is really painful, {{he}}'s in a bad way",
+        "Yes, quite a bit of pain, mostly in {{his}} ankle",
+        "{{He}} says it's sore all round {{his}} ankle"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "A small graze"
+        "No bleeding that I can see",
+        "No, there's no blood anywhere",
+        "Doesn't look like it, no cuts or blood",
+        "No, {{he}}'s not bleeding at all",
+        "Not that I can see, no visible blood",
+        "No blood, thankfully",
+        "No, nothing like that, no bleeding",
+        "I don't think so, no blood that I can see",
+        "No, {{he}}'s not cut anywhere",
+        "No bleeding, {{he}} just can't move well"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him, we just happened to be walking near each other",
-        "She hasn't said"
+        "I don't know, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}} at all",
+        "No idea I'm afraid, never met {{him}} before",
+        "Sorry, I've got no idea, I just saw what happened",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, sorry, we're not together",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I've no idea, I only just met {{him}}"
       ]
     },
     "medications": {
       "answers": [
-        "Don't know",
-        "Couldn't say"
+        "No idea, sorry, I don't know {{him}}",
+        "I couldn't tell you, {{he}}'s a stranger to me",
+        "No idea I'm afraid, sorry",
+        "Sorry, I don't know {{him}} well enough to say",
+        "Can't help with that, I don't know {{him}}",
+        "No idea, sorry, I don't know",
+        "I've no clue, never met {{him}} before today",
+        "Sorry, I really don't know",
+        "No idea, we're not together, I just saw {{him}} fall",
+        "Couldn't tell you I'm afraid"
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks about 60",
-        "Late fifties I'd guess"
+        "I don't know, {{he}} looks about 60",
+        "Not sure, maybe 60, I don't know {{him}}",
+        "I'd guess 60, but I couldn't say for certain",
+        "No idea really, {{he}} looks to be around 60",
+        "I don't know {{him}}, but {{he}} looks about 60",
+        "Hard to say, 60 maybe",
+        "I couldn't tell you exactly, around 60 I'd guess",
+        "Sorry, no idea, 60 perhaps",
+        "I'm not sure, {{he}} looks to be in {{his}} 60s",
+        "Can't say for certain, 60 ish"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay with them, we're quite exposed out here",
-        "I've got a coat over her to keep her warm"
+        "Okay, we've got {{him}} wrapped up, it's exposed out here",
+        "Right, we're staying with {{him}}, keeping {{him}} as warm as we can",
+        "We're keeping {{him}} still, {{he}}'s comfortable for now",
+        "Okay, we've got jackets over {{him}} to keep the weather off",
+        "Yes, doing that now, {{he}}'s still in a fair bit of pain",
+        "Okay, we're sheltering {{him}} as best we can out here",
+        "We're keeping {{him}} calm, someone's watching for you at the car park",
+        "Right, we're not moving {{him}}, just keeping {{him}} company",
+        "Okay, doing that now, {{he}}'s cold but staying conscious",
+        "We're staying put with {{him}}, we'll wave you in when we see you"
       ]
     },
     "refer111": {
       "answers": [
-        "We're quite remote, I don't think that's practical here",
-        "It's a fair way to walk out, might be best you send someone"
+        "I did wonder about that, but {{he}}'s really not right, can you send someone",
+        "Maybe, but I'd feel better if someone came out",
+        "I'm not sure, {{he}} seems worse than that to me",
+        "Could do, but it's been going on a while now",
+        "I did think about ringing them, but this seemed more urgent",
+        "Possibly, but I'd rather not risk it, can you send someone",
+        "I don't know, {{he}}'s in a fair bit of discomfort",
+        "Maybe not a bad idea, but can you just send someone anyway",
+        "I'm not sure that's enough somehow, {{he}}'s really struggling",
+        "Could be, but it's been hours now, I'd rather someone came out"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, it's an ambulance {{he}} needs",
+        "No, no police needed, this is a medical matter, not police",
+        "No thank you, just the ambulance, there's nothing for police here",
+        "No, wrong service, {{he}} just needs medical help, not police",
+        "No police required, {{he}}'s just unwell, we only need paramedics",
+        "No, nothing for police to do here, it's purely medical",
+        "No, we're fine on that front, just the ambulance for {{him}} please",
+        "Police? No, I don't think that's needed, {{he}} just needs help",
+        "No, no crime or anything like that, just an ambulance please",
+        "No police necessary, {{he}} just needs to be seen by paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, we just need an ambulance for {{him}}",
+        "No, no fire brigade needed, it's an ambulance {{he}} needs",
+        "Fire service? No, wrong service, {{he}}'s just unwell",
+        "No, nothing's on fire, {{he}} just needs a paramedic",
+        "No thank you, no need for fire, just the ambulance please",
+        "Fire brigade? No, {{he}}'s not trapped or anything, {{he}}'s just poorly",
+        "No, that's not necessary, {{he}} only needs medical help",
+        "No fire involved, we just need the ambulance to get here",
+        "Fire? No, I don't think that's needed, {{he}} just needs paramedics",
+        "No, no fire service required, it's purely a medical matter"
       ]
     }
   },

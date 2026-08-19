@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -75,8 +79,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My partner's having the baby at home, the midwife's here but wanted me to call",
-      "It's a home birth, the midwife asked me to ring for an ambulance to be on standby"
+      "My partner's having the baby at home, the midwife's here but wanted me to call.",
+      "It's a home birth, the midwife asked me to ring for an ambulance to be on standby.",
+      "We're having a home birth, everything's fine but the midwife wants backup arranged.",
+      "The midwife's with us for the home birth, {{he}} said to give you a call.",
+      "It's not an emergency, just the midwife wants an ambulance on standby for the birth.",
+      "We're doing a planned home birth, the midwife asked us to notify you as a precaution.",
+      "The labour's progressing well at home, midwife's here, just calling as advised.",
+      "It's a home birth in progress, midwife present, just want an ambulance aware.",
+      "Everything's calm here, the midwife just wants an ambulance on standby for the birth.",
+      "We're at home for the birth, midwife's with us, calling as a routine precaution."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -88,82 +100,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My partner's having the baby at home, the midwife's here but wanted me to call",
-        "It's a home birth, the midwife asked me to ring for an ambulance to be on standby"
+        "My partner's having the baby at home, the midwife's here but wanted me to call.",
+        "It's a home birth, the midwife asked me to ring for an ambulance to be on standby.",
+        "We're having a home birth, everything's fine but the midwife wants backup arranged.",
+        "The midwife's with us for the home birth, {{he}} said to give you a call.",
+        "It's not an emergency, just the midwife wants an ambulance on standby for the birth.",
+        "We're doing a planned home birth, the midwife asked us to notify you as a precaution.",
+        "The labour's progressing well at home, midwife's here, just calling as advised.",
+        "It's a home birth in progress, midwife present, just want an ambulance aware.",
+        "Everything's calm here, the midwife just wants an ambulance on standby for the birth.",
+        "We're at home for the birth, midwife's with us, calling as a routine precaution."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm her partner",
-        "{{callerName}}"
+        "It's {{callerName}}, I'm {{his}} {{callerPartner}}.",
+        "{{callerName}}, I'm {{his}} {{callerPartner}}.",
+        "My name's {{callerName}}, I'm {{his}} {{callerPartner}}.",
+        "{{callerName}} here, I'm {{his}} {{callerPartner}} and I'm with {{him}} now.",
+        "It's {{callerName}} speaking, {{his}} {{callerPartner}}.",
+        "You can put me down as {{callerName}}, I'm {{his}} {{callerPartner}}.",
+        "{{callerName}}. I'm {{his}} {{callerPartner}}, we're together.",
+        "It's {{callerName}}, {{his}} {{callerPartner}} here, please hurry.",
+        "{{callerName}}, that's me, I'm {{his}} {{callerPartner}}.",
+        "It's {{callerName}}, I'm {{his}} {{callerPartner}}, is help on the way?"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}, my partner"
+        "{{firstPatientName}}, that's my {{boyfriend}}.",
+        "It's {{firstPatientName}}, my {{boyfriend}}.",
+        "My {{boyfriend}}'s name is {{firstPatientName}}.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, my {{boyfriend}}.",
+        "It's {{firstPatientName}}, that's who I mean.",
+        "My {{boyfriend}} is called {{firstPatientName}}.",
+        "{{firstPatientName}}, please hurry.",
+        "That's {{firstPatientName}}, my {{boyfriend}}.",
+        "{{firstPatientName}}. {{He}}'s my {{boyfriend}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, the midwife's already here"
+        "We're at {{address}}.",
+        "It's {{address}}.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}.",
+        "We're at {{address}}, the door will be open.",
+        "{{address}}, come straight in.",
+        "You need {{address}}.",
+        "{{address}} is where we are.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She's in labour, contractions are close together, the midwife's with her"
+        "{{He}}'s in labour, contractions are close together, the midwife's with {{him}}.",
+        "Labour's well underway, the midwife's monitoring everything closely.",
+        "Contractions are regular now, the midwife says things are progressing normally.",
+        "{{He}}'s coping well, the midwife's happy with how it's going so far.",
+        "Things are progressing steadily, the midwife's keeping a close eye.",
+        "{{He}}'s in established labour, the midwife's guiding us through it.",
+        "Everything's going as expected, the midwife's here managing it.",
+        "Labour's progressing, the midwife just wants extra support on standby.",
+        "{{He}}'s doing well, contractions are getting closer together now.",
+        "The midwife says it's going smoothly, just wants you aware in case."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's awake and coping well"
+        "Yes, {{he}}'s awake and coping well.",
+        "{{He}}'s fully alert, just focused on the contractions.",
+        "Yes, {{he}}'s conscious and talking between contractions.",
+        "{{He}}'s doing fine, awake and managing well.",
+        "Yes, {{he}}'s aware and calm considering.",
+        "{{He}}'s conscious, breathing through it with the midwife's help.",
+        "Yes, {{he}}'s alert and handling it well.",
+        "{{He}}'s awake, coping with the midwife's guidance.",
+        "Yes, {{he}}'s fully conscious, just concentrating hard.",
+        "{{He}}'s doing okay, aware and working through the contractions."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Normal, just breathing through the contractions.",
+        "Fine, the midwife's happy with it.",
+        "It's steady, no concerns.",
+        "Breathing well, using the techniques the midwife taught.",
+        "Fine, nothing unusual there.",
+        "Normal breathing between contractions.",
+        "It's fine, {{he}}'s managing it well.",
+        "Steady and controlled, all good.",
+        "Breathing's fine, no worries there."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says it's very intense now"
+        "{{He}} says it's very intense now.",
+        "Contractions are strong, {{he}}'s using the gas and air.",
+        "{{He}} says it's getting more intense as things progress.",
+        "Pain's building with the contractions, as expected.",
+        "{{He}}'s finding it intense but managing with support.",
+        "Strong contractions now, {{he}}'s coping with the midwife's help.",
+        "{{He}} says it's painful but bearable so far.",
+        "It's getting stronger, the midwife says that's normal progress.",
+        "{{He}}'s in a fair amount of pain now, using breathing techniques.",
+        "Contractions are intense, but {{he}}'s coping well."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A little, the midwife says that's normal"
+        "A little, the midwife says that's normal.",
+        "Some show, the midwife's not concerned.",
+        "A small amount, expected at this stage the midwife says.",
+        "Just a little, nothing the midwife's worried about.",
+        "A bit, but the midwife says it's within normal range.",
+        "Minimal, the midwife's keeping a close eye regardless.",
+        "A small amount, the midwife says it's all normal.",
+        "Some, but the midwife's happy with how it looks.",
+        "A little bleeding, expected the midwife tells us.",
+        "Not much, the midwife's monitoring it closely."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing complicated, it's her second baby"
+        "Nothing complicated, it's {{his}} second baby.",
+        "Straightforward pregnancy, no complications so far.",
+        "No issues in this pregnancy, it's {{his}} second child.",
+        "Nothing significant, the midwife's had no concerns.",
+        "It's an uncomplicated pregnancy, second time round.",
+        "No health issues that I know of, all routine so far.",
+        "Nothing flagged by the midwife throughout the pregnancy.",
+        "Straightforward, {{he}}'s had one baby before with no issues.",
+        "No complications, the midwife's been happy throughout.",
+        "Nothing of concern, it's been a normal pregnancy."
       ]
     },
     "medications": {
       "answers": [
-        "None"
+        "None.",
+        "Just pregnancy vitamins.",
+        "Nothing regular, just the usual prenatal vitamins.",
+        "None that I know of besides vitamins.",
+        "Just folic acid and vitamins.",
+        "Nothing else, just the standard pregnancy supplements.",
+        "None regularly, no.",
+        "Just the vitamins the midwife recommended.",
+        "Nothing beyond the usual prenatal tablets.",
+        "None, no regular medication."
       ]
     },
     "patientAge": {
       "answers": [
-        "31"
+        "29",
+        "About 29",
+        "29, I think",
+        "{{He}}'s 29 years old",
+        "I believe {{he}}'s 29",
+        "Just turned 29 I think",
+        "29, same age as always",
+        "Around 29, give or take",
+        "{{He}} is 29",
+        "I'd say 29 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you"
+        "Okay, thank you.",
+        "Thank you, that's reassuring to know.",
+        "Okay, we'll carry on as the midwife's directing.",
+        "Thank you, we'll let the midwife know.",
+        "Okay, good to know they're aware.",
+        "Thank you, that's helpful.",
+        "Okay, we'll keep you updated if anything changes.",
+        "Thank you, we appreciate it.",
+        "Okay, the midwife will be glad to hear that.",
+        "Thank you, that puts my mind at ease a bit."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we just want an ambulance on standby"
+        "Okay, that's fine, we'll wait for the call back.",
+        "Alright, if you think that's best, we'll wait.",
+        "Okay, that makes sense, thank you.",
+        "Alright, we'll expect a call then.",
+        "Okay, if that's safer, we'll wait for 111.",
+        "That's fine, we weren't sure who to call anyway.",
+        "Alright, thank you, we'll wait to hear from them.",
+        "Okay, that sounds sensible, thank you.",
+        "Alright, we'll keep an eye on things until they call.",
+        "Okay, thank you, we appreciate the advice."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

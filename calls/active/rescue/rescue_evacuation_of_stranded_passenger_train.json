@@ -51,6 +51,12 @@
     "fire_officer": 4,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 15,
+    "ambulance": 12,
+    "police": 9
+  },
   "patients": {
     "range": [
       5,
@@ -96,8 +102,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "This is the train manager, we're stopped between stations and passengers are struggling to breathe, we need help fast.",
-      "Emergency, our train's stuck at a crossing and it's filling with smoke, we need to evacuate everyone."
+      "Our train's stopped between stations and there's smoke coming through one of the carriages!",
+      "We're stuck on a stranded train, some passengers are struggling to breathe.",
+      "The train's broken down on the line, we need help getting everyone off safely.",
+      "I'm the guard on a stranded train, we've got a lot of frightened passengers on board.",
+      "Please help, our train's stopped dead and smoke's coming from further down the carriage.",
+      "We're stuck on the tracks, there's a lot of passengers and a few are feeling unwell.",
+      "The train's not moving, near a level crossing, and some passengers are panicking.",
+      "I need help evacuating a train, we're stopped on the line with smoke on board.",
+      "Our service has broken down and there's a large number of passengers who need to get off safely.",
+      "Please send help, the train's stranded and some passengers can't breathe properly."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -109,91 +123,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "This is the train manager, we're stopped between stations and passengers are struggling to breathe, we need help fast.",
-        "Emergency, our train's stuck at a crossing and it's filling with smoke, we need to evacuate everyone."
+        "Our train's stopped between stations and there's smoke coming through one of the carriages!",
+        "We're stuck on a stranded train, some passengers are struggling to breathe.",
+        "The train's broken down on the line, we need help getting everyone off safely.",
+        "I'm the guard on a stranded train, we've got a lot of frightened passengers on board.",
+        "Please help, our train's stopped dead and smoke's coming from further down the carriage.",
+        "We're stuck on the tracks, there's a lot of passengers and a few are feeling unwell.",
+        "The train's not moving, near a level crossing, and some passengers are panicking.",
+        "I need help evacuating a train, we're stopped on the line with smoke on board.",
+        "Our service has broken down and there's a large number of passengers who need to get off safely.",
+        "Please send help, the train's stranded and some passengers can't breathe properly."
       ]
     },
     "callerName": {
       "answers": [
+        "It's {{callerName}}, I'm the train guard.",
+        "{{callerName}}, I'm the conductor on this service.",
+        "My name's {{callerName}}, I work for the train operator.",
+        "{{callerName}} here, I'm the on board manager.",
+        "It's {{callerName}} calling, I'm crew on this train.",
+        "{{callerName}}, I'm one of the rail staff on board.",
+        "My name is {{callerName}}, I'm the guard for this service.",
+        "{{callerName}}, I'm calling from the driver's cab.",
         "It's {{callerName}}, I'm the train manager.",
-        "{{callerName}}, I'm on board, I work for the railway."
+        "{{callerName}} speaking, I'm the lead crew member on board."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't have names for everyone, there's a lot of passengers unwell.",
-        "One of them is {{firstPatientName}}, she's struggling the most."
+        "I don't have names for everyone, there's a lot of passengers on board.",
+        "One I can see is {{firstPatientName}}, {{he}}'s struggling the most.",
+        "I don't know most of their names, sorry, there's so many.",
+        "{{firstPatientName}}'s one of them, {{he}}'s finding it hardest to breathe.",
+        "No names for most, sorry, we're just trying to keep everyone calm.",
+        "I know one is {{firstPatientName}}, {{he}}'s a bit worse than the rest.",
+        "Can't give you names for everyone, there's too many passengers.",
+        "One's called {{firstPatientName}}, {{he}}'s sat near the door struggling.",
+        "Sorry, no names, we're focused on getting everyone off safely.",
+        "{{firstPatientName}}'s the one who's worst affected that I can see."
       ]
     },
     "address": {
       "answers": [
-        "We're stopped near {{address}}, by the crossing.",
-        "{{address}}, the train's stopped just before the crossing."
+        "We're stopped at {{address}}, near the signal on the approach.",
+        "{{address}}, we're stranded just before the platform there.",
+        "It's near {{address}}, on the track between the two stations.",
+        "{{address}}, access is easiest from the road bridge.",
+        "We're at {{address}}, right by the level crossing.",
+        "{{address}}, come from the trackside gate if you can.",
+        "It's around {{address}}, on the embankment there.",
+        "{{address}}, we're stopped just short of the tunnel.",
+        "We're near {{address}}, the nearest access point is the farm track.",
+        "{{address}}, I'll guide the crews in from the platform end."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The train stopped suddenly and smoke started coming through the carriage, people are finding it hard to breathe.",
-        "We lost power and the train's stuck, it's got very hot and smoky inside and passengers are struggling."
+        "The train's suffered a fault and stopped, there's smoke coming from one of the carriages.",
+        "We've broken down between stations and some passengers are struggling with smoke on board.",
+        "There's a fault with the train and we can't move, a lot of passengers are getting anxious.",
+        "The power's failed and we're stuck, smoke's building up in the rear carriage.",
+        "We've had to make an emergency stop and now we can't restart the train.",
+        "There's been a mechanical fault, the train's stranded and we need to evacuate.",
+        "We're stopped near a level crossing with the power off and smoke logging one carriage.",
+        "The train's stalled and we can't get it moving again, passengers are getting distressed.",
+        "There's a fault on board, some smoke, and we need to get everyone off safely.",
+        "We've lost power completely and the train's stuck on the line with passengers on board."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Most are conscious but distressed, a couple have gone quiet.",
-        "The majority are alert, but a few are struggling badly."
+        "Most passengers are conscious and okay, a handful are more affected by the smoke.",
+        "They're all conscious as far as I can see, just very anxious.",
+        "Conscious, yes, but some are coughing quite badly from the smoke.",
+        "Everyone's awake and alert, some are just panicking a bit.",
+        "As far as I can tell they're all conscious, just shaken up.",
+        "Most are fine, a few look pale and are struggling with the smoke.",
+        "They're conscious, some more distressed than others.",
+        "Everyone's up and moving, a couple are quite unwell from the smoke.",
+        "Conscious throughout, though a few are quite frightened.",
+        "As far as I know everyone's conscious, just uncomfortable and scared."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Several are wheezing and coughing badly.",
-        "A number of them are really struggling for breath."
+        "Some are struggling with the smoke, we've moved them further down the carriage.",
+        "A few are coughing badly, most are breathing okay.",
+        "Breathing's fine for most, a handful are finding it harder because of the smoke.",
+        "A few passengers are wheezy from the smoke, the rest seem fine.",
+        "Most are breathing normally, we've got a couple who are more affected.",
+        "There's some coughing and a bit of breathlessness among a few passengers.",
+        "Breathing's an issue for a few, we've opened doors to get air moving.",
+        "Most are okay, a small number are struggling because of the smoke.",
+        "A handful are short of breath, we're keeping them near the open doors.",
+        "Breathing's fine for the majority, a few are finding it tougher."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "A few are clutching their chests.",
-        "Some are saying their chest feels tight."
+        "A few are complaining of sore throats and headaches from the smoke.",
+        "Some say their chests feel tight, mostly from the smoke.",
+        "There's a bit of chest discomfort reported among a handful of passengers.",
+        "A couple mentioned feeling dizzy and having a headache.",
+        "Some have sore eyes and throats from the smoke.",
+        "A few are saying it hurts to breathe in deeply.",
+        "There's some mild chest pain reported, nothing too severe as far as I know.",
+        "A number mention feeling unwell, headaches mostly.",
+        "Some passengers say their throats are stinging from the smoke.",
+        "A few report discomfort in their chest, we're keeping an eye on them."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, it's the smoke and heat that's the problem.",
-        "No bleeding, it's breathing that's the issue."
+        "No bleeding, no, it's all down to the smoke.",
+        "No, nobody's bleeding, it's a smoke and breathing issue.",
+        "No blood at all, just people struggling with the smoke.",
+        "Not that I've seen, it's respiratory problems mainly.",
+        "No bleeding, thankfully, just discomfort from the smoke.",
+        "No, no injuries like that, purely the smoke affecting people.",
+        "Nobody's cut or bleeding, it's the fumes causing the issue.",
+        "No bleeding at all, it's a breathing problem for a few.",
+        "Not bleeding, no, just some passengers struggling with smoke.",
+        "No blood, no, this is entirely down to the smoke."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't have medical details for the passengers.",
-        "I can't say, there's too many people to know that."
+        "I don't know all their medical histories, sorry, there's so many passengers.",
+        "No idea, we'd need to check with each one individually.",
+        "Can't say for certain, a couple mentioned having asthma.",
+        "I'm not sure, some might have breathing conditions already.",
+        "I don't have that information for everyone on board.",
+        "Not sure, sorry, there's too many people to know that about.",
+        "I couldn't tell you, we're just trying to keep everyone calm right now.",
+        "No idea about medical history, sorry, it's a lot to manage.",
+        "I know one passenger mentioned asthma, not sure about the rest.",
+        "Can't say, sorry, I don't know most of them personally."
       ]
     },
     "medications": {
       "answers": [
-        "I wouldn't know, sorry.",
-        "Not something I have access to."
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's too many passengers to ask.",
+        "Not a clue, sorry, we're focused on getting everyone off safely.",
+        "I don't know, I'd have to ask each of them.",
+        "No idea on medications, sorry, it's quite chaotic here.",
+        "Can't help with that, sorry, I don't know them personally.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's too many to know that about.",
+        "No idea, honestly, we're just trying to keep everyone safe.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "All ages, we've got children and elderly on board.",
-        "Mixed, quite a few elderly passengers in this carriage."
+        "All ages really, there's a proper mix of passengers on board.",
+        "Mixed ages, kids and adults both on this service.",
+        "Hard to say exactly, there's a real range from young to old.",
+        "Mostly adults I'd say, but a few children too.",
+        "A proper mix, from young children up to older passengers.",
+        "Can't say exactly, it's a real mix of everyone commuting.",
+        "There's a broad mix, young and old caught up in this together.",
+        "Mostly working age adults from what I can see.",
+        "A mix, teenagers through to elderly passengers.",
+        "Hard to tell exactly, there's people of all ages on board."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're moving everyone towards the doors ready to evacuate.",
-        "Please hurry, some of them are getting worse."
+        "Okay, thank you, we'll keep everyone calm and near the doors.",
+        "Right, I'll keep them together until the ambulance crews get here.",
+        "Okay, that's good, please hurry, a few are struggling.",
+        "Thank you, we'll keep everyone as comfortable as we can.",
+        "Alright, I'll keep talking to the affected passengers until help arrives.",
+        "Okay, we're keeping them near the open doors for air.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we'll keep everyone together until help turns up.",
+        "Thank you, we'll do what we can until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need emergency services to evacuate this train now!"
+        "No, we've got a train full of passengers, this can't wait for 111.",
+        "111 won't help with this, we need people here to evacuate the train.",
+        "No, please, some are struggling to breathe, we need help now.",
+        "This can't wait for a callback, there's a lot of people involved.",
+        "No, we need proper crews here, not 111.",
+        "Please, this is urgent, we've got passengers with breathing trouble.",
+        "No, this needs emergency crews now, not a phone line.",
+        "I don't think 111 can help with an evacuation like this.",
+        "No, please, we need people here right now, there's so many of us.",
+        "This is too serious for 111, please send help."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, they'll help manage the crowd once we're off.",
+        "Right, that's good, we could do with them for the evacuation.",
+        "Okay, I'll let them know where to find us on the track.",
+        "Thank you, please send them, it's getting busy trying to manage everyone.",
+        "Alright, I'll flag them down when they arrive at the crossing.",
+        "Okay, that's a relief, we need help keeping people calm and together.",
+        "Right, thank you, I'll brief them once they're on scene.",
+        "Okay, good, we could use some extra hands managing the passengers.",
+        "Thank you, I'll stay with the group until they arrive.",
+        "Okay, please hurry, we need them here to help with the crowd."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, that's who we need for the smoke and the evacuation.",
+        "Okay, good, I'll direct them to the affected carriage.",
+        "Thank you, that's a relief, the smoke's still building.",
+        "Right, I'll clear a path for them along the trackside.",
+        "Okay, thank you, we've moved everyone away from the smoke as best we can.",
+        "Yes please, we really need help getting everyone off safely.",
+        "Thank you, I'll wait at the crossing to guide them in.",
+        "Okay, that's good news, please send them quickly.",
+        "Right, thank you, we'll keep everyone together until they arrive.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

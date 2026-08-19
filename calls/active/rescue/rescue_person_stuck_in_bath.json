@@ -45,6 +45,11 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -68,8 +73,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "I'm ever so sorry to bother you, but I've got stuck in the bath and I can't get myself out.",
-      "I need some help, I've slipped getting out of the bath and I can't stand up, I'm stuck."
+      "Hello, I'm stuck in the bath, I can't get myself out.",
+      "This is a bit embarrassing, but I can't get up out of the bath.",
+      "I need some help, I've got stuck in the bath and can't lift myself out.",
+      "Hello, I'm not hurt, I've just got stuck in the bath and I'm not strong enough to get out.",
+      "I've been stuck in the bath for a while now, I can't seem to get out.",
+      "Hello, could someone help, I'm stuck fast in the bathtub.",
+      "I'm calling because I can't get out of the bath, I've tried everything.",
+      "Hello, I'm a bit stuck, I've gone down into the bath and can't get back up.",
+      "I need some help getting out of the bath please, I'm quite stuck.",
+      "Hello, this'll sound silly, but I'm properly stuck in the bath."
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -81,91 +94,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "I'm ever so sorry to bother you, but I've got stuck in the bath and I can't get myself out.",
-        "I need some help, I've slipped getting out of the bath and I can't stand up, I'm stuck."
+        "Hello, I'm stuck in the bath, I can't get myself out.",
+        "This is a bit embarrassing, but I can't get up out of the bath.",
+        "I need some help, I've got stuck in the bath and can't lift myself out.",
+        "Hello, I'm not hurt, I've just got stuck in the bath and I'm not strong enough to get out.",
+        "I've been stuck in the bath for a while now, I can't seem to get out.",
+        "Hello, could someone help, I'm stuck fast in the bathtub.",
+        "I'm calling because I can't get out of the bath, I've tried everything.",
+        "Hello, I'm a bit stuck, I've gone down into the bath and can't get back up.",
+        "I need some help getting out of the bath please, I'm quite stuck.",
+        "Hello, this'll sound silly, but I'm properly stuck in the bath."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}.",
-        "My name's {{callerName}}."
+        "It's {{callerName}}, that's me.",
+        "My name's {{callerName}}.",
+        "I'm {{callerName}}.",
+        "It's {{callerName}} calling.",
+        "My name is {{callerName}}, that's who's stuck.",
+        "I'm {{callerName}}, sorry to trouble you.",
+        "It's me, {{callerName}}.",
+        "{{callerName}}, that's my name.",
+        "I'm {{callerName}}, I'm the one stuck in the bath.",
+        "It's {{callerName}} speaking."
       ]
     },
     "patientName": {
       "answers": [
         "It's me, {{firstPatientName}}.",
-        "I'm {{firstPatientName}}, it's just me here."
+        "My name's {{firstPatientName}}.",
+        "I'm {{firstPatientName}}.",
+        "It's {{firstPatientName}} here.",
+        "My name is {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, that's me.",
+        "It's me calling, I'm {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my name.",
+        "I'm {{firstPatientName}}, sorry to bother you.",
+        "It's {{firstPatientName}} speaking."
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}.",
-        "{{address}}, the front door's unlocked, come straight in."
+        "I'm at {{address}}, the door's unlocked.",
+        "{{address}}, please come round the back, I'll leave that open too.",
+        "It's {{address}}, the key's under the mat if the door's locked.",
+        "{{address}}, I'll shout when I hear you at the door.",
+        "I'm at {{address}}, the bathroom's upstairs.",
+        "{{address}}, my neighbour has a key if you need it.",
+        "It's {{address}}, I've left the door on the latch.",
+        "{{address}}, come straight up, I'm in the bathroom.",
+        "I'm at {{address}}, please hurry, it's a bit cold in here now.",
+        "{{address}}, I'll try to reach the door if I can."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I slipped getting out of the bath and now I can't get any grip to stand up.",
-        "My legs have gone and I just can't lift myself out of the bath."
+        "I slipped a bit getting in and now I can't get the leverage to stand back up.",
+        "My legs just aren't strong enough to push myself up out of the bath.",
+        "I got in fine but now I just can't get myself back out again.",
+        "I lost my footing a bit and now I can't get up without help.",
+        "My hip's playing up and I can't get the strength to lift myself out.",
+        "I sat down to have a bath and now I simply can't get back up.",
+        "I've gone down too low and I haven't got the strength to climb out.",
+        "I slipped slightly and now I'm stuck, I can't get any grip.",
+        "My arms aren't strong enough to push myself out today.",
+        "I got in as normal but now I just can't manage to get out."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, I'm fine, just stuck.",
-        "Yes, wide awake, just can't move."
+        "Yes, I'm wide awake, just stuck.",
+        "Yes, I'm fine, just can't get out.",
+        "I'm conscious, yes, just a bit cold and fed up.",
+        "Yes, I'm okay, just stuck fast.",
+        "I'm fine and alert, just can't move myself.",
+        "Yes, conscious, just embarrassed really.",
+        "I'm okay, just stuck, nothing more than that.",
+        "Yes, I'm fine, just need a hand getting out.",
+        "I'm conscious and talking to you fine, just stuck.",
+        "Yes, I'm alright, just can't lift myself out."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, breathing's fine.",
-        "Yes, I'm okay, just cold and stuck."
+        "Yes, I'm breathing fine, no problems there.",
+        "I'm breathing okay, just a bit cold now.",
+        "Yes, no trouble breathing at all.",
+        "I'm fine breathing wise, just stuck.",
+        "Yes, breathing's fine, thank you.",
+        "I'm okay on that front, just can't get up.",
+        "Yes, no issues breathing, just stuck.",
+        "I'm breathing normally, just cold and tired now.",
+        "Yes, I'm fine, breathing's not a problem.",
+        "I'm okay, breathing's absolutely fine."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "My hip hurts a bit from the fall.",
-        "Not really, just my shoulder's sore."
+        "My hip's a bit sore from trying to push myself up.",
+        "No real pain, just tired arms from trying.",
+        "My back's a bit achy from sitting here so long.",
+        "Nothing too bad, just a bit stiff now.",
+        "My legs are aching a little from trying to move.",
+        "No pain really, just uncomfortable and cold.",
+        "A bit of a twinge in my hip, nothing serious.",
+        "No, not really painful, just frustrating.",
+        "My shoulder's a bit sore from trying to grip the side.",
+        "Nothing major, just a bit stiff and cold now."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no bleeding.",
-        "No, I don't think so."
+        "No, no bleeding, I'm fine.",
+        "No, nothing like that.",
+        "No, no cuts or anything.",
+        "No bleeding, no.",
+        "No, I'm not hurt like that.",
+        "No, nothing at all.",
+        "No, no bleeding, just stuck.",
+        "No, I'm fine on that front.",
+        "No, absolutely not.",
+        "No, nothing like that at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've got arthritis in my hips.",
-        "I had a hip replacement a couple of years ago."
+        "I've got arthritis in my hips, that's about it.",
+        "I've had a couple of falls before, nothing too serious.",
+        "I've got a dodgy knee, that's my main issue.",
+        "I've got high blood pressure, nothing else really.",
+        "Nothing major, just the usual aches of getting older.",
+        "I had a hip replacement a few years back.",
+        "I've got mild arthritis, that's really it.",
+        "Nothing serious, just some joint trouble now and then.",
+        "I've got a heart condition but it's well controlled.",
+        "Not much really, just getting a bit less steady these days."
       ]
     },
     "medications": {
       "answers": [
-        "I take tablets for my blood pressure.",
-        "Just the usual, blood pressure tablets."
+        "I take blood pressure tablets, that's about it.",
+        "Just some tablets for my joints, nothing else.",
+        "I take a water tablet and something for my heart.",
+        "I'm on statins, nothing else really.",
+        "Just a couple of tablets in the morning, nothing serious.",
+        "I take something for arthritis, that's it.",
+        "I'm on blood thinners, nothing else.",
+        "Just my usual tablets for blood pressure.",
+        "I take a few tablets, all fairly routine.",
+        "Nothing unusual, just my regular morning tablets."
       ]
     },
     "patientAge": {
       "answers": [
         "I'm seventy eight.",
+        "I'm eighty one.",
+        "I'm seventy four.",
+        "I'm eighty five.",
+        "I'm seventy nine.",
+        "I'm eighty three.",
+        "I'm seventy six.",
+        "I'm eighty.",
+        "I'm seventy seven.",
         "I'm eighty two."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll try to stay warm and wait.",
-        "Thank you, I'll leave the front door unlocked."
+        "Okay, thank you, I'll just stay put and wait.",
+        "Right, thank you, I'm not going anywhere.",
+        "Okay, that's good, no rush, I'll just wait here.",
+        "Thank you, I'll try to stay warm until they arrive.",
+        "Alright, I'll wait here for them, thank you.",
+        "Okay, I'll just sit tight until help comes.",
+        "Thank you, that's a relief, I'll wait patiently.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll just wait here, thank you.",
+        "Thank you, I'll do my best to stay comfortable until they come."
       ]
     },
     "refer111": {
       "answers": [
-        "No dear, I'm physically stuck, I need someone to lift me!"
+        "Oh, that's fine actually, I'm not hurt, just stuck, if that's easier.",
+        "Yes, that sounds sensible, I'm not in any danger, just stuck.",
+        "Okay, if you think that's better, I'm quite comfortable really.",
+        "That's fine, I'm not hurt, just embarrassed and stuck.",
+        "Alright, if 111 can help arrange something, that's fine.",
+        "Okay, that's understandable, I'm not in any pain.",
+        "Yes, that's fine, I'm not injured, just can't get out myself.",
+        "Alright, whatever's quickest, I'm not going anywhere.",
+        "That sounds fine, I'm not hurt, just stuck, no rush really.",
+        "Okay, if that's the best way to sort it, that's fine by me."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? Oh, I don't think I need them, I'm just stuck in the bath.",
+        "Do I need police as well? I really just need a hand getting out.",
+        "Okay, if you think that helps, though I'm not sure why.",
+        "I wasn't expecting police, but that's fine if it helps.",
+        "Alright, though I think it's really just paramedics I need.",
+        "Okay, understood, though it's just me stuck, nothing more.",
+        "Fine, if that's needed, but nothing's really wrong like that.",
+        "Okay, whatever you think's best.",
+        "Alright, I'll let them in when they arrive.",
+        "Okay, though I'm not sure what police can do about me being stuck."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh, the fire brigade? Alright, if that's who can help me out.",
+        "Okay, that's fine, whoever can get me out is welcome.",
+        "Right, thank you, I didn't expect the fire brigade but that's fine.",
+        "Okay, I'll leave the door unlocked for them.",
+        "Alright, thank you, I'll wait here for them.",
+        "Okay, that's kind, I'll just stay put until they come.",
+        "Thank you, I'll wait here, no rush.",
+        "Okay, that sounds sensible, thank you.",
+        "Right, thank you, I'll wait patiently for them.",
+        "Okay, thank you, whoever comes is very welcome."
       ]
     }
   },

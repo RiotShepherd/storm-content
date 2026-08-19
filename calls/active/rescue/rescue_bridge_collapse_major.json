@@ -49,6 +49,12 @@
     "iccu": 1,
     "fire_officer": 5
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 30,
+    "police": 5,
+    "ambulance": 20
+  },
   "patients": {
     "range": [
       20,
@@ -103,8 +109,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Oh my god, the bridge has come down, there's cars and people in the water!",
-      "Emergency, the whole bridge has collapsed, there's people trapped in the wreckage!"
+      "Hello, please, the bridge has collapsed, there's people everywhere, please hurry.",
+      "Hi, oh god, the bridge has come down, there's people in the water.",
+      "Yeah hiya, please, the bridge has collapsed, loads of people are hurt.",
+      "Oh hello, I'm in shock, the whole bridge has just come down.",
+      "Hi there, please send everyone, the bridge has collapsed with people on it.",
+      "Hello, this is an emergency, the bridge has gone down, people are trapped.",
+      "Hi, please, I just watched the bridge collapse, there's people everywhere.",
+      "Oh, hello, I'm shaking, the bridge has completely come down.",
+      "Hiya, please hurry, the bridge has collapsed, so many people are hurt.",
+      "Hello, please, this is major, the bridge has just collapsed with traffic on it."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -116,91 +130,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Oh my god, the bridge has come down, there's cars and people in the water!",
-        "Emergency, the whole bridge has collapsed, there's people trapped in the wreckage!"
+        "Hello, please, the bridge has collapsed, there's people everywhere, please hurry.",
+        "Hi, oh god, the bridge has come down, there's people in the water.",
+        "Yeah hiya, please, the bridge has collapsed, loads of people are hurt.",
+        "Oh hello, I'm in shock, the whole bridge has just come down.",
+        "Hi there, please send everyone, the bridge has collapsed with people on it.",
+        "Hello, this is an emergency, the bridge has gone down, people are trapped.",
+        "Hi, please, I just watched the bridge collapse, there's people everywhere.",
+        "Oh, hello, I'm shaking, the bridge has completely come down.",
+        "Hiya, please hurry, the bridge has collapsed, so many people are hurt.",
+        "Hello, please, this is major, the bridge has just collapsed with traffic on it."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was driving over when it went.",
-        "{{callerName}}, I was on the footpath underneath."
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}.",
+        "{{callerName}} speaking.",
+        "It's {{callerName}} here.",
+        "Name's {{callerName}}.",
+        "{{callerName}}, yes.",
+        "This is {{callerName}}."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know any of them, there's so many people down there.",
-        "I can't tell you names, there's people everywhere in the water."
+        "There's too many to name, honestly, there's a lot of them hurt.",
+        "I can't give names, there's people everywhere, it's overwhelming.",
+        "I don't know any of them, there's just so many people hurt.",
+        "No names, sorry, there's a lot of casualties out here.",
+        "I can't tell you names, there's people all over the scene.",
+        "Sorry, there's too many of them, I can't get names.",
+        "I don't know them, there's just so many people involved.",
+        "No idea of names, there's people trapped and hurt everywhere.",
+        "I can't help with names, there's just too many hurt.",
+        "Sorry, no names, there's people everywhere, it's chaos."
       ]
     },
     "address": {
       "answers": [
-        "It's the bridge on {{address}}, it's gone completely.",
-        "{{address}}, the whole span's down into the river."
+        "It's {{address}}.",
+        "The address is {{address}}, can you get someone there quickly.",
+        "{{address}}, that's where I am.",
+        "We're at {{address}}.",
+        "It's {{address}}, just past the corner.",
+        "{{address}}, that's the postcode area.",
+        "I'm calling from {{address}}.",
+        "You need {{address}}, that's the one.",
+        "It's {{address}}, look for the front door.",
+        "{{address}}, please hurry."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The bridge has just collapsed, there were cars on it, some have gone into the water.",
-        "Part of the bridge gave way and cars and people have fallen with it."
+        "The whole span just gave way, there were cars and people on it at the time.",
+        "It collapsed without warning, there's people in the water and on the wreckage.",
+        "Part of the structure came down, dragging cars and pedestrians with it.",
+        "There was a huge crash and the bridge just folded, people are trapped in cars.",
+        "It's completely down, there's people scattered across the wreckage, some in the river.",
+        "The middle section gave way, cars are hanging off the edge, people trapped.",
+        "It came down section by section, there's people everywhere, some in the water.",
+        "The whole thing collapsed under the weight, there's dozens of people affected.",
+        "It's a total collapse, cars and people have gone down with the structure.",
+        "The bridge just crumbled, there's people trapped in vehicles and some in the river."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are shouting and swimming, others aren't moving at all.",
-        "A few are conscious and clinging to the wreckage, others I can't see moving."
+        "Some are conscious and shouting, others aren't moving at all.",
+        "A lot of them are conscious but in shock, some aren't responding.",
+        "Some are alert and calling out, others look unconscious.",
+        "Mixed, some are awake and screaming, others aren't moving.",
+        "A lot are conscious, but some aren't responding.",
+        "Some are talking, others are completely still, I'm really worried.",
+        "Quite a few are conscious, but some are unresponsive.",
+        "Some are alert, others aren't moving at all, it's awful.",
+        "A number are conscious and calling for help, others aren't.",
+        "Some are awake and shouting, others look unconscious, please hurry."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Some are, I can hear people coughing and calling out.",
-        "I don't know about all of them, some aren't moving."
+        "Some seem to be breathing, others I really can't tell from here.",
+        "I can't check everyone, some look like they're struggling to breathe.",
+        "A few are gasping, others seem okay, it's hard to tell from here.",
+        "Some are breathing fine, others I'm really not sure about.",
+        "I can't tell for all of them, some look like they're in trouble breathing.",
+        "A number seem to be breathing okay, others don't look good at all.",
+        "Some are coughing and struggling, others seem alright.",
+        "I really can't check everyone, please send help fast.",
+        "Some are breathing okay as far as I can see, others aren't moving.",
+        "It's hard to tell from here, some look in real trouble."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "People are screaming about broken bones and being trapped.",
-        "Lots of people shouting they're trapped and in pain."
+        "Everyone's in pain, screaming, it's awful out here.",
+        "Loads of them are in serious pain, crushed limbs and worse.",
+        "There's people screaming in agony all around the scene.",
+        "Many are in severe pain, some look like they can't move at all.",
+        "It's horrific, people are in terrible pain everywhere.",
+        "A lot of them are badly hurt and in a lot of pain.",
+        "There's screaming everywhere, people in serious pain.",
+        "Many look seriously injured, in a lot of pain.",
+        "It's awful, people crushed and in agonising pain.",
+        "There's severe injuries everywhere, people in terrible pain."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, I can see blood on several of them.",
-        "There's people badly cut from the wreckage."
+        "There's a lot of blood, several people are bleeding badly.",
+        "Quite a few are bleeding heavily, it's really bad out here.",
+        "There's severe bleeding on several of them, please hurry.",
+        "A lot of them are bleeding badly from the debris.",
+        "There's blood everywhere, several serious bleeds that I can see.",
+        "Some are bleeding really badly, I don't know what to do.",
+        "There's heavy bleeding on a number of them, please send help fast.",
+        "Quite a few have serious wounds, bleeding heavily.",
+        "There's a lot of blood, some look critical, please hurry.",
+        "Several are bleeding severely, this is really serious."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know any of them, there's dozens of people.",
-        "No idea, it's total chaos down there."
+        "I've no idea, there's too many strangers, I can't help with that.",
+        "I don't know any of them, sorry, there's just so many people.",
+        "No idea about that, I don't know these people at all.",
+        "I can't help with that, there's just too much going on.",
+        "I don't know, sorry, please just get people here fast.",
+        "No idea, there's a lot of them, I don't know anyone.",
+        "I can't tell you that, sorry, there's just too many casualties.",
+        "No idea, sorry, please just send everyone you can.",
+        "I don't know any of their history, sorry, it's overwhelming here.",
+        "Can't help with that, sorry, there's just so many people hurt."
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea, sorry.",
-        "I can't tell you, there's too many people."
+        "I've no idea, there's too many people, I can't help with that.",
+        "I don't know, sorry, there's just so many strangers here.",
+        "No idea about that, please just get help here fast.",
+        "I can't tell you, sorry, there's too much going on.",
+        "No idea, sorry, please just send everyone you can.",
+        "I don't know any of that, there's a lot of them hurt.",
+        "Can't help with that, sorry, it's chaos out here.",
+        "No idea, sorry, just please get ambulances here quickly.",
+        "I don't know, there's just too many casualties to tell you that.",
+        "Sorry, no idea, please just hurry, there's so many hurt."
       ]
     },
     "patientAge": {
       "answers": [
-        "All ages, there's children and adults both.",
-        "Mixed, I can see at least one child in the water."
+        "All sorts, adults and I think I can see at least one child.",
+        "A real mix of ages, I can't be exact, there's just so many.",
+        "Hard to say, all ages it looks like, please just hurry.",
+        "I can't tell exactly, there's people of every age out here.",
+        "A mix, some older, some younger, I really can't say precisely.",
+        "It's hard to tell from here, all sorts of ages, please hurry.",
+        "There's a real range of ages, I can't give you exact numbers.",
+        "Hard to say exactly, but a mix of adults and possibly children.",
+        "I really can't tell, there's just so many people of all ages.",
+        "A mix of ages as far as I can see, please just get help here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay back from the edge and keep watching.",
-        "Please hurry, more of it looks like it's about to go."
+        "Thank you, please hurry, some of them are in a bad way.",
+        "Okay, how long will the ambulances be please.",
+        "Right, we'll try to keep them all calm until you arrive.",
+        "That's a relief, thank you, please send as many as you can.",
+        "Okay, we'll keep them together until the paramedics arrive.",
+        "Thanks, I'll stay on the line if you need me to.",
+        "Good, I was so worried about them, thank you.",
+        "Okay, we'll do what we can until they come.",
+        "Thank you, we'll watch out for the ambulances.",
+        "Alright, please tell them to hurry, there's a lot of people hurt."
       ]
     },
     "refer111": {
       "answers": [
-        "Are you joking, the bridge has collapsed, we need everyone!"
+        "111? No, this needs a proper response now, not a call back.",
+        "I don't think 111 is right for this, please send someone.",
+        "This can't wait for 111, I need help now.",
+        "No, please, this needs someone out here, not 111.",
+        "I really don't think 111 is going to cut it here.",
+        "Please, I need this dealt with now, not a call back later.",
+        "No, this is urgent, 111 won't do.",
+        "I don't understand, this needs a response, not 111.",
+        "Please don't fob me off to 111, this needs attention.",
+        "No, I need someone here, not a phone call from 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Thank you, I'll keep an eye out for the officers.",
+        "Okay, good, how long will the police be please.",
+        "Right, I'll wait here till they arrive.",
+        "That's a relief, thank you for sending someone.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, I'll point them in the right direction when they get here.",
+        "Good, I was starting to worry, thank you.",
+        "Okay, I'll keep back and let them deal with it.",
+        "Thanks, I'll watch out for the patrol car.",
+        "Alright, I'll stay put until the officers arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, that's what we need, how long will they be.",
+        "Okay, good, I'll wait for the fire engine.",
+        "Right, thank you, I'll stay clear until they arrive.",
+        "That's a relief, thank you for sending the crew.",
+        "Okay, I'll keep everyone back until the fire brigade gets here.",
+        "Thanks, I'll watch out for the engine.",
+        "Good, I was hoping you'd send fire crews.",
+        "Okay, I'll stay on the line if needed.",
+        "Thank you, I'll point them the right way when they arrive.",
+        "Alright, I'll wait here for them."
       ]
     }
   },

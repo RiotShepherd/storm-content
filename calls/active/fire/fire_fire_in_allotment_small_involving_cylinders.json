@@ -45,6 +45,10 @@
     "dual_pump": 1,
     "single_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 2
+  },
   "patients": {
     "range": [
       0,
@@ -67,8 +71,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Fire brigade please, there's a fire on the allotments, there's gas bottles near it, I'm worried they'll go",
-      "I'm calling about a fire down the allotments, it's small (involving cylinders) but spreading"
+      "Fire brigade please, there's a small fire on the allotments and there's gas cylinders near it",
+      "I'm calling about a fire on one of the plots, someone keeps gas bottles right by the shed that's burning",
+      "There's a fire on the allotments and I can hear the cylinders venting, it's hissing",
+      "Can you send someone urgently, a shed's on fire and there's gas cylinders inside it",
+      "There's a small fire near a stack of gas bottles on the allotment site",
+      "I need the fire brigade, a plot's caught fire and the plot holder keeps cylinders for the stove there",
+      "Someone's shed is alight and there's camping gas cylinders stored right next to it",
+      "There's a fire on the allotments, please hurry, I think there's cylinders involved",
+      "Please send a crew, a fire's caught near where the gas bottles are kept",
+      "A small fire's started and it's close to some cylinders, I've moved well back"
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -80,82 +92,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade please, there's a fire on the allotments, there's gas bottles near it, I'm worried they'll go",
-        "I'm calling about a fire down the allotments, it's small (involving cylinders) but spreading"
+        "Fire brigade please, there's a small fire on the allotments and there's gas cylinders near it",
+        "I'm calling about a fire on one of the plots, someone keeps gas bottles right by the shed that's burning",
+        "There's a fire on the allotments and I can hear the cylinders venting, it's hissing",
+        "Can you send someone urgently, a shed's on fire and there's gas cylinders inside it",
+        "There's a small fire near a stack of gas bottles on the allotment site",
+        "I need the fire brigade, a plot's caught fire and the plot holder keeps cylinders for the stove there",
+        "Someone's shed is alight and there's camping gas cylinders stored right next to it",
+        "There's a fire on the allotments, please hurry, I think there's cylinders involved",
+        "Please send a crew, a fire's caught near where the gas bottles are kept",
+        "A small fire's started and it's close to some cylinders, I've moved well back"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I've got a plot two rows over",
-        "{{callerName}}, I was watering mine when I saw it"
+        "It's {{callerName}}, I've got the plot next to the one that's burning",
+        "{{callerName}}, I know the plot holder keeps gas bottles in that shed",
+        "It's {{callerName}}, I keep an allotment nearby",
+        "{{callerName}} here, I spotted the smoke and heard hissing",
+        "It's {{callerName}}, my plot's a few rows over",
+        "My name's {{callerName}}, I'm on the allotment committee",
+        "It's {{callerName}}, I saw the cylinders when I looked over",
+        "{{callerName}} speaking, I'm stood well back from it",
+        "It's {{callerName}}, I was passing the site when I noticed it",
+        "{{callerName}}, I've moved everyone away from that plot"
       ]
     },
     "patientName": {
       "answers": [
-        "No, there's no one hurt, most of the plots are empty this time of day"
+        "No, there's nobody hurt, no one was anywhere near it when it started.",
+        "Nobody to name, there's no injuries at all here.",
+        "No patient, no one's been caught up in it.",
+        "There's no casualties, everyone's well clear.",
+        "No one's hurt, I've not seen anybody near the fire.",
+        "Nobody's involved, there's no one to give a name for.",
+        "No injuries, no one was anywhere near when it caught.",
+        "There's no patient here, nobody's been affected.",
+        "No one's hurt, we're all stood well back from it.",
+        "Nobody at all, there's no casualties to report."
       ]
     },
     "address": {
       "answers": [
         "{{address}}, it's the allotment site, come in off the access track",
-        "It's {{address}}, the allotments, you'll see the smoke"
+        "It's {{address}}, the allotments, the burning plot's near the entrance",
+        "{{address}}, please hurry, I can hear the cylinders venting",
+        "It's {{address}}, follow the track and you'll see the smoke",
+        "{{address}}, the shed with the cylinders is on the left as you come in",
+        "It's {{address}}, I'll meet you at the gate to point it out",
+        "{{address}}, we've kept everyone back from that end of the site",
+        "It's {{address}}, the plot's near the middle row",
+        "{{address}}, the allotments are behind the park",
+        "It's {{address}}, use the pedestrian entrance and follow the smoke"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Someone's shed or plot has gone up on the allotments, it's a small (involving cylinders) fire and there's smoke drifting over the gardens"
+        "A shed's caught fire and there's gas cylinders stored inside it, they're starting to vent",
+        "Someone's plot has gone up and I can hear the cylinders hissing from here",
+        "The shed's alight and the owner kept camping gas bottles in there, we've all moved back",
+        "It started as a small fire but it's now right next to the stored cylinders",
+        "The fire's spread to where the gas bottles are kept, it's making a loud hissing sound",
+        "No idea how it started, but the cylinders are now heating up in the fire",
+        "Someone's bonfire got too close to a stack of gas bottles on the plot",
+        "The shed's smouldering and the cylinders inside are starting to vent gas",
+        "It's a small fire but everyone's cleared the area because of the cylinders",
+        "The fire caught the shed where cylinders are stored, we can hear them venting"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's no one involved, I've not seen anybody hurt"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so nothing to report there.",
+        "Everyone's fine, nobody's anywhere near the fire.",
+        "No casualties at all, no one's been affected.",
+        "There's no patient, nobody's hurt in any way.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved at all.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's genuinely no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, there's nobody to check, it's just the fire"
+        "No one's struggling, it's just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smell that's bothering anyone.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's close enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke at all.",
+        "No breathing problems, nobody's near enough to it.",
+        "We've kept well clear, so no trouble breathing for anyone.",
+        "No one's affected, there's just a smell of smoke in the air.",
+        "Nothing to report, we're all well away from any smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can see"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, so there's nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected by it.",
+        "Not applicable, there's no patient in any pain.",
+        "No injuries, nobody's hurt in any way at all.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries, nobody's here"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all here.",
+        "Not applicable, nobody's been hurt in this.",
+        "No, no one's involved, so there's no injuries.",
+        "No bleeding to report, everyone's well clear.",
+        "No injuries at all, nobody's anywhere near it.",
+        "No, there's no one hurt to report bleeding on.",
+        "Not applicable, no one's been affected by it.",
+        "No, everyone's well away from where it's burning.",
+        "No bleeding, nobody's been caught up in this."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I can't help with that, there's no one hurt"
+        "Not applicable, there's no one hurt.",
+        "No patient, so there's nothing to tell you there.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter here.",
+        "No patient at all, nothing to report on that.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that front.",
+        "Not applicable, nobody's hurt, sorry.",
+        "No patient involved, nothing to tell you there."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's no patient, sorry"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not a medical call.",
+        "No patient at all, nothing to tell you.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected by it.",
+        "No casualty here, so nothing on that.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no one to ask, nobody's been hurt"
+        "There's no patient, nobody's hurt at all.",
+        "No one involved, so no age to give you.",
+        "Not applicable, it's just the fire itself.",
+        "No casualty, there's no one to report on.",
+        "Nobody's hurt, there's no patient here.",
+        "No one's involved, so nothing there, sorry.",
+        "Not applicable, there's no injuries at all.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient at all."
       ]
     },
     "reassure": {
       "answers": [
-        "Alright, I'm well clear of it now",
-        "Please hurry, it's near the gas bottles some people keep down there"
+        "Alright, I'm well clear of the cylinders now",
+        "Please hurry, I can still hear them venting from here",
+        "Okay, I've got everyone moved right back from that plot",
+        "Understood, we're staying well away from the shed",
+        "Alright, we've cleared the whole row nearest to it",
+        "Okay, I'm keeping people away from the gate on that side",
+        "Right, I'll let you know if the venting sound changes",
+        "Okay, everyone's stood right back near the entrance",
+        "Understood, I'm not going anywhere near those cylinders",
+        "Okay, I'll keep watching from a safe distance"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire on the allotments, nobody's hurt, I just need it put out"
+        "No, it's a fire with gas cylinders involved, nobody's hurt, please hurry",
+        "No thank you, this is a fire call, not a medical one",
+        "No, nobody's hurt, it's the cylinders I'm worried about",
+        "No, I need the fire brigade, not a nurse",
+        "No, please just get here, those cylinders are venting",
+        "No, this isn't medical, it's a fire near gas bottles",
+        "No, there's no injury, just send the fire service please",
+        "No, it's purely a fire, no one's involved, but hurry",
+        "No, please come quickly, I'm worried about those cylinders",
+        "No, it's a fire call, not something 111 can help with"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just a fire, no one's caused any trouble",
+        "Oh, are they coming too? I suppose they can keep people back from the smoke",
+        "Police? I was expecting the fire brigade, is that not enough on its own",
+        "That's fine, I expect they'll want to keep the road clear for you",
+        "Police? I hadn't thought we'd need them, but if it helps with traffic that's fine",
+        "I don't think this needs police, it's not a crime, just a fire",
+        "Oh right, I suppose they can close the road off if it comes to that",
+        "Police? There's no one to arrest here, it's only a fire",
+        "That's okay, I imagine they'll help keep an eye on the bystanders gathering",
+        "Police? I wasn't sure that was needed, but thank you for sending them anyway"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, I'll stay well back until they arrive",
+        "That's great, how long roughly until they get here",
+        "Okay, I'll keep clear of the smoke until the crew arrives",
+        "Brilliant, thank you, I'll wait here to point them in the right direction",
+        "Thank goodness, I'll stay a safe distance away until they come",
+        "Okay, I'll wave them down when I see the engine coming",
+        "Thank you, I'll keep everyone else back until they get here",
+        "That's a relief, I'll stay put and keep watching from a distance",
+        "Okay, thank you, I'll make sure the access stays clear for them",
+        "Understood, I'll stay clear and wait for the crew to arrive"
       ]
     }
   },

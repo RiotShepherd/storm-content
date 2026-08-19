@@ -43,6 +43,10 @@
     "dual_pump": 1,
     "single_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 2
+  },
   "patients": {
     "range": [
       0,
@@ -65,7 +69,15 @@
   "caller": {
     "openings": [
       "The fire alarm's going off at the sheltered housing and some residents can't move quickly",
-      "I need the fire brigade, the alarm's sounding here and I've got several elderly residents who need help"
+      "I need the fire brigade, the alarm's sounding here and I've got several elderly residents who need help",
+      "Our alarm's triggered, staff are helping residents who need assistance to get clear",
+      "Fire alarm's sounding in the scheme, most residents are mobile but a few need help",
+      "We've an alarm activation here, staff are checking on residents with mobility issues",
+      "The alarm's going off, I'm helping residents to the communal lounge as a precaution",
+      "Calling about our scheme's alarm, some residents use frames so it's taking a little longer",
+      "Fire alarm's on in the sheltered housing, we're doing a check of every flat",
+      "Alarm's sounding here, I've got residents gathering in the common room",
+      "We've had an activation, staff are assisting the less mobile residents out"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -78,78 +90,231 @@
     "start": {
       "answers": [
         "The fire alarm's going off at the sheltered housing and some residents can't move quickly",
-        "I need the fire brigade, the alarm's sounding here and I've got several elderly residents who need help"
+        "I need the fire brigade, the alarm's sounding here and I've got several elderly residents who need help",
+        "Our alarm's triggered, staff are helping residents who need assistance to get clear",
+        "Fire alarm's sounding in the scheme, most residents are mobile but a few need help",
+        "We've an alarm activation here, staff are checking on residents with mobility issues",
+        "The alarm's going off, I'm helping residents to the communal lounge as a precaution",
+        "Calling about our scheme's alarm, some residents use frames so it's taking a little longer",
+        "Fire alarm's on in the sheltered housing, we're doing a check of every flat",
+        "Alarm's sounding here, I've got residents gathering in the common room",
+        "We've had an activation, staff are assisting the less mobile residents out"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the scheme warden"
+        "It's {{callerName}}, I'm the scheme manager",
+        "{{callerName}}, I'm the warden on duty",
+        "My name's {{callerName}}, I work here as support staff",
+        "It's {{callerName}}, I'm helping residents to the lounge",
+        "{{callerName}} speaking, I manage this scheme",
+        "Name's {{callerName}}, I'll meet you at reception",
+        "It's {{callerName}}, I'm checking flats one by one",
+        "{{callerName}}, I'm the duty officer this shift",
+        "This is {{callerName}}, I'm in the main office",
+        "{{callerName}} here, I've got the resident list with me"
       ]
     },
     "patientName": {
       "answers": [
-        "All residents are accounted for, no injuries so far"
+        "There's nobody hurt, the alarm, we've not found any fire yet",
+        "No patient to give a name for, the alarm, we've not found any fire yet",
+        "There's no one involved, the alarm, we've not found any fire yet",
+        "Nobody's hurt, the alarm, we've not found any fire yet",
+        "No casualty at all, the alarm, we've not found any fire yet",
+        "There's no one to report, the alarm, we've not found any fire yet",
+        "Not applicable, the alarm, we've not found any fire yet",
+        "No injuries, the alarm, we've not found any fire yet",
+        "Nobody to name, the alarm, we've not found any fire yet",
+        "No patient, the alarm, we've not found any fire yet"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the sheltered housing scheme"
+        "{{address}}, it's the sheltered housing scheme",
+        "It's {{address}}, use the main entrance",
+        "{{address}}, we'll have the door open for you",
+        "You want {{address}}, staff will be waiting at reception",
+        "{{address}}, come to the front, we're expecting you",
+        "{{address}}, that's us, the scheme with the communal lounge",
+        "{{address}}, please come straight in",
+        "{{address}}, that's confirmed, thank you",
+        "{{address}}, I'll be waiting by the main doors",
+        "{{address}}, that's the address for the scheme"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The alarm's activated, I can't find any sign of fire but a few residents need help getting out"
+        "No idea of the cause yet, we're checking flats as we go",
+        "Not sure, could be a resident's toaster, we're still checking",
+        "Unclear, staff are working through the corridor now",
+        "Not certain, but no smoke found in the flats checked so far",
+        "We don't know why, might be a faulty detector",
+        "Possibly steam from a bathroom, we're still confirming",
+        "Not sure of the cause, we're prioritising checking on residents first",
+        "Unclear, but nothing found yet after checking half the flats",
+        "We think it might be a false alarm but we're being thorough",
+        "Not certain, no sign of fire found during our checks so far"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "All residents are conscious, some are just slow moving"
+        "No one's hurt, the alarm, we've not found any fire yet",
+        "There's no patient here, the alarm, we've not found any fire yet",
+        "Not applicable, the alarm, we've not found any fire yet",
+        "Nobody's involved, the alarm, we've not found any fire yet",
+        "No injuries at all, the alarm, we've not found any fire yet",
+        "No one to check on, the alarm, we've not found any fire yet",
+        "There's no casualty, the alarm, we've not found any fire yet",
+        "No patient at all, the alarm, we've not found any fire yet",
+        "Nobody's hurt, thankfully, the alarm, we've not found any fire yet",
+        "No one's affected, the alarm, we've not found any fire yet"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple of the residents have breathing conditions normally"
+        "No one to worry about, the alarm, we've not found any fire yet",
+        "Not applicable, the alarm, we've not found any fire yet",
+        "Nobody's struggling to breathe, the alarm, we've not found any fire yet",
+        "No casualty, the alarm, we've not found any fire yet",
+        "No one's affected by any smoke, the alarm, we've not found any fire yet",
+        "There's no patient, the alarm, we've not found any fire yet",
+        "No breathing issues to report, the alarm, we've not found any fire yet",
+        "Nobody's been near any smoke, the alarm, we've not found any fire yet",
+        "No one's hurt, the alarm, we've not found any fire yet",
+        "Not applicable, no one's involved, the alarm, we've not found any fire yet"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No injuries reported"
+        "Nobody's in pain, the alarm, we've not found any fire yet",
+        "No one's hurt at all, the alarm, we've not found any fire yet",
+        "Not applicable, the alarm, we've not found any fire yet",
+        "No injuries to report, the alarm, we've not found any fire yet",
+        "There's no patient, the alarm, we've not found any fire yet",
+        "No one's complaining of anything, the alarm, we've not found any fire yet",
+        "Nobody's hurt, the alarm, we've not found any fire yet",
+        "No pain to report, the alarm, we've not found any fire yet",
+        "Not applicable, no casualty, the alarm, we've not found any fire yet",
+        "No one's injured, the alarm, we've not found any fire yet"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding reported"
+        "No, no one's involved, the alarm, we've not found any fire yet",
+        "No bleeding, there's no patient, the alarm, we've not found any fire yet",
+        "Not applicable, the alarm, we've not found any fire yet",
+        "No, everyone's uninjured, the alarm, we've not found any fire yet",
+        "No, nobody's hurt, the alarm, we've not found any fire yet",
+        "No bleeding to report, the alarm, we've not found any fire yet",
+        "Not applicable, no casualties, the alarm, we've not found any fire yet",
+        "No, no one's been near it, the alarm, we've not found any fire yet",
+        "No, we're all fine, the alarm, we've not found any fire yet",
+        "No, there's no one injured, the alarm, we've not found any fire yet"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Several residents have mobility issues and existing health conditions"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Medication records are kept in the office if needed"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "Residents are mostly in their seventies and eighties"
+        "No patient, the alarm, we've not found any fire yet",
+        "Not applicable, the alarm, we've not found any fire yet",
+        "No one to give an age for, the alarm, we've not found any fire yet",
+        "N/A, the alarm, we've not found any fire yet",
+        "No age to give, the alarm, we've not found any fire yet",
+        "Not applicable, no one's hurt, the alarm, we've not found any fire yet",
+        "No casualty, the alarm, we've not found any fire yet",
+        "Nobody's involved, the alarm, we've not found any fire yet",
+        "Not applicable at all, the alarm, we've not found any fire yet",
+        "No patient to speak of, the alarm, we've not found any fire yet"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm helping residents to the assembly point now"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a fire alarm and we have residents who need help evacuating"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

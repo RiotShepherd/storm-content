@@ -50,6 +50,10 @@
     "dog_unit": 1,
     "arv": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 8
+  },
   "patients": {
     "range": [
       0,
@@ -79,8 +83,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police, quick, I think I've seen that wanted man, and I heard he carries a gun",
-      "I've spotted him, the one on the firearms warning, near the station"
+      "Police, quick, I think I've seen that wanted {{man}}, and I heard {{he}} carries a gun",
+      "I've spotted {{him}}, the one on the firearms warning, near the station",
+      "Please hurry, I think I've seen the {{man}} with the firearms marker",
+      "Police, I'm scared, I think I've just seen the {{man}} you warned about, the one with a gun",
+      "I've seen {{him}}, the wanted {{man}}, I know {{he}}'s flagged as armed",
+      "Please come quick, I think that's the armed wanted {{man}} near the shops",
+      "Police, I'm really worried, I think I've seen the {{man}} with the gun warning",
+      "I've just spotted {{him}}, the one flagged as carrying a firearm",
+      "Please hurry, I'm scared, I think it's the wanted {{man}} with the gun marker",
+      "Police, quick, I've seen {{him}}, the one you said might be armed"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -92,92 +104,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police, quick, I think I've seen that wanted man, and I heard he carries a gun",
-        "I've spotted him, the one on the firearms warning, near the station"
+        "Police, quick, I think I've seen that wanted {{man}}, and I heard {{he}} carries a gun",
+        "I've spotted {{him}}, the one on the firearms warning, near the station",
+        "Please hurry, I think I've seen the {{man}} with the firearms marker",
+        "Police, I'm scared, I think I've just seen the {{man}} you warned about, the one with a gun",
+        "I've seen {{him}}, the wanted {{man}}, I know {{he}}'s flagged as armed",
+        "Please come quick, I think that's the armed wanted {{man}} near the shops",
+        "Police, I'm really worried, I think I've seen the {{man}} with the gun warning",
+        "I've just spotted {{him}}, the one flagged as carrying a firearm",
+        "Please hurry, I'm scared, I think it's the wanted {{man}} with the gun marker",
+        "Police, quick, I've seen {{him}}, the one you said might be armed"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I saw the whole thing.",
+        "{{callerName}}, I was just walking past.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} here, I'm the one who called.",
+        "{{callerName}}, yes, that's me.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}.",
+        "{{callerName}} speaking, I saw it happen.",
+        "Name's {{callerName}}.",
+        "It's {{callerName}}, I'm just a witness."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, I've stayed well back",
-        "Nobody involved, just a sighting"
+        "I don't know {{his}} name, never seen the wanted person with the firearms warning before.",
+        "No name, sorry, {{he}} didn't exactly introduce {{himself}}.",
+        "Couldn't tell you, the wanted person with the firearms warning was a stranger to me.",
+        "No idea who {{he}} is, I've got no name to give you.",
+        "Don't know {{him}} personally, the wanted person with the firearms warning, that's all I can say.",
+        "No, never seen {{him}} before, can't give you a name.",
+        "Can't help with a name, only a description of the wanted person with the firearms warning.",
+        "No name I'm afraid, {{he}} was gone before I could ask.",
+        "Nobody round here knows {{his}} name, the wanted person with the firearms warning.",
+        "I've got no name for you, just what {{he}} looked like."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, he's near there now",
-        "It's {{address}}, by the station entrance"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "It's definitely him, same face as the appeal, I've kept my distance",
-        "He matches the photo exactly, I didn't want to get close given the warning"
+        "It's definitely {{him}}, same face as the appeal, I've kept my distance",
+        "{{He}} matches the photo exactly, I didn't want to get close given the warning",
+        "I'm certain it's {{him}}, I backed off straight away once I recognised {{him}}",
+        "Same build, same jacket, I kept well back knowing {{he}} might be armed",
+        "{{He}} looked right at me and I moved away fast, I'm sure it's {{him}}",
+        "It's a clear match to the appeal, I've stayed well out of sight",
+        "I recognised {{him}} instantly and got myself away from the area",
+        "Same face, same scar, I've not gone anywhere near {{him}}",
+        "I'm fairly certain it's {{him}}, I'm watching from a safe distance",
+        "{{He}} matches everything in the warning, I'm keeping right away"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, they've made off",
-        "No one's injured that I can see"
+        "Nobody's hurt, so there's nobody to check on for that.",
+        "There's no injured person here, the wanted person with the firearms warning, {{he}}'s just gone.",
+        "No one's collapsed or anything, {{he}} was moving fine.",
+        "It's not that kind of call, nobody's unconscious.",
+        "No casualties here, nobody needs checking over.",
+        "There isn't a patient as such, the wanted person with the firearms warning.",
+        "{{He}} was on {{his}} feet the whole time, no one's hurt.",
+        "No, nobody's hurt, this isn't a medical one.",
+        "Nobody needs an ambulance, no one's injured.",
+        "No one's out cold, nobody's been hurt at all."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt, they've gone"
+        "Nobody's struggling to breathe, no one's hurt.",
+        "There's no injuries at all here, so nothing like that.",
+        "No, {{he}} was breathing fine, running off quick enough.",
+        "It's not a medical call, nobody's had trouble breathing.",
+        "No casualties, nobody needs checking for that.",
+        "Nobody's hurt, the wanted person with the firearms warning, that's the whole problem.",
+        "No, this isn't that kind of emergency.",
+        "Everyone's fine physically as far as I can see.",
+        "No one's been injured, so no breathing issues to report.",
+        "Not a medical one, nobody's struggling with anything like that."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's in pain, nobody's hurt",
-        "Not that I saw"
+        "No one's in pain, nobody's hurt.",
+        "Nobody's complaining of any pain, the wanted person with the firearms warning.",
+        "No injuries, so no pain that I know of.",
+        "Not that I've seen, nobody's hurt here.",
+        "No, nobody's been hurt at all.",
+        "There's no one in pain, this isn't medical.",
+        "No casualties, nobody's said they're in pain.",
+        "Not a soul hurt, the wanted person with the firearms warning.",
+        "No, nobody needs anything for pain.",
+        "No injuries to report, everyone's fine that way."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's bleeding",
-        "No, nothing like that"
+        "No, no one's bleeding.",
+        "Nobody's bleeding, there's no injuries at all.",
+        "No, nothing like that, the wanted person with the firearms warning.",
+        "No blood, no injuries, nobody's hurt.",
+        "Not that I've seen, no one's bleeding.",
+        "No, it's not that kind of call.",
+        "Nobody's injured, so no bleeding to report.",
+        "No, the wanted person with the firearms warning, nobody's hurt.",
+        "No blood anywhere that I can see.",
+        "Not at all, no one's been hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them, so I couldn't say",
-        "No idea, never seen them before"
+        "I wouldn't know, the wanted person with the firearms warning.",
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, never met {{him}} before.",
+        "No idea about that, sorry.",
+        "I don't know {{him}} well enough to say.",
+        "Not a clue, the wanted person with the firearms warning.",
+        "No, I've no idea about {{his}} health.",
+        "Couldn't say, I don't know {{him}} personally.",
+        "No idea whatsoever, sorry.",
+        "I really wouldn't know, never spoken to {{him}}."
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea",
-        "Couldn't tell you"
+        "I've no idea.",
+        "Couldn't tell you, sorry.",
+        "No idea at all, the wanted person with the firearms warning.",
+        "I wouldn't know, never met {{him}}.",
+        "No clue, sorry.",
+        "Couldn't say, I don't know {{him}}.",
+        "No idea, I'm afraid.",
+        "Not a clue what {{he}} takes.",
+        "I really couldn't tell you.",
+        "No idea, sorry, I don't know {{him}}."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looked to be in his thirties",
-        "Mid to late thirties I'd guess"
+        "Hard to say, maybe in {{his}} twenties.",
+        "I'd guess {{him}} as thirtyish, but I couldn't be certain.",
+        "Looked youngish, maybe late teens, from what I saw.",
+        "Not sure exactly, {{he}} looked middle aged.",
+        "Couldn't tell you exactly, mid twenties at a guess.",
+        "I'd say {{he}} was in {{his}} forties, but don't quote me.",
+        "Maybe early twenties, hard to tell from a distance.",
+        "I only got a quick look, {{he}} seemed fairly young.",
+        "Roughly thirty, that's my best guess.",
+        "Somewhere around {{his}} twenties or thirties, I'd say."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm keeping well away from him",
-        "Right, I'll stay out of sight"
+        "Ambulance? No, nobody's hurt, it's a police matter.",
+        "No, we don't need an ambulance, nobody's injured here.",
+        "Sorry, why an ambulance, nobody's hurt, I just need police.",
+        "No, there's no injury, I only need the police out here.",
+        "That's not needed, nobody's been hurt, it's police I want.",
+        "No ambulance required, nobody's injured, just send police please.",
+        "No, I don't think that's right, nobody's hurt, it's a police job.",
+        "There's no injury here, I only asked for police.",
+        "No, nobody needs an ambulance, this isn't medical.",
+        "No thank you, nobody's hurt, just the police please."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "No, this isn't a health thing, I need the police out here.",
+        "This isn't a 111 matter, someone's committing an offence, I need police.",
+        "No, I don't need a doctor, I need the police to come now.",
+        "That's not right, nobody's ill, this needs police attention.",
+        "No, please, this is a crime, not a medical thing, send police.",
+        "I don't need 111, I need officers here, this is a police matter.",
+        "No, nobody's poorly, I need police, not a callback.",
+        "That won't help, this needs police, not health advice.",
+        "No, please don't fob me off, I need police out here.",
+        "This isn't medical at all, I need the police, please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh thank god, please hurry, I don't know how long this can go on for.",
+        "Okay, okay, please tell them to hurry, I'm really worried.",
+        "Thank you, please, how long will they be, I'm scared.",
+        "Right, okay, thank you, please just get them here fast.",
+        "Oh good, thank you, I'll stay on the line until they arrive.",
+        "Please hurry, I don't feel safe until they get here.",
+        "Okay, thank you, I'm staying back, just please be quick.",
+        "Thank god, yes please, tell them to hurry.",
+        "Right, thank you, I'm shaking, please just get them here.",
+        "Okay, thank you, I'll wait, just please don't be long."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

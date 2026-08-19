@@ -46,6 +46,10 @@
     "dual_pump": 1,
     "aerial": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3
+  },
   "patients": {
     "range": [
       0,
@@ -68,7 +72,15 @@
   "caller": {
     "openings": [
       "Fire brigade please, some of the tiles on my roof have come loose in the wind.",
-      "I need someone out, there's tiles slipping about on the roof, I think they'll come off."
+      "I need someone out, there's tiles slipping about on the roof, I think they'll come off.",
+      "Some roof tiles are loose and rattling about, I'm worried they'll fall.",
+      "There's a few tiles on my roof that have come loose and are shifting about.",
+      "Could you send someone, I've got loose tiles on the roof that look about to slide off.",
+      "The wind's loosened some tiles on my roof, they look like they could fall any time.",
+      "I've noticed tiles moving about on the roof, worried they'll come down.",
+      "Some tiles on the roof have come loose, they're rattling every time the wind picks up.",
+      "There's loose tiles up there that look ready to slip off the roof.",
+      "Could someone come out, I've got tiles loose on the roof over the front of the house."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -81,82 +93,231 @@
     "start": {
       "answers": [
         "Fire brigade please, some of the tiles on my roof have come loose in the wind.",
-        "I need someone out, there's tiles slipping about on the roof, I think they'll come off."
+        "I need someone out, there's tiles slipping about on the roof, I think they'll come off.",
+        "Some roof tiles are loose and rattling about, I'm worried they'll fall.",
+        "There's a few tiles on my roof that have come loose and are shifting about.",
+        "Could you send someone, I've got loose tiles on the roof that look about to slide off.",
+        "The wind's loosened some tiles on my roof, they look like they could fall any time.",
+        "I've noticed tiles moving about on the roof, worried they'll come down.",
+        "Some tiles on the roof have come loose, they're rattling every time the wind picks up.",
+        "There's loose tiles up there that look ready to slip off the roof.",
+        "Could someone come out, I've got tiles loose on the roof over the front of the house."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "{{callerName}}, that's me.",
+        "Sorry, yes, it's {{callerName}} here.",
+        "{{callerName}} is my name.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}, calling from nearby.",
+        "{{callerName}}, if you need it.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} speaking.",
+        "{{callerName}}, yes."
       ]
     },
     "patientName": {
       "answers": [
-        "There's no patient, it's just the roof tiles loose on the roof, nobody's hurt."
+        "There's nobody hurt, it's just the loose roof tiles.",
+        "No patient here, it's only the loose roof tiles going up.",
+        "Nobody to name, there's no one hurt, just the loose roof tiles.",
+        "No casualties, it's purely the loose roof tiles we've got.",
+        "There's no one involved, just the loose roof tiles itself.",
+        "No patient to speak of, it's the loose roof tiles that's the issue.",
+        "Nobody's hurt so there's no name to give, it's just the loose roof tiles.",
+        "No one injured, it's only the loose roof tiles.",
+        "There's no patient, just the loose roof tiles needs sorting.",
+        "Nobody hurt at all, it's the loose roof tiles, that's it."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "We're at {{address}}.",
+        "That's {{address}}, yes.",
+        "{{address}}, that's the address.",
+        "You'll find it at {{address}}.",
+        "It's {{address}}, just so you know.",
+        "The location is {{address}}.",
+        "{{address}} is where we are.",
+        "That's the postcode and address, {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A gust of wind lifted part of the roof and now there's a few tiles rocking loose up there.",
-        "I noticed some tiles have shifted after the storm last night, they look like they could slide off."
+        "The recent wind must have loosened them, I can see them shifting from below.",
+        "I think the storm did it, a few tiles are clearly loose and moving.",
+        "They've been loosening gradually, but the wind's made it worse today.",
+        "I noticed after the last bit of bad weather, several tiles are loose now.",
+        "The wind's really shifted them, I can hear them rattling from inside.",
+        "I think age and weather have loosened them over time.",
+        "They've come loose in the wind, I can see them slipping about on the roof.",
+        "A few tiles have worked loose, probably from the recent storms.",
+        "I think the high winds did it, the tiles are clearly not sitting right anymore.",
+        "They've been loose for a bit but today's wind has made it worse."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's near the roof, I've kept everyone on the other side of the house."
+        "Nobody's hurt, there's no one to check on.",
+        "No one's involved, so nothing like that applies.",
+        "There's no patient, no one to ask that about.",
+        "Nobody's affected, it's just the loose roof tiles.",
+        "No, there's no casualty here at all.",
+        "There's no one hurt, so no need for that.",
+        "Nobody to check, everyone's clear of it.",
+        "No patient here, so that doesn't apply.",
+        "There's nobody involved like that, just the loose roof tiles.",
+        "No one's hurt, so there's nothing to check."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, it's not smoke, just the tiles moving about."
+        "No one's affected, everyone's well clear of it.",
+        "There's no patient, so nothing like that to report.",
+        "Nobody's breathing in anything, we're all well away from it.",
+        "No, nobody's affected, it's just the loose roof tiles.",
+        "There's no one hurt, so that doesn't apply here.",
+        "Everyone's fine, nobody's near enough to be affected.",
+        "No casualties, no breathing problems, nothing like that.",
+        "Nobody's affected at all, we're all clear.",
+        "There's no patient to ask about that.",
+        "No, we're all outside and fine, nobody's affected."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No pain, no injuries, nobody's hurt."
+        "No one's hurt as far as I can tell.",
+        "There's no patient, so no pain to report.",
+        "Nobody's in any pain, there's no one hurt.",
+        "No, nobody's injured, it's just the loose roof tiles.",
+        "There's no casualty, so that doesn't apply.",
+        "No one's hurt, nothing like that going on.",
+        "Nobody's in pain, there's no patient at all.",
+        "No injuries reported, nobody's hurt.",
+        "There's no one involved that way, just the loose roof tiles.",
+        "No, nobody's hurt, no pain, nothing like that."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, there's nobody hurt to bleed."
+        "No, no injuries that I can see.",
+        "There's no patient, so no bleeding to report.",
+        "Nobody's bleeding, there's no one hurt.",
+        "No, nothing like that, it's just the loose roof tiles.",
+        "There's no casualty here, no bleeding, nothing.",
+        "No one's injured at all, no bleeding.",
+        "Nobody's hurt, so there's no bleeding to speak of.",
+        "No, there's no patient, nothing like that.",
+        "There's no injury, no bleeding, just the loose roof tiles.",
+        "No, nobody's bleeding, nobody's hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, I can't answer that."
+        "There's no patient, I can't help with that.",
+        "No one's hurt, so there's no history to give.",
+        "Nobody involved that way, there's no patient.",
+        "No, there's no casualty, nothing like that applies.",
+        "There's no one to give history for, it's just the loose roof tiles.",
+        "No patient here, so I wouldn't know that.",
+        "Nobody's hurt, so that doesn't come into it.",
+        "There's no one injured, no history needed.",
+        "No casualty involved, so nothing like that.",
+        "There's no patient, that question doesn't apply here."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable, nobody's hurt."
+        "No idea, there's nobody hurt.",
+        "There's no patient, so no medication to mention.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No, there's no one involved that way.",
+        "There's no casualty, nothing like that to say.",
+        "No patient here, so I can't answer that.",
+        "Nobody's hurt at all, no medication needed.",
+        "There's no one injured, so that's not relevant.",
+        "No, it's just the loose roof tiles, no patient involved.",
+        "There's no patient, so nothing to report there."
       ]
     },
     "patientAge": {
       "answers": [
-        "No one's hurt, so there's no patient age to give."
+        "There's nobody hurt, no patient involved.",
+        "No one to give an age for, there's no patient.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No casualty here, just the loose roof tiles.",
+        "There's no one injured, so no age to give.",
+        "No patient at all, it's only the loose roof tiles.",
+        "Nobody's affected, so that question doesn't apply.",
+        "There's no one hurt, no age needed.",
+        "No, there's no patient here.",
+        "Nobody's involved that way, just the loose roof tiles, no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Ambulance? No, nobody's hurt, it's just the loose roof tiles.",
+        "Oh, we don't need an ambulance, nobody's injured here.",
+        "No need for that, nobody's hurt, it's only the loose roof tiles.",
+        "There's no one hurt, we just need the fire brigade.",
+        "No, thank you, nobody's injured, it's just the loose roof tiles.",
+        "We're fine, nobody's hurt, just get the fire engine here.",
+        "No ambulance needed, nobody's been hurt.",
+        "No one's injured, it's only the loose roof tiles that's the problem.",
+        "That's alright, nobody's hurt, we just need the fire service.",
+        "No, no one's injured, just send the fire brigade please."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, I don't think 111 can help with the loose roof tiles, but thank you.",
+        "No, that's alright, it's the loose roof tiles, not really a medical thing.",
+        "No, I think I need the fire brigade for the loose roof tiles, not 111.",
+        "No, this isn't really a medical matter, thank you though.",
+        "No, I don't think that's quite right for the loose roof tiles.",
+        "No, it's not medical, it's the loose roof tiles, so I think I need the fire brigade.",
+        "No, I don't think 111 would be able to help with this one.",
+        "No, thank you, but the loose roof tiles isn't really a 111 sort of job.",
+        "No, I think this needs the fire brigade rather than 111.",
+        "No, it's fine, but the loose roof tiles really needs the fire service."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's not that sort of thing, it's the loose roof tiles.",
+        "We don't need the police, just the fire brigade.",
+        "No, there's no need for police, it's only the loose roof tiles.",
+        "Police aren't needed here, it's a fire matter.",
+        "No thanks, it's the loose roof tiles, not a police job.",
+        "We're alright for police, we just need the fire service.",
+        "No, this doesn't need police, just the fire brigade please.",
+        "No, it's the loose roof tiles, nothing for the police to deal with.",
+        "We don't need police here, thank you.",
+        "No, just the fire brigade will do, thank you."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them.",
+        "Right, thank you, I'll keep an eye out.",
+        "Okay, that's great, thank you.",
+        "Alright, thank you, I'll stay by the door for them.",
+        "Okay, good, I'll wait outside.",
+        "Thank you, I'll keep watching for the engine.",
+        "Right, thanks, I'll wait here for them.",
+        "Okay, that's good to know, thank you.",
+        "Alright, thank you, I appreciate it.",
+        "Okay, thank you, I'll look out for them."
       ]
     }
   },

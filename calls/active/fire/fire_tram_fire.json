@@ -46,6 +46,10 @@
     "hazmat_unit": 1,
     "fire_officer": 4
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 10
+  },
   "patients": {
     "range": [
       0,
@@ -94,8 +98,16 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade, a tram's on fire at the stop, it's empty but the fire's spreading fast.",
-      "There's a tram alight on the line, smoke's pouring out of it."
+      "There's a tram on fire at the stop, smoke's pouring out of it, everyone's off already.",
+      "A tram's caught fire right at the platform, it's empty but the fire's spreading fast.",
+      "Fire brigade, a tram's alight at the stop, all the passengers got off in time.",
+      "There's a tram fire here, flames coming from underneath, it's stopped on the platform.",
+      "I can see a tram well alight at the stop, thankfully everyone's already got off it.",
+      "It's a tram fire, started underneath, the driver's got everyone off and it's spreading.",
+      "There's smoke and flames coming from a tram at the stop, no one's on it now.",
+      "A tram's on fire right here, it's fully alight at the back, everyone's clear of it.",
+      "Fire on a tram at the stop, it's getting worse quickly, the platform's been cleared.",
+      "There's a tram burning at the platform, no passengers left on board, all clear."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -107,83 +119,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade, a tram's on fire at the stop, it's empty but the fire's spreading fast.",
-        "There's a tram alight on the line, smoke's pouring out of it."
+        "There's a tram on fire at the stop, smoke's pouring out of it, everyone's off already.",
+        "A tram's caught fire right at the platform, it's empty but the fire's spreading fast.",
+        "Fire brigade, a tram's alight at the stop, all the passengers got off in time.",
+        "There's a tram fire here, flames coming from underneath, it's stopped on the platform.",
+        "I can see a tram well alight at the stop, thankfully everyone's already got off it.",
+        "It's a tram fire, started underneath, the driver's got everyone off and it's spreading.",
+        "There's smoke and flames coming from a tram at the stop, no one's on it now.",
+        "A tram's on fire right here, it's fully alight at the back, everyone's clear of it.",
+        "Fire on a tram at the stop, it's getting worse quickly, the platform's been cleared.",
+        "There's a tram burning at the platform, no passengers left on board, all clear."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "There's no patient, it's just the tram fire, nobody's hurt."
+        "No, there's no patient, it's the tram fire I'm calling about.",
+        "Nobody's hurt, I'm ringing about the tram fire.",
+        "There's no injured person, just the incident to report.",
+        "No one to name, no one's been hurt here.",
+        "It's not a person hurt, it's the tram fire, nobody's involved.",
+        "No patient, no one's been injured.",
+        "There isn't anyone hurt, so no name to give you.",
+        "Nobody's been hurt, I'm just reporting the tram fire.",
+        "No casualties, it's just the tram fire I need you for.",
+        "No one's injured, there's no patient to give a name for."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Something under the tram caught fire, the driver got everyone off before it took hold properly.",
-        "Sparks came from underneath and now the whole rear of the tram's alight, thankfully it was empty."
+        "The tram caught fire underneath, everyone got off before it really took hold.",
+        "It started near the back of the tram, the driver evacuated it straight away.",
+        "There's flames coming from the undercarriage, the tram's stopped and everyone's off.",
+        "Something electrical went up under the tram, it's spread quickly since then.",
+        "The tram was pulling into the stop when smoke started, the driver got everyone off fast.",
+        "It's alight from the middle carriage, the platform's been cleared of passengers.",
+        "Looks like it started in the braking system, now the whole tram's smoking heavily.",
+        "The fire's spreading along the length of the tram, thankfully it's empty now.",
+        "It caught fire while stationary at the stop, driver cleared it before I called.",
+        "Flames are coming from underneath near the front, the tram's completely empty now."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one was on board, the driver got everyone off in time."
+        "Everyone's fine, no one's hurt, so nothing to report there.",
+        "There's no patient, so nobody's unconscious or anything like that.",
+        "No one's collapsed or anything, the tram fire is the only issue.",
+        "Nobody's hurt at all, we're all fine here.",
+        "No casualties, so that question doesn't really apply.",
+        "Everybody's up and about, no one's been affected.",
+        "No one's hurt, we're all stood well back and fine.",
+        "There's no injured person, everyone here is okay.",
+        "No, nobody's collapsed, it's just the tram fire, no one's hurt.",
+        "All fine here, no one's been knocked about or hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, nobody's breathing anything in, we're away from it."
+        "No breathing problems, nobody's been affected by anything.",
+        "Everyone's breathing fine, there's no patient to worry about.",
+        "No one's struggling for breath, we're all outside and fine.",
+        "No issues there, nobody's hurt or affected.",
+        "Breathing's fine for everyone, it's just the tram fire.",
+        "No one's had any trouble breathing here.",
+        "Not a problem, there's no casualty, everyone's breathing normally.",
+        "No, nobody's affected, we're all fine and clear of it.",
+        "No breathing issues, nobody's been caught up in it.",
+        "Everyone's absolutely fine, no breathing problems at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No pain, no injuries, nobody's hurt."
+        "No, nobody's in any pain, there's no patient.",
+        "No one's hurt, so no pain to report.",
+        "Nobody's in pain, we're all fine here.",
+        "No injuries, no pain, just the tram fire to deal with.",
+        "No, everyone's fine, nobody's been hurt.",
+        "There's no casualty, so no, nobody's in pain.",
+        "No pain, no injuries, nobody's been affected.",
+        "Nobody's hurt at all, so no pain to speak of.",
+        "No, we're all fine, no injuries here.",
+        "No one's in any discomfort, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, there's nobody hurt to bleed."
+        "No, no bleeding, nobody's hurt.",
+        "No injuries at all, so no bleeding.",
+        "Nobody's cut or bleeding, we're all fine.",
+        "No, there's no patient, no bleeding to report.",
+        "No blood, no injuries, everyone's fine here.",
+        "No one's bleeding, it's just the tram fire.",
+        "No injuries whatsoever, nobody's bleeding.",
+        "No, nobody's hurt, so no bleeding.",
+        "No blood, no casualties, we're all okay.",
+        "No, not a scratch on anyone, we're fine."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, I can't answer that."
+        "There's no patient, so I've nothing medical to tell you.",
+        "Sorry, no patient here, nothing to report medically.",
+        "No one's hurt, so there's no medical history needed.",
+        "Not applicable, nobody's been injured here.",
+        "No patient, so nothing to add on that front.",
+        "There's no one hurt, so no medical details needed.",
+        "No casualties, so nothing medical to report.",
+        "Sorry, there's no patient for me to tell you about.",
+        "No injuries, so I can't help with that one.",
+        "Nobody's hurt, there's no medical history to give you."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable, nobody's hurt."
+        "No idea, there's no one hurt here.",
+        "No patient, so no medication to mention.",
+        "Not applicable, nobody's injured.",
+        "No one's hurt, so that doesn't apply here.",
+        "No idea, sorry, there's no casualty.",
+        "No patient, nothing to report on that.",
+        "Not relevant, nobody's been hurt.",
+        "No one's affected, so no medication to give you.",
+        "N/A, there's no patient here.",
+        "No injuries, so nothing on medication to add."
       ]
     },
     "patientAge": {
       "answers": [
-        "No one's hurt, so there's no patient age to give."
+        "There's no patient, nobody's been injured.",
+        "No one hurt, so no age to give you.",
+        "Not applicable, there's no casualty here.",
+        "No patient, sorry, nobody's been hurt.",
+        "No one's injured, so that doesn't apply.",
+        "N/A, there's no one hurt at this job.",
+        "No casualties, no age to report.",
+        "Nobody's hurt, so there's no patient age to give.",
+        "No injuries at all, no patient to speak of.",
+        "There's no one hurt, no age needed."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Oh, we don't need an ambulance, nobody's hurt here, but thank you.",
+        "No need for paramedics, everyone's fine, it's just the incident we need dealt with.",
+        "There's no one injured, so no ambulance necessary, but I appreciate it.",
+        "No thank you, nobody's hurt, we just need the crews out here.",
+        "We're all fine here, no one needs an ambulance.",
+        "No injuries at all, so there's no need for paramedics, thanks anyway.",
+        "Nobody's hurt, so I don't think we need an ambulance, just the crews.",
+        "That's kind, but no one's injured, we don't need paramedics.",
+        "No, honestly, everyone's fine, it's just the incident itself we need sorted.",
+        "No need, thank you, nobody's been hurt here at all."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "What? No, I need the fire brigade, not 111.",
+        "No, this is a fire, I don't need 111.",
+        "Sorry, no, I called 999 for the fire brigade.",
+        "No, nobody needs a doctor, I need the fire service out here.",
+        "I don't think 111 can help with a fire, sorry.",
+        "No, I need someone to come and put this out, not 111.",
+        "It's not medical, it's a fire, please send a crew.",
+        "No thank you, I need the fire brigade urgently.",
+        "Sorry, no, this needs the fire brigade, not 111.",
+        "No, I'm not after medical advice, I need the fire brigade."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, it's a fire we need dealt with.",
+        "No, this isn't a police matter, it's just the fire brigade we need.",
+        "Sorry, no, there's no need for police here, it's a fire call.",
+        "No thank you, we don't need officers, just the crews to put this out.",
+        "I don't think police are needed, it's purely a fire situation.",
+        "No, no police needed, nobody's done anything wrong, it's just a fire.",
+        "That's alright, we don't need police, just the fire brigade please.",
+        "No, this doesn't need police, just someone to deal with the fire.",
+        "Sorry, no, police aren't needed for this, it's a fire, not a crime.",
+        "No, we're fine on the police front, just need the fire crews here."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay back until the crews get here.",
+        "Right, that's a relief, please send them as quickly as you can.",
+        "Okay, we'll keep everyone well clear until the fire engines arrive.",
+        "Thank you, I'll wait here and point them in the right direction.",
+        "Alright, understood, we won't go near it till they arrive.",
+        "Okay, good, we're all outside and waiting for the crews.",
+        "Thank you, we'll keep our distance until the brigade gets here.",
+        "Right, please hurry, it's not looking any better.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, we'll wait here for them."
       ]
     }
   },

@@ -47,6 +47,12 @@
     "aerial": 1,
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3,
+    "police": 2,
+    "ambulance": 2
+  },
   "patients": {
     "range": [
       0,
@@ -74,8 +80,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Please help, someone's trapped inside the enclosure and they're struggling",
-      "There's a keeper stuck in with the animals, he can't get out and he's not looking good"
+      "Please help, someone's trapped inside the enclosure and they're struggling.",
+      "There's a keeper stuck in with the animals, {{he}} can't get out and {{he}}'s not looking good.",
+      "One of our keepers has collapsed inside the enclosure, we can't get to {{him}}.",
+      "Please send someone quickly, {{he}}'s down inside with the animal and we can't reach {{him}}.",
+      "We've got a keeper trapped in the enclosure, {{he}}'s not moving now.",
+      "Please hurry, {{he}} went in to feed and something's gone badly wrong.",
+      "There's been an incident in the enclosure, {{he}}'s collapsed and we can't get close.",
+      "Fire brigade please, a colleague's stuck in with the animal and needs help urgently.",
+      "Please, {{he}}'s trapped inside and the animal won't let us near {{him}}.",
+      "We need help fast, {{he}}'s down in the enclosure and {{he}} isn't responding."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -87,79 +101,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Please help, someone's trapped inside the enclosure and they're struggling",
-        "There's a keeper stuck in with the animals, he can't get out and he's not looking good"
+        "Please help, someone's trapped inside the enclosure and they're struggling.",
+        "There's a keeper stuck in with the animals, {{he}} can't get out and {{he}}'s not looking good.",
+        "One of our keepers has collapsed inside the enclosure, we can't get to {{him}}.",
+        "Please send someone quickly, {{he}}'s down inside with the animal and we can't reach {{him}}.",
+        "We've got a keeper trapped in the enclosure, {{he}}'s not moving now.",
+        "Please hurry, {{he}} went in to feed and something's gone badly wrong.",
+        "There's been an incident in the enclosure, {{he}}'s collapsed and we can't get close.",
+        "Fire brigade please, a colleague's stuck in with the animal and needs help urgently.",
+        "Please, {{he}}'s trapped inside and the animal won't let us near {{him}}.",
+        "We need help fast, {{he}}'s down in the enclosure and {{he}} isn't responding."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm another keeper here"
+        "It's {{callerName}}, please just send someone.",
+        "{{callerName}}, look I just need help quickly.",
+        "My name's {{callerName}}, can you hurry.",
+        "{{callerName}}, yes, now please send someone.",
+        "It's {{callerName}} calling, please.",
+        "{{callerName}}, that's me, please get someone here.",
+        "Sorry, {{callerName}}, I'm a bit shaken.",
+        "{{callerName}} here, please just send help.",
+        "My name is {{callerName}}, please hurry.",
+        "It's {{callerName}}, can you send someone now."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, he's one of our keepers"
+        "It's {{firstPatientName}}, {{he}}'s one of our keepers.",
+        "{{firstPatientName}}, {{he}}'s worked here for years.",
+        "It's {{firstPatientName}}, {{he}}'s a keeper on this section.",
+        "{{firstPatientName}} is {{his}} name, {{he}}'s one of ours.",
+        "That's {{firstPatientName}}, {{he}}'s part of our keeper team.",
+        "{{firstPatientName}}, {{he}}'s the one who does the feeds here.",
+        "It's {{firstPatientName}}, I know {{him}} well, {{he}} works with me.",
+        "{{firstPatientName}}, {{he}}'s a colleague of mine.",
+        "That's {{firstPatientName}} in there, {{he}}'s our senior keeper.",
+        "{{firstPatientName}}, {{he}}'s one of the animal team."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the enclosure at the back"
+        "{{address}}, it's the enclosure at the back.",
+        "It's {{address}}, the animal enclosure round the side.",
+        "{{address}}, you'll need the keeper access gate.",
+        "It's {{address}}, please come to the enclosure entrance.",
+        "{{address}}, I'll meet you at the gate to guide you in.",
+        "It's {{address}}, the enclosure is past the main gate.",
+        "{{address}}, ask for the enclosure area when you arrive.",
+        "It's {{address}}, I'll be waiting to let you through.",
+        "{{address}}, the keeper's block is at the back of the site.",
+        "It's {{address}}, please hurry to the enclosure."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He went in to do the feed and something's gone wrong, he's collapsed inside"
+        "{{He}} went in to do the feed and something's gone wrong, {{he}}'s collapsed inside.",
+        "{{He}} was in with the animal for the feed and now {{he}}'s down on the ground.",
+        "We think the animal knocked {{him}} over, {{he}}'s not getting up.",
+        "{{He}} went in for the routine feed and hasn't come back out.",
+        "Something spooked the animal while {{he}} was inside and {{he}} went down.",
+        "{{He}}'s been in there feeding and we've just noticed {{him}} lying on the ground.",
+        "{{He}} was doing the enclosure round and now {{he}}'s collapsed near the animal.",
+        "We can see {{him}} on the floor of the enclosure, we don't know exactly what happened.",
+        "{{He}} went in alone to feed and something's clearly gone wrong.",
+        "{{He}}'s down inside and the animal's too close for us to get to {{him}}."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He was moving earlier but he's gone quiet now"
+        "{{He}} was moving earlier but {{he}}'s gone quiet now.",
+        "{{He}} isn't responding to us shouting {{his}} name.",
+        "{{He}} was conscious a minute ago, now {{he}}'s not moving.",
+        "We can't tell, {{he}}'s lying still and not answering us.",
+        "{{He}} doesn't seem to be responding at all now.",
+        "{{He}} was groaning earlier but {{he}}'s stopped now.",
+        "We shouted to {{him}}, {{he}} didn't move.",
+        "{{He}} looked conscious at first, now {{he}}'s completely still.",
+        "{{He}}'s not responding, we're really worried.",
+        "{{He}} was moving {{his}} arm before, now nothing."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I can't tell from here, we can't get close because of the animal"
+        "I can't tell from here, we can't get close because of the animal.",
+        "We're too far away to see if {{he}}'s breathing properly.",
+        "I can't tell, {{he}}'s not moving and we can't approach.",
+        "We don't know, the animal's blocking our view of {{him}}.",
+        "I really can't say, we can't safely get near enough.",
+        "We can't see clearly, the animal's still close to {{him}}.",
+        "I'm not sure, {{he}}'s lying awkwardly and we can't check.",
+        "We can't tell from this distance, sorry.",
+        "I can't see {{his}} chest moving from here.",
+        "We don't know, we can't get close enough to check."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I don't know, he hasn't said anything"
+        "I don't know, {{he}} hasn't said anything.",
+        "We can't ask {{him}}, {{he}}'s not responding.",
+        "No idea, {{he}}'s too far away for us to hear.",
+        "We can't tell, {{he}} hasn't made a sound.",
+        "I don't know, {{he}}'s completely silent now.",
+        "We can't say, {{he}} isn't talking to us.",
+        "No idea, {{he}} hasn't reacted to anything we've said.",
+        "We can't tell from here, sorry.",
+        "I don't know, {{he}}'s not responding at all.",
+        "No idea, we just can't get close enough to ask."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I can't see any blood, but I can't get close"
+        "I can't see any blood, but I can't get close.",
+        "We can't tell from here, sorry.",
+        "I don't think so, but we can't see {{him}} properly.",
+        "We can't get near enough to check for that.",
+        "I can't see anything like that from this distance.",
+        "No idea, {{he}}'s partly hidden from our view.",
+        "We really can't tell, we're keeping our distance from the animal.",
+        "I don't know, sorry, we can't get close.",
+        "Can't see clearly, {{he}}'s lying in an awkward spot.",
+        "We can't check, the animal's still too close to {{him}}."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, I'll ask the office"
+        "I don't know, I'll ask the office.",
+        "I'm not sure, someone in HR might know.",
+        "I don't know {{his}} medical history off hand.",
+        "Not sure, I can find out from our records.",
+        "I don't know, I've never needed to ask {{him}} that.",
+        "I'm not sure, our office keeps that on file.",
+        "No idea offhand, I can check with management.",
+        "I don't know {{his}} history, sorry.",
+        "Not sure, I could ask someone else on shift.",
+        "I don't know, but I can try to find out."
       ]
     },
     "medications": {
       "answers": [
-        "I'm not sure"
+        "I'm not sure.",
+        "I don't know if {{he}} takes anything.",
+        "No idea, I've never asked {{him}} that.",
+        "I'm not sure, sorry, that's not something I'd know.",
+        "I don't know, I can check with the office.",
+        "Not sure, sorry, I don't know {{him}} that well personally.",
+        "I've no idea what {{he}} takes.",
+        "I don't know, sorry.",
+        "Not sure, I'd need to check.",
+        "I don't know, sorry, that's not something we discuss at work."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's in his thirties"
+        "{{He}}'s in {{his}} thirties.",
+        "I'd say {{he}}'s about forty.",
+        "{{He}}'s in {{his}} late twenties.",
+        "{{He}}'s around thirty five, I think.",
+        "{{He}}'s in {{his}} forties.",
+        "I think {{he}}'s about thirty.",
+        "{{He}}'s in {{his}} mid thirties.",
+        "{{He}}'s somewhere around forty.",
+        "{{He}}'s in {{his}} late thirties, I believe.",
+        "{{He}}'s about thirty five years old."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've kept the animal away from him"
+        "Okay, we've kept the animal away from {{him}}.",
+        "Right, we're keeping everyone else back from the enclosure.",
+        "Okay, thank you, we're staying clear as instructed.",
+        "Understood, we've moved everyone away from the fence.",
+        "Alright, we'll keep the area clear for the crew.",
+        "Okay, we've called our animal team to help keep it away.",
+        "Right you are, we're staying back from the enclosure.",
+        "Okay, we've done what we can to keep {{him}} safe from here.",
+        "Thanks, we're keeping our distance and watching for you.",
+        "Alright, we'll stay clear until your crews arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's collapsed inside the enclosure, we need help now"
+        "No, {{he}}'s collapsed inside the enclosure, we need help now.",
+        "No, this can't wait, {{he}}'s not responding at all.",
+        "No, {{he}} needs paramedics and the fire brigade, not 111.",
+        "No, please, {{he}}'s trapped with the animal, it's an emergency.",
+        "No, this is urgent, {{he}}'s not moving.",
+        "No, {{he}} can't wait for a callback, please send help.",
+        "No thank you, {{he}}'s collapsed, we need someone now.",
+        "No, it's serious, please just send help quickly.",
+        "No, {{he}}'s in the enclosure and not responding, please hurry.",
+        "No, please, this needs an urgent response."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes please, it's chaos here, that would help.",
+        "Okay, good, we need someone keeping people back.",
+        "Yes, please send them, it's really busy here.",
+        "Okay, thank you, that would help a lot right now.",
+        "Yes, good, there's people everywhere, please hurry them along.",
+        "Okay, please, we need help keeping this under control.",
+        "Yes, that's needed, it's mayhem here.",
+        "Okay, thank you, please send them quickly.",
+        "Yes please, we could really use them here.",
+        "Okay, good, just please hurry everyone up."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, please hurry.",
+        "Right, thank you, please get here quickly.",
+        "Okay, please, as fast as you can.",
+        "Thank you, please hurry, it's getting worse.",
+        "Okay, thank god, please hurry.",
+        "Right, okay, please just get here fast.",
+        "Okay, thank you, please be quick.",
+        "Thank you, please hurry, I'm really worried.",
+        "Okay, good, please hurry them up.",
+        "Okay, thank you, please come quickly."
       ]
     }
   },

@@ -49,6 +49,11 @@
     "rescue_unit": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 8,
+    "ambulance": 2
+  },
   "patients": {
     "range": [
       2,
@@ -93,7 +98,15 @@
   "caller": {
     "openings": [
       "A lorry's gone off the road and rolled down the embankment!",
-      "Emergency, an HGV's come off the carriageway and rolled down the bank, the driver's trapped."
+      "Emergency, an HGV's come off the carriageway and rolled down the bank, the driver's trapped.",
+      "A lorry's rolled right down the embankment, there's two people down there.",
+      "Please hurry, an HGV's gone over the edge and rolled down the bank.",
+      "There's been a bad crash, a lorry's rolled down the embankment.",
+      "Emergency, a truck's gone off the road and tumbled down the bank.",
+      "A lorry's rolled several times down the embankment, please send help.",
+      "Please hurry, an HGV's come off the road and it's rolled right down.",
+      "There's a lorry down the embankment, it's rolled onto its side.",
+      "Emergency, a truck's gone over the edge and down the bank, it looks bad."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -106,90 +119,231 @@
     "start": {
       "answers": [
         "A lorry's gone off the road and rolled down the embankment!",
-        "Emergency, an HGV's come off the carriageway and rolled down the bank, the driver's trapped."
+        "Emergency, an HGV's come off the carriageway and rolled down the bank, the driver's trapped.",
+        "A lorry's rolled right down the embankment, there's two people down there.",
+        "Please hurry, an HGV's gone over the edge and rolled down the bank.",
+        "There's been a bad crash, a lorry's rolled down the embankment.",
+        "Emergency, a truck's gone off the road and tumbled down the bank.",
+        "A lorry's rolled several times down the embankment, please send help.",
+        "Please hurry, an HGV's come off the road and it's rolled right down.",
+        "There's a lorry down the embankment, it's rolled onto its side.",
+        "Emergency, a truck's gone over the edge and down the bank, it looks bad."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was driving behind him.",
-        "{{callerName}}, I've stopped on the verge."
+        "It's {{callerName}}, I was driving behind them.",
+        "{{callerName}}, I've stopped on the verge.",
+        "My name's {{callerName}}, I saw it happen.",
+        "{{callerName}} here, I'm up on the road looking down.",
+        "It's {{callerName}} speaking, I can't get down to them safely.",
+        "{{callerName}}, I'm the one who called it in.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I've pulled over above the bank.",
+        "{{callerName}}, I'm stood at the top of the embankment.",
+        "Name's {{callerName}}, please hurry."
       ]
     },
     "patientName": {
       "answers": [
         "I don't know them, they're strangers to me.",
-        "I don't know their names, sorry."
+        "I don't know their names, sorry.",
+        "I've no idea, never met them before.",
+        "No idea, I can't get close enough to ask.",
+        "I don't know them at all, sorry.",
+        "No idea, they're both strangers to me.",
+        "No idea, I only just got here.",
+        "I can't say, never met either of them before.",
+        "No names I'm afraid, they're too far down to hear properly.",
+        "I don't know, I can't really talk to them from up here."
       ]
     },
     "address": {
       "answers": [
         "We're on {{address}}.",
-        "{{address}}, the lorry's gone down the bank on the left."
+        "{{address}}, the lorry's gone down the bank on the left.",
+        "It's on {{address}}, near the embankment.",
+        "{{address}}, you'll see the lorry down the slope.",
+        "We're at {{address}}, right above where it went over.",
+        "{{address}}, close to the bend.",
+        "It's happened on {{address}}.",
+        "{{address}}, just past the steep section.",
+        "We're on {{address}}, near the trees.",
+        "{{address}}, right by the drop down to the field."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "The lorry seemed to lose control and went straight off the road down the embankment.",
-        "It's rolled several times down the bank, it's badly damaged."
+        "It's rolled several times down the bank, it's badly damaged.",
+        "The lorry's gone off the carriageway and tumbled right down the slope.",
+        "It looks like it skidded off the road and rolled down the embankment.",
+        "The HGV's left the road at speed and gone straight down the bank.",
+        "It's tipped over the edge and rolled down, landing on its side.",
+        "Something's gone wrong on the bend and it's gone straight down the embankment.",
+        "The lorry's rolled right over and ended up on its side down the slope.",
+        "It's come off the road completely and tumbled down into the field.",
+        "It looks like it jackknifed and went straight over the edge down the bank."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "The driver's conscious but sounds dazed.",
-        "One of them's talking, the other isn't responding."
+        "One of them's talking, the other isn't responding at all.",
+        "They're both conscious, but very dazed.",
+        "One's awake and shouting, the other's gone quiet.",
+        "They're conscious, but really shaken up.",
+        "One's talking to me, I'm not sure about the other.",
+        "They're both awake, just very confused.",
+        "One's responding, the other seems out of it.",
+        "They're conscious, but struggling to focus.",
+        "One's alert, the other's drifting in and out.",
+        "They're both awake, just really shaken."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, but fast.",
-        "I think so, hard to tell from up here."
+        "I think so, hard to tell from up here.",
+        "They seem to be, but it's hard to check properly.",
+        "I think so, but I can't get close enough to be sure.",
+        "Yes, I think both of them are.",
+        "Hard to say for certain from this distance.",
+        "I believe so, but it's difficult to tell.",
+        "Yes, as far as I can see.",
+        "I think they're both breathing, just can't confirm properly.",
+        "Hard to tell exactly, but they seem okay.",
+        "I think so, but it's a steep drop to check properly."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's shouting that his back hurts.",
-        "They're both saying they're in a lot of pain."
+        "They're both saying they're in a lot of pain.",
+        "One's shouting about their back, the other's gone quiet with the pain.",
+        "They're saying it hurts all over, hard to say exactly where.",
+        "One keeps saying their leg hurts badly.",
+        "They're both in pain, mostly complaining about their chests.",
+        "One's saying their arm's agony, the other's not saying much.",
+        "They're saying different things hurt, it's hard to hear clearly.",
+        "One's shouting in pain, the other's very quiet.",
+        "They're both saying they're hurting badly.",
+        "It sounds like they're both in a lot of pain down there."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, I can see blood from up here.",
-        "Yes, looks quite bad."
+        "Yes, looks quite bad.",
+        "Yes, I can see blood on both of them from up here.",
+        "Yes, there's blood, it looks quite serious.",
+        "I think so, hard to tell exactly how bad from here.",
+        "Yes, at least one of them's bleeding quite a bit.",
+        "Yes, I can see blood, but I can't tell how badly.",
+        "Yes, it looks like both of them have some bleeding.",
+        "Yes, there's definitely blood, it's hard to say more from here.",
+        "Yes, quite a lot from what I can see.",
+        "Yes, it looks bad, I really can't get closer to check."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
         "I don't know them, sorry.",
-        "No idea, they're strangers."
+        "No idea, they're strangers.",
+        "I've no idea, never met them before.",
+        "I don't know anything about either of them.",
+        "No idea, sorry, I only just got here.",
+        "I can't say, they're strangers to me.",
+        "Sorry, I don't know them at all.",
+        "No idea, I can't ask them from up here.",
+        "I couldn't tell you, we don't know each other.",
+        "No idea at all, sorry."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry.",
-        "I couldn't say."
+        "No idea, I don't know them.",
+        "I couldn't say.",
+        "No idea, they're strangers to me.",
+        "I've no clue, sorry.",
+        "No idea, I only just got here.",
+        "I don't know anything about them.",
+        "Sorry, I can't tell you that.",
+        "No idea, I can't ask from up here.",
+        "I couldn't tell you, we don't know each other.",
+        "No idea at all, sorry."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks like a man in his forties.",
-        "Hard to say, both middle aged I think."
+        "Hard to say, both look middle aged.",
+        "Hard to tell from up here, adults though.",
+        "I'd guess they're both around forty or so.",
+        "Can't say exactly, they look like adults, that's all.",
+        "Hard to say precisely, maybe thirties or forties.",
+        "I really can't tell from this distance.",
+        "They look like adults, hard to say more than that.",
+        "Maybe forties, but it's hard to say for sure.",
+        "Can't tell exactly, neither looks elderly.",
+        "Hard to say, both look like grown adults."
       ]
     },
     "reassure": {
       "answers": [
         "Okay, I'm staying up here, I can't get down safely.",
-        "Please hurry, it's a steep drop down to them."
+        "Please hurry, it's a steep drop down to them.",
+        "Thank you, I'll keep watching from up here.",
+        "Good, please be quick, they both sound distressed.",
+        "Okay, I can't reach them, but I'm staying close by.",
+        "Thank you, I'll let them know help's coming if they can hear me.",
+        "Please hurry, they really need help down there.",
+        "Okay, I'm not going anywhere until you arrive.",
+        "Thank you, this is a bad drop, I can't get closer.",
+        "Good, I'll stay right here and watch for you."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's fire and ambulance we're after down here.",
+        "Oh, I'm not sure that's needed, it's really the fire brigade we need for the rescue.",
+        "No, I don't think so, nobody's done anything wrong, we just need them out.",
+        "That's probably not necessary, it's fire and paramedics we really need.",
+        "We're fine without them I think, it's the rescue that matters most.",
+        "No, I don't think that's required, it's mainly a rescue situation.",
+        "That won't be needed I think, we just need help getting them out.",
+        "No thank you, it's really fire and ambulance we need down here.",
+        "I don't think we need that, it's the embankment rescue that matters.",
+        "That's probably not required, we just need them freed and treated."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, they can get down to them safely.",
+        "Thank goodness, that embankment's steep, they'll need proper kit.",
+        "Good, please hurry them along, it's a bad drop down there.",
+        "Thank you, they'll need to get down carefully, it's steep.",
+        "Good, that's a relief, they really need rescuing from down there.",
+        "Thanks, I'll watch for them and point down the bank.",
+        "Good, please hurry, they've been down there a while now.",
+        "Thank you, it's a proper rescue job getting them up that bank.",
+        "Good, we really need them to reach the two of them.",
+        "Thank you, that's exactly what we need."
       ]
     },
     "refer111": {
       "answers": [
-        "No, a lorry's gone down an embankment, we need help now!"
+        "No, a lorry's gone down an embankment, we need help now!",
+        "No, that's not right, they're both hurt down there, this can't wait.",
+        "Please, no, it's a bad drop and they're both injured.",
+        "I don't think so, they need help getting up that bank right now.",
+        "No, absolutely not, this is a proper emergency.",
+        "That doesn't sound right, a lorry's rolled down a bank, we need help.",
+        "No, please, this can't wait, they're both trapped down there.",
+        "I really don't think 111 is right for this.",
+        "No, this is urgent, they need help now.",
+        "Please, no, don't make us wait, it's serious."
       ]
     }
   },

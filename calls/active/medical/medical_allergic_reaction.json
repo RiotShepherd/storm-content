@@ -45,6 +45,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -69,8 +73,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My daughter's having an allergic reaction, her face is swelling up",
-      "I think it's an allergic reaction, she's come out in hives and her lips are puffy"
+      "My {{son}}'s having an allergic reaction, {{his}} face is swelling up",
+      "I think it's an allergic reaction, {{he}}'s come out in hives and {{his}} lips are puffy",
+      "Please hurry, my {{son}}'s face is swelling up, it's an allergic reaction",
+      "My {{son}}'s having a bad reaction to something, {{his}} face is really swollen",
+      "Please send someone, my {{son}}'s covered in hives and {{his}} face is puffing up",
+      "My {{son}}'s had an allergic reaction, {{his}} lips and eyes are swelling",
+      "Please help, my {{son}}'s face is swelling badly, I think it's an allergy",
+      "My {{son}}'s come out in a rash and {{his}} face is swelling up fast",
+      "Please hurry, it's an allergic reaction, {{his}} face keeps getting more swollen",
+      "My {{son}}'s reacting to something, {{his}} face and lips are really puffy"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -82,90 +94,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My daughter's having an allergic reaction, her face is swelling up",
-        "I think it's an allergic reaction, she's come out in hives and her lips are puffy"
+        "My {{son}}'s having an allergic reaction, {{his}} face is swelling up",
+        "I think it's an allergic reaction, {{he}}'s come out in hives and {{his}} lips are puffy",
+        "Please hurry, my {{son}}'s face is swelling up, it's an allergic reaction",
+        "My {{son}}'s having a bad reaction to something, {{his}} face is really swollen",
+        "Please send someone, my {{son}}'s covered in hives and {{his}} face is puffing up",
+        "My {{son}}'s had an allergic reaction, {{his}} lips and eyes are swelling",
+        "Please help, my {{son}}'s face is swelling badly, I think it's an allergy",
+        "My {{son}}'s come out in a rash and {{his}} face is swelling up fast",
+        "Please hurry, it's an allergic reaction, {{his}} face keeps getting more swollen",
+        "My {{son}}'s reacting to something, {{his}} face and lips are really puffy"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
         "It's {{firstPatientName}}",
-        "{{firstPatientName}}, she's right here"
+        "{{His}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s my {{son}}",
+        "It's {{firstPatientName}}, please hurry",
+        "{{firstPatientName}}, that's {{his}} name",
+        "{{He}}'s called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "It's {{firstPatientName}}, I'm {{his}} {{callerParent}}",
+        "{{firstPatientName}}, please, {{his}} face keeps swelling",
+        "{{firstPatientName}}, please send someone now"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, please hurry"
+        "It's {{address}}, please hurry",
+        "{{address}}, quickly please",
+        "We're at {{address}}, please send someone fast",
+        "The address is {{address}}, please hurry",
+        "{{address}}, at home, please hurry",
+        "It's {{address}}, oh please be quick",
+        "{{address}}, come quickly please",
+        "{{address}} is the address, please hurry",
+        "Please, it's {{address}}",
+        "{{address}}, at home, quickly please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She ate something with nuts in and her face has started swelling and she's come out in a rash",
-        "She's got hives all over and her lips are puffing up, it happened really fast"
+        "{{He}} ate something and now {{his}} face is swelling up fast",
+        "{{He}} came out in hives after eating and it's spreading",
+        "{{His}} face started swelling about ten minutes ago, it's getting worse",
+        "{{He}} had something to eat and now {{he}}'s covered in a rash",
+        "{{His}} lips and eyes are swelling up, we're not sure what triggered it",
+        "{{He}} broke out in hives suddenly, {{his}} face is puffing up",
+        "{{He}} ate something new and started reacting straight away",
+        "{{His}} face is swelling more by the minute, it's frightening",
+        "{{He}} came out in a rash and {{his}} face has started swelling",
+        "{{He}}'s reacting to something, {{his}} face and lips are very puffy now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake and talking",
-        "Yes, but she's scared"
+        "Yes, {{he}}'s conscious, just really scared",
+        "{{He}}'s awake and talking, but frightened",
+        "Yes, conscious, {{he}}'s upset and worried",
+        "{{He}}'s alert, but very distressed",
+        "Yes, {{he}}'s conscious and responding to me",
+        "Conscious, {{he}}'s crying, {{he}}'s scared",
+        "Yes, {{he}}'s awake, {{he}}'s just really frightened",
+        "{{He}}'s conscious, just very upset",
+        "Yes, awake and talking, but panicking a bit",
+        "Conscious, {{he}}'s frightened but responding"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A bit tight but okay for now",
-        "Seems okay so far, watching her closely"
+        "Yes, {{he}}'s breathing okay for now",
+        "{{His}} breathing seems fine so far, I'm watching closely",
+        "Yes, breathing normally at the moment",
+        "{{He}}'s breathing okay, but I'm worried it might change",
+        "Yes, no problems breathing yet",
+        "{{His}} breathing's fine right now",
+        "Yes, breathing's okay, but {{his}} throat feels a bit tight {{he}} says",
+        "{{He}}'s breathing fine so far",
+        "Yes, {{he}}'s breathing normally at the moment",
+        "No breathing trouble yet, but the swelling's getting worse"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her throat feels a bit tight",
-        "Not pain exactly, more itching and tightness"
+        "{{He}} says {{his}} face feels tight and itchy",
+        "{{He}}'s uncomfortable, the swelling's quite painful",
+        "{{He}} says it stings and itches all over",
+        "{{He}}'s in some discomfort from the swelling",
+        "{{He}} says {{his}} face and lips feel really tight",
+        "Some discomfort, mostly the itching and swelling",
+        "{{He}} says it's itchy and uncomfortable",
+        "{{His}} face feels tight, {{he}} says it's quite sore",
+        "{{He}}'s uncomfortable, the itching is really bothering {{him}}",
+        "{{He}} says {{his}} skin feels tight and itchy all over"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No bleeding, it's the swelling and hives",
+        "No, no bleeding at all",
+        "No bleeding, it's just the allergic reaction",
+        "No, {{he}}'s not bleeding, just swollen and itchy",
+        "No bleeding, this is all from the reaction",
+        "No, nothing like that, just the hives and swelling",
+        "No bleeding reported",
+        "No, no injuries, just the allergic reaction",
+        "No bleeding, {{he}}'s just really swollen",
+        "No, no bleeding, it's purely the reaction"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She's got a nut allergy, we know that much",
-        "Allergies, yes, we didn't realise this was in it"
+        "{{He}}'s had allergies before but nothing this bad",
+        "{{He}}'s allergic to nuts, we think that's what it is",
+        "{{He}}'s had reactions before, usually milder than this",
+        "No history of anything serious before this",
+        "{{He}}'s known to have a few food allergies",
+        "{{He}}'s had a reaction like this once before, a couple of years ago",
+        "{{He}}'s allergic to something, we're not sure exactly what triggered it",
+        "{{He}}'s had mild allergies before, nothing like this",
+        "{{He}}'s got a known allergy but we thought {{he}} avoided it",
+        "No serious history before, this is the worst it's been"
       ]
     },
     "medications": {
       "answers": [
-        "She's got an EpiPen, should I use it",
-        "We have antihistamines at home"
+        "No, {{he}} doesn't take anything regular",
+        "{{He}} doesn't have an EpiPen, we didn't think {{he}} needed one",
+        "{{He}} has an antihistamine, I've given {{him}} some",
+        "No regular medication, no",
+        "{{He}} takes an antihistamine sometimes for hay fever",
+        "No, {{he}}'s not on anything regular",
+        "{{He}} doesn't carry anything for allergies normally",
+        "No medication that I know of",
+        "{{He}} has taken an antihistamine just now",
+        "No, {{he}} doesn't take anything usually"
       ]
     },
     "patientAge": {
       "answers": [
-        "14"
+        "{{He}}'s seven",
+        "{{He}}'s seven years old",
+        "{{He}}'s seven, {{he}}'s in year two",
+        "Seven years old",
+        "About seven, I think",
+        "{{He}}'s seven, {{he}} just started this school year",
+        "{{He}}'s seven years old, {{he}}'s quite small for {{his}} age",
+        "Seven, {{he}}'s in {{his}} first year of juniors",
+        "{{He}}'s about seven",
+        "Just seven, {{he}} started school last year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm watching her breathing closely",
-        "I've got the EpiPen ready if needed"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "No, her face is swelling, I'm worried about her breathing",
-        "No, I think this needs an ambulance"
+        "No, please, this can't wait for a call back, it's urgent",
+        "No, I really think this needs someone out straight away",
+        "No, please don't put this through to 111, it's serious",
+        "No, this needs an ambulance now, not a call back later",
+        "No, please, I don't think this can wait at all",
+        "No, I'm not happy waiting for 111 to call back on this",
+        "No, please send someone now, this feels really serious",
+        "No, this is urgent, we can't wait for a call back",
+        "No, please, I really think this needs seeing to now",
+        "No, I don't think 111 is enough for this, please send someone"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

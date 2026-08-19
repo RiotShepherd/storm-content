@@ -48,6 +48,12 @@
     "iccu": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11,
+    "ambulance": 5,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -92,8 +98,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Fire brigade, there's a big leak from the chemical tank on site, vapour's coming off it heavily.",
-      "One of the large storage tanks is leaking, staff are being evacuated, there's a strong smell in the air."
+      "There's a large leak from one of the chemical storage tanks, staff are being evacuated.",
+      "A big storage tank's leaking here, some of us are struggling to breathe near it.",
+      "We've got a major leak from the chemical tank, people are being moved away.",
+      "There's chemical vapour coming off a leaking tank, colleagues are feeling unwell.",
+      "One of our storage tanks has a large leak, staff nearby are struggling with the fumes.",
+      "We've got a serious chemical leak here, it's a big storage tank, people are affected.",
+      "There's a large spill from the tank and the fumes are making people sick.",
+      "The storage tank's leaking badly, we've had to pull staff back, some are unwell.",
+      "There's a big leak from the bund area, the fumes are getting to a few of us.",
+      "A large chemical tank's leaking on site, staff nearby are struggling to breathe."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -105,83 +119,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade, there's a big leak from the chemical tank on site, vapour's coming off it heavily.",
-        "One of the large storage tanks is leaking, staff are being evacuated, there's a strong smell in the air."
+        "There's a large leak from one of the chemical storage tanks, staff are being evacuated.",
+        "A big storage tank's leaking here, some of us are struggling to breathe near it.",
+        "We've got a major leak from the chemical tank, people are being moved away.",
+        "There's chemical vapour coming off a leaking tank, colleagues are feeling unwell.",
+        "One of our storage tanks has a large leak, staff nearby are struggling with the fumes.",
+        "We've got a serious chemical leak here, it's a big storage tank, people are affected.",
+        "There's a large spill from the tank and the fumes are making people sick.",
+        "The storage tank's leaking badly, we've had to pull staff back, some are unwell.",
+        "There's a big leak from the bund area, the fumes are getting to a few of us.",
+        "A large chemical tank's leaking on site, staff nearby are struggling to breathe."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't have their names, they're site staff."
+        "There's a good few of them, I don't have names, sorry.",
+        "I don't know all their names, there's several affected.",
+        "No idea on names, we're just trying to get everyone out safely.",
+        "I can't give you names for all of them, there's too many.",
+        "Some staff know their names, I only know a couple of them.",
+        "I've not got names, sorry, there's a fair few people involved.",
+        "No names I'm afraid, it's chaos here with several affected.",
+        "I don't know them all personally, sorry.",
+        "Can't help with names, there's just too many people caught up in it.",
+        "Sorry, no names, we're focused on getting them out."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A valve's failed on the large storage tank and product is leaking out fast, we can see vapour rising from the bund.",
-        "The tank started leaking during a delivery, there's a strong chemical smell spreading across the yard."
+        "The tank's developed a large split and chemical's leaking into the bund area.",
+        "A valve failed on the storage tank and it's leaking heavily, fumes have spread.",
+        "It looks like corrosion's caused a large leak, the fumes have affected nearby staff.",
+        "The tank started leaking from the base, vapour's spread across that part of the site.",
+        "Something's ruptured on the tank and it's leaking steadily, fumes are strong.",
+        "A seam's failed on the storage tank, chemical's pooling and giving off fumes.",
+        "The tank's overflow valve failed, chemical's leaking and the vapour's spreading.",
+        "It's a large leak from a crack in the tank wall, fumes have reached the walkway.",
+        "The tank's been leaking for a while, we think a fitting failed, fumes are strong now.",
+        "A pipe connection's failed on the tank, it's leaking badly and the fumes are spreading."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "The staff caught in the vapour are conscious, coughing and their eyes are streaming."
+        "Most are conscious, coughing and upset, but awake.",
+        "They're all conscious as far as I can see, just shaken up.",
+        "A couple seem a bit dazed but everyone's conscious.",
+        "Yes, conscious, but some are struggling more than others.",
+        "They're awake, frightened, some coughing badly.",
+        "All conscious that I can see, no one's collapsed.",
+        "Conscious but distressed, a lot of coughing going on.",
+        "Everyone I can see is conscious, just very shaken.",
+        "They're conscious, some worse than others with the coughing.",
+        "As far as I know they're all conscious, just unwell."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A few are wheezing quite badly, we've moved them upwind."
+        "Several are struggling to breathe, we've got them into fresh air.",
+        "A few are wheezing badly, the rest seem okay so far.",
+        "Some are really short of breath, it's quite bad for a couple of them.",
+        "Breathing's laboured for a number of them, lots of coughing.",
+        "A handful are having real trouble breathing.",
+        "Most are breathing okay now they're outside, a few still struggling.",
+        "Some are gasping a bit, we've moved them away from it.",
+        "A couple are really struggling for breath, the others are coughing.",
+        "Breathing's an issue for several of them, getting worse by the minute.",
+        "Some are fine, others are really wheezy and short of breath."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Some report burning in their eyes and throat."
+        "A few are complaining of chest pain and sore throats.",
+        "Some say their chests hurt and their eyes are stinging.",
+        "There's chest pain and headaches among some of them.",
+        "A couple are holding their chests, say it hurts to breathe.",
+        "Some have got sore eyes and throats from it.",
+        "A few are saying their chests feel tight.",
+        "Some are in discomfort, chest pain mostly.",
+        "There's a bit of chest pain reported, and some headaches.",
+        "A number of them say it hurts when they breathe in.",
+        "Some are complaining of pain in their chest and throat."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, it's the vapour affecting them."
+        "No bleeding that I can see, it's all breathing problems.",
+        "No, nobody's bleeding, it's the fumes causing the trouble.",
+        "No blood, just people struggling with the smoke.",
+        "Not that I've seen, it's all coughing and breathing issues.",
+        "No bleeding, thankfully, just everyone feeling unwell.",
+        "No, no injuries like that, just the effects of the smoke.",
+        "Nobody's cut or bleeding, it's the fumes affecting them.",
+        "No bleeding at all, it's a respiratory thing.",
+        "Not bleeding, no, just really struggling to breathe.",
+        "No blood, no, this is all down to the smoke."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I'll need to check their records, I don't know offhand."
+        "I don't know all their medical histories, sorry, there's too many.",
+        "No idea, we'd need to check with each of them individually.",
+        "Can't say for certain, I know one or two have asthma.",
+        "I'm not sure, some might have breathing conditions already.",
+        "I don't have that information for all of them.",
+        "Not sure, sorry, there's too many people to know that about.",
+        "I couldn't tell you, we're just trying to help them right now.",
+        "No idea about medical history, sorry, it's chaos here.",
+        "I know a couple mentioned asthma, not sure about the rest.",
+        "Can't say, sorry, I don't know them all that well."
       ]
     },
     "medications": {
       "answers": [
-        "Not sure, sorry."
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's too many people to ask.",
+        "Not a clue, sorry, we're just trying to keep them calm.",
+        "I don't know, I'd have to ask each of them.",
+        "No idea on medications, sorry, we're a bit overwhelmed here.",
+        "Can't help with that, sorry, I don't know them well enough.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's too many to know that about.",
+        "No idea, honestly, we're just focused on getting help to them.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "Working age staff, twenties to fifties."
+        "Mixed ages, mostly working age staff here.",
+        "All adults, staff of various ages, twenties to sixties.",
+        "Working age mostly, I'd say twenties up to fifties.",
+        "A mix of ages, all staff members though, no kids involved.",
+        "Adults only, staff ages ranging quite a bit.",
+        "Mostly adults, various ages, all colleagues here.",
+        "A range of ages, all working age adults.",
+        "All staff, so working age, twenties through to sixties.",
+        "Mixed, but all adults, staff from different departments.",
+        "Various ages, all colleagues, nobody underage here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Okay, thank you, we'll keep them comfortable till the paramedics arrive.",
+        "Right, I'll stay with them until the ambulance gets here.",
+        "Okay, that's good, please hurry, they're not looking great.",
+        "Thank you, we'll keep them still and wait for the crew.",
+        "Alright, I'll keep talking to them until the ambulance arrives.",
+        "Okay, we're keeping them warm and calm, waiting for you.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we'll keep everyone together until the ambulance turns up.",
+        "Thank you, I'll do what I can until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, they need proper help now, not 111, please send someone.",
+        "I don't think 111 can deal with this, we need paramedics and fire out here.",
+        "No, this can't wait for 111, people are struggling to breathe.",
+        "Sorry, no, we need an ambulance and the fire brigade now.",
+        "No, 111's too slow for this, please send help quickly.",
+        "I really think we need 999 crews here, not 111.",
+        "No, this is urgent, please don't put me through to 111.",
+        "Sorry, I don't think 111 is right for this, people are unwell.",
+        "No, we need someone out here now, not a phone line.",
+        "No, please, this needs paramedics, not 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll point them to where they're needed when they arrive.",
+        "Right, that's good, we could do with them here to sort the traffic.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting a bit chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay back until the crews get here.",
+        "Right, that's a relief, please send them as quickly as you can.",
+        "Okay, we'll keep everyone well clear until the fire engines arrive.",
+        "Thank you, I'll wait here and point them in the right direction.",
+        "Alright, understood, we won't go near it till they arrive.",
+        "Okay, good, we're all outside and waiting for the crews.",
+        "Thank you, we'll keep our distance until the brigade gets here.",
+        "Right, please hurry, it's not looking any better.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, we'll wait here for them."
       ]
     }
   },

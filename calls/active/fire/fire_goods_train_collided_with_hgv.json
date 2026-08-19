@@ -51,6 +51,12 @@
     "fire_officer": 3,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11,
+    "ambulance": 3,
+    "police": 8
+  },
   "patients": {
     "range": [
       1,
@@ -104,8 +110,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's been a crash, a lorry's been hit by a train at the crossing",
-      "Please send help, an HGV's collided with a goods train at the level crossing"
+      "There's been a crash, a lorry's been hit by a train at the crossing.",
+      "Please send help, an HGV's collided with a goods train at the level crossing.",
+      "There's been an accident, a train's hit a lorry on the crossing.",
+      "Please hurry, a lorry's been struck by a goods train, the driver's trapped.",
+      "There's been a collision at the level crossing, a lorry and a train.",
+      "Please send someone, an HGV's been hit by a train, the driver's stuck in the cab.",
+      "There's been a bad crash at the crossing, a lorry's been hit by a goods train.",
+      "Please help, a train's collided with an HGV, I think the driver's hurt.",
+      "There's been an accident at the crossing, the lorry's badly damaged.",
+      "Please hurry, there's been a crash between a lorry and a goods train."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -117,81 +131,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's been a crash, a lorry's been hit by a train at the crossing",
-        "Please send help, an HGV's collided with a goods train at the level crossing"
+        "There's been a crash, a lorry's been hit by a train at the crossing.",
+        "Please send help, an HGV's collided with a goods train at the level crossing.",
+        "There's been an accident, a train's hit a lorry on the crossing.",
+        "Please hurry, a lorry's been struck by a goods train, the driver's trapped.",
+        "There's been a collision at the level crossing, a lorry and a train.",
+        "Please send someone, an HGV's been hit by a train, the driver's stuck in the cab.",
+        "There's been a bad crash at the crossing, a lorry's been hit by a goods train.",
+        "Please help, a train's collided with an HGV, I think the driver's hurt.",
+        "There's been an accident at the crossing, the lorry's badly damaged.",
+        "Please hurry, there's been a crash between a lorry and a goods train."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was waiting at the barrier when it happened"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "It's the lorry driver, I don't know his name"
+        "I don't know {{his}} name, {{he}}'s the lorry driver.",
+        "I've no idea of {{his}} name, {{he}}'s trapped in the cab.",
+        "I don't know {{him}}, I just saw the crash happen.",
+        "No name I'm afraid, {{he}}'s the driver of the HGV.",
+        "I can't say, {{he}}'s the lorry driver, I don't know {{him}}.",
+        "I don't have a name, {{he}}'s stuck in the cab.",
+        "No idea of {{his}} name, sorry, I just stopped to help.",
+        "I don't know {{him}}, {{he}}'s the one driving the lorry.",
+        "Can't tell you {{his}} name, {{he}}'s trapped and hurt.",
+        "No name, sorry, {{he}}'s the HGV driver, {{he}} can't get out."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the level crossing",
-        "It's {{address}}, come to the crossing barriers"
+        "It's near {{address}}, by the level crossing.",
+        "{{address}}, closest to the crossing, that's the nearest road.",
+        "It's {{address}}, you'll see the track from the road there.",
+        "{{address}}, I'll wait by the crossing gates for you.",
+        "We're near {{address}}, follow the lane down to the tracks.",
+        "It's {{address}}, the access road runs alongside the railway.",
+        "{{address}}, there's a farm track that leads down to the line.",
+        "That's {{address}}, nearest to the crossing keeper's hut.",
+        "It's {{address}}, you can get down to the tracks from there.",
+        "{{address}}, I'll flag you down when you get close."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The lorry got stuck on the level crossing and the goods train hit it, the driver's trapped in the cab"
+        "The lorry was crossing the tracks and the train hit it side on, it's a mess.",
+        "I saw the train hit the lorry, it span right round from the impact.",
+        "The barriers must have failed or something, the lorry was still on the crossing.",
+        "The train's pushed the lorry a fair way down the track, the cab's crumpled.",
+        "It happened so fast, the lorry didn't seem to get clear in time.",
+        "The cab's badly damaged, {{he}}'s trapped inside, I can't get to {{him}} properly.",
+        "I heard the impact from down the road, it was a huge bang.",
+        "The lorry's been dragged along the track a bit, the cab's crushed on one side.",
+        "I don't know how it happened, the train just hit the lorry on the crossing.",
+        "It's a bad crash, the cab's crumpled, I can see {{him}} moving a little."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious and talking to us"
+        "{{He}}'s in and out, not really answering me properly.",
+        "{{He}}'s conscious but dazed, doesn't know where {{he}} is.",
+        "{{He}}'s awake, groaning, not making much sense.",
+        "{{He}} opened {{his}} eyes when I shouted but hasn't said much since.",
+        "{{He}}'s drifting in and out, hard to keep {{him}} talking.",
+        "{{He}}'s conscious, {{he}}'s scared, keeps asking what happened.",
+        "{{He}} was talking a bit but has gone quiet the last minute.",
+        "{{He}}'s awake but shaken up badly, struggling to focus.",
+        "{{He}}'s responding to me but only just, {{his}} eyes keep closing.",
+        "{{He}}'s conscious, {{he}}'s in shock I think, shivering a lot."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing okay, but he says his chest hurts when he breathes"
+        "{{He}}'s breathing but it's laboured, quite fast.",
+        "{{He}}'s breathing okay as far as I can tell, just shallow.",
+        "{{He}}'s struggling a bit, short breaths.",
+        "{{He}}'s breathing, it sounds like it's catching.",
+        "{{He}} seems to be breathing fine, just winded I think.",
+        "{{His}} breathing's quick, {{he}} winces every time {{he}} breathes in.",
+        "{{He}}'s breathing but coughing a lot too.",
+        "{{He}}'s breathing okay, a bit ragged but steady.",
+        "{{He}}'s taking short, quick breaths, {{he}} looks in pain.",
+        "{{His}} breathing sounds shallow, I'm keeping {{him}} still."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Yes, a lot of pain, his legs are trapped under the dashboard"
+        "{{He}} says {{his}} chest and leg hurt, {{he}}'s in a lot of pain.",
+        "{{He}}'s in pain, {{he}} can't move {{his}} leg properly.",
+        "{{He}} keeps saying {{his}} back hurts, I've told {{him}} not to move.",
+        "{{He}}'s wincing badly, I think it's {{his}} arm and ribs.",
+        "{{He}} says everything hurts, {{he}}'s pretty banged up.",
+        "{{He}}'s in a bad way with the pain, mostly {{his}} chest {{he}} says.",
+        "{{He}}'s gripping {{his}} side, says it hurts to breathe.",
+        "{{He}}'s in pain but trying to stay still like I told {{him}}.",
+        "{{He}} says {{his}} leg's the worst, {{he}} can barely feel it.",
+        "{{He}}'s clearly in pain, {{he}} won't stop shaking."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "There's some blood on his face from the impact"
+        "{{He}}'s got a cut on {{his}} head, it's bleeding quite a bit.",
+        "There's blood on {{his}} face, I think from a cut above {{his}} eye.",
+        "{{He}}'s bleeding from {{his}} arm, I've put something on it.",
+        "I can see blood on {{his}} shirt, not sure exactly where from.",
+        "{{He}}'s got a nasty cut on {{his}} hand, it's bleeding steadily.",
+        "There's a gash on {{his}} leg, I've tried to press on it.",
+        "{{He}}'s bleeding from a cut on {{his}} head, I'm keeping pressure on it.",
+        "I don't think {{he}}'s bleeding much, mostly bruised as far as I can see.",
+        "{{He}}'s got blood coming from {{his}} nose and a cut lip.",
+        "{{He}}'s bleeding from {{his}} shoulder, it looks like a deep cut."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He hasn't said anything, I don't know him"
+        "I don't know {{him}} well enough to say, sorry.",
+        "No idea, I'm just a passer by who saw it happen.",
+        "I can't help with that, I don't know {{him}} at all.",
+        "Sorry, I've no idea about {{his}} health, I don't know {{him}}.",
+        "I couldn't tell you, I only just got to {{him}}.",
+        "No idea, sorry, I'm a stranger to {{him}} really.",
+        "I don't know {{him}} well, I can't tell you anything about that.",
+        "Sorry, I've no idea, someone who knows {{him}} might.",
+        "I can't say, I don't know {{him}} personally.",
+        "No idea I'm afraid, I only just reached {{him}}."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry"
+        "I've no idea, I don't know {{him}}.",
+        "Sorry, no idea what {{he}} takes, I'm a stranger to {{him}}.",
+        "I can't help with that, I don't know {{him}} at all.",
+        "No idea, sorry, I just saw it happen and ran over.",
+        "I couldn't tell you, I've never met {{him}} before today.",
+        "Sorry, no idea, maybe someone who knows {{him}} would know.",
+        "I don't know {{him}}, so I can't say about medication.",
+        "No idea at all, sorry, I only just got to {{him}}.",
+        "I can't say, I don't know anything about {{him}}.",
+        "Sorry, no idea, I'm just a witness here."
       ]
     },
     "patientAge": {
       "answers": [
-        "He looks about forty"
+        "{{He}} looks maybe forties, hard to tell from here.",
+        "I'd guess {{he}}'s in {{his}} thirties or forties.",
+        "Hard to say exactly, {{he}} looks middle aged.",
+        "{{He}} looks like {{he}}'s in {{his}} fifties maybe.",
+        "I really can't tell, {{he}}'s covered in dust and blood.",
+        "Maybe thirty five, forty, that's my best guess.",
+        "{{He}} looks like a working age adult, sorry, can't be more precise.",
+        "I'd say {{he}}'s somewhere around forty.",
+        "Hard to tell like this, {{he}} looks fairly young though.",
+        "I couldn't say for certain, {{he}} looks to be in {{his}} thirties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying back from the tracks",
-        "Please hurry, the lorry driver's still in there"
+        "Okay, thank you, I'll stay with {{him}} till they get here.",
+        "Please hurry, {{he}}'s getting worse I think.",
+        "Okay, I'll keep {{him}} talking until the ambulance arrives.",
+        "Thank you, I won't move {{him}}, I'll just wait.",
+        "Okay, good, I'll keep {{him}} as still as I can.",
+        "Thank you, please tell them to hurry, {{he}} doesn't look good.",
+        "Okay, I'm staying right here with {{him}}.",
+        "Right, thank you, I'll keep pressure on where {{he}}'s bleeding.",
+        "Okay, I'll let {{him}} know help's coming.",
+        "Thank you, I'll stay on the line and with {{him}}."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a serious crash with someone trapped, we need fire, ambulance and police"
+        "No, {{he}}'s hurt, this can't wait for 111, please send help.",
+        "No, I really think {{he}} needs an ambulance now, not 111.",
+        "Please, no, {{he}}'s in a bad way, we need paramedics here.",
+        "No, this is serious, {{he}} was hurt in this, please send help.",
+        "I don't think 111 can help with this, {{he}} needs urgent care.",
+        "No, please, {{he}}'s hurt, we need an ambulance.",
+        "No, this needs 999, {{he}}'s badly hurt.",
+        "Please, {{he}} can't wait for a phone call back, send someone now.",
+        "No, I really need an ambulance here, not 111, {{he}}'s in pain.",
+        "No, this is urgent, {{he}} needs help, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, that'll help with the traffic here.",
+        "Good, we could do with some help keeping people back.",
+        "Thanks, that makes sense, it's chaos here.",
+        "Okay, I'll let them know when they arrive.",
+        "Right, thank you, they can help clear the road.",
+        "Okay, that's good, we need some order here.",
+        "Thanks, they'll be needed to keep everyone safe.",
+        "Okay, understood, I'll watch out for them.",
+        "Good, thank you, it's getting busy here.",
+        "Okay, thanks, that'll help a lot."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay well back until you get here.",
+        "Right, thank you, we're keeping clear of it.",
+        "Okay, I've got everyone away from it.",
+        "Thanks, I'll wait here till the crews arrive.",
+        "Alright, we've kept the area clear for now.",
+        "Okay, I'll keep everyone back and wait for you.",
+        "Thank you, we're staying clear, please hurry.",
+        "Right, understood, we won't go near it.",
+        "Okay, we're all keeping our distance.",
+        "Thanks, we'll wait here for the crews."
       ]
     }
   },

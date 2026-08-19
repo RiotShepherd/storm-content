@@ -47,6 +47,10 @@
     "dual_pump": 1,
     "single_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -70,7 +74,15 @@
   "caller": {
     "openings": [
       "There's smoke coming from the fuse board, I think there's an electrical fire",
-      "I need the fire brigade, something's sparked in the consumer unit and it's smoking"
+      "I need the fire brigade, something's sparked in the consumer unit and it's smoking",
+      "There's a burning smell coming from the electrics in the hallway",
+      "Fire brigade please, the fuse box is smoking, I've turned the power off at the main",
+      "I think I've got an electrical fire, there's smoke coming from behind a socket",
+      "There's a crackling sound and smoke from the meter cupboard",
+      "Fire brigade please, the consumer unit's smoking, I've switched everything off",
+      "I've got smoke coming from an electrical socket, no visible flames yet",
+      "There's a burning smell and smoke near the fuse board, I'm worried it'll catch properly",
+      "Fire brigade please, something's overheated in the electrics and it's smoking"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -83,78 +95,231 @@
     "start": {
       "answers": [
         "There's smoke coming from the fuse board, I think there's an electrical fire",
-        "I need the fire brigade, something's sparked in the consumer unit and it's smoking"
+        "I need the fire brigade, something's sparked in the consumer unit and it's smoking",
+        "There's a burning smell coming from the electrics in the hallway",
+        "Fire brigade please, the fuse box is smoking, I've turned the power off at the main",
+        "I think I've got an electrical fire, there's smoke coming from behind a socket",
+        "There's a crackling sound and smoke from the meter cupboard",
+        "Fire brigade please, the consumer unit's smoking, I've switched everything off",
+        "I've got smoke coming from an electrical socket, no visible flames yet",
+        "There's a burning smell and smoke near the fuse board, I'm worried it'll catch properly",
+        "Fire brigade please, something's overheated in the electrics and it's smoking"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, it's my house"
+        "It's {{callerName}}, it's my house",
+        "{{callerName}}, I'm the homeowner",
+        "My name's {{callerName}}, I noticed the smell first",
+        "It's {{callerName}}, I've turned the power off already",
+        "{{callerName}} speaking, I'm outside now watching the smoke",
+        "Name's {{callerName}}, I live here with my family",
+        "It's {{callerName}}, sorry, I'm a bit worried about the whole house",
+        "{{callerName}}, I've got everyone out of the property",
+        "This is {{callerName}}, I'm stood outside the front door",
+        "{{callerName}} here, I'll be waiting for you outside"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, I've turned the power off at the mains"
+        "There's nobody hurt, the electrical fault, no one's hurt",
+        "No patient to give a name for, the electrical fault, no one's hurt",
+        "There's no one involved, the electrical fault, no one's hurt",
+        "Nobody's hurt, the electrical fault, no one's hurt",
+        "No casualty at all, the electrical fault, no one's hurt",
+        "There's no one to report, the electrical fault, no one's hurt",
+        "Not applicable, the electrical fault, no one's hurt",
+        "No injuries, the electrical fault, no one's hurt",
+        "Nobody to name, the electrical fault, no one's hurt",
+        "No patient, the electrical fault, no one's hurt"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's my house"
+        "{{address}}, it's my house",
+        "It's {{address}}, the fuse board's near the front door",
+        "{{address}}, please hurry, there's smoke building",
+        "You want {{address}}, second house on the street",
+        "{{address}}, I'll leave the door on the latch for you",
+        "{{address}}, that's us, come round the side if you can",
+        "{{address}}, that's the address, thank you",
+        "{{address}}, that's confirmed, I'm outside waiting",
+        "{{address}}, please come quickly, I can smell burning",
+        "{{address}}, that's the property, the smoke's coming from the hallway"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There was a bang from the fuse board and now it's smoking, I've switched everything off at the mains"
+        "Not sure exactly, but the consumer unit's been smoking for a couple of minutes",
+        "We think it's an old wiring fault, it's an older house",
+        "Not certain, but there was a bang then smoke started",
+        "Could be overloaded sockets, we've had a lot plugged in there",
+        "Not sure, but the smell of burning plastic is quite strong now",
+        "We think a fuse may have blown badly, there's a scorch mark now",
+        "Unclear cause, but the smoke's coming steadily from the fuse box",
+        "Not certain, but it started crackling before we saw any smoke",
+        "Could be a faulty appliance that's tripped something, not sure",
+        "We don't know exactly, but I've switched the power off at the mains"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, we're all outside"
+        "No one's hurt, the electrical fault, no one's hurt",
+        "There's no patient here, the electrical fault, no one's hurt",
+        "Not applicable, the electrical fault, no one's hurt",
+        "Nobody's involved, the electrical fault, no one's hurt",
+        "No injuries at all, the electrical fault, no one's hurt",
+        "No one to check on, the electrical fault, no one's hurt",
+        "There's no casualty, the electrical fault, no one's hurt",
+        "No patient at all, the electrical fault, no one's hurt",
+        "Nobody's hurt, thankfully, the electrical fault, no one's hurt",
+        "No one's affected, the electrical fault, no one's hurt"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, just a bit of smoke smell"
+        "No one to worry about, the electrical fault, no one's hurt",
+        "Not applicable, the electrical fault, no one's hurt",
+        "Nobody's struggling to breathe, the electrical fault, no one's hurt",
+        "No casualty, the electrical fault, no one's hurt",
+        "No one's affected by any smoke, the electrical fault, no one's hurt",
+        "There's no patient, the electrical fault, no one's hurt",
+        "No breathing issues to report, the electrical fault, no one's hurt",
+        "Nobody's been near any smoke, the electrical fault, no one's hurt",
+        "No one's hurt, the electrical fault, no one's hurt",
+        "Not applicable, no one's involved, the electrical fault, no one's hurt"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's in pain, the electrical fault, no one's hurt",
+        "No one's hurt at all, the electrical fault, no one's hurt",
+        "Not applicable, the electrical fault, no one's hurt",
+        "No injuries to report, the electrical fault, no one's hurt",
+        "There's no patient, the electrical fault, no one's hurt",
+        "No one's complaining of anything, the electrical fault, no one's hurt",
+        "Nobody's hurt, the electrical fault, no one's hurt",
+        "No pain to report, the electrical fault, no one's hurt",
+        "Not applicable, no casualty, the electrical fault, no one's hurt",
+        "No one's injured, the electrical fault, no one's hurt"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's involved"
+        "No, no one's involved, the electrical fault, no one's hurt",
+        "No bleeding, there's no patient, the electrical fault, no one's hurt",
+        "Not applicable, the electrical fault, no one's hurt",
+        "No, everyone's uninjured, the electrical fault, no one's hurt",
+        "No, nobody's hurt, the electrical fault, no one's hurt",
+        "No bleeding to report, the electrical fault, no one's hurt",
+        "Not applicable, no casualties, the electrical fault, no one's hurt",
+        "No, no one's been near it, the electrical fault, no one's hurt",
+        "No, we're all fine, the electrical fault, no one's hurt",
+        "No, there's no one injured, the electrical fault, no one's hurt"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient involved"
+        "No patient, the electrical fault, no one's hurt",
+        "Not applicable, the electrical fault, no one's hurt",
+        "No one to give an age for, the electrical fault, no one's hurt",
+        "N/A, the electrical fault, no one's hurt",
+        "No age to give, the electrical fault, no one's hurt",
+        "Not applicable, no one's hurt, the electrical fault, no one's hurt",
+        "No casualty, the electrical fault, no one's hurt",
+        "Nobody's involved, the electrical fault, no one's hurt",
+        "Not applicable at all, the electrical fault, no one's hurt",
+        "No patient to speak of, the electrical fault, no one's hurt"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've turned the power off and we're waiting outside"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's an electrical fire not medical"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

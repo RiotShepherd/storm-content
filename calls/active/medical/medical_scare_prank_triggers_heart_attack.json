@@ -48,6 +48,11 @@
   "units": {
     "irv": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1,
+    "police": 1
+  },
   "patients": {
     "range": [
       1,
@@ -82,8 +87,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Some idiots jumped out and scared my dad, now he's clutching his chest",
-      "I need an ambulance, a group of lads pulled a prank on my dad and now he's having chest pain"
+      "Some idiots jumped out and scared my {{dad}}, now {{he}}'s clutching {{his}} chest.",
+      "I need an ambulance, a group of lads pulled a prank on my {{dad}} and now {{he}}'s having chest pain.",
+      "Some kids jumped out at my {{dad}} as a joke and now {{he}}'s in agony with {{his}} chest.",
+      "Please hurry, my {{dad}}'s been scared badly and now {{he}}'s clutching {{his}} chest.",
+      "A group of youths scared my {{dad}} half to death and now {{he}}'s in pain.",
+      "Please send help, some lads pranked my {{dad}} and now {{he}}'s having chest pain.",
+      "My {{dad}}'s been terrified by a group messing about, now {{he}}'s got chest pain.",
+      "Some idiots frightened my {{dad}} on purpose, now {{he}}'s struggling with {{his}} chest.",
+      "Please hurry, {{he}} was scared by some lads and now {{he}}'s clutching {{his}} chest in pain.",
+      "My {{dad}}'s had a fright from some prank and now {{he}}'s having what looks like a heart attack."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -95,82 +108,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Some idiots jumped out and scared my dad, now he's clutching his chest",
-        "I need an ambulance, a group of lads pulled a prank on my dad and now he's having chest pain"
+        "Some idiots jumped out and scared my {{dad}}, now {{he}}'s clutching {{his}} chest.",
+        "I need an ambulance, a group of lads pulled a prank on my {{dad}} and now {{he}}'s having chest pain.",
+        "Some kids jumped out at my {{dad}} as a joke and now {{he}}'s in agony with {{his}} chest.",
+        "Please hurry, my {{dad}}'s been scared badly and now {{he}}'s clutching {{his}} chest.",
+        "A group of youths scared my {{dad}} half to death and now {{he}}'s in pain.",
+        "Please send help, some lads pranked my {{dad}} and now {{he}}'s having chest pain.",
+        "My {{dad}}'s been terrified by a group messing about, now {{he}}'s got chest pain.",
+        "Some idiots frightened my {{dad}} on purpose, now {{he}}'s struggling with {{his}} chest.",
+        "Please hurry, {{he}} was scared by some lads and now {{he}}'s clutching {{his}} chest in pain.",
+        "My {{dad}}'s had a fright from some prank and now {{he}}'s having what looks like a heart attack."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, his son",
-        "{{callerName}}"
+        "It's {{callerName}}, I'm {{his}} {{callerChild}}.",
+        "{{callerName}}, I'm {{his}} {{callerChild}}.",
+        "My name's {{callerName}}, I'm {{his}} {{callerChild}}.",
+        "{{callerName}} here, I'm {{his}} {{callerChild}} and I'm with {{him}} now.",
+        "It's {{callerName}} speaking, {{his}} {{callerChild}}.",
+        "You can put me down as {{callerName}}, I'm {{his}} {{callerChild}}.",
+        "{{callerName}}. I'm {{his}} {{callerChild}}, we're together.",
+        "It's {{callerName}}, {{his}} {{callerChild}} here, please hurry.",
+        "{{callerName}}, that's me, I'm {{his}} {{callerChild}}.",
+        "It's {{callerName}}, I'm {{his}} {{callerChild}}, is help on the way?"
       ]
     },
     "patientName": {
       "answers": [
-        "{{firstPatientName}}, that's my dad",
-        "It's {{firstPatientName}}"
+        "{{firstPatientName}}, that's my {{dad}}.",
+        "It's {{firstPatientName}}, my {{dad}}.",
+        "My {{dad}}'s name is {{firstPatientName}}.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, my {{dad}}.",
+        "It's {{firstPatientName}}, that's who I mean.",
+        "My {{dad}} is called {{firstPatientName}}.",
+        "{{firstPatientName}}, please hurry.",
+        "That's {{firstPatientName}}, my {{dad}}.",
+        "{{firstPatientName}}. {{He}}'s my {{dad}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, please hurry",
-        "{{address}}"
+        "We're at {{address}}, please hurry.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}, please hurry.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, please hurry.",
+        "{{address}} is where we are, please hurry.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A group of lads jumped out to scare him as a prank, and now he's got chest pain and can't breathe properly"
+        "A group of lads jumped out to scare {{him}} as a prank, and now {{he}}'s got chest pain and can't breathe properly.",
+        "Some youths jumped out shouting and {{he}} clutched {{his}} chest straight after.",
+        "It was meant as a joke, they scared {{him}} badly and now {{he}}'s in real pain.",
+        "A group scared {{him}} on purpose and {{he}} went straight into chest pain.",
+        "Some lads did a prank, jumped out at {{him}}, and now {{he}}'s having chest pain.",
+        "{{He}} got a huge fright from some kids messing about and now {{he}}'s clutching {{his}} chest.",
+        "It was some sort of scare prank, and straight after {{he}} started with chest pain.",
+        "A group jumped out to frighten {{him}} and {{he}} immediately grabbed {{his}} chest.",
+        "It was a stupid prank, they scared {{him}} and now {{he}}'s in agony with {{his}} chest.",
+        "Some lads deliberately scared {{him}} and now {{he}}'s having what looks like a heart attack."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's awake and frightened"
+        "Yes, {{he}}'s awake and frightened.",
+        "{{He}}'s conscious, very scared and in pain.",
+        "Yes, {{he}}'s alert, clearly terrified.",
+        "{{He}}'s awake, talking but very distressed.",
+        "Yes, {{he}}'s conscious, {{he}}'s frightened and in pain.",
+        "{{He}}'s alert, shaking and scared.",
+        "Yes, {{he}}'s talking to me, very frightened.",
+        "{{He}}'s conscious, {{he}}'s holding {{his}} chest and terrified.",
+        "Yes, {{he}}'s awake, breathing hard and scared.",
+        "{{He}}'s alert but very distressed."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Struggling, short of breath"
+        "Struggling, short of breath.",
+        "{{He}}'s breathless and struggling a bit.",
+        "It's laboured, {{he}}'s finding it hard to breathe.",
+        "{{He}}'s short of breath, worse with the pain.",
+        "Struggling, {{he}}'s breathing quickly and shallowly.",
+        "{{His}} breathing's laboured, {{he}}'s clearly struggling.",
+        "{{He}}'s short of breath, it's worrying me.",
+        "It's difficult for {{him}}, {{he}}'s breathless.",
+        "{{He}}'s struggling to catch {{his}} breath.",
+        "Breathless and shallow, {{he}}'s finding it hard."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Bad, in his chest, going down his arm"
+        "Bad, in {{his}} chest, going down {{his}} arm.",
+        "{{He}} says it's crushing pain in {{his}} chest.",
+        "Severe pain in {{his}} chest, spreading to {{his}} arm.",
+        "{{He}}'s in a lot of pain, {{his}} chest and left arm.",
+        "{{He}} says it's tight and painful across {{his}} chest.",
+        "Bad chest pain, {{he}} says it's going down {{his}} arm too.",
+        "{{He}}'s in severe pain, {{his}} chest feels like it's crushing.",
+        "{{He}} says the pain's spreading from {{his}} chest to {{his}} arm.",
+        "Very painful, {{he}}'s clutching {{his}} chest and {{his}} arm hurts too.",
+        "{{He}}'s in a lot of pain across {{his}} chest, radiating outward."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No bleeding.",
+        "None at all.",
+        "No, nothing like that.",
+        "No bleeding whatsoever.",
+        "None, this is {{his}} heart, not an injury.",
+        "No, {{he}}'s not bleeding.",
+        "Nothing, no bleeding involved.",
+        "No, completely fine on that front.",
+        "None visible.",
+        "No bleeding, it's {{his}} chest that's the problem."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Heart problems, he's had a bypass before"
+        "Heart problems, {{he}}'s had a bypass before.",
+        "{{He}}'s had heart surgery before, a bypass a few years ago.",
+        "{{He}} has a history of heart problems, {{he}}'s had a bypass.",
+        "{{He}}'s had a heart bypass previously, {{he}}'s got a heart condition.",
+        "{{He}} has heart disease, {{he}}'s had a bypass operation before.",
+        "{{He}}'s had heart trouble before, including a bypass.",
+        "{{He}} has a known heart condition, {{he}}'s had surgery for it.",
+        "{{He}}'s had a previous heart attack and a bypass.",
+        "{{He}} has heart problems, {{he}}'s had a bypass a few years back.",
+        "{{He}}'s got a history of heart disease, {{he}}'s had a bypass done."
       ]
     },
     "medications": {
       "answers": [
-        "GTN spray and aspirin, I've given him the spray"
+        "GTN spray and aspirin, I've given {{him}} the spray.",
+        "{{He}} carries GTN spray, I've just given {{him}} a dose.",
+        "{{He}}'s got GTN spray and aspirin, I've used the spray already.",
+        "{{He}} has a GTN spray for {{his}} heart, I've given {{him}} some.",
+        "GTN spray, {{he}} takes it for {{his}} angina, I've given {{him}} it.",
+        "{{He}} carries GTN spray and aspirin, I've given {{him}} the spray now.",
+        "{{He}}'s on GTN spray, I've already given {{him}} a dose.",
+        "GTN spray and aspirin, {{he}} keeps them on {{him}}, I've given the spray.",
+        "{{He}} has heart medication, GTN spray, I've just given it to {{him}}.",
+        "GTN spray, {{he}}'s prescribed it for chest pain, I've given {{him}} some."
       ]
     },
     "patientAge": {
       "answers": [
-        "69"
+        "69",
+        "About 69",
+        "69, I think",
+        "{{He}}'s 69 years old",
+        "I believe {{he}}'s 69",
+        "Just turned 69 I think",
+        "69, same age as always",
+        "Around 69, give or take",
+        "{{He}} is 69",
+        "I'd say 69 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've called the police too about who did this"
+        "Okay, I've called the police too about who did this.",
+        "Thank you, I'm keeping {{him}} calm and sat still.",
+        "Okay, I'm staying right by {{him}}.",
+        "Thank you, I've given {{him}} {{his}} spray already.",
+        "Okay, I'll keep {{him}} as calm as I can.",
+        "Thank you, I won't leave {{his}} side.",
+        "Okay, I'm keeping {{him}} sitting comfortably.",
+        "Thank you, I'll let you know if anything changes.",
+        "Okay, I've told {{him}} help's on the way, that's calmed {{him}} a bit.",
+        "Thank you, I'm doing everything I can to keep {{him}} settled."
       ]
     },
     "refer111": {
       "answers": [
-        "No, I think this is his heart, he needs an ambulance"
+        "No, please, this can't wait for a call back.",
+        "No, I really think this needs an ambulance now.",
+        "Please no, {{he}} needs help now, not a phone call.",
+        "No, this is an emergency, we need someone now.",
+        "I don't think that's right, {{he}}'s really not well.",
+        "No, please send someone now, I'm begging you.",
+        "That doesn't sound right, this is urgent.",
+        "No, we can't wait for that, please send an ambulance.",
+        "Please, no, {{he}} needs help straight away.",
+        "No, I really think this is serious, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes, thank you, whoever did this needs to be found.",
+        "Okay, good, they can't get away with scaring {{him}} like this.",
+        "Yes please, I've got a description of the group.",
+        "Thank you, this could have killed {{him}}, they need to answer for it.",
+        "Yes, that's good, I saw which way they ran off.",
+        "Okay, thank you, I want them found for what they've done.",
+        "Yes please, this was completely deliberate and cruel.",
+        "Thank you, I can describe them if that helps.",
+        "Yes, good, I don't want them getting away with this.",
+        "Okay, thank you, please send them to find whoever did this."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

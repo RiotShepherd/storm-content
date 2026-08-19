@@ -53,6 +53,12 @@
     "basu": 1,
     "fire_officer": 4
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 15,
+    "ambulance": 1,
+    "police": 4
+  },
   "patients": {
     "range": [
       0,
@@ -102,7 +108,15 @@
   "caller": {
     "openings": [
       "There's a big fire at the recycling plant, the whole stockpile's alight",
-      "I need the fire brigade urgently, the recycling factory's on fire and it's a huge blaze"
+      "I need the fire brigade urgently, the recycling factory's on fire and it's a huge blaze",
+      "Please hurry, the whole yard's gone up, it's a massive fire",
+      "The recycling plant's on fire, everyone's out but it's spreading fast",
+      "Fire brigade please, the waste stockpile's well alight, smoke's everywhere",
+      "There's flames right across the yard, we've evacuated but it's huge",
+      "Please send everyone you can, the recycling plant's completely alight",
+      "The site's on fire, we've got everyone out and accounted for, it's a big one",
+      "Fire brigade urgently please, the plant's burning and it's getting worse fast",
+      "There's a serious fire at the recycling site, staff are all clear but the stockpile's burning hard"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -115,78 +129,231 @@
     "start": {
       "answers": [
         "There's a big fire at the recycling plant, the whole stockpile's alight",
-        "I need the fire brigade urgently, the recycling factory's on fire and it's a huge blaze"
+        "I need the fire brigade urgently, the recycling factory's on fire and it's a huge blaze",
+        "Please hurry, the whole yard's gone up, it's a massive fire",
+        "The recycling plant's on fire, everyone's out but it's spreading fast",
+        "Fire brigade please, the waste stockpile's well alight, smoke's everywhere",
+        "There's flames right across the yard, we've evacuated but it's huge",
+        "Please send everyone you can, the recycling plant's completely alight",
+        "The site's on fire, we've got everyone out and accounted for, it's a big one",
+        "Fire brigade urgently please, the plant's burning and it's getting worse fast",
+        "There's a serious fire at the recycling site, staff are all clear but the stockpile's burning hard"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the site supervisor"
+        "It's {{callerName}}, I'm the site manager",
+        "{{callerName}}, I run the shift here",
+        "My name's {{callerName}}, I'm the duty supervisor",
+        "It's {{callerName}}, everyone's out, I'm counting heads now",
+        "{{callerName}} speaking, I'm at the site office",
+        "Name's {{callerName}}, I'll meet you at the main gate",
+        "It's {{callerName}}, sorry, I'm a bit out of breath",
+        "{{callerName}}, I'm the health and safety officer here",
+        "This is {{callerName}}, I've got everyone gathered at the muster point",
+        "{{callerName}} here, please hurry, this is spreading fast"
       ]
     },
     "patientName": {
       "answers": [
-        "Everyone's out and accounted for, no injuries"
+        "There's nobody hurt, the fire, everyone's been evacuated and accounted for",
+        "No patient to give a name for, the fire, everyone's been evacuated and accounted for",
+        "There's no one involved, the fire, everyone's been evacuated and accounted for",
+        "Nobody's hurt, the fire, everyone's been evacuated and accounted for",
+        "No casualty at all, the fire, everyone's been evacuated and accounted for",
+        "There's no one to report, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, the fire, everyone's been evacuated and accounted for",
+        "No injuries, the fire, everyone's been evacuated and accounted for",
+        "Nobody to name, the fire, everyone's been evacuated and accounted for",
+        "No patient, the fire, everyone's been evacuated and accounted for"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the recycling plant, main gate on the industrial estate"
+        "{{address}}, it's the recycling plant",
+        "It's {{address}}, the yard off the industrial estate",
+        "{{address}}, you'll see the smoke from miles off",
+        "You want {{address}}, come in through the main gate",
+        "{{address}}, that's us, the whole stockpile's alight",
+        "{{address}}, please hurry, come from the ring road",
+        "{{address}}, that's the site, the fire's spreading toward the fence",
+        "{{address}}, that's confirmed, come quickly",
+        "{{address}}, that's the plant, I'll have the gate open",
+        "{{address}}, please hurry, it's getting worse by the minute"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Fire's broken out in the baled waste stockpile and it's spread through the site, we've evacuated everyone"
+        "We think it started deep in the stockpile, could have been smouldering for a while",
+        "Not sure of the cause, but it went from smoke to full flame very fast",
+        "Could be spontaneous combustion in the waste, it's happened before elsewhere",
+        "We don't know exactly, but the whole pile's now well alight",
+        "Possibly a spark from machinery, we're not certain yet",
+        "Unclear cause, but it's spread across most of the yard now",
+        "We think it may have started overnight and just caught properly now",
+        "Not sure, but the wind's helping it spread fast across the site",
+        "Could be electrical from the sorting machinery, not confirmed",
+        "We don't know the cause, it's just a huge fire right now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone's conscious and accounted for"
+        "No one's hurt, the fire, everyone's been evacuated and accounted for",
+        "There's no patient here, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, the fire, everyone's been evacuated and accounted for",
+        "Nobody's involved, the fire, everyone's been evacuated and accounted for",
+        "No injuries at all, the fire, everyone's been evacuated and accounted for",
+        "No one to check on, the fire, everyone's been evacuated and accounted for",
+        "There's no casualty, the fire, everyone's been evacuated and accounted for",
+        "No patient at all, the fire, everyone's been evacuated and accounted for",
+        "Nobody's hurt, thankfully, the fire, everyone's been evacuated and accounted for",
+        "No one's affected, the fire, everyone's been evacuated and accounted for"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple of staff got some smoke getting clear but they're fine"
+        "No one to worry about, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, the fire, everyone's been evacuated and accounted for",
+        "Nobody's struggling to breathe, the fire, everyone's been evacuated and accounted for",
+        "No casualty, the fire, everyone's been evacuated and accounted for",
+        "No one's affected by any smoke, the fire, everyone's been evacuated and accounted for",
+        "There's no patient, the fire, everyone's been evacuated and accounted for",
+        "No breathing issues to report, the fire, everyone's been evacuated and accounted for",
+        "Nobody's been near any smoke, the fire, everyone's been evacuated and accounted for",
+        "No one's hurt, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, no one's involved, the fire, everyone's been evacuated and accounted for"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No injuries reported"
+        "Nobody's in pain, the fire, everyone's been evacuated and accounted for",
+        "No one's hurt at all, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, the fire, everyone's been evacuated and accounted for",
+        "No injuries to report, the fire, everyone's been evacuated and accounted for",
+        "There's no patient, the fire, everyone's been evacuated and accounted for",
+        "No one's complaining of anything, the fire, everyone's been evacuated and accounted for",
+        "Nobody's hurt, the fire, everyone's been evacuated and accounted for",
+        "No pain to report, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, no casualty, the fire, everyone's been evacuated and accounted for",
+        "No one's injured, the fire, everyone's been evacuated and accounted for"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding reported"
+        "No, no one's involved, the fire, everyone's been evacuated and accounted for",
+        "No bleeding, there's no patient, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, the fire, everyone's been evacuated and accounted for",
+        "No, everyone's uninjured, the fire, everyone's been evacuated and accounted for",
+        "No, nobody's hurt, the fire, everyone's been evacuated and accounted for",
+        "No bleeding to report, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, no casualties, the fire, everyone's been evacuated and accounted for",
+        "No, no one's been near it, the fire, everyone's been evacuated and accounted for",
+        "No, we're all fine, the fire, everyone's been evacuated and accounted for",
+        "No, there's no one injured, the fire, everyone's been evacuated and accounted for"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable, no one's hurt seriously"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient requiring transport"
+        "No patient, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, the fire, everyone's been evacuated and accounted for",
+        "No one to give an age for, the fire, everyone's been evacuated and accounted for",
+        "N/A, the fire, everyone's been evacuated and accounted for",
+        "No age to give, the fire, everyone's been evacuated and accounted for",
+        "Not applicable, no one's hurt, the fire, everyone's been evacuated and accounted for",
+        "No casualty, the fire, everyone's been evacuated and accounted for",
+        "Nobody's involved, the fire, everyone's been evacuated and accounted for",
+        "Not applicable at all, the fire, everyone's been evacuated and accounted for",
+        "No patient to speak of, the fire, everyone's been evacuated and accounted for"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, everyone's at the assembly point away from the smoke"
+        "Okay, please just hurry, everyone's outside now",
+        "Right, we're all clear of the building, please send them quickly",
+        "Okay, I'll try to stay calm, please get here soon",
+        "Understood, we're all accounted for, just waiting on you now",
+        "Okay, thank you, everyone's safe outside, please hurry",
+        "Right, we'll stay well back, please send the crews",
+        "Okay, I can hear it's getting worse, please hurry",
+        "Understood, we're all out, please just get here fast",
+        "Okay, thank you, we're keeping everyone away from the building",
+        "Right, please hurry, we're all waiting outside"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a major fire, we need every crew you can send"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh good, please, we need help keeping people back, it's chaos here",
+        "Thank you, yes, we need help with the crowd, please hurry them",
+        "Good, please send them quick, people keep getting too close",
+        "Thank you, that's a relief, we can't control the crowd on our own",
+        "Oh good, yes please, it's getting busy and dangerous here",
+        "Thank you, please hurry them, we need help keeping everyone back",
+        "Good, yes, we really need that, it's getting out of hand here",
+        "Thank you, please, we're struggling to keep people away from it",
+        "Oh good, that's needed, please send them as fast as you can",
+        "Thank you, yes please, we can't manage the crowd on our own"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry",
+        "Good, please, how long will they be",
+        "Thank you, we're all outside waiting, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we'll keep well clear, please hurry",
+        "Oh good, please send them quickly, it's getting worse",
+        "Thank you, we're all stood well back, please hurry them up",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, we're all outside now"
       ]
     }
   },

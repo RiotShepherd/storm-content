@@ -49,6 +49,12 @@
     "irv": 2,
     "fire_officer": 4
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 16,
+    "police": 2,
+    "ambulance": 2
+  },
   "patients": {
     "range": [
       0,
@@ -116,7 +122,15 @@
   "caller": {
     "openings": [
       "The workshop's on fire, a couple of the mechanics are still trying to get out",
-      "I need the fire brigade, there's a fire in the garage and people are trapped inside"
+      "I need the fire brigade, there's a fire in the garage and people are trapped inside",
+      "Please hurry, the workshop's on fire and some of the mechanics haven't got out yet",
+      "There's a fire in the workshop, we think a couple of the lads are still inside",
+      "Quick, the garage is on fire and some staff haven't made it out",
+      "Please send help, there's a fire in the workshop and people may be trapped",
+      "There's smoke everywhere in the workshop, some of the mechanics aren't out yet",
+      "Please hurry, the workshop's on fire, we can't account for everyone",
+      "There's been a fire in the garage, a couple of staff haven't come out",
+      "Please send help urgently, the workshop's on fire and people are trapped"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -129,78 +143,231 @@
     "start": {
       "answers": [
         "The workshop's on fire, a couple of the mechanics are still trying to get out",
-        "I need the fire brigade, there's a fire in the garage and people are trapped inside"
+        "I need the fire brigade, there's a fire in the garage and people are trapped inside",
+        "Please hurry, the workshop's on fire and some of the mechanics haven't got out yet",
+        "There's a fire in the workshop, we think a couple of the lads are still inside",
+        "Quick, the garage is on fire and some staff haven't made it out",
+        "Please send help, there's a fire in the workshop and people may be trapped",
+        "There's smoke everywhere in the workshop, some of the mechanics aren't out yet",
+        "Please hurry, the workshop's on fire, we can't account for everyone",
+        "There's been a fire in the garage, a couple of staff haven't come out",
+        "Please send help urgently, the workshop's on fire and people are trapped"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I work here"
+        "It's {{callerName}}, I work here",
+        "{{callerName}} here, I'm one of the mechanics",
+        "It's {{callerName}}, I got out straight away",
+        "{{callerName}}, I'm stood outside the workshop now",
+        "It's {{callerName}}, I raised the alarm",
+        "My name's {{callerName}}, I work at the workshop",
+        "It's {{callerName}}, I'm trying to account for everyone",
+        "{{callerName}} speaking, I'm outside with the other staff",
+        "It's {{callerName}}, I called as soon as I got clear",
+        "{{callerName}}, I'm keeping everyone else back from the building"
       ]
     },
     "patientName": {
       "answers": [
-        "There's a couple of the lads still in there, I don't know if they're out yet"
+        "There's a couple of the lads still in there, I don't know if they're out yet",
+        "I don't have names, there's a couple of mechanics unaccounted for",
+        "I can't say who exactly, we're still trying to account for everyone",
+        "There's a couple of colleagues we can't find right now",
+        "I don't have names, we're doing a headcount now",
+        "I can't tell you names, a couple of the team are missing",
+        "There's a couple of staff we haven't accounted for yet",
+        "I don't know exactly who, we're still checking",
+        "There's a couple of the mechanics we can't find",
+        "I can't say for certain, a couple of colleagues are unaccounted for"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the car workshop on the industrial estate"
+        "{{address}}, it's the car workshop on the industrial estate",
+        "It's {{address}}, come through the main gate",
+        "{{address}}, the workshop's on the estate off the main road",
+        "It's {{address}}, I'll meet you at the entrance",
+        "{{address}}, follow signs to the industrial estate",
+        "It's {{address}}, the fire's in the main workshop building",
+        "{{address}}, use the customer entrance at the front",
+        "It's {{address}}, we're all gathered outside now",
+        "{{address}}, please hurry, we're stood outside the gate",
+        "It's {{address}}, you'll see the smoke from the estate road"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A car caught fire on the ramp and it's spread fast, some of the mechanics haven't come out yet"
+        "A car caught fire on the ramp and it's spread fast, some of the mechanics haven't come out yet",
+        "It started with a vehicle on the ramp catching fire, it's spread through the workshop",
+        "A car on the lift caught fire and it's spread quickly through the bay",
+        "It began with a fire under one of the cars, now the whole workshop's affected",
+        "A vehicle caught fire while being worked on and it's spread fast",
+        "It started at one of the bays and spread through the workshop quickly",
+        "A car fire has spread through the workshop, some staff haven't made it out",
+        "It began with smoke from under a car and now it's a full workshop fire",
+        "A vehicle went up on the ramp and the fire's spread through the building",
+        "It started with one car and has spread across several bays now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I don't know, I can't see them from out here"
+        "I don't know, I can't see them from out here",
+        "I can't tell, we haven't been able to reach them",
+        "I don't know, there's no sign of them outside yet",
+        "I can't say, we're still trying to find them",
+        "I don't know, I can't see into the workshop from here",
+        "I can't tell you, the smoke's too thick to see anything",
+        "I don't know, we've not had any contact with them",
+        "I can't say, we're all just waiting outside",
+        "I don't know, there's no way to check from out here",
+        "I can't tell, we haven't heard anything from inside"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "There's thick smoke, I don't know how they're doing in there"
+        "There's thick smoke, I don't know how they're doing in there",
+        "I can't tell, the smoke's too thick to see or check",
+        "I don't know, we can't get near enough to check",
+        "I can't say, there's too much smoke to tell",
+        "I don't know, we're not able to get close enough",
+        "I can't tell you, the smoke's blocking everything",
+        "I don't know, it's too smoky to see inside",
+        "I can't check, we've had to stay back from the smoke",
+        "I don't know, there's no way to tell from out here",
+        "I can't say, the smoke's too thick near the entrance"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I can't tell you, I can't see them"
+        "I can't tell you, I can't see them",
+        "I don't know, I haven't been able to reach them",
+        "I can't say, there's no way for me to check",
+        "I don't know, we can't get close enough",
+        "I can't tell, I haven't been able to get near them",
+        "I don't know, I'm just waiting for you to arrive",
+        "I can't say, I've not been able to reach them",
+        "I don't know, we can't see inside the workshop",
+        "I can't tell you, the smoke's stopping us getting close",
+        "I don't know, we're just waiting outside"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I don't know, I can't get near enough"
+        "I don't know, I can't get near enough",
+        "I can't tell, the smoke's blocking our view completely",
+        "I don't know, we've not been able to get into the workshop",
+        "I can't say, there's no way for us to see inside",
+        "I don't know, it's too smoky to see anything",
+        "I can't tell you, we haven't been able to reach them",
+        "I don't know, we've had to stay back from the smoke",
+        "I can't see anything from here, the smoke's too thick",
+        "I don't know, we've not managed to get near the entrance",
+        "I can't say, we're all just waiting outside for help"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know their medical details"
+        "I don't know their medical details",
+        "I'm not sure, I can check personnel records if needed",
+        "I don't have that information for them, sorry",
+        "I'm not certain, I'll try to find out from HR",
+        "I don't know, I can check their staff records",
+        "I'm not sure of their history, I'll look into it",
+        "I don't have full details, I can check with HR",
+        "I'm not sure, sorry, I'll try to find out",
+        "I don't know their histories, I'll check what I can",
+        "I'm not certain, I can ask HR to check"
       ]
     },
     "medications": {
       "answers": [
-        "I'm not sure, sorry"
+        "I'm not sure, sorry",
+        "I don't know, I can check their staff files",
+        "I'm not certain, I'll try to find out",
+        "I don't have that information, sorry",
+        "Not sure, I'll ask HR to check for you",
+        "I don't know off hand, I can look into it",
+        "I'm not sure, sorry, I don't have that detail",
+        "I don't know, I'll try to find out what I can",
+        "Not sure, I can check with HR if needed",
+        "I don't have that information right now, sorry"
       ]
     },
     "patientAge": {
       "answers": [
-        "They're all adults, staff members"
+        "They're all adults, staff members",
+        "All adults, they work here as mechanics",
+        "They're all working age adults",
+        "All adults, various ages among the team",
+        "They're all grown adults, staff of the workshop",
+        "All working staff, ages vary a bit",
+        "They're all adults, a mix of ages on the team",
+        "All adults, different ages across the workshop staff",
+        "They're all adults, a good range of ages",
+        "All staff members, all adults"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying outside and keeping others back"
+        "Okay, I'm staying outside and keeping others back",
+        "Right, we're all keeping our distance from the building",
+        "Okay, I'm keeping everyone else clear of the workshop",
+        "Understood, we're waiting outside for you",
+        "Alright, we're keeping the area clear for you",
+        "Okay, we're all stood well back now",
+        "Right, I'll let you know if we hear anything from inside",
+        "Okay, we're staying together outside the gate",
+        "Understood, we're keeping everyone away from the smoke",
+        "Okay, we're all waiting outside the workshop now"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we need help, there's still people who might be inside",
+        "Yes please, can they help keep everyone else back from the workshop",
+        "Thank you, it's getting chaotic out here with everyone worried",
+        "Okay, good, they can help account for who's out and who isn't",
+        "Yes, send them, we need help managing the scene",
+        "Good, we could use help keeping customers and staff back",
+        "Thank you, some people are trying to go back in for their things",
+        "Okay, they can help us keep the area clear for the crews",
+        "Good, it's a worrying situation, we need all the help we can get",
+        "Yes please, we need order out here while we wait"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, a couple of the lads might still be in there",
+        "Okay, good, the rest of us got out safely",
+        "Please hurry, the fire's spread really fast from the ramp",
+        "Thank you, we're keeping everyone else well clear now",
+        "Okay, I can see them arriving now, thank god",
+        "Good, hurry, there's fuel and oils all through that workshop",
+        "Thank you, we're trying to get a headcount sorted",
+        "Okay, please tell them to hurry, we can't see inside for smoke",
+        "Thank goodness, we've called out to them but no answer",
+        "Good, hurry please, this is really serious"
       ]
     },
     "refer111": {
       "answers": [
-        "No, people might be trapped, we need you here now"
+        "No, people might be trapped, we need you here now",
+        "No, this is an emergency, please hurry",
+        "No thank you, people might still be inside, we need help",
+        "No, please, we think staff are trapped, we need you now",
+        "No, this isn't something 111 can help with",
+        "No, please just send the fire brigade urgently",
+        "No, there's a real risk people are trapped inside",
+        "No, please hurry, we can't account for everyone",
+        "No, this is urgent, people might be inside still",
+        "No, we need the fire brigade here right now"
       ]
     }
   },

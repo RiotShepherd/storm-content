@@ -46,6 +46,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3
+  },
   "patients": {
     "range": [
       0,
@@ -74,7 +78,15 @@
   "caller": {
     "openings": [
       "There's been a road accident, a car's gone into the back of another one.",
-      "Ambulance please, there's been a crash, someone's hurt in one of the cars."
+      "Ambulance please, there's been a crash, someone's hurt in one of the cars.",
+      "There's been a shunt, one of the drivers seems to be hurt.",
+      "A couple of cars have crashed, one of the drivers is in pain.",
+      "Can you send an ambulance, there's been a collision and someone's hurt.",
+      "There's been a bump between two cars, one driver's complaining of pain.",
+      "Hello, there's been a road accident, one of them's hurt quite badly.",
+      "A car's rear ended another one, the driver in front's injured.",
+      "There's been a crash at the lights, someone's hurt in the front car.",
+      "Ambulance please, a road accident's happened, one driver's in pain."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -87,90 +99,231 @@
     "start": {
       "answers": [
         "There's been a road accident, a car's gone into the back of another one.",
-        "Ambulance please, there's been a crash, someone's hurt in one of the cars."
+        "Ambulance please, there's been a crash, someone's hurt in one of the cars.",
+        "There's been a shunt, one of the drivers seems to be hurt.",
+        "A couple of cars have crashed, one of the drivers is in pain.",
+        "Can you send an ambulance, there's been a collision and someone's hurt.",
+        "There's been a bump between two cars, one driver's complaining of pain.",
+        "Hello, there's been a road accident, one of them's hurt quite badly.",
+        "A car's rear ended another one, the driver in front's injured.",
+        "There's been a crash at the lights, someone's hurt in the front car.",
+        "Ambulance please, a road accident's happened, one driver's in pain."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, I was right behind them.",
-        "{{callerName}}, I've stopped to help."
+        "{{callerName}}, I've stopped to help.",
+        "My name's {{callerName}}, I saw it happen.",
+        "{{callerName}} here, I'm with {{him}} now.",
+        "It's {{callerName}} speaking, I've pulled over.",
+        "{{callerName}}, I'm the one who called it in.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I'm sat with {{him}} in the car.",
+        "{{callerName}}, I stopped straight away to check on {{him}}.",
+        "Name's {{callerName}}, I'm still with {{him}}."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know him, I've just stopped.",
-        "She told me her name's {{firstPatientName}}."
+        "I don't know {{him}}, I've just stopped.",
+        "{{He}} told me {{his}} name's {{firstPatientName}}.",
+        "I've no idea, {{he}}'s a stranger to me.",
+        "{{He}} said {{his}} name's {{firstPatientName}} when I asked.",
+        "I don't know {{him}} at all, sorry.",
+        "{{He}} mentioned {{his}} name's {{firstPatientName}}.",
+        "No idea, I only just stopped to help {{him}}.",
+        "I can't say, never met {{him}} before.",
+        "{{He}} said {{his}} name's {{firstPatientName}}, {{he}}'s a bit shaken.",
+        "I don't know, {{he}} hasn't said much."
       ]
     },
     "address": {
       "answers": [
         "We're on {{address}}.",
-        "{{address}}, near the junction."
+        "{{address}}, near the junction.",
+        "It's on {{address}}, by the lights.",
+        "{{address}}, just past the roundabout.",
+        "We're at {{address}}, {{he}}'s still in the car.",
+        "{{address}}, close to the shops.",
+        "It's happened on {{address}}.",
+        "{{address}}, right by the crossing.",
+        "We're on {{address}}, near the school.",
+        "{{address}}, just before the bend."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "One car's gone into the back of another, the driver in front seems hurt.",
-        "There's been a shunt at the lights, one of the drivers is complaining of neck pain."
+        "There's been a shunt at the lights, one of the drivers is complaining of neck pain.",
+        "{{He}} braked and the car behind went straight into {{him}}.",
+        "It's a rear end collision, {{he}}'s a bit shaken and hurt.",
+        "The car behind didn't stop in time and went into {{his}} car.",
+        "{{He}}'s been shunted from behind at the junction.",
+        "Someone's pulled out and clipped {{his}} car, {{he}}'s hurt.",
+        "It's a low speed crash but {{he}}'s complaining of pain.",
+        "The other driver's misjudged it and hit {{his}} car side on.",
+        "{{His}} car got hit from behind while stopped at the lights."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious, talking to me.",
-        "Yes, she's awake, a bit shaken."
+        "Yes, {{he}}'s conscious, talking to me.",
+        "Yes, {{he}}'s awake, a bit shaken.",
+        "{{He}}'s conscious, just sore.",
+        "Yes, {{he}}'s talking fine, just shaken up.",
+        "{{He}}'s awake and responding okay.",
+        "Yes, {{he}}'s conscious, a bit dazed.",
+        "{{He}}'s talking to me normally.",
+        "Yes, {{he}}'s fully awake, just in pain.",
+        "{{He}}'s conscious, holding {{his}} neck.",
+        "Yes, {{he}}'s alert, just shaken."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
         "Yes, breathing fine.",
-        "Yes, she's okay, just sore."
+        "Yes, {{he}}'s okay, just sore.",
+        "Yes, {{he}}'s breathing normally.",
+        "Yes, no problems breathing.",
+        "Yes, {{he}}'s breathing steadily.",
+        "Yes, {{he}}'s fine on that front.",
+        "Yes, breathing okay, just shaken.",
+        "Yes, {{he}}'s breathing normally, just sore.",
+        "Yes, no issues there.",
+        "Yes, {{he}}'s breathing fine, just achy."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says his neck hurts.",
-        "She's holding her shoulder, says it's painful."
+        "{{He}} says {{his}} neck hurts.",
+        "{{He}}'s holding {{his}} shoulder, says it's painful.",
+        "{{He}} says {{his}} back's sore from the impact.",
+        "{{He}}'s complaining about {{his}} neck and shoulder.",
+        "{{He}} says it hurts when {{he}} turns {{his}} neck.",
+        "{{He}}'s got a sore chest from the seatbelt.",
+        "{{He}} says {{his}} wrist hurts, {{he}} braced on the wheel.",
+        "{{He}}'s saying {{his}} lower back is painful.",
+        "{{He}} says {{his}} neck's stiff and sore.",
+        "{{He}}'s wincing a bit, mostly {{his}} neck."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
         "No, no visible bleeding.",
-        "A small cut on her hand, nothing major."
+        "A small cut on {{his}} hand, nothing major.",
+        "No, {{he}} doesn't seem to be bleeding.",
+        "There's a small graze on {{his}} arm.",
+        "No bleeding that I can see.",
+        "Just a tiny cut on {{his}} finger, nothing much.",
+        "No, {{he}}'s not bleeding at all.",
+        "A small mark on {{his}} forehead, no real bleeding.",
+        "No, nothing like that.",
+        "No bleeding, just bruising I think."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them, sorry.",
-        "No idea, sorry."
+        "I don't know {{him}}, sorry.",
+        "No idea, sorry.",
+        "I've no idea, {{he}}'s a stranger to me.",
+        "I don't know anything about {{him}}.",
+        "No idea, I only just stopped to help.",
+        "I can't say, never met {{him}} before.",
+        "Sorry, I don't know {{him}} at all.",
+        "No idea, {{he}} hasn't mentioned anything.",
+        "I couldn't tell you, we're strangers.",
+        "No idea, {{he}} hasn't said much about that."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, I don't know them.",
-        "I couldn't say."
+        "No idea, I don't know {{him}}.",
+        "I couldn't say.",
+        "No idea, {{he}}'s a stranger to me.",
+        "I've no clue, sorry.",
+        "No idea, I only just stopped.",
+        "I don't know anything about {{him}}.",
+        "Sorry, I can't tell you that.",
+        "No idea, {{he}} hasn't said.",
+        "I couldn't tell you, we don't know each other.",
+        "No idea at all, sorry."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks like he's in his thirties.",
-        "She's maybe fifty."
+        "Looks like {{he}}'s in {{his}} thirties.",
+        "{{He}}'s maybe fifty.",
+        "Hard to say, {{he}} looks about forty.",
+        "I'd guess {{he}}'s in {{his}} twenties.",
+        "{{He}} looks middle aged.",
+        "Hard to tell exactly, {{he}}'s an adult.",
+        "{{He}} looks quite young, maybe twenty five.",
+        "I'd say {{he}}'s in {{his}} late thirties.",
+        "{{He}} looks like {{he}}'s in {{his}} sixties.",
+        "Hard to say, {{he}}'s not elderly."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're staying with them.",
-        "Understood, they're sat in the car waiting."
+        "Okay, we're staying with {{him}}.",
+        "Understood, {{he}}'s sat in the car waiting.",
+        "Thank you, I'll keep {{him}} company till you're here.",
+        "Good, {{he}}'s a bit shaken but staying put.",
+        "Okay, {{he}}'s not moving, just waiting.",
+        "Thank you, that's a relief.",
+        "Good, I'll let {{him}} know help's coming.",
+        "Okay, {{he}}'s staying still like you said.",
+        "Thank you, {{he}}'ll be glad to hear that.",
+        "Good, we'll wait right here for you."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the two cars, nobody's in trouble.",
+        "Oh, we probably don't need that, it's a straightforward bump really.",
+        "No, I don't think so, it's just a minor crash, we mainly need the ambulance.",
+        "That's not necessary I don't think, it's just a rear end shunt.",
+        "We're fine without them, it's the ambulance we really need.",
+        "No, I don't think that's needed, nobody's arguing or anything.",
+        "That won't be needed I think, it's just a straightforward accident.",
+        "No thank you, it's really just the ambulance we need here.",
+        "I don't think we need that, it's a simple crash, that's all.",
+        "That's probably not required, we just need {{him}} looked at."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh, okay, thank you for sending them too.",
+        "Good, thanks, I did notice a bit of fluid leaking from the car.",
+        "Thank you, that's reassuring to know they're coming.",
+        "Okay, good, I suppose they'll check the car's safe.",
+        "Thanks for that, one of the doors looked a bit stuck too.",
+        "Good, I appreciate that, thank you.",
+        "Okay, thank you, that's good to hear.",
+        "Thanks, I think there might be a small leak from the car.",
+        "Good, that's helpful, thank you.",
+        "Okay, thank you for letting me know."
       ]
     },
     "refer111": {
       "answers": [
-        "No, they're hurt from a crash, we need an ambulance!"
+        "No, they're hurt from a crash, we need an ambulance!",
+        "No, that's not right, {{he}}'s in real pain, please send someone.",
+        "I don't think so, {{he}} needs to be checked properly.",
+        "No, please, {{he}}'s hurt from the crash, this can't wait.",
+        "That doesn't sound right, {{he}} needs an ambulance now.",
+        "No, absolutely not, {{he}}'s in pain and needs help.",
+        "Please, no, {{he}} was in a crash, we need paramedics.",
+        "I really don't think 111 is right, {{he}}'s hurt now.",
+        "No, this can't wait, {{he}} needs to be seen properly.",
+        "Please, no, don't make us wait, {{he}}'s in pain."
       ]
     }
   },

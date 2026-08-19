@@ -42,6 +42,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -61,7 +65,15 @@
   "caller": {
     "openings": [
       "Police please, we've had a shoplifter, quite a bit of stock taken",
-      "Someone's just walked out of the store without paying for a trolley full"
+      "Someone's just walked out of the store without paying for a trolley full",
+      "We've had a big theft, {{he}}'s left with a trolley of stock",
+      "Police, someone's just left our store without paying for a full trolley",
+      "Can you send officers, a shoplifter's taken a lot of stock",
+      "We've just had a theft, {{he}} loaded a trolley and walked straight out",
+      "Police please, {{he}}'s cleared a whole aisle and left without paying",
+      "Can someone come, we've had a big shoplifting incident here",
+      "Police, {{he}}'s taken a large amount of stock and left on foot",
+      "We need officers, a shoplifter's just gone with a trolley full of goods"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -74,91 +86,231 @@
     "start": {
       "answers": [
         "Police please, we've had a shoplifter, quite a bit of stock taken",
-        "Someone's just walked out of the store without paying for a trolley full"
+        "Someone's just walked out of the store without paying for a trolley full",
+        "We've had a big theft, {{he}}'s left with a trolley of stock",
+        "Police, someone's just left our store without paying for a full trolley",
+        "Can you send officers, a shoplifter's taken a lot of stock",
+        "We've just had a theft, {{he}} loaded a trolley and walked straight out",
+        "Police please, {{he}}'s cleared a whole aisle and left without paying",
+        "Can someone come, we've had a big shoplifting incident here",
+        "Police, {{he}}'s taken a large amount of stock and left on foot",
+        "We need officers, a shoplifter's just gone with a trolley full of goods"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I work here",
-        "It's {{callerName}}, I'm on shift"
+        "It's {{callerName}}, I work here.",
+        "{{callerName}}, I'm on shift today.",
+        "My name's {{callerName}}, I'm staff here.",
+        "It's {{callerName}} here, I'm the manager on duty.",
+        "{{callerName}}, yes, I work on site.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}, I'm one of the staff.",
+        "{{callerName}} speaking, I'm on the desk today.",
+        "Name's {{callerName}}, I'm working here.",
+        "It's {{callerName}}, I'm the one who spotted it."
       ]
     },
     "patientName": {
       "answers": [
-        "No name, but we've got good CCTV of her",
-        "Don't know him, but security clocked his face"
+        "I don't know {{his}} name, never seen the shoplifter before.",
+        "No name, sorry, {{he}} didn't exactly introduce {{himself}}.",
+        "Couldn't tell you, the shoplifter was a stranger to me.",
+        "No idea who {{he}} is, I've got no name to give you.",
+        "Don't know {{him}} personally, the shoplifter, that's all I can say.",
+        "No, never seen {{him}} before, can't give you a name.",
+        "Can't help with a name, only a description of the shoplifter.",
+        "No name I'm afraid, {{he}} was gone before I could ask.",
+        "Nobody round here knows {{his}} name, the shoplifter.",
+        "I've got no name for you, just what {{he}} looked like."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the store",
-        "It's {{address}}, by the fire exit"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She's filled a trolley and pushed it straight through the doors past security",
-        "He's loaded a bag with electronics and legged it out the fire exit"
+        "{{He}}'s filled a trolley and pushed it straight through the doors past security",
+        "{{He}}'s loaded a bag with electronics and legged it out the fire exit",
+        "{{He}} filled a trolley with high value items and walked straight past the tills",
+        "{{He}} grabbed armfuls of stock and pushed a trolley out through the exit",
+        "{{He}}'s known to us, filled a trolley and barged past a member of staff",
+        "{{He}} loaded up a trolley while a friend distracted the till staff",
+        "{{He}} piled the trolley high and just walked out the main doors",
+        "{{He}} filled a rucksack and a trolley then legged it out the side door",
+        "{{He}}'s taken a trolley of alcohol and electronics and pushed straight out",
+        "{{He}} filled the trolley in under a minute and wheeled it straight past us"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, they've made off",
-        "No one's injured that I can see"
+        "Nobody's hurt, so there's nobody to check on for that.",
+        "There's no injured person here, the shoplifter, {{he}}'s just gone.",
+        "No one's collapsed or anything, {{he}} was moving fine.",
+        "It's not that kind of call, nobody's unconscious.",
+        "No casualties here, nobody needs checking over.",
+        "There isn't a patient as such, the shoplifter.",
+        "{{He}} was on {{his}} feet the whole time, no one's hurt.",
+        "No, nobody's hurt, this isn't a medical one.",
+        "Nobody needs an ambulance, no one's injured.",
+        "No one's out cold, nobody's been hurt at all."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt, they've gone"
+        "Nobody's struggling to breathe, no one's hurt.",
+        "There's no injuries at all here, so nothing like that.",
+        "No, {{he}} was breathing fine, running off quick enough.",
+        "It's not a medical call, nobody's had trouble breathing.",
+        "No casualties, nobody needs checking for that.",
+        "Nobody's hurt, the shoplifter, that's the whole problem.",
+        "No, this isn't that kind of emergency.",
+        "Everyone's fine physically as far as I can see.",
+        "No one's been injured, so no breathing issues to report.",
+        "Not a medical one, nobody's struggling with anything like that."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's in pain, nobody's hurt",
-        "Not that I saw"
+        "No one's in pain, nobody's hurt.",
+        "Nobody's complaining of any pain, the shoplifter.",
+        "No injuries, so no pain that I know of.",
+        "Not that I've seen, nobody's hurt here.",
+        "No, nobody's been hurt at all.",
+        "There's no one in pain, this isn't medical.",
+        "No casualties, nobody's said they're in pain.",
+        "Not a soul hurt, the shoplifter.",
+        "No, nobody needs anything for pain.",
+        "No injuries to report, everyone's fine that way."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's bleeding",
-        "No, nothing like that"
+        "No, no one's bleeding.",
+        "Nobody's bleeding, there's no injuries at all.",
+        "No, nothing like that, the shoplifter.",
+        "No blood, no injuries, nobody's hurt.",
+        "Not that I've seen, no one's bleeding.",
+        "No, it's not that kind of call.",
+        "Nobody's injured, so no bleeding to report.",
+        "No, the shoplifter, nobody's hurt.",
+        "No blood anywhere that I can see.",
+        "Not at all, no one's been hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them, so I couldn't say",
-        "No idea, never seen them before"
+        "I wouldn't know, the shoplifter.",
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, never met {{him}} before.",
+        "No idea about that, sorry.",
+        "I don't know {{him}} well enough to say.",
+        "Not a clue, the shoplifter.",
+        "No, I've no idea about {{his}} health.",
+        "Couldn't say, I don't know {{him}} personally.",
+        "No idea whatsoever, sorry.",
+        "I really wouldn't know, never spoken to {{him}}."
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea",
-        "Couldn't tell you"
+        "I've no idea.",
+        "Couldn't tell you, sorry.",
+        "No idea at all, the shoplifter.",
+        "I wouldn't know, never met {{him}}.",
+        "No clue, sorry.",
+        "Couldn't say, I don't know {{him}}.",
+        "No idea, I'm afraid.",
+        "Not a clue what {{he}} takes.",
+        "I really couldn't tell you.",
+        "No idea, sorry, I don't know {{him}}."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looked about twenty five",
-        "Maybe late thirties"
+        "Hard to say, maybe in {{his}} twenties.",
+        "I'd guess {{him}} as thirtyish, but I couldn't be certain.",
+        "Looked youngish, maybe late teens, from what I saw.",
+        "Not sure exactly, {{he}} looked middle aged.",
+        "Couldn't tell you exactly, mid twenties at a guess.",
+        "I'd say {{he}} was in {{his}} forties, but don't quote me.",
+        "Maybe early twenties, hard to tell from a distance.",
+        "I only got a quick look, {{he}} seemed fairly young.",
+        "Roughly thirty, that's my best guess.",
+        "Somewhere around {{his}} twenties or thirties, I'd say."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep watching from here",
-        "Right, understood, I'll wait"
+        "Ambulance? No, nobody's hurt, it's a police matter.",
+        "No, we don't need an ambulance, nobody's injured here.",
+        "Sorry, why an ambulance, nobody's hurt, I just need police.",
+        "No, there's no injury, I only need the police out here.",
+        "That's not needed, nobody's been hurt, it's police I want.",
+        "No ambulance required, nobody's injured, just send police please.",
+        "No, I don't think that's right, nobody's hurt, it's a police job.",
+        "There's no injury here, I only asked for police.",
+        "No, nobody needs an ambulance, this isn't medical.",
+        "No thank you, nobody's hurt, just the police please."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "No, this isn't a health thing, I need the police out here.",
+        "This isn't a 111 matter, someone's committing an offence, I need police.",
+        "No, I don't need a doctor, I need the police to come now.",
+        "That's not right, nobody's ill, this needs police attention.",
+        "No, please, this is a crime, not a medical thing, send police.",
+        "I don't need 111, I need officers here, this is a police matter.",
+        "No, nobody's poorly, I need police, not a callback.",
+        "That won't help, this needs police, not health advice.",
+        "No, please don't fob me off, I need police out here.",
+        "This isn't medical at all, I need the police, please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll keep an eye out until they arrive.",
+        "Right, good, I'll wait here for them.",
+        "Thank you, I'll point them the right way when they get here.",
+        "Okay, that's good to hear, I'll stay on the line if you need.",
+        "Right, thanks, I'll let you know if anything changes.",
+        "Good, thank you, I'll stay well back until they turn up.",
+        "Okay, I'll keep watching from here until they arrive.",
+        "Thanks, that's a relief, I'll wait for them outside.",
+        "Right, understood, I'll stay put until they get here.",
+        "Okay, thank you, appreciate it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

@@ -40,6 +40,10 @@
     "track"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -75,8 +79,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's been a crash on the motocross track, a rider's down",
-      "I need an ambulance, one of the riders has come off at speed"
+      "There's been a crash on the motocross track, a rider's down.",
+      "I need an ambulance, one of the riders has come off at speed.",
+      "We've got a rider down on the track, {{he}} came off badly.",
+      "There's been an accident on the track, {{he}}'s not moving much.",
+      "One of the riders has crashed, {{he}}'s down and hurt.",
+      "Please hurry, {{he}}'s come off {{his}} bike hard on the track.",
+      "A rider's gone down at speed, we've stopped the race.",
+      "There's a rider injured on the track, {{he}} came off badly at a jump.",
+      "We need help, one of our riders has had a bad crash.",
+      "{{He}}'s down on the track after a crash, {{he}}'s hurt quite badly."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -88,82 +100,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's been a crash on the motocross track, a rider's down",
-        "I need an ambulance, one of the riders has come off at speed"
+        "There's been a crash on the motocross track, a rider's down.",
+        "I need an ambulance, one of the riders has come off at speed.",
+        "We've got a rider down on the track, {{he}} came off badly.",
+        "There's been an accident on the track, {{he}}'s not moving much.",
+        "One of the riders has crashed, {{he}}'s down and hurt.",
+        "Please hurry, {{he}}'s come off {{his}} bike hard on the track.",
+        "A rider's gone down at speed, we've stopped the race.",
+        "There's a rider injured on the track, {{he}} came off badly at a jump.",
+        "We need help, one of our riders has had a bad crash.",
+        "{{He}}'s down on the track after a crash, {{he}}'s hurt quite badly."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm a marshal here",
-        "{{callerName}}"
+        "It's {{callerName}}, I'm a marshal here.",
+        "{{callerName}}, I'm a marshal here.",
+        "My name's {{callerName}}, I'm a marshal here.",
+        "{{callerName}} here, I'm a marshal here.",
+        "It's {{callerName}} speaking, I'm a marshal here.",
+        "You can put me down as {{callerName}}, I'm a marshal here.",
+        "{{callerName}}. I'm a marshal here.",
+        "It's {{callerName}}, I'm a marshal here, please hurry.",
+        "{{callerName}}, that's me, I'm a marshal here.",
+        "It's {{callerName}}, I'm a marshal here, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, one of the riders",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, one of the riders.",
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's one of the riders.",
+        "{{He}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}} is one of the riders.",
+        "The name's {{firstPatientName}}.",
+        "{{firstPatientName}}, one of the riders, please hurry.",
+        "It's {{firstPatientName}}, one of the riders.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, that's what {{he}} goes by."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, the motocross track",
-        "{{address}}"
+        "We're at {{address}}.",
+        "It's {{address}}.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}.",
+        "We're at {{address}}, the door will be open.",
+        "{{address}}, come straight in.",
+        "You need {{address}}.",
+        "{{address}} is where we are.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He came off the bike at speed and landed awkwardly, he's not moving much"
+        "{{He}} came off the bike at speed and landed awkwardly, {{he}}'s not moving much.",
+        "{{He}} hit a jump wrong and came off hard, landed on {{his}} side.",
+        "{{He}} lost control on a bend and went down at speed.",
+        "{{He}} clipped another rider and came off the bike badly.",
+        "{{He}} came off at a jump and landed heavily on the track.",
+        "{{He}} lost the front wheel on a corner and went straight down.",
+        "{{He}} was thrown off the bike after hitting a rut in the track.",
+        "{{He}} came off at speed and the bike landed on top of {{him}}.",
+        "{{He}} misjudged a jump and came down hard on landing.",
+        "{{He}} went over the handlebars after a bad landing."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes but he's in a lot of pain"
+        "Yes but {{he}}'s in a lot of pain.",
+        "{{He}}'s conscious, groaning and holding {{his}} leg.",
+        "Yes, {{he}}'s awake, talking through the pain.",
+        "{{He}}'s conscious but very shaken up.",
+        "Yes, {{he}}'s responding, clearly in pain.",
+        "{{He}}'s awake, shouting in pain but talking to us.",
+        "Yes, {{he}}'s conscious, just very sore.",
+        "{{He}}'s alert, complaining loudly about the pain.",
+        "Yes, {{he}}'s talking, but {{he}}'s in obvious pain.",
+        "{{He}}'s conscious, just struggling with the pain."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Yes, breathing normally as far as we can tell.",
+        "Fine, no issues with breathing.",
+        "Normal, {{he}}'s just in pain, not struggling to breathe.",
+        "Breathing's okay, nothing concerning there.",
+        "Yes, {{his}} breathing looks fine.",
+        "Fine, {{he}}'s just wincing from the pain.",
+        "Normal breathing, no worries there.",
+        "Breathing's fine, it's the leg that's the concern.",
+        "Yes, that's fine, no breathing issues."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Really bad, he thinks his leg's broken"
+        "Really bad, {{he}} thinks {{his}} leg's broken.",
+        "{{He}}'s in agony, holding {{his}} leg tightly.",
+        "{{He}} says {{his}} leg's the main pain, it looks deformed.",
+        "Severe pain in {{his}} leg, {{he}} can't put weight on it.",
+        "{{He}}'s screaming in pain when {{he}} tries to move {{his}} leg.",
+        "Very bad, {{he}} thinks {{he}}'s broken something in {{his}} leg.",
+        "{{He}}'s in serious pain, {{his}} leg looks bent wrong.",
+        "Really painful, {{he}} won't let anyone touch {{his}} leg.",
+        "{{He}}'s in a lot of pain, mainly {{his}} leg and hip.",
+        "{{He}} says it's unbearable, {{his}} leg especially."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Some bleeding from his arm, road rash"
+        "Some bleeding from {{his}} arm, road rash.",
+        "A graze with some bleeding on {{his}} arm and shoulder.",
+        "Yes, some bleeding from where {{he}} slid across the track.",
+        "A bit of blood from road rash on {{his}} arm.",
+        "Some bleeding, mostly grazes from sliding.",
+        "Yes, minor bleeding from a graze on {{his}} elbow.",
+        "A little, from scraping along the ground.",
+        "Some bleeding from cuts on {{his}} arm.",
+        "Yes, road rash bleeding a bit on {{his}} shoulder.",
+        "A small amount from grazes, nothing too heavy."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him personally, I'll check his entry form"
+        "I don't know {{him}} personally, I'll check {{his}} entry form.",
+        "No idea, I'll look at the sign in sheet.",
+        "I don't have that, I'll check {{his}} race entry details.",
+        "Not sure, I'll see what's on the entry form.",
+        "I don't know {{him}} well, {{he}}'s just entered for the day.",
+        "No idea, I'll check the paperwork at registration.",
+        "I can't say, I'll see if the entry form has anything.",
+        "Not sure, I'll check with race control.",
+        "I don't know, I'll look at {{his}} sign up details.",
+        "No idea offhand, I'll check the entry sheet now."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, sorry"
+        "I don't know, sorry.",
+        "No idea, I'll check the entry form.",
+        "Not sure, sorry.",
+        "I couldn't tell you.",
+        "No idea I'm afraid.",
+        "I don't have that information.",
+        "Not that I know of.",
+        "I can't say, sorry.",
+        "No idea, I don't know {{him}} personally.",
+        "I don't know if {{he}} takes anything."
       ]
     },
     "patientAge": {
       "answers": [
-        "Early twenties I'd say"
+        "Early twenties I'd say.",
+        "Maybe early twenties, I'd guess.",
+        "I'd say early twenties, thereabouts.",
+        "Around 21 or 22 I'd guess.",
+        "Looks about early twenties to me.",
+        "I'm not certain, early twenties seems right.",
+        "Hard to say exactly, early twenties I'd think.",
+        "Maybe twenty one or so.",
+        "I'd guess {{he}}'s in {{his}} early twenties.",
+        "Roughly early twenties, I'd say."
       ]
     },
     "reassure": {
       "answers": [
-        "We've stopped the race"
+        "We've stopped the race.",
+        "Okay, we've stopped all riders and cleared the track.",
+        "Right, we've got the track closed off now.",
+        "Okay, we'll keep {{him}} still until they arrive.",
+        "Understood, no one else is on the track now.",
+        "Okay, we've got {{him}} as comfortable as we can.",
+        "Right, we're keeping {{him}} still, not moving {{his}} leg.",
+        "Okay, the track's clear and we're staying with {{him}}.",
+        "Understood, we'll keep watching {{him}} closely.",
+        "Okay, we've flagged the race off completely."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he needs an ambulance"
+        "No, please, this can't wait for a call back.",
+        "No, I really think this needs an ambulance now.",
+        "Please no, {{he}} needs help now, not a phone call.",
+        "No, this is an emergency, we need someone now.",
+        "I don't think that's right, {{he}}'s really not well.",
+        "No, please send someone now, I'm begging you.",
+        "That doesn't sound right, this is urgent.",
+        "No, we can't wait for that, please send an ambulance.",
+        "Please, no, {{he}} needs help straight away.",
+        "No, I really think this is serious, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

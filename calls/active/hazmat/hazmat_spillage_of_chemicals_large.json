@@ -50,6 +50,12 @@
     "iccu": 1,
     "fire_officer": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 3,
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -96,7 +102,15 @@
   "caller": {
     "openings": [
       "We've had a large chemical spill in the warehouse, some staff have been overcome by fumes",
-      "There's chemicals all over the warehouse floor and people are coughing badly"
+      "There's chemicals all over the warehouse floor and people are coughing badly",
+      "There's been a big spill in the warehouse, several of my staff feel really unwell",
+      "Please hurry, we've had a large chemical spill and a few staff have collapsed",
+      "A container's split in the warehouse, chemicals everywhere, staff are struggling",
+      "We've got a serious spill on the warehouse floor, some of the team are in a bad way",
+      "Chemicals have spilled across the warehouse, several people are struggling to breathe",
+      "There's been a major spill here, a number of staff are affected",
+      "Please send help, we've a big chemical spill and people have gone down",
+      "We've evacuated most of the warehouse but a few staff got caught by the fumes"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -109,90 +123,231 @@
     "start": {
       "answers": [
         "We've had a large chemical spill in the warehouse, some staff have been overcome by fumes",
-        "There's chemicals all over the warehouse floor and people are coughing badly"
+        "There's chemicals all over the warehouse floor and people are coughing badly",
+        "There's been a big spill in the warehouse, several of my staff feel really unwell",
+        "Please hurry, we've had a large chemical spill and a few staff have collapsed",
+        "A container's split in the warehouse, chemicals everywhere, staff are struggling",
+        "We've got a serious spill on the warehouse floor, some of the team are in a bad way",
+        "Chemicals have spilled across the warehouse, several people are struggling to breathe",
+        "There's been a major spill here, a number of staff are affected",
+        "Please send help, we've a big chemical spill and people have gone down",
+        "We've evacuated most of the warehouse but a few staff got caught by the fumes"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm the warehouse supervisor"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
-        "Several staff are affected, {{firstPatientName}}'s one of the worst",
-        "{{firstPatientName}} collapsed near the spill"
+        "Several of my staff, I don't have all the names to hand",
+        "There's a number of them affected, I'll get you names shortly",
+        "A few of my team, I can give you names once we've done a headcount",
+        "Several staff members, sorry, I can't list them all right now",
+        "There's a group affected, names to follow once we're sorted",
+        "A number of my colleagues, I don't have a full list yet",
+        "Several of the team, sorry, it's chaos here right now",
+        "A few staff members, I'll confirm names shortly",
+        "There's a number affected, I'm still doing a headcount",
+        "Several of my staff, sorry, I can't say exactly how many yet"
       ]
     },
     "address": {
       "answers": [
-        "It's at {{address}}, the warehouse unit",
-        "{{address}}, industrial estate, main warehouse"
+        "It's {{address}}, please hurry",
+        "{{address}}, quickly please",
+        "We're at {{address}}, please send someone fast",
+        "The address is {{address}}, please hurry",
+        "{{address}}, in the warehouse, please hurry",
+        "It's {{address}}, oh please be quick",
+        "{{address}}, come quickly please",
+        "{{address}} is the address, please hurry",
+        "Please, it's {{address}}",
+        "{{address}}, in the warehouse, quickly please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A large drum of chemicals split open on the warehouse floor, fumes have spread quickly",
-        "The spill's covering a big area of the floor, staff nearby started coughing and some collapsed"
+        "A container split in the warehouse and chemicals spread across the floor",
+        "There's been a large spill, the fumes have overcome several of my staff",
+        "A drum ruptured and chemicals spilled everywhere, people started coughing badly",
+        "The spill happened suddenly, several staff were caught by the fumes before we evacuated",
+        "Something split open on the racking and chemicals spread fast across the floor",
+        "We're not sure of the cause, but the spill's large and the fumes are strong",
+        "A pallet of containers came down and chemicals spread across a wide area",
+        "The spill's spread quickly, some staff couldn't get clear in time",
+        "It happened during unloading, chemicals went everywhere and people were affected",
+        "We've evacuated the building but several staff were exposed before we could"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Most are awake, one or two aren't responding well",
-        "{{firstPatientName}} isn't responding properly"
+        "Most are conscious, a couple have collapsed",
+        "A few are alert, one or two aren't responding well",
+        "Most are talking, but a couple went down and aren't very responsive",
+        "The majority are conscious, a couple are drifting in and out",
+        "Some are alert, a couple are barely responding",
+        "Most are okay, one or two have collapsed and are hard to rouse",
+        "A few are conscious and talking, others less so",
+        "Mixed picture, most are alert, a couple are not responding well",
+        "The majority are conscious, a small number aren't",
+        "Some are conscious, a couple have gone down and aren't responding"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Several are struggling to breathe",
-        "A number of them are wheezing badly"
+        "Several are really struggling to breathe from the fumes",
+        "A number are gasping, we've moved them outside now",
+        "Breathing's bad for a few of them, coughing badly too",
+        "Some are wheezing badly, the fumes have hit them hard",
+        "A number are finding it very hard to breathe right now",
+        "Several are coughing violently and struggling for air",
+        "Breathing's poor for a few, we've got them into fresh air",
+        "Some are gasping for breath, it's quite frightening",
+        "A number are wheezing and short of breath",
+        "Several are really struggling, please hurry"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Chest pain and burning eyes reported",
-        "Some complaining of chest tightness"
+        "Some have chest pain from breathing in the fumes",
+        "A few complain of burning in the chest and throat",
+        "Some pain in the chest for a number of them",
+        "A few have stinging eyes and sore throats too",
+        "Some chest discomfort, mostly from the coughing",
+        "A couple have chest pain, others feel generally very unwell",
+        "Burning in the throat and chest for a few of them",
+        "Some discomfort in the chest and eyes for several",
+        "A few have chest pain, we're keeping them still and calm",
+        "Some pain reported, mostly chest, throat and eyes"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "None reported"
+        "No, nobody's bleeding, it's the chemical fumes affecting them",
+        "No bleeding, everyone's affected by exposure, not injuries",
+        "No, this isn't a bleeding incident, it's the spill and fumes",
+        "No bleeding reported, it's all respiratory and skin irritation",
+        "No, nobody's hurt like that, just overcome by the fumes",
+        "No bleeding, the concern is the chemical exposure",
+        "No, we've not seen any bleeding among the staff",
+        "No bleeding, it's breathing difficulty and irritation from the spill",
+        "No, nobody's injured that way, just unwell from exposure",
+        "No bleeding, this is all down to the chemicals"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know everyone's history",
-        "Not something I can confirm for all of them"
+        "I don't have everyone's medical history to hand, sorry",
+        "No idea for most of them, sorry, it's not something we hold on file here",
+        "Can't say, sorry, there's several of them affected",
+        "Sorry, I don't know medical backgrounds for all my staff",
+        "No, we don't have that information readily available",
+        "I don't know, sorry, we're focused on getting everyone safe first",
+        "Sorry, not something I can answer with several people affected",
+        "Can't say for certain, sorry, we haven't got that to hand",
+        "No idea, sorry, there's too many affected to say right now",
+        "Sorry, I can't give you that for everyone involved"
       ]
     },
     "medications": {
       "answers": [
-        "Not that I'm aware of",
-        "I don't know"
+        "I don't know what any of them take, sorry",
+        "No idea, we don't hold that information for staff",
+        "Can't say, sorry, there's several people involved",
+        "Sorry, no, I don't know individual medications",
+        "No, we haven't got that information here",
+        "I can't tell you that with this many affected",
+        "Sorry, not something I can answer right now",
+        "No idea, we're not able to check that at the moment",
+        "I don't know, sorry, focus is on getting people safe",
+        "No, sorry, we don't have that to hand"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mostly working age adults",
-        "All adults, staff members"
+        "Mixed ages, mostly working age staff",
+        "A range, our warehouse team is mostly twenties to fifties",
+        "Mostly adults, working age across the board",
+        "Mixed, it's a normal shift so all sorts of ages",
+        "A wide range, sorry I can't be more specific",
+        "Mostly working age, twenties to fifties",
+        "Varied ages among the staff, no one young involved",
+        "Mixed adult ages, it's our normal team on shift",
+        "A broad range, mostly adults of working age",
+        "Mixed, sorry, there's a few of them to account for"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've evacuated the warehouse and sealed it off",
-        "Right, everyone's out and accounted for"
+        "Okay, thank you, we'll keep them as comfortable as we can",
+        "Right, that's a relief, there's quite a few of them",
+        "Okay, we'll wait for them by the entrance",
+        "Thank you, I'll let everyone know help's coming",
+        "Okay, we're keeping them together until they arrive",
+        "Right, thank you, please send as many as you can",
+        "Okay, we'll point them to where everyone is",
+        "Thank you, that's good, some of them are quite unwell",
+        "Okay, we'll stay with them until they get here",
+        "Right, thank you, we'll keep everyone calm"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we've got multiple people struggling to breathe",
-        "This can't wait, it's a chemical exposure"
+        "No, please, people are unwell, this can't wait",
+        "No, we need help here now, not a call back",
+        "No, please send someone, people are struggling",
+        "No, this is urgent, there's people affected here",
+        "No, please, I don't think this can wait for 111",
+        "No, we really need help on scene, not advice over the phone",
+        "No, please hurry, this isn't something that can wait",
+        "No, people need treatment now, please send someone",
+        "No, I don't think 111 is enough, please send help",
+        "No, please, this needs an urgent response"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, good, we could do with them helping keep people back",
+        "Right, that's good, some of this area needs cordoning off",
+        "Okay, that'll help keep everyone clear of the area",
+        "Good, they can help control who comes near",
+        "Okay, thank you, it's getting crowded here",
+        "Right, that's useful, we need the area kept clear",
+        "Okay, good, there's a few onlookers we could do with moving back",
+        "Thank you, that'll help with keeping the road clear too",
+        "Okay, good, we could use the extra hands keeping people away",
+        "Right, thank you, that's reassuring"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, good, we really need them here",
+        "Right, that's a relief, thank you",
+        "Okay, thank you, please tell them to hurry",
+        "Good, we need them to deal with this properly",
+        "Okay, that's good news, thank you",
+        "Right, thank you, this needs specialist help",
+        "Okay, good, we've been trying to keep everyone clear",
+        "Thank you, that's reassuring to hear",
+        "Okay, good, we need them to make this safe",
+        "Right, thank you, please hurry them along"
       ]
     }
   },

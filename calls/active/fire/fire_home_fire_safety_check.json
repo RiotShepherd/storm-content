@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -63,8 +67,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Hello, I booked a home fire safety check, is this the right number to confirm it",
-      "Hi, I wanted to arrange a home fire safety visit, someone gave me this number"
+      "Hello, I booked a home fire safety check, is this the right number to confirm it.",
+      "Hi, I wanted to arrange a home fire safety visit, someone gave me this number.",
+      "Hello, I'm after a home fire safety check, can you help me book one in.",
+      "Hi there, I'd like to sort out a fire safety visit for my house.",
+      "Hello, I was told to call this number about a home fire safety check.",
+      "Hi, could I book someone to come and check the smoke alarms in my house.",
+      "Hello, I'd like to arrange for someone to come and do a fire safety check.",
+      "Hi, I saw an advert about free home fire safety checks, can I book one.",
+      "Hello, sorry, is this the right number for a home fire safety visit.",
+      "Hi, I'd like to get someone out to check my home for fire safety."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -76,80 +88,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Hello, I booked a home fire safety check, is this the right number to confirm it",
-        "Hi, I wanted to arrange a home fire safety visit, someone gave me this number"
+        "Hello, I booked a home fire safety check, is this the right number to confirm it.",
+        "Hi, I wanted to arrange a home fire safety visit, someone gave me this number.",
+        "Hello, I'm after a home fire safety check, can you help me book one in.",
+        "Hi there, I'd like to sort out a fire safety visit for my house.",
+        "Hello, I was told to call this number about a home fire safety check.",
+        "Hi, could I book someone to come and check the smoke alarms in my house.",
+        "Hello, I'd like to arrange for someone to come and do a fire safety check.",
+        "Hi, I saw an advert about free home fire safety checks, can I book one.",
+        "Hello, sorry, is this the right number for a home fire safety visit.",
+        "Hi, I'd like to get someone out to check my home for fire safety."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, thank you for calling back"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, this isn't an emergency, it's just a safety check booking"
+        "There's no patient, I'm just calling to book a visit.",
+        "Nobody's hurt, this isn't an emergency at all.",
+        "No one to name, it's just a routine booking call.",
+        "There's no injuries, I just want a check arranged.",
+        "No patient involved, sorry if that's confusing, it's just a booking.",
+        "Nobody's hurt, I promise, I just want to sort a visit.",
+        "No one's involved like that, it's purely a booking enquiry.",
+        "There's no patient, this is just about arranging a check.",
+        "No, nobody's hurt, I just want to book the safety visit.",
+        "Not applicable, it's just a routine call to arrange a visit."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, that's my address for the visit",
-        "It's {{address}}, any time that suits works for me"
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I'd like a fire safety officer to come round and check my smoke alarms and go through fire safety with me, nothing's happened, it's just a routine visit"
+        "Nothing's happened, I just want to book a fire safety check for my home.",
+        "There's no emergency, I just want someone to come and check my smoke alarms.",
+        "It's not urgent, I just saw you offer these visits and wanted to book one in.",
+        "Nothing's wrong, I just want a fire officer to check the house is safe.",
+        "No emergency at all, I just want to arrange a routine safety visit.",
+        "It's just a booking, I want someone to check our escape routes and alarms.",
+        "Nothing's happened, my neighbour mentioned you do these checks for free.",
+        "No emergency, I just moved in and want the house checked over.",
+        "It's not urgent at all, I just want to get a date booked in.",
+        "Nothing's wrong, I just want some advice on fire safety in the home."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's no one involved, I've not seen anybody hurt"
+        "Not applicable, there's no emergency here at all.",
+        "No one's hurt, I'm just calling about booking a visit.",
+        "Not applicable, it's purely a routine enquiry.",
+        "No emergency, I just want to arrange a fire safety check.",
+        "Not applicable, sorry, this isn't an emergency call.",
+        "No one's involved, I'm just trying to book a visit.",
+        "Not applicable, it's just a routine booking.",
+        "No emergency at all, I just want a date for a visit.",
+        "Not applicable, there's genuinely nothing wrong here.",
+        "No one's hurt, this is just a booking enquiry."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, there's nobody to check, it's just the fire"
+        "Not applicable, there's no emergency at all.",
+        "No one's affected, I'm just calling to book a visit.",
+        "Not applicable, it's just a routine call.",
+        "No emergency, I just want to arrange the check.",
+        "Not applicable, sorry, nothing's wrong here.",
+        "No one's involved, this is just a booking.",
+        "Not applicable, it's purely routine.",
+        "No emergency at all, just want a date booked.",
+        "Not applicable, there's nothing wrong at all.",
+        "No one's affected, this is just an enquiry."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can see"
+        "Not applicable, there's no emergency here.",
+        "No one's hurt, I'm just booking a visit.",
+        "Not applicable, it's a routine enquiry only.",
+        "No pain to report, this isn't an emergency.",
+        "Not applicable, sorry, nothing's wrong.",
+        "No one's involved, just a booking call.",
+        "Not applicable, it's purely routine.",
+        "No emergency, just want a date arranged.",
+        "Not applicable, nothing's wrong at all.",
+        "No one's hurt, this is just an enquiry."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries, nobody's here"
+        "Not applicable, there's no emergency at all.",
+        "No, nobody's hurt, I'm just booking a visit.",
+        "Not applicable, it's a routine call only.",
+        "No bleeding, this isn't an emergency.",
+        "Not applicable, sorry, nothing's wrong here.",
+        "No, no one's involved, just a booking.",
+        "Not applicable, it's purely routine.",
+        "No, no emergency, just want a date arranged.",
+        "Not applicable, nothing's wrong at all.",
+        "No, nobody's hurt, this is just an enquiry."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I can't help with that, there's no one hurt"
+        "Not applicable, this is just a booking call.",
+        "No relevance here, I just want a visit arranged.",
+        "Not applicable, sorry, it's not that kind of call.",
+        "No need for that, I'm just booking a safety check.",
+        "Not applicable, there's no patient at all.",
+        "No relevance, this is purely a routine enquiry.",
+        "Not applicable, I just want a date booked.",
+        "No need, sorry, it's not an emergency call.",
+        "Not applicable, this is just about the visit.",
+        "No relevance here, just a booking enquiry."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's no patient, sorry"
+        "Not applicable, this is just a booking call.",
+        "No relevance, I just want a visit arranged.",
+        "Not applicable, sorry, it's not that kind of call.",
+        "No need for that, I'm just booking a check.",
+        "Not applicable, there's no patient at all.",
+        "No relevance, this is purely routine.",
+        "Not applicable, I just want a date booked.",
+        "No need, sorry, it's not an emergency.",
+        "Not applicable, this is just about the visit.",
+        "No relevance here, just a booking enquiry."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no one to ask, nobody's been hurt"
+        "Not applicable, this is just a booking call.",
+        "No age to give, I just want a visit arranged.",
+        "Not applicable, sorry, it's not that kind of call.",
+        "No patient, I'm just booking a safety check.",
+        "Not applicable, there's no one to report on.",
+        "No relevance, this is purely routine.",
+        "Not applicable, I just want a date booked.",
+        "No patient at all, sorry, it's not an emergency.",
+        "Not applicable, this is just about the visit.",
+        "No age to give, just a booking enquiry."
       ]
     },
     "reassure": {
       "answers": [
-        "Thank you, I'll wait to hear when someone can come out"
+        "Oh, no, I don't need an ambulance, I just want to book a visit.",
+        "No thank you, there's no need for that, it's just a booking.",
+        "Sorry, no, I don't need an ambulance, nothing's wrong.",
+        "No, honestly, I just want to arrange the safety check.",
+        "Oh no, that's not needed, I'm fine, just booking a visit.",
+        "No thank you, nobody's hurt, I just want a date arranged.",
+        "Sorry, no ambulance needed, this is just an enquiry.",
+        "No, that's not necessary, I just want to book a check.",
+        "Oh, no need for that, I'm only calling to arrange a visit.",
+        "No thank you, I'm fine, I just want the visit booked."
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's not medical at all, I just want a home fire safety check booked in"
+        "Oh, is that not something you can help with here, sorry.",
+        "Right, okay, should I call somewhere else about the safety check then.",
+        "Oh, I didn't realise, sorry, who should I speak to about booking a visit.",
+        "Okay, no problem, I just wasn't sure who to ask about this.",
+        "Oh right, sorry, I'll try somewhere else about the safety check then.",
+        "Okay, that's fine, sorry for bothering you, who should I call instead.",
+        "Oh, I see, sorry, I thought this was the right number to book it.",
+        "Okay, no worries, can you point me to who does deal with it.",
+        "Oh, sorry, I didn't mean to call the wrong department.",
+        "Okay, that's fine, thanks for letting me know, I'll try elsewhere."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh, I don't think I need police, I just want to book a visit.",
+        "No thank you, that's not necessary, it's just a booking call.",
+        "Sorry, no, I don't need police, nothing's wrong here.",
+        "No, honestly, I just want to arrange a safety check.",
+        "Oh, that's not needed, I'm only calling to book a visit.",
+        "No thank you, nobody's done anything wrong, it's just a booking.",
+        "Sorry, no police needed, this is just an enquiry.",
+        "No, that's not necessary, I just want a date arranged.",
+        "Oh, no need for that, I'm only booking a visit.",
+        "No thank you, I just want the check booked in, that's all."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh, you don't need to send anyone urgently, I just want a date booked.",
+        "There's no rush at all, whenever's convenient works for me.",
+        "Oh lovely, thank you, though there's no hurry, it's just a routine visit.",
+        "No rush at all, I just wanted to get it in the diary.",
+        "Thank you, though it's not urgent, whenever suits is fine.",
+        "Oh, thank you, I just need a date, no need to rush anyone out.",
+        "There's no emergency, so whenever works best for the crew is fine.",
+        "Thank you, no rush at all, I just wanted it booked.",
+        "Oh, that's kind, though it's really not urgent, just a routine visit.",
+        "Thank you, whenever's convenient, there's no rush on my end."
       ]
     }
   },

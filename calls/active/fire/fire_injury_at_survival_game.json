@@ -45,6 +45,11 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -70,9 +75,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Hiya, we need an ambulance, someone's been hurt at the survival game site",
-      "One of our lads has taken a bad hit at airsoft, he's bleeding, can you send someone",
-      "Ambulance please, someone's gone down hard at the woodland game site"
+      "Hiya, we need an ambulance, someone's been hurt at the survival game site.",
+      "One of our lads has taken a bad hit at airsoft, {{he}}'s bleeding, can you send someone.",
+      "Ambulance please, someone's gone down hard at the woodland game site.",
+      "We need help, someone's been badly hurt playing survival games in the woods.",
+      "Please send an ambulance, a mate of mine's taken a nasty fall out here.",
+      "Can you send help, someone's gone down hard and isn't moving much.",
+      "We've had an accident at the survival game, one of the lads is hurt badly.",
+      "Please hurry, someone's injured out here at the woodland site.",
+      "Can someone come, my mate's taken a hard hit and {{he}}'s in a lot of pain.",
+      "We need an ambulance out at the survival game site, someone's hurt."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -84,84 +96,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Hiya, we need an ambulance, someone's been hurt at the survival game site",
-        "One of our lads has taken a bad hit at airsoft, he's bleeding, can you send someone",
-        "Ambulance please, someone's gone down hard at the woodland game site"
+        "Hiya, we need an ambulance, someone's been hurt at the survival game site.",
+        "One of our lads has taken a bad hit at airsoft, {{he}}'s bleeding, can you send someone.",
+        "Ambulance please, someone's gone down hard at the woodland game site.",
+        "We need help, someone's been badly hurt playing survival games in the woods.",
+        "Please send an ambulance, a mate of mine's taken a nasty fall out here.",
+        "Can you send help, someone's gone down hard and isn't moving much.",
+        "We've had an accident at the survival game, one of the lads is hurt badly.",
+        "Please hurry, someone's injured out here at the woodland site.",
+        "Can someone come, my mate's taken a hard hit and {{he}}'s in a lot of pain.",
+        "We need an ambulance out at the survival game site, someone's hurt."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I run the site with a mate",
-        "{{callerName}}, I'm one of the marshals here"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "He's called {{firstPatientName}}, he's on my team"
+        "It's {{firstPatientName}}, {{he}}'s one of the lads I play with.",
+        "{{firstPatientName}}, {{he}}'s a mate from the game, please hurry.",
+        "It's {{firstPatientName}}, {{he}} took a bad hit.",
+        "{{His}} name's {{firstPatientName}}, {{he}} plays with us.",
+        "It's {{firstPatientName}}, {{he}}'s down on the ground.",
+        "{{firstPatientName}}, that's {{him}}, {{he}}'s one of our team.",
+        "It's {{firstPatientName}}, {{he}} went down hard.",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s a friend of mine.",
+        "It's {{firstPatientName}}, {{he}}'s not moving much.",
+        "{{firstPatientName}}, {{he}}'s one of us, please send help."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the woodland game site, follow the signs off the track",
-        "It's {{address}}, there's a barrier at the entrance, I'll get someone to open it"
+        "It's {{address}}, off the track into the woods.",
+        "{{address}}, there's a car park by the entrance to the site.",
+        "It's {{address}}, follow the signs for the woodland game site.",
+        "{{address}}, I'll meet you at the gate and walk you in.",
+        "We're at {{address}}, it's a bit of a walk in from the car park.",
+        "It's {{address}}, the track can be uneven so come steady.",
+        "{{address}}, I'll send someone to guide you in from the road.",
+        "That's {{address}}, nearest point you can get a vehicle to.",
+        "It's {{address}}, we're a fair way into the woods from there.",
+        "{{address}}, I'll wait by the entrance to point the way."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He took a hard shot to the stomach and went down, he's in a lot of pain",
-        "He was tackled during a game and landed badly, there's a cut and he's bleeding"
+        "{{He}} took a hard fall over some uneven ground during the game, went down hard.",
+        "{{He}} got hit awkwardly and went down, {{he}}'s been in pain since.",
+        "{{He}} tripped over a root or something and landed badly on {{his}} side.",
+        "{{He}} was running and went down hard, {{he}}'s not been able to get up since.",
+        "No idea exactly what happened, we just heard {{him}} shout and found {{him}} down.",
+        "{{He}} took a bad tumble on the uneven ground, landed heavily.",
+        "{{He}} got caught out during the game and fell awkwardly.",
+        "{{He}} went down hard chasing after someone, hasn't been able to move much since.",
+        "{{He}} tripped on the woodland terrain and landed badly, {{he}}'s in a lot of pain.",
+        "We're not sure exactly how, {{he}} just went down hard and hasn't got up."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yeah he's awake, he's just in a lot of pain"
+        "{{He}}'s in and out, not really answering me properly.",
+        "{{He}}'s conscious but dazed, doesn't know where {{he}} is.",
+        "{{He}}'s awake, groaning, not making much sense.",
+        "{{He}} opened {{his}} eyes when I shouted but hasn't said much since.",
+        "{{He}}'s drifting in and out, hard to keep {{him}} talking.",
+        "{{He}}'s conscious, {{he}}'s scared, keeps asking what happened.",
+        "{{He}} was talking a bit but has gone quiet the last minute.",
+        "{{He}}'s awake but shaken up badly, struggling to focus.",
+        "{{He}}'s responding to me but only just, {{his}} eyes keep closing.",
+        "{{He}}'s conscious, {{he}}'s in shock I think, shivering a lot."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He's breathing, a bit fast though"
+        "{{He}}'s breathing but it's laboured, quite fast.",
+        "{{He}}'s breathing okay as far as I can tell, just shallow.",
+        "{{He}}'s struggling a bit, short breaths.",
+        "{{He}}'s breathing, it sounds like it's catching.",
+        "{{He}} seems to be breathing fine, just winded I think.",
+        "{{His}} breathing's quick, {{he}} winces every time {{he}} breathes in.",
+        "{{He}}'s breathing but coughing a lot too.",
+        "{{He}}'s breathing okay, a bit ragged but steady.",
+        "{{He}}'s taking short, quick breaths, {{he}} looks in pain.",
+        "{{His}} breathing sounds shallow, I'm keeping {{him}} still."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says it's really bad, he's gripping his stomach"
+        "{{He}} says {{his}} chest and leg hurt, {{he}}'s in a lot of pain.",
+        "{{He}}'s in pain, {{he}} can't move {{his}} leg properly.",
+        "{{He}} keeps saying {{his}} back hurts, I've told {{him}} not to move.",
+        "{{He}}'s wincing badly, I think it's {{his}} arm and ribs.",
+        "{{He}} says everything hurts, {{he}}'s pretty banged up.",
+        "{{He}}'s in a bad way with the pain, mostly {{his}} chest {{he}} says.",
+        "{{He}}'s gripping {{his}} side, says it hurts to breathe.",
+        "{{He}}'s in pain but trying to stay still like I told {{him}}.",
+        "{{He}} says {{his}} leg's the worst, {{he}} can barely feel it.",
+        "{{He}}'s clearly in pain, {{he}} won't stop shaking."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "There's a bit of blood from a graze on his arm, not loads"
+        "{{He}}'s got a cut on {{his}} head, it's bleeding quite a bit.",
+        "There's blood on {{his}} face, I think from a cut above {{his}} eye.",
+        "{{He}}'s bleeding from {{his}} arm, I've put something on it.",
+        "I can see blood on {{his}} shirt, not sure exactly where from.",
+        "{{He}}'s got a nasty cut on {{his}} hand, it's bleeding steadily.",
+        "There's a gash on {{his}} leg, I've tried to press on it.",
+        "{{He}}'s bleeding from a cut on {{his}} head, I'm keeping pressure on it.",
+        "I don't think {{he}}'s bleeding much, mostly bruised as far as I can see.",
+        "{{He}}'s got blood coming from {{his}} nose and a cut lip.",
+        "{{He}}'s bleeding from {{his}} shoulder, it looks like a deep cut."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know his medical history, sorry, I'll try and find someone who does"
+        "I think {{he}} mentioned a dodgy knee before, not sure what else.",
+        "Not that I know of, we just play together at weekends.",
+        "I don't know much, sorry, we're not that close.",
+        "No idea really, I only know {{him}} from the game days.",
+        "Not sure, sorry, I don't know {{his}} medical stuff.",
+        "I don't think so, but I don't know {{him}} that well.",
+        "No idea, sorry, we've never really talked about that.",
+        "Not that I know of, we're just mates from the club.",
+        "I couldn't say, sorry, I don't know {{him}} outside this.",
+        "No idea really, sorry, I can't help with that."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, I don't think he's on anything"
+        "I've no idea, I don't know {{him}}.",
+        "Sorry, no idea what {{he}} takes, I'm a stranger to {{him}}.",
+        "I can't help with that, I don't know {{him}} at all.",
+        "No idea, sorry, I just saw it happen and ran over.",
+        "I couldn't tell you, I've never met {{him}} before today.",
+        "Sorry, no idea, maybe someone who knows {{him}} would know.",
+        "I don't know {{him}}, so I can't say about medication.",
+        "No idea at all, sorry, I only just got to {{him}}.",
+        "I can't say, I don't know anything about {{him}}.",
+        "Sorry, no idea, I'm just a witness here."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's in his twenties I think"
+        "{{He}} looks maybe forties, hard to tell from here.",
+        "I'd guess {{he}}'s in {{his}} thirties or forties.",
+        "Hard to say exactly, {{he}} looks middle aged.",
+        "{{He}} looks like {{he}}'s in {{his}} fifties maybe.",
+        "I really can't tell, {{he}}'s covered in dust and blood.",
+        "Maybe thirty five, forty, that's my best guess.",
+        "{{He}} looks like a working age adult, sorry, can't be more precise.",
+        "I'd say {{he}}'s somewhere around forty.",
+        "Hard to tell like this, {{he}} looks fairly young though.",
+        "I couldn't say for certain, {{he}} looks to be in {{his}} thirties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we'll keep him still",
-        "Please hurry, he's in a bad way"
+        "Okay, thank you, I'll stay with {{him}} till they get here.",
+        "Please hurry, {{he}}'s getting worse I think.",
+        "Okay, I'll keep {{him}} talking until the ambulance arrives.",
+        "Thank you, I won't move {{him}}, I'll just wait.",
+        "Okay, good, I'll keep {{him}} as still as I can.",
+        "Thank you, please tell them to hurry, {{he}} doesn't look good.",
+        "Okay, I'm staying right here with {{him}}.",
+        "Right, thank you, I'll keep pressure on where {{he}}'s bleeding.",
+        "Okay, I'll let {{him}} know help's coming.",
+        "Thank you, I'll stay on the line and with {{him}}."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he needs an ambulance, he can't move"
+        "No, {{he}}'s hurt, this can't wait for 111, please send help.",
+        "No, I really think {{he}} needs an ambulance now, not 111.",
+        "Please, no, {{he}}'s in a bad way, we need paramedics here.",
+        "No, this is serious, {{he}} was hurt in this, please send help.",
+        "I don't think 111 can help with this, {{he}} needs urgent care.",
+        "No, please, {{he}}'s hurt, we need an ambulance.",
+        "No, this needs 999, {{he}}'s badly hurt.",
+        "Please, {{he}} can't wait for a phone call back, send someone now.",
+        "No, I really need an ambulance here, not 111, {{he}}'s in pain.",
+        "No, this is urgent, {{he}} needs help, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's a fire, I need the fire brigade.",
+        "I don't think we need police, it's just the fire that's the problem.",
+        "No, sorry, this isn't a police matter, it's a fire.",
+        "Why would police come, it's the fire brigade I need.",
+        "No, there's no need for police, nobody's done anything wrong.",
+        "Sorry, I think you mean the fire brigade, not the police.",
+        "No, it's not a police thing, just send the fire crew please.",
+        "I'm confused, why police, it's just a fire.",
+        "No thank you, we don't need officers here, just the fire brigade.",
+        "Sorry, no, this is a fire, not something for the police."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay well back until you get here.",
+        "Right, thank you, we're keeping clear of it.",
+        "Okay, I've got everyone away from it.",
+        "Thanks, I'll wait here till the crews arrive.",
+        "Alright, we've kept the area clear for now.",
+        "Okay, I'll keep everyone back and wait for you.",
+        "Thank you, we're staying clear, please hurry.",
+        "Right, understood, we won't go near it.",
+        "Okay, we're all keeping our distance.",
+        "Thanks, we'll wait here for the crews."
       ]
     }
   },

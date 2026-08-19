@@ -51,6 +51,10 @@
     "traffic_car": 2,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 7
+  },
   "patients": {
     "range": [
       0,
@@ -82,8 +86,15 @@
   "caller": {
     "openings": [
       "Police please, a car's just sped off after nearly hitting a cyclist, didn't stop",
-      "I need to report dangerous driving, he's driven off flooring it after a near miss",
-      "There's a car that failed to stop for police, it just flew past me at speed"
+      "I need to report dangerous driving, {{he}}'s driven off flooring it after a near miss",
+      "There's a car that failed to stop for police, it just flew past me at speed",
+      "Police, a driver's just fled the scene of a near miss at speed",
+      "I need to report, a car sped off after clipping a wing mirror, didn't stop",
+      "There's a car driving dangerously and it's just failed to stop for police",
+      "Please send someone, a driver's just sped off after nearly causing a crash",
+      "I need to report a hit and run, the car's driven off at speed",
+      "There's a driver who's just refused to stop and sped off",
+      "Police please, a car's just gone through a red light and sped away"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -96,91 +107,231 @@
     "start": {
       "answers": [
         "Police please, a car's just sped off after nearly hitting a cyclist, didn't stop",
-        "I need to report dangerous driving, he's driven off flooring it after a near miss",
-        "There's a car that failed to stop for police, it just flew past me at speed"
+        "I need to report dangerous driving, {{he}}'s driven off flooring it after a near miss",
+        "There's a car that failed to stop for police, it just flew past me at speed",
+        "Police, a driver's just fled the scene of a near miss at speed",
+        "I need to report, a car sped off after clipping a wing mirror, didn't stop",
+        "There's a car driving dangerously and it's just failed to stop for police",
+        "Please send someone, a driver's just sped off after nearly causing a crash",
+        "I need to report a hit and run, the car's driven off at speed",
+        "There's a driver who's just refused to stop and sped off",
+        "Police please, a car's just gone through a red light and sped away"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I saw the whole thing",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I just saw it happen.",
+        "{{callerName}}, I'm a member of the public.",
+        "My name's {{callerName}}, I was passing by.",
+        "It's {{callerName}} here, I witnessed the whole thing.",
+        "{{callerName}}, that's me, I saw it from across the road.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I happened to be nearby.",
+        "{{callerName}} speaking, I saw everything.",
+        "My name is {{callerName}}, I was right there.",
+        "It's {{callerName}}, just a bystander really."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know the driver",
-        "No idea who he is"
+        "I don't know {{his}} name, I've never seen {{him}} before.",
+        "No idea what {{he}}'s called, {{he}}'s a stranger to me.",
+        "I don't know {{him}}, so I can't tell you {{his}} name.",
+        "No name I'm afraid, I've not met {{him}} before today.",
+        "I can't tell you {{his}} name, I don't recognise {{him}}.",
+        "Sorry, I don't know {{him}} at all.",
+        "No idea, {{he}}'s not someone I know.",
+        "I don't have a name for {{him}}, never seen {{him}} round here.",
+        "Can't help with a name, I don't know {{him}} personally.",
+        "No, I've no idea what {{his}} name is."
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, it happened right by here",
-        "It was near {{address}}"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "A car sped through a red light and nearly hit someone, then just kept going",
-        "It happened seconds ago, heading towards the ring road at speed",
-        "Police were behind it with lights on and it just wouldn't stop"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, everyone got out of the way",
-        "No injuries, just very close calls"
+        "{{He}}'s wide awake, no injuries at all, just being difficult.",
+        "Nobody's hurt, {{he}}'s fully alert and causing trouble.",
+        "{{He}}'s fine, no injuries, just refusing to leave.",
+        "No injuries, {{he}}'s stood right there, completely conscious.",
+        "{{He}}'s not hurt at all, just very uncooperative.",
+        "No one's injured, {{he}}'s perfectly alert.",
+        "{{He}}'s conscious and unhurt, just kicking off.",
+        "Nobody's hurt, {{he}}'s awake and shouting the odds.",
+        "{{He}}'s fine physically, no injuries to speak of.",
+        "No injuries at all, {{he}}'s just being a nuisance."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "{{He}}'s breathing fine, no injuries here.",
+        "No problems breathing, {{he}}'s not hurt.",
+        "{{He}}'s fine, breathing normally, nobody's hurt.",
+        "No issues there, {{he}}'s not injured.",
+        "{{He}}'s breathing okay, this isn't a medical matter.",
+        "Nobody's hurt, {{his}} breathing's fine.",
+        "{{He}}'s not struggling at all, no injuries.",
+        "No, {{he}}'s breathing normally, just being difficult.",
+        "{{He}}'s fine, no breathing problems at all.",
+        "Not an issue, {{he}}'s not hurt."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A",
-        "No one's hurt"
+        "No pain, {{he}}'s not injured.",
+        "{{He}}'s not in any pain, nobody's hurt.",
+        "No, {{he}}'s fine, this isn't a medical thing.",
+        "{{He}} says {{he}}'s not hurt, just angry.",
+        "No pain that I can see, {{he}}'s unhurt.",
+        "{{He}}'s not injured, no pain involved.",
+        "Nobody's hurt, so no pain to report.",
+        "{{He}}'s fine, no pain, just being aggressive.",
+        "No, {{he}} isn't hurt at all.",
+        "Not that I can tell, {{he}}'s not injured."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No, {{he}}'s not bleeding, {{he}}'s not hurt.",
+        "None that I can see, {{he}}'s unhurt.",
+        "No injuries, {{he}}'s not bleeding at all.",
+        "No, nobody's hurt, {{he}}'s fine.",
+        "Not that I can see, {{he}}'s uninjured.",
+        "No bleeding, {{he}}'s not hurt.",
+        "None, {{he}}'s completely unhurt.",
+        "No, {{he}}'s fine, no blood at all.",
+        "Not at all, {{he}}'s uninjured.",
+        "No, there's no injury on {{him}} at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know the driver",
-        "No idea"
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, {{he}}'s a stranger to me.",
+        "No idea about {{his}} health, I don't know {{him}}.",
+        "I've no idea, never met {{him}} before.",
+        "Can't help, I don't know anything about {{him}}.",
+        "No idea, this isn't really medical anyway.",
+        "I wouldn't know, {{he}}'s not hurt anyway.",
+        "No idea about {{him}} at all, sorry.",
+        "Couldn't say, I don't know {{his}} background.",
+        "No idea, I've never spoken to {{him}} before today."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, {{he}}'s a stranger to me.",
+        "No idea what {{he}} takes, I don't know {{him}}.",
+        "I've no clue, never met {{him}} before.",
+        "Can't help with that, sorry.",
+        "No idea, this isn't medical, {{he}}'s just causing trouble.",
+        "I wouldn't know, {{he}}'s not hurt anyway.",
+        "No idea about {{him}} at all.",
+        "Couldn't say, I don't know {{him}} personally.",
+        "No idea, never spoken to {{him}} before."
       ]
     },
     "patientAge": {
       "answers": [
-        "Hard to say, he drove past too fast"
+        "{{He}} looks to be in {{his}} thirties, hard to say exactly.",
+        "Maybe mid twenties, I'm only guessing.",
+        "I'd guess {{he}}'s in {{his}} forties.",
+        "Hard to say, maybe late twenties.",
+        "{{He}} looks around thirty to me.",
+        "I'd say {{he}}'s in {{his}} twenties, could be wrong.",
+        "Somewhere in {{his}} thirties I'd guess.",
+        "Hard to tell, maybe mid forties.",
+        "{{He}} looks about twenty five, roughly.",
+        "I'm only guessing, but maybe {{his}} late thirties."
       ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's where I am.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, that's the address.",
+        "We're at {{address}}.",
+        "It's {{address}}, you can't miss it.",
+        "{{address}}, that's the postcode.",
+        "The address is {{address}}.",
+        "{{address}}, I'll wait for you here.",
+        "It's {{address}}, that's the spot.",
+        "{{address}}, that's it exactly."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "{{He}} clipped another car and just floored it, didn't even slow down",
+        "{{He}} nearly hit a cyclist and then sped off without stopping",
+        "Officers tried to pull {{him}} over and {{he}} just accelerated away",
+        "{{He}} went through the junction at speed and didn't stop for anyone",
+        "{{He}}'s driving really dangerously, weaving through traffic at high speed",
+        "{{He}} clipped a parked car and drove off without leaving any details",
+        "{{He}} ran a red light and kept going even though a police car had its lights on",
+        "{{He}}'s been driving erratically and just sped past a stopped patrol car",
+        "{{He}} nearly caused a serious crash and just kept driving without stopping",
+        "{{He}} overtook dangerously and then sped off when a car flashed at {{him}}"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, I've got the registration if that helps",
-        "Thank you, it was very dangerous"
+        "No ambulance needed, nobody's hurt, thank you.",
+        "I don't need an ambulance, this isn't medical, I just need police.",
+        "No, nobody's injured, just send police please.",
+        "That's not necessary, no one's hurt here.",
+        "No ambulance, thank you, it's a police matter.",
+        "Nobody's hurt, I only need officers here.",
+        "No, that's not needed, this isn't a medical emergency.",
+        "I don't think so, no injuries here at all.",
+        "No, no one's hurt, just police please.",
+        "That's not required, nobody's been injured."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them to arrive.",
+        "Good, I'll stay right here until they get here.",
+        "Thank you, I'll keep everyone back until they arrive.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Please hurry, I'll be watching out for them.",
+        "Thank you, I'll wait outside for the officers.",
+        "Okay, that's a relief, I'll stay put.",
+        "Good, I'll let you know if anything changes before they arrive.",
+        "Thank you, I'll keep an eye on things until they get here.",
+        "Okay, I'll stay close by until the police arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, there's no fire, I need police.",
+        "No, this isn't a fire, it's a police matter.",
+        "I don't need the fire service, just police please.",
+        "No fire here at all, just send officers.",
+        "That's the wrong service, there's no fire involved.",
+        "No, I need police, not the fire brigade.",
+        "There's no fire, just police please.",
+        "No thank you, nothing's alight, I need police.",
+        "That's not right, no fire here, just police.",
+        "No, nothing's on fire, just send police please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police, not 111"
+        "No, this can't wait for a callback, I need police right now.",
+        "No, this needs a response now, not a phone call later.",
+        "That's not right, this is urgent, please send police.",
+        "No, I need someone here immediately, this isn't medical.",
+        "This can't wait, please, I need police straight away.",
+        "No, this is happening right now, I need officers here.",
+        "That won't help, this is urgent, not a 111 matter.",
+        "No, please, I need police now, not a callback.",
+        "This is too urgent for that, I need police straight away.",
+        "No, this needs police now, it can't wait."
       ]
     }
   },

@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,15 @@
   "caller": {
     "openings": [
       "There's water bubbling up from the pavement, I think it's the fire hydrant",
-      "I need to report a leaking hydrant cover outside my house, water's coming up through the road"
+      "I need to report a leaking hydrant cover outside my house, water's coming up through the road",
+      "There's water pooling on the road, looks like it's coming from a hydrant",
+      "I've noticed water rising up from a metal cover in the pavement",
+      "There's a hydrant leaking outside, it's flooding a bit of the road",
+      "I wanted to report water bubbling up near a hydrant cover on our street",
+      "There's a fair bit of water coming up from what looks like a hydrant",
+      "I noticed a hydrant cover leaking, water's spreading across the pavement",
+      "There's water coming up from the road near the hydrant marker",
+      "I'd like to report a leaking hydrant, it's making a bit of a puddle on the road"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -80,78 +92,231 @@
     "start": {
       "answers": [
         "There's water bubbling up from the pavement, I think it's the fire hydrant",
-        "I need to report a leaking hydrant cover outside my house, water's coming up through the road"
+        "I need to report a leaking hydrant cover outside my house, water's coming up through the road",
+        "There's water pooling on the road, looks like it's coming from a hydrant",
+        "I've noticed water rising up from a metal cover in the pavement",
+        "There's a hydrant leaking outside, it's flooding a bit of the road",
+        "I wanted to report water bubbling up near a hydrant cover on our street",
+        "There's a fair bit of water coming up from what looks like a hydrant",
+        "I noticed a hydrant cover leaking, water's spreading across the pavement",
+        "There's water coming up from the road near the hydrant marker",
+        "I'd like to report a leaking hydrant, it's making a bit of a puddle on the road"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I noticed it outside my house"
+        "It's {{callerName}}, I live nearby",
+        "{{callerName}}, I noticed it on my walk",
+        "My name's {{callerName}}, I'm calling from home",
+        "It's {{callerName}}, I spotted it this morning",
+        "{{callerName}} speaking, I live just down the road",
+        "Name's {{callerName}}, I was out with the dog when I saw it",
+        "It's {{callerName}}, I noticed it on my way to work",
+        "{{callerName}}, I'm not sure who else to tell",
+        "This is {{callerName}}, I live opposite where it's leaking",
+        "{{callerName}} here, I thought I'd better report it"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, it's just a leak"
+        "There's nobody hurt, the leaking hydrant, it's not even a fire",
+        "No patient to give a name for, the leaking hydrant, it's not even a fire",
+        "There's no one involved, the leaking hydrant, it's not even a fire",
+        "Nobody's hurt, the leaking hydrant, it's not even a fire",
+        "No casualty at all, the leaking hydrant, it's not even a fire",
+        "There's no one to report, the leaking hydrant, it's not even a fire",
+        "Not applicable, the leaking hydrant, it's not even a fire",
+        "No injuries, the leaking hydrant, it's not even a fire",
+        "Nobody to name, the leaking hydrant, it's not even a fire",
+        "No patient, the leaking hydrant, it's not even a fire"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's right outside on the pavement"
+        "{{address}}, that's near the hydrant",
+        "It's {{address}}, the hydrant marker's just outside",
+        "{{address}}, you'll see the water on the road",
+        "You want {{address}}, near the postbox on the corner",
+        "{{address}}, that's where the puddle's forming",
+        "{{address}}, that's the road, the hydrant's outside number four",
+        "{{address}}, that's confirmed, the leak's easy to spot",
+        "{{address}}, that's near my house, thank you",
+        "{{address}}, that's the address closest to it",
+        "{{address}}, that's where I noticed the water"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Water's bubbling up around the hydrant cover in the road, it's been going for a while now"
+        "Not sure of the cause, it just seems to be leaking from the cover",
+        "No idea, might just be a worn seal on the hydrant",
+        "Not certain, but water's steadily coming up through the pavement",
+        "Unclear, but it's been leaking for at least an hour",
+        "Not sure, maybe it was knocked or damaged somehow",
+        "No idea what's caused it, just noticed the water pooling",
+        "Not certain, but it doesn't look like it's slowing down",
+        "Unclear cause, but it's starting to spread across the road",
+        "Not sure, but it looks like it's coming straight from the cover",
+        "No idea, I just thought it best to report it before it gets worse"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, it's just water"
+        "No one's hurt, the leaking hydrant, it's not even a fire",
+        "There's no patient here, the leaking hydrant, it's not even a fire",
+        "Not applicable, the leaking hydrant, it's not even a fire",
+        "Nobody's involved, the leaking hydrant, it's not even a fire",
+        "No injuries at all, the leaking hydrant, it's not even a fire",
+        "No one to check on, the leaking hydrant, it's not even a fire",
+        "There's no casualty, the leaking hydrant, it's not even a fire",
+        "No patient at all, the leaking hydrant, it's not even a fire",
+        "Nobody's hurt, thankfully, the leaking hydrant, it's not even a fire",
+        "No one's affected, the leaking hydrant, it's not even a fire"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, not a fire"
+        "No one to worry about, the leaking hydrant, it's not even a fire",
+        "Not applicable, the leaking hydrant, it's not even a fire",
+        "Nobody's struggling to breathe, the leaking hydrant, it's not even a fire",
+        "No casualty, the leaking hydrant, it's not even a fire",
+        "No one's affected by any smoke, the leaking hydrant, it's not even a fire",
+        "There's no patient, the leaking hydrant, it's not even a fire",
+        "No breathing issues to report, the leaking hydrant, it's not even a fire",
+        "Nobody's been near any smoke, the leaking hydrant, it's not even a fire",
+        "No one's hurt, the leaking hydrant, it's not even a fire",
+        "Not applicable, no one's involved, the leaking hydrant, it's not even a fire"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's in pain, the leaking hydrant, it's not even a fire",
+        "No one's hurt at all, the leaking hydrant, it's not even a fire",
+        "Not applicable, the leaking hydrant, it's not even a fire",
+        "No injuries to report, the leaking hydrant, it's not even a fire",
+        "There's no patient, the leaking hydrant, it's not even a fire",
+        "No one's complaining of anything, the leaking hydrant, it's not even a fire",
+        "Nobody's hurt, the leaking hydrant, it's not even a fire",
+        "No pain to report, the leaking hydrant, it's not even a fire",
+        "Not applicable, no casualty, the leaking hydrant, it's not even a fire",
+        "No one's injured, the leaking hydrant, it's not even a fire"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's involved"
+        "No, no one's involved, the leaking hydrant, it's not even a fire",
+        "No bleeding, there's no patient, the leaking hydrant, it's not even a fire",
+        "Not applicable, the leaking hydrant, it's not even a fire",
+        "No, everyone's uninjured, the leaking hydrant, it's not even a fire",
+        "No, nobody's hurt, the leaking hydrant, it's not even a fire",
+        "No bleeding to report, the leaking hydrant, it's not even a fire",
+        "Not applicable, no casualties, the leaking hydrant, it's not even a fire",
+        "No, no one's been near it, the leaking hydrant, it's not even a fire",
+        "No, we're all fine, the leaking hydrant, it's not even a fire",
+        "No, there's no one injured, the leaking hydrant, it's not even a fire"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient involved"
+        "No patient, the leaking hydrant, it's not even a fire",
+        "Not applicable, the leaking hydrant, it's not even a fire",
+        "No one to give an age for, the leaking hydrant, it's not even a fire",
+        "N/A, the leaking hydrant, it's not even a fire",
+        "No age to give, the leaking hydrant, it's not even a fire",
+        "Not applicable, no one's hurt, the leaking hydrant, it's not even a fire",
+        "No casualty, the leaking hydrant, it's not even a fire",
+        "Nobody's involved, the leaking hydrant, it's not even a fire",
+        "Not applicable at all, the leaking hydrant, it's not even a fire",
+        "No patient to speak of, the leaking hydrant, it's not even a fire"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've put a cone near it so no one trips"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's not medical, it's a leaking hydrant"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

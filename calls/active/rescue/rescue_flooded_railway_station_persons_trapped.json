@@ -49,6 +49,12 @@
     "fire_officer": 2,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 9,
+    "ambulance": 4,
+    "police": 4
+  },
   "patients": {
     "range": [
       10,
@@ -94,8 +100,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "This is station staff, the platforms are flooding fast and there's people trapped who can't get to the exits.",
-      "Emergency, the station's flooding badly and passengers are stuck on the lower platform."
+      "The station's flooding fast, there's people trapped on the platform and it's rising!",
+      "We've got water coming up through the concourse, passengers can't get out!",
+      "Please help, the platform's flooding and people are stuck below the barriers!",
+      "Water's pouring into the station, we've got a lot of passengers cut off!",
+      "I'm station staff, we've got flooding on the platforms and people can't get to the exits!",
+      "The underpass is flooding and there's passengers trapped down there!",
+      "We need urgent help, the station's flooding and people are stranded on the platform!",
+      "Please hurry, water's rising fast through the station and passengers can't move!",
+      "There's flooding at the station, a lot of people are stuck and it's getting worse!",
+      "I'm calling from the station, we've got people trapped by rising water on the platform!"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -107,91 +121,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "This is station staff, the platforms are flooding fast and there's people trapped who can't get to the exits.",
-        "Emergency, the station's flooding badly and passengers are stuck on the lower platform."
+        "The station's flooding fast, there's people trapped on the platform and it's rising!",
+        "We've got water coming up through the concourse, passengers can't get out!",
+        "Please help, the platform's flooding and people are stuck below the barriers!",
+        "Water's pouring into the station, we've got a lot of passengers cut off!",
+        "I'm station staff, we've got flooding on the platforms and people can't get to the exits!",
+        "The underpass is flooding and there's passengers trapped down there!",
+        "We need urgent help, the station's flooding and people are stranded on the platform!",
+        "Please hurry, water's rising fast through the station and passengers can't move!",
+        "There's flooding at the station, a lot of people are stuck and it's getting worse!",
+        "I'm calling from the station, we've got people trapped by rising water on the platform!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the station supervisor.",
-        "{{callerName}}, I work here on the gate line."
+        "It's {{callerName}}, I'm station staff here.",
+        "{{callerName}}, I'm the duty manager at the station.",
+        "My name's {{callerName}}, I work for the rail operator.",
+        "{{callerName}} here, I'm on the platform staff team.",
+        "It's {{callerName}} calling, I'm in the control room here.",
+        "{{callerName}}, I'm one of the station supervisors.",
+        "My name is {{callerName}}, I'm at the ticket barriers.",
+        "{{callerName}}, I'm calling from the concourse.",
+        "It's {{callerName}}, I'm the station manager.",
+        "{{callerName}} speaking, I'm platform staff here."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't have all their names, there's a lot of people down there.",
-        "One's {{firstPatientName}}, she's struggling the most."
+        "I don't have all their names, there's a lot of people trapped down there.",
+        "One's {{firstPatientName}}, {{he}}'s struggling the most that I can see.",
+        "I don't know most of their names, sorry, there's so many people.",
+        "{{firstPatientName}}'s one of them, {{he}}'s finding the cold water hardest.",
+        "No names for most, sorry, we're just trying to keep everyone together.",
+        "I know one is {{firstPatientName}}, {{he}}'s worse off than the rest.",
+        "Can't give you names for everyone, there's too many passengers trapped.",
+        "One's called {{firstPatientName}}, {{he}}'s nearest the water and struggling.",
+        "Sorry, no names, we're focused on getting everyone to safety.",
+        "{{firstPatientName}}'s the one who seems worst affected that I can see."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, it's the station.",
-        "{{address}}, come to the main entrance, I'll direct you down."
+        "We're at {{address}}, the flooding's on the main platform.",
+        "{{address}}, come through the main entrance, staff will guide you.",
+        "It's {{address}}, the water's worst near the underpass.",
+        "{{address}}, access via the taxi rank is clearer.",
+        "We're at {{address}}, I'll have someone waiting at the barriers.",
+        "{{address}}, follow signs for the station, the flooding's obvious.",
+        "It's {{address}}, the concourse is flooded near the entrance.",
+        "{{address}}, come round to the side entrance if the front's blocked.",
+        "We're at {{address}}, mind the steps, they're underwater.",
+        "{{address}}, I'll meet you at the main doors."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Water's come up fast on the lower platform and a group of passengers can't get back up the stairs.",
-        "The station's flooding, it happened really quickly and people got cut off from the exits."
+        "Heavy rain's overwhelmed the drainage and the platforms are flooding fast.",
+        "A water main's burst near the station and it's flooding the concourse.",
+        "The underpass has flooded and passengers can't get through to the exits.",
+        "Surface water's poured into the station and it's rising on the platforms.",
+        "There's been flash flooding outside and it's come straight into the station.",
+        "The drains have backed up and water's pouring onto the platforms.",
+        "A nearby river's burst its banks and the station's taking on water fast.",
+        "We think a pipe's failed under the station, water's rising quickly.",
+        "The storm's caused flash flooding and it's got into the station badly.",
+        "Water's come in through the tunnel entrance and it's rising on the platforms."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Most are conscious, but a few are panicking badly.",
-        "They're alert but very frightened, some are in the water."
+        "Most people are conscious and okay, a few look unwell from the panic.",
+        "They're all conscious as far as I can see, just very frightened.",
+        "Conscious, yes, though some are struggling to stay calm.",
+        "Everyone's awake and alert, a few are quite distressed.",
+        "As far as I can tell everyone's conscious, just scared and cold.",
+        "Most are fine, a handful look pale and unwell.",
+        "They're conscious, some more shaken than others.",
+        "Everyone's up and moving as best they can, some are quite frightened.",
+        "Conscious throughout, though people are getting cold and anxious.",
+        "As far as I know everyone's conscious, just very frightened."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Some are coughing after being splashed, but breathing okay.",
-        "Yes, but a couple seem to be struggling with the cold."
+        "Some are struggling a bit, mostly with the cold and the panic.",
+        "A few are breathless from the shock of it, most seem okay.",
+        "Breathing's fine for most, a couple are finding it harder from the stress.",
+        "A few passengers are wheezy, could be the cold and anxiety.",
+        "Most are breathing normally, we've got a couple who are more affected.",
+        "There's some breathlessness among a handful, mostly from panic.",
+        "Breathing's an issue for a few, we're trying to keep them calm.",
+        "Most are okay, a small number are struggling, could be the cold water.",
+        "A handful are short of breath, we're keeping them as calm as we can.",
+        "Breathing's fine for the majority, a few are finding it tougher with the cold."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "A few say they've hurt themselves slipping on the stairs.",
-        "Some have bruising from the crush trying to get up the stairs."
+        "A few are complaining of chest pain, could be the cold and shock.",
+        "Some say they feel unwell, hard to say exactly why.",
+        "There's some chest discomfort reported among a handful of people.",
+        "A couple mentioned feeling dizzy and unsteady.",
+        "Some have got headaches from the stress of it.",
+        "A few are saying they feel quite unwell, unclear cause.",
+        "There's some mild chest pain reported, nothing too severe as far as I know.",
+        "A number mention feeling unwell, could be the cold water.",
+        "Some passengers say they feel faint from the shock.",
+        "A few report feeling generally unwell, we're keeping an eye on them."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A couple of cuts from the crush, nothing major that I can see.",
-        "One or two are bleeding from falls on the stairs."
+        "No bleeding, no, it's the flood water causing the problem.",
+        "No, nobody's bleeding, it's a flooding and cold water issue.",
+        "No blood at all, just people cold and shaken.",
+        "Not that I've seen, it's more the shock and the cold.",
+        "No bleeding, thankfully, just discomfort from the water.",
+        "No, no injuries like that, purely the flooding affecting people.",
+        "Nobody's cut or bleeding, it's the water causing the issue.",
+        "No bleeding at all, it's a general unwellness for a few.",
+        "Not bleeding, no, just some passengers cold and distressed.",
+        "No blood, no, this is entirely down to the flooding."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't have medical details for passengers.",
-        "I can't say, there's too many people."
+        "I don't know all their medical histories, sorry, there's so many people.",
+        "No idea, we'd need to check with each one individually.",
+        "Can't say for certain, sorry, there's just too many passengers.",
+        "I'm not sure, some might have conditions already, I couldn't say.",
+        "I don't have that information for everyone trapped here.",
+        "Not sure, sorry, there's too many people to know that about.",
+        "I couldn't tell you, we're just trying to keep everyone safe right now.",
+        "No idea about medical history, sorry, it's a lot to manage.",
+        "I know a couple mentioned health conditions, not sure about the rest.",
+        "Can't say, sorry, I don't know most of them personally."
       ]
     },
     "medications": {
       "answers": [
-        "I wouldn't know, sorry.",
-        "Not something I have access to."
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's too many people to ask.",
+        "Not a clue, sorry, we're focused on getting everyone to safety.",
+        "I don't know, I'd have to ask each of them.",
+        "No idea on medications, sorry, it's quite chaotic here.",
+        "Can't help with that, sorry, I don't know them personally.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's too many to know that about.",
+        "No idea, honestly, we're just trying to keep everyone safe.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "All ages, there's children and elderly caught down there.",
-        "Mixed, quite a few commuters and a couple of elderly passengers."
+        "All ages really, there's a proper mix of passengers trapped here.",
+        "Mixed ages, kids and adults both caught up in this.",
+        "Hard to say exactly, there's a real range from young to old.",
+        "Mostly adults I'd say, but a few children too.",
+        "A proper mix, from young children up to older passengers.",
+        "Can't say exactly, it's a real mix of everyone commuting.",
+        "There's a broad mix, young and old caught up in this together.",
+        "Mostly working age adults from what I can see.",
+        "A mix, teenagers through to elderly passengers.",
+        "Hard to tell exactly, there's people of all ages here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping everyone together on the driest part of the platform.",
-        "Please hurry, the water's still rising."
+        "Okay, thank you, we'll keep everyone as calm and dry as we can.",
+        "Right, I'll keep them together until the ambulance crews get here.",
+        "Okay, that's good, please hurry, a few are struggling with the cold.",
+        "Thank you, we'll keep everyone as comfortable as we can manage.",
+        "Alright, I'll keep talking to the affected passengers until help arrives.",
+        "Okay, we're keeping them on the highest ground we can find.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we'll keep everyone together until help turns up.",
+        "Thank you, we'll do what we can until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need the fire brigade for a flooding rescue now!"
+        "No, we've got dozens of passengers trapped, this can't wait for 111.",
+        "111 won't help with this, we need people here to get everyone out.",
+        "No, please, water's still rising, we need help now.",
+        "This can't wait for a callback, there's so many people involved.",
+        "No, we need proper rescue crews here, not 111.",
+        "Please, this is urgent, we've got people cut off by the water.",
+        "No, this needs emergency crews now, not a phone line.",
+        "I don't think 111 can help with a flooded station like this.",
+        "No, please, we need people here right now, there's so many of us.",
+        "This is too serious for 111, please send help."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, they'll help manage the crowd once we're clear.",
+        "Right, that's good, we could do with them for the evacuation.",
+        "Okay, I'll let them know where to find us in the station.",
+        "Thank you, please send them, it's getting difficult to manage everyone.",
+        "Alright, I'll flag them down when they arrive at the entrance.",
+        "Okay, that's a relief, we need help keeping people calm and together.",
+        "Right, thank you, I'll brief them once they're on scene.",
+        "Okay, good, we could use some extra hands managing the passengers.",
+        "Thank you, I'll stay with the group until they arrive.",
+        "Okay, please hurry, we need them here to help with the crowd."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, that's who we need for the water and the evacuation.",
+        "Okay, good, I'll direct them to the flooded platform.",
+        "Thank you, that's a relief, the water's still rising.",
+        "Right, I'll clear a path for them through the concourse.",
+        "Okay, thank you, we've moved everyone to higher ground as best we can.",
+        "Yes please, we really need help getting everyone out safely.",
+        "Thank you, I'll wait at the entrance to guide them in.",
+        "Okay, that's good news, please send them quickly.",
+        "Right, thank you, we'll keep everyone together until they arrive.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

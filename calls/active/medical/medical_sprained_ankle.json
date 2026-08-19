@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -79,7 +83,15 @@
   "caller": {
     "openings": [
       "I've gone over on my ankle, I think it might be broken, it's really swollen",
-      "I need some advice, I've twisted my ankle badly and can't put weight on it"
+      "I need some advice, I've twisted my ankle badly and can't put weight on it",
+      "I've turned my ankle over on the kerb, it's swelling up fast",
+      "Can I get some help, I've gone over on my ankle playing football",
+      "I've hurt my ankle coming down some stairs, it's really painful",
+      "I need some advice, I've rolled my ankle and it's blown up like a balloon",
+      "I've twisted my ankle badly, I can't stand on it at all",
+      "My ankle's gone from under me, it's swollen and really sore",
+      "I've gone over on uneven ground and my ankle's really hurting",
+      "Could someone advise me, I've sprained my ankle and it's not looking good"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -92,81 +104,231 @@
     "start": {
       "answers": [
         "I've gone over on my ankle, I think it might be broken, it's really swollen",
-        "I need some advice, I've twisted my ankle badly and can't put weight on it"
+        "I need some advice, I've twisted my ankle badly and can't put weight on it",
+        "I've turned my ankle over on the kerb, it's swelling up fast",
+        "Can I get some help, I've gone over on my ankle playing football",
+        "I've hurt my ankle coming down some stairs, it's really painful",
+        "I need some advice, I've rolled my ankle and it's blown up like a balloon",
+        "I've twisted my ankle badly, I can't stand on it at all",
+        "My ankle's gone from under me, it's swollen and really sore",
+        "I've gone over on uneven ground and my ankle's really hurting",
+        "Could someone advise me, I've sprained my ankle and it's not looking good"
       ]
     },
     "callerName": {
       "answers": [
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
         "{{callerName}}, that's me",
-        "It's {{callerName}}"
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "It's me, {{firstPatientName}}, I'm the one who called.",
+        "Just me, {{firstPatientName}}, nobody else is hurt.",
+        "{{firstPatientName}}, that's me, I'm on my own here.",
+        "It's just me, {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, there's no one else involved.",
+        "Me, {{firstPatientName}}, I live here alone.",
+        "It's only me affected, {{firstPatientName}}.",
+        "{{firstPatientName}}, yes, that's me.",
+        "Just myself, {{firstPatientName}}, no one else here.",
+        "I'm the patient, {{firstPatientName}}, it's just me."
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}",
-        "{{address}}"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I missed a step and twisted my ankle right over"
+        "I went over on the kerb and my ankle just gave way",
+        "I was playing football and landed awkwardly on my ankle",
+        "I missed a step coming down the stairs and turned my ankle over",
+        "I rolled my ankle on some uneven paving in the garden",
+        "I stepped off the pavement wrong and my ankle twisted right over",
+        "I was out for a run and my ankle went over on a pothole",
+        "I turned my ankle getting off the bus, it went straight over",
+        "I was walking the dog and my ankle rolled on the grass verge",
+        "I tripped on the curb and my ankle twisted badly under me",
+        "I jumped down off a wall and landed wrong on my ankle"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, I'm fine in myself"
+        "Yes, I'm fine that way, just feel rough",
+        "Yes, conscious, just really uncomfortable",
+        "I'm awake and talking to you, aren't I",
+        "Yes, I'm alert, just in a bad way with it",
+        "Conscious, yes, just fed up with feeling like this",
+        "Yes, I'm fine in myself, just this is really getting to me",
+        "I'm okay that way, just very uncomfortable",
+        "Yes, wide awake, just wish I wasn't",
+        "Conscious, yes, just quite sore",
+        "Yes, I'm with it, just really not right"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's absolutely fine, no problems there",
+        "Yes, breathing normally, that's not an issue",
+        "No trouble breathing at all",
+        "Breathing's fine, thank you",
+        "Yes, that's all normal, no issues there",
+        "No, breathing's not a problem for me",
+        "Fine, no breathing difficulty at all",
+        "Breathing normally, yes",
+        "No issues breathing, that's the least of it",
+        "Yes, breathing's steady and fine"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Really sore, about seven out of ten"
+        "It really hurts, sharp pain in my ankle",
+        "Yes, a lot of pain in my ankle",
+        "I can't put any weight on it, my ankle's agony",
+        "Yes, quite painful, mostly my ankle",
+        "It's throbbing, my ankle, quite badly",
+        "I'm in a fair bit of pain, my ankle mostly",
+        "Yes, it hurts a lot when I move my ankle",
+        "My ankle's really painful, I'm in a bad way",
+        "Yes, quite a bit of pain, mostly my ankle",
+        "It's sore all round my ankle"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No, no bleeding at all",
+        "No, nothing like that",
+        "No blood, just really swollen",
+        "No, I'm not bleeding, no",
+        "Not bleeding, no",
+        "No, no cuts or blood",
+        "No bleeding, just very sore",
+        "No, nothing like that at all",
+        "No blood, no",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing significant"
+        "I'm generally fit and well, nothing you need to worry about.",
+        "No real medical history to speak of, I'm usually fine.",
+        "Nothing major, I don't have any conditions.",
+        "I'm healthy normally, no history to mention.",
+        "No, nothing like that, I'm usually quite well.",
+        "Nothing significant, I don't have any ongoing conditions.",
+        "I don't have any medical issues normally.",
+        "No history worth mentioning, I'm generally okay.",
+        "Nothing really, I'm fit and well as a rule.",
+        "No, I don't have anything like that."
       ]
     },
     "medications": {
       "answers": [
-        "None"
+        "No, I'm not on any medication.",
+        "I don't take anything regularly, no.",
+        "No medication, no, nothing like that.",
+        "I'm not on anything at the moment.",
+        "No, I don't take any tablets or anything.",
+        "Nothing, no, I don't take medication.",
+        "No, I'm not on any regular medication.",
+        "I don't take anything, no.",
+        "No medication to mention, no.",
+        "No, nothing like that at all."
       ]
     },
     "patientAge": {
       "answers": [
-        "31"
+        "{{He}}'s 27",
+        "About 27, I think",
+        "{{He}}'s 27 years old",
+        "27, {{he}}'ll be 28 next year",
+        "I think {{he}}'s 27 or thereabouts",
+        "27 years of age",
+        "{{He}}'s in {{his}} 20s, about 27",
+        "Just turned 27",
+        "{{He}}'s 27, always been fit for {{his}} age",
+        "27, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep it elevated"
+        "Okay, thank you, I'll stay where I am",
+        "Right, I'll try not to move until they get here",
+        "Okay, that's a relief, thank you",
+        "Thank you, I'll wait by the door for them",
+        "Okay, I'll keep as still as I can",
+        "Right, thank you, how long roughly",
+        "Okay, I'll stay on the line until they arrive",
+        "Thank you, I'm just going to sit tight",
+        "Okay, that's good, I'm in a lot of discomfort",
+        "Right, thank you, I appreciate it"
       ]
     },
     "refer111": {
       "answers": [
-        "That's probably more sensible, I wasn't sure if this counted"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, I just need an ambulance",
+        "No, no police needed, this is medical, not police",
+        "No thank you, just the ambulance, there's nothing for police here",
+        "No, wrong service, I just need medical help, not police",
+        "No police required, I'm just unwell, I only need paramedics",
+        "No, nothing for police to do here, it's purely medical",
+        "No, I'm fine on that front, just the ambulance for me please",
+        "Police? No, I don't think that's needed, I just need help",
+        "No, no crime or anything like that, just an ambulance please",
+        "No police necessary, I just need to be seen by paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, I just need an ambulance",
+        "No, no fire brigade needed, I just feel dreadful, that's all",
+        "Fire service? No, wrong service, I just need paramedics",
+        "No, nothing's on fire, I just need medical help",
+        "No thank you, no fire needed, just an ambulance please",
+        "No, I'm not trapped or anything, I just need paramedics",
+        "No, that's not necessary, I only need medical help",
+        "No fire involved, I just need the ambulance to get here",
+        "Fire? No, I don't think that's needed, I just need paramedics",
+        "No, no fire service required, it's purely a medical thing"
       ]
     }
   },

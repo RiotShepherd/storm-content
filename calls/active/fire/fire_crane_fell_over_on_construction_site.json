@@ -51,6 +51,12 @@
     "irv": 2,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 4,
+    "police": 1,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -89,7 +95,15 @@
   "caller": {
     "openings": [
       "A crane's come down on the construction site, there's a couple of workers hurt",
-      "I need the fire brigade urgently, the crane's collapsed and it's brought down scaffolding on some of the crew"
+      "I need the fire brigade urgently, the crane's collapsed and it's brought down scaffolding on some of the crew",
+      "Please hurry, the crane's toppled over, we've got a couple of injured workers",
+      "There's been a crane collapse on site, two of our workers are hurt",
+      "Fire brigade urgently please, the crane's come down and hit some scaffolding, people are injured",
+      "Please send help fast, the crane's fallen and we've got casualties on site",
+      "We've had a serious incident, the crane collapsed and brought scaffolding down with it",
+      "There's been a crane collapse, one worker's trapped under debris",
+      "Fire brigade please urgently, the crane's toppled, a couple of the crew are hurt badly",
+      "Please hurry, the crane's come down across the site, we've got injured workers"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -102,78 +116,231 @@
     "start": {
       "answers": [
         "A crane's come down on the construction site, there's a couple of workers hurt",
-        "I need the fire brigade urgently, the crane's collapsed and it's brought down scaffolding on some of the crew"
+        "I need the fire brigade urgently, the crane's collapsed and it's brought down scaffolding on some of the crew",
+        "Please hurry, the crane's toppled over, we've got a couple of injured workers",
+        "There's been a crane collapse on site, two of our workers are hurt",
+        "Fire brigade urgently please, the crane's come down and hit some scaffolding, people are injured",
+        "Please send help fast, the crane's fallen and we've got casualties on site",
+        "We've had a serious incident, the crane collapsed and brought scaffolding down with it",
+        "There's been a crane collapse, one worker's trapped under debris",
+        "Fire brigade please urgently, the crane's toppled, a couple of the crew are hurt badly",
+        "Please hurry, the crane's come down across the site, we've got injured workers"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the site foreman"
+        "It's {{callerName}}, I'm the site manager",
+        "{{callerName}}, I'm the site foreman",
+        "My name's {{callerName}}, I'm health and safety on site",
+        "It's {{callerName}}, I'm with the injured workers now",
+        "{{callerName}} speaking, I'm at the site office",
+        "Name's {{callerName}}, I run this site",
+        "It's {{callerName}}, please hurry, I'm coordinating first aid",
+        "{{callerName}}, I'm one of the site supervisors",
+        "This is {{callerName}}, I'll meet you at the gate",
+        "{{callerName}} here, please send help fast"
       ]
     },
     "patientName": {
       "answers": [
-        "There's two of my workers hurt, I don't want to give names till I know they're okay"
+        "One's called {{firstPatientName}}, {{he}}'s trapped under some debris",
+        "It's {{patientName}}, {{he}}'s one of our crane team",
+        "There's two hurt, one's {{firstPatientName}}",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s the worst injured",
+        "One's {{firstPatientName}}, another worker's also hurt nearby",
+        "It's {{firstPatientName}}, {{he}} was near the crane when it fell",
+        "Name's {{firstPatientName}}, {{he}}'s conscious but in a bad way",
+        "There's {{firstPatientName}} and one other, both from the scaffolding crew",
+        "{{He}}'s called {{firstPatientName}}, we're with {{him}} now",
+        "It's {{firstPatientName}}, {{he}}'s pinned by some fallen scaffolding"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the construction site, main gate on the road"
+        "{{address}}, it's the construction site",
+        "It's {{address}}, use the site entrance gate",
+        "{{address}}, we'll have someone waiting to guide you in",
+        "You want {{address}}, the site off the main road",
+        "{{address}}, please hurry, come through the compound gate",
+        "{{address}}, that's confirmed, staff are directing at the entrance",
+        "{{address}}, the site with the collapsed crane",
+        "{{address}}, that's us, please come quickly",
+        "{{address}}, come to the main gate, we'll guide you from there",
+        "{{address}}, please, we need help fast"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The crane's toppled over and brought scaffolding down with it, two of the crew were caught underneath"
+        "The crane toppled over and brought down some of the scaffolding with it",
+        "We think the ground gave way under one of the crane's supports",
+        "Not fully clear yet, but the crane collapsed suddenly",
+        "We believe it was overloaded and lost stability",
+        "Not certain of the cause, but it came down fast and hit the scaffold",
+        "We think high wind may have played a part in the collapse",
+        "The crane's base seems to have failed, bringing it down",
+        "Not sure exactly, but it toppled and struck workers nearby",
+        "We believe a support pin failed, causing the crane to fall",
+        "We're not certain of the cause, investigation will follow later"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "One's conscious and talking, the other's in and out"
+        "{{He}}'s conscious, talking to us but in a lot of pain",
+        "{{He}}'s awake but trapped, {{he}}'s scared",
+        "{{He}}'s conscious, we're keeping {{him}} talking",
+        "{{He}}'s awake, {{he}}'s pinned but responsive",
+        "{{He}}'s conscious, {{he}} can't move {{his}} legs though",
+        "{{He}}'s awake and talking, quite distressed",
+        "{{He}}'s conscious, we're staying with {{him}} constantly",
+        "{{He}}'s awake but in shock, {{he}}'s trapped under debris",
+        "{{He}}'s conscious, {{his}} colour doesn't look great though",
+        "{{He}}'s awake and responsive, still trapped though"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Both are breathing but one's struggling a bit"
+        "{{He}}'s breathing okay, just in a lot of pain",
+        "{{He}}'s breathing but it's a bit fast, {{he}}'s in shock",
+        "{{He}} seems to be breathing fine, we're monitoring {{him}}",
+        "{{He}}'s breathing normally as far as we can tell",
+        "{{He}}'s breathing okay, quite laboured with the pain though",
+        "{{He}} seems fine breathing wise, we're keeping {{him}} calm",
+        "{{He}}'s breathing but shallow, we're worried about {{his}} chest",
+        "{{He}}'s breathing fine, mostly worried about the crush injury",
+        "{{He}} seems to be breathing steadily, still trapped though",
+        "{{He}}'s breathing okay, we're watching {{him}} closely"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "They're both in a lot of pain, one's leg looks trapped under debris"
+        "{{He}}'s in a lot of pain, {{his}} leg's trapped",
+        "{{He}} says {{his}} back hurts badly",
+        "{{He}}'s in agony, we think {{his}} leg may be crushed",
+        "{{He}} says {{he}} can't feel {{his}} leg properly, and it's painful",
+        "{{He}}'s screaming in pain from the crush injury",
+        "{{He}} says {{his}} chest and ribs hurt a lot",
+        "{{He}}'s in significant pain, {{he}}'s trapped by the leg",
+        "{{He}} says the pain's getting worse, {{he}}'s pinned by scaffolding",
+        "{{He}}'s in a lot of pain, we're trying to keep {{him}} still",
+        "{{He}} says {{his}} whole side hurts from the impact"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "There's some bleeding from cuts, we've applied first aid"
+        "Yes, there's bleeding from {{his}} leg where it's trapped",
+        "A bit of blood from a cut on {{his}} head",
+        "Yes, {{he}}'s bleeding from where the debris caught {{him}}",
+        "There's some bleeding, we've applied pressure with a first aid kit",
+        "Yes, quite a bit from {{his}} arm",
+        "There's blood on {{his}} leg near where it's pinned",
+        "Yes, {{he}}'s bleeding, we're doing what we can with the first aid kit",
+        "A moderate amount of bleeding from a cut on {{his}} head",
+        "Yes, there's bleeding, we're keeping pressure on it",
+        "There's some blood, mostly from cuts caused by the debris"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't have their full medical details on me"
+        "I'm not sure, {{he}}'s one of the subcontractors, checking now",
+        "Not certain, I'll need to check {{his}} site file",
+        "I don't know off the top of my head, sorry",
+        "Not sure, we're checking with the agency {{he}}'s from",
+        "I believe {{he}} has no known conditions, not certain though",
+        "Not certain, we're trying to find {{his}} emergency contact",
+        "I don't know, sorry, {{he}}'s not one of our direct staff",
+        "Not sure exactly, we'll get {{his}} details from HR",
+        "I believe {{he}}'s fit and healthy normally, not certain",
+        "Not certain, sorry, we're checking our records now"
       ]
     },
     "medications": {
       "answers": [
-        "Not sure, I'd have to check their site records"
+        "I'm not sure, we're checking {{his}} site records",
+        "Not certain, I don't know off the top of my head",
+        "I don't know, sorry, we're finding out now",
+        "Not sure, we'll check with HR",
+        "I believe {{he}} doesn't take anything regular, not certain",
+        "Not certain, sorry, we're checking",
+        "I don't know exactly, we're finding {{his}} details",
+        "Not sure, sorry, we don't have that immediately to hand",
+        "I believe not, but we're confirming",
+        "Not certain, we're checking {{his}} paperwork now"
       ]
     },
     "patientAge": {
       "answers": [
-        "Both in their thirties"
+        "{{He}}'s in {{his}} thirties",
+        "{{He}}'s about forty five",
+        "{{He}}'s in {{his}} late twenties",
+        "{{He}}'s around fifty years old",
+        "{{He}}'s in {{his}} forties",
+        "{{He}}'s about thirty five",
+        "{{He}}'s in {{his}} early fifties",
+        "{{He}}'s around twenty eight",
+        "{{He}}'s in {{his}} mid forties",
+        "{{He}}'s about thirty years old"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've cleared the area and stopped all other work on site"
+        "Okay, we're staying with {{him}} and keeping {{him}} talking",
+        "Understood, we've got the site cleared for access now",
+        "Okay, we won't try to move anything, we'll wait for you",
+        "Right, we're keeping {{him}} as calm as we can",
+        "Okay, please hurry, {{he}}'s in a lot of pain",
+        "Understood, we've stopped all work on site now",
+        "Okay, {{he}}'s talking to us, we're staying right by {{him}}",
+        "Right, we'll keep the access route clear for your crews",
+        "Okay, thank you, we're doing what we can until you arrive",
+        "Understood, please just get here as fast as you can"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is an emergency, people are trapped under debris"
+        "No, {{he}}'s trapped and badly hurt, this needs urgent help",
+        "No, absolutely not, this is a serious emergency",
+        "No, please, we need paramedics and fire crews now",
+        "No, this can't wait, {{he}}'s trapped under debris",
+        "No, this is far too serious for that",
+        "No, please just send everyone you can",
+        "No, we need urgent help here, not that",
+        "No, this needs an emergency response",
+        "No, {{he}}'s in a bad way, please hurry",
+        "No, please, just get help here as fast as possible"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh good, please, we need help closing the road near the site",
+        "Thank you, yes, traffic's building up around the crane",
+        "Good, please send them quick, we need the road kept clear",
+        "Thank you, that's a relief, we can't manage traffic and the injured together",
+        "Oh good, yes please, people keep trying to get a look",
+        "Thank you, please hurry them, we need access kept clear for the ambulance",
+        "Good, yes, we really need that, it's chaotic around the site entrance",
+        "Thank you, please, we're struggling to keep the road clear ourselves",
+        "Oh good, that's needed, please send them as fast as you can",
+        "Thank you, yes please, we need help managing the site access"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry",
+        "Good, please, how long will they be, {{he}}'s trapped",
+        "Thank you, we're staying with {{him}}, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we've stopped work on site, please hurry",
+        "Oh good, please send them quickly, {{he}}'s in a lot of pain",
+        "Thank you, we're keeping {{him}} calm, please hurry them up",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, we need {{him}} freed"
       ]
     }
   },

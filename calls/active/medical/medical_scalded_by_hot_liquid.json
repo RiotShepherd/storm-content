@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -72,8 +76,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My little girl's pulled a pan of boiling water over herself",
-      "I need an ambulance, my daughter's been badly scalded by boiling water"
+      "My little {{boy}}'s pulled a pan of boiling water over {{himself}}.",
+      "I need an ambulance, my {{son}}'s been badly scalded by boiling water.",
+      "My little {{boy}} just pulled a pan down on {{himself}}, {{he}}'s screaming.",
+      "Please hurry, my {{son}}'s been scalded badly by hot water.",
+      "There's been an accident, boiling water's gone over my {{son}}.",
+      "My {{boy}} pulled a saucepan over and it's gone all over {{him}}.",
+      "Please help, my little {{son}}'s been badly burnt by boiling water.",
+      "{{He}} grabbed a pan handle and it came down on {{him}}, {{he}}'s scalded badly.",
+      "I need help now, my {{son}}'s covered in boiling water burns.",
+      "Please send an ambulance, my little {{boy}} just scalded {{himself}} badly."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -85,82 +97,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My little girl's pulled a pan of boiling water over herself",
-        "I need an ambulance, my daughter's been badly scalded by boiling water"
+        "My little {{boy}}'s pulled a pan of boiling water over {{himself}}.",
+        "I need an ambulance, my {{son}}'s been badly scalded by boiling water.",
+        "My little {{boy}} just pulled a pan down on {{himself}}, {{he}}'s screaming.",
+        "Please hurry, my {{son}}'s been scalded badly by hot water.",
+        "There's been an accident, boiling water's gone over my {{son}}.",
+        "My {{boy}} pulled a saucepan over and it's gone all over {{him}}.",
+        "Please help, my little {{son}}'s been badly burnt by boiling water.",
+        "{{He}} grabbed a pan handle and it came down on {{him}}, {{he}}'s scalded badly.",
+        "I need help now, my {{son}}'s covered in boiling water burns.",
+        "Please send an ambulance, my little {{boy}} just scalded {{himself}} badly."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, her mum",
-        "{{callerName}}"
+        "It's {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}}, I'm {{his}} {{callerParent}}.",
+        "My name's {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}} here, I'm {{his}} {{callerParent}} and I'm with {{him}} now.",
+        "It's {{callerName}} speaking, {{his}} {{callerParent}}.",
+        "You can put me down as {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}}. I'm {{his}} {{callerParent}}, we're together.",
+        "It's {{callerName}}, {{his}} {{callerParent}} here, please hurry.",
+        "{{callerName}}, that's me, I'm {{his}} {{callerParent}}.",
+        "It's {{callerName}}, I'm {{his}} {{callerParent}}, is help on the way?"
       ]
     },
     "patientName": {
       "answers": [
-        "{{firstPatientName}}, my little girl",
-        "It's {{firstPatientName}}"
+        "{{firstPatientName}}, that's my {{son}}.",
+        "It's {{firstPatientName}}, my {{son}}.",
+        "My {{son}}'s name is {{firstPatientName}}.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, my {{son}}.",
+        "It's {{firstPatientName}}, that's who I mean.",
+        "My {{son}} is called {{firstPatientName}}.",
+        "{{firstPatientName}}, please hurry.",
+        "That's {{firstPatientName}}, my {{son}}.",
+        "{{firstPatientName}}. {{He}}'s my {{son}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, please hurry",
-        "{{address}}"
+        "We're at {{address}}, please hurry.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}, please hurry.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, please hurry.",
+        "{{address}} is where we are, please hurry.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She grabbed the handle and the pan came down, it went all over her arm and chest"
+        "{{He}} grabbed the handle and the pan came down, it went all over {{his}} arm and chest.",
+        "{{He}} pulled the pan off the stove and the water went over {{him}}.",
+        "{{He}} reached up and knocked the pan, boiling water poured over {{him}}.",
+        "{{He}} tugged the handle and the whole pan tipped over {{him}}.",
+        "{{He}} was standing too close and the pan tipped, scalding {{his}} arm and chest.",
+        "{{He}} climbed up and pulled the pan down onto {{himself}}.",
+        "{{He}} reached for the handle and the boiling water spilled over {{him}}.",
+        "{{He}} pulled at the pan and it tipped straight over {{his}} front.",
+        "{{He}} grabbed at the pan handle and it came crashing down over {{him}}.",
+        "{{He}} was under the pan when it tipped, the water went all over {{him}}."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's awake and screaming"
+        "Yes, {{he}}'s awake and screaming.",
+        "{{He}}'s conscious, crying really loudly.",
+        "Yes, {{he}}'s awake, {{he}}'s in a lot of distress.",
+        "{{He}}'s conscious, screaming and very upset.",
+        "Yes, {{he}}'s awake and clearly in pain.",
+        "{{He}}'s conscious, {{he}}'s crying and won't settle.",
+        "Yes, {{he}}'s alert, just screaming from the pain.",
+        "{{He}}'s awake, {{he}}'s very distressed.",
+        "Yes, {{he}}'s conscious, crying hysterically.",
+        "{{He}}'s awake and screaming, {{he}}'s terrified."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Normal, just crying really hard.",
+        "Fine, {{he}}'s just screaming from the pain.",
+        "It's fine, {{his}} breathing's not affected.",
+        "Normal, just fast from all the crying.",
+        "Fine, no concerns there.",
+        "It's fine, {{he}}'s just very upset.",
+        "Normal breathing, just distressed.",
+        "Breathing's fine, {{he}}'s just in a lot of pain.",
+        "Fine, nothing worrying with {{his}} breathing."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She's screaming, it's clearly very painful"
+        "{{He}}'s screaming, it's clearly very painful.",
+        "{{He}}'s in agony, {{he}} won't stop crying.",
+        "{{He}}'s in a lot of pain, screaming constantly.",
+        "{{He}}'s clearly in severe pain, crying hysterically.",
+        "{{He}}'s screaming badly, the burns look painful.",
+        "{{He}}'s in obvious pain, {{he}} can't calm down.",
+        "{{He}}'s crying in agony, it's clearly hurting badly.",
+        "{{He}}'s screaming, this is causing {{him}} a lot of pain.",
+        "{{He}}'s in severe distress from the pain.",
+        "{{He}}'s crying so much, the pain's obviously bad."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, but her skin's blistering already"
+        "No bleeding, but {{his}} skin's blistering already.",
+        "No blood, but there's blistering coming up on {{his}} skin.",
+        "No bleeding, though the skin's starting to blister.",
+        "No blood, but I can see blisters forming already.",
+        "No bleeding, {{his}} skin looks red and is starting to blister.",
+        "No blood, but the burn's blistering quickly.",
+        "No bleeding, but {{his}} skin's gone red and blistered.",
+        "No blood, though blisters are already coming up.",
+        "No bleeding at all, just the skin blistering from the burn.",
+        "No blood, but {{his}} skin's clearly burnt and blistering."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "None that I know of"
+        "None that I know of.",
+        "Nothing, {{he}}'s never had any health problems.",
+        "No, {{he}}'s completely healthy otherwise.",
+        "Nothing that I'm aware of.",
+        "No, {{he}}'s never had any medical issues.",
+        "None, {{he}}'s a healthy little {{boy}}.",
+        "Nothing at all that I know of.",
+        "No, {{he}}'s never had any problems before.",
+        "None that we're aware of.",
+        "Nothing, {{he}}'s always been healthy."
       ]
     },
     "medications": {
       "answers": [
-        "None"
+        "None.",
+        "No, {{he}} doesn't take anything.",
+        "None at all.",
+        "No regular medication.",
+        "Nothing, {{he}} doesn't take any medication.",
+        "None, {{he}}'s never needed any.",
+        "No, nothing regular.",
+        "None that {{he}} takes.",
+        "Nothing at all, no.",
+        "No medication, no."
       ]
     },
     "patientAge": {
       "answers": [
-        "3"
+        "3",
+        "About 3",
+        "3, I think",
+        "{{He}}'s 3 years old",
+        "I believe {{he}}'s 3",
+        "Just turned 3 I think",
+        "3, same age as always",
+        "Around 3, give or take",
+        "{{He}} is 3",
+        "I'd say 3 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "I've got cool running water on it like the leaflet says"
+        "I've got cool running water on it like the leaflet says.",
+        "Okay, I'm running cool water over the burn now.",
+        "Okay, I've got {{him}} under cool water like you said.",
+        "Thank you, I'll keep the cool water going.",
+        "Okay, I'm keeping {{him}} calm and cooling the burn.",
+        "Thank you, I've removed {{his}} clothing near the burn.",
+        "Okay, I'm cooling it with water and keeping {{him}} still.",
+        "Thank you, I'll keep doing this until you arrive.",
+        "Okay, cool water's running over it now.",
+        "Thank you, I'm doing exactly what the advice says."
       ]
     },
     "refer111": {
       "answers": [
-        "No, I think this needs an ambulance"
+        "No, I think this needs an ambulance.",
+        "No, {{he}}'s a little one and it's a big area, please send someone.",
+        "No, I really think this is serious enough for an ambulance.",
+        "No, please, {{he}}'s so young, I'd rather someone came.",
+        "No, this doesn't feel like it can wait for a call back.",
+        "No, I think {{he}} needs to be seen properly, please hurry.",
+        "No, given {{his}} age I'd rather an ambulance came out.",
+        "No, please, {{he}}'s in so much pain, I need help now.",
+        "No, I really think this needs an ambulance, not advice.",
+        "No, please send someone, {{he}}'s so little and it's a bad burn."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

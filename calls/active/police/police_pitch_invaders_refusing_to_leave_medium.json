@@ -42,6 +42,10 @@
     "irv": 6,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 8
+  },
   "patients": {
     "range": [
       0,
@@ -63,7 +67,15 @@
   "caller": {
     "openings": [
       "Police please, a large group have come onto the pitch and won't go",
-      "We've got dozens of fans on the pitch refusing to move"
+      "We've got dozens of fans on the pitch refusing to move",
+      "Can you send officers, there's a big pitch invasion after the match",
+      "Police, we need help, loads of fans have jumped the hoardings",
+      "We've got a crowd on the pitch, stewards can't clear them alone",
+      "Please send police, dozens of them are milling about on the pitch",
+      "It's a big group on the pitch, refusing every request to leave",
+      "Police needed, the pitch is full of fans and stewards are outnumbered",
+      "Can you get officers here, this pitch invasion isn't clearing",
+      "We need police support, a large crowd's taken over the pitch"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -76,90 +88,231 @@
     "start": {
       "answers": [
         "Police please, a large group have come onto the pitch and won't go",
-        "We've got dozens of fans on the pitch refusing to move"
+        "We've got dozens of fans on the pitch refusing to move",
+        "Can you send officers, there's a big pitch invasion after the match",
+        "Police, we need help, loads of fans have jumped the hoardings",
+        "We've got a crowd on the pitch, stewards can't clear them alone",
+        "Please send police, dozens of them are milling about on the pitch",
+        "It's a big group on the pitch, refusing every request to leave",
+        "Police needed, the pitch is full of fans and stewards are outnumbered",
+        "Can you get officers here, this pitch invasion isn't clearing",
+        "We need police support, a large crowd's taken over the pitch"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I work here",
-        "It's {{callerName}}, I'm on shift"
+        "It's {{callerName}}, I work here.",
+        "{{callerName}}, I'm on shift today.",
+        "My name's {{callerName}}, I'm staff here.",
+        "It's {{callerName}} here, I'm the manager on duty.",
+        "{{callerName}}, yes, I work on site.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}, I'm one of the staff.",
+        "{{callerName}} speaking, I'm on the desk today.",
+        "Name's {{callerName}}, I'm working here.",
+        "It's {{callerName}}, I'm the one who spotted it."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, they're just refusing to move",
-        "Nobody hurt, just not leaving"
+        "I don't know any of their names, a big group refusing to leave the pitch.",
+        "No names, sorry, they didn't introduce themselves.",
+        "Couldn't tell you, a big group refusing to leave the pitch were strangers to me.",
+        "No idea who they are, no names to give you.",
+        "Don't know them personally, that's all I can say.",
+        "No, never seen them before, can't give you names.",
+        "Can't help with names, only a description of a big group refusing to leave the pitch.",
+        "No names I'm afraid, they were gone before I could ask.",
+        "Nobody round here knows their names.",
+        "I've got no names for you, just what they looked like."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the stadium, pitch side",
-        "It's {{address}}, by the players' tunnel"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "A big group jumped the hoardings after the final whistle and won't leave",
-        "Stewards have asked them to go but they're just standing around on the pitch"
+        "Stewards have asked them to go but they're just standing around on the pitch",
+        "Dozens came over the barriers celebrating and now won't move on",
+        "They've formed a big crowd on the centre circle, ignoring all requests",
+        "Our stewards are outnumbered, the group's just refusing to budge",
+        "Fans have swarmed the pitch after the win and are staying put",
+        "It's grown from a handful to a big crowd, all refusing to leave",
+        "They jumped down near the goal and are now spread across the whole pitch",
+        "Announcements over the tannoy haven't worked, the group's still there",
+        "It started as a few fans, now there's a big group refusing to move"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone's fine, just standing around",
-        "No one's hurt, just milling about"
+        "Nobody's hurt, so there's nobody to check on for that.",
+        "There's no injured people here, a big group refusing to leave the pitch are just causing trouble.",
+        "No one's collapsed or anything, they're all moving about fine.",
+        "It's not that kind of call, nobody's unconscious.",
+        "No casualties here, nobody needs checking over.",
+        "There isn't a patient as such, a big group refusing to leave the pitch.",
+        "They're all on their feet, no one's hurt.",
+        "No, nobody's hurt, this isn't a medical one.",
+        "Nobody needs an ambulance, no one's injured.",
+        "No one's out cold, nobody's been hurt at all."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, all fine",
-        "Yes, no issues"
+        "Nobody's struggling to breathe, no one's hurt.",
+        "There's no injuries at all here, so nothing like that.",
+        "No, they're all breathing fine, shouting loud enough.",
+        "It's not a medical call, nobody's had trouble breathing.",
+        "No casualties, nobody needs checking for that.",
+        "Nobody's hurt, a big group refusing to leave the pitch, that's the whole problem.",
+        "No, this isn't that kind of emergency.",
+        "Everyone's fine physically as far as I can see.",
+        "No one's been injured, so no breathing issues to report.",
+        "Not a medical one, nobody's struggling with anything like that."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt",
-        "Not that I can see"
+        "No one's in pain, nobody's hurt.",
+        "Nobody's complaining of any pain, a big group refusing to leave the pitch.",
+        "No injuries, so no pain that I know of.",
+        "Not that I've seen, nobody's hurt here.",
+        "No, nobody's been hurt at all.",
+        "There's no one in pain, this isn't medical.",
+        "No casualties, nobody's said they're in pain.",
+        "Not a soul hurt, a big group refusing to leave the pitch.",
+        "No, nobody needs anything for pain.",
+        "No injuries to report, everyone's fine that way."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No"
+        "No, no one's bleeding.",
+        "Nobody's bleeding, there's no injuries at all.",
+        "No, nothing like that, a big group refusing to leave the pitch.",
+        "No blood, no injuries, nobody's hurt.",
+        "Not that I've seen, no one's bleeding.",
+        "No, it's not that kind of call.",
+        "Nobody's injured, so no bleeding to report.",
+        "No, a big group refusing to leave the pitch, nobody's hurt.",
+        "No blood anywhere that I can see.",
+        "Not at all, no one's been hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A, no patient",
-        "Not applicable"
+        "I wouldn't know, a big group refusing to leave the pitch.",
+        "No idea, I don't know any of them.",
+        "Couldn't tell you, never met them before.",
+        "No idea about that, sorry.",
+        "I don't know them well enough to say.",
+        "Not a clue, a big group refusing to leave the pitch.",
+        "No, I've no idea about their health.",
+        "Couldn't say, I don't know them personally.",
+        "No idea whatsoever, sorry.",
+        "I really wouldn't know, never spoken to any of them."
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "I've no idea.",
+        "Couldn't tell you, sorry.",
+        "No idea at all, a big group refusing to leave the pitch.",
+        "I wouldn't know, never met them.",
+        "No clue, sorry.",
+        "Couldn't say, I don't know them.",
+        "No idea, I'm afraid.",
+        "Not a clue what any of them take.",
+        "I really couldn't tell you.",
+        "No idea, sorry, I don't know them."
       ]
     },
     "patientAge": {
       "answers": [
-        "Mostly young adults",
-        "Mixed ages, mainly younger"
+        "Hard to say, mixed ages, mostly young looking.",
+        "I'd guess most were in their teens or twenties.",
+        "Looked youngish, a real mix of ages honestly.",
+        "Not sure exactly, some looked older than others.",
+        "Couldn't tell you exactly, twenties mostly at a guess.",
+        "I'd say mostly in their twenties, but don't quote me.",
+        "Maybe teens to thirties, hard to tell from a distance.",
+        "I only got a quick look, they seemed fairly young overall.",
+        "Roughly twenty to thirty, that's my best guess.",
+        "A real spread of ages, some young, some older."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep watching from here",
-        "Right, understood, I'll wait"
+        "Ambulance? No, nobody's hurt, it's a police matter.",
+        "No, we don't need an ambulance, nobody's injured here.",
+        "Sorry, why an ambulance, nobody's hurt, I just need police.",
+        "No, there's no injury, I only need the police out here.",
+        "That's not needed, nobody's been hurt, it's police I want.",
+        "No ambulance required, nobody's injured, just send police please.",
+        "No, I don't think that's right, nobody's hurt, it's a police job.",
+        "There's no injury here, I only asked for police.",
+        "No, nobody needs an ambulance, this isn't medical.",
+        "No thank you, nobody's hurt, just the police please."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "No, this isn't a health thing, I need the police out here.",
+        "This isn't a 111 matter, someone's committing an offence, I need police.",
+        "No, I don't need a doctor, I need the police to come now.",
+        "That's not right, nobody's ill, this needs police attention.",
+        "No, please, this is a crime, not a medical thing, send police.",
+        "I don't need 111, I need officers here, this is a police matter.",
+        "No, nobody's poorly, I need police, not a callback.",
+        "That won't help, this needs police, not health advice.",
+        "No, please don't fob me off, I need police out here.",
+        "This isn't medical at all, I need the police, please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll keep an eye out until they arrive.",
+        "Right, good, I'll wait here for them.",
+        "Thank you, I'll point them the right way when they get here.",
+        "Okay, that's good to hear, I'll stay on the line if you need.",
+        "Right, thanks, I'll let you know if anything changes.",
+        "Good, thank you, I'll stay well back until they turn up.",
+        "Okay, I'll keep watching from here until they arrive.",
+        "Thanks, that's a relief, I'll wait for them outside.",
+        "Right, understood, I'll stay put until they get here.",
+        "Okay, thank you, appreciate it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

@@ -48,6 +48,12 @@
     "rescue_unit": 2,
     "irv": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 4,
+    "police": 2,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -84,8 +90,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "A car's come off the jack and it's pinned someone underneath it!",
-      "Emergency, someone's trapped under a vehicle, we can't lift it off them."
+      "There's someone trapped under a car, the jack's slipped and {{he}} can't move!",
+      "Please help, a car's come down on someone, {{he}}'s pinned underneath!",
+      "There's someone working under a car and it's come off the jack onto {{him}}!",
+      "Please hurry, someone's trapped under a vehicle, it looks really serious!",
+      "There's been an accident, a car's fallen on someone and {{he}}'s trapped!",
+      "Help, someone's pinned under their car, it's collapsed off the axle stands!",
+      "There's someone stuck under a vehicle, {{he}}'s not able to move at all!",
+      "Please send help, a car's crushed down onto someone underneath it!",
+      "There's an emergency, someone's trapped under a car in the driveway!",
+      "Help, the car's fallen on {{him}}, {{he}}'s trapped and can't get free!"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -97,91 +111,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "A car's come off the jack and it's pinned someone underneath it!",
-        "Emergency, someone's trapped under a vehicle, we can't lift it off them."
+        "There's someone trapped under a car, the jack's slipped and {{he}} can't move!",
+        "Please help, a car's come down on someone, {{he}}'s pinned underneath!",
+        "There's someone working under a car and it's come off the jack onto {{him}}!",
+        "Please hurry, someone's trapped under a vehicle, it looks really serious!",
+        "There's been an accident, a car's fallen on someone and {{he}}'s trapped!",
+        "Help, someone's pinned under their car, it's collapsed off the axle stands!",
+        "There's someone stuck under a vehicle, {{he}}'s not able to move at all!",
+        "Please send help, a car's crushed down onto someone underneath it!",
+        "There's an emergency, someone's trapped under a car in the driveway!",
+        "Help, the car's fallen on {{him}}, {{he}}'s trapped and can't get free!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was helping him with the car.",
-        "{{callerName}}, I live next door, I heard him shout."
+        "It's {{callerName}}, I was just walking past.",
+        "{{callerName}}, I saw it happen from the street.",
+        "My name's {{callerName}}.",
+        "{{callerName}} here, I don't know {{him}}, I just saw {{him}} trapped.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm just a passer by.",
+        "My name is {{callerName}}, I was nearby when it happened.",
+        "{{callerName}}, I've stayed with {{him}} while I called.",
+        "It's {{callerName}}, I heard the shout and came running.",
+        "{{callerName}} speaking, I'm right next to the car."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}.",
-        "His name's {{firstPatientName}}, he lives here."
+        "I don't know {{him}}, I just saw it happen.",
+        "No idea, {{he}}'s a stranger to me.",
+        "I don't know {{his}} name, I just heard {{him}} shout out.",
+        "No idea who {{he}} is, I only just came across it.",
+        "I can't tell you, I don't know {{him}} at all.",
+        "No name, sorry, I just happened to be passing.",
+        "I don't know {{him}}, I've called it in as soon as I saw {{him}} trapped.",
+        "Sorry, no idea, I've never met {{him}} before.",
+        "No, I don't know {{his}} name, I just saw the car come down.",
+        "I can't help with a name, {{he}}'s a stranger to me."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}.",
-        "{{address}}, on the driveway."
+        "It's {{address}}, the car's in the driveway.",
+        "{{address}}, come round the side, that's where it happened.",
+        "It's {{address}}, you can see the car from the road.",
+        "{{address}}, park up and I'll show you where.",
+        "It's {{address}}, {{he}}'s trapped under the front of the car.",
+        "{{address}}, it's the house with the open garage.",
+        "It's {{address}}, there's a car up on ramps outside.",
+        "{{address}}, I'll wait outside for you.",
+        "It's {{address}}, {{he}}'s under the vehicle in the drive.",
+        "{{address}}, I'll wave you down from the street."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He was underneath doing some work when the jack slipped and the car came down on him.",
-        "The car rolled off the ramps while he was under it working on it."
+        "{{He}} was working underneath the car and it seems to have slipped off the jack.",
+        "The car's come down off the axle stands and landed on {{him}}.",
+        "{{He}} was under the car doing some work and it collapsed down onto {{him}}.",
+        "It looks like the jack gave way while {{he}} was underneath the vehicle.",
+        "{{He}} was fixing something underneath and the car's come down on {{him}}.",
+        "The vehicle's slipped forward off the ramps and pinned {{him}} underneath.",
+        "{{He}} was working on the car and it's rolled and trapped {{him}} under it.",
+        "It looks like the supports gave way and the car's come down on {{him}}.",
+        "{{He}} was underneath doing repairs when the car dropped down onto {{him}}.",
+        "The car's tipped off the jack stands and landed on {{him}} while {{he}} was underneath."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious, shouting for help.",
-        "Yes, he's awake, but he's struggling to breathe properly."
+        "{{He}}'s conscious, {{he}}'s shouting for help.",
+        "Yes, {{he}}'s awake and talking, but in a lot of pain.",
+        "{{He}}'s conscious, {{he}} sounds very frightened.",
+        "Yes, conscious, {{he}}'s asking me to get help fast.",
+        "{{He}}'s alert, talking to me from under the car.",
+        "Yes, {{he}}'s conscious, just can't move at all.",
+        "{{He}}'s awake, {{he}} says {{he}} can't feel much movement.",
+        "Conscious, yes, {{he}}'s calling out in pain.",
+        "{{He}}'s conscious and responding, just trapped fast.",
+        "Yes, {{he}}'s conscious, please hurry, {{he}} sounds bad."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, but it sounds laboured under there.",
-        "Yes, but shallow, the weight's on his chest."
+        "Yes, {{he}}'s breathing, just in a lot of pain.",
+        "{{He}} seems to be breathing okay, but it's hard to tell.",
+        "Yes, breathing's there, {{he}}'s just in agony.",
+        "{{He}}'s breathing fast, I think it's the shock.",
+        "Yes, {{he}}'s breathing, {{he}}'s very distressed.",
+        "{{His}} breathing seems okay from what I can hear.",
+        "Yes, breathing's there as far as I can tell.",
+        "{{He}}'s breathing but struggling, please hurry.",
+        "Yes, {{he}}'s breathing, just please hurry.",
+        "{{His}} breathing sounds laboured, {{he}}'s in a lot of pain."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says his chest is being crushed.",
-        "He's saying he can't feel his legs."
+        "{{He}}'s in agony, the weight of the car's on {{his}} chest!",
+        "{{He}}'s screaming in pain, please send help quickly!",
+        "{{He}} says the pain's unbearable, please hurry!",
+        "{{He}}'s in terrible pain, {{he}} can't move at all.",
+        "{{He}}'s crying out in pain, I don't know what to do.",
+        "{{He}}'s in a lot of pain, please, we need help now.",
+        "{{He}} says it hurts terribly, please hurry.",
+        "{{He}}'s in severe pain, the car's pinning {{him}} down.",
+        "{{He}}'s in agony, please send someone right away.",
+        "{{He}}'s in so much pain, please hurry, {{he}} can't breathe properly."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I can see some blood from underneath.",
-        "Not that I can see from here."
+        "I can't see any bleeding, but {{he}}'s trapped so hard to tell.",
+        "I don't think so, but I can't see much from here.",
+        "Not that I can see, but I can't get close enough to check properly.",
+        "I can't tell, {{he}}'s mostly under the car.",
+        "I don't know, please hurry, I can't see clearly.",
+        "Not that I've seen, but it's hard to check with {{him}} trapped like this.",
+        "I can't say for sure, {{he}}'s pinned under the car.",
+        "I don't think there's bleeding, but I really can't tell.",
+        "Can't confirm, please just send help quickly.",
+        "I don't know, I can only see part of {{him}} from here."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No health problems that I know of.",
-        "Not that I'm aware of."
+        "No idea, I don't know {{him}} at all.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "No idea, sorry, I've never met {{him}} before.",
+        "I don't know {{him}}, so no idea on that.",
+        "Sorry, no idea, I've just come across {{him}} trapped.",
+        "No, I can't help with that, I don't know {{him}}.",
+        "I've no idea, {{he}}'s not someone I know.",
+        "Sorry, no, I don't know {{his}} medical history.",
+        "No idea at all, {{he}}'s a stranger to me.",
+        "Can't say, sorry, I only just found {{him}} trapped."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry.",
-        "I don't know."
+        "No idea, I don't know {{him}}.",
+        "I can't say, {{he}}'s a stranger to me.",
+        "No idea, sorry, I've never met {{him}}.",
+        "I don't know {{him}}, so no idea on that.",
+        "Sorry, no idea at all.",
+        "No, I can't help with that, I don't know {{him}}.",
+        "I've no idea, {{he}}'s not someone I know.",
+        "Sorry, no, I don't know anything about {{him}}.",
+        "No idea at all, sorry.",
+        "Can't say, sorry, I only just found {{him}} trapped like this."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's about thirty.",
-        "He's in his fifties."
+        "{{He}} looks to be in {{his}} forties.",
+        "Maybe mid thirties, hard to say for sure.",
+        "{{He}} looks about fifty to me.",
+        "I'd guess {{he}}'s in {{his}} thirties.",
+        "Hard to say exactly, maybe late twenties.",
+        "{{He}} looks like {{he}}'s in {{his}} forties.",
+        "I'd say {{he}}'s about thirty five.",
+        "Not sure exactly, maybe early forties.",
+        "{{He}} looks middle aged, forties I'd guess.",
+        "I'd estimate {{he}}'s in {{his}} thirties."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying with him and talking to him.",
-        "Please hurry, the weight's really on him."
+        "Okay, thank you, I'll stay here and keep talking to {{him}}.",
+        "Right, I'll keep {{him}} calm until the ambulance gets here.",
+        "Okay, that's good, please hurry, {{he}}'s in so much pain.",
+        "Thank you, I'll stay right here next to {{him}}.",
+        "Alright, I'll keep reassuring {{him}} until help arrives.",
+        "Okay, we'll wait right here for the paramedics.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll keep {{him}} talking until help arrives.",
+        "Thank you, I'll do what I can until they get here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's trapped under a car, we need the fire brigade!"
+        "No, {{he}}'s trapped under a car right now, this can't wait for 111!",
+        "111 won't cut it, {{he}}'s pinned and in agony, please send someone!",
+        "No, please, this is a real emergency, {{he}} needs help right now!",
+        "This can't wait for a callback, please send someone now!",
+        "No, we need a proper rescue team, not 111!",
+        "Please, this is urgent, {{he}}'s trapped under the car!",
+        "No, this needs fire crews and paramedics now, not a phone line!",
+        "I don't think 111 can help with a rescue like this!",
+        "No, please, we need people here right now!",
+        "This is too serious for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's a rescue we need for the car.",
+        "Do we need police as well? Okay, if you think that's needed.",
+        "I wasn't expecting police, but alright, whatever helps {{him}}.",
+        "Okay, if that's needed, but please just get help here fast.",
+        "Alright, I suppose they can help keep the road clear.",
+        "Fine, but it's the fire brigade lifting the car, isn't it?",
+        "Alright, if you think police are needed, that's fine.",
+        "Okay, though I'm not sure what police can do about the car.",
+        "Right, I'll let them know when they arrive.",
+        "Okay, understood, whatever you think's best."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, please hurry, {{he}}'s still trapped under it.",
+        "Okay, good, I'll be waiting to guide them in.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, I'll clear the way for them when they get here.",
+        "Okay, thank you, I've stayed with {{him}} the whole time.",
+        "Yes please, we really need the rescue crews here fast.",
+        "Thank you, I'll wait here to guide them in.",
+        "Okay, that's good news, please hurry.",
+        "Right, thank you, we'll keep waiting for them.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

@@ -42,6 +42,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3
+  },
   "patients": {
     "range": [
       0,
@@ -65,7 +69,15 @@
   "caller": {
     "openings": [
       "One of the tumble dryers has caught fire in the launderette",
-      "I need the fire brigade, a dryer's on fire and the shop's filling with smoke"
+      "I need the fire brigade, a dryer's on fire and the shop's filling with smoke",
+      "We've got a dryer alight here, I've cleared the shop of customers",
+      "Fire brigade please, one of the machines has caught fire, everyone's out",
+      "There's a dryer on fire in the launderette, smoke's building up fast",
+      "A tumble dryer's gone up, I've unplugged the others and got people out",
+      "Fire brigade please, machine three's on fire, shop's been evacuated",
+      "We've a small fire in a dryer, I've shut the door but smoke's spreading",
+      "One of our dryers has caught alight, customers are all outside now",
+      "Fire brigade please, there's flames coming from inside a tumble dryer"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -78,78 +90,231 @@
     "start": {
       "answers": [
         "One of the tumble dryers has caught fire in the launderette",
-        "I need the fire brigade, a dryer's on fire and the shop's filling with smoke"
+        "I need the fire brigade, a dryer's on fire and the shop's filling with smoke",
+        "We've got a dryer alight here, I've cleared the shop of customers",
+        "Fire brigade please, one of the machines has caught fire, everyone's out",
+        "There's a dryer on fire in the launderette, smoke's building up fast",
+        "A tumble dryer's gone up, I've unplugged the others and got people out",
+        "Fire brigade please, machine three's on fire, shop's been evacuated",
+        "We've a small fire in a dryer, I've shut the door but smoke's spreading",
+        "One of our dryers has caught alight, customers are all outside now",
+        "Fire brigade please, there's flames coming from inside a tumble dryer"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I run the launderette"
+        "It's {{callerName}}, I run the launderette",
+        "{{callerName}}, I'm the attendant on shift",
+        "My name's {{callerName}}, I work here",
+        "It's {{callerName}}, I've just got everyone out the shop",
+        "{{callerName}} speaking, I manage this branch",
+        "Name's {{callerName}}, I'm on my own in the shop today",
+        "It's {{callerName}}, I've unplugged the mains where I can",
+        "{{callerName}}, I'll be waiting outside the front door",
+        "This is {{callerName}}, sorry, I'm a bit out of breath",
+        "{{callerName}} here, I've locked the till and I'm outside now"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, I've got the customers outside"
+        "There's nobody hurt, the dryer fire, the shop's been cleared",
+        "No patient to give a name for, the dryer fire, the shop's been cleared",
+        "There's no one involved, the dryer fire, the shop's been cleared",
+        "Nobody's hurt, the dryer fire, the shop's been cleared",
+        "No casualty at all, the dryer fire, the shop's been cleared",
+        "There's no one to report, the dryer fire, the shop's been cleared",
+        "Not applicable, the dryer fire, the shop's been cleared",
+        "No injuries, the dryer fire, the shop's been cleared",
+        "Nobody to name, the dryer fire, the shop's been cleared",
+        "No patient, the dryer fire, the shop's been cleared"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the launderette on the high street"
+        "{{address}}, it's the launderette on the high street",
+        "It's {{address}}, next to the newsagents",
+        "{{address}}, you'll see me waiting outside",
+        "You want {{address}}, the shop with the blue shutters",
+        "{{address}}, come round the front, I'll flag you down",
+        "{{address}}, that's us, smoke's coming out the door",
+        "{{address}}, please hurry, it's a small shop and filling with smoke",
+        "{{address}}, that's the launderette, third unit along",
+        "{{address}}, I'll leave the door propped for you",
+        "{{address}}, come quick, customers are worried outside"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "One of the dryers has caught fire, I think it overheated, it's smoking badly now"
+        "Think it's a lint buildup, the dryer's been running hot all day",
+        "Not sure of the exact cause, but the machine just started smoking then flames",
+        "Could be the heating element, we've had this dryer a long time",
+        "We think the lint filter wasn't cleared properly, it's caught fire",
+        "Not certain, but there was a burning smell before we saw flames",
+        "Might be an electrical fault in the machine itself",
+        "We think it overheated, it's been running back to back all morning",
+        "Not sure, but smoke started pouring out the vent first",
+        "Could be lint in the vent pipe, it's happened before elsewhere",
+        "We're not certain of the cause, but the drum's clearly alight"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, everyone's out on the pavement"
+        "No one's hurt, the dryer fire, the shop's been cleared",
+        "There's no patient here, the dryer fire, the shop's been cleared",
+        "Not applicable, the dryer fire, the shop's been cleared",
+        "Nobody's involved, the dryer fire, the shop's been cleared",
+        "No injuries at all, the dryer fire, the shop's been cleared",
+        "No one to check on, the dryer fire, the shop's been cleared",
+        "There's no casualty, the dryer fire, the shop's been cleared",
+        "No patient at all, the dryer fire, the shop's been cleared",
+        "Nobody's hurt, thankfully, the dryer fire, the shop's been cleared",
+        "No one's affected, the dryer fire, the shop's been cleared"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple of customers got a bit of smoke but they're fine outside"
+        "No one to worry about, the dryer fire, the shop's been cleared",
+        "Not applicable, the dryer fire, the shop's been cleared",
+        "Nobody's struggling to breathe, the dryer fire, the shop's been cleared",
+        "No casualty, the dryer fire, the shop's been cleared",
+        "No one's affected by any smoke, the dryer fire, the shop's been cleared",
+        "There's no patient, the dryer fire, the shop's been cleared",
+        "No breathing issues to report, the dryer fire, the shop's been cleared",
+        "Nobody's been near any smoke, the dryer fire, the shop's been cleared",
+        "No one's hurt, the dryer fire, the shop's been cleared",
+        "Not applicable, no one's involved, the dryer fire, the shop's been cleared"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's in pain, the dryer fire, the shop's been cleared",
+        "No one's hurt at all, the dryer fire, the shop's been cleared",
+        "Not applicable, the dryer fire, the shop's been cleared",
+        "No injuries to report, the dryer fire, the shop's been cleared",
+        "There's no patient, the dryer fire, the shop's been cleared",
+        "No one's complaining of anything, the dryer fire, the shop's been cleared",
+        "Nobody's hurt, the dryer fire, the shop's been cleared",
+        "No pain to report, the dryer fire, the shop's been cleared",
+        "Not applicable, no casualty, the dryer fire, the shop's been cleared",
+        "No one's injured, the dryer fire, the shop's been cleared"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's involved"
+        "No, no one's involved, the dryer fire, the shop's been cleared",
+        "No bleeding, there's no patient, the dryer fire, the shop's been cleared",
+        "Not applicable, the dryer fire, the shop's been cleared",
+        "No, everyone's uninjured, the dryer fire, the shop's been cleared",
+        "No, nobody's hurt, the dryer fire, the shop's been cleared",
+        "No bleeding to report, the dryer fire, the shop's been cleared",
+        "Not applicable, no casualties, the dryer fire, the shop's been cleared",
+        "No, no one's been near it, the dryer fire, the shop's been cleared",
+        "No, we're all fine, the dryer fire, the shop's been cleared",
+        "No, there's no one injured, the dryer fire, the shop's been cleared"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient involved"
+        "No patient, the dryer fire, the shop's been cleared",
+        "Not applicable, the dryer fire, the shop's been cleared",
+        "No one to give an age for, the dryer fire, the shop's been cleared",
+        "N/A, the dryer fire, the shop's been cleared",
+        "No age to give, the dryer fire, the shop's been cleared",
+        "Not applicable, no one's hurt, the dryer fire, the shop's been cleared",
+        "No casualty, the dryer fire, the shop's been cleared",
+        "Nobody's involved, the dryer fire, the shop's been cleared",
+        "Not applicable at all, the dryer fire, the shop's been cleared",
+        "No patient to speak of, the dryer fire, the shop's been cleared"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've turned off the power to the machines"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire not medical"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

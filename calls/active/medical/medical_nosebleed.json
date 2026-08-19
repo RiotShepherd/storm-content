@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -68,8 +72,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "I've got a nosebleed that won't stop, it's been over half an hour",
-      "I need some advice, my nose has been bleeding for ages and I can't get it to stop"
+      "I've got a nosebleed that won't stop, it's been over half an hour.",
+      "I need some advice, my nose has been bleeding for ages and I can't get it to stop.",
+      "My nose won't stop bleeding, it's been going on a long time now.",
+      "I've had a nosebleed for well over half an hour, I'm not sure what to do.",
+      "It's just a nosebleed, but it's really not stopping, I'm getting worried.",
+      "I'm bleeding from my nose and it's been ages, I can't get it under control.",
+      "My nose started bleeding a while ago and it just won't stop.",
+      "I've been pinching my nose for ages but the bleeding keeps coming back.",
+      "I've got a stubborn nosebleed, nothing I'm doing is stopping it.",
+      "It's a nosebleed, been going on far too long now, I thought I'd call."
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -81,82 +93,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "I've got a nosebleed that won't stop, it's been over half an hour",
-        "I need some advice, my nose has been bleeding for ages and I can't get it to stop"
+        "I've got a nosebleed that won't stop, it's been over half an hour.",
+        "I need some advice, my nose has been bleeding for ages and I can't get it to stop.",
+        "My nose won't stop bleeding, it's been going on a long time now.",
+        "I've had a nosebleed for well over half an hour, I'm not sure what to do.",
+        "It's just a nosebleed, but it's really not stopping, I'm getting worried.",
+        "I'm bleeding from my nose and it's been ages, I can't get it under control.",
+        "My nose started bleeding a while ago and it just won't stop.",
+        "I've been pinching my nose for ages but the bleeding keeps coming back.",
+        "I've got a stubborn nosebleed, nothing I'm doing is stopping it.",
+        "It's a nosebleed, been going on far too long now, I thought I'd call."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, that's me",
-        "It's {{callerName}}"
+        "It's {{callerName}}, that's me.",
+        "{{callerName}}, speaking.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's who's calling.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, it's me you're talking to.",
+        "You can put me down as {{callerName}}.",
+        "{{callerName}}, that's my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm the one who needs help."
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}, that's me.",
+        "{{firstPatientName}}, I'm the one who needs help.",
+        "My name's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's who's calling.",
+        "It's {{firstPatientName}} here.",
+        "{{firstPatientName}}, it's me.",
+        "You can put me down as {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my name.",
+        "It's {{firstPatientName}} calling.",
+        "{{firstPatientName}}, that's me on the phone."
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}",
-        "{{address}}"
+        "We're at {{address}}, I'm on my own here.",
+        "It's {{address}}, I'm on my own here.",
+        "{{address}}, I'm on my own here.",
+        "The address is {{address}}, I'm on my own here.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, I'm on my own here.",
+        "{{address}} is where we are, I'm on my own here.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "It just started on its own, I've been pinching it but it keeps coming"
+        "It just started on its own, I've been pinching it but it keeps coming.",
+        "It started out of nowhere while I was sitting watching telly.",
+        "No cause I can think of, it just started bleeding and hasn't stopped.",
+        "I sneezed a few times and then it just started and won't stop.",
+        "I don't know why, it just began and it's been over half an hour now.",
+        "It started this evening for no reason I can think of.",
+        "It just came on suddenly, no injury or anything, just bleeding.",
+        "No obvious cause, it started and just keeps going.",
+        "It started randomly, I've tried everything to stop it.",
+        "It just began on its own, nothing triggered it that I know of."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, I'm fine in myself, just bleeding"
+        "Yes, I'm fine in myself, just bleeding.",
+        "I'm completely fine, just this nosebleed.",
+        "Yes, wide awake, just fed up with the bleeding.",
+        "I'm totally alert, it's just annoying and messy.",
+        "Yes, I feel fine apart from the nosebleed itself.",
+        "I'm okay in myself, just this won't stop.",
+        "Yes, fine, just a bit light headed from all the blood loss maybe.",
+        "I'm conscious and okay, just this nosebleed's a nuisance.",
+        "Yes, absolutely fine otherwise.",
+        "I'm okay, just tired of pinching my nose for so long."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Normal, just breathing through my mouth a bit.",
+        "Fine, apart from having to breathe through my mouth.",
+        "It's okay, just awkward with my nose blocked.",
+        "Normal, no real problems there.",
+        "Fine, just a bit stuffy from the blood.",
+        "It's fine, breathing through my mouth mostly.",
+        "Normal breathing, nothing concerning.",
+        "Fine, just my nose is blocked with blood.",
+        "Breathing's okay, just uncomfortable with my nose like this."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Not painful, just annoying and messy"
+        "Not painful, just annoying and messy.",
+        "No pain, just a nuisance really.",
+        "It doesn't hurt, just very messy.",
+        "No pain at all, just frustrating.",
+        "Not sore, just constant and annoying.",
+        "No pain, just a lot of blood and mess.",
+        "It's not painful, just won't stop.",
+        "No discomfort really, just messy.",
+        "Not painful at all, just tiring pinching it for so long.",
+        "No pain, just really fed up with it now."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, still bleeding steadily from my nose"
+        "Yes, still bleeding steadily from my nose.",
+        "Yes, it's slowed a bit but still coming.",
+        "Yes, it's dripping fairly steadily.",
+        "Yes, still going, filling up tissues quickly.",
+        "Yes, it just won't fully stop.",
+        "Yes, still bleeding, not as heavy as before though.",
+        "Yes, steady bleeding, I've gone through a lot of tissue.",
+        "Yes, still coming, slower than at first though.",
+        "Yes, it keeps starting again when I let go.",
+        "Yes, still bleeding, it's been ages now."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I'm on blood thinners, warfarin"
+        "I'm on blood thinners, warfarin.",
+        "I take warfarin for my heart.",
+        "I've got a heart condition and take blood thinners.",
+        "I'm on warfarin, that might be why this won't stop.",
+        "I take blood thinning medication regularly.",
+        "I have high blood pressure and I'm on warfarin too.",
+        "I'm on warfarin, prescribed a couple of years ago.",
+        "I take blood thinners daily for a heart issue.",
+        "I've got atrial fibrillation, I'm on warfarin for it.",
+        "I'm on warfarin, that's probably not helping matters."
       ]
     },
     "medications": {
       "answers": [
-        "Warfarin"
+        "Warfarin.",
+        "Just warfarin, I take it every day.",
+        "Warfarin tablets, prescribed by my GP.",
+        "I take warfarin daily.",
+        "Just the warfarin, nothing else regularly.",
+        "Warfarin, that's the main one I take.",
+        "I'm on warfarin, that's it really.",
+        "Warfarin, I've been on it a couple of years.",
+        "Just warfarin tablets.",
+        "Warfarin, once a day."
       ]
     },
     "patientAge": {
       "answers": [
-        "70"
+        "70",
+        "About 70",
+        "70, I think",
+        "{{He}}'s 70 years old",
+        "I believe {{he}}'s 70",
+        "Just turned 70 I think",
+        "70, same age as always",
+        "Around 70, give or take",
+        "{{He}} is 70",
+        "I'd say 70 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep pinching and leaning forward"
+        "Okay, thank you, I'll wait for them.",
+        "Thank you, I'll sit tight until they arrive.",
+        "Okay, that's a relief, how long will they be?",
+        "Thank you, I'll leave the door unlocked for them.",
+        "Okay, I'll stay on the line until they get here.",
+        "Thank you, I'll try to stay calm until they arrive.",
+        "Okay, I'll keep still and wait.",
+        "Thank you, I'll let you know if anything changes.",
+        "Okay, that's good to hear, please hurry.",
+        "Thank you, I'll wait by the window for them."
       ]
     },
     "refer111": {
       "answers": [
-        "If you think 111 would do, I wasn't sure"
+        "If you think 111 would do, I wasn't sure.",
+        "That's fine, I wasn't certain who to call anyway.",
+        "Okay, if that's sensible, I'll wait for 111 to call.",
+        "Alright, I did wonder if this wasn't a 999 job.",
+        "That sounds fine, I'll keep pinching it while I wait.",
+        "Okay, thank you, I wasn't sure this was serious enough.",
+        "Alright, that makes sense given I'm on warfarin though.",
+        "Okay, if you're sure, I'll wait for the call back.",
+        "Alright, thank you, I did think it might just need advice.",
+        "Okay, that's fine, I'll carry on trying to stop it myself."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

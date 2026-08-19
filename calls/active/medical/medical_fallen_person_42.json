@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -70,8 +74,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My neighbour's had a fall in her garden, she's struggling to get up",
-      "There's been a fall next door, an elderly gentleman's on the ground"
+      "My neighbour's had a fall in {{his}} garden, {{he}}'s struggling to get up",
+      "There's been a fall next door, an elderly {{gentleman}}'s on the ground",
+      "My neighbour's fallen in {{his}} garden, {{he}} can't get {{himself}} up",
+      "I've just found my neighbour on the ground, {{he}}'s had a fall",
+      "There's been a fall next door, {{he}}'s an older {{gentleman}}, {{he}}'s stuck",
+      "My neighbour's had a tumble in the garden, {{he}}'s asking for help",
+      "I've heard my neighbour call out, {{he}}'s fallen over outside",
+      "My neighbour's on the ground next door, {{he}}'s had a bad fall",
+      "There's been an accident next door, my neighbour's fallen and can't get up",
+      "My neighbour's fallen in the garden, {{he}}'s a bit shaken but talking"
     ],
     "phoneArea": "auto",
     "callerType": "neighbour"
@@ -83,90 +95,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My neighbour's had a fall in her garden, she's struggling to get up",
-        "There's been a fall next door, an elderly gentleman's on the ground"
+        "My neighbour's had a fall in {{his}} garden, {{he}}'s struggling to get up",
+        "There's been a fall next door, an elderly {{gentleman}}'s on the ground",
+        "My neighbour's fallen in {{his}} garden, {{he}} can't get {{himself}} up",
+        "I've just found my neighbour on the ground, {{he}}'s had a fall",
+        "There's been a fall next door, {{he}}'s an older {{gentleman}}, {{he}}'s stuck",
+        "My neighbour's had a tumble in the garden, {{he}}'s asking for help",
+        "I've heard my neighbour call out, {{he}}'s fallen over outside",
+        "My neighbour's on the ground next door, {{he}}'s had a bad fall",
+        "There's been an accident next door, my neighbour's fallen and can't get up",
+        "My neighbour's fallen in the garden, {{he}}'s a bit shaken but talking"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm the neighbour"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}, lives next door to me"
+        "{{He}}'s my neighbour, {{his}} name's {{firstPatientName}}",
+        "It's {{firstPatientName}}, {{he}} lives next door to me",
+        "{{firstPatientName}}, that's {{him}}, {{he}}'s my neighbour",
+        "{{He}} told me {{his}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s lived next door for years",
+        "It's {{firstPatientName}}, my neighbour, {{he}}'s eighty odd",
+        "{{firstPatientName}} is {{his}} name, {{he}}'s next door",
+        "{{He}}'s called {{firstPatientName}}, {{he}}'s my neighbour",
+        "{{firstPatientName}}, {{he}}'s lived next to us for a long time",
+        "It's {{firstPatientName}}, {{he}}'s our neighbour"
       ]
     },
     "address": {
       "answers": [
         "We're at {{address}}",
-        "{{address}}, in the back garden"
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She tripped over the garden hose and went down, can't get herself up",
-        "He lost his balance getting out of his chair and fell"
+        "{{He}} tripped over something in the garden and went down",
+        "{{He}} lost {{his}} footing on the garden path and fell",
+        "{{He}} was doing some gardening and just went over",
+        "{{He}} slipped on the wet grass and fell awkwardly",
+        "{{He}} caught {{his}} foot on a paving slab and went down",
+        "{{He}} felt dizzy while out in the garden and fell",
+        "{{He}} stumbled over the hosepipe and went down hard",
+        "{{He}} lost {{his}} balance reaching for something and fell",
+        "{{He}} tripped on the step outside and went over",
+        "{{He}} slipped near the shed and couldn't get {{himself}} back up"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake and talking",
-        "Yes, conscious"
+        "Yes, {{he}}'s awake, a bit dazed",
+        "Conscious, yes, {{he}}'s shaken and a bit tearful",
+        "{{He}}'s awake, talking to me but embarrassed",
+        "Yes, {{he}}'s alert, just can't get up",
+        "Conscious, yes, {{he}}'s worried about {{his}} hip",
+        "{{He}}'s awake, a bit confused about what happened",
+        "Yes, {{he}}'s conscious, just very shaken",
+        "{{He}}'s alert, {{he}} keeps apologising, bless {{him}}",
+        "Yes, {{he}}'s talking, just quite shocked",
+        "Conscious, yes, {{he}}'s cold and shaken"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Fine, breathing normally",
-        "No problems there"
+        "Yes, breathing fine, just winded from the fall",
+        "{{He}}'s breathing okay, just shaken",
+        "Fine, {{his}} breathing's normal",
+        "Yes, {{he}}'s breathing normally",
+        "{{His}} breathing seems fine to me",
+        "Yes, no problem breathing",
+        "{{He}}'s breathing okay, a bit out of breath from the shock",
+        "Normal breathing, yes",
+        "Fine, {{he}}'s just shaken, breathing's okay",
+        "Yes, breathing's fine"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her hip is sore",
-        "Yes, his shoulder mainly"
+        "{{He}} says {{his}} hip hurts really badly",
+        "{{He}}'s in a lot of pain in {{his}} hip",
+        "{{He}} won't let me touch {{his}} hip, says it's agony",
+        "Yes, {{he}}'s in pain, {{his}} hip mostly",
+        "{{He}}'s holding {{his}} hip, says it's really sore",
+        "Bad pain in {{his}} hip, {{he}} keeps wincing",
+        "{{He}} says it hurts a lot when {{he}} moves {{his}} hip",
+        "{{His}} hip is really painful, {{he}}'s in a bad way",
+        "Yes, quite a bit of pain, mostly in {{his}} hip",
+        "{{He}} says it's sore all round {{his}} hip"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "A small graze on his elbow"
+        "No bleeding that I can see",
+        "No, there's no blood anywhere",
+        "Doesn't look like it, no cuts or blood",
+        "No, {{he}}'s not bleeding at all",
+        "Not that I can see, no visible blood",
+        "No blood, thankfully",
+        "No, nothing like that, no bleeding",
+        "I don't think so, no blood that I can see",
+        "No, {{he}}'s not cut anywhere",
+        "No bleeding, {{he}} just can't move well"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She's had a hip replacement before",
-        "Not sure, I don't know his full history"
+        "Yes, {{he}}'s got arthritis",
+        "{{He}}'s known with arthritis",
+        "Yes, {{he}} has arthritis, has done for years",
+        "{{He}}'s got arthritis, it's on file with the GP",
+        "Yes, {{he}} suffers with arthritis",
+        "{{He}} has arthritis, diagnosed a while back",
+        "Yes, {{he}}'s had arthritis for some time",
+        "{{He}}'s got a history of arthritis",
+        "Yes, arthritis, {{he}}'s had it for years",
+        "{{He}}'s known to have arthritis"
       ]
     },
     "medications": {
       "answers": [
-        "Not sure what she takes",
-        "Couldn't say"
+        "Yes, {{he}} takes painkillers for {{his}} joints",
+        "{{He}}'s on painkillers for {{his}} joints",
+        "Yes, {{he}} takes painkillers for {{his}} joints regularly",
+        "{{He}}'s prescribed painkillers for {{his}} joints",
+        "Yes, painkillers for {{his}} joints, {{he}} takes it every day",
+        "{{He}} takes painkillers for {{his}} joints for it",
+        "Yes, {{he}}'s on painkillers for {{his}} joints, has been for a while",
+        "{{He}} takes painkillers for {{his}} joints regularly, yes",
+        "Yes, painkillers for {{his}} joints is what {{he}}'s on",
+        "{{He}}'s on painkillers for {{his}} joints at the moment"
       ]
     },
     "patientAge": {
       "answers": [
-        "81"
+        "{{He}}'s 83",
+        "About 83, I think",
+        "{{He}}'s 83 years old",
+        "83, {{he}}'ll be 84 next year",
+        "I think {{he}}'s 83 or thereabouts",
+        "83 years of age",
+        "{{He}}'s in {{his}} 80s, about 83",
+        "Just turned 83",
+        "{{He}}'s 83, always been fit for {{his}} age",
+        "83, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying with her",
-        "I've put a blanket over him, it's chilly out"
+        "Okay, I've got a blanket over {{him}}, {{he}}'s comfortable on the ground",
+        "Right, I'm staying with {{him}} in the garden until you arrive",
+        "I'm keeping {{him}} talking, {{he}}'s a bit shaken but okay",
+        "Okay, I've brought a cushion out for under {{his}} head",
+        "Yes, doing that now, {{he}}'s embarrassed more than hurt",
+        "Okay, I've not tried to move {{him}}, just keeping {{him}} warm",
+        "I'm keeping {{him}} calm, {{he}} keeps apologising for the fuss",
+        "Right, I'm not leaving {{his}} side until help arrives",
+        "Okay, doing that now, {{he}}'s chatting away quite happily",
+        "I'm staying with {{him}}, we'll leave the gate open for you"
       ]
     },
     "refer111": {
       "answers": [
-        "She can't really get up herself, I think it's best you send someone",
-        "Not sure he could get anywhere on his own"
+        "I did wonder about that, but {{he}}'s really not right, can you send someone",
+        "Maybe, but I'd feel better if someone came out",
+        "I'm not sure, {{he}} seems worse than that to me",
+        "Could do, but it's been going on a while now",
+        "I did think about ringing them, but this seemed more urgent",
+        "Possibly, but I'd rather not risk it, can you send someone",
+        "I don't know, {{he}}'s in a fair bit of discomfort",
+        "Maybe not a bad idea, but can you just send someone anyway",
+        "I'm not sure that's enough somehow, {{he}}'s really struggling",
+        "Could be, but it's been hours now, I'd rather someone came out"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we don't need police, it's an ambulance {{he}} needs",
+        "No, no police needed, this is a medical matter, not police",
+        "No thank you, just the ambulance, there's nothing for police here",
+        "No, wrong service, {{he}} just needs medical help, not police",
+        "No police required, {{he}}'s just unwell, we only need paramedics",
+        "No, nothing for police to do here, it's purely medical",
+        "No, we're fine on that front, just the ambulance for {{him}} please",
+        "Police? No, I don't think that's needed, {{he}} just needs help",
+        "No, no crime or anything like that, just an ambulance please",
+        "No police necessary, {{he}} just needs to be seen by paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, we just need an ambulance for {{him}}",
+        "No, no fire brigade needed, it's an ambulance {{he}} needs",
+        "Fire service? No, wrong service, {{he}}'s just unwell",
+        "No, nothing's on fire, {{he}} just needs a paramedic",
+        "No thank you, no need for fire, just the ambulance please",
+        "Fire brigade? No, {{he}}'s not trapped or anything, {{he}}'s just poorly",
+        "No, that's not necessary, {{he}} only needs medical help",
+        "No fire involved, we just need the ambulance to get here",
+        "Fire? No, I don't think that's needed, {{he}} just needs paramedics",
+        "No, no fire service required, it's purely a medical matter"
       ]
     }
   },

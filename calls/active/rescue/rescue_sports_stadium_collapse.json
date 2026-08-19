@@ -49,6 +49,12 @@
     "iccu": 1,
     "fire_officer": 5
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 50,
+    "ambulance": 30,
+    "police": 10
+  },
   "patients": {
     "range": [
       75,
@@ -95,8 +101,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Part of the stand's collapsed, there's hundreds of people down, it's an absolute disaster!",
-      "Emergency, the stadium's partially come down with a full crowd inside, please send everyone you have!"
+      "Part of the stand's collapsed, there's hundreds of people down, please send everyone!",
+      "There's been a structural collapse in the stadium, people are trapped and crushed!",
+      "Help, the stand's come down, there's people trapped under the seating!",
+      "Please, part of the stadium's collapsed, there's mass casualties here!",
+      "The terrace has given way, there's people crushed and trapped everywhere!",
+      "Help, there's been a huge collapse at the stadium, so many people are hurt!",
+      "Please send everyone, part of the stand's come down on the crowd!",
+      "There's been a major incident, the stadium structure's collapsed on spectators!",
+      "Help, the seating's collapsed, there's people trapped and crying out everywhere!",
+      "Please hurry, the stand's come down, there's a huge number of casualties!"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -108,91 +122,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Part of the stand's collapsed, there's hundreds of people down, it's an absolute disaster!",
-        "Emergency, the stadium's partially come down with a full crowd inside, please send everyone you have!"
+        "Part of the stand's collapsed, there's hundreds of people down, please send everyone!",
+        "There's been a structural collapse in the stadium, people are trapped and crushed!",
+        "Help, the stand's come down, there's people trapped under the seating!",
+        "Please, part of the stadium's collapsed, there's mass casualties here!",
+        "The terrace has given way, there's people crushed and trapped everywhere!",
+        "Help, there's been a huge collapse at the stadium, so many people are hurt!",
+        "Please send everyone, part of the stand's come down on the crowd!",
+        "There's been a major incident, the stadium structure's collapsed on spectators!",
+        "Help, the seating's collapsed, there's people trapped and crying out everywhere!",
+        "Please hurry, the stand's come down, there's a huge number of casualties!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm a steward here.",
-        "{{callerName}}, I was sat in the stand when it went."
+        "It's {{callerName}}, I was in the crowd when it happened.",
+        "{{callerName}}, I'm a spectator here.",
+        "My name's {{callerName}}.",
+        "{{callerName}} here, I was sat nearby when the stand came down.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm just one of the crowd.",
+        "My name is {{callerName}}, I was watching the match.",
+        "{{callerName}}, I've stayed to try and help where I can.",
+        "It's {{callerName}}, I saw the whole thing happen.",
+        "{{callerName}} speaking, I'm right by the collapsed section."
       ]
     },
     "patientName": {
       "answers": [
-        "I can't give you names, there's hundreds of people down.",
-        "I don't know, there's too many casualties to say."
+        "There's hundreds of people involved, I can't give you names, sorry.",
+        "No names, there's far too many people caught up in this.",
+        "I don't know anyone's name, it's chaos out here.",
+        "Can't help with names, there's just too many casualties.",
+        "No idea on names, we're trying to get people out.",
+        "Sorry, no names, there's an enormous number of people trapped.",
+        "I can't give you any names, there's crowds of people affected.",
+        "No, there's too many casualties for names right now.",
+        "Sorry, no names, we're just trying to help however we can.",
+        "I don't know any of them, there's just so many people down."
       ]
     },
     "address": {
       "answers": [
-        "It's {{address}}, the stadium.",
-        "{{address}}, the east stand's the part that's come down."
+        "It's {{address}}, the stadium, the collapse is in the main stand.",
+        "{{address}}, come to the stadium, ambulances will need the service road.",
+        "It's {{address}}, use the players entrance, it's clearer.",
+        "{{address}}, the stadium, thousands of people are trying to get out.",
+        "It's {{address}}, access via the away end might be quicker.",
+        "{{address}}, the collapse is on the east stand.",
+        "It's {{address}}, you'll need multiple crews, it's a huge scene.",
+        "{{address}}, I'll try to guide people to the clearer entrance.",
+        "It's {{address}}, the stadium, please send everyone you can.",
+        "{{address}}, there's total chaos, please hurry."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A section of the stand's collapsed with the crowd still in it, there's people trapped under the seating.",
-        "There was a loud crack and part of the stand gave way during the match, hundreds were sat there."
+        "Part of the stand's given way under the weight of the crowd and collapsed.",
+        "There was a loud crack and then the whole section of seating came down.",
+        "It looks like the structure failed and a huge section of the stand collapsed onto people below.",
+        "The terrace's given way, people have fallen and others are trapped under debris.",
+        "There was a surge in the crowd and then part of the stand just collapsed.",
+        "The seating's come away from the structure and crashed down onto spectators.",
+        "It sounded like an explosion and then the whole stand section came down.",
+        "A section of the roof and stand's come down together onto the crowd.",
+        "The stand's collapsed in stages, there's people trapped under multiple levels.",
+        "It looks like a structural failure, a huge part of the stadium's come down."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are conscious and screaming, others aren't moving.",
-        "Loads are shouting for help, but I can see people not moving too."
+        "Most are conscious, screaming and trying to get free, some aren't moving at all.",
+        "There's a mix, some conscious and calling out, others trapped and not moving.",
+        "Many are conscious but trapped, a number look seriously hurt and not responding.",
+        "Some are conscious and shouting, others look unconscious under the debris.",
+        "A lot are conscious, in shock, some are completely still and worrying.",
+        "Most that I can see are conscious, but a few aren't responding at all.",
+        "Some are awake and calling for help, others are trapped and silent.",
+        "There's a real mix, plenty conscious and shouting, some very still.",
+        "Many are conscious, screaming in pain, a number aren't moving.",
+        "Some are alert and talking, others look badly hurt and unresponsive."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I can't tell for everyone, there's too many casualties.",
-        "Some are, others I really don't know."
+        "I can't tell for most of them, there's just too many people.",
+        "Some seem to be breathing, others are trapped and hard to check.",
+        "Can't confirm for everyone, we're trying to reach as many as we can.",
+        "Some look okay breathing wise, others are under the debris and I can't tell.",
+        "Hard to say for the ones trapped deeper in the wreckage.",
+        "Some are clearly breathing and shouting, others I really can't tell.",
+        "I can't check everyone, there's just too many casualties.",
+        "Some seem fine, but for the trapped ones I honestly don't know.",
+        "Can't say for certain, please send everyone you can.",
+        "Some are breathing and conscious, for others it's impossible to tell from here."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "People everywhere are screaming that they're trapped and hurt.",
-        "There's shouting from all over about broken bones and being crushed."
+        "There's people screaming in agony, it looks like broken bones everywhere.",
+        "A huge number are in serious pain, crush injuries by the look of it.",
+        "There's people crying out in pain all over the collapsed section.",
+        "Some have got obvious fractures, they're screaming in pain.",
+        "There's a lot of pain, people trapped under seating and metalwork.",
+        "Many are in agony, it looks like broken limbs everywhere.",
+        "There's serious pain reported, crush injuries from the collapse.",
+        "A lot of them are screaming, it sounds like severe injuries.",
+        "There's people in terrible pain, trapped under the wreckage.",
+        "Many are in agony, it's a horrific scene here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, I can see a lot of blood from where I'm standing.",
-        "Yes, badly, on a number of people."
+        "Yes, there's a lot of bleeding, people cut from the debris and metalwork.",
+        "There's serious bleeding on a number of people, please hurry.",
+        "Yes, quite a few are bleeding badly from the collapse.",
+        "There's blood everywhere, cuts from broken seating and metal.",
+        "Yes, several are bleeding heavily, we're trying to help where we can.",
+        "There's a lot of bleeding, it's a horrific scene here.",
+        "Yes, bleeding on many of them, from cuts and crush injuries.",
+        "There's serious bleeding, please send as many ambulances as you can.",
+        "Yes, quite a lot of blood, mostly from the debris.",
+        "There's bleeding right across the collapsed section, please hurry."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know any of them, it's a huge crowd.",
-        "No idea, there's far too many people involved."
+        "I don't know any of their medical histories, there's just too many people.",
+        "No idea, sorry, we're strangers, all of us caught up in this.",
+        "Can't say, sorry, there's no way to know that for everyone.",
+        "I'm not sure, there's far too many casualties to know.",
+        "I don't have that information, sorry, it's complete chaos here.",
+        "Not sure, sorry, we're just trying to help however we can.",
+        "I couldn't tell you, we're all just spectators caught up in this.",
+        "No idea about medical history, sorry, there's so many people.",
+        "Can't say, sorry, I don't know any of them personally.",
+        "No idea, sorry, we're all strangers caught up in this together."
       ]
     },
     "medications": {
       "answers": [
-        "I've no way of knowing, sorry.",
-        "I can't tell you, there's hundreds of people."
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's far too many people to ask.",
+        "Not a clue, sorry, we're just trying to help where we can.",
+        "I don't know, there's no way to check with everyone.",
+        "No idea on medications, sorry, we're completely overwhelmed here.",
+        "Can't help with that, sorry, I don't know any of them.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's just too many casualties to know that.",
+        "No idea, honestly, we're just trying to get help to them.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "All ages, there were families in that section.",
-        "Mixed, definitely children among them."
+        "All ages, there's children and elderly people caught up in this.",
+        "It's a real mix, families were sat all through that stand.",
+        "Hard to say exactly, there's a huge range from young to old.",
+        "Mostly adults but definitely some children involved too.",
+        "A proper mix, kids up to elderly spectators.",
+        "Can't say exactly, it's every age you can think of.",
+        "There's a broad mix, young families and older fans caught up in this.",
+        "Mostly adults from what I can see, but some children too.",
+        "A mix, teenagers up to elderly, it's a full stand.",
+        "Hard to tell, there's people of all ages trapped here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're trying to help who we can and keep others back.",
-        "Please send everyone, this is huge."
+        "Okay, thank you, we're doing what we can to help people until you arrive.",
+        "Right, please send everyone you can, this is huge.",
+        "Okay, that's good, please hurry, there's so many people hurt.",
+        "Thank you, we'll keep trying to comfort people until help gets here.",
+        "Alright, I'll keep helping where I can until the ambulances arrive.",
+        "Okay, we're trying to keep people calm, please hurry.",
+        "Thank you, that's a relief, please send as many crews as possible.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we'll keep doing what we can until help arrives.",
+        "Thank you, please just get here as fast as you can."
       ]
     },
     "refer111": {
       "answers": [
-        "Are you serious, hundreds of people are hurt here!"
+        "No, this is a mass casualty incident, please send everyone now!",
+        "111 won't help, there's hundreds of people hurt, please send crews!",
+        "No, please, this is a major emergency, people are dying here!",
+        "This can't wait for a callback, it's a huge collapse with mass casualties!",
+        "No, we need every ambulance and fire crew you have, not 111!",
+        "Please, this is critical, hundreds of people are trapped and hurt!",
+        "No, this needs a full emergency response now, not a phone line!",
+        "I don't think 111 can help with something on this scale!",
+        "No, please, we need everyone here right now, it's catastrophic!",
+        "This is far too serious for 111, please send all available help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, we desperately need them to help manage this crowd.",
+        "Right, that's good, please send as many as you can, it's chaos.",
+        "Okay, I'll let them know what's happened when they arrive.",
+        "Thank you, please send them quickly, people are panicking everywhere.",
+        "Alright, we really need help controlling the crowd here.",
+        "Okay, that's a relief, we need them urgently.",
+        "Right, thank you, please send as many officers as possible.",
+        "Okay, good, we desperately need help managing this scene.",
+        "Thank you, please hurry, it's completely out of control here.",
+        "Okay, please send everyone you can, this is a major incident."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, we need them to help free people from the debris.",
+        "Okay, good, please send as many crews as you can.",
+        "Thank you, that's a relief, people are trapped under the wreckage.",
+        "Right, please hurry, there's people trapped everywhere here.",
+        "Okay, thank you, we're trying to help where we safely can.",
+        "Yes please, we desperately need help freeing trapped people.",
+        "Thank you, please send everyone available, this is huge.",
+        "Okay, that's good news, please hurry, it's a horrific scene.",
+        "Right, thank you, we'll keep doing what we can until they arrive.",
+        "Okay, thank you, please send as many crews as possible."
       ]
     }
   },

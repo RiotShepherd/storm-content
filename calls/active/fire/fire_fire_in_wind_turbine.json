@@ -48,6 +48,10 @@
     "single_pump": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6
+  },
   "patients": {
     "range": [
       0,
@@ -79,8 +83,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's a fire at one of the wind turbines out on the ridge, please hurry",
-      "Fire brigade please, one of the wind turbines out on the ridge is on fire, it's a fair height up"
+      "There's a fire on one of the wind turbines, it's right up at the top",
+      "I need the fire brigade, a wind turbine's caught fire, it's very high up",
+      "Fire brigade please, we've got a turbine on fire at the wind farm",
+      "There's smoke coming from the nacelle of one of the turbines",
+      "Please send a crew, one of our turbines is on fire, access is difficult",
+      "We've got a fire at height on a wind turbine, we've cleared the area below",
+      "Fire at the wind farm, one of the turbines is alight near the top",
+      "There's a fire on the turbine, debris could fall so we've kept people away",
+      "Please hurry, our turbine's on fire and it's a long way up",
+      "We've got flames visible right at the top of one of the turbines"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -92,81 +104,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's a fire at one of the wind turbines out on the ridge, please hurry",
-        "Fire brigade please, one of the wind turbines out on the ridge is on fire, it's a fair height up"
+        "There's a fire on one of the wind turbines, it's right up at the top",
+        "I need the fire brigade, a wind turbine's caught fire, it's very high up",
+        "Fire brigade please, we've got a turbine on fire at the wind farm",
+        "There's smoke coming from the nacelle of one of the turbines",
+        "Please send a crew, one of our turbines is on fire, access is difficult",
+        "We've got a fire at height on a wind turbine, we've cleared the area below",
+        "Fire at the wind farm, one of the turbines is alight near the top",
+        "There's a fire on the turbine, debris could fall so we've kept people away",
+        "Please hurry, our turbine's on fire and it's a long way up",
+        "We've got flames visible right at the top of one of the turbines"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I work on the site"
+        "It's {{callerName}}, I'm the site technician here",
+        "{{callerName}}, I work for the operator of the wind farm",
+        "It's {{callerName}}, I'm the duty engineer on site",
+        "{{callerName}} here, I spotted the smoke from the access road",
+        "It's {{callerName}}, I'm responsible for site safety",
+        "My name's {{callerName}}, I manage this site",
+        "It's {{callerName}}, I'm part of the maintenance team",
+        "{{callerName}} speaking, I've cleared the area below the turbine",
+        "It's {{callerName}}, I'm stood well back from the base",
+        "{{callerName}}, I'm the person in charge on site today"
       ]
     },
     "patientName": {
       "answers": [
-        "No, the site was unmanned near the fire, no one's hurt"
+        "No, there's nobody hurt, no one was anywhere near it when it started.",
+        "Nobody to name, there's no injuries at all here.",
+        "No patient, no one's been caught up in it.",
+        "There's no casualties, everyone's well clear.",
+        "No one's hurt, I've not seen anybody near the fire.",
+        "Nobody's involved, there's no one to give a name for.",
+        "No injuries, no one was anywhere near when it caught.",
+        "There's no patient here, nobody's been affected.",
+        "No one's hurt, we're all stood well back from it.",
+        "Nobody at all, there's no casualties to report."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the access track leads right up to it",
-        "It's {{address}}, follow the site road in"
+        "{{address}}, it's the wind farm, come in off the access track",
+        "It's {{address}}, follow the track past the site office",
+        "{{address}}, the affected turbine is the third one along",
+        "It's {{address}}, we've kept the area below it clear",
+        "{{address}}, you'll see the smoke from a distance",
+        "It's {{address}}, please approach from the main gate",
+        "{{address}}, we've got the site access plan ready",
+        "It's {{address}}, keep well back from the base of the turbine",
+        "{{address}}, follow the signs for the wind farm entrance",
+        "It's {{address}}, I'll meet you at the site office"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's smoke and flames coming from one of the wind turbines out on the ridge, I think it's an electrical fault"
+        "The turbine's caught fire near the top, we think it's an electrical or mechanical fault",
+        "There was smoke from the nacelle, then flames, it's very hard to reach up there",
+        "No one's sure of the cause but it's burning right at the top of the structure",
+        "It looks like overheating in the gearbox or generator led to a fire",
+        "We've shut the turbine down remotely but it's still burning up top",
+        "It's an electrical fire at height, there's nothing we can do from the ground",
+        "There's debris falling from the blades as it burns, we've cleared below",
+        "We think a fault in the mechanism caused it, it's spread through the nacelle",
+        "The fire's contained to the top of this one turbine so far",
+        "It started with smoke and has developed into a visible fire at height"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's no one involved, I've not seen anybody hurt"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so nothing to report there.",
+        "Everyone's fine, nobody's anywhere near the fire.",
+        "No casualties at all, no one's been affected.",
+        "There's no patient, nobody's hurt in any way.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved at all.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's genuinely no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, there's nobody to check, it's just the fire"
+        "No one's struggling, it's just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smell that's bothering anyone.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's close enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke at all.",
+        "No breathing problems, nobody's near enough to it.",
+        "We've kept well clear, so no trouble breathing for anyone.",
+        "No one's affected, there's just a smell of smoke in the air.",
+        "Nothing to report, we're all well away from any smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can see"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, so there's nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected by it.",
+        "Not applicable, there's no patient in any pain.",
+        "No injuries, nobody's hurt in any way at all.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries, nobody's here"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all here.",
+        "Not applicable, nobody's been hurt in this.",
+        "No, no one's involved, so there's no injuries.",
+        "No bleeding to report, everyone's well clear.",
+        "No injuries at all, nobody's anywhere near it.",
+        "No, there's no one hurt to report bleeding on.",
+        "Not applicable, no one's been affected by it.",
+        "No, everyone's well away from where it's burning.",
+        "No bleeding, nobody's been caught up in this."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I can't help with that, there's no one hurt"
+        "Not applicable, there's no one hurt.",
+        "No patient, so there's nothing to tell you there.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter here.",
+        "No patient at all, nothing to report on that.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that front.",
+        "Not applicable, nobody's hurt, sorry.",
+        "No patient involved, nothing to tell you there."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's no patient, sorry"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not a medical call.",
+        "No patient at all, nothing to tell you.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected by it.",
+        "No casualty here, so nothing on that.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no one to ask, nobody's been hurt"
+        "There's no patient, nobody's hurt at all.",
+        "No one involved, so no age to give you.",
+        "Not applicable, it's just the fire itself.",
+        "No casualty, there's no one to report on.",
+        "Nobody's hurt, there's no patient here.",
+        "No one's involved, so nothing there, sorry.",
+        "Not applicable, there's no injuries at all.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient at all."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've shut down the equipment remotely",
-        "Please hurry, it's very high up, hard to fight"
+        "Okay, we've shut the turbine down remotely",
+        "Please hurry, it's a long way up and we can't reach it",
+        "Right, we've cleared everyone from below the turbine",
+        "Okay, I've got the maintenance records ready for you",
+        "Understood, we're keeping well back given the falling debris risk",
+        "Alright, nobody's near the base of the turbine now",
+        "Okay, we've isolated power to that turbine fully",
+        "Right, I'll meet you at the access track to guide you in",
+        "Understood, we're staying well clear of the whole area",
+        "Okay, everyone's safely away from that turbine"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's an equipment fire, nobody's hurt"
+        "No, it's a fire at height on the turbine, not a medical matter",
+        "No thank you, this is a fire call, please send the brigade",
+        "No, nobody's hurt, everyone's clear of the area",
+        "No, I need the fire service given the height involved",
+        "No, please just get crews here when you can",
+        "No, this isn't medical, it's a turbine fire at height",
+        "No, there's no injury, everyone's been moved back",
+        "No, it's purely a fire, please treat this carefully",
+        "No, it's a fire call, not something 111 can help with",
+        "No, please hurry, we can't reach it ourselves"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just a fire, no one's caused any trouble",
+        "Oh, are they coming too? I suppose they can keep people back from the smoke",
+        "Police? I was expecting the fire brigade, is that not enough on its own",
+        "That's fine, I expect they'll want to keep the road clear for you",
+        "Police? I hadn't thought we'd need them, but if it helps with traffic that's fine",
+        "I don't think this needs police, it's not a crime, just a fire",
+        "Oh right, I suppose they can close the road off if it comes to that",
+        "Police? There's no one to arrest here, it's only a fire",
+        "That's okay, I imagine they'll help keep an eye on the bystanders gathering",
+        "Police? I wasn't sure that was needed, but thank you for sending them anyway"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, I'll stay well back until they arrive",
+        "That's great, how long roughly until they get here",
+        "Okay, I'll keep clear of the smoke until the crew arrives",
+        "Brilliant, thank you, I'll wait here to point them in the right direction",
+        "Thank goodness, I'll stay a safe distance away until they come",
+        "Okay, I'll wave them down when I see the engine coming",
+        "Thank you, I'll keep everyone else back until they get here",
+        "That's a relief, I'll stay put and keep watching from a distance",
+        "Okay, thank you, I'll make sure the access stays clear for them",
+        "Understood, I'll stay clear and wait for the crew to arrive"
       ]
     }
   },

@@ -50,6 +50,10 @@
     "iccu": 1,
     "fire_officer": 4
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13
+  },
   "patients": {
     "range": [
       0,
@@ -98,8 +102,16 @@
   ],
   "caller": {
     "openings": [
-      "There's a fire at the old heritage building, it's a listed building, please hurry",
-      "Fire brigade, the historic building on the high street is on fire"
+      "There's a fire in the heritage building, please hurry, this place is centuries old",
+      "I need the fire brigade, our listed building's on fire, we've evacuated everyone",
+      "Fire at the historic building on the high street, smoke's coming from the roof timbers",
+      "Please send a crew urgently, this is an irreplaceable listed building and it's on fire",
+      "There's smoke coming from the roof of the old heritage building",
+      "The historic hall's caught fire, we've got everyone out already",
+      "Fire brigade please, it's the listed building, the roof timbers are alight",
+      "There's a fire in our heritage site, the streets around it are quite narrow",
+      "Please hurry, the old building's on fire and it can't be replaced",
+      "There's smoke pouring from the historic building's upper floor"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -111,81 +123,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's a fire at the old heritage building, it's a listed building, please hurry",
-        "Fire brigade, the historic building on the high street is on fire"
+        "There's a fire in the heritage building, please hurry, this place is centuries old",
+        "I need the fire brigade, our listed building's on fire, we've evacuated everyone",
+        "Fire at the historic building on the high street, smoke's coming from the roof timbers",
+        "Please send a crew urgently, this is an irreplaceable listed building and it's on fire",
+        "There's smoke coming from the roof of the old heritage building",
+        "The historic hall's caught fire, we've got everyone out already",
+        "Fire brigade please, it's the listed building, the roof timbers are alight",
+        "There's a fire in our heritage site, the streets around it are quite narrow",
+        "Please hurry, the old building's on fire and it can't be replaced",
+        "There's smoke pouring from the historic building's upper floor"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the caretaker"
+        "It's {{callerName}}, I'm the site manager here",
+        "{{callerName}}, I work at the heritage building",
+        "It's {{callerName}}, I'm on the visitor services team",
+        "{{callerName}} here, I'm the duty custodian",
+        "It's {{callerName}}, I manage the front of house team",
+        "My name's {{callerName}}, I'm part of the trust that runs this site",
+        "It's {{callerName}}, I'm the caretaker for the building",
+        "{{callerName}} speaking, I'm one of the tour guides",
+        "It's {{callerName}}, I'm the events coordinator here",
+        "{{callerName}}, I'm the duty manager for the site today"
       ]
     },
     "patientName": {
       "answers": [
-        "No, the building was closed, there's no one inside"
+        "No, there's nobody hurt, no one was anywhere near it when it started.",
+        "Nobody to name, there's no injuries at all here.",
+        "No patient, no one's been caught up in it.",
+        "There's no casualties, everyone's well clear.",
+        "No one's hurt, I've not seen anybody near the fire.",
+        "Nobody's involved, there's no one to give a name for.",
+        "No injuries, no one was anywhere near when it caught.",
+        "There's no patient here, nobody's been affected.",
+        "No one's hurt, we're all stood well back from it.",
+        "Nobody at all, there's no casualties to report."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the old listed building, you'll recognise it",
-        "It's {{address}}, the heritage building with the blue plaque"
+        "{{address}}, it's the heritage building, the access road is quite narrow",
+        "It's {{address}}, come round to the visitor entrance",
+        "{{address}}, the streets nearby are cobbled and tight for vehicles",
+        "It's {{address}}, we'll have the main gates open for you",
+        "{{address}}, the building's set back off the high street",
+        "It's {{address}}, the smoke's coming from the roof at the far end",
+        "{{address}}, use the service entrance round the side",
+        "It's {{address}}, I'll be outside to direct you in",
+        "{{address}}, it's the listed building next to the church",
+        "It's {{address}}, we've kept the main gates clear for access"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Smoke started coming from the roof timbers, it's an old building so it's going up fast"
+        "Smoke started coming from the roof timbers, we think it may have started in the void space above the ceiling",
+        "We heard cracking overhead and then saw smoke, the building's got a lot of old timber",
+        "It looks like it started in the roof space, we've evacuated everyone immediately",
+        "No one's sure how it started, but it's taken hold in the ceiling void quickly",
+        "We think an electrical fault in the old wiring may have started it",
+        "The fire's in the roof structure, we're worried about the timbers giving way",
+        "It's spreading through the roof space, we can hear it above the main hall",
+        "We noticed smoke first, then a smell of burning wood from up above",
+        "The alarm went off and we found smoke coming from the attic space",
+        "It's early stages but the roof timbers are very old and dry, it could spread fast"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's no one involved, I've not seen anybody hurt"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so nothing to report there.",
+        "Everyone's fine, nobody's anywhere near the fire.",
+        "No casualties at all, no one's been affected.",
+        "There's no patient, nobody's hurt in any way.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved at all.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's genuinely no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, there's nobody to check, it's just the fire"
+        "No one's struggling, it's just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smell that's bothering anyone.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's close enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke at all.",
+        "No breathing problems, nobody's near enough to it.",
+        "We've kept well clear, so no trouble breathing for anyone.",
+        "No one's affected, there's just a smell of smoke in the air.",
+        "Nothing to report, we're all well away from any smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can see"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, so there's nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected by it.",
+        "Not applicable, there's no patient in any pain.",
+        "No injuries, nobody's hurt in any way at all.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries, nobody's here"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all here.",
+        "Not applicable, nobody's been hurt in this.",
+        "No, no one's involved, so there's no injuries.",
+        "No bleeding to report, everyone's well clear.",
+        "No injuries at all, nobody's anywhere near it.",
+        "No, there's no one hurt to report bleeding on.",
+        "Not applicable, no one's been affected by it.",
+        "No, everyone's well away from where it's burning.",
+        "No bleeding, nobody's been caught up in this."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I can't help with that, there's no one hurt"
+        "Not applicable, there's no one hurt.",
+        "No patient, so there's nothing to tell you there.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter here.",
+        "No patient at all, nothing to report on that.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that front.",
+        "Not applicable, nobody's hurt, sorry.",
+        "No patient involved, nothing to tell you there."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's no patient, sorry"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not a medical call.",
+        "No patient at all, nothing to tell you.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected by it.",
+        "No casualty here, so nothing on that.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no one to ask, nobody's been hurt"
+        "There's no patient, nobody's hurt at all.",
+        "No one involved, so no age to give you.",
+        "Not applicable, it's just the fire itself.",
+        "No casualty, there's no one to report on.",
+        "Nobody's hurt, there's no patient here.",
+        "No one's involved, so nothing there, sorry.",
+        "Not applicable, there's no injuries at all.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient at all."
       ]
     },
     "reassure": {
       "answers": [
-        "Alright, I've got the keys if you need them",
-        "Please hurry, this building's centuries old"
+        "Okay, we've got everyone out and accounted for",
+        "Please hurry, the access streets are narrow for your engines",
+        "Right, we're keeping the public well back from the building",
+        "Okay, I've got the collection records ready if needed",
+        "Understood, I'll meet you at the gates to guide you in",
+        "Alright, everyone's assembled safely away from the building",
+        "Okay, we've shut off the gas supply as a precaution",
+        "Right, I'll keep you updated if the smoke gets worse",
+        "Understood, we're staying well clear of the roof area",
+        "Okay, I'm outside now waiting to let you in"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire, nobody's hurt, but we could lose the whole building"
+        "No, it's a building fire, not a medical matter",
+        "No thank you, this is a fire call, please send the brigade",
+        "No, nobody's hurt, everyone's out safely",
+        "No, I need firefighters, not a nurse",
+        "No, please just get the fire brigade here quickly",
+        "No, this isn't medical, it's the roof that's alight",
+        "No, there's no injury, everyone got out in time",
+        "No, it's purely a fire, please hurry, this building's irreplaceable",
+        "No, it's a fire call, not something 111 can help with",
+        "No, please send a crew, we're worried about the timbers"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just a fire, no one's caused any trouble",
+        "Oh, are they coming too? I suppose they can keep people back from the smoke",
+        "Police? I was expecting the fire brigade, is that not enough on its own",
+        "That's fine, I expect they'll want to keep the road clear for you",
+        "Police? I hadn't thought we'd need them, but if it helps with traffic that's fine",
+        "I don't think this needs police, it's not a crime, just a fire",
+        "Oh right, I suppose they can close the road off if it comes to that",
+        "Police? There's no one to arrest here, it's only a fire",
+        "That's okay, I imagine they'll help keep an eye on the bystanders gathering",
+        "Police? I wasn't sure that was needed, but thank you for sending them anyway"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, I'll stay well back until they arrive",
+        "That's great, how long roughly until they get here",
+        "Okay, I'll keep clear of the smoke until the crew arrives",
+        "Brilliant, thank you, I'll wait here to point them in the right direction",
+        "Thank goodness, I'll stay a safe distance away until they come",
+        "Okay, I'll wave them down when I see the engine coming",
+        "Thank you, I'll keep everyone else back until they get here",
+        "That's a relief, I'll stay put and keep watching from a distance",
+        "Okay, thank you, I'll make sure the access stays clear for them",
+        "Understood, I'll stay clear and wait for the crew to arrive"
       ]
     }
   },

@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -79,7 +83,15 @@
   "caller": {
     "openings": [
       "This is Dr Patel at the surgery, I need to arrange an emergency admission for a patient",
-      "It's the practice nurse here, I've got a patient who needs blue lighting to hospital"
+      "It's the practice nurse here, I've got a patient who needs blue lighting to hospital",
+      "This is the GP, I need an ambulance for an urgent admission",
+      "It's the surgery calling, I've got a patient who needs conveying to hospital urgently",
+      "This is Dr Ahmed, I need to arrange an emergency transfer for a patient",
+      "It's the treatment room nurse, I've got a patient needing urgent transport",
+      "This is the on call GP, I need an ambulance for a patient right away",
+      "It's the practice manager, the doctor's asked for an urgent ambulance",
+      "This is the surgery nurse, I've got a patient who needs to go in urgently",
+      "It's Dr Osei calling, I've assessed a patient who needs immediate admission"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -92,81 +104,231 @@
     "start": {
       "answers": [
         "This is Dr Patel at the surgery, I need to arrange an emergency admission for a patient",
-        "It's the practice nurse here, I've got a patient who needs blue lighting to hospital"
+        "It's the practice nurse here, I've got a patient who needs blue lighting to hospital",
+        "This is the GP, I need an ambulance for an urgent admission",
+        "It's the surgery calling, I've got a patient who needs conveying to hospital urgently",
+        "This is Dr Ahmed, I need to arrange an emergency transfer for a patient",
+        "It's the treatment room nurse, I've got a patient needing urgent transport",
+        "This is the on call GP, I need an ambulance for a patient right away",
+        "It's the practice manager, the doctor's asked for an urgent ambulance",
+        "This is the surgery nurse, I've got a patient who needs to go in urgently",
+        "It's Dr Osei calling, I've assessed a patient who needs immediate admission"
       ]
     },
     "callerName": {
       "answers": [
-        "It's Dr {{callerName}} calling from the surgery",
-        "{{callerName}}, I'm the practice nurse"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "The patient's name is {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}, {{he}}'s our patient here",
+        "{{firstPatientName}}, {{he}}'s registered with us",
+        "{{His}} name is {{firstPatientName}}",
+        "{{firstPatientName}}, that's the patient's name",
+        "It's {{firstPatientName}}, {{he}}'s in the treatment room now",
+        "{{firstPatientName}} is the patient I've assessed",
+        "{{firstPatientName}}, {{he}}'s one of our registered patients",
+        "We've got {{him}} down as {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s with me now",
+        "It's {{firstPatientName}}, {{he}}'s the patient requiring admission"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, it's the surgery",
-        "{{address}}, ask at reception"
+        "We're at {{address}}",
+        "It's {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "You'll want {{address}}",
+        "Can you send someone to {{address}}",
+        "We're located at {{address}}",
+        "Sorry, it's {{address}}",
+        "{{address}} is the address",
+        "Send them to {{address}} please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I've assessed the patient and they need urgent admission, observations are deteriorating"
+        "I've assessed {{him}} and {{he}} needs urgent hospital admission, {{his}} obs are concerning",
+        "{{He}} came in with worsening symptoms and I need {{him}} conveyed urgently",
+        "I've examined {{him}} and this needs a same day admission, please blue light {{him}}",
+        "{{His}} condition's deteriorated since {{he}} arrived, {{he}} needs urgent transfer",
+        "I've done a full assessment and {{he}} needs to go straight to hospital",
+        "{{He}}'s presenting with concerning symptoms that need urgent investigation",
+        "I've reviewed {{him}} and {{his}} observations warrant an emergency admission",
+        "{{He}}'s not responding to treatment here, {{he}} needs hospital care now",
+        "I've assessed {{him}} in the treatment room, this needs to be an ambulance transfer",
+        "{{His}} presentation needs urgent hospital assessment, I've made the referral"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, alert but unwell"
+        "Yes, {{he}}'s awake, just feels dreadful",
+        "Conscious, yes, but very weak",
+        "{{He}}'s awake and talking to me, just not right",
+        "Yes, {{he}}'s alert, just really unwell",
+        "Conscious, yes, {{he}}'s pale and sweaty though",
+        "{{He}}'s awake, just very lethargic",
+        "Yes, {{he}}'s conscious, {{his}} colour's not good",
+        "{{He}}'s alert, just says {{he}} feels awful",
+        "Yes, {{he}}'s talking to me, just very tired",
+        "Conscious, yes, but not {{himself}} at all"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing is laboured, sats are dropping"
+        "Yes, {{his}} breathing's fine",
+        "Fine, no problems breathing",
+        "Yes, breathing normally",
+        "{{He}}'s breathing okay",
+        "Normal, as far as I can tell",
+        "Yes, {{he}}'s breathing fine, just unwell",
+        "{{His}} breathing seems okay to me",
+        "Fine, no distress with {{his}} breathing",
+        "Yes, breathing's steady",
+        "{{He}}'s breathing normally, yes"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "They're reporting some discomfort but the main concern is the observations"
+        "No real pain, just feels dreadful all over",
+        "Not pain exactly, just very weak and unwell",
+        "No, {{he}} says {{he}} just feels awful",
+        "No pain as such, just really lethargic",
+        "Not pain, just no energy at all",
+        "No, {{he}}'s not in pain, just very unwell",
+        "No pain, just feels rough and shaky",
+        "Not really, just generally unwell",
+        "No, no pain, {{he}}'s just exhausted",
+        "No pain, {{he}} just seems really off colour"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No, no bleeding, {{he}}'s just unwell",
+        "No blood involved, no",
+        "No, this isn't that kind of thing",
+        "No bleeding, {{he}}'s just really weak",
+        "No, nothing like that at all",
+        "No, {{he}}'s not injured, just poorly",
+        "No blood, no",
+        "Not that I've seen, no",
+        "No, no cuts or blood, {{he}}'s just unwell",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "COPD and type 2 diabetes, it's all in their notes"
+        "Yes, {{he}}'s got several long term conditions, it's all on the referral",
+        "{{He}}'s known with several long term conditions, it's all on the referral",
+        "Yes, {{he}} has several long term conditions, it's all on the referral, has done for years",
+        "{{He}}'s got several long term conditions, it's all on the referral, it's on file with the GP",
+        "Yes, {{he}} suffers with several long term conditions, it's all on the referral",
+        "{{He}} has several long term conditions, it's all on the referral, diagnosed a while back",
+        "Yes, {{he}}'s had several long term conditions, it's all on the referral for some time",
+        "{{He}}'s got a history of several long term conditions, it's all on the referral",
+        "Yes, several long term conditions, it's all on the referral, {{he}}'s had it for years",
+        "{{He}}'s known to have several long term conditions, it's all on the referral"
       ]
     },
     "medications": {
       "answers": [
-        "I'll have the medication list ready for the crew"
+        "Yes, {{he}} takes several regular medications, listed on the referral letter",
+        "{{He}}'s on several regular medications, listed on the referral letter",
+        "Yes, {{he}} takes several regular medications, listed on the referral letter regularly",
+        "{{He}}'s prescribed several regular medications, listed on the referral letter",
+        "Yes, several regular medications, listed on the referral letter, {{he}} takes it every day",
+        "{{He}} takes several regular medications, listed on the referral letter for it",
+        "Yes, {{he}}'s on several regular medications, listed on the referral letter, has been for a while",
+        "{{He}} takes several regular medications, listed on the referral letter regularly, yes",
+        "Yes, several regular medications, listed on the referral letter is what {{he}}'s on",
+        "{{He}}'s on several regular medications, listed on the referral letter at the moment"
       ]
     },
     "patientAge": {
       "answers": [
-        "68"
+        "{{He}}'s 68",
+        "About 68, I think",
+        "{{He}}'s 68 years old",
+        "68, {{he}}'ll be 69 next year",
+        "I think {{he}}'s 68 or thereabouts",
+        "68 years of age",
+        "{{He}}'s in {{his}} 60s, about 68",
+        "Just turned 68",
+        "{{He}}'s 68, always been fit for {{his}} age",
+        "68, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Thank you, I'll stay with them until you arrive"
+        "Understood, I'll have the notes ready for handover",
+        "Yes, I'll stay with {{him}} until the crew arrive",
+        "That's fine, I've got {{him}} on oxygen currently",
+        "Noted, I'll keep monitoring {{his}} obs until they arrive",
+        "Okay, I'll get the referral letter printed for the crew",
+        "Understood, I'll keep {{him}} in the treatment room until they arrive",
+        "That's fine, {{he}}'s stable for now, I'll keep watching {{him}}",
+        "Okay, I'll have {{his}} notes and medication list ready",
+        "Noted, thank you, I'll stay with {{him}} until they arrive",
+        "That's fine, I'll update you if anything changes"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs to be an ambulance, I've already assessed them"
+        "No, this is a clinician to clinician referral, {{he}} needs an ambulance",
+        "No, I'm the one making the referral, this needs blue lighting through",
+        "No, I've already assessed {{him}}, this needs to go via ambulance",
+        "No, this has come from the GP directly, {{he}} needs conveying",
+        "No, this is a direct admission, 111 isn't appropriate here",
+        "No, I'm a clinician, I've already made that call",
+        "No, this needs to be an ambulance, I've done the assessment myself",
+        "No, this is urgent, the doctor wants {{him}} seen today",
+        "No, this bypasses 111, I've already triaged {{him}} here",
+        "No, this is a direct referral, please send an ambulance"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "No, there's nothing for police here, we just need an ambulance for {{him}}",
+        "Police isn't needed, {{he}} just needs medical attention",
+        "No, nothing criminal here, {{he}} just needs to be seen by paramedics",
+        "No police required, this is purely a medical matter",
+        "No, we don't need police, just the ambulance for {{him}} please",
+        "No, that's not necessary here, {{he}} just needs paramedics",
+        "No police involved, we just need the ambulance to attend",
+        "No, nothing to report on that front, {{he}} just needs medical help",
+        "Police isn't needed, no, {{he}}'s just unwell, we need the ambulance",
+        "No, no police required, just the ambulance crew please"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "No, there's no fire here, we just need an ambulance for {{him}}",
+        "Fire service isn't needed, {{he}} just needs medical attention",
+        "No, nothing's on fire, {{he}} just needs to be seen by paramedics",
+        "No fire brigade required, this is purely a medical matter",
+        "No, we don't need fire, just the ambulance for {{him}} please",
+        "No, that's not necessary here, {{he}} just needs paramedics",
+        "No fire involved, we just need the ambulance to attend",
+        "No, nothing to report on that front, {{he}} just needs medical help",
+        "Fire's not needed, no, {{he}}'s just unwell, we need the ambulance",
+        "No, no fire service required, just the ambulance crew please"
       ]
     }
   },

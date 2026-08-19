@@ -22,6 +22,8 @@
     "coastguard_rescue_team": 1,
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {},
   "patients": {
     "range": [
       1,
@@ -68,85 +70,251 @@
   "caller": {
     "openings": [
       "There's a boat sinking off the harbour wall, I can see people in the water!",
-      "Coastguard please, a small yacht's capsized just past the pier"
+      "Coastguard please, a small yacht's capsized just past the pier!",
+      "Help, a boat's gone over out in the bay, there's people in the water!",
+      "Please hurry, I can see a capsized boat and people struggling in the water!",
+      "There's a vessel in trouble out past the harbour, people are in the water!",
+      "Help, a boat's flipped over and I can see people clinging to it!",
+      "Please send the coastguard, a boat's capsized and people are in the sea!",
+      "There's people in the water out by the headland, their boat's gone over!",
+      "Help, I can see a boat upside down and people in the water near it!",
+      "Please hurry, a small boat's capsized and there's people struggling out there!"
     ],
-    "phoneArea": "auto"
+    "phoneArea": "auto",
+    "callerType": "witness"
   },
   "dialogue": {
     "start": {
       "answers": [
-        "Coastguard, there's a boat in trouble, people are in the water"
+        "There's a boat sinking off the harbour wall, I can see people in the water!",
+        "Coastguard please, a small yacht's capsized just past the pier!",
+        "Help, a boat's gone over out in the bay, there's people in the water!",
+        "Please hurry, I can see a capsized boat and people struggling in the water!",
+        "There's a vessel in trouble out past the harbour, people are in the water!",
+        "Help, a boat's flipped over and I can see people clinging to it!",
+        "Please send the coastguard, a boat's capsized and people are in the sea!",
+        "There's people in the water out by the headland, their boat's gone over!",
+        "Help, I can see a boat upside down and people in the water near it!",
+        "Please hurry, a small boat's capsized and there's people struggling out there!"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm on the seafront by the pier"
+        "{{callerName}}, I'm on the seafront by the pier.",
+        "It's {{callerName}}, I was walking along the harbour.",
+        "My name's {{callerName}}.",
+        "{{callerName}} here, I spotted it from the cliff path.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm just a passer by really.",
+        "My name is {{callerName}}, I was out on the boat myself nearby.",
+        "{{callerName}}, I've stayed here watching them.",
+        "It's {{callerName}}, I saw the boat go over.",
+        "{{callerName}} speaking, I'm right on the harbour wall."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know them, I can see three people, maybe four"
+        "I don't know them, I can see three people, maybe four.",
+        "No names, sorry, they're too far out for me to tell who they are.",
+        "I don't know any of them, I just saw the boat go over.",
+        "No idea on names, there's a few of them in the water.",
+        "Sorry, no names, I can't tell who they are from here.",
+        "I can't give you names, I just spotted them struggling.",
+        "No, I don't know them, they're strangers to me.",
+        "Sorry, no names, there's more than one person out there.",
+        "I don't know any of them personally, no.",
+        "No idea, I just saw the boat capsize and people in the water."
       ]
     },
     "address": {
       "revealsAddress": true,
       "answers": [
-        "I'm at {{address}}, they're about two hundred metres out from here"
+        "I'm at {{address}}, they're about two hundred metres out from here.",
+        "{{address}}, come to the harbour, you'll see the boat from there.",
+        "It's {{address}}, the capsized boat's just past the pier.",
+        "{{address}}, I'll point you in the right direction when you arrive.",
+        "I'm at {{address}}, near the lifeboat station.",
+        "{{address}}, it's out past the headland from here.",
+        "It's {{address}}, the harbour wall, I can see them from here.",
+        "{{address}}, I'll stay and keep watching them.",
+        "I'm at {{address}}, please hurry, they're struggling out there.",
+        "{{address}}, the boat's drifting further out as we speak."
       ]
     },
     "whatHappened": {
       "diagnostic": true,
       "answers": [
-        "The boat's gone right over, it's on its side and there are people hanging on to it"
+        "The boat's gone right over, it's on its side and there are people hanging on to it.",
+        "It looks like the boat capsized in the swell, people are in the water now.",
+        "The boat flipped suddenly, I think the wind caught it wrong.",
+        "It looks like the boat took on water and rolled right over.",
+        "The vessel's gone over completely, people are clinging to the hull.",
+        "It capsized quite suddenly, I saw it happen from the shore.",
+        "The boat's turned upside down and people are in the water around it.",
+        "It looks like a wave hit it side on and knocked it right over.",
+        "The boat's rolled over in the swell, people are struggling in the water.",
+        "It capsized out near the headland, people are now in the water."
       ]
     },
     "conscious": {
       "diagnostic": true,
       "answers": [
-        "They're waving and shouting, one of them's stopped waving though"
+        "They're waving and shouting, one of them's stopped waving though.",
+        "Most are conscious and waving, but one looks like they're struggling.",
+        "They're conscious as far as I can see, holding on to the hull.",
+        "Yes, conscious, but some are clearly getting tired.",
+        "They're awake, shouting for help, one's gone quiet though.",
+        "Most conscious that I can see, one looks in trouble.",
+        "Conscious but exhausted, they're struggling to stay afloat.",
+        "Everyone I can see is conscious, just very frightened.",
+        "They're conscious, some worse than others, getting tired fast.",
+        "As far as I know they're all conscious, but one's stopped moving much."
       ]
     },
     "breathing": {
       "diagnostic": true,
       "answers": [
-        "I can't tell from here, they're in the water"
+        "I can't tell from here, they're in the water.",
+        "I honestly don't know, it's hard to see clearly from the shore.",
+        "Can't say, but they're moving around, so I'd guess so.",
+        "I'm not sure, that's why we need you here quickly.",
+        "Can't tell from here, please hurry.",
+        "I don't know, I can see them moving in the water though.",
+        "Hard to say, they're quite far out.",
+        "I can't confirm, but they're clinging on so I'd guess they're okay.",
+        "I don't know, please hurry, one's stopped moving as much.",
+        "Can't tell you, sorry, they're too far out to see clearly."
       ]
     },
     "pain": {
       "answers": [
-        "I can't tell, they're too far out"
+        "I can't tell, they're too far out.",
+        "I don't know, but the cold must be awful for them.",
+        "Can't say, but they look exhausted from the swell.",
+        "I don't know, they're just trying to hang on.",
+        "Can't tell from here, sorry.",
+        "I don't know, but they're clearly struggling.",
+        "Can't say exactly, but the cold water must be affecting them.",
+        "I don't know, they're too far away to tell.",
+        "Can't tell you, sorry, please just hurry.",
+        "I don't know, no idea from this distance."
       ]
     },
     "bleeding": {
       "answers": [
-        "Not that I can see"
+        "Not that I can see.",
+        "I don't think so, but I can't see clearly from here.",
+        "Not that I can tell, no.",
+        "I don't know, they're too far out to see properly.",
+        "Not visible from here, no.",
+        "I can't see any bleeding, no.",
+        "Not that I can tell, sorry.",
+        "I don't know, can't see well enough from the shore.",
+        "Not that I can see, no.",
+        "I can't tell, sorry, they're quite far out."
       ]
     },
     "medicalHistory": {
       "answers": [
-        "No idea, sorry"
+        "No idea, sorry.",
+        "I don't know them, sorry.",
+        "No idea at all, I've never met them.",
+        "Sorry, no idea, they're strangers to me.",
+        "I can't help with that, I don't know them.",
+        "No idea, sorry, I just saw the boat go over.",
+        "I've no idea, they're not people I know.",
+        "Sorry, no, I don't know anything about them.",
+        "No idea at all, sorry.",
+        "Can't say, sorry, I only just spotted them."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know"
+        "I don't know.",
+        "No idea, sorry, I don't know them.",
+        "Not a clue, sorry.",
+        "I don't know, they're strangers to me.",
+        "No idea on that, sorry.",
+        "Can't help with that, sorry.",
+        "I've no idea, sorry.",
+        "Not sure, sorry, I don't know them at all.",
+        "No idea, honestly.",
+        "I couldn't say, sorry."
       ]
     },
     "patientAge": {
       "answers": [
-        "Adults I think, one might be a teenager"
+        "Adults I think, one might be a teenager.",
+        "Hard to say from here, adults mostly I think.",
+        "I'd guess they're all adults, maybe a younger one too.",
+        "Can't tell exactly, but they look like adults to me.",
+        "Adults as far as I can see, maybe a teenager among them.",
+        "I'd say adults, but it's hard to tell from this distance.",
+        "Can't say for certain, mostly adults from what I can see.",
+        "Hard to tell, they're too far out to be sure of ages.",
+        "I'd guess adults, possibly a younger person with them.",
+        "Can't say exactly, they look like adults to me."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay here and keep watching them",
-        "Please hurry, the tide's going out"
+        "Okay, I'll stay here and keep watching them.",
+        "Please hurry, the tide's going out.",
+        "Right, I'll keep an eye on them until you arrive.",
+        "Okay, that's good, please hurry, they're getting tired.",
+        "Thank you, I'll stay right here watching the water.",
+        "Alright, I'll keep watch until the lifeboat gets here.",
+        "Okay, we'll wait here and keep them in sight.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll keep watching them until help arrives."
       ]
     },
     "refer111": {
       "answers": [
-        "What? People are drowning out there!"
+        "What? People are drowning out there!",
+        "No, this can't wait, they're in the water right now!",
+        "No, please, this is an emergency, they need rescuing now!",
+        "111 won't help, they're in the sea, please send the lifeboat!",
+        "No, this is urgent, please don't put me through to 111!",
+        "Please, they're struggling in the water, we need help now!",
+        "No, this needs the coastguard now, not a phone line!",
+        "I don't think 111 can help with people in the sea!",
+        "No, please, we need someone out here right now!",
+        "This is far too serious for 111, please send help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I suppose they'll help keep the harbour clear.",
+        "Right, that's good, though it's really the coastguard we need.",
+        "Okay, I'll let them know when they arrive.",
+        "Thank you, please send them, though the water's the main issue.",
+        "Alright, I'll keep an eye out for them too.",
+        "Okay, that's fine, though I really just need the lifeboat out there.",
+        "Right, thank you, I'll let them know what's happening.",
+        "Okay, good, though it's the coastguard I'm most worried about.",
+        "Thank you, I'll stay put until everyone arrives.",
+        "Okay, please hurry, whoever you can send."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? I think we need the coastguard for this really.",
+        "Okay, if you think that helps, though it's people in the water.",
+        "Alright, whoever can help get them out is welcome.",
+        "Okay, thank you, though I was expecting the coastguard.",
+        "Right, that's fine, just please send someone quickly.",
+        "Okay, understood, whatever gets them out fastest.",
+        "Alright, thank you, I'll wait here watching the water.",
+        "Okay, that's fine by me, please just hurry.",
+        "Right, thank you, whoever comes is very welcome.",
+        "Okay, thank you, please just get someone out to them."
       ]
     }
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
   }
 }

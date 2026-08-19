@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,15 @@
   "caller": {
     "openings": [
       "There's a shipping container on fire on the road",
-      "I need the fire brigade, a storage container's alight, smoke's pouring out"
+      "I need the fire brigade, a storage container's alight, smoke's pouring out",
+      "There's a metal container burning near the industrial units",
+      "Fire brigade please, a container's caught fire, no one's anywhere near it",
+      "I can see a shipping container on fire, flames coming from the doors",
+      "There's a storage container alight on the waste ground",
+      "Fire brigade please, a container's smoking heavily, I think it's on fire inside",
+      "I've spotted a container fire, it's away from any buildings",
+      "There's a container burning, looks like it's been dumped there",
+      "Fire brigade please, smoke's coming from a container by the road"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -80,78 +92,231 @@
     "start": {
       "answers": [
         "There's a shipping container on fire on the road",
-        "I need the fire brigade, a storage container's alight, smoke's pouring out"
+        "I need the fire brigade, a storage container's alight, smoke's pouring out",
+        "There's a metal container burning near the industrial units",
+        "Fire brigade please, a container's caught fire, no one's anywhere near it",
+        "I can see a shipping container on fire, flames coming from the doors",
+        "There's a storage container alight on the waste ground",
+        "Fire brigade please, a container's smoking heavily, I think it's on fire inside",
+        "I've spotted a container fire, it's away from any buildings",
+        "There's a container burning, looks like it's been dumped there",
+        "Fire brigade please, smoke's coming from a container by the road"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I live nearby"
+        "It's {{callerName}}, I was driving past",
+        "{{callerName}}, I live nearby and spotted the smoke",
+        "My name's {{callerName}}, I'm out walking",
+        "It's {{callerName}}, sorry I don't know whose container it is",
+        "{{callerName}} speaking, I work at the unit next door",
+        "Name's {{callerName}}, I noticed it from my window",
+        "It's {{callerName}}, I'm stood a safe distance away",
+        "{{callerName}}, I was jogging past when I saw the smoke",
+        "This is {{callerName}}, I'm parked up near it now",
+        "{{callerName}} here, I can see it clearly from the road"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, no one's near it"
+        "There's nobody hurt, the container fire, no one's near it",
+        "No patient to give a name for, the container fire, no one's near it",
+        "There's no one involved, the container fire, no one's near it",
+        "Nobody's hurt, the container fire, no one's near it",
+        "No casualty at all, the container fire, no one's near it",
+        "There's no one to report, the container fire, no one's near it",
+        "Not applicable, the container fire, no one's near it",
+        "No injuries, the container fire, no one's near it",
+        "Nobody to name, the container fire, no one's near it",
+        "No patient, the container fire, no one's near it"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's on the side road"
+        "{{address}}, the container's just off the road there",
+        "It's {{address}}, you'll see the smoke from a distance",
+        "{{address}}, near the industrial units",
+        "You want {{address}}, it's on the waste ground",
+        "{{address}}, the container's by the fence line",
+        "{{address}}, come from the main road, you can't miss the smoke",
+        "{{address}}, it's the yard with all the containers",
+        "{{address}}, that's the spot, right by the entrance",
+        "{{address}}, please hurry, the smoke's getting thicker",
+        "{{address}}, it's set back from the road a bit"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The container's caught fire, don't know what's stored in it, it's smoking heavily"
+        "No idea what's inside, it's just smoking heavily and now there's flames",
+        "Not sure of the cause, might have been fly tipped and set alight",
+        "Looks like it could be arson, no one's around it",
+        "Not certain, but it's fully alight now, unknown contents",
+        "Could be storage of some kind, whatever's inside is burning well",
+        "No idea, I just saw the smoke and then flames appeared",
+        "Unclear, but the whole container's smoking from the doors",
+        "Might have been deliberately set, there's no one around",
+        "Not sure what's stored in it, but it's well alight",
+        "Unknown cause, it's a good sized fire coming from inside"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, it's unoccupied"
+        "No one's hurt, the container fire, no one's near it",
+        "There's no patient here, the container fire, no one's near it",
+        "Not applicable, the container fire, no one's near it",
+        "Nobody's involved, the container fire, no one's near it",
+        "No injuries at all, the container fire, no one's near it",
+        "No one to check on, the container fire, no one's near it",
+        "There's no casualty, the container fire, no one's near it",
+        "No patient at all, the container fire, no one's near it",
+        "Nobody's hurt, thankfully, the container fire, no one's near it",
+        "No one's affected, the container fire, no one's near it"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, just smoke"
+        "No one to worry about, the container fire, no one's near it",
+        "Not applicable, the container fire, no one's near it",
+        "Nobody's struggling to breathe, the container fire, no one's near it",
+        "No casualty, the container fire, no one's near it",
+        "No one's affected by any smoke, the container fire, no one's near it",
+        "There's no patient, the container fire, no one's near it",
+        "No breathing issues to report, the container fire, no one's near it",
+        "Nobody's been near any smoke, the container fire, no one's near it",
+        "No one's hurt, the container fire, no one's near it",
+        "Not applicable, no one's involved, the container fire, no one's near it"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's in pain, the container fire, no one's near it",
+        "No one's hurt at all, the container fire, no one's near it",
+        "Not applicable, the container fire, no one's near it",
+        "No injuries to report, the container fire, no one's near it",
+        "There's no patient, the container fire, no one's near it",
+        "No one's complaining of anything, the container fire, no one's near it",
+        "Nobody's hurt, the container fire, no one's near it",
+        "No pain to report, the container fire, no one's near it",
+        "Not applicable, no casualty, the container fire, no one's near it",
+        "No one's injured, the container fire, no one's near it"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's involved"
+        "No, no one's involved, the container fire, no one's near it",
+        "No bleeding, there's no patient, the container fire, no one's near it",
+        "Not applicable, the container fire, no one's near it",
+        "No, everyone's uninjured, the container fire, no one's near it",
+        "No, nobody's hurt, the container fire, no one's near it",
+        "No bleeding to report, the container fire, no one's near it",
+        "Not applicable, no casualties, the container fire, no one's near it",
+        "No, no one's been near it, the container fire, no one's near it",
+        "No, we're all fine, the container fire, no one's near it",
+        "No, there's no one injured, the container fire, no one's near it"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient involved"
+        "No patient, the container fire, no one's near it",
+        "Not applicable, the container fire, no one's near it",
+        "No one to give an age for, the container fire, no one's near it",
+        "N/A, the container fire, no one's near it",
+        "No age to give, the container fire, no one's near it",
+        "Not applicable, no one's hurt, the container fire, no one's near it",
+        "No casualty, the container fire, no one's near it",
+        "Nobody's involved, the container fire, no one's near it",
+        "Not applicable at all, the container fire, no one's near it",
+        "No patient to speak of, the container fire, no one's near it"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've moved well away from the smoke"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire not medical"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

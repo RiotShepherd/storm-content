@@ -53,6 +53,11 @@
     "fire_officer": 6,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 15,
+    "police": 8
+  },
   "patients": {
     "range": [
       1,
@@ -108,7 +113,15 @@
   "caller": {
     "openings": [
       "Fire brigade, the tanker's on fire and I think the driver's still in the cab, please hurry.",
-      "There's a tanker alight on the road and someone's trapped, I can hear them shouting."
+      "There's a tanker alight on the road and someone's trapped, I can hear them shouting.",
+      "The tanker's on fire, the driver can't get out, please send help quickly.",
+      "There's a fire on the tanker, I think the driver's still stuck inside the cab.",
+      "Fire service please, a tanker's burning and the driver's trapped, I can see them moving.",
+      "The tanker's well alight and the driver hasn't got out, please hurry.",
+      "There's a serious tanker fire, someone's trapped in the cab, I can hear banging.",
+      "Fire brigade, the tanker's on fire, I think the driver's hurt and can't get free.",
+      "There's a tanker fire and the driver's still inside, please send help now.",
+      "The tanker's alight, the driver's trapped in the cab, I don't know what to do."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -121,82 +134,231 @@
     "start": {
       "answers": [
         "Fire brigade, the tanker's on fire and I think the driver's still in the cab, please hurry.",
-        "There's a tanker alight on the road and someone's trapped, I can hear them shouting."
+        "There's a tanker alight on the road and someone's trapped, I can hear them shouting.",
+        "The tanker's on fire, the driver can't get out, please send help quickly.",
+        "There's a fire on the tanker, I think the driver's still stuck inside the cab.",
+        "Fire service please, a tanker's burning and the driver's trapped, I can see them moving.",
+        "The tanker's well alight and the driver hasn't got out, please hurry.",
+        "There's a serious tanker fire, someone's trapped in the cab, I can hear banging.",
+        "Fire brigade, the tanker's on fire, I think the driver's hurt and can't get free.",
+        "There's a tanker fire and the driver's still inside, please send help now.",
+        "The tanker's alight, the driver's trapped in the cab, I don't know what to do."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know him, he's the lorry driver."
+        "I don't know {{his}} name, sorry, {{he}}'s the driver of the tanker.",
+        "No idea what {{his}} name is, I've never met {{him}} before.",
+        "I can't tell you, I don't know {{him}}, {{he}}'s just the driver.",
+        "Sorry, I don't know {{his}} name, I only just saw the crash happen.",
+        "No, I don't know {{him}}, {{he}}'s a stranger to me, just the tanker driver.",
+        "I've no idea of {{his}} name, sorry, I don't know {{him}} at all.",
+        "Sorry, no name, {{he}}'s just the driver, I don't know {{him}} personally.",
+        "I don't know {{his}} name, I only stopped because I saw the fire.",
+        "No idea, sorry, {{he}}'s a complete stranger to me.",
+        "I can't give you a name, I don't know {{him}}, I just saw {{him}} trapped."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The tanker's on fire and the driver hasn't got out, the cab door looks jammed shut.",
-        "Flames are coming from underneath the tanker and the driver's still inside, banging on the window."
+        "The cab's caught fire and the driver seems trapped, {{he}} can't get the door open from what I can see.",
+        "The tanker's on fire near the cab, the driver's shouting but {{he}} can't get the door open.",
+        "It looks like the crash has jammed the door, the driver's stuck and the fire's spreading towards {{him}}.",
+        "The fire's spreading along the tanker, the driver's still inside and doesn't seem able to move.",
+        "I think the cab's twisted from the crash, the driver's trapped and the fire's getting close to {{him}}.",
+        "The driver's conscious and shouting but can't free {{himself}} from the cab.",
+        "It's spreading fast towards the cab, the driver's trapped and I'm really worried for {{him}}.",
+        "The door's jammed shut, the driver's banging on the window trying to get out.",
+        "The fire started at the back and it's working its way towards the cab where the driver's trapped.",
+        "I can see the driver moving but {{he}} can't get the door open, the fire's getting closer."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious, I can hear him shouting from inside the cab."
+        "Yes, {{he}}'s conscious, {{he}}'s shouting and banging on the window.",
+        "{{He}}'s conscious, I can see {{him}} moving about in the cab.",
+        "Yes, {{he}}'s awake, {{he}} keeps trying to force the door open.",
+        "{{He}}'s conscious and clearly very frightened.",
+        "Yes, {{he}}'s conscious, {{he}}'s shouting for help.",
+        "{{He}}'s awake and moving, {{he}} just can't get free.",
+        "Yes, conscious, {{he}}'s banging on the glass trying to get out.",
+        "{{He}}'s conscious but really panicking, understandably.",
+        "Yes, {{he}}'s awake, I can hear {{him}} shouting.",
+        "{{He}}'s conscious, {{he}} keeps trying the door but it won't budge."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He's coughing a lot, the smoke's getting into the cab."
+        "{{He}} seems to be breathing okay, {{he}}'s shouting loudly enough.",
+        "I think {{he}}'s breathing fine, {{he}}'s definitely got enough air to shout.",
+        "{{He}} sounds okay for breathing, but the smoke's getting closer to {{him}}.",
+        "{{He}}'s breathing fine as far as I can tell from out here.",
+        "I can't be certain, but {{he}}'s shouting clearly enough.",
+        "{{He}} seems okay for now, but the smoke's a worry the longer this goes on.",
+        "I think {{his}} breathing's fine, {{he}}'s definitely conscious and shouting.",
+        "{{He}}'s breathing okay from what I can hear, {{he}}'s shouting for help.",
+        "I can't tell for certain, but {{he}} sounds strong enough shouting.",
+        "{{He}} seems to be breathing fine, it's the fire that's the worry now."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's shouting that his leg's trapped."
+        "I don't know if {{he}}'s in pain, {{he}}'s mostly just shouting to get out.",
+        "I can't tell, {{he}}'s too far away for me to see clearly.",
+        "{{He}} might be hurt from the crash, I really can't tell from here.",
+        "I don't know, {{he}}'s focused on trying to get the door open.",
+        "Can't say, {{he}}'s shouting but I don't know if {{he}}'s injured.",
+        "I've no idea if {{he}}'s in pain, {{he}}'s trapped, that's all I know.",
+        "I can't tell from here, {{he}} might have hurt {{himself}} in the crash.",
+        "I don't know, sorry, {{he}}'s just trying to get free right now.",
+        "Can't say for certain, {{he}} could be injured from the impact.",
+        "I really don't know, {{he}}'s too far for me to see properly."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I can't see from here, sorry."
+        "I can't tell, {{he}}'s too far away and it's hard to see clearly.",
+        "I don't know, sorry, I can't see {{him}} well enough from here.",
+        "Can't say, {{he}}'s in the cab and I can't get close enough to check.",
+        "I've no idea, sorry, I'm keeping well back because of the fire.",
+        "I can't tell from this distance, sorry.",
+        "I don't know, sorry, {{he}}'s trapped and I can't get near enough.",
+        "Can't say for certain, I'm too far back to see properly.",
+        "I don't know, sorry, the smoke's making it hard to see {{him}} clearly.",
+        "I can't tell, sorry, I'm keeping my distance because of the flames.",
+        "No idea, sorry, I really can't see well enough from here."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him, I've just stopped to help."
+        "I don't know {{him}} at all, sorry, I can't help with that.",
+        "No idea, sorry, {{he}}'s a complete stranger to me.",
+        "I couldn't say, sorry, I don't know {{him}} personally.",
+        "Sorry, no idea, I only just came across this.",
+        "I don't know {{his}} history, sorry, I don't know {{him}}.",
+        "No idea at all, sorry, I've never met {{him}} before.",
+        "Sorry, I can't help, I don't know {{him}} or anything about {{him}}.",
+        "I couldn't tell you, sorry, {{he}}'s a stranger to me.",
+        "No idea, sorry, I only saw {{him}} trapped in the cab.",
+        "Sorry, I don't know anything about {{him}}, I just stopped to help."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry."
+        "No idea, sorry, I don't know {{him}} at all.",
+        "I couldn't say, sorry, {{he}}'s a stranger to me.",
+        "No idea what {{he}} takes, sorry, I don't know {{him}}.",
+        "Sorry, I can't help, I don't know {{him}} personally.",
+        "No idea, sorry, I've never met {{him}} before today.",
+        "I couldn't tell you, sorry, {{he}}'s not someone I know.",
+        "Sorry, no idea, I just saw the fire and stopped.",
+        "No idea at all, sorry, I don't know anything about {{him}}.",
+        "I can't say, sorry, {{he}}'s a complete stranger to me.",
+        "No idea, sorry, I only know {{he}}'s the driver."
       ]
     },
     "patientAge": {
       "answers": [
-        "Hard to say, sounded like a grown man on the radio he was shouting into."
+        "I'd guess {{he}}'s maybe forties, but I really can't be sure.",
+        "Hard to say, maybe thirties or forties from what I can see.",
+        "I can't tell exactly, {{he}} looks middle aged to me.",
+        "I'd guess forties, but honestly I'm not certain from here.",
+        "Hard to say for sure, maybe thirties, I can't see {{him}} clearly.",
+        "I really couldn't say, {{he}}'s too far away to tell properly.",
+        "Maybe forties, but that's just a guess from this distance.",
+        "I can't tell exactly, {{he}} looks like a working age adult.",
+        "Hard to say, could be anywhere from thirty to fifty.",
+        "I really can't tell from here, sorry, maybe middle aged."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Thank you, please hurry, {{he}}'s still trapped and the fire's close.",
+        "Okay, thank you, please tell them to hurry, {{he}} needs help fast.",
+        "Thank you, that's good, {{he}}'s still shouting so {{he}}'s still with us.",
+        "Right, thank you, please hurry, the fire's getting nearer to {{him}}.",
+        "Okay, thank you, I'll stay on the line and let you know if anything changes.",
+        "Thank you, please hurry, I don't know how much longer {{he}} can hold on.",
+        "Okay, good, please send them quickly, this is really serious.",
+        "Thank you, {{he}}'s still conscious, please hurry.",
+        "Right, thank you, I'm staying well back but watching {{him}}.",
+        "Okay, thank you, please hurry, {{he}} really needs help now."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, yes, we need the road closed, traffic's backing up.",
+        "Thank you, someone needs to stop cars getting close to it.",
+        "Yes please, it's a busy road, we need it shut properly.",
+        "Good, we could use them keeping people back from the tanker.",
+        "Thank you, the traffic's building up fast behind it.",
+        "Yes, good, please tell them to hurry, this needs the road closed.",
+        "Good, someone should redirect traffic away from this stretch.",
+        "Thank you, it's not safe with cars still passing.",
+        "Yes please, we need this road controlled properly.",
+        "Good, I'll stay well back and wait for them."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, the fire's getting closer to the cab.",
+        "Good, thank you, they need to get {{him}} out quickly.",
+        "Okay, thank you, please tell them to hurry, it's really serious.",
+        "Right, thank you, {{he}}'s still trapped, please hurry them along.",
+        "Thank you, that's good to hear, please hurry, the fire's spreading.",
+        "Okay, good, we really need them here fast for {{him}}.",
+        "Thanks, I'll stay well back and keep watching until they arrive.",
+        "That's a relief, please hurry, {{he}}'s still stuck in there.",
+        "Okay, thank you, please get them here as quickly as you can.",
+        "Good, thank you, {{he}} really needs them to hurry."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, {{he}}'s trapped in a burning tanker, this can't wait for 111.",
+        "No, this is an emergency, {{he}} needs fire and ambulance now.",
+        "No, please, {{he}}'s stuck and the fire's spreading, send help now.",
+        "No, 111 can't help with this, {{he}}'s trapped and in danger.",
+        "No, this needs an emergency response right now, not 111.",
+        "No, please hurry, {{he}} can't get out and the fire's close.",
+        "No, this is far too serious for 111, please send crews now.",
+        "No, {{he}} needs help immediately, please don't refer this to 111.",
+        "No, please, {{he}}'s trapped, this needs a proper response now.",
+        "No, this can't wait, {{he}}'s in real danger right now."
       ]
     }
   },

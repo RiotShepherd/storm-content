@@ -45,6 +45,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 4
+  },
   "patients": {
     "range": [
       1,
@@ -79,8 +83,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Please help, my husband's got terrible burns, third degree I think",
-      "There's been an accident, he's badly burned, please hurry"
+      "Please help, my {{husband}}'s got terrible burns, third degree I think",
+      "There's been an accident, {{he}}'s badly burned, please hurry",
+      "Please, my {{husband}}'s been badly burned, it looks really serious",
+      "{{He}}'s got severe burns, please send an ambulance quickly",
+      "There's been a bad accident, my {{husband}}'s burned really badly",
+      "Please hurry, {{his}} burns look awful, the skin's gone white and leathery",
+      "My {{husband}}'s been burned really badly, please, I don't know what to do",
+      "Please send help fast, {{he}}'s got deep burns and {{he}}'s in agony",
+      "There's been an accident, my {{husband}}'s burns look really severe",
+      "Please, {{he}}'s badly burned, I need an ambulance right now"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -92,91 +104,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Please help, my husband's got terrible burns, third degree I think",
-        "There's been an accident, he's badly burned, please hurry"
+        "Please help, my {{husband}}'s got terrible burns, third degree I think",
+        "There's been an accident, {{he}}'s badly burned, please hurry",
+        "Please, my {{husband}}'s been badly burned, it looks really serious",
+        "{{He}}'s got severe burns, please send an ambulance quickly",
+        "There's been a bad accident, my {{husband}}'s burned really badly",
+        "Please hurry, {{his}} burns look awful, the skin's gone white and leathery",
+        "My {{husband}}'s been burned really badly, please, I don't know what to do",
+        "Please send help fast, {{he}}'s got deep burns and {{he}}'s in agony",
+        "There's been an accident, my {{husband}}'s burns look really severe",
+        "Please, {{he}}'s badly burned, I need an ambulance right now"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}",
-        "{{callerName}}, I'm with him"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}, he's in so much pain"
+        "It's {{firstPatientName}}, please hurry",
+        "{{His}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s my {{husband}}",
+        "It's {{firstPatientName}}, please send someone quickly",
+        "{{firstPatientName}}, that's {{his}} name",
+        "{{He}}'s called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name, please hurry",
+        "It's {{firstPatientName}}, I'm {{his}} {{callerSpouse}}",
+        "{{firstPatientName}}, please, {{he}}'s in so much pain",
+        "{{firstPatientName}}, please send an ambulance now"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, hurry please"
+        "It's {{address}}, please hurry",
+        "{{address}}, quickly please",
+        "We're at {{address}}, please send someone fast",
+        "The address is {{address}}, please hurry",
+        "{{address}}, at home, please hurry",
+        "It's {{address}}, oh please be quick",
+        "{{address}}, come quickly please",
+        "{{address}} is the address, please hurry",
+        "Please, it's {{address}}",
+        "{{address}}, at home, quickly please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Boiling water went over his arm and chest, the skin's blistered and white in places",
-        "He's been burned badly, the skin looks charred in places"
+        "{{He}} was working with something hot and it went badly wrong",
+        "There was an accident and {{he}}'s ended up with deep burns",
+        "{{He}} got caught by something very hot, the burns look severe",
+        "{{He}} was burned in an accident a few minutes ago",
+        "Something hot caught {{him}}, the skin's badly damaged",
+        "{{He}} had an accident and now has deep, serious burns",
+        "It happened so fast, {{he}}'s got terrible burns now",
+        "{{He}} was burned badly, the skin looks white and leathery in places",
+        "There was an accident just now, {{his}} burns look very deep",
+        "{{He}} got badly burned a short while ago, it looks serious"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's awake and in agony",
-        "Yes, conscious but going into shock I think"
+        "Yes, {{he}}'s conscious but in terrible pain",
+        "{{He}}'s awake, {{he}}'s shaking badly though",
+        "Yes, conscious, but {{he}}'s going into shock I think",
+        "{{He}}'s awake and talking, but clearly in agony",
+        "Yes, {{he}}'s conscious, {{he}}'s very pale though",
+        "Conscious, but {{he}}'s trembling and cold to touch",
+        "Yes, {{he}}'s awake, {{his}} breathing seems fast",
+        "{{He}}'s conscious, but {{he}} looks like {{he}}'s going into shock",
+        "Yes, awake and responding, but in severe pain",
+        "Conscious, {{he}}'s very shaky and pale"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing okay for now",
-        "A bit fast, he's panicking"
+        "{{He}}'s breathing but it's fast and shallow",
+        "Yes, breathing, but {{he}}'s panting with the pain",
+        "{{He}}'s breathing quickly, {{he}}'s in shock I think",
+        "Yes, {{he}}'s breathing, just very rapid",
+        "{{He}}'s breathing okay for now, but quickly",
+        "Breathing's fast, {{he}}'s clearly in a lot of distress",
+        "Yes, {{he}}'s breathing, {{his}} breaths are quite shallow",
+        "{{He}}'s breathing, but I'm worried, it's very rapid",
+        "Yes, breathing fine for now but very fast",
+        "{{He}}'s breathing, please just hurry, {{he}}'s in agony"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Terrible, he's screaming",
-        "Very severe, worst I've ever seen"
+        "Yes, {{he}}'s screaming in pain",
+        "{{He}}'s in absolute agony, please hurry",
+        "Yes, terrible pain, {{he}} can barely speak from it",
+        "{{He}}'s in so much pain, I don't know how to help {{him}}",
+        "Yes, {{he}}'s in severe pain, {{he}}'s crying out",
+        "{{He}}'s in agony, the burns are so deep",
+        "Yes, awful pain, {{he}} keeps saying it's unbearable",
+        "{{He}}'s screaming, please, the pain's terrible",
+        "Yes, severe pain, {{he}}'s shaking with it",
+        "{{He}}'s in real agony, please send someone fast"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, just the burns",
-        "No"
+        "No bleeding, it's burns, the skin's badly damaged though",
+        "No, not bleeding, but the burns look really deep",
+        "No bleeding, just the burns, they look very serious",
+        "No, it's not bleeding, the skin's just badly burned",
+        "No bleeding as such, but the burns are severe",
+        "No, no bleeding, the burnt skin looks white in places",
+        "No bleeding, just terrible burns across {{his}} arm",
+        "No, not bleeding, the burns are the main concern",
+        "No bleeding, but {{his}} skin looks really badly damaged",
+        "No, no bleeding, just these awful deep burns"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No, nothing that I know of",
-        "Not that I'm aware of"
+        "No, {{he}}'s normally fit and healthy",
+        "Nothing that I know of, no health problems",
+        "No, {{he}}'s never had any serious health issues",
+        "No history that I'm aware of, {{he}}'s usually fine",
+        "No, nothing at all, {{he}}'s always been healthy",
+        "No medical history to speak of",
+        "No, {{he}}'s got no health conditions I know of",
+        "Nothing, {{he}}'s generally in good health",
+        "No, no history, {{he}}'s never been ill",
+        "No, {{he}}'s fit and well normally"
       ]
     },
     "medications": {
       "answers": [
-        "None that I know of",
-        "No regular medication"
+        "No, {{he}} doesn't take anything",
+        "No medications, {{he}}'s not on anything",
+        "No, {{he}} doesn't take any regular medication",
+        "Nothing, {{he}}'s not on any tablets",
+        "No, {{he}}'s not on any medication at all",
+        "No medications that I know of",
+        "No, nothing regular, {{he}}'s not on anything",
+        "No, {{he}} doesn't take any medication",
+        "Nothing at all, {{he}}'s not on tablets",
+        "No, {{he}}'s not on any medication"
       ]
     },
     "patientAge": {
       "answers": [
-        "47"
+        "{{He}}'s in {{his}} fifties",
+        "{{He}}'s fifty four",
+        "I'd say {{he}}'s about fifty five",
+        "{{He}}'s in {{his}} mid fifties",
+        "About fifty three, I think",
+        "{{He}}'s in {{his}} fifties, fit and healthy normally",
+        "{{He}}'s fifty six",
+        "{{He}}'s in {{his}} late fifties",
+        "{{He}}'s around fifty four or five",
+        "{{He}}'s fifty two, I believe"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've run cool water over it like you said",
-        "I'm trying, he's in so much pain"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs an ambulance now, look at the burns",
-        "Absolutely not, this is serious"
+        "No, please, this can't wait for a call back, it's urgent",
+        "No, I really think this needs someone out straight away",
+        "No, please don't put this through to 111, it's serious",
+        "No, this needs an ambulance now, not a call back later",
+        "No, please, I don't think this can wait at all",
+        "No, I'm not happy waiting for 111 to call back on this",
+        "No, please send someone now, this feels really serious",
+        "No, this is urgent, we can't wait for a call back",
+        "No, please, I really think this needs seeing to now",
+        "No, I don't think 111 is enough for this, please send someone"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

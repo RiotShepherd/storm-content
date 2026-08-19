@@ -41,6 +41,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -64,7 +68,14 @@
     "openings": [
       "Police please, we've stopped a fan trying to bring a flare into the stadium",
       "Security here, we've caught someone with a smoke flare at the turnstiles",
-      "There's a fan here who tried to sneak a flare in, we've got him detained"
+      "There's a fan here who tried to sneak a flare in, we've got {{him}} detained",
+      "Police, we've found a flare on a supporter at the entrance",
+      "I need to report, we've stopped someone with a pyrotechnic device at the gate",
+      "Security, we've caught a fan with a flare hidden in {{his}} jacket",
+      "There's someone here who tried to bring a smoke flare into the ground",
+      "I need police, we've detained a fan found with a flare at the turnstiles",
+      "There's a supporter here we've stopped with a flare, {{he}}'s not happy",
+      "Police please, we've caught a fan trying to smuggle a flare inside"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -78,90 +89,230 @@
       "answers": [
         "Police please, we've stopped a fan trying to bring a flare into the stadium",
         "Security here, we've caught someone with a smoke flare at the turnstiles",
-        "There's a fan here who tried to sneak a flare in, we've got him detained"
+        "There's a fan here who tried to sneak a flare in, we've got {{him}} detained",
+        "Police, we've found a flare on a supporter at the entrance",
+        "I need to report, we've stopped someone with a pyrotechnic device at the gate",
+        "Security, we've caught a fan with a flare hidden in {{his}} jacket",
+        "There's someone here who tried to bring a smoke flare into the ground",
+        "I need police, we've detained a fan found with a flare at the turnstiles",
+        "There's a supporter here we've stopped with a flare, {{he}}'s not happy",
+        "Police please, we've caught a fan trying to smuggle a flare inside"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm on stadium security",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I work here.",
+        "{{callerName}}, I'm a member of staff.",
+        "My name's {{callerName}}, I'm on shift here.",
+        "It's {{callerName}}, I'm the duty manager.",
+        "{{callerName}} here, I work on site.",
+        "You can put me down as {{callerName}}, I'm staff.",
+        "It's {{callerName}}, I'm working today.",
+        "{{callerName}} speaking, I'm employed here.",
+        "My name is {{callerName}}, I'm behind the counter.",
+        "It's {{callerName}}, I'm part of the team here."
       ]
     },
     "patientName": {
       "answers": [
-        "He's not giving his name, won't cooperate",
-        "Won't tell us his name"
+        "I don't know {{his}} name, I've never seen {{him}} before.",
+        "No idea what {{he}}'s called, {{he}}'s a stranger to me.",
+        "I don't know {{him}}, so I can't tell you {{his}} name.",
+        "No name I'm afraid, I've not met {{him}} before today.",
+        "I can't tell you {{his}} name, I don't recognise {{him}}.",
+        "Sorry, I don't know {{him}} at all.",
+        "No idea, {{he}}'s not someone I know.",
+        "I don't have a name for {{him}}, never seen {{him}} round here.",
+        "Can't help with a name, I don't know {{him}} personally.",
+        "No, I've no idea what {{his}} name is."
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, it's the turnstile at the east entrance",
-        "We're at {{address}}"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "We found a flare hidden in his jacket during the bag check",
-        "He tried to push past when we found it on him",
-        "It's a pyrotechnic flare, we've confiscated it and he's not happy about it"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's fine, just angry about being stopped",
-        "Conscious, arguing with our staff"
+        "{{He}}'s wide awake, no injuries at all, just being difficult.",
+        "Nobody's hurt, {{he}}'s fully alert and causing trouble.",
+        "{{He}}'s fine, no injuries, just refusing to leave.",
+        "No injuries, {{he}}'s stood right there, completely conscious.",
+        "{{He}}'s not hurt at all, just very uncooperative.",
+        "No one's injured, {{he}}'s perfectly alert.",
+        "{{He}}'s conscious and unhurt, just kicking off.",
+        "Nobody's hurt, {{he}}'s awake and shouting the odds.",
+        "{{He}}'s fine physically, no injuries to speak of.",
+        "No injuries at all, {{he}}'s just being a nuisance."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "He's fine physically"
+        "{{He}}'s breathing fine, no injuries here.",
+        "No problems breathing, {{he}}'s not hurt.",
+        "{{He}}'s fine, breathing normally, nobody's hurt.",
+        "No issues there, {{he}}'s not injured.",
+        "{{He}}'s breathing okay, this isn't a medical matter.",
+        "Nobody's hurt, {{his}} breathing's fine.",
+        "{{He}}'s not struggling at all, no injuries.",
+        "No, {{he}}'s breathing normally, just being difficult.",
+        "{{He}}'s fine, no breathing problems at all.",
+        "Not an issue, {{he}}'s not hurt."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A, no one's hurt",
-        "No injuries"
+        "No pain, {{he}}'s not injured.",
+        "{{He}}'s not in any pain, nobody's hurt.",
+        "No, {{he}}'s fine, this isn't a medical thing.",
+        "{{He}} says {{he}}'s not hurt, just angry.",
+        "No pain that I can see, {{he}}'s unhurt.",
+        "{{He}}'s not injured, no pain involved.",
+        "Nobody's hurt, so no pain to report.",
+        "{{He}}'s fine, no pain, just being aggressive.",
+        "No, {{he}} isn't hurt at all.",
+        "Not that I can tell, {{he}}'s not injured."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No, {{he}}'s not bleeding, {{he}}'s not hurt.",
+        "None that I can see, {{he}}'s unhurt.",
+        "No injuries, {{he}}'s not bleeding at all.",
+        "No, nobody's hurt, {{he}}'s fine.",
+        "Not that I can see, {{he}}'s uninjured.",
+        "No bleeding, {{he}}'s not hurt.",
+        "None, {{he}}'s completely unhurt.",
+        "No, {{he}}'s fine, no blood at all.",
+        "Not at all, {{he}}'s uninjured.",
+        "No, there's no injury on {{him}} at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No idea, don't know him",
-        "Not applicable"
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, {{he}}'s a stranger to me.",
+        "No idea about {{his}} health, I don't know {{him}}.",
+        "I've no idea, never met {{him}} before.",
+        "Can't help, I don't know anything about {{him}}.",
+        "No idea, this isn't really medical anyway.",
+        "I wouldn't know, {{he}}'s not hurt anyway.",
+        "No idea about {{him}} at all, sorry.",
+        "Couldn't say, I don't know {{his}} background.",
+        "No idea, I've never spoken to {{him}} before today."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Not applicable"
+        "No idea, I don't know {{him}}.",
+        "Couldn't tell you, {{he}}'s a stranger to me.",
+        "No idea what {{he}} takes, I don't know {{him}}.",
+        "I've no clue, never met {{him}} before.",
+        "Can't help with that, sorry.",
+        "No idea, this isn't medical, {{he}}'s just causing trouble.",
+        "I wouldn't know, {{he}}'s not hurt anyway.",
+        "No idea about {{him}} at all.",
+        "Couldn't say, I don't know {{him}} personally.",
+        "No idea, never spoken to {{him}} before."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks about twenty"
+        "{{He}} looks to be in {{his}} thirties, hard to say exactly.",
+        "Maybe mid twenties, I'm only guessing.",
+        "I'd guess {{he}}'s in {{his}} forties.",
+        "Hard to say, maybe late twenties.",
+        "{{He}} looks around thirty to me.",
+        "I'd say {{he}}'s in {{his}} twenties, could be wrong.",
+        "Somewhere in {{his}} thirties I'd guess.",
+        "Hard to tell, maybe mid forties.",
+        "{{He}} looks about twenty five, roughly.",
+        "I'm only guessing, but maybe {{his}} late thirties."
       ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's where I am.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, that's the address.",
+        "We're at {{address}}.",
+        "It's {{address}}, you can't miss it.",
+        "{{address}}, that's the postcode.",
+        "The address is {{address}}.",
+        "{{address}}, I'll wait for you here.",
+        "It's {{address}}, that's the spot.",
+        "{{address}}, that's it exactly."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "{{He}} had a flare hidden inside {{his}} jacket, our search found it at the turnstile",
+        "{{He}} tried to walk through with a smoke flare taped to {{his}} leg",
+        "One of our stewards spotted the flare in {{his}} bag during the search",
+        "{{He}} was pretty aggressive when we found the flare and tried to walk off",
+        "{{He}} had it wrapped up at the bottom of {{his}} rucksack, we found it in the bag check",
+        "We caught {{him}} trying to pass a flare to a friend already inside",
+        "{{He}} was carrying it in {{his}} sock, our steward noticed the bulge",
+        "{{He}} tried to bluff {{his}} way past but the flare fell out of {{his}} coat",
+        "{{He}}'s refusing to hand over ID after we found the flare on {{him}}",
+        "{{He}} had two flares taped inside {{his}} jacket lining"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping him at the gate",
-        "Thank you, he's getting a bit mouthy now"
+        "No ambulance needed, nobody's hurt, thank you.",
+        "I don't need an ambulance, this isn't medical, I just need police.",
+        "No, nobody's injured, just send police please.",
+        "That's not necessary, no one's hurt here.",
+        "No ambulance, thank you, it's a police matter.",
+        "Nobody's hurt, I only need officers here.",
+        "No, that's not needed, this isn't a medical emergency.",
+        "I don't think so, no injuries here at all.",
+        "No, no one's hurt, just police please.",
+        "That's not required, nobody's been injured."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them to arrive.",
+        "Good, I'll stay right here until they get here.",
+        "Thank you, I'll keep everyone back until they arrive.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Please hurry, I'll be watching out for them.",
+        "Thank you, I'll wait outside for the officers.",
+        "Okay, that's a relief, I'll stay put.",
+        "Good, I'll let you know if anything changes before they arrive.",
+        "Thank you, I'll keep an eye on things until they get here.",
+        "Okay, I'll stay close by until the police arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, it's contained, we just need police to deal with {{him}}",
+        "No, it's not lit, we just need officers, not the fire brigade",
+        "No, we've got it under control, just police please",
+        "That's not needed, the flare's not been set off, just police",
+        "No, it's just a confiscation issue, police will do",
+        "No fire risk here, we just need police for {{him}}",
+        "No, we don't need fire brigade, just officers please",
+        "No, it's fine, just send police to deal with {{him}}",
+        "No thank you, it's contained, just police needed",
+        "No, we're okay, just need police for the detained fan"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police, not medical"
+        "111? No, this isn't medical, but I do need someone to sort this out.",
+        "No, that's not right, this isn't a health thing, it's for the police.",
+        "I don't think 111 can help with this, can you send police.",
+        "No, this isn't medical, but it still needs looking at.",
+        "That doesn't sound right, this isn't a 111 matter.",
+        "No, I don't think a callback will help, this needs police.",
+        "I'm not sure that's the right service, this isn't medical.",
+        "No, this isn't about health, it's a police issue.",
+        "That's not it, this needs officers, not a nurse calling back.",
+        "No, I don't think so, this is a police matter really."
       ]
     }
   },

@@ -46,6 +46,10 @@
     "shopping_centre"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -64,8 +68,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police, I think I've spotted a stolen car, matches the reg you put out",
-      "I want to report a car, it's been dumped and looks like the one reported stolen"
+      "It's parked oddly, doors open, engine still warm, plates match what was reported",
+      "Found it abandoned round the back of the flats, sure it's the stolen one",
+      "Police, I think I've found that stolen car you're looking for",
+      "There's a car here matching the description of one reported stolen",
+      "I think I've spotted the stolen car, it's parked up and empty",
+      "Police, there's an abandoned car here that matches your report",
+      "I've found a car that fits the description of the stolen one",
+      "Can you check this, there's a car here I think is the one reported taken",
+      "I've come across an abandoned vehicle matching your stolen car report",
+      "Police, I think this is the stolen car, it's just sat here empty"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -77,92 +89,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police, I think I've spotted a stolen car, matches the reg you put out",
-        "I want to report a car, it's been dumped and looks like the one reported stolen"
+        "It's parked oddly, doors open, engine still warm, plates match what was reported",
+        "Found it abandoned round the back of the flats, sure it's the stolen one",
+        "Police, I think I've found that stolen car you're looking for",
+        "There's a car here matching the description of one reported stolen",
+        "I think I've spotted the stolen car, it's parked up and empty",
+        "Police, there's an abandoned car here that matches your report",
+        "I've found a car that fits the description of the stolen one",
+        "Can you check this, there's a car here I think is the one reported taken",
+        "I've come across an abandoned vehicle matching your stolen car report",
+        "Police, I think this is the stolen car, it's just sat here empty"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I saw the whole thing.",
+        "{{callerName}}, I was just walking past.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} here, I'm the one who called.",
+        "{{callerName}}, yes, that's me.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}.",
+        "{{callerName}} speaking, I saw it happen.",
+        "Name's {{callerName}}.",
+        "It's {{callerName}}, I'm just a witness."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's around it, looks abandoned",
-        "Nobody's with the car, it's just sat there"
+        "There's no one here to name, the car's just sat there abandoned.",
+        "No name, I haven't seen anyone at all.",
+        "Couldn't tell you, the car's just sat there abandoned, nobody's in sight.",
+        "No idea, there's no one around as far as I can tell.",
+        "No name to give, nobody's visible.",
+        "No, the car's just sat there abandoned, I can't see anyone there.",
+        "Can't help with a name, there's no one to see.",
+        "No name I'm afraid, nobody's about.",
+        "Nobody's in view at all, so no name.",
+        "I've got no name, I haven't seen a soul."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's parked round there",
-        "It's {{address}}, round the back"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "It's parked oddly, doors open, engine still warm, plates match what was reported",
-        "Found it abandoned round the back of the flats, sure it's the stolen one"
+        "Found it abandoned round the back of the flats, sure it's the stolen one",
+        "It's left at an angle across two spaces, no one around it at all",
+        "The door's hanging open and the ignition's been forced",
+        "It's tucked down a side street, plates match exactly what was circulated",
+        "Someone's dumped it here, engine off, keys nowhere to be seen",
+        "It matches the colour and reg from the alert, just sat here empty",
+        "It's been left with the boot open, nothing else out of place",
+        "It's parked badly across the kerb, matches everything in the report",
+        "It's sat here with a smashed steering column, matches the stolen one"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's nobody hurt, it's just the property",
-        "No one's hurt, it's just damage"
+        "There's no one here that I can see, so nothing to report.",
+        "No injured person, the car's just sat there abandoned, nobody's in sight.",
+        "No one's visible at all, so no casualties to speak of.",
+        "It's not that kind of call, there's no one here.",
+        "No casualties, I can't even see anyone.",
+        "There isn't a patient as such, the car's just sat there abandoned.",
+        "Nobody's about, so nothing to check on.",
+        "No, nobody's hurt, this isn't a medical one.",
+        "Nobody needs an ambulance, there's no one here.",
+        "No one in sight, so nothing to report there."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Nobody needing that, no one's hurt",
-        "There's no injuries, just the damage"
+        "There's no one here to check on, so nothing like that.",
+        "No injuries to report, there's no one in sight.",
+        "No, I can't see anyone, let alone check breathing.",
+        "It's not a medical call, there's nobody visible.",
+        "No casualties, I haven't seen a soul.",
+        "Nobody's hurt, the car's just sat there abandoned, that's the whole problem.",
+        "No, this isn't that kind of emergency.",
+        "Nothing to report, no one's about.",
+        "No one's been seen, so nothing on that front.",
+        "Not a medical one, there's no one here at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's in pain, nobody's here",
-        "No, nobody's hurt at all"
+        "No one's in pain, there's nobody here.",
+        "Nobody visible at all, the car's just sat there abandoned.",
+        "No injuries, no one's even in sight.",
+        "Not that I've seen, there's no one about.",
+        "No, there's nobody here to be in pain.",
+        "There's no one in pain, this isn't medical.",
+        "No casualties, no one's around to ask.",
+        "Not a soul in sight, the car's just sat there abandoned.",
+        "No, nobody needs anything for pain.",
+        "No injuries to report, nobody's here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, there's no one hurt",
-        "No bleeding, nobody was here when it happened"
+        "No, there's no one here to be bleeding.",
+        "Nobody's bleeding, there's no one about at all.",
+        "No, nothing like that, the car's just sat there abandoned.",
+        "No blood, no one's even in sight.",
+        "Not that I've seen, nobody's around.",
+        "No, it's not that kind of call.",
+        "No one's here, so no bleeding to report.",
+        "No, the car's just sat there abandoned, nobody's visible.",
+        "No blood anywhere that I can see, no one's about.",
+        "Not at all, there's no one here."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, it's not medical",
-        "Not applicable, nobody's hurt"
+        "I wouldn't know, the car's just sat there abandoned.",
+        "No idea, I can't even see anyone.",
+        "Couldn't tell you, there's no one in sight.",
+        "No idea about that, sorry, nobody's about.",
+        "I don't know, there's no one here to ask.",
+        "Not a clue, the car's just sat there abandoned.",
+        "No, there's nobody here for me to know that about.",
+        "Couldn't say, I haven't seen a soul.",
+        "No idea whatsoever, sorry.",
+        "I really wouldn't know, nobody's visible."
       ]
     },
     "medications": {
       "answers": [
-        "No one needs that, nobody's hurt",
-        "Not applicable"
+        "I've no idea.",
+        "Couldn't tell you, there's no one here.",
+        "No idea at all, the car's just sat there abandoned.",
+        "I wouldn't know, nobody's in sight.",
+        "No clue, sorry, no one's about.",
+        "Couldn't say, there's nobody to ask.",
+        "No idea, I'm afraid.",
+        "Not a clue, no one's visible.",
+        "I really couldn't tell you.",
+        "No idea, sorry, there's no one here."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient, it's just property",
-        "N/A, nobody's involved that way"
+        "I couldn't say, there's no one in sight.",
+        "No idea, I haven't seen anyone at all.",
+        "Can't tell you, the car's just sat there abandoned.",
+        "No one's visible, so I couldn't guess.",
+        "Couldn't tell you, there's nobody about.",
+        "I've no idea, no one's around to look at.",
+        "Can't say, there's no one here.",
+        "No idea at all, nobody's in view.",
+        "Couldn't guess, there's not a soul about.",
+        "No one's visible, so I really couldn't say."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep watching from here",
-        "Right, understood, I'll wait"
+        "Ambulance? No, nobody's hurt, it's a police matter.",
+        "No, we don't need an ambulance, nobody's injured here.",
+        "Sorry, why an ambulance, nobody's hurt, I just need police.",
+        "No, there's no injury, I only need the police out here.",
+        "That's not needed, nobody's been hurt, it's police I want.",
+        "No ambulance required, nobody's injured, just send police please.",
+        "No, I don't think that's right, nobody's hurt, it's a police job.",
+        "There's no injury here, I only asked for police.",
+        "No, nobody needs an ambulance, this isn't medical.",
+        "No thank you, nobody's hurt, just the police please."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "No, this isn't a health thing, I need the police out here.",
+        "This isn't a 111 matter, someone's committing an offence, I need police.",
+        "No, I don't need a doctor, I need the police to come now.",
+        "That's not right, nobody's ill, this needs police attention.",
+        "No, please, this is a crime, not a medical thing, send police.",
+        "I don't need 111, I need officers here, this is a police matter.",
+        "No, nobody's poorly, I need police, not a callback.",
+        "That won't help, this needs police, not health advice.",
+        "No, please don't fob me off, I need police out here.",
+        "This isn't medical at all, I need the police, please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll keep an eye out until they arrive.",
+        "Right, good, I'll wait here for them.",
+        "Thank you, I'll point them the right way when they get here.",
+        "Okay, that's good to hear, I'll stay on the line if you need.",
+        "Right, thanks, I'll let you know if anything changes.",
+        "Good, thank you, I'll stay well back until they turn up.",
+        "Okay, I'll keep watching from here until they arrive.",
+        "Thanks, that's a relief, I'll wait for them outside.",
+        "Right, understood, I'll stay put until they get here.",
+        "Okay, thank you, appreciate it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

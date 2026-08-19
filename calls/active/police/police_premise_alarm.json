@@ -48,6 +48,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,15 @@
   "caller": {
     "openings": [
       "This is Sussex Monitoring, we've had an alarm activation at one of our premises",
-      "Control room here, an intruder alarm's triggered at a client site, no keyholder response yet"
+      "Control room here, an intruder alarm's triggered at a client site, no keyholder response yet",
+      "Monitoring centre here, we've had an activation and can't reach the keyholder",
+      "This is the alarm receiving centre, a premise alarm's just gone off",
+      "Control room, we've had a triggered alarm and no one's answering the keyholder line",
+      "This is the monitoring centre, an intruder alarm's activated on one of our sites",
+      "Alarm company here, we've had a signal come through, keyholder not responding",
+      "This is Sussex Monitoring, an activation's come through overnight",
+      "Control room calling, an alarm's triggered and we can't raise the keyholder",
+      "Monitoring centre here, we've got an unconfirmed intruder alarm activation"
     ],
     "phoneArea": "auto",
     "callerType": "alarm_company"
@@ -80,91 +92,231 @@
     "start": {
       "answers": [
         "This is Sussex Monitoring, we've had an alarm activation at one of our premises",
-        "Control room here, an intruder alarm's triggered at a client site, no keyholder response yet"
+        "Control room here, an intruder alarm's triggered at a client site, no keyholder response yet",
+        "Monitoring centre here, we've had an activation and can't reach the keyholder",
+        "This is the alarm receiving centre, a premise alarm's just gone off",
+        "Control room, we've had a triggered alarm and no one's answering the keyholder line",
+        "This is the monitoring centre, an intruder alarm's activated on one of our sites",
+        "Alarm company here, we've had a signal come through, keyholder not responding",
+        "This is Sussex Monitoring, an activation's come through overnight",
+        "Control room calling, an alarm's triggered and we can't raise the keyholder",
+        "Monitoring centre here, we've got an unconfirmed intruder alarm activation"
       ]
     },
     "callerName": {
       "answers": [
-        "This is the control room, operator {{callerName}}",
-        "{{callerName}}, calling from the monitoring centre"
+        "It's {{callerName}}, I'm the operator monitoring the alarm.",
+        "{{callerName}} here, calling from the monitoring centre.",
+        "My name's {{callerName}}, I'm on the alarm desk tonight.",
+        "It's {{callerName}}, I'm with the alarm company.",
+        "{{callerName}}, yes, I'm the control room operator.",
+        "You can put me down as {{callerName}}, monitoring centre.",
+        "Sorry, it's {{callerName}}, I monitor this site.",
+        "{{callerName}} speaking, I'm on shift in the control room.",
+        "Name's {{callerName}}, alarm receiving centre.",
+        "It's {{callerName}}, I'm calling on behalf of the alarm company."
       ]
     },
     "patientName": {
       "answers": [
-        "No patient, this is an alarm activation",
-        "Not applicable, no one on scene"
+        "There's no one here to name, there's no keyholder response yet.",
+        "No name, I haven't seen anyone at all.",
+        "Couldn't tell you, there's no keyholder response yet, nobody's in sight.",
+        "No idea, there's no one around as far as I can tell.",
+        "No name to give, nobody's visible.",
+        "No, there's no keyholder response yet, I can't see anyone there.",
+        "Can't help with a name, there's no one to see.",
+        "No name I'm afraid, nobody's about.",
+        "Nobody's in view at all, so no name.",
+        "I've got no name, I haven't seen a soul."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, that's the premises on our system",
-        "It's {{address}}, registered to us"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "Motion sensors triggered in the stockroom, no visual confirmation yet",
-        "Alarm's gone off twice in ten minutes, keyholder isn't answering"
+        "Alarm's gone off twice in ten minutes, keyholder isn't answering",
+        "We've had a door contact and internal sensor both trigger together",
+        "There's been two zones activate, we've tried the keyholder with no luck",
+        "The alarm's showing an activation at the rear entrance, unconfirmed",
+        "We've had a confirmed double knock, that usually means genuine entry",
+        "Sensors on two floors have triggered within a minute of each other",
+        "We've tried the keyholder three times, no answer, alarm's still active",
+        "It's a full system activation, every zone's showing triggered",
+        "The panel's logged movement in an area that should be empty overnight"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's nobody hurt, it's just the property",
-        "No one's hurt, it's just damage"
+        "There's no one here that I can see, so nothing to report.",
+        "No injured person, there's no keyholder response yet, nobody's in sight.",
+        "No one's visible at all, so no casualties to speak of.",
+        "It's not that kind of call, there's no one here.",
+        "No casualties, I can't even see anyone.",
+        "There isn't a patient as such, there's no keyholder response yet.",
+        "Nobody's about, so nothing to check on.",
+        "No, nobody's hurt, this isn't a medical one.",
+        "Nobody needs an ambulance, there's no one here.",
+        "No one in sight, so nothing to report there."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Nobody needing that, no one's hurt",
-        "There's no injuries, just the damage"
+        "There's no one here to check on, so nothing like that.",
+        "No injuries to report, there's no one in sight.",
+        "No, I can't see anyone, let alone check breathing.",
+        "It's not a medical call, there's nobody visible.",
+        "No casualties, I haven't seen a soul.",
+        "Nobody's hurt, there's no keyholder response yet, that's the whole problem.",
+        "No, this isn't that kind of emergency.",
+        "Nothing to report, no one's about.",
+        "No one's been seen, so nothing on that front.",
+        "Not a medical one, there's no one here at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's in pain, nobody's here",
-        "No, nobody's hurt at all"
+        "No one's in pain, there's nobody here.",
+        "Nobody visible at all, there's no keyholder response yet.",
+        "No injuries, no one's even in sight.",
+        "Not that I've seen, there's no one about.",
+        "No, there's nobody here to be in pain.",
+        "There's no one in pain, this isn't medical.",
+        "No casualties, no one's around to ask.",
+        "Not a soul in sight, there's no keyholder response yet.",
+        "No, nobody needs anything for pain.",
+        "No injuries to report, nobody's here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, there's no one hurt",
-        "No bleeding, nobody was here when it happened"
+        "No, there's no one here to be bleeding.",
+        "Nobody's bleeding, there's no one about at all.",
+        "No, nothing like that, there's no keyholder response yet.",
+        "No blood, no one's even in sight.",
+        "Not that I've seen, nobody's around.",
+        "No, it's not that kind of call.",
+        "No one's here, so no bleeding to report.",
+        "No, there's no keyholder response yet, nobody's visible.",
+        "No blood anywhere that I can see, no one's about.",
+        "Not at all, there's no one here."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, it's not medical",
-        "Not applicable, nobody's hurt"
+        "I wouldn't know, there's no keyholder response yet.",
+        "No idea, I can't even see anyone.",
+        "Couldn't tell you, there's no one in sight.",
+        "No idea about that, sorry, nobody's about.",
+        "I don't know, there's no one here to ask.",
+        "Not a clue, there's no keyholder response yet.",
+        "No, there's nobody here for me to know that about.",
+        "Couldn't say, I haven't seen a soul.",
+        "No idea whatsoever, sorry.",
+        "I really wouldn't know, nobody's visible."
       ]
     },
     "medications": {
       "answers": [
-        "No one needs that, nobody's hurt",
-        "Not applicable"
+        "I've no idea.",
+        "Couldn't tell you, there's no one here.",
+        "No idea at all, there's no keyholder response yet.",
+        "I wouldn't know, nobody's in sight.",
+        "No clue, sorry, no one's about.",
+        "Couldn't say, there's nobody to ask.",
+        "No idea, I'm afraid.",
+        "Not a clue, no one's visible.",
+        "I really couldn't tell you.",
+        "No idea, sorry, there's no one here."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient, it's just property",
-        "N/A, nobody's involved that way"
+        "I couldn't say, there's no one in sight.",
+        "No idea, I haven't seen anyone at all.",
+        "Can't tell you, there's no keyholder response yet.",
+        "No one's visible, so I couldn't guess.",
+        "Couldn't tell you, there's nobody about.",
+        "I've no idea, no one's around to look at.",
+        "Can't say, there's no one here.",
+        "No idea at all, nobody's in view.",
+        "Couldn't guess, there's not a soul about.",
+        "No one's visible, so I really couldn't say."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep watching from here",
-        "Right, understood, I'll wait"
+        "Ambulance? No, nobody's hurt, it's a police matter.",
+        "No, we don't need an ambulance, nobody's injured here.",
+        "Sorry, why an ambulance, nobody's hurt, I just need police.",
+        "No, there's no injury, I only need the police out here.",
+        "That's not needed, nobody's been hurt, it's police I want.",
+        "No ambulance required, nobody's injured, just send police please.",
+        "No, I don't think that's right, nobody's hurt, it's a police job.",
+        "There's no injury here, I only asked for police.",
+        "No, nobody needs an ambulance, this isn't medical.",
+        "No thank you, nobody's hurt, just the police please."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "No, this isn't a health thing, I need the police out here.",
+        "This isn't a 111 matter, someone's committing an offence, I need police.",
+        "No, I don't need a doctor, I need the police to come now.",
+        "That's not right, nobody's ill, this needs police attention.",
+        "No, please, this is a crime, not a medical thing, send police.",
+        "I don't need 111, I need officers here, this is a police matter.",
+        "No, nobody's poorly, I need police, not a callback.",
+        "That won't help, this needs police, not health advice.",
+        "No, please don't fob me off, I need police out here.",
+        "This isn't medical at all, I need the police, please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll keep an eye out until they arrive.",
+        "Right, good, I'll wait here for them.",
+        "Thank you, I'll point them the right way when they get here.",
+        "Okay, that's good to hear, I'll stay on the line if you need.",
+        "Right, thanks, I'll let you know if anything changes.",
+        "Good, thank you, I'll stay well back until they turn up.",
+        "Okay, I'll keep watching from here until they arrive.",
+        "Thanks, that's a relief, I'll wait for them outside.",
+        "Right, understood, I'll stay put until they get here.",
+        "Okay, thank you, appreciate it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

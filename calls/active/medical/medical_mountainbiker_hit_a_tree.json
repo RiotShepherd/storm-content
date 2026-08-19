@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 2
+  },
   "patients": {
     "range": [
       1,
@@ -73,8 +77,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "A mountain biker's hit a tree on the trail, he's hurt",
-      "I need an ambulance, my mate's crashed into a tree on his bike and knocked himself about"
+      "A mountain biker's hit a tree on the trail, {{he}}'s hurt.",
+      "I need an ambulance, my mate's crashed into a tree on {{his}} bike.",
+      "My friend's just hit a tree on the trail, {{he}}'s dazed and hurt.",
+      "There's been a crash, {{he}} went straight into a tree on the bike.",
+      "Please hurry, {{he}}'s hit a tree hard on the mountain bike trail.",
+      "{{He}}'s come off {{his}} bike into a tree, {{he}}'s bleeding from {{his}} head.",
+      "We were out riding and {{he}} crashed straight into a tree.",
+      "My mate's hurt {{himself}} badly, {{he}} hit a tree on the trail.",
+      "There's been an accident on the trail, {{he}}'s knocked {{himself}} out briefly.",
+      "{{He}}'s crashed into a tree, {{he}}'s conscious but dazed and bleeding."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -86,82 +98,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "A mountain biker's hit a tree on the trail, he's hurt",
-        "I need an ambulance, my mate's crashed into a tree on his bike and knocked himself about"
+        "A mountain biker's hit a tree on the trail, {{he}}'s hurt.",
+        "I need an ambulance, my mate's crashed into a tree on {{his}} bike.",
+        "My friend's just hit a tree on the trail, {{he}}'s dazed and hurt.",
+        "There's been a crash, {{he}} went straight into a tree on the bike.",
+        "Please hurry, {{he}}'s hit a tree hard on the mountain bike trail.",
+        "{{He}}'s come off {{his}} bike into a tree, {{he}}'s bleeding from {{his}} head.",
+        "We were out riding and {{he}} crashed straight into a tree.",
+        "My mate's hurt {{himself}} badly, {{he}} hit a tree on the trail.",
+        "There's been an accident on the trail, {{he}}'s knocked {{himself}} out briefly.",
+        "{{He}}'s crashed into a tree, {{he}}'s conscious but dazed and bleeding."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was riding with him",
-        "{{callerName}}"
+        "It's {{callerName}}, I was riding with {{him}}.",
+        "{{callerName}}, I was riding with {{him}}.",
+        "My name's {{callerName}}, I was riding with {{him}}.",
+        "{{callerName}} here, I was riding with {{him}}.",
+        "It's {{callerName}} speaking, I was riding with {{him}}.",
+        "You can put me down as {{callerName}}, I was riding with {{him}}.",
+        "{{callerName}}. I was riding with {{him}}.",
+        "It's {{callerName}}, I was riding with {{him}}, please hurry.",
+        "{{callerName}}, that's me, I was riding with {{him}}.",
+        "It's {{callerName}}, I was riding with {{him}}, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, my mate",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, my mate.",
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my mate.",
+        "{{He}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}} is my mate.",
+        "The name's {{firstPatientName}}.",
+        "{{firstPatientName}}, my mate, please hurry.",
+        "It's {{firstPatientName}}, my mate.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, that's what {{he}} goes by."
       ]
     },
     "address": {
       "answers": [
-        "We're on the trail near {{address}}",
-        "{{address}}"
+        "We're at {{address}}, near the trail entrance.",
+        "It's {{address}}, near the trail entrance.",
+        "{{address}}, near the trail entrance.",
+        "The address is {{address}}, near the trail entrance.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, near the trail entrance.",
+        "{{address}} is where we are, near the trail entrance.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He came off the trail and went straight into a tree, he's got a nasty knock to the head"
+        "{{He}} came off the trail and went straight into a tree, {{he}}'s got a nasty knock to the head.",
+        "{{He}} lost control on a downhill section and hit a tree hard.",
+        "{{He}} misjudged a turn and went straight into a tree trunk.",
+        "{{He}} came off the bike and hit the tree with {{his}} head and shoulder.",
+        "{{He}} was going too fast on a bend and couldn't avoid the tree.",
+        "{{He}} hit a root, lost control, and went into a tree.",
+        "{{He}} came off going downhill and landed against a tree.",
+        "{{He}} clipped a branch and was thrown off into a nearby tree.",
+        "{{He}} lost {{his}} balance on the trail and crashed into a tree.",
+        "{{He}} was riding fast and couldn't stop before hitting the tree."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's talking to me but a bit dazed"
+        "Yes, {{he}}'s talking to me but a bit dazed.",
+        "{{He}}'s conscious, just confused and slow to answer.",
+        "Yes, {{he}}'s awake, but {{he}}'s not quite making sense.",
+        "{{He}}'s talking, just seems a bit out of it.",
+        "Yes, conscious, but {{he}} keeps asking what happened.",
+        "{{He}}'s awake and responding, just dazed.",
+        "Yes, {{he}}'s conscious, a bit slow with {{his}} words.",
+        "{{He}}'s alert but clearly shaken and confused.",
+        "Yes, {{he}}'s talking, though {{he}} seems muddled.",
+        "{{He}}'s conscious, just a bit foggy from the knock."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Yes, breathing normally.",
+        "Fine, no issues there.",
+        "Normal, {{he}}'s just dazed, not struggling to breathe.",
+        "Breathing's okay, nothing concerning.",
+        "Fine, {{his}} breathing looks normal.",
+        "Yes, that's fine, no problems.",
+        "Normal breathing, no worries there.",
+        "Breathing's fine, it's the head knock we're worried about.",
+        "Yes, all fine on that front."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "His shoulder and head are hurting him"
+        "{{His}} shoulder and head are hurting {{him}}.",
+        "{{He}} says {{his}} head and shoulder hurt the most.",
+        "{{He}}'s complaining of a sore head and shoulder.",
+        "{{He}} says {{his}} head's throbbing and {{his}} shoulder aches.",
+        "Mainly {{his}} head and shoulder, {{he}} says.",
+        "{{He}}'s in pain across {{his}} shoulder and head.",
+        "{{He}} says {{his}} shoulder hurts and {{his}} head's pounding.",
+        "{{His}} head and shoulder seem to be the sore spots.",
+        "{{He}} says it's mostly {{his}} head hurting, and {{his}} shoulder.",
+        "{{He}}'s sore across {{his}} shoulder, and {{his}} head hurts too."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A cut on his head, not too bad"
+        "A cut on {{his}} head, not too bad.",
+        "Yes, a small cut on {{his}} scalp, bleeding a little.",
+        "A bit of blood from a cut on {{his}} head.",
+        "There's a graze on {{his}} head with some bleeding.",
+        "A small head wound, bleeding but not too heavy.",
+        "Yes, {{his}} head's cut, bleeding lightly.",
+        "A cut above {{his}} eyebrow, minor bleeding.",
+        "Some blood from a scrape on {{his}} head.",
+        "A small cut, not much bleeding really.",
+        "Yes, a graze on {{his}} head, light bleeding."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing that I know of"
+        "Nothing that I know of.",
+        "No idea, {{he}}'s never mentioned anything.",
+        "Not that I know of, {{he}}'s usually fit and well.",
+        "Nothing I'm aware of.",
+        "No, nothing that {{he}}'s told me about.",
+        "Not that I know, {{he}}'s pretty healthy usually.",
+        "Nothing comes to mind, no.",
+        "No idea, {{he}}'s never had issues that I know of.",
+        "Nothing that I'm aware of, no.",
+        "No, nothing {{he}}'s ever mentioned to me."
       ]
     },
     "medications": {
       "answers": [
-        "None that I know of"
+        "None that I know of.",
+        "No idea, I don't think so.",
+        "Not that I'm aware of.",
+        "No, nothing that I know of.",
+        "I don't think {{he}} takes anything regularly.",
+        "None as far as I know.",
+        "No idea, {{he}}'s never mentioned any.",
+        "Not that I know of, no.",
+        "I don't believe so.",
+        "None that {{he}}'s told me about."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks about 30"
+        "Looks about 30.",
+        "I'd guess around 30.",
+        "Maybe 30, thereabouts.",
+        "Around thirty I'd say.",
+        "I think {{he}}'s about 30.",
+        "Roughly 30, give or take.",
+        "I'd guess {{he}}'s in {{his}} thirties.",
+        "About 30, I believe.",
+        "Somewhere around thirty.",
+        "I'd say 30, maybe a bit younger."
       ]
     },
     "reassure": {
       "answers": [
-        "I've got him sat down, kept his helmet on"
+        "I've got {{him}} sat down, kept {{his}} helmet on.",
+        "Okay, I'm keeping {{him}} still and talking to {{him}}.",
+        "Right, I've left {{his}} helmet on like you said.",
+        "Okay, I'm staying with {{him}} until they arrive.",
+        "Understood, I'll keep {{him}} calm and still.",
+        "Okay, I've got {{him}} sitting comfortably.",
+        "Right, I won't move {{him}} more than I have to.",
+        "Okay, I'm keeping an eye on {{him}} closely.",
+        "Understood, {{his}} helmet's staying on.",
+        "Okay, I'll wait here with {{him}} until help comes."
       ]
     },
     "refer111": {
       "answers": [
-        "No, I think he needs to be checked properly"
+        "No, I think {{he}} needs to be checked properly.",
+        "No, {{he}} hit {{his}} head, I think that needs an ambulance.",
+        "No, I'd rather someone came out given the head injury.",
+        "No, I think this is more serious than a phone call.",
+        "No, {{he}}'s confused, I really think {{he}} needs checking.",
+        "No, given {{he}} hit {{his}} head, I'd rather not wait.",
+        "No, I think {{he}} needs to be seen properly, not just advice.",
+        "No, {{he}}'s out here on the trail, I'd rather have help come.",
+        "No, I really think this needs an ambulance given the knock to {{his}} head.",
+        "No, I'd feel better if someone actually came to check {{him}}."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

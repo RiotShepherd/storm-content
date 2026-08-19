@@ -45,6 +45,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -68,8 +72,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My husband's a diabetic and he's gone all shaky and confused",
-      "I think my blood sugar's crashed, I need help"
+      "My {{husband}}'s a diabetic and {{he}}'s gone all shaky and confused",
+      "I think my {{husband}}'s blood sugar's crashed, please help",
+      "My {{husband}}'s having a hypo, {{he}}'s sweating and can't think straight",
+      "My {{husband}}'s diabetic and {{he}}'s gone really strange all of a sudden",
+      "Please help, my {{husband}}'s blood sugar's dropped, {{he}}'s shaking badly",
+      "My {{husband}}'s a type one diabetic and {{he}}'s not making sense",
+      "My {{husband}}'s gone very pale and shaky, I think it's {{his}} diabetes",
+      "My {{husband}}'s sugar's crashed, {{he}}'s confused and sweating",
+      "I need help, my {{husband}}'s diabetic and {{he}}'s acting really odd",
+      "My {{husband}}'s having some kind of diabetic episode, {{he}}'s trembling"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -81,90 +93,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My husband's a diabetic and he's gone all shaky and confused",
-        "I think my blood sugar's crashed, I need help"
+        "My {{husband}}'s a diabetic and {{he}}'s gone all shaky and confused",
+        "I think my {{husband}}'s blood sugar's crashed, please help",
+        "My {{husband}}'s having a hypo, {{he}}'s sweating and can't think straight",
+        "My {{husband}}'s diabetic and {{he}}'s gone really strange all of a sudden",
+        "Please help, my {{husband}}'s blood sugar's dropped, {{he}}'s shaking badly",
+        "My {{husband}}'s a type one diabetic and {{he}}'s not making sense",
+        "My {{husband}}'s gone very pale and shaky, I think it's {{his}} diabetes",
+        "My {{husband}}'s sugar's crashed, {{he}}'s confused and sweating",
+        "I need help, my {{husband}}'s diabetic and {{he}}'s acting really odd",
+        "My {{husband}}'s having some kind of diabetic episode, {{he}}'s trembling"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}, my husband"
+        "It's {{firstPatientName}}, my {{husband}}",
+        "{{firstPatientName}}, {{he}}'s my {{husband}}",
+        "My {{husband}}'s name is {{firstPatientName}}",
+        "{{firstPatientName}}, that's {{him}}",
+        "It's my {{husband}} {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "{{firstPatientName}}, {{he}}'s forty eight",
+        "My {{husband}} is called {{firstPatientName}}",
+        "{{firstPatientName}}, please hurry",
+        "{{firstPatientName}}, my {{husband}}, {{he}}'s not right at all"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He's gone very shaky, sweaty and confused, I think his blood sugar's dropped",
-        "He's a type one diabetic, he's not making sense and looks pale"
+        "{{He}}'s a type one diabetic and {{his}} sugar's dropped, {{he}}'s gone shaky and confused",
+        "{{He}} took {{his}} insulin but didn't eat, now {{he}}'s hypo and not making sense",
+        "{{His}} blood sugar's crashed, {{he}}'s sweating and trembling badly",
+        "{{He}}'s having a hypo, {{he}} went pale and started slurring {{his}} words",
+        "{{He}}'s diabetic and {{he}}'s gone confused and shaky, classic hypo signs",
+        "{{He}} missed a meal after {{his}} insulin and now {{he}}'s in a bad way",
+        "{{His}} sugar's dropped low, {{he}}'s disorientated and sweating heavily",
+        "{{He}}'s having a diabetic episode, {{he}}'s shaking and can't focus",
+        "{{He}} tested {{his}} blood sugar and it's very low, {{he}}'s confused now",
+        "{{He}}'s gone hypo, {{he}}'s trembling and not making sense at all"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake but confused",
-        "Yes, but drowsy"
+        "{{He}}'s awake but not making much sense",
+        "Yes, {{he}}'s conscious, just very confused",
+        "{{He}}'s awake, {{he}} doesn't seem to know where {{he}} is",
+        "Conscious, yes, but {{he}}'s saying odd things",
+        "{{He}}'s awake, {{he}} keeps asking the same questions",
+        "Yes, {{he}}'s conscious, {{he}}'s just really muddled",
+        "{{He}}'s talking but it's not making sense",
+        "Yes, awake, but {{he}} doesn't know what day it is",
+        "{{He}}'s conscious, {{he}}'s just very disorientated",
+        "Awake, yes, but {{he}}'s not {{himself}} at all"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
+        "Yes, {{his}} breathing's fine",
+        "Fine, no problems breathing",
         "Yes, breathing normally",
-        "Seems fine"
+        "{{He}}'s breathing okay",
+        "Normal, as far as I can tell",
+        "Yes, {{he}}'s breathing fine, just unwell",
+        "{{His}} breathing seems okay to me",
+        "Fine, no distress with {{his}} breathing",
+        "Yes, breathing's steady",
+        "{{He}}'s breathing normally, yes"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No pain that he's mentioned",
-        "Not that he's said"
+        "No real pain, just feels dreadful all over",
+        "Not pain exactly, just very weak and unwell",
+        "No, {{he}} says {{he}} just feels awful",
+        "No pain as such, just really lethargic",
+        "Not pain, just no energy at all",
+        "No, {{he}}'s not in pain, just very unwell",
+        "No pain, just feels rough and shaky",
+        "Not really, just generally unwell",
+        "No, no pain, {{he}}'s just exhausted",
+        "No pain, {{he}} just seems really off colour"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No, no bleeding, {{he}}'s just unwell",
+        "No blood involved, no",
+        "No, this isn't that kind of thing",
+        "No bleeding, {{he}}'s just really weak",
+        "No, nothing like that at all",
+        "No, {{he}}'s not injured, just poorly",
+        "No blood, no",
+        "Not that I've seen, no",
+        "No, no cuts or blood, {{he}}'s just unwell",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He's diabetic, type one",
-        "Diabetes, that's the main thing"
+        "Yes, {{he}}'s got type one diabetes",
+        "{{He}}'s known with type one diabetes",
+        "Yes, {{he}} has type one diabetes, has done for years",
+        "{{He}}'s got type one diabetes, it's on file with the GP",
+        "Yes, {{he}} suffers with type one diabetes",
+        "{{He}} has type one diabetes, diagnosed a while back",
+        "Yes, {{he}}'s had type one diabetes for some time",
+        "{{He}}'s got a history of type one diabetes",
+        "Yes, type one diabetes, {{he}}'s had it for years",
+        "{{He}}'s known to have type one diabetes"
       ]
     },
     "medications": {
       "answers": [
-        "He uses insulin",
-        "I've got his glucose gel here"
+        "Yes, {{he}} takes insulin",
+        "{{He}}'s on insulin",
+        "Yes, {{he}} takes insulin regularly",
+        "{{He}}'s prescribed insulin",
+        "Yes, insulin, {{he}} takes it every day",
+        "{{He}} takes insulin for it",
+        "Yes, {{he}}'s on insulin, has been for a while",
+        "{{He}} takes insulin regularly, yes",
+        "Yes, insulin is what {{he}}'s on",
+        "{{He}}'s on insulin at the moment"
       ]
     },
     "patientAge": {
       "answers": [
-        "45"
+        "{{He}}'s 48",
+        "About 48, I think",
+        "{{He}}'s 48 years old",
+        "48, {{he}}'ll be 49 next year",
+        "I think {{he}}'s 48 or thereabouts",
+        "48 years of age",
+        "{{He}}'s in {{his}} 40s, about 48",
+        "Just turned 48",
+        "{{He}}'s 48, always been fit for {{his}} age",
+        "48, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've given him something sugary like you said",
-        "I'm keeping him sitting down"
+        "Okay, I've given {{him}} some glucose gel like you said",
+        "Right, I've got {{him}} sat down with a sugary drink",
+        "I'm staying with {{him}}, {{he}}'s starting to come round a bit",
+        "Okay, I've given {{him}} some juice, {{he}}'s still confused though",
+        "Yes, doing that now, {{he}}'s coming back to {{himself}} slowly",
+        "Okay, I've got some biscuits into {{him}} like you suggested",
+        "Right, {{he}}'s had the glucose gel, {{he}}'s looking a bit better",
+        "I'm keeping {{him}} calm, {{he}}'s sweating less now",
+        "Okay, doing that now, {{his}} colour's coming back a bit",
+        "Right, I've got sugar into {{him}}, {{he}}'s starting to talk sense again"
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's really not right, I think this needs an ambulance",
-        "No, I'm worried about him"
+        "I did wonder about that, but {{he}}'s really not right, can you send someone",
+        "Maybe, but I'd feel better if someone came out",
+        "I'm not sure, {{he}} seems worse than that to me",
+        "Could do, but it's been going on a while now",
+        "I did think about ringing them, but this seemed more urgent",
+        "Possibly, but I'd rather not risk it, can you send someone",
+        "I don't know, {{he}}'s in a fair bit of discomfort",
+        "Maybe not a bad idea, but can you just send someone anyway",
+        "I'm not sure that's enough somehow, {{he}}'s really struggling",
+        "Could be, but it's been hours now, I'd rather someone came out"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, why would we need police, please just send the ambulance",
+        "No, no police, please, {{he}} just needs help right now",
+        "No, I don't understand, there's no crime, just get an ambulance here",
+        "No police needed, please, {{he}}'s really unwell, just paramedics",
+        "No, please, no police, {{he}} just needs medical help urgently",
+        "No, nothing like that, please just send the ambulance quickly",
+        "Police? No, please, {{he}} just needs paramedics, hurry",
+        "No, definitely not police, please, {{he}} needs an ambulance now",
+        "No, please, there's no need for police, just help {{him}}",
+        "No police, please, I'm begging you, just get an ambulance here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, no, there's no fire, please just get the ambulance here",
+        "No, no fire, why would we need that, {{he}} just needs help now",
+        "There's no fire, I don't understand, just send the ambulance please",
+        "No fire brigade, please, {{he}}'s not trapped, {{he}}'s just in a bad way",
+        "No, no, nothing's burning, please, {{he}} just needs paramedics",
+        "Fire service? No, please, just the ambulance, {{he}}'s really unwell",
+        "No, there's no fire here, I just need someone to help {{him}} now",
+        "No fire, please, I don't know why you'd say that, just hurry",
+        "No, please, no fire brigade, {{he}} just needs an ambulance urgently",
+        "There's definitely no fire, please just send the paramedics quickly"
       ]
     }
   },

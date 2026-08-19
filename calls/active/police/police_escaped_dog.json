@@ -48,6 +48,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -66,9 +70,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police please, my dog's escaped and I can't find him",
-      "I need help, our dog's got out and run off, he's not aggressive but he's scared",
-      "There's a dog running loose that's escaped from a garden nearby"
+      "Police please, my dog's escaped and I can't find it",
+      "I need help, our dog's got out and run off, it's not aggressive but it's scared",
+      "There's a dog running loose that's escaped from a garden nearby",
+      "Police, my dog's got out of the garden and I can't catch it",
+      "I need help finding my dog, it's escaped and run off down the street",
+      "My dog's slipped its lead and run off, I can't catch it",
+      "Please can someone help, my dog's escaped and I'm worried it'll get hurt",
+      "There's a dog loose in the area, it's escaped from a nearby garden",
+      "I need help, my dog got out through a gap in the fence",
+      "Police please, my dog's run off and I can't find it anywhere"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -80,92 +91,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police please, my dog's escaped and I can't find him",
-        "I need help, our dog's got out and run off, he's not aggressive but he's scared",
-        "There's a dog running loose that's escaped from a garden nearby"
+        "Police please, my dog's escaped and I can't find it",
+        "I need help, our dog's got out and run off, it's not aggressive but it's scared",
+        "There's a dog running loose that's escaped from a garden nearby",
+        "Police, my dog's got out of the garden and I can't catch it",
+        "I need help finding my dog, it's escaped and run off down the street",
+        "My dog's slipped its lead and run off, I can't catch it",
+        "Please can someone help, my dog's escaped and I'm worried it'll get hurt",
+        "There's a dog loose in the area, it's escaped from a nearby garden",
+        "I need help, my dog got out through a gap in the fence",
+        "Police please, my dog's run off and I can't find it anywhere"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, it's my dog that's escaped",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I just saw it happen.",
+        "{{callerName}}, I'm a member of the public.",
+        "My name's {{callerName}}, I was passing by.",
+        "It's {{callerName}} here, I witnessed the whole thing.",
+        "{{callerName}}, that's me, I saw it from across the road.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I happened to be nearby.",
+        "{{callerName}} speaking, I saw everything.",
+        "My name is {{callerName}}, I was right there.",
+        "It's {{callerName}}, just a bystander really."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, it's just the dog",
-        "N/A"
+        "There's no patient, nobody's hurt in this.",
+        "No one to name, it's just a dog that's got out.",
+        "N/A, there's no injury here at all.",
+        "Nobody's hurt, so there isn't a name to give.",
+        "There's no casualty, this isn't a medical matter.",
+        "No patient involved, it's not that kind of call.",
+        "It's not about an injured person, there's no name needed.",
+        "No one hurt at all, nothing to report there.",
+        "There's no one to name, it's just a dog that's got out causing the problem.",
+        "Not applicable, nobody's been injured."
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, he got out from the garden",
-        "It's near {{address}}"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "He slipped his lead and bolted down the road",
-        "The gate was left open and he's got out, he's never done this before",
-        "He's running loose somewhere near the park, I've been trying to catch him"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, just worried about him",
-        "No injuries"
+        "Nobody's hurt, there's no one to check on.",
+        "No injuries at all, it's just a dog that's got out.",
+        "N/A, no one's involved to be conscious or not.",
+        "There's no casualty here, nobody's been hurt.",
+        "No one's hurt, it's purely a dog that's got out.",
+        "Not applicable, there's no injured person.",
+        "No, nobody's been hurt in this at all.",
+        "There isn't anyone hurt, so that doesn't apply.",
+        "No injuries, this is just a dog that's got out, nothing more.",
+        "Nobody to worry about like that, no one's hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "No one's struggling to breathe, nobody's hurt.",
+        "N/A, there's no injured person here.",
+        "Not applicable, it's just a dog that's got out.",
+        "No casualty, so breathing's not an issue.",
+        "Nobody's hurt, that doesn't apply here.",
+        "There's no one affected like that.",
+        "No injuries at all, it's only a dog that's got out.",
+        "Doesn't apply, nobody's been hurt.",
+        "No one to check, there's no patient.",
+        "Not relevant, no one's injured in this."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A",
-        "No one's hurt"
+        "No pain, nobody's hurt at all.",
+        "N/A, there's no one injured here.",
+        "Nobody's in pain, it's just a dog that's got out.",
+        "Not applicable, no casualty involved.",
+        "No one's hurt, so no pain to report.",
+        "Doesn't apply, nobody's been injured.",
+        "No, there's no injured person in this.",
+        "There isn't anyone hurt, no pain at all.",
+        "No pain, it's only a dog that's got out that's the problem.",
+        "Not relevant, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No bleeding, nobody's hurt.",
+        "N/A, there's no one injured.",
+        "None, it's just a dog that's got out.",
+        "No, nobody's been hurt at all.",
+        "Not applicable, no casualty here.",
+        "No blood, no injuries at all.",
+        "Doesn't apply, nobody's hurt in this.",
+        "No, there's no one to bleed, nobody's hurt.",
+        "None at all, it's only a dog that's got out.",
+        "Not relevant, no injuries to report."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "N/A, it's about the dog",
-        "Not applicable"
+        "N/A, there's no patient in this.",
+        "No idea, and it's not needed, nobody's hurt.",
+        "Not applicable, it's just a dog that's got out.",
+        "No one's involved medically, nothing to tell you.",
+        "Doesn't apply, no casualty here.",
+        "There's no patient to ask about.",
+        "No idea, this isn't medical, it's a dog that's got out.",
+        "Not relevant, nobody's hurt.",
+        "No patient, so no history to give.",
+        "N/A, no one's been injured."
       ]
     },
     "medications": {
       "answers": [
-        "N/A",
-        "Not applicable"
+        "N/A, no patient to ask about.",
+        "No idea, nobody's hurt anyway.",
+        "Not applicable, it's just a dog that's got out.",
+        "No one's involved, nothing to tell you there.",
+        "Doesn't apply, there's no casualty.",
+        "No idea, this isn't a medical call.",
+        "N/A, nobody's been injured.",
+        "No patient, so nothing to report there.",
+        "Not relevant, it's only a dog that's got out.",
+        "No idea, no one's hurt in this."
       ]
     },
     "patientAge": {
       "answers": [
-        "Not applicable"
+        "N/A, there's no patient.",
+        "Doesn't apply, nobody's hurt.",
+        "No age to give, it's just a dog that's got out.",
+        "Not applicable, no one's involved like that.",
+        "There's no casualty, so no age needed.",
+        "N/A, this isn't about a person.",
+        "No idea, there's no patient here.",
+        "Doesn't apply, it's only a dog that's got out.",
+        "Not relevant, nobody's been hurt.",
+        "No age, there's no one injured."
       ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's where I am.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, that's the address.",
+        "We're at {{address}}.",
+        "It's {{address}}, you can't miss it.",
+        "{{address}}, that's the postcode.",
+        "The address is {{address}}.",
+        "{{address}}, I'll wait for you here.",
+        "It's {{address}}, that's the spot.",
+        "{{address}}, that's it exactly."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "It squeezed through a gap in the fence and bolted before I could stop it",
+        "It slipped its collar while I was walking it and ran off",
+        "The gate was left open and it's got out and gone down the road",
+        "It got spooked by fireworks and jumped the garden fence",
+        "It's not aggressive but it's frightened and won't come when called",
+        "It ran out when the delivery driver opened the front door",
+        "It's been gone about twenty minutes now, last seen heading towards the park",
+        "It wriggled out of its harness and took off down the street",
+        "It's normally fine but something's spooked it and it's bolted",
+        "It got out through the side gate that wasn't shut properly"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep looking for him",
-        "Thank you, I'm worried he'll get hit by a car"
+        "No ambulance needed, nobody's hurt, thank you.",
+        "I don't need an ambulance, this isn't medical, I just need police.",
+        "No, nobody's injured, just send police please.",
+        "That's not necessary, no one's hurt here.",
+        "No ambulance, thank you, it's a police matter.",
+        "Nobody's hurt, I only need officers here.",
+        "No, that's not needed, this isn't a medical emergency.",
+        "I don't think so, no injuries here at all.",
+        "No, no one's hurt, just police please.",
+        "That's not required, nobody's been injured."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them to arrive.",
+        "Good, I'll stay right here until they get here.",
+        "Thank you, I'll keep everyone back until they arrive.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Please hurry, I'll be watching out for them.",
+        "Thank you, I'll wait outside for the officers.",
+        "Okay, that's a relief, I'll stay put.",
+        "Good, I'll let you know if anything changes before they arrive.",
+        "Thank you, I'll keep an eye on things until they get here.",
+        "Okay, I'll stay close by until the police arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, there's no fire, I need police.",
+        "No, this isn't a fire, it's a police matter.",
+        "I don't need the fire service, just police please.",
+        "No fire here at all, just send officers.",
+        "That's the wrong service, there's no fire involved.",
+        "No, I need police, not the fire brigade.",
+        "There's no fire, just police please.",
+        "No thank you, nothing's alight, I need police.",
+        "That's not right, no fire here, just police.",
+        "No, nothing's on fire, just send police please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police, not 111"
+        "111? No, this isn't medical, but I do need someone to sort this out.",
+        "No, that's not right, this isn't a health thing, it's for the police.",
+        "I don't think 111 can help with this, can you send police.",
+        "No, this isn't medical, but it still needs looking at.",
+        "That doesn't sound right, this isn't a 111 matter.",
+        "No, I don't think a callback will help, this needs police.",
+        "I'm not sure that's the right service, this isn't medical.",
+        "No, this isn't about health, it's a police issue.",
+        "That's not it, this needs officers, not a nurse calling back.",
+        "No, I don't think so, this is a police matter really."
       ]
     }
   },

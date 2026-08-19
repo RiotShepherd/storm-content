@@ -43,6 +43,10 @@
     "park"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 4
+  },
   "patients": {
     "range": [
       0,
@@ -61,8 +65,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My basement's completely flooded, the water's just kept rising.",
-      "Fire brigade please, the cellar's flooded out, I can't get down there to check anything."
+      "Hello, my basement's filling up with water, I don't know how deep it is.",
+      "I've got water pouring into the cellar, it's rising fast.",
+      "There's a flooded basement here, I can hear water still coming in.",
+      "Hello, the cellar's flooding, I've had to shut the door on it.",
+      "I've got a real problem, water's filling the basement below the shop.",
+      "There's water gushing into the basement, I don't know where it's coming from.",
+      "Hello, my cellar's completely flooded, it's got quite deep down there.",
+      "I need help, the basement's taking on water and it won't stop.",
+      "There's flooding in the cellar, it's already over the bottom step.",
+      "Hello, I've discovered my basement's flooded, water's still coming in."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -74,91 +86,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My basement's completely flooded, the water's just kept rising.",
-        "Fire brigade please, the cellar's flooded out, I can't get down there to check anything."
+        "Hello, my basement's filling up with water, I don't know how deep it is.",
+        "I've got water pouring into the cellar, it's rising fast.",
+        "There's a flooded basement here, I can hear water still coming in.",
+        "Hello, the cellar's flooding, I've had to shut the door on it.",
+        "I've got a real problem, water's filling the basement below the shop.",
+        "There's water gushing into the basement, I don't know where it's coming from.",
+        "Hello, my cellar's completely flooded, it's got quite deep down there.",
+        "I need help, the basement's taking on water and it won't stop.",
+        "There's flooding in the cellar, it's already over the bottom step.",
+        "Hello, I've discovered my basement's flooded, water's still coming in."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, it's my house.",
-        "{{callerName}}, I live here."
+        "It's {{callerName}}, I own the property.",
+        "{{callerName}}, this is my building.",
+        "My name's {{callerName}}.",
+        "{{callerName}} here, it's my cellar that's flooded.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm the leaseholder here.",
+        "My name is {{callerName}}, I run the shop above.",
+        "{{callerName}}, I'm just checking on the building for the owner.",
+        "It's {{callerName}}, I found the water this morning.",
+        "{{callerName}} speaking, it's my basement that's affected."
       ]
     },
     "patientName": {
       "answers": [
-        "There's no patient, nobody's hurt.",
-        "No one's injured, it's just the flooding."
+        "There's nobody hurt, no name needed, it's just the basement flooding.",
+        "No injuries, so no name, it's only the basement flooding.",
+        "Nobody's hurt in this, it's simply the basement flooding.",
+        "No casualty, no name needed, it's the basement flooding.",
+        "There's no patient, everyone's fine, it's just the basement flooding.",
+        "No one's hurt, honestly it's only the basement flooding.",
+        "Not applicable, no one's injured, it's the basement flooding.",
+        "No name needed, nobody's been hurt, it's the basement flooding.",
+        "There's no injured person, it's simply the basement flooding.",
+        "No casualties at all, it's just the basement flooding."
       ]
     },
     "address": {
       "answers": [
-        "It's {{address}}.",
-        "{{address}}, the basement door's round the side."
+        "We're at {{address}}, the basement entrance is round the back.",
+        "{{address}}, the cellar door's at the side of the building.",
+        "It's {{address}}, I'll unlock the basement access for you.",
+        "{{address}}, mind the step, it's slippery near the water.",
+        "We're at {{address}}, I'll be waiting outside.",
+        "{{address}}, it's the shop with the blue door.",
+        "It's {{address}}, the basement hatch is out front.",
+        "{{address}}, I'll show you where the access is.",
+        "We're at {{address}}, the water's below street level.",
+        "{{address}}, I'll leave the gate open for you."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The cellar's flooded right up, I think a drain's backed up outside.",
-        "Water's been building in the basement for a couple of days now, it's got quite deep."
+        "A pipe must have burst down there, the basement's filling fast.",
+        "We think a drain's backed up and it's flooding the cellar.",
+        "There's been heavy rain and it's found its way into the basement.",
+        "A water main nearby may have gone, the cellar's filling quickly.",
+        "We're not sure of the cause, but water's steadily filling the basement.",
+        "Groundwater seems to be seeping in, it's been rising for a while.",
+        "A tank upstairs may have overflowed and it's come down into the cellar.",
+        "There's a crack in the basement wall and water's coming through it.",
+        "We think the sewer's backed up outside and it's got into the cellar.",
+        "It looks like surface water's found a way into the basement."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, I haven't been down there.",
-        "Everyone's fine, it's just the water."
+        "Nobody's hurt, so there's no one to check on, it's just the basement flooding.",
+        "No casualty here, everyone's fine, it's only the basement flooding.",
+        "That doesn't apply, no one's injured, it's the basement flooding.",
+        "No, there's no patient, it's simply the basement flooding.",
+        "Nobody's hurt, thankfully, it's just the basement flooding.",
+        "No injuries, everyone's fine, it's the basement flooding.",
+        "N/A really, no one's been hurt, it's the basement flooding.",
+        "No, there's no casualty involved, it's just the basement flooding.",
+        "Everyone's fine, no one's hurt, it's the basement flooding.",
+        "No injured person here, it's simply the basement flooding."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, all fine.",
-        "Everyone's okay, thank you."
+        "Nobody's hurt, so there's no one struggling for breath here.",
+        "No injuries at all, that one doesn't really apply.",
+        "There's no casualty, so nothing to tell you on breathing.",
+        "No one's hurt, everybody's breathing fine.",
+        "That's not an issue, no one's injured.",
+        "No, there's no patient, so that doesn't come into it.",
+        "Nobody needs that kind of help, there's no injury.",
+        "No casualties here, so no concerns like that.",
+        "Not applicable I'm afraid, no one's hurt.",
+        "No, everyone's absolutely fine, no injuries."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt, it's just the flooding.",
-        "Not applicable."
+        "No pain to report, nobody's been hurt in this.",
+        "That doesn't apply, there's no casualty here.",
+        "No, everyone's fine, nobody's in any pain.",
+        "Not applicable, no one's injured at all.",
+        "No, there's no patient, so no pain to speak of.",
+        "Nobody's complaining of anything like that.",
+        "No, thankfully there's no injury involved.",
+        "That one doesn't apply, no casualties here.",
+        "No, everyone's absolutely fine on that front.",
+        "Not relevant I'm afraid, no one's hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, nobody's injured.",
-        "No injuries."
+        "No, nobody's hurt, so no bleeding at all.",
+        "No, there's no injury in this one.",
+        "Not applicable, no casualties to report.",
+        "No, everyone's fine, nothing like that.",
+        "No, thankfully no one's been hurt.",
+        "There's no patient, so no bleeding to report.",
+        "No, nothing of that sort, everyone's okay.",
+        "No injuries at all, so no.",
+        "No, there's no casualty involved here.",
+        "No, absolutely not, nobody's hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient.",
-        "Not applicable."
+        "There's no patient really, so nothing to tell you.",
+        "Not applicable, nobody's been hurt in this.",
+        "No need, there's no casualty here.",
+        "No one's injured, so that doesn't come into it.",
+        "N/A I'm afraid, no one's hurt.",
+        "No patient to speak of, so no history needed.",
+        "That doesn't apply, thankfully no one's hurt.",
+        "Nothing to report, there's no injured person.",
+        "No, there's no casualty, so nothing on that.",
+        "Not relevant, nobody's been hurt here."
       ]
     },
     "medications": {
       "answers": [
-        "No one needs medical help.",
-        "Not applicable."
+        "No need, there's no patient in this one.",
+        "Not applicable, nobody's hurt.",
+        "No casualty, so nothing on medication.",
+        "There's no injured person, so that doesn't apply.",
+        "No, nobody's hurt, nothing to tell you there.",
+        "N/A, no one's been injured in this.",
+        "Not relevant, there's no casualty here.",
+        "No, there's no one hurt to ask about.",
+        "Doesn't apply, no injuries at all.",
+        "No, there's no patient, so nothing on that."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient.",
-        "Not applicable."
+        "N/A really, there's no injured person to give an age for.",
+        "No age to give you, nobody's hurt in this.",
+        "Not applicable, there's no casualty involved.",
+        "There's no patient, so no age needed.",
+        "No one's hurt, so that doesn't apply here.",
+        "N/A, no injuries at all, everyone's fine.",
+        "No casualty, so no age to report, sorry.",
+        "Doesn't apply, nobody's been hurt.",
+        "No, there's no patient in this case at all.",
+        "Not relevant, thankfully no one's injured."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay upstairs and wait for you.",
-        "Understood, I won't go near the water."
+        "Oh, we don't need an ambulance, it's just the basement flooding, no one's hurt.",
+        "No need for that, thank you, it's the fire brigade we need for the water.",
+        "That's alright, nobody's injured, it's just the cellar we need help with.",
+        "Ambulance isn't needed, thanks, it's flood water we're dealing with.",
+        "No injuries here, thank you, it's just the basement that's affected.",
+        "That's kind but we don't need paramedics, just help with the water.",
+        "No one's hurt, thank you, we just need the cellar sorted.",
+        "We're fine health wise, thanks, it's the building that needs help.",
+        "No need, thank you, nobody's injured, just the basement's wet.",
+        "That's alright, thanks, we just need the flooding dealt with."
       ]
     },
     "refer111": {
       "answers": [
-        "No, I just need the water pumped out!"
+        "111? This isn't medical, we just need help with the flooded basement please.",
+        "Oh, it's not a health thing, it's flooding, we need the fire brigade.",
+        "I don't think 111 deals with flooding, could someone come out please.",
+        "No, this isn't medical, we just need someone to help with the cellar.",
+        "That doesn't sound right for this, it's flood water, not a health issue.",
+        "111 wouldn't be able to help with this, it's the basement that's flooding.",
+        "No, please, we need help with the water, not a health line.",
+        "This isn't really a medical call, could someone come and look at the cellar.",
+        "I think you might have the wrong service, it's flooding, not an illness.",
+        "No, we just need practical help with the water please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the basement flooding.",
+        "Do we need police as well? It's really just a water problem down there.",
+        "Okay, if you think that helps, though it's mainly the cellar we're worried about.",
+        "I wasn't expecting police, but that's fine if it helps.",
+        "Alright, though I think it's really the fire brigade we need for this.",
+        "Okay, understood, though it's the water that's the main issue.",
+        "Fine, if that's needed, but it's flooding, not really a police matter.",
+        "Okay, whatever you think's best.",
+        "Alright, I'll let them know when they arrive.",
+        "Okay, though I'm not sure what police can do about a flooded cellar."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, that's who we need, please hurry.",
+        "Okay, good, I'll be waiting by the access for them.",
+        "Thank you, that's a relief, it's still rising down there.",
+        "Right, I'll show them the way in when they get here.",
+        "Okay, thank you, I've had to shut the door on it for now.",
+        "Yes please, we really need help with the pumping.",
+        "Thank you, I'll clear a path to the basement for them.",
+        "Okay, that's good news, please send them quickly.",
+        "Right, thank you, I'll keep checking on it until they arrive.",
+        "Okay, thank you, we're ready for them."
       ]
     }
   },

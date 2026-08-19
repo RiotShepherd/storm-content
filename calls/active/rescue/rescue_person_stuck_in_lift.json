@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -63,8 +67,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "I'm stuck in the lift, it's just stopped between floors and the doors won't open.",
-      "Fire brigade please, I'm trapped in a lift, I've been stuck for twenty minutes."
+      "Hello, I'm stuck in a lift, could someone come and get me out please.",
+      "I've been stuck in a lift for a while now, could you send someone.",
+      "Hello, the lift's stopped between floors and I can't get out.",
+      "I'm trapped in a lift, it's just stopped working.",
+      "Hello, I need some help, I'm stuck in a lift at work.",
+      "The lift I'm in has stopped moving and the doors won't open.",
+      "Hello, I'm stuck in a lift, I've pressed the alarm but nothing's happened.",
+      "I'm calling because I'm stuck in a lift and can't get out.",
+      "Hello, the lift's got stuck between floors, I'm not hurt, just trapped.",
+      "I need help, I'm stuck in a lift and it's been a while now."
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -76,91 +88,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "I'm stuck in the lift, it's just stopped between floors and the doors won't open.",
-        "Fire brigade please, I'm trapped in a lift, I've been stuck for twenty minutes."
+        "Hello, I'm stuck in a lift, could someone come and get me out please.",
+        "I've been stuck in a lift for a while now, could you send someone.",
+        "Hello, the lift's stopped between floors and I can't get out.",
+        "I'm trapped in a lift, it's just stopped working.",
+        "Hello, I need some help, I'm stuck in a lift at work.",
+        "The lift I'm in has stopped moving and the doors won't open.",
+        "Hello, I'm stuck in a lift, I've pressed the alarm but nothing's happened.",
+        "I'm calling because I'm stuck in a lift and can't get out.",
+        "Hello, the lift's got stuck between floors, I'm not hurt, just trapped.",
+        "I need help, I'm stuck in a lift and it's been a while now."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}.",
-        "My name's {{callerName}}, I'm the one stuck."
+        "It's {{callerName}}, that's me.",
+        "My name's {{callerName}}.",
+        "I'm {{callerName}}.",
+        "It's {{callerName}} calling.",
+        "My name is {{callerName}}, that's who's stuck.",
+        "I'm {{callerName}}, sorry to trouble you.",
+        "It's me, {{callerName}}.",
+        "{{callerName}}, that's my name.",
+        "I'm {{callerName}}, I'm the one stuck in the lift.",
+        "It's {{callerName}} speaking."
       ]
     },
     "patientName": {
       "answers": [
-        "There's no injury, I'm just stuck.",
-        "It's just me, I'm fine, just trapped."
+        "It's me, {{firstPatientName}}, I'm not hurt, just stuck.",
+        "My name's {{firstPatientName}}, I'm the one stuck in the lift.",
+        "I'm {{firstPatientName}}, nobody else is in here with me.",
+        "It's {{firstPatientName}} here, just me stuck in the lift.",
+        "My name is {{firstPatientName}}, I'm fine, just trapped.",
+        "I'm {{firstPatientName}}, that's me stuck in the lift.",
+        "It's me calling, I'm {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my name, I'm not hurt.",
+        "I'm {{firstPatientName}}, sorry to bother you, I'm just stuck.",
+        "It's {{firstPatientName}} speaking, I'm on my own in here."
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}, in the lift.",
-        "{{address}}, it's the lift by the main entrance."
+        "I'm at {{address}}, the lift's near the main entrance.",
+        "{{address}}, it's the lift on the ground floor lobby.",
+        "It's {{address}}, security should be able to let you in.",
+        "{{address}}, I'm stuck between the second and third floor.",
+        "I'm at {{address}}, the building manager has a key if needed.",
+        "{{address}}, come to reception, they'll show you the lift.",
+        "It's {{address}}, the lift's at the back of the building.",
+        "{{address}}, there's someone on site who can let you in.",
+        "I'm at {{address}}, please hurry, it's getting a bit stuffy.",
+        "{{address}}, I'll bang on the door when I hear you."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The lift just stopped between floors and won't move, the doors won't open either.",
-        "It made a strange noise and then stopped, I've been stuck since."
+        "The lift just stopped moving between floors and the doors won't open.",
+        "There was a jolt and then the lift stopped, it hasn't moved since.",
+        "The lift lost power halfway between floors and now it's stuck.",
+        "It made a strange noise and then just stopped completely.",
+        "The doors won't open and the lift isn't responding to any buttons.",
+        "It stopped suddenly and the lights flickered, now nothing's working.",
+        "The lift's just frozen between floors, I've tried the buttons but nothing happens.",
+        "It stopped without warning, I think there's a fault with the mechanism.",
+        "The lift juddered to a stop and now it's completely stuck.",
+        "It just stopped moving, no warning at all, and the doors are shut."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, I'm fine, just stuck.",
-        "Yes, completely fine, just want out."
+        "Yes, I'm fine, wide awake, just stuck.",
+        "Yes, I'm okay, just trapped in here.",
+        "I'm conscious, yes, just a bit fed up.",
+        "Yes, I'm fine, just waiting to get out.",
+        "I'm alert and talking to you fine, just stuck.",
+        "Yes, conscious, just a bit warm in here.",
+        "I'm okay, just stuck, nothing more than that.",
+        "Yes, I'm fine, just want to get out.",
+        "I'm conscious and calm, just waiting.",
+        "Yes, I'm alright, just stuck in the lift."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, breathing's fine, a bit stuffy in here though.",
-        "Yes, I'm okay."
+        "Yes, I'm breathing fine, no problems there.",
+        "I'm breathing okay, just a bit warm in here.",
+        "Yes, no trouble breathing at all.",
+        "I'm fine breathing wise, just stuck.",
+        "Yes, breathing's fine, thank you.",
+        "I'm okay on that front, just want to get out.",
+        "Yes, no issues breathing, just stuck.",
+        "I'm breathing normally, just a bit stuffy in here.",
+        "Yes, I'm fine, breathing's not a problem.",
+        "I'm okay, breathing's absolutely fine."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No, I'm not hurt at all.",
-        "No pain, just fed up."
+        "No pain, no, I'm just stuck, nothing hurts.",
+        "No, I'm fine, nothing's hurting me.",
+        "No pain at all, just fed up being stuck.",
+        "No, nothing hurts, I'm just trapped.",
+        "No pain, I'm just a bit bored waiting.",
+        "No, I'm completely fine, just stuck.",
+        "No pain, no, just want to get out now.",
+        "No, nothing hurts, I'm not injured.",
+        "No pain at all, just uncomfortable being stuck.",
+        "No, I'm fine, nothing's wrong physically."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries.",
-        "No, I'm fine."
+        "No, no bleeding, I'm fine.",
+        "No, nothing like that.",
+        "No, no cuts or anything.",
+        "No bleeding, no.",
+        "No, I'm not hurt like that.",
+        "No, nothing at all.",
+        "No, no bleeding, just stuck.",
+        "No, I'm fine on that front.",
+        "No, absolutely not.",
+        "No, nothing like that at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing relevant.",
-        "No, I'm generally healthy."
+        "Nothing relevant, no, I'm generally fine.",
+        "No, nothing like that, I'm healthy.",
+        "No medical conditions to speak of.",
+        "No, nothing, I'm fine health wise.",
+        "Nothing to mention really, no.",
+        "No, I've got no health problems.",
+        "No, nothing relevant at all.",
+        "No conditions, no, I'm fine.",
+        "No, nothing to report there.",
+        "No, I'm generally in good health."
       ]
     },
     "medications": {
       "answers": [
-        "No, nothing I need right now.",
-        "No, I'm not on anything."
+        "No, I don't take anything regularly.",
+        "No medications, no.",
+        "No, nothing regular, no.",
+        "No, I'm not on anything.",
+        "No, nothing at all.",
+        "No medications that I take.",
+        "No, I don't need anything regularly.",
+        "No, nothing, no.",
+        "No, I'm not on any medication.",
+        "No, I take nothing regularly."
       ]
     },
     "patientAge": {
       "answers": [
-        "I'm thirty four.",
-        "I'm in my forties."
+        "I'm thirty two.",
+        "I'm forty five.",
+        "I'm twenty eight.",
+        "I'm fifty one.",
+        "I'm thirty seven.",
+        "I'm twenty four.",
+        "I'm forty two.",
+        "I'm thirty nine.",
+        "I'm twenty six.",
+        "I'm forty eight."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay calm and wait.",
-        "Thank you, I'll try the alarm button again."
+        "Okay, thank you, I'll just stay put and wait.",
+        "Right, thank you, I'm not going anywhere.",
+        "Okay, that's good, no rush, I'll just wait here.",
+        "Thank you, I'll try to stay calm until they arrive.",
+        "Alright, I'll wait here for them, thank you.",
+        "Okay, I'll just sit tight until help comes.",
+        "Thank you, that's a relief, I'll wait patiently.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll just wait here, thank you.",
+        "Thank you, I'll do my best to stay calm until they come."
       ]
     },
     "refer111": {
       "answers": [
-        "No, I'm physically trapped, not ill!"
+        "Oh, that's fine actually, I'm not hurt, just stuck, if that's easier.",
+        "Yes, that sounds sensible, I'm not in any danger, just stuck.",
+        "Okay, if you think that's better, I'm quite calm really.",
+        "That's fine, I'm not hurt, just a bit fed up being stuck.",
+        "Alright, if 111 can help arrange something, that's fine.",
+        "Okay, that's understandable, I'm not in any pain.",
+        "Yes, that's fine, I'm not injured, just can't get out myself.",
+        "Alright, whatever's quickest, I'm not going anywhere.",
+        "That sounds fine, I'm not hurt, just stuck, no rush really.",
+        "Okay, if that's the best way to sort it, that's fine by me."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? Oh, I don't think I need them, I'm just stuck in a lift.",
+        "Do I need police as well? I really just need someone to get me out.",
+        "Okay, if you think that helps, though I'm not sure why.",
+        "I wasn't expecting police, but that's fine if it helps.",
+        "Alright, though I think it's really just an engineer or the fire brigade I need.",
+        "Okay, understood, though it's just me stuck, nothing more.",
+        "Fine, if that's needed, but nothing's really wrong like that.",
+        "Okay, whatever you think's best.",
+        "Alright, I'll wait for them, thank you.",
+        "Okay, though I'm not sure what police can do about a stuck lift."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh, the fire brigade? Alright, if that's who can get me out.",
+        "Okay, that's fine, whoever can help is welcome.",
+        "Right, thank you, I didn't expect the fire brigade but that's fine.",
+        "Okay, I'll wait here for them.",
+        "Alright, thank you, I'll wait patiently.",
+        "Okay, that's kind, I'll just stay put until they come.",
+        "Thank you, I'll wait here, no rush.",
+        "Okay, that sounds sensible, thank you.",
+        "Right, thank you, I'll wait for them.",
+        "Okay, thank you, whoever comes is very welcome."
       ]
     }
   },

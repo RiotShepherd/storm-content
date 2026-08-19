@@ -54,6 +54,12 @@
     "fire_officer": 8,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 20,
+    "ambulance": 20,
+    "police": 6
+  },
   "patients": {
     "range": [
       1,
@@ -117,7 +123,14 @@
     "openings": [
       "The factory's on fire and we can't account for everyone, there's people still inside",
       "I need the fire brigade now, colleagues are trapped inside the factory, the fire's spreading fast",
-      "Please hurry, there's people missing from the evacuation and the building's well alight"
+      "Please hurry, there's people missing from the evacuation and the building's well alight",
+      "We've got staff unaccounted for, the factory's burning and getting worse",
+      "Fire brigade urgently please, some of our colleagues never made it to the muster point",
+      "There's a major fire and we think two or three people are still inside the building",
+      "Please send everyone you can, we can't find some of our staff and the factory's ablaze",
+      "We've done a headcount and we're missing people, the fire's spread right through the building",
+      "Fire brigade please urgently, staff are trapped somewhere inside, it's a huge blaze",
+      "Please hurry, we think people are still in there, the smoke's really thick now"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -131,78 +144,230 @@
       "answers": [
         "The factory's on fire and we can't account for everyone, there's people still inside",
         "I need the fire brigade now, colleagues are trapped inside the factory, the fire's spreading fast",
-        "Please hurry, there's people missing from the evacuation and the building's well alight"
+        "Please hurry, there's people missing from the evacuation and the building's well alight",
+        "We've got staff unaccounted for, the factory's burning and getting worse",
+        "Fire brigade urgently please, some of our colleagues never made it to the muster point",
+        "There's a major fire and we think two or three people are still inside the building",
+        "Please send everyone you can, we can't find some of our staff and the factory's ablaze",
+        "We've done a headcount and we're missing people, the fire's spread right through the building",
+        "Fire brigade please urgently, staff are trapped somewhere inside, it's a huge blaze",
+        "Please hurry, we think people are still in there, the smoke's really thick now"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the site manager"
+        "It's {{callerName}}, I'm the site manager",
+        "{{callerName}}, I'm doing the headcount at the muster point",
+        "My name's {{callerName}}, I'm health and safety here",
+        "It's {{callerName}}, please hurry, we're missing people",
+        "{{callerName}} speaking, I'm at the main gate",
+        "Name's {{callerName}}, I run this shift",
+        "It's {{callerName}}, I'm trying to work out who's missing",
+        "{{callerName}}, I'm the duty manager tonight",
+        "This is {{callerName}}, please, we need help fast",
+        "{{callerName}} here, I'll meet you at the entrance"
       ]
     },
     "patientName": {
       "answers": [
-        "We've got a number of staff unaccounted for, I'll give you names as we check them off"
+        "There's a few we can't account for, one's called {{firstPatientName}}",
+        "One missing colleague is {{patientName}}, {{he}} was working near the fire",
+        "I think it's {{firstPatientName}} and one or two others still inside",
+        "One's {{firstPatientName}}, {{he}}'s not been seen since the alarm went",
+        "There's more than one missing, {{firstPatientName}} is one of them",
+        "One colleague, {{firstPatientName}}, hasn't come to the muster point",
+        "I can't be sure of everyone, but {{firstPatientName}} is definitely missing",
+        "{{His}} name's {{firstPatientName}}, {{he}} was last seen near the production line",
+        "One's {{patientName}}, {{he}} works in the section closest to the fire",
+        "We think {{firstPatientName}} and possibly one other are still inside"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the factory, main gate is the fastest way in"
+        "{{address}}, it's the factory",
+        "It's {{address}}, please hurry, use the main gate",
+        "{{address}}, we'll have someone waiting to guide you in",
+        "You want {{address}}, the industrial estate off the ring road",
+        "{{address}}, please hurry, you'll see the smoke from far off",
+        "{{address}}, that's confirmed, come through the main entrance",
+        "{{address}}, the factory, everyone's gathering at the muster point",
+        "{{address}}, that's us, please come quickly",
+        "{{address}}, come through the gate, I'll be waiting there",
+        "{{address}}, please, we need help fast, people are missing"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Fire's broken out and spread fast, we've evacuated most people but some are still not accounted for"
+        "The fire's spread through the building fast and we can't account for everyone",
+        "Not sure of the cause, but it went from a small fire to the whole building very fast",
+        "We think it started in the production area, some staff couldn't get out that way",
+        "Not certain, but by the time we noticed it was already a major fire",
+        "We believe it may be electrical, it's spread extremely quickly through the site",
+        "Not sure exactly, but the whole structure's now well alight and people are missing",
+        "The alarm sounded but not everyone made it to the muster point in time",
+        "Unclear cause, but the fire's taken hold of the entire building now",
+        "Not certain, but a few staff were last seen near where the fire started",
+        "We don't know exactly, but it's a major fire and some of our people are unaccounted for"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "We don't know the condition of those still inside"
+        "We don't know, we can't get to {{him}} to check",
+        "Not sure, {{he}} hasn't been seen since the alarm went off",
+        "We can't tell, nobody's been able to reach that part of the building",
+        "Unknown, we've had no contact with {{him}} at all",
+        "We don't know {{his}} condition, we haven't been able to reach {{him}}",
+        "Can't say, nobody's been able to get close enough to check",
+        "Unknown, {{he}} may still be inside, we're not sure",
+        "We're not sure, crews are still searching for {{him}}",
+        "Can't confirm, the building's too dangerous to search ourselves",
+        "We don't know, that's why we need you here urgently"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "The ones we've got out are coughing badly from the smoke"
+        "We don't know, {{he}}'s somewhere in a smoke filled building we can't reach",
+        "Unknown, there's smoke logging right through that section",
+        "Can't say, we haven't been able to get near enough to check",
+        "We're worried, the smoke's very thick throughout the building",
+        "Unknown, staff couldn't get back in to check on {{him}}",
+        "Can't confirm, that's exactly what we're worried about",
+        "We don't know {{his}} breathing, we can't reach {{him}}",
+        "Unknown, the whole building is thick with smoke now",
+        "Can't say, please hurry, the smoke's getting worse by the minute",
+        "We don't know, that's why we called straight away"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Some of the evacuated staff have burns and are in pain"
+        "We don't know, we haven't been able to reach {{him}}",
+        "Unknown, staff can't get close enough to check on {{him}}",
+        "Can't say, {{he}}'s somewhere we can't safely access",
+        "We don't know {{his}} condition at all right now",
+        "Unknown, nobody's been able to get to {{him}} yet",
+        "Can't confirm anything, the smoke's blocking access",
+        "We don't know, crews are trying to reach that area now",
+        "Unknown, we're hoping {{he}}'s found a safe spot",
+        "Can't say, please just get here as quickly as you can",
+        "We don't know, that's the honest truth right now"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A few have cuts from getting clear of debris"
+        "We don't know, we haven't been able to reach {{him}}",
+        "No idea, staff can't get close enough to check",
+        "Unknown, we can't see {{him}} through the smoke",
+        "Can't say, sorry, we've had no contact with {{him}}",
+        "We don't know, nobody's been able to get near",
+        "Unknown, that's not something we can check right now",
+        "Can't confirm, the building's too dangerous to search ourselves",
+        "We don't know, crews are searching but haven't found {{him}} yet",
+        "No idea, please just hurry, we're very worried",
+        "We don't know, sorry, we simply can't reach {{him}}"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't have full details, HR will have staff records"
+        "I don't have full details, HR will have staff records",
+        "Not sure exactly, HR hold everyone's file",
+        "I can't recall anything specific, HR will know",
+        "Not certain, but I believe {{he}} has no known conditions",
+        "I don't know off the top of my head, sorry",
+        "Not sure, HR are checking the records now",
+        "I believe {{he}} may have asthma, not certain",
+        "Not certain, we're pulling {{his}} file now",
+        "I couldn't say for sure, HR will confirm",
+        "Not sure exactly, it's all on file with HR"
       ]
     },
     "medications": {
       "answers": [
-        "I can't confirm that right now"
+        "I'm not sure, HR hold that kind of detail",
+        "No idea, sorry, we're checking now",
+        "Not certain, I don't know {{his}} details",
+        "I couldn't say, HR will have that on file",
+        "Not sure exactly, we're finding out now",
+        "No idea, sorry, that's not something I'd know",
+        "Not certain, we'll check with HR",
+        "I don't know off the top of my head, sorry",
+        "Not sure, HR are checking the records",
+        "No idea, sorry, we're trying to find out"
       ]
     },
     "patientAge": {
       "answers": [
-        "All adults, our workforce, mixed ages"
+        "{{He}}'s in {{his}} thirties",
+        "{{He}}'s about forty",
+        "{{He}}'s in {{his}} late twenties",
+        "{{He}}'s around fifty years old",
+        "{{He}}'s in {{his}} forties",
+        "{{He}}'s about thirty five",
+        "{{He}}'s in {{his}} early fifties",
+        "{{He}}'s around twenty eight",
+        "{{He}}'s in {{his}} mid forties",
+        "{{He}}'s about thirty years old"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're doing a headcount at the assembly point now"
+        "Okay, please hurry, I'm going to try and get closer again",
+        "Understood, I'll stay by the phone, please get here fast",
+        "Okay, other staff are checking the muster point again",
+        "Right, I'll keep everyone else calm while we wait",
+        "Okay, please hurry, the smoke's getting thicker",
+        "Understood, I'll stay on the line as long as I can",
+        "Okay, I've got the rest of the staff accounted for now",
+        "Right, please hurry, we're doing everything we can here",
+        "Okay, I'll let you know the moment anything changes",
+        "Understood, please just get here as fast as possible"
       ]
     },
     "refer111": {
       "answers": [
-        "No, people are missing inside a burning building, we need everyone you can send"
+        "No, this needs the fire brigade urgently, people are missing",
+        "No, this is far too serious for that",
+        "No, please, we need proper emergency help right now",
+        "No, this can't wait, staff may be trapped",
+        "No, absolutely not, this is a genuine emergency",
+        "No, please just send everyone you can",
+        "No, this is a major fire with people missing, not that",
+        "No, we need the fire brigade here urgently",
+        "No, please, there's no time for that",
+        "No, this needs an emergency response right now"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh good, please, we need help keeping the road clear near the gate",
+        "Thank you, yes, traffic's building up around the factory",
+        "Good, please send them quick, we need the area secured",
+        "Thank you, that's a relief, we can't manage the road and the search together",
+        "Oh good, yes please, people keep trying to get closer to look",
+        "Thank you, please hurry them, we need access kept clear for the engines",
+        "Good, yes, we really need that, it's chaotic near the gate",
+        "Thank you, please, we're struggling to keep the road clear ourselves",
+        "Oh good, that's needed, please send them as fast as you can",
+        "Thank you, yes please, we need help managing the scene here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry, we still can't find {{him}}",
+        "Good, please, how long will they be, the smoke's getting worse",
+        "Thank you, we're still trying to reach {{him}}, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we'll keep trying, please hurry",
+        "Oh good, please send them quickly, we're very worried about {{him}}",
+        "Thank you, most staff are safe, please hurry them for the ones still inside",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, {{he}} might still be in there"
       ]
     }
   },

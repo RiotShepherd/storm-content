@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,15 @@
   "caller": {
     "openings": [
       "A trailer's on fire on the drive next door",
-      "I need the fire brigade, someone's caravan trailer is well alight outside"
+      "I need the fire brigade, someone's caravan trailer is well alight outside",
+      "There's a trailer fire on the driveway across the road",
+      "Can you send someone, a trailer's caught fire outside",
+      "There's smoke coming from a trailer parked on the drive",
+      "Someone's box trailer has gone up in flames",
+      "There's a fire from a trailer outside the house",
+      "A trailer's well alight, flames are quite high now",
+      "There's a caravan trailer burning on the driveway",
+      "A trailer's on fire near the front of the house"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -80,78 +92,231 @@
     "start": {
       "answers": [
         "A trailer's on fire on the drive next door",
-        "I need the fire brigade, someone's caravan trailer is well alight outside"
+        "I need the fire brigade, someone's caravan trailer is well alight outside",
+        "There's a trailer fire on the driveway across the road",
+        "Can you send someone, a trailer's caught fire outside",
+        "There's smoke coming from a trailer parked on the drive",
+        "Someone's box trailer has gone up in flames",
+        "There's a fire from a trailer outside the house",
+        "A trailer's well alight, flames are quite high now",
+        "There's a caravan trailer burning on the driveway",
+        "A trailer's on fire near the front of the house"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm next door"
+        "It's {{callerName}}, I'm next door",
+        "{{callerName}} here, I saw it from my window",
+        "It's {{callerName}}, I live across the road",
+        "{{callerName}}, I noticed the smoke first",
+        "It's {{callerName}}, I'm stood outside now",
+        "My name's {{callerName}}, I spotted the flames",
+        "It's {{callerName}}, I was walking past",
+        "{{callerName}} speaking, I called it in straight away",
+        "It's {{callerName}}, I'm a neighbour",
+        "{{callerName}}, I'm keeping an eye on it now"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, it's empty"
+        "There's no one hurt, nobody was anywhere near it.",
+        "No patient to report, it's just the fire itself.",
+        "Nobody's hurt, I haven't seen anyone go near it.",
+        "No casualties, no one was involved when it caught.",
+        "There's no one to name, no one's injured.",
+        "Nobody was caught up in it, no injuries at all.",
+        "No one's hurt, everyone's kept well clear.",
+        "There's nobody involved, it's not touched anyone.",
+        "No injuries to report, no one's anywhere near it.",
+        "Nobody's hurt, there's no patient here."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's on the driveway"
+        "{{address}}, it's on the driveway",
+        "It's {{address}}, the trailer's parked out front",
+        "{{address}}, on the drive next to the house",
+        "It's {{address}}, you'll see the smoke from the road",
+        "{{address}}, near the side of the drive",
+        "It's {{address}}, parked outside the garage",
+        "{{address}}, on the driveway of the corner house",
+        "It's {{address}}, follow the smoke, it's obvious",
+        "{{address}}, the trailer's by the front gate",
+        "It's {{address}}, next to the parked cars"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The trailer's caught fire, don't know how, no one's near it"
+        "The trailer's caught fire, don't know how, no one's near it",
+        "It just started smoking then burst into flame, no obvious cause",
+        "No idea what started it, it's unoccupied and just went up",
+        "It's been sat there for weeks, now it's suddenly alight",
+        "Looks like it started at the back of the trailer",
+        "No one's near it, it just caught on its own",
+        "It's spreading to the fence next to it now",
+        "The flames are getting higher, no one's touched it",
+        "It caught fast, black smoke pouring off it",
+        "No obvious cause, it's just gone up where it stood"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, it's unoccupied"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so there's nothing to report there.",
+        "Everyone's fine, nobody's anywhere near it.",
+        "No casualties, no one's been affected by it.",
+        "There's no patient, nobody's hurt at all.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, just smoke"
+        "No one's struggling, just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smoke that's bothering us.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's near enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke.",
+        "No breathing problems, nobody's close enough to it.",
+        "We've kept clear, so no one's had any trouble breathing.",
+        "No one's affected, just a bit of a smell in the air.",
+        "Nothing to report, we're all well away from the smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected.",
+        "Not applicable, there's no patient in pain.",
+        "No injuries, nobody's hurt in any way.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's involved"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all.",
+        "Not applicable, nobody's been hurt.",
+        "No, no one's involved, so no injuries.",
+        "No bleeding to report, everyone's clear.",
+        "No injuries at all, nobody's near it.",
+        "No, there's no one hurt to report bleeding.",
+        "Not applicable, no one's been affected.",
+        "No, everyone's well away from it.",
+        "No bleeding, nobody's been caught up in it."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no one hurt.",
+        "No patient, so nothing to tell you there.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter.",
+        "No patient here, nothing to report.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that.",
+        "Not applicable, nobody's hurt.",
+        "No patient involved, nothing to tell you."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not medical.",
+        "No patient, nothing to tell you.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected.",
+        "No casualty, so nothing there.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient involved"
+        "There's no patient, nobody's hurt.",
+        "No one involved, so no age to give.",
+        "Not applicable, it's just the fire.",
+        "No casualty, there's no one to report.",
+        "Nobody's hurt, no patient here.",
+        "No one's involved, so nothing there.",
+        "Not applicable, there's no injuries.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've moved my car off the drive"
+        "Okay, I've moved my car off the drive",
+        "Right, I'm keeping clear of the fumes",
+        "Okay, I'm stood a safe distance away",
+        "Understood, I'll keep others back from it",
+        "Alright, I'm well clear of the flames",
+        "Okay, I've told the neighbours to stay indoors",
+        "Right, I'll let you know if it spreads",
+        "Okay, I'm watching from across the road",
+        "Understood, I'm waiting to point you the right way",
+        "Okay, we're keeping everyone back from it"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's a trailer on fire, I need the fire brigade",
+        "Sorry, why police, it's just the trailer burning, nothing criminal",
+        "No, this isn't a police matter, it's the trailer alight",
+        "There's no need for police, just send the fire engine",
+        "No, it's the trailer burning, nobody's done anything wrong",
+        "Sorry, I don't need police, I need someone for the fire",
+        "No thank you, it's not a police job, it's a small fire",
+        "That's not right, it's just the trailer, not a police matter",
+        "No, please, just the fire brigade for the flames",
+        "Sorry, there's no crime here, just a trailer fire"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, there might be gas canisters inside",
+        "Okay, good, I've moved my car off the drive",
+        "Please hurry, it's right next to the house",
+        "Thank you, I'm staying well back from it",
+        "Okay, I can see them coming, thank god",
+        "Good, hurry, it's getting closer to the house wall",
+        "Thank you, I've moved everyone away from the drive",
+        "Okay, please tell them to hurry, it's spreading",
+        "Thank goodness, no one's near it thankfully",
+        "Good, hurry please, I'm worried about the house catching"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire not medical"
+        "No, it's a fire not medical",
+        "No, nobody's hurt, it's empty",
+        "No thank you, I need the fire brigade",
+        "No, there's no injury, please send the fire service",
+        "No, this isn't a medical matter",
+        "No, I don't need that, please send firefighters",
+        "No, nobody's involved, it's unoccupied",
+        "No, it's a fire call, not a health one",
+        "No, please just get the fire brigade here",
+        "No, it's not something 111 can help with"
       ]
     }
   },

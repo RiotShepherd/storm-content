@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -70,7 +74,15 @@
   "caller": {
     "openings": [
       "My back's completely seized up, I can't stand",
-      "I've hurt my back badly, the pain's unbearable"
+      "I've hurt my back badly, the pain's unbearable",
+      "My back's gone, I can't put any weight on my legs without agony",
+      "I've done my back in, I can't get off the sofa",
+      "My back's locked solid, every movement is agony",
+      "I've hurt my back really badly, I can't move an inch",
+      "My back's given way, I'm stuck on the floor",
+      "I've strained my back, I can't get myself up at all",
+      "My back's in spasm, I can't stand up straight",
+      "I've really hurt my back, the pain's shooting down my leg"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -83,89 +95,231 @@
     "start": {
       "answers": [
         "My back's completely seized up, I can't stand",
-        "I've hurt my back badly, the pain's unbearable"
+        "I've hurt my back badly, the pain's unbearable",
+        "My back's gone, I can't put any weight on my legs without agony",
+        "I've done my back in, I can't get off the sofa",
+        "My back's locked solid, every movement is agony",
+        "I've hurt my back really badly, I can't move an inch",
+        "My back's given way, I'm stuck on the floor",
+        "I've strained my back, I can't get myself up at all",
+        "My back's in spasm, I can't stand up straight",
+        "I've really hurt my back, the pain's shooting down my leg"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, that's me",
+        "My name's {{firstPatientName}}",
+        "It's {{firstPatientName}}, I'm the one who's hurt",
+        "{{firstPatientName}}",
+        "Yes, {{firstPatientName}}",
+        "{{firstPatientName}} here",
+        "It's {{firstPatientName}} speaking",
+        "{{firstPatientName}}, please hurry",
+        "{{firstPatientName}}, that's my name"
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}",
-        "{{address}}, I'm stuck on the floor"
+        "It's {{address}}",
+        "{{address}}, at home",
+        "We're at {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, at home",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, at home, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I twisted awkwardly lifting something heavy and now I can't straighten up",
-        "My back's gone completely, I can't put any weight on it"
+        "I was carrying something up the stairs and my back gave way",
+        "I twisted getting out of the car and felt my back go",
+        "I've had ongoing back trouble and it's flared up badly",
+        "I bent to tie my shoe and my back locked up completely",
+        "I reached up to a shelf and something in my back gave way",
+        "I've been struggling with my back for a few days, it's much worse now",
+        "I slipped slightly and my back seized up straight away",
+        "I was gardening and felt a sharp pain shoot through my back",
+        "I've strained my back moving furniture",
+        "My back's been getting worse through the day and now I can't move"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, wide awake, just in agony",
-        "Yes, fully conscious"
+        "Yes, I'm fully conscious, just in agony",
+        "Yes, I'm awake and talking fine",
+        "Yes, conscious, just can't move much at all",
+        "Yes, I'm alert, the pain's just dreadful",
+        "Yes, wide awake, just stuck here",
+        "Yes, conscious, I simply can't get up",
+        "Yes, I'm fine that way, just the pain's terrible",
+        "Yes, I'm conscious, just really struggling",
+        "Yes, awake and fine, just can't move at all",
+        "Yes, conscious, just in real agony with my back"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Fine, just shallow because of the pain",
-        "Normal"
+        "Yes, breathing's fine",
+        "Yes, no problems breathing at all",
+        "Yes, breathing normally",
+        "Yes, that's fine, it's just my back",
+        "Yes, no issues there",
+        "Yes, breathing's completely normal",
+        "Yes, that's not a problem, just the pain",
+        "Yes, breathing fine, thank you",
+        "Yes, no trouble breathing",
+        "Yes, breathing's okay, it's purely my back"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Severe, worst back pain I've had",
-        "About a nine out of ten"
+        "Yes, it's unbearable, I can't move at all",
+        "Yes, the pain's dreadful, right down my lower back",
+        "Yes, severe pain, it's shooting down my leg too",
+        "Yes, terrible pain, I can't put any weight on my legs",
+        "Yes, it's really bad, sharp pain with any movement",
+        "Yes, I'm in a lot of pain, it's completely locked up",
+        "Yes, the pain's unbearable when I try to shift position",
+        "Yes, severe pain across my back and down my leg",
+        "Yes, it's agony, I've never had it this bad before",
+        "Yes, terrible pain, I can barely breathe with it"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No, no bleeding, it's just my back",
+        "No bleeding at all",
+        "No, there's no injury like that",
+        "No, it's just the spasm, no bleeding",
+        "No bleeding, it's purely the back pain",
+        "No, nothing like that",
+        "No bleeding, no injury",
+        "No, I'm not bleeding",
+        "No bleeding, just the pain",
+        "No, no bleeding, it's just my back that's gone"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've got a history of slipped discs",
-        "Nothing I can think of"
+        "I've had back problems for a good few years",
+        "I've got a bulging disc from before",
+        "I've had sciatica in the past, this feels similar",
+        "I've thrown my back out several times before",
+        "I have chronic lower back pain usually",
+        "I've had this happen before but not this bad",
+        "I've got a long history of back trouble",
+        "I've had lower back issues on and off for years",
+        "I've had a bad back for a long time now",
+        "I've had similar episodes before, never quite this severe"
       ]
     },
     "medications": {
       "answers": [
-        "I take painkillers for my back sometimes",
-        "Just over the counter ones"
+        "I take naproxen for it sometimes",
+        "I've taken some paracetamol already",
+        "I'm on regular painkillers for my back",
+        "I take codeine occasionally for flare ups",
+        "I've taken some over the counter painkillers today",
+        "I'm not on anything regular, just painkillers when needed",
+        "I take anti inflammatories now and then",
+        "I've taken some paracetamol but the pain's not easing",
+        "I take painkillers as needed for my back",
+        "I'm not on regular medication, just what I've taken this morning"
       ]
     },
     "patientAge": {
       "answers": [
-        "44"
+        "I'm fifty two",
+        "I'm in my fifties",
+        "Fifty three",
+        "I'm fifty one",
+        "I'm in my early fifties",
+        "Fifty four, if that's relevant",
+        "I'm in my mid fifties",
+        "Fifty two years old",
+        "I'm around fifty three",
+        "I'm fifty, just turned fifty this year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay as still as I can",
-        "It's not easing off at all"
+        "Okay, thank you, I'll stay where I am",
+        "Right, I'll try not to move until they get here",
+        "Okay, that's a relief, thank you",
+        "Thank you, I'll wait by the door for them",
+        "Okay, I'll keep as still as I can",
+        "Right, thank you, how long roughly",
+        "Okay, I'll stay on the line until they arrive",
+        "Thank you, I'm just going to sit tight",
+        "Okay, that's good, I'm in a lot of discomfort",
+        "Right, thank you, I appreciate it"
       ]
     },
     "refer111": {
       "answers": [
-        "I genuinely can't move, I don't think I can wait",
-        "I really can't get to a car like this"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

@@ -49,6 +49,10 @@
     "irv": 9,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 10
+  },
   "patients": {
     "range": [
       0,
@@ -85,8 +89,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's some sort of illegal rave going on, hundreds of people, and now someone's collapsed.",
-      "I need police and ambulance, there's an unlicensed party going on and people are getting crushed near the front."
+      "Hello, please hurry, there's an illegal party going on and people are getting hurt.",
+      "Hi, there's an unlicensed rave here, it's completely out of control.",
+      "Yeah hiya, please, there's hundreds of people at an illegal music event, some are hurt.",
+      "Oh hello, I'm really worried, this party's got way out of hand, people are injured.",
+      "Hi there, please send someone, there's an unlicensed event and people are getting crushed.",
+      "Hello, this is urgent, there's a huge crowd at an illegal party, it's dangerous.",
+      "Hi, please, I need to report an unlicensed music event, people are hurt.",
+      "Oh, hello, I'm scared, there's a crowd crush happening at this party.",
+      "Hiya, please hurry, this illegal rave's got completely out of hand.",
+      "Hello, please, there's an unlicensed event here and people are getting hurt."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -98,91 +110,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's some sort of illegal rave going on, hundreds of people, and now someone's collapsed.",
-        "I need police and ambulance, there's an unlicensed party going on and people are getting crushed near the front."
+        "Hello, please hurry, there's an illegal party going on and people are getting hurt.",
+        "Hi, there's an unlicensed rave here, it's completely out of control.",
+        "Yeah hiya, please, there's hundreds of people at an illegal music event, some are hurt.",
+        "Oh hello, I'm really worried, this party's got way out of hand, people are injured.",
+        "Hi there, please send someone, there's an unlicensed event and people are getting crushed.",
+        "Hello, this is urgent, there's a huge crowd at an illegal party, it's dangerous.",
+        "Hi, please, I need to report an unlicensed music event, people are hurt.",
+        "Oh, hello, I'm scared, there's a crowd crush happening at this party.",
+        "Hiya, please hurry, this illegal rave's got completely out of hand.",
+        "Hello, please, there's an unlicensed event here and people are getting hurt."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm here at the party.",
-        "{{callerName}}, I live just up the road, I can hear it from my house."
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}.",
+        "{{callerName}} speaking.",
+        "It's {{callerName}} here.",
+        "Name's {{callerName}}.",
+        "{{callerName}}, yes.",
+        "This is {{callerName}}."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know her name, she's just collapsed near the speakers.",
-        "It's {{firstPatientName}}, her mates are with her."
+        "There's too many to name, honestly, there's a lot of them hurt.",
+        "I can't give names, there's people everywhere, it's overwhelming.",
+        "I don't know any of them, there's just so many people hurt.",
+        "No names, sorry, there's a lot of casualties out here.",
+        "I can't tell you names, there's people all over the scene.",
+        "Sorry, there's too many of them, I can't get names.",
+        "I don't know them, there's just so many people involved.",
+        "No idea of names, there's people trapped and hurt everywhere.",
+        "I can't help with names, there's just too many hurt.",
+        "Sorry, no names, there's people everywhere, it's chaos."
       ]
     },
     "address": {
       "answers": [
-        "It's at {{address}}, there's music blaring out of it.",
-        "{{address}}, you can't miss it, there's crowds outside."
+        "It's {{address}}.",
+        "The address is {{address}}, can you get someone there quickly.",
+        "{{address}}, that's where I am.",
+        "We're at {{address}}.",
+        "It's {{address}}, just past the corner.",
+        "{{address}}, that's the postcode area.",
+        "I'm calling from {{address}}.",
+        "You need {{address}}, that's the one.",
+        "It's {{address}}, look for the front door.",
+        "{{address}}, please hurry."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's hundreds of people here, no proper stewards, and someone's gone down near the front by the speakers.",
-        "It's an unlicensed party, it's got completely out of hand and people are getting hurt in the crush."
+        "There's hundreds of people in a field, no licence, and people are getting crushed near the stage.",
+        "It's completely overcrowded, people are falling and getting trampled near the front.",
+        "There's fighting breaking out and a few people have been knocked to the ground and hurt.",
+        "Someone set up an unlicensed rave in an old barn, it's packed and people are getting hurt in the crush.",
+        "There's people collapsing, looks like drugs and alcohol involved, some are bleeding from falls.",
+        "It's a huge illegal gathering, security's overwhelmed and people are getting injured.",
+        "The crowd surged near the stage and several people went down, some are hurt.",
+        "There's broken glass everywhere and people cutting themselves in the chaos.",
+        "It's spiralled out of control, people are being crushed against the barriers.",
+        "There's a big unlicensed event, several people are down and being helped by others nearby."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "She's breathing but not really responding to us.",
-        "He's awake but really out of it, can't stand up."
+        "Some are conscious and shouting, others aren't moving at all.",
+        "A lot of them are conscious but in shock, some aren't responding.",
+        "Some are alert and calling out, others look unconscious.",
+        "Mixed, some are awake and screaming, others aren't moving.",
+        "A lot are conscious, but some aren't responding.",
+        "Some are talking, others are completely still, I'm really worried.",
+        "Quite a few are conscious, but some are unresponsive.",
+        "Some are alert, others aren't moving at all, it's awful.",
+        "A number are conscious and calling for help, others aren't.",
+        "Some are awake and shouting, others look unconscious, please hurry."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, but it's shallow.",
-        "She's breathing, fast though."
+        "Some seem to be breathing, others I really can't tell from here.",
+        "I can't check everyone, some look like they're struggling to breathe.",
+        "A few are gasping, others seem okay, it's hard to tell from here.",
+        "Some are breathing fine, others I'm really not sure about.",
+        "I can't tell for all of them, some look like they're in trouble breathing.",
+        "A number seem to be breathing okay, others don't look good at all.",
+        "Some are coughing and struggling, others seem alright.",
+        "I really can't check everyone, please send help fast.",
+        "Some are breathing okay as far as I can see, others aren't moving.",
+        "It's hard to tell from here, some look in real trouble."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She's clutching her stomach and won't let anyone near her.",
-        "He's got a nasty cut and says his ribs hurt."
+        "Everyone's in pain, screaming, it's awful out here.",
+        "Loads of them are in serious pain, crushed limbs and worse.",
+        "There's people screaming in agony all around the scene.",
+        "Many are in severe pain, some look like they can't move at all.",
+        "It's horrific, people are in terrible pain everywhere.",
+        "A lot of them are badly hurt and in a lot of pain.",
+        "There's screaming everywhere, people in serious pain.",
+        "Many look seriously injured, in a lot of pain.",
+        "It's awful, people crushed and in agonising pain.",
+        "There's severe injuries everywhere, people in terrible pain."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's a cut on his head, bleeding quite a bit.",
-        "A bit, from a graze on her arm."
+        "There's a lot of blood, several people are bleeding badly.",
+        "Quite a few are bleeding heavily, it's really bad out here.",
+        "There's severe bleeding on several of them, please hurry.",
+        "A lot of them are bleeding badly from the debris.",
+        "There's blood everywhere, several serious bleeds that I can see.",
+        "Some are bleeding really badly, I don't know what to do.",
+        "There's heavy bleeding on a number of them, please send help fast.",
+        "Quite a few have serious wounds, bleeding heavily.",
+        "There's a lot of blood, some look critical, please hurry.",
+        "Several are bleeding severely, this is really serious."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've no idea, I don't know her.",
-        "No idea, we've only just met her tonight."
+        "I've no idea, there's too many strangers, I can't help with that.",
+        "I don't know any of them, sorry, there's just so many people.",
+        "No idea about that, I don't know these people at all.",
+        "I can't help with that, there's just too much going on.",
+        "I don't know, sorry, please just get people here fast.",
+        "No idea, there's a lot of them, I don't know anyone.",
+        "I can't tell you that, sorry, there's just too many casualties.",
+        "No idea, sorry, please just send everyone you can.",
+        "I don't know any of their history, sorry, it's overwhelming here.",
+        "Can't help with that, sorry, there's just so many people hurt."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, sorry.",
-        "No idea what she's taken, if anything."
+        "I've no idea, there's too many people, I can't help with that.",
+        "I don't know, sorry, there's just so many strangers here.",
+        "No idea about that, please just get help here fast.",
+        "I can't tell you, sorry, there's too much going on.",
+        "No idea, sorry, please just send everyone you can.",
+        "I don't know any of that, there's a lot of them hurt.",
+        "Can't help with that, sorry, it's chaos out here.",
+        "No idea, sorry, just please get ambulances here quickly.",
+        "I don't know, there's just too many casualties to tell you that.",
+        "Sorry, no idea, please just hurry, there's so many hurt."
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks about twenty.",
-        "She's a teenager, maybe seventeen."
+        "All sorts, adults and I think I can see at least one child.",
+        "A real mix of ages, I can't be exact, there's just so many.",
+        "Hard to say, all ages it looks like, please just hurry.",
+        "I can't tell exactly, there's people of every age out here.",
+        "A mix, some older, some younger, I really can't say precisely.",
+        "It's hard to tell from here, all sorts of ages, please hurry.",
+        "There's a real range of ages, I can't give you exact numbers.",
+        "Hard to say exactly, but a mix of adults and possibly children.",
+        "I really can't tell, there's just so many people of all ages.",
+        "A mix of ages as far as I can see, please just get help here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we'll keep everyone back from her.",
-        "Please hurry, more people keep getting pushed over."
+        "Thank you, please hurry, some of them are in a bad way.",
+        "Okay, how long will the ambulances be please.",
+        "Right, we'll try to keep them all calm until you arrive.",
+        "That's a relief, thank you, please send as many as you can.",
+        "Okay, we'll keep them together until the paramedics arrive.",
+        "Thanks, I'll stay on the line if you need me to.",
+        "Good, I was so worried about them, thank you.",
+        "Okay, we'll do what we can until they come.",
+        "Thank you, we'll watch out for the ambulances.",
+        "Alright, please tell them to hurry, there's a lot of people hurt."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need someone here now, people are getting crushed!"
+        "111? No, this needs a proper response now, not a call back.",
+        "I don't think 111 is right for this, please send someone.",
+        "This can't wait for 111, I need help now.",
+        "No, please, this needs someone out here, not 111.",
+        "I really don't think 111 is going to cut it here.",
+        "Please, I need this dealt with now, not a call back later.",
+        "No, this is urgent, 111 won't do.",
+        "I don't understand, this needs a response, not 111.",
+        "Please don't fob me off to 111, this needs attention.",
+        "No, I need someone here, not a phone call from 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Thank you, I'll keep an eye out for the officers.",
+        "Okay, good, how long will the police be please.",
+        "Right, I'll wait here till they arrive.",
+        "That's a relief, thank you for sending someone.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, I'll point them in the right direction when they get here.",
+        "Good, I was starting to worry, thank you.",
+        "Okay, I'll keep back and let them deal with it.",
+        "Thanks, I'll watch out for the patrol car.",
+        "Alright, I'll stay put until the officers arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, I need police, there's no fire.",
+        "I don't need the fire service, this is a police matter.",
+        "Sorry, why fire brigade, I need police out here.",
+        "No, there's no fire, I called about a police issue.",
+        "I think you've misunderstood, I need officers, not firefighters.",
+        "Fire crews won't help with this, I need the police.",
+        "No, no fire brigade needed, just send police please.",
+        "I'm confused, this isn't a fire, is it.",
+        "I don't think I need fire, it's a police problem.",
+        "No thank you, I just need police, not the fire brigade."
       ]
     }
   },

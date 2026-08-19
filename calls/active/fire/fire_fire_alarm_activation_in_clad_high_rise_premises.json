@@ -42,6 +42,10 @@
     "dual_pump": 2,
     "single_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3
+  },
   "patients": {
     "range": [
       0,
@@ -82,7 +86,15 @@
   "caller": {
     "openings": [
       "The fire alarm's going off in our block, we've got the cladding so people are worried",
-      "I need the fire brigade, the alarm's sounding and given the cladding on this building everyone's on edge"
+      "I need the fire brigade, the alarm's sounding and given the cladding on this building everyone's on edge",
+      "Sorry, the alarm's going in our tower, with the cladding we're all a bit nervous about it",
+      "The alarm's sounding, I don't know if it's real, but we've got that cladding on the building",
+      "I'm confused, the alarm's going off, people are asking if we should leave because of the cladding",
+      "The fire alarm's on in our block, no one seems sure what to do given the cladding",
+      "Sorry, I don't really know what's happening, the alarm's going and we've got cladding here",
+      "The alarm's sounding on our floor, I'm not sure if we should stay or go, this building's clad",
+      "I don't know what's going on but the alarm's really loud and this is one of the clad buildings",
+      "The fire alarm's triggered, sorry I'm not sure of the details, we're worried because of the cladding"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -95,78 +107,231 @@
     "start": {
       "answers": [
         "The fire alarm's going off in our block, we've got the cladding so people are worried",
-        "I need the fire brigade, the alarm's sounding and given the cladding on this building everyone's on edge"
+        "I need the fire brigade, the alarm's sounding and given the cladding on this building everyone's on edge",
+        "Sorry, the alarm's going in our tower, with the cladding we're all a bit nervous about it",
+        "The alarm's sounding, I don't know if it's real, but we've got that cladding on the building",
+        "I'm confused, the alarm's going off, people are asking if we should leave because of the cladding",
+        "The fire alarm's on in our block, no one seems sure what to do given the cladding",
+        "Sorry, I don't really know what's happening, the alarm's going and we've got cladding here",
+        "The alarm's sounding on our floor, I'm not sure if we should stay or go, this building's clad",
+        "I don't know what's going on but the alarm's really loud and this is one of the clad buildings",
+        "The fire alarm's triggered, sorry I'm not sure of the details, we're worried because of the cladding"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I live on the eighth floor"
+        "It's {{callerName}}, I live on one of the upper floors",
+        "{{callerName}}, sorry, I'm not sure what else to say",
+        "My name's {{callerName}}, I'm in the flat above the lobby",
+        "It's {{callerName}}, sorry, I'm a bit shaken up",
+        "{{callerName}} speaking, I live in the block",
+        "Name's {{callerName}}, sorry, I don't really know what's happening",
+        "It's {{callerName}}, I'm stood in the corridor right now",
+        "{{callerName}}, sorry, I'm just trying to work out what to do",
+        "This is {{callerName}}, I'm a resident here",
+        "{{callerName}} here, sorry, everyone around me is confused too"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't think anyone's hurt, everyone's coming down the stairs"
+        "There's nobody hurt, the alarm, no sign of fire that we can see",
+        "No patient to give a name for, the alarm, no sign of fire that we can see",
+        "There's no one involved, the alarm, no sign of fire that we can see",
+        "Nobody's hurt, the alarm, no sign of fire that we can see",
+        "No casualty at all, the alarm, no sign of fire that we can see",
+        "There's no one to report, the alarm, no sign of fire that we can see",
+        "Not applicable, the alarm, no sign of fire that we can see",
+        "No injuries, the alarm, no sign of fire that we can see",
+        "Nobody to name, the alarm, no sign of fire that we can see",
+        "No patient, the alarm, no sign of fire that we can see"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the tower block with the cladding"
+        "{{address}}, it's the tower block",
+        "It's {{address}}, sorry, is that enough for you",
+        "{{address}}, the one with the cladding on the outside",
+        "You want {{address}}, I think that's right",
+        "{{address}}, sorry, I hope I've got the flat number right",
+        "{{address}}, that's the building, sorry I'm flustered",
+        "{{address}}, I think that covers it",
+        "{{address}}, sorry, I'm not sure what else you need",
+        "{{address}}, that's us, the block with the alarm going",
+        "{{address}}, sorry, I hope that's clear enough"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The alarm's gone off, I can't see smoke or fire from my flat but everyone's evacuating because of the cladding"
+        "I don't know, the alarm just started and everyone came out onto the landing",
+        "No idea what set it off, sorry, I just heard it and got confused",
+        "I'm not sure, some people are saying it might be a false alarm",
+        "I don't know, I can't see smoke but I'm not confident about that",
+        "Not sure, sorry, I just followed everyone else out onto the stairs",
+        "I don't know the cause, sorry, I'm just not sure what to do",
+        "No idea, sorry, I haven't seen anything but the alarm's very loud",
+        "I'm not sure, someone said it might be a fault but I don't know",
+        "I don't know, sorry, I'm just standing here confused like everyone else",
+        "Not sure at all, sorry, I wish I could tell you more"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone I've seen is conscious and moving down the stairwell"
+        "No one's hurt, the alarm, no sign of fire that we can see",
+        "There's no patient here, the alarm, no sign of fire that we can see",
+        "Not applicable, the alarm, no sign of fire that we can see",
+        "Nobody's involved, the alarm, no sign of fire that we can see",
+        "No injuries at all, the alarm, no sign of fire that we can see",
+        "No one to check on, the alarm, no sign of fire that we can see",
+        "There's no casualty, the alarm, no sign of fire that we can see",
+        "No patient at all, the alarm, no sign of fire that we can see",
+        "Nobody's hurt, thankfully, the alarm, no sign of fire that we can see",
+        "No one's affected, the alarm, no sign of fire that we can see"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No one's having trouble breathing that I've seen"
+        "No one to worry about, the alarm, no sign of fire that we can see",
+        "Not applicable, the alarm, no sign of fire that we can see",
+        "Nobody's struggling to breathe, the alarm, no sign of fire that we can see",
+        "No casualty, the alarm, no sign of fire that we can see",
+        "No one's affected by any smoke, the alarm, no sign of fire that we can see",
+        "There's no patient, the alarm, no sign of fire that we can see",
+        "No breathing issues to report, the alarm, no sign of fire that we can see",
+        "Nobody's been near any smoke, the alarm, no sign of fire that we can see",
+        "No one's hurt, the alarm, no sign of fire that we can see",
+        "Not applicable, no one's involved, the alarm, no sign of fire that we can see"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No injuries reported"
+        "Nobody's in pain, the alarm, no sign of fire that we can see",
+        "No one's hurt at all, the alarm, no sign of fire that we can see",
+        "Not applicable, the alarm, no sign of fire that we can see",
+        "No injuries to report, the alarm, no sign of fire that we can see",
+        "There's no patient, the alarm, no sign of fire that we can see",
+        "No one's complaining of anything, the alarm, no sign of fire that we can see",
+        "Nobody's hurt, the alarm, no sign of fire that we can see",
+        "No pain to report, the alarm, no sign of fire that we can see",
+        "Not applicable, no casualty, the alarm, no sign of fire that we can see",
+        "No one's injured, the alarm, no sign of fire that we can see"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding reported"
+        "No, no one's involved, the alarm, no sign of fire that we can see",
+        "No bleeding, there's no patient, the alarm, no sign of fire that we can see",
+        "Not applicable, the alarm, no sign of fire that we can see",
+        "No, everyone's uninjured, the alarm, no sign of fire that we can see",
+        "No, nobody's hurt, the alarm, no sign of fire that we can see",
+        "No bleeding to report, the alarm, no sign of fire that we can see",
+        "Not applicable, no casualties, the alarm, no sign of fire that we can see",
+        "No, no one's been near it, the alarm, no sign of fire that we can see",
+        "No, we're all fine, the alarm, no sign of fire that we can see",
+        "No, there's no one injured, the alarm, no sign of fire that we can see"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable, no one's hurt"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient affected"
+        "No patient, the alarm, no sign of fire that we can see",
+        "Not applicable, the alarm, no sign of fire that we can see",
+        "No one to give an age for, the alarm, no sign of fire that we can see",
+        "N/A, the alarm, no sign of fire that we can see",
+        "No age to give, the alarm, no sign of fire that we can see",
+        "Not applicable, no one's hurt, the alarm, no sign of fire that we can see",
+        "No casualty, the alarm, no sign of fire that we can see",
+        "Nobody's involved, the alarm, no sign of fire that we can see",
+        "Not applicable at all, the alarm, no sign of fire that we can see",
+        "No patient to speak of, the alarm, no sign of fire that we can see"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're following the evacuation and staying calm"
+        "Oh, right, okay, so I just wait then?",
+        "Alright, I'm not really sure what else to do but okay",
+        "Okay, I'll stay here I suppose, is that right?",
+        "Right, I don't really know what's going on but I'll wait",
+        "Okay, sorry, I'm a bit muddled but I'll do as you say",
+        "Alright then, I'll just stand here and wait for them",
+        "Okay, I think that's fine, I'm not sure really",
+        "Right, okay, I'll wait, sorry for all the questions",
+        "Okay, I suppose that makes sense, I'll wait here",
+        "Alright, I'll try to stay calm and just wait"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire alarm in a high rise with cladding, we need it checked properly"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? Sorry, I don't think we need them, do we?",
+        "Oh, I'm not sure why we'd need police, sorry",
+        "I don't think that's right, sorry, I thought it was just the fire brigade",
+        "Sorry, I'm confused, do we actually need police for this?",
+        "I don't know, sorry, I didn't think this was a police thing",
+        "Sorry, I'm not sure that's needed, isn't it just the alarm?",
+        "Oh, sorry, I don't think we need police, just the fire crew I thought",
+        "I'm a bit lost, sorry, why would police be coming?",
+        "Sorry, I didn't think this needed police, just the fire brigade",
+        "Oh, I don't know, sorry, I wasn't expecting police"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh, right, so they're actually coming? Okay, thank you",
+        "Alright, I wasn't sure if that's what we needed, but thank you",
+        "Okay, so I just wait for them then? Right, thank you",
+        "Right, okay, I didn't know what to expect but thank you",
+        "Alright, that's good I think, thank you, I'll wait",
+        "Okay, so is that the right people coming? Thank you",
+        "Right, thank you, sorry, I'm still a bit muddled by all this",
+        "Alright, okay, thank you, I'll just wait here then",
+        "Okay, thank you, I wasn't sure who we needed but that sounds right",
+        "Right, thank you, I'll try to stay calm until they arrive"
       ]
     }
   },

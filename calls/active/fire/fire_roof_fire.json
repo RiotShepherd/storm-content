@@ -49,6 +49,10 @@
     "aerial": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3
+  },
   "patients": {
     "range": [
       0,
@@ -99,10 +103,17 @@
     "openings": [
       "Fire brigade please, there's flames coming through my neighbour's roof.",
       "I need the fire service, the roof next door is on fire, smoke everywhere.",
-      "Quick, there's a fire on the roof, I can see the tiles glowing."
+      "Quick, there's a fire on the roof, I can see the tiles glowing.",
+      "The roof next door's on fire, I can see flames coming through it.",
+      "Fire service please, my neighbour's roof is alight, there's smoke pouring out.",
+      "There's a fire on the roof of the house next to mine, it's getting worse.",
+      "Please hurry, next door's roof is well alight, I can see flames from my garden.",
+      "I can see fire coming through next door's roof tiles, please send someone.",
+      "There's smoke and flames from the neighbouring roof, I've never seen anything like it.",
+      "Fire brigade please, the house next door has flames coming from the roof."
     ],
     "phoneArea": "auto",
-    "callerType": "witness"
+    "callerType": "neighbour"
   },
   "callerBehaviour": {
     "type": "calm",
@@ -113,82 +124,230 @@
       "answers": [
         "Fire brigade please, there's flames coming through my neighbour's roof.",
         "I need the fire service, the roof next door is on fire, smoke everywhere.",
-        "Quick, there's a fire on the roof, I can see the tiles glowing."
+        "Quick, there's a fire on the roof, I can see the tiles glowing.",
+        "The roof next door's on fire, I can see flames coming through it.",
+        "Fire service please, my neighbour's roof is alight, there's smoke pouring out.",
+        "There's a fire on the roof of the house next to mine, it's getting worse.",
+        "Please hurry, next door's roof is well alight, I can see flames from my garden.",
+        "I can see fire coming through next door's roof tiles, please send someone.",
+        "There's smoke and flames from the neighbouring roof, I've never seen anything like it.",
+        "Fire brigade please, the house next door has flames coming from the roof."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "{{callerName}}, that's me.",
+        "Sorry, yes, it's {{callerName}} here.",
+        "{{callerName}} is my name.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}, calling from nearby.",
+        "{{callerName}}, if you need it.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} speaking.",
+        "{{callerName}}, yes."
       ]
     },
     "patientName": {
       "answers": [
-        "No, everyone's out on the pavement, nobody's hurt."
+        "There's nobody hurt, it's just next door's roof fire.",
+        "No patient here, it's only next door's roof fire going up.",
+        "Nobody to name, there's no one hurt, just next door's roof fire.",
+        "No casualties, it's purely next door's roof fire we've got.",
+        "There's no one involved, just next door's roof fire itself.",
+        "No patient to speak of, it's next door's roof fire that's the issue.",
+        "Nobody's hurt so there's no name to give, it's just next door's roof fire.",
+        "No one injured, it's only next door's roof fire.",
+        "There's no patient, just next door's roof fire needs sorting.",
+        "Nobody hurt at all, it's next door's roof fire, that's it."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "We're at {{address}}.",
+        "That's {{address}}, yes.",
+        "{{address}}, that's the address.",
+        "You'll find it at {{address}}.",
+        "It's {{address}}, just so you know.",
+        "The location is {{address}}.",
+        "{{address}} is where we are.",
+        "That's the postcode and address, {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I heard a crackling noise and looked up, the roof's alight, flames coming through the tiles.",
-        "There's smoke pouring out from under the eaves and now I can see flames on the roof."
+        "I just noticed smoke coming from the roof and now there's flames visible.",
+        "I heard a bit of a crackling sound and then saw the flames start on the roof.",
+        "I don't know how it started, but the roof's well alight now.",
+        "It looks like it started in the loft, the flames are coming through the tiles.",
+        "I noticed the smoke first, then saw flames breaking through the roof.",
+        "I've no idea what caused it, but it's spread across most of the roof now.",
+        "It looks like the whole roof space is on fire, flames coming through in places.",
+        "I don't know how it started, but it's getting worse by the minute.",
+        "It might have started in the chimney, the flames are coming from near there.",
+        "I saw smoke first thing, now the roof's properly alight."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Everyone's out and standing on the pavement, they seem okay."
+        "Nobody's hurt, there's no one to check on.",
+        "No one's involved, so nothing like that applies.",
+        "There's no patient, no one to ask that about.",
+        "Nobody's affected, it's just next door's roof fire.",
+        "No, there's no casualty here at all.",
+        "There's no one hurt, so no need for that.",
+        "Nobody to check, everyone's clear of it.",
+        "No patient here, so that doesn't apply.",
+        "There's nobody involved like that, just next door's roof fire.",
+        "No one's hurt, so there's nothing to check."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "The smoke's thick up there, but we've all moved back down the road."
+        "No one's affected, everyone's well clear of it.",
+        "There's no patient, so nothing like that to report.",
+        "Nobody's breathing in anything, we're all well away from it.",
+        "No, nobody's affected, it's just next door's roof fire.",
+        "There's no one hurt, so that doesn't apply here.",
+        "Everyone's fine, nobody's near enough to be affected.",
+        "No casualties, no breathing problems, nothing like that.",
+        "Nobody's affected at all, we're all clear.",
+        "There's no patient to ask about that.",
+        "No, we're all outside and fine, nobody's affected."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can tell."
+        "No one's hurt as far as I can tell.",
+        "There's no patient, so no pain to report.",
+        "Nobody's in any pain, there's no one hurt.",
+        "No, nobody's injured, it's just next door's roof fire.",
+        "There's no casualty, so that doesn't apply.",
+        "No one's hurt, nothing like that going on.",
+        "Nobody's in pain, there's no patient at all.",
+        "No injuries reported, nobody's hurt.",
+        "There's no one involved that way, just next door's roof fire.",
+        "No, nobody's hurt, no pain, nothing like that."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries that I can see."
+        "No, no injuries that I can see.",
+        "There's no patient, so no bleeding to report.",
+        "Nobody's bleeding, there's no one hurt.",
+        "No, nothing like that, it's just next door's roof fire.",
+        "There's no casualty here, no bleeding, nothing.",
+        "No one's injured at all, no bleeding.",
+        "Nobody's hurt, so there's no bleeding to speak of.",
+        "No, there's no patient, nothing like that.",
+        "There's no injury, no bleeding, just next door's roof fire.",
+        "No, nobody's bleeding, nobody's hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, I can't answer that."
+        "There's no patient, I can't help with that.",
+        "No one's hurt, so there's no history to give.",
+        "Nobody involved that way, there's no patient.",
+        "No, there's no casualty, nothing like that applies.",
+        "There's no one to give history for, it's just next door's roof fire.",
+        "No patient here, so I wouldn't know that.",
+        "Nobody's hurt, so that doesn't come into it.",
+        "There's no one injured, no history needed.",
+        "No casualty involved, so nothing like that.",
+        "There's no patient, that question doesn't apply here."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable, nobody's hurt."
+        "No idea, there's nobody hurt.",
+        "There's no patient, so no medication to mention.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No, there's no one involved that way.",
+        "There's no casualty, nothing like that to say.",
+        "No patient here, so I can't answer that.",
+        "Nobody's hurt at all, no medication needed.",
+        "There's no one injured, so that's not relevant.",
+        "No, it's just next door's roof fire, no patient involved.",
+        "There's no patient, so nothing to report there."
       ]
     },
     "patientAge": {
       "answers": [
-        "No one's hurt, so there's no patient age to give."
+        "There's nobody hurt, no patient involved.",
+        "No one to give an age for, there's no patient.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No casualty here, just next door's roof fire.",
+        "There's no one injured, so no age to give.",
+        "No patient at all, it's only next door's roof fire.",
+        "Nobody's affected, so that question doesn't apply.",
+        "There's no one hurt, no age needed.",
+        "No, there's no patient here.",
+        "Nobody's involved that way, just next door's roof fire, no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Ambulance? No, nobody's hurt, it's just next door's roof fire.",
+        "Oh, we don't need an ambulance, nobody's injured here.",
+        "No need for that, nobody's hurt, it's only next door's roof fire.",
+        "There's no one hurt, we just need the fire brigade.",
+        "No, thank you, nobody's injured, it's just next door's roof fire.",
+        "We're fine, nobody's hurt, just get the fire engine here.",
+        "No ambulance needed, nobody's been hurt.",
+        "No one's injured, it's only next door's roof fire that's the problem.",
+        "That's alright, nobody's hurt, we just need the fire service.",
+        "No, no one's injured, just send the fire brigade please."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, I don't think 111 can help with next door's roof fire, but thank you.",
+        "No, that's alright, it's next door's roof fire, not really a medical thing.",
+        "No, I think I need the fire brigade for next door's roof fire, not 111.",
+        "No, this isn't really a medical matter, thank you though.",
+        "No, I don't think that's quite right for next door's roof fire.",
+        "No, it's not medical, it's next door's roof fire, so I think I need the fire brigade.",
+        "No, I don't think 111 would be able to help with this one.",
+        "No, thank you, but next door's roof fire isn't really a 111 sort of job.",
+        "No, I think this needs the fire brigade rather than 111.",
+        "No, it's fine, but next door's roof fire really needs the fire service."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's not that sort of thing, it's next door's roof fire.",
+        "We don't need the police, just the fire brigade.",
+        "No, there's no need for police, it's only next door's roof fire.",
+        "Police aren't needed here, it's a fire matter.",
+        "No thanks, it's next door's roof fire, not a police job.",
+        "We're alright for police, we just need the fire service.",
+        "No, this doesn't need police, just the fire brigade please.",
+        "No, it's next door's roof fire, nothing for the police to deal with.",
+        "We don't need police here, thank you.",
+        "No, just the fire brigade will do, thank you."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them.",
+        "Right, thank you, I'll keep an eye out.",
+        "Okay, that's great, thank you.",
+        "Alright, thank you, I'll stay by the door for them.",
+        "Okay, good, I'll wait outside.",
+        "Thank you, I'll keep watching for the engine.",
+        "Right, thanks, I'll wait here for them.",
+        "Okay, that's good to know, thank you.",
+        "Alright, thank you, I appreciate it.",
+        "Okay, thank you, I'll look out for them."
       ]
     }
   },

@@ -48,6 +48,12 @@
     "iccu": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13,
+    "ambulance": 2,
+    "police": 1
+  },
   "patients": {
     "range": [
       2,
@@ -102,7 +108,15 @@
   "caller": {
     "openings": [
       "Fire brigade, one of the dryers has caught fire in the launderette, we've got customers still inside.",
-      "It's the laundrette, there's a fire and it's filling with smoke, some people can't get past it to the door."
+      "It's the laundrette, there's a fire and it's filling with smoke, some people can't get past it to the door.",
+      "There's a fire in the launderette, a few customers are struggling to get out through the smoke.",
+      "Fire service please, our dryers have caught fire, some customers are trapped near the back.",
+      "There's smoke everywhere in the launderette, a few customers can't get to the exit.",
+      "It's a fire at the self service laundry, we've got people coughing badly, some can't get out yet.",
+      "Fire brigade, please hurry, there's customers stuck in the smoke at the launderette.",
+      "There's a fire in one of our dryers, it's spread and some customers are struggling to breathe.",
+      "The launderette's on fire, smoke's blocking the exit for a few of our customers.",
+      "We've got a fire and smoke filling the shop, some customers haven't managed to get out yet."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -115,82 +129,231 @@
     "start": {
       "answers": [
         "Fire brigade, one of the dryers has caught fire in the launderette, we've got customers still inside.",
-        "It's the laundrette, there's a fire and it's filling with smoke, some people can't get past it to the door."
+        "It's the laundrette, there's a fire and it's filling with smoke, some people can't get past it to the door.",
+        "There's a fire in the launderette, a few customers are struggling to get out through the smoke.",
+        "Fire service please, our dryers have caught fire, some customers are trapped near the back.",
+        "There's smoke everywhere in the launderette, a few customers can't get to the exit.",
+        "It's a fire at the self service laundry, we've got people coughing badly, some can't get out yet.",
+        "Fire brigade, please hurry, there's customers stuck in the smoke at the launderette.",
+        "There's a fire in one of our dryers, it's spread and some customers are struggling to breathe.",
+        "The launderette's on fire, smoke's blocking the exit for a few of our customers.",
+        "We've got a fire and smoke filling the shop, some customers haven't managed to get out yet."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know all their names, they're customers, sorry."
+        "There's a good few of them, I don't have names, sorry.",
+        "I don't know all their names, there's several affected.",
+        "No idea on names, we're just trying to get everyone out safely.",
+        "I can't give you names for all of them, there's too many.",
+        "Some staff know their names, I only know a couple of them.",
+        "I've not got names, sorry, there's a fair few people involved.",
+        "No names I'm afraid, it's chaos here with several affected.",
+        "I don't know them all personally, sorry.",
+        "Can't help with names, there's just too many people caught up in it.",
+        "Sorry, no names, we're focused on getting them out."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "One of the big commercial dryers caught fire and the smoke's filled the shop, a few customers were coughing badly getting out.",
-        "A machine at the back caught alight, flames spread to the wall behind it, we got most people out but the smoke's thick."
+        "One of the dryers overheated and caught fire, the smoke's spread fast and it's blocked the main exit.",
+        "It started in the machines at the back, now smoke's filling the whole shop and people can't see the door.",
+        "A dryer caught alight, flames spread to the laundry inside it, smoke's thick throughout the unit.",
+        "It looks electrical, started in one machine and the smoke's spread to fill the whole place.",
+        "The fire's in the dryer bank, we've propped the fire door but the smoke's still bad inside.",
+        "It happened really fast, one dryer caught and smoke filled the shop within a minute or two.",
+        "We think lint built up in the vent and caught fire, it's produced a lot of thick smoke.",
+        "The dryer's still smouldering, smoke's filled the shop and it's hard to see across it.",
+        "It's spread from the machine to some of the laundry piled nearby, smoke's the main problem.",
+        "We managed to prop the door but smoke's still built up badly inside the unit."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "They're all conscious, coughing but talking to us."
+        "Most are conscious, coughing and upset, but awake.",
+        "They're all conscious as far as I can see, just shaken up.",
+        "A couple seem a bit dazed but everyone's conscious.",
+        "Yes, conscious, but some are struggling more than others.",
+        "They're awake, frightened, some coughing badly.",
+        "All conscious that I can see, no one's collapsed.",
+        "Conscious but distressed, a lot of coughing going on.",
+        "Everyone I can see is conscious, just very shaken.",
+        "They're conscious, some worse than others with the coughing.",
+        "As far as I know they're all conscious, just unwell."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple are struggling to breathe properly, quite a lot of smoke in there."
+        "Several are struggling to breathe, we've got them into fresh air.",
+        "A few are wheezing badly, the rest seem okay so far.",
+        "Some are really short of breath, it's quite bad for a couple of them.",
+        "Breathing's laboured for a number of them, lots of coughing.",
+        "A handful are having real trouble breathing.",
+        "Most are breathing okay now they're outside, a few still struggling.",
+        "Some are gasping a bit, we've moved them away from it.",
+        "A couple are really struggling for breath, the others are coughing.",
+        "Breathing's an issue for several of them, getting worse by the minute.",
+        "Some are fine, others are really wheezy and short of breath."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "One's got a burn to her hand from moving washing out of the way."
+        "A few are complaining of chest pain and sore throats.",
+        "Some say their chests hurt and their eyes are stinging.",
+        "There's chest pain and headaches among some of them.",
+        "A couple are holding their chests, say it hurts to breathe.",
+        "Some have got sore eyes and throats from it.",
+        "A few are saying their chests feel tight.",
+        "Some are in discomfort, chest pain mostly.",
+        "There's a bit of chest pain reported, and some headaches.",
+        "A number of them say it hurts when they breathe in.",
+        "Some are complaining of pain in their chest and throat."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, it's smoke inhalation and one minor burn."
+        "No bleeding that I can see, it's all breathing problems.",
+        "No, nobody's bleeding, it's the fumes causing the trouble.",
+        "No blood, just people struggling with the smoke.",
+        "Not that I've seen, it's all coughing and breathing issues.",
+        "No bleeding, thankfully, just everyone feeling unwell.",
+        "No, no injuries like that, just the effects of the smoke.",
+        "Nobody's cut or bleeding, it's the fumes affecting them.",
+        "No bleeding at all, it's a respiratory thing.",
+        "Not bleeding, no, just really struggling to breathe.",
+        "No blood, no, this is all down to the smoke."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them, they're just customers."
+        "I don't know all their medical histories, sorry, there's too many.",
+        "No idea, we'd need to check with each of them individually.",
+        "Can't say for certain, I know one or two have asthma.",
+        "I'm not sure, some might have breathing conditions already.",
+        "I don't have that information for all of them.",
+        "Not sure, sorry, there's too many people to know that about.",
+        "I couldn't tell you, we're just trying to help them right now.",
+        "No idea about medical history, sorry, it's chaos here.",
+        "I know a couple mentioned asthma, not sure about the rest.",
+        "Can't say, sorry, I don't know them all that well."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry."
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's too many people to ask.",
+        "Not a clue, sorry, we're just trying to keep them calm.",
+        "I don't know, I'd have to ask each of them.",
+        "No idea on medications, sorry, we're a bit overwhelmed here.",
+        "Can't help with that, sorry, I don't know them well enough.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's too many to know that about.",
+        "No idea, honestly, we're just focused on getting help to them.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "A mix of ages, a couple of pensioners and a younger lad."
+        "All ages really, there's a real mix of people caught up in it.",
+        "Mixed ages, kids and adults both affected.",
+        "Hard to say exactly, there's a real range from young to old.",
+        "Mostly adults I'd say, but a couple of younger ones too.",
+        "A proper mix, teenagers up to older people.",
+        "Can't say exactly, it's a real mix of everyone.",
+        "There's a broad mix, young and old caught up in this.",
+        "Mostly working age adults from what I can see.",
+        "A mix, I'd say twenties up to sixties maybe.",
+        "Hard to tell, there's people of all ages here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Thank you, please hurry, some of them are really struggling to breathe.",
+        "Okay, good, we're getting them into the fresh air now.",
+        "Thank you, that's a relief, a couple of them are quite bad.",
+        "Right, we're keeping them together outside until you arrive.",
+        "Okay, thank you, please hurry, the coughing's getting worse for some of them.",
+        "Thank you, we'll keep them calm and sat down until you get here.",
+        "Okay, good, we really need someone to check them over.",
+        "Thank you, some of them can hardly speak from the coughing.",
+        "Right, we're doing what we can, please get here quickly.",
+        "Okay, thank you, we're keeping them all together outside now."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's smoke and fire, I need the fire brigade and ambulance.",
+        "No, we don't need police, just fire and paramedics please.",
+        "Sorry, no, this isn't a police matter, it's a fire.",
+        "No thanks, no police needed, just get the fire crew and ambulance here.",
+        "That's not necessary, this needs fire and medical help, not police.",
+        "No, there's no crime here, just people caught in the smoke.",
+        "Police aren't needed, this is a fire and smoke inhalation situation.",
+        "No, thank you, I only need fire and ambulance for this.",
+        "Sorry, no, this doesn't need police involved.",
+        "No, it's not a police matter, please just send fire and ambulance."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, the smoke's getting worse in here.",
+        "Good, thank you, we really need them quickly.",
+        "Okay, thank you, we're trying to keep everyone calm until they arrive.",
+        "Right, thank you, please tell them to hurry, people are struggling.",
+        "Thank you, that's good to hear, we're doing what we can for now.",
+        "Okay, good, we need them here fast, the smoke's spreading.",
+        "Thanks, we'll keep the door propped until they get here.",
+        "That's a relief, please hurry, it's getting worse in the smoke.",
+        "Okay, thank you, we're trying to help people out to the street.",
+        "Good, thank you, we need them here as soon as possible."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, they need help now, not 111, please send an ambulance and fire crew.",
+        "I don't think 111 can help with this, people are struggling to breathe.",
+        "No, this can't wait for 111, we need paramedics and fire out here now.",
+        "Sorry, no, we need proper emergency help, this is urgent.",
+        "No, 111's too slow for this, please send help quickly.",
+        "I really think we need 999 crews here, not 111.",
+        "No, people are coughing badly, this needs an immediate response.",
+        "Sorry, no, this is an emergency, please don't refer us to 111.",
+        "No, we need fire and ambulance now, not a phone line.",
+        "No, please, this needs proper help straight away."
       ]
     }
   },

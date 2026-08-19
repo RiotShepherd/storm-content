@@ -50,6 +50,12 @@
     "irv": 6,
     "fire_officer": 6
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 20,
+    "police": 6
+  },
   "patients": {
     "range": [
       20,
@@ -104,8 +110,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "A coach has rolled over on the road, there's people trapped inside and lots of casualties!",
-      "Emergency, a coach has overturned, passengers are trapped and there's people hurt everywhere."
+      "There's been a coach crash, it's rolled right over, there's people trapped inside!",
+      "Help, a coach has overturned, there's a lot of injured passengers!",
+      "There's a coach on its side on the road, people are trapped and hurt!",
+      "Please hurry, a coach has rolled over, there's casualties everywhere!",
+      "Help, the coach has flipped onto its side, passengers are trapped inside!",
+      "There's been a serious coach crash, it's rolled over with people on board!",
+      "Please send everyone, a coach has overturned with lots of casualties!",
+      "Help, a full coach has rolled over, people are trapped and crying out!",
+      "There's a coach crash, it's on its side, there's a lot of injured people!",
+      "Please hurry, the coach has rolled, there's people trapped and bleeding!"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -117,91 +131,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "A coach has rolled over on the road, there's people trapped inside and lots of casualties!",
-        "Emergency, a coach has overturned, passengers are trapped and there's people hurt everywhere."
+        "There's been a coach crash, it's rolled right over, there's people trapped inside!",
+        "Help, a coach has overturned, there's a lot of injured passengers!",
+        "There's a coach on its side on the road, people are trapped and hurt!",
+        "Please hurry, a coach has rolled over, there's casualties everywhere!",
+        "Help, the coach has flipped onto its side, passengers are trapped inside!",
+        "There's been a serious coach crash, it's rolled over with people on board!",
+        "Please send everyone, a coach has overturned with lots of casualties!",
+        "Help, a full coach has rolled over, people are trapped and crying out!",
+        "There's a coach crash, it's on its side, there's a lot of injured people!",
+        "Please hurry, the coach has rolled, there's people trapped and bleeding!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was behind the coach.",
-        "{{callerName}}, I pulled over as soon as it happened."
+        "It's {{callerName}}, I was driving behind when it happened.",
+        "{{callerName}}, I saw it happen from the other lane.",
+        "My name's {{callerName}}.",
+        "{{callerName}} here, I've stopped to help where I can.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm just a passer by.",
+        "My name is {{callerName}}, I was nearby when it happened.",
+        "{{callerName}}, I've stayed to try and help.",
+        "It's {{callerName}}, I saw the coach go over.",
+        "{{callerName}} speaking, I'm right next to the coach."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know any of them, there's a lot of passengers.",
-        "I can't say, there's too many people involved."
+        "There's a full coach of people, I can't give you names, sorry.",
+        "No names, there's far too many passengers caught up in this.",
+        "I don't know anyone's name, it's chaos out here.",
+        "Can't help with names, there's just too many casualties.",
+        "No idea on names, we're trying to get people out.",
+        "Sorry, no names, there's a huge number of passengers trapped.",
+        "I can't give you any names, there's a whole coach load affected.",
+        "No, there's too many casualties for names right now.",
+        "Sorry, no names, we're just trying to help however we can.",
+        "I don't know any of them, there's just so many people hurt."
       ]
     },
     "address": {
       "answers": [
-        "We're on {{address}}.",
-        "{{address}}, the coach is on its side across the road."
+        "It's {{address}}, the coach is on its side blocking the road.",
+        "{{address}}, come carefully, there's debris across the carriageway.",
+        "It's {{address}}, you'll see the coach from the road.",
+        "{{address}}, I'll wave you down when I see you.",
+        "It's {{address}}, mind the debris and glass on the road.",
+        "{{address}}, it's just past the junction.",
+        "It's {{address}}, the coach is blocking most of the carriageway.",
+        "{{address}}, I'll stay back but point you the right way.",
+        "It's {{address}}, please send everyone, it's a huge scene.",
+        "{{address}}, I'll be waiting a safe distance away."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The coach seemed to lose control and rolled onto its side, passengers are trapped inside.",
-        "It went over on the bend, there's people trying to climb out of the windows."
+        "The coach seems to have lost control and rolled right over onto its side.",
+        "It looks like the coach swerved to avoid something and tipped over.",
+        "The coach's gone off the road and rolled, there's people trapped inside.",
+        "It looks like the coach skidded and rolled onto its side at speed.",
+        "The coach's veered off the carriageway and flipped over completely.",
+        "It looks like the driver lost control on the bend and the coach rolled.",
+        "The coach's rolled several times by the look of the damage.",
+        "It looks like the coach left the road and rolled down the embankment.",
+        "There was a loud bang and the coach just rolled onto its side.",
+        "The coach's tipped over, I think a tyre may have blown at speed."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are climbing out themselves, others aren't moving.",
-        "A lot are shouting, but I can see some not responding."
+        "Most are conscious, a few are trapped and can't move, but they're talking to us.",
+        "They're conscious as far as I can tell, some are trapped in the wreckage.",
+        "A couple seem dazed but most are awake and talking.",
+        "Yes, conscious, but some are pinned and in a bad way.",
+        "They're awake, frightened, some can't move because they're trapped.",
+        "Most conscious that I can see, one or two look worse than the rest.",
+        "Conscious but shocked, several are trapped by the seats.",
+        "Everyone I can see is conscious, just very shaken and some stuck fast.",
+        "They're conscious, some worse than others, a few can't free themselves.",
+        "As far as I know they're all conscious, but some are trapped."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I can't tell for everyone, it's chaos.",
-        "Some are, I can hear coughing and crying."
+        "Breathing seems okay for most, it's the injuries that are the worry.",
+        "They're breathing as far as I can tell, just in a lot of pain.",
+        "Breathing looks fine on most of them, a couple are struggling with the shock.",
+        "No obvious breathing problems, it's the trapped ones I'm worried about.",
+        "They seem to be breathing okay, just badly shaken and injured.",
+        "Breathing's fine for most, one or two are gasping from the shock.",
+        "As far as I can see everyone's breathing, just in pain from the crash.",
+        "Breathing looks okay, the injuries are more the issue here.",
+        "They're breathing, yes, just really banged about from the rollover.",
+        "Seems okay breathing wise, it's the cuts and trapped limbs that worry me."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "People are shouting they're trapped and in pain.",
-        "Lots of screaming about broken bones."
+        "Several are in a lot of pain, some with broken bones by the look of it.",
+        "A number of them are screaming in pain, it looks like fractures.",
+        "There's a lot of pain, arms and legs at bad angles on a couple of them.",
+        "Some are in serious pain, trapped and can't get free.",
+        "A few are holding injured limbs, clearly in a lot of pain.",
+        "There's pain all round, some worse than others, possible broken bones.",
+        "Quite a few are in real pain, it looks like fractures and cuts.",
+        "Some are in agony, especially the ones still trapped.",
+        "A number are complaining of bad pain, legs and arms mostly.",
+        "There's real pain here, some look like they've broken bones."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, I can see blood on several passengers.",
-        "Yes, quite a few are bleeding badly."
+        "Yes, several are bleeding, cuts from broken glass mostly.",
+        "There's a fair bit of bleeding, some quite bad from the impact.",
+        "A number are bleeding, cuts and gashes from the rollover.",
+        "Yes, bleeding on a few of them, we're trying to apply pressure.",
+        "Some are bleeding heavily, others just cuts and scrapes.",
+        "There's bleeding, yes, mostly from glass and metal in the coach.",
+        "A few are bleeding quite badly, we're doing what we can.",
+        "Yes, some bleeding, we've got people helping where we can.",
+        "There's blood on a few of them, cuts mainly from the crash.",
+        "Some are bleeding, a couple look worse than the others."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know any of them.",
-        "No idea, there's too many people."
+        "I don't know their medical histories, sorry, there's too many people involved.",
+        "No idea, we'd need to check with each of them once they're free.",
+        "Can't say, sorry, we're just trying to get everyone out safely.",
+        "I'm not sure about that, there's too many casualties to know.",
+        "I don't have that information, sorry, it's chaos here.",
+        "Not sure, sorry, we're focused on the trapped passengers right now.",
+        "I couldn't tell you, we're just trying to help everyone we can.",
+        "No idea about medical history, sorry, there's a lot going on.",
+        "Can't say, sorry, I don't know any of these people.",
+        "No idea, sorry, we're all strangers caught up in this together."
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea, sorry.",
-        "I can't tell you."
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's too many people to ask right now.",
+        "Not a clue, sorry, we're just trying to keep everyone calm.",
+        "I don't know, I'd have to ask each of them once they're out.",
+        "No idea on medications, sorry, we're overwhelmed here.",
+        "Can't help with that, sorry, I don't know them at all.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's too many casualties to know that.",
+        "No idea, honestly, we're just trying to get help to them.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "All ages, it looked like a day trip group.",
-        "Mixed, mostly older passengers I think."
+        "All ages really, there's a real mix of passengers on board.",
+        "Mixed ages, quite a range from young to old.",
+        "Hard to say exactly, there's a real range across the coach.",
+        "Mostly adults I'd say, but a few younger ones too.",
+        "A proper mix, teenagers up to older passengers.",
+        "Can't say exactly, it's a real mix of everyone on board.",
+        "There's a broad mix, young and old caught up in this.",
+        "Mostly working age adults from what I can see.",
+        "A mix, I'd say twenties up to sixties maybe.",
+        "Hard to tell, there's people of all ages on the coach."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm helping who I can from outside.",
-        "Please hurry, there's still people trapped in there."
+        "Okay, thank you, we'll keep them comfortable till the paramedics arrive.",
+        "Right, I'll stay with them until the ambulance gets here.",
+        "Okay, that's good, please hurry, they're not looking great.",
+        "Thank you, we'll keep them still and wait for the crew.",
+        "Alright, I'll keep talking to them until the ambulance arrives.",
+        "Okay, we're keeping them warm and calm, waiting for you.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we'll keep everyone together until the ambulance turns up.",
+        "Thank you, I'll do what I can until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "Are you serious, a coach has rolled over with people trapped inside!"
+        "No, this is a mass casualty crash, please send everyone now!",
+        "111 won't help, there's dozens of people hurt, please send crews!",
+        "No, please, this is a major emergency, people are trapped here!",
+        "This can't wait for a callback, it's a huge crash with many casualties!",
+        "No, we need every ambulance and fire crew you have, not 111!",
+        "Please, this is critical, so many people are trapped and hurt!",
+        "No, this needs a full emergency response now, not a phone line!",
+        "I don't think 111 can help with something on this scale!",
+        "No, please, we need everyone here right now, it's terrible!",
+        "This is far too serious for 111, please send all available help!"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, we could do with them here to sort the traffic.",
+        "Right, that's good, we need help managing this whole scene.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, we need them to free the trapped passengers.",
+        "Okay, good, please send as many crews as you can.",
+        "Thank you, that's a relief, people are still trapped in there.",
+        "Right, please hurry, there's people trapped everywhere.",
+        "Okay, thank you, we're trying to help where we safely can.",
+        "Yes please, we desperately need help freeing trapped people.",
+        "Thank you, please send everyone available, this is huge.",
+        "Okay, that's good news, please hurry.",
+        "Right, thank you, we'll keep doing what we can until they arrive.",
+        "Okay, thank you, please send as many crews as possible."
       ]
     }
   },

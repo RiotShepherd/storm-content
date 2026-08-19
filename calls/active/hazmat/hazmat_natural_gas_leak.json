@@ -45,6 +45,10 @@
     "dual_pump": 1,
     "single_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 2
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,15 @@
   "caller": {
     "openings": [
       "I can smell gas really strongly outside my house",
-      "There's a strong smell of gas on the street, I think it's a leak"
+      "There's a strong smell of gas on the street, I think it's a leak",
+      "Something smells of gas near my front door, it's got worse in the last hour",
+      "I think there's a gas leak outside, the smell's really strong by the pavement",
+      "There's a gas smell coming up through a drain cover outside",
+      "I keep smelling gas every time I open my front door",
+      "The whole street smells of gas, a few neighbours have noticed it too",
+      "I can smell gas near the meter box outside my house",
+      "There's a strong gas smell by the road, I didn't want to risk it and not call",
+      "I think there might be a gas leak, the smell's coming from somewhere near the pavement"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -80,90 +92,231 @@
     "start": {
       "answers": [
         "I can smell gas really strongly outside my house",
-        "There's a strong smell of gas on the street, I think it's a leak"
+        "There's a strong smell of gas on the street, I think it's a leak",
+        "Something smells of gas near my front door, it's got worse in the last hour",
+        "I think there's a gas leak outside, the smell's really strong by the pavement",
+        "There's a gas smell coming up through a drain cover outside",
+        "I keep smelling gas every time I open my front door",
+        "The whole street smells of gas, a few neighbours have noticed it too",
+        "I can smell gas near the meter box outside my house",
+        "There's a strong gas smell by the road, I didn't want to risk it and not call",
+        "I think there might be a gas leak, the smell's coming from somewhere near the pavement"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
         "No patient, nobody's hurt, just the smell",
-        "Nobody's injured"
+        "Nobody's injured, it's just the gas smell",
+        "There's no one hurt, I just wanted it reported",
+        "No casualties, it's just the leak",
+        "Nobody needs treatment, it's purely the smell of gas",
+        "No patient involved, just concerned about the smell",
+        "There's nobody affected, just the strong smell",
+        "No one's hurt, it's a leak, not an injury",
+        "Nobody's been hurt by it, thankfully",
+        "No patient, I just want it made safe"
       ]
     },
     "address": {
       "answers": [
-        "It's outside {{address}}",
-        "{{address}}, the smell's strongest by the pavement"
+        "It's {{address}}",
+        "{{address}}, near the front door",
+        "We're at {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, near the front door",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, near the front door, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "There's a strong smell of gas coming from near the pavement",
-        "I can smell gas, it's got stronger over the last hour"
+        "I can smell gas, it's got stronger over the last hour",
+        "The smell's coming from somewhere near a drain cover outside",
+        "I noticed it about twenty minutes ago and it's not going away",
+        "A couple of neighbours have smelled it too, it's quite strong",
+        "It smells like gas near the meter box outside my house",
+        "The smell's drifting up the street, strongest right outside my door",
+        "I haven't seen anything, just smelled the gas building up",
+        "It's a sulphur type smell, very strong, like rotten eggs",
+        "The smell keeps coming and going but it's definitely there"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
         "No patient involved",
-        "N/A"
+        "N/A, nobody's hurt",
+        "There's no one affected",
+        "Not applicable, it's just the hazard",
+        "No casualties here",
+        "N/A, no one's been hurt",
+        "Nobody's unwell, it's just the incident itself",
+        "No patient to report on",
+        "N/A, everyone's fine",
+        "No one's affected by it"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
         "N/A, no one's affected",
-        "Nobody's struggling to breathe"
+        "Nobody's struggling to breathe",
+        "Everyone's breathing fine, we're keeping our distance",
+        "No one's had any trouble breathing",
+        "N/A, nobody's near enough to be affected",
+        "No breathing problems, just the hazard itself",
+        "Not applicable, nobody's symptomatic",
+        "Everyone nearby seems fine",
+        "N/A, no casualties",
+        "No one's reported feeling unwell"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
         "No injuries",
-        "Nobody's hurt"
+        "Nobody's hurt",
+        "N/A, there's no patient",
+        "No one's in any pain",
+        "Not applicable, nobody's affected",
+        "No injuries to report",
+        "N/A, everyone's fine",
+        "Nobody's complaining of anything",
+        "No pain, no injuries",
+        "N/A, nobody's been hurt"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
         "No",
-        "None"
+        "None",
+        "No bleeding, nobody's hurt",
+        "N/A",
+        "No, there's no patient",
+        "None at all",
+        "No injuries, so no bleeding",
+        "N/A, nobody's affected",
+        "No, everyone's fine",
+        "None, nobody's been hurt"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
         "N/A",
-        "No patient"
+        "No patient",
+        "Not applicable here",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "No patient involved",
+        "Not applicable",
+        "N/A, no casualties",
+        "No one's affected",
+        "N/A, there's no one hurt"
       ]
     },
     "medications": {
       "answers": [
         "N/A",
-        "No patient"
+        "No patient",
+        "Not applicable",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "No patient involved",
+        "Not applicable here",
+        "N/A, no casualties",
+        "No one's affected",
+        "N/A, there's no one hurt"
       ]
     },
     "patientAge": {
       "answers": [
         "No patient",
-        "N/A"
+        "N/A",
+        "Not applicable, nobody's hurt",
+        "No one to give an age for",
+        "N/A, no casualties",
+        "Not applicable here",
+        "No patient involved",
+        "N/A, nobody's affected",
+        "No one's affected",
+        "Not applicable"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I won't use anything electrical or light anything",
-        "Right, I'll stay well back"
+        "An ambulance? There's no one hurt, we just need it made safe",
+        "Oh, we don't need an ambulance, nobody's injured",
+        "No one's hurt here, but thank you for checking",
+        "We don't need paramedics, it's just the leak that's the problem",
+        "There's no patient, but I appreciate you letting me know",
+        "No need for an ambulance, nobody's been affected",
+        "Nobody's hurt, so I don't think we'll need that, but thank you",
+        "No injuries here, it's purely a hazard, not a medical issue",
+        "We're fine, thank you, nobody needs treatment",
+        "No one's hurt, but I'll let you know if that changes"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's not medical, it's a gas leak",
-        "No injuries, just the smell of gas"
+        "No, this isn't medical, it's a hazard that needs sorting",
+        "No, 111 won't help with this, we need it made safe",
+        "No, there's no patient, this needs a proper response",
+        "No, this isn't something a phone call can fix",
+        "No, it's not an illness, it's a safety issue",
+        "No, please, this needs specialists out here",
+        "No, 111 isn't the right service for this",
+        "No, this needs sorting on scene, not over the phone",
+        "No, it's not medical at all, please send someone",
+        "No, this is a hazard, not a health problem"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, that would help, the road's getting busy",
+        "Right, that's probably sensible with the traffic here",
+        "Okay, if they can help with the traffic that'd be good",
+        "That might help, a few cars have already slowed to look",
+        "Okay, thank you, could be useful for closing the road",
+        "Right, I suppose that makes sense with people driving past",
+        "Okay, that's fine, might help keep drivers away from it",
+        "Thank you, that could help with the traffic building up",
+        "Okay, if it helps keep people back from it, that's good",
+        "Right, thank you, that's probably wise given the road"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, good, we really need them here",
+        "Right, that's a relief, thank you",
+        "Okay, thank you, please tell them to hurry",
+        "Good, we need them to deal with this properly",
+        "Okay, that's good news, thank you",
+        "Right, thank you, this needs specialist help",
+        "Okay, good, we've been trying to keep everyone clear",
+        "Thank you, that's reassuring to hear",
+        "Okay, good, we need them to make this safe",
+        "Right, thank you, please hurry them along"
       ]
     }
   },

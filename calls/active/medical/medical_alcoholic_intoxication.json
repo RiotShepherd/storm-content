@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -72,8 +76,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's a bloke collapsed outside the pub, he's absolutely paralytic",
-      "Someone's passed out on the pavement, smells strongly of drink"
+      "There's a {{bloke}} collapsed outside the pub, {{he}}'s absolutely paralytic",
+      "Someone's passed out on the pavement, smells strongly of drink",
+      "There's a {{man}} slumped outside the pub, I think {{he}}'s had way too much to drink",
+      "Someone's collapsed near the pub entrance, reeks of alcohol",
+      "There's a {{guy}} lying on the pavement outside the pub, out cold",
+      "Someone's crashed out on the ground outside the pub, very drunk by the look of it",
+      "There's a {{man}} passed out by the pub door, I can't wake {{him}}",
+      "Someone's collapsed here, smells like {{he}}'s had a skinful",
+      "There's a {{bloke}} flat out on the pavement, seems very drunk",
+      "Someone's gone down outside the pub, looks like {{he}}'s had far too much"
     ],
     "phoneArea": "auto",
     "callerType": "passer_by"
@@ -85,91 +97,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's a bloke collapsed outside the pub, he's absolutely paralytic",
-        "Someone's passed out on the pavement, smells strongly of drink"
+        "There's a {{bloke}} collapsed outside the pub, {{he}}'s absolutely paralytic",
+        "Someone's passed out on the pavement, smells strongly of drink",
+        "There's a {{man}} slumped outside the pub, I think {{he}}'s had way too much to drink",
+        "Someone's collapsed near the pub entrance, reeks of alcohol",
+        "There's a {{guy}} lying on the pavement outside the pub, out cold",
+        "Someone's crashed out on the ground outside the pub, very drunk by the look of it",
+        "There's a {{man}} passed out by the pub door, I can't wake {{him}}",
+        "Someone's collapsed here, smells like {{he}}'s had a skinful",
+        "There's a {{bloke}} flat out on the pavement, seems very drunk",
+        "Someone's gone down outside the pub, looks like {{he}}'s had far too much"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know him, he won't tell me his name",
-        "He mumbled something, sounded like {{firstPatientName}}"
+        "No idea, I don't know {{him}} at all",
+        "I don't know {{his}} name, I just found {{him}} like this",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}}",
+        "Sorry, no idea, I've never seen {{him}} before",
+        "No idea, {{he}} doesn't have anything on {{him}} that I've checked",
+        "I don't know {{him}}, sorry, I just walked past and saw {{him}}",
+        "No name I can give you, {{he}}'s a stranger",
+        "Sorry, no idea who {{he}} is",
+        "I don't know {{him}}, I just stopped to help"
       ]
     },
     "address": {
       "answers": [
-        "It's outside {{address}}",
-        "{{address}}, on the pavement"
+        "It's {{address}}",
+        "{{address}}, outside the pub",
+        "We're at {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, outside the pub",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, outside the pub, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He's collapsed on the pavement, reeks of alcohol, can barely open his eyes",
-        "He's stumbling and slurring, then he just sat down and won't get up"
+        "{{He}}'s collapsed outside the pub, {{he}}'s clearly had far too much to drink",
+        "{{He}} was stumbling about and then just went down on the pavement",
+        "{{He}} came out of the pub and collapsed almost straight away",
+        "{{He}} was slurring badly and then just fell over near the entrance",
+        "{{He}}'s been sat outside drinking and then just slumped over",
+        "{{He}} staggered out and collapsed, smells strongly of alcohol",
+        "{{He}} went down suddenly, {{he}} was clearly very drunk before that",
+        "{{He}} was struggling to stand and then just collapsed on the ground",
+        "{{He}} fell over outside the pub, reeks of drink",
+        "{{He}} was swaying about then just went down, hasn't moved since"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's semi conscious, mumbling",
-        "In and out, hard to keep him talking"
+        "No, {{he}}'s not responding to me at all",
+        "{{He}}'s semi conscious, mumbling a bit",
+        "No, I can't get {{him}} to wake up properly",
+        "{{He}}'s barely responsive, groaning a little",
+        "No, {{he}}'s out cold, not responding",
+        "{{He}} opens {{his}} eyes a little but isn't really with it",
+        "No, {{he}}'s not waking up when I shake {{him}}",
+        "{{He}}'s drowsy, mumbling but not making sense",
+        "No, {{he}}'s unresponsive to me shouting at {{him}}",
+        "{{He}}'s barely conscious, very groggy"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, breathing but it's noisy",
-        "Seems okay, a bit snorey"
+        "Yes, {{he}}'s breathing, quite loudly actually, snoring almost",
+        "Yes, breathing, but it sounds a bit laboured",
+        "Yes, {{he}}'s breathing, slow but steady",
+        "Yes, I can see {{his}} chest moving",
+        "Yes, breathing okay as far as I can tell",
+        "Yes, {{he}}'s breathing, a bit slow though",
+        "Yes, {{he}}'s breathing fine, just very drunk",
+        "Yes, breathing normally, just can't wake {{him}}",
+        "Yes, {{he}}'s breathing, sounds a bit snory",
+        "Yes, breathing steady, just totally out of it"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Can't tell, he's not making sense",
-        "He hasn't said anything about pain"
+        "No idea, {{he}}'s not responding enough to say",
+        "Can't tell, {{he}}'s not really conscious enough",
+        "No idea, {{he}}'s too out of it to say anything",
+        "Not that I can tell, {{he}}'s just unresponsive",
+        "Can't say, {{he}}'s not talking to me",
+        "No idea, {{he}} might have hit {{his}} head when {{he}} fell",
+        "Can't tell, {{he}}'s too far gone to answer",
+        "No idea, {{he}}'s not responding at all",
+        "Not sure, {{he}} might be hurt from the fall too",
+        "Can't say, {{he}}'s completely out of it"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
+        "There's a small graze on {{his}} head from the fall",
+        "No, I can't see any bleeding",
+        "A bit of a cut on {{his}} forehead, not too bad",
         "No bleeding that I can see",
-        "There's a small graze on his head from falling"
+        "There's a small graze, nothing major",
+        "No, no bleeding as far as I can tell",
+        "A small cut on {{his}} head where {{he}} went down",
+        "No bleeding visible",
+        "There's a graze on {{his}} hand, that's all I can see",
+        "No, doesn't look like {{he}}'s bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No idea, I don't know him",
-        "Couldn't say, he's a stranger to me"
+        "I've no idea, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a complete stranger",
+        "Can't say, I don't know anything about {{him}}",
+        "Sorry, no idea, I've never met {{him}}",
+        "No idea at all, sorry",
+        "I couldn't tell you, I don't know {{him}}",
+        "Sorry, no idea, {{he}}'s a stranger to me",
+        "No idea, I just found {{him}} like this",
+        "Can't say, sorry",
+        "No idea, sorry, I don't know {{him}} at all"
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't tell you"
+        "No idea, I don't know {{him}}",
+        "Can't say, {{he}}'s a stranger to me",
+        "No idea at all, sorry",
+        "Sorry, I don't know anything about {{him}}",
+        "No idea, I've never met {{him}} before",
+        "Can't tell you, sorry, I don't know {{him}}",
+        "No idea, sorry",
+        "I couldn't say, {{he}}'s a stranger",
+        "No idea, sorry, I just found {{him}}",
+        "Can't say, I don't know {{him}} at all"
       ]
     },
     "patientAge": {
       "answers": [
-        "Looks about 30 to 40",
-        "Hard to say, maybe mid thirties"
+        "Looks about thirty, hard to say for sure",
+        "I'd guess early thirties",
+        "Maybe thirty or so, I'm just guessing",
+        "Hard to say, looks about thirty",
+        "I'd say late twenties or early thirties",
+        "Maybe thirty, I couldn't be certain",
+        "Looks to be about thirty years old",
+        "I'd guess {{he}}'s in {{his}} thirties",
+        "Hard to tell, maybe thirty or so",
+        "I'd say around thirty, roughly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay with him and keep him on his side",
-        "I'll keep an eye on him till you get here"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "I don't think he can get himself anywhere, he's out of it",
-        "Might be worth it, but he's not responding well"
+        "Oh, okay, if you think that's best",
+        "Right, okay, as long as someone calls back soon",
+        "Okay, I suppose that's fine, but it is quite painful",
+        "Alright, if 111 can help then that's fine",
+        "Okay, I just didn't know who else to call",
+        "Right, that's okay, I just wanted some advice really",
+        "Okay, fair enough, though it would be good to see someone",
+        "Alright, I understand, as long as it's soon",
+        "Okay, that's fine, I wasn't sure if it was serious",
+        "Right, okay, thank you for explaining that"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Actually that might help, there's a bit of a crowd gathering",
+        "Okay, that could be useful, {{he}}'s blocking the pavement a bit",
+        "Right, that might not be a bad idea given the state {{he}}'s in",
+        "Okay, fair enough, though I think it's mainly a medical thing",
+        "That's fine, might help keep people from tripping over {{him}}",
+        "Okay, I suppose that makes sense, there's a bit of a scene here",
+        "Right, that's probably sensible outside a pub at this hour",
+        "Okay, fine by me, as long as the ambulance is coming too",
+        "That could help, a few people have stopped to look",
+        "Okay, that's fine, I just want {{him}} looked after really"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

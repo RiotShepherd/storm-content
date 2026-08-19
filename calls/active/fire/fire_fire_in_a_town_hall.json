@@ -54,6 +54,12 @@
     "bulk_foam_unit": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 15,
+    "ambulance": 5,
+    "police": 5
+  },
   "patients": {
     "range": [
       1,
@@ -109,7 +115,14 @@
     "openings": [
       "Fire brigade please, there's smoke pouring out of the town hall, people are coming out coughing",
       "It's the town hall, it's on fire, I can see flames at one of the windows",
-      "There's a fire at the town hall, there was a meeting on, people are still coming out"
+      "There's a fire at the town hall, there was a meeting on, people are still coming out",
+      "I need the fire brigade, smoke's billowing from the town hall doors",
+      "Please hurry, there's a fire at the town hall and quite a crowd outside now",
+      "Fire brigade please, the old town hall's on fire, people are coughing on the steps",
+      "There's smoke everywhere at the town hall, I think there was an event on inside",
+      "Please send help, the town hall's alight and people are still filing out",
+      "Fire brigade urgently please, flames are visible at the town hall windows",
+      "There's a fire at the town hall, a good crowd's gathered outside coughing"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -123,82 +136,230 @@
       "answers": [
         "Fire brigade please, there's smoke pouring out of the town hall, people are coming out coughing",
         "It's the town hall, it's on fire, I can see flames at one of the windows",
-        "There's a fire at the town hall, there was a meeting on, people are still coming out"
+        "There's a fire at the town hall, there was a meeting on, people are still coming out",
+        "I need the fire brigade, smoke's billowing from the town hall doors",
+        "Please hurry, there's a fire at the town hall and quite a crowd outside now",
+        "Fire brigade please, the old town hall's on fire, people are coughing on the steps",
+        "There's smoke everywhere at the town hall, I think there was an event on inside",
+        "Please send help, the town hall's alight and people are still filing out",
+        "Fire brigade urgently please, flames are visible at the town hall windows",
+        "There's a fire at the town hall, a good crowd's gathered outside coughing"
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, I was walking past when I saw the smoke",
-        "{{callerName}}, I'm stood outside the town hall now"
+        "{{callerName}}, I'm stood outside the town hall now",
+        "My name's {{callerName}}, I was attending the meeting inside",
+        "It's {{callerName}}, I'm helping some of the older people outside",
+        "{{callerName}} speaking, I work nearby and came over",
+        "Name's {{callerName}}, I'm one of the council staff",
+        "It's {{callerName}}, I was first out and called straight away",
+        "{{callerName}}, I'm stood with the group who came out coughing",
+        "This is {{callerName}}, I live just across the road",
+        "{{callerName}} here, I'll stay and point you to the entrance"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know their names, there's a group of them coughing on the steps"
+        "I don't know their names, there's a group of them coughing on the steps",
+        "One's called {{firstPatientName}}, {{he}}'s struggling the most",
+        "There's several affected, {{firstPatientName}}'s one of them",
+        "I don't know everyone, but {{firstPatientName}}'s the one worst off",
+        "One's {{patientName}}, {{he}} can't stop coughing",
+        "There's a few of them, I only caught one name, {{firstPatientName}}",
+        "It's {{firstPatientName}} nearest me, others are further along the steps",
+        "I can only give you {{firstPatientName}}, the rest I don't know",
+        "One's called {{firstPatientName}}, {{he}}'s sat down feeling rough",
+        "There's a group affected, {{firstPatientName}} seems the worst"
       ]
     },
     "address": {
       "answers": [
         "{{address}}, it's the old town hall, you'll see the smoke from the street",
-        "It's {{address}}, big stone building with the clock"
+        "It's {{address}}, big stone building with the clock",
+        "{{address}}, that's the town hall, please hurry",
+        "You want {{address}}, come to the main steps at the front",
+        "{{address}}, that's confirmed, people are gathered outside",
+        "{{address}}, the town hall, you can't miss the smoke",
+        "{{address}}, that's us, come round to the main entrance",
+        "{{address}}, please hurry, more people keep coming out",
+        "{{address}}, that's the address, thank you",
+        "{{address}}, come to the front steps, that's where everyone is"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "I saw smoke coming from one of the ground floor windows, then people started running out coughing",
-        "There was some sort of council meeting on, the alarm went and now there's smoke pouring out of the doors"
+        "There was some sort of council meeting on, the alarm went and now there's smoke pouring out of the doors",
+        "Not sure of the cause, but the smoke built up fast and everyone's been evacuated",
+        "We think it started downstairs, the fire alarm went off and everyone came out",
+        "Unclear cause, but there's smoke logging right through the ground floor",
+        "Not certain, but flames are visible in one of the windows now",
+        "There was an event on, people got out quickly but a few are struggling with the smoke",
+        "We don't know exactly, but smoke's been pouring out for a few minutes now",
+        "Not sure of the cause, but the whole ground floor seems affected",
+        "Unclear, but it went from a smell of smoke to flames quite quickly"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, they're conscious, a few are sat on the steps getting their breath back"
+        "Yes, they're conscious, a few are sat on the steps getting their breath back",
+        "{{He}}'s conscious, coughing quite badly though",
+        "They're all conscious, just very shaken and coughing",
+        "{{He}}'s awake, sat down and recovering slowly",
+        "Yes, everyone's conscious, some more affected than others",
+        "{{He}}'s conscious, quite breathless from the smoke",
+        "They're all awake, a few are struggling more than others",
+        "{{He}}'s conscious, we're keeping {{him}} sat upright",
+        "Yes, conscious, just coughing hard, several of them",
+        "{{He}}'s awake but finding it hard to catch {{his}} breath"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple of them are coughing quite badly, one lady can't stop"
+        "A couple of them are coughing quite badly, one of them just can't stop",
+        "{{He}}'s breathing but coughing a lot from the smoke",
+        "Most are breathing okay, a few are quite wheezy",
+        "{{He}}'s struggling a little, coughing hard between breaths",
+        "They're all coughing to some degree, one or two worse than the rest",
+        "{{He}}'s breathing fine for now, just coughing a lot",
+        "A few are wheezing, breathing but not comfortable",
+        "{{He}} seems to be breathing okay, still coughing though",
+        "Most are alright, one or two are struggling more with the smoke",
+        "{{He}}'s breathing but it's a bit laboured from the smoke"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "One man says his chest feels tight"
+        "One says {{his}} chest feels tight from the smoke",
+        "{{He}} says {{his}} chest feels tight from the coughing",
+        "A couple of them have sore throats and stinging eyes",
+        "{{He}}'s got a bit of a headache, says {{his}} throat's sore",
+        "Nothing serious, just sore throats and watering eyes from the smoke",
+        "{{He}} says {{he}}'s got a tight chest, nothing worse",
+        "A few are uncomfortable, mostly throat irritation",
+        "{{He}} says {{his}} eyes are stinging quite badly",
+        "Mostly just coughing and sore throats among the group",
+        "{{He}}'s got a mild headache, says {{his}} chest feels tight"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no bleeding, it's the smoke that's the problem"
+        "No, no bleeding, it's the smoke that's the problem",
+        "No, nothing like that, just coughing and sore throats",
+        "No bleeding at all, just smoke related",
+        "No, {{he}}'s not bleeding, just breathless",
+        "No, there's no injury, just the smoke affecting everyone",
+        "No bleeding, just watering eyes and coughing",
+        "No, nothing like that, purely smoke inhalation",
+        "No bleeding, {{he}}'s just quite shaken and coughing",
+        "No, this is purely from breathing in the smoke",
+        "No bleeding, just struggling a bit with the smoke"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've no idea, I don't know any of them"
+        "I've no idea, I don't know any of them",
+        "Not sure, I believe {{he}} has asthma, not certain",
+        "I don't know most of them, sorry",
+        "Not certain, but {{he}} might have a breathing condition",
+        "I couldn't say, I don't know these people well",
+        "Not sure exactly, someone said {{he}} has asthma",
+        "I don't know, sorry, I only just met most of them",
+        "Not certain, but the council office might have some details",
+        "I couldn't tell you, sorry, I'm not with any of them",
+        "Not sure, I think one or two might have breathing issues normally"
       ]
     },
     "medications": {
       "answers": [
-        "Sorry, I can't say"
+        "Sorry, I can't say",
+        "No idea, sorry, I don't know any of them well",
+        "Not sure, I think {{he}} might carry an inhaler",
+        "I couldn't tell you, sorry",
+        "No idea what anyone's on, sorry",
+        "Not certain, sorry, I don't know their medical details",
+        "I don't know, sorry, I'm not with any of them",
+        "Not sure, sorry, I can't help with that",
+        "No idea, sorry, that's not something I'd know",
+        "Not certain, sorry, I really couldn't say"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mixed ages, there's an older gentleman and some younger office staff"
+        "Mixed ages, there's an older {{gentleman}} and some younger office staff",
+        "{{He}}'s middle aged, I'd guess fifties",
+        "There's a real mix, younger and older people in the group",
+        "{{He}}'s elderly, I'd say seventies",
+        "Mostly adults, a real range of ages though",
+        "{{He}}'s maybe in {{his}} sixties",
+        "Hard to say exactly, but a good mix of ages among them",
+        "{{He}}'s younger, I'd guess thirties",
+        "There's an older group and some younger council staff too",
+        "{{He}}'s around fifty, I'd guess"
       ]
     },
     "reassure": {
       "answers": [
         "Okay, we're keeping everyone back from the doors",
-        "Please hurry, more people keep coming out coughing"
+        "Please hurry, more people keep coming out coughing",
+        "Understood, we'll stay together on the steps",
+        "Okay, we're helping the ones struggling most",
+        "Right, we'll keep everyone calm until you arrive",
+        "Okay, thank you, we're all well clear of the building now",
+        "Understood, we'll keep the entrance clear for you",
+        "Okay, someone's gone to get water for the ones coughing",
+        "Right, please hurry, a few of them are struggling",
+        "Understood, we'll wait right here until you arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, they need an ambulance, it's smoke inhalation, not a GP job"
+        "No, they need an ambulance, it's smoke inhalation, not a GP job",
+        "No, this needs paramedics, several of them are struggling to breathe",
+        "No, please, this can't wait for that",
+        "No, this is too urgent for that, people are coughing badly",
+        "No, we need an ambulance here, not that",
+        "No, please just send someone quickly",
+        "No, this needs proper emergency help right now",
+        "No, absolutely not, several people need checking over",
+        "No, this can't wait, please send an ambulance",
+        "No, please, we really need help now"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, that'll help keep the crowd back from the building",
+        "Thank you, it'll help with all these people gathering to look",
+        "Good, we could use the help keeping the road clear too",
+        "That's helpful, there's quite a crowd building outside now",
+        "Good, thank you, it's getting busy here, that'll help",
+        "Thank you, that'll help keep everyone back while you work",
+        "Good, we could do with the extra hands, people keep crowding round",
+        "Thank you, that'll help with keeping the road clear for your engines",
+        "Good, it's sensible, quite a crowd's gathered on the street now",
+        "Thank you, that'll help, we're struggling to keep people back ourselves"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry",
+        "Good, please, how long will they be, more people keep coming out coughing",
+        "Thank you, we're all stood on the steps, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we'll keep everyone together, please hurry",
+        "Oh good, please send them quickly, the smoke's getting worse",
+        "Thank you, we're keeping the worst affected sat down, please hurry them up",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, a few of us are really struggling"
       ]
     }
   },

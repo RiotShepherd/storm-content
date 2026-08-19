@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -68,7 +72,15 @@
   "caller": {
     "openings": [
       "There's a big pile of rubbish on fire behind the shops, smoke's going everywhere",
-      "I need the fire brigade, a rubbish tip's caught fire and it's spreading"
+      "I need the fire brigade, a rubbish tip's caught fire and it's spreading",
+      "There's a huge rubbish pile burning round the back of the parade",
+      "Can you send someone, the fly tipped rubbish out back is well alight",
+      "A skip full of waste has caught fire behind the shops",
+      "There's a big fire in the rubbish heap, smoke's drifting over the road",
+      "Someone's set the tip fire behind the units alight",
+      "There's a bulk rubbish fire, it's really smoking now",
+      "The rubbish pile behind the industrial units is well ablaze",
+      "There's a fire in the waste pile, it's spreading across the yard"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -81,78 +93,231 @@
     "start": {
       "answers": [
         "There's a big pile of rubbish on fire behind the shops, smoke's going everywhere",
-        "I need the fire brigade, a rubbish tip's caught fire and it's spreading"
+        "I need the fire brigade, a rubbish tip's caught fire and it's spreading",
+        "There's a huge rubbish pile burning round the back of the parade",
+        "Can you send someone, the fly tipped rubbish out back is well alight",
+        "A skip full of waste has caught fire behind the shops",
+        "There's a big fire in the rubbish heap, smoke's drifting over the road",
+        "Someone's set the tip fire behind the units alight",
+        "There's a bulk rubbish fire, it's really smoking now",
+        "The rubbish pile behind the industrial units is well ablaze",
+        "There's a fire in the waste pile, it's spreading across the yard"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm above the shops"
+        "It's {{callerName}}, I'm above the shops",
+        "{{callerName}} here, I work at the unit next door",
+        "It's {{callerName}}, I live behind the parade",
+        "{{callerName}}, I was walking past the back alley",
+        "It's {{callerName}}, I noticed the smoke from my flat",
+        "My name's {{callerName}}, I run one of the shops",
+        "It's {{callerName}}, I'm parked up nearby",
+        "{{callerName}} speaking, I saw it from the car park",
+        "It's {{callerName}}, I spotted it on my way home",
+        "{{callerName}}, I'm stood by the back gates now"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, it's just rubbish"
+        "There's no one hurt, nobody was anywhere near it.",
+        "No patient to report, it's just the fire itself.",
+        "Nobody's hurt, I haven't seen anyone go near it.",
+        "No casualties, no one was involved when it caught.",
+        "There's no one to name, no one's injured.",
+        "Nobody was caught up in it, no injuries at all.",
+        "No one's hurt, everyone's kept well clear.",
+        "There's nobody involved, it's not touched anyone.",
+        "No injuries to report, no one's anywhere near it.",
+        "Nobody's hurt, there's no patient here."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, round the back of the parade"
+        "{{address}}, round the back of the parade",
+        "It's {{address}}, the rubbish pile's behind the units",
+        "{{address}}, access is through the service road",
+        "It's {{address}}, the tip's at the end of the yard",
+        "{{address}}, come round to the loading area at the back",
+        "It's {{address}}, follow the smoke round to the alley",
+        "{{address}}, the pile's next to the industrial units",
+        "It's {{address}}, use the back entrance off the high street",
+        "{{address}}, the rubbish is stacked by the fence",
+        "It's {{address}}, you'll see the smoke over the rooftops"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Someone's set light to the rubbish pile out the back, it's well alight and smoking badly"
+        "Someone's set light to the rubbish pile out the back, it's well alight and smoking badly",
+        "It looks like it caught on its own, the pile's been there for weeks",
+        "There was a bang then flames, might have been an aerosol in the waste",
+        "It's been smouldering and just flared right up in the last few minutes",
+        "Kids were seen hanging around there earlier, might have started it",
+        "No idea how it started but it's spreading across the whole pile now",
+        "The wind's picked it up and it's spreading towards the fence",
+        "It went up fast, the smoke's really thick and black",
+        "Looks like fly tipped rubbish has caught, it's a big pile",
+        "It's spreading along the pile and starting to catch the pallets nearby"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, no one's near it"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so there's nothing to report there.",
+        "Everyone's fine, nobody's anywhere near it.",
+        "No casualties, no one's been affected by it.",
+        "There's no patient, nobody's hurt at all.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, just heavy smoke"
+        "No one's struggling, just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smoke that's bothering us.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's near enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke.",
+        "No breathing problems, nobody's close enough to it.",
+        "We've kept clear, so no one's had any trouble breathing.",
+        "No one's affected, just a bit of a smell in the air.",
+        "Nothing to report, we're all well away from the smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected.",
+        "Not applicable, there's no patient in pain.",
+        "No injuries, nobody's hurt in any way.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's been near it"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all.",
+        "Not applicable, nobody's been hurt.",
+        "No, no one's involved, so no injuries.",
+        "No bleeding to report, everyone's clear.",
+        "No injuries at all, nobody's near it.",
+        "No, there's no one hurt to report bleeding.",
+        "Not applicable, no one's been affected.",
+        "No, everyone's well away from it.",
+        "No bleeding, nobody's been caught up in it."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no one hurt.",
+        "No patient, so nothing to tell you there.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter.",
+        "No patient here, nothing to report.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that.",
+        "Not applicable, nobody's hurt.",
+        "No patient involved, nothing to tell you."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not medical.",
+        "No patient, nothing to tell you.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected.",
+        "No casualty, so nothing there.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient involved"
+        "There's no patient, nobody's hurt.",
+        "No one involved, so no age to give.",
+        "Not applicable, it's just the fire.",
+        "No casualty, there's no one to report.",
+        "Nobody's hurt, no patient here.",
+        "No one's involved, so nothing there.",
+        "Not applicable, there's no injuries.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've shut my windows against the smoke"
+        "Okay, I've shut my windows against the smoke",
+        "Right, I'm staying well back from the fumes",
+        "Okay, I've moved my car further away",
+        "Understood, I'll keep an eye on which way it spreads",
+        "Alright, I'm keeping the shop door closed",
+        "Okay, I've told the other shop owners to stay clear",
+        "Right, I'll let you know if it reaches the units",
+        "Okay, I'm well away from it now",
+        "Understood, I'll wait out front to point you the right way",
+        "Okay, we're all keeping clear of the smoke"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, someone deliberately set this alight, they should look into it",
+        "Yes please, whoever did this needs finding, it's dangerous",
+        "Thank you, this looks deliberate, they should take a look",
+        "Okay, good, maybe they can find out who started it",
+        "Yes, send them, there could be chemicals fly tipped in there",
+        "Good, this wasn't an accident, someone needs to investigate",
+        "Thank you, I saw someone hanging about here earlier",
+        "Okay, they might want to speak to the shop owners nearby",
+        "Good, it's clearly been started on purpose",
+        "Yes please, whoever's responsible should be caught"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, it's spreading towards the buildings",
+        "Okay, good, I've shut my windows against the smoke",
+        "Please hurry, the smoke's really heavy now",
+        "Thank you, I'm staying well back from the pile",
+        "Okay, I can see them coming, thank god",
+        "Good, hurry, it's getting close to the shops",
+        "Thank you, I've warned the neighbours about the smoke",
+        "Okay, please tell them to hurry, it's well alight now",
+        "Thank goodness, I'll point them round the back",
+        "Good, hurry please, there might be chemicals in there"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire not a medical call"
+        "No, it's a fire not a medical call",
+        "No, nobody's hurt, it's the rubbish pile burning",
+        "No thank you, I need the fire brigade",
+        "No, there's no injury, please send the fire service",
+        "No, this isn't medical, it's a fire",
+        "No, I don't need that, please just send firefighters",
+        "No, nobody's involved, it's just the rubbish",
+        "No, it's a fire call, not a health matter",
+        "No, please hurry, it's spreading fast",
+        "No, it's not something 111 can help with"
       ]
     }
   },

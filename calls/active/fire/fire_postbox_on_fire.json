@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -65,8 +69,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Fire brigade please, the postbox on the corner's on fire",
-      "There's a fire in the postbox down the road, someone's set it alight I think"
+      "Fire brigade please, the postbox on the corner's on fire.",
+      "There's a fire in the postbox down the road, someone's set it alight I think.",
+      "The red postbox near me is on fire, nobody's near it now.",
+      "Someone's set fire to the postbox outside, it's smoking quite a bit.",
+      "There's a small fire in the postbox on the high street.",
+      "The postbox down our street is burning, looks deliberate.",
+      "Fire service please, the postbox has gone up in flames.",
+      "There's smoke and a bit of fire coming from the postbox near the shops.",
+      "The old postbox on the corner is alight, nobody's around it.",
+      "I can see the postbox burning from here, it's not spreading to anything else."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -78,79 +90,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade please, the postbox on the corner's on fire",
-        "There's a fire in the postbox down the road, someone's set it alight I think"
+        "Fire brigade please, the postbox on the corner's on fire.",
+        "There's a fire in the postbox down the road, someone's set it alight I think.",
+        "The red postbox near me is on fire, nobody's near it now.",
+        "Someone's set fire to the postbox outside, it's smoking quite a bit.",
+        "There's a small fire in the postbox on the high street.",
+        "The postbox down our street is burning, looks deliberate.",
+        "Fire service please, the postbox has gone up in flames.",
+        "There's smoke and a bit of fire coming from the postbox near the shops.",
+        "The old postbox on the corner is alight, nobody's around it.",
+        "I can see the postbox burning from here, it's not spreading to anything else."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "Sorry, yes, it's {{callerName}} here.",
+        "{{callerName}} is my name.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}, calling from nearby.",
+        "{{callerName}}, if you need it.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} speaking.",
+        "{{callerName}}, yes."
       ]
     },
     "patientName": {
       "answers": [
-        "There's nobody hurt, it's just the fire"
+        "There's nobody hurt, it's just the postbox fire.",
+        "No patient here, it's only the postbox fire going up.",
+        "Nobody to name, there's no one hurt, just the postbox fire.",
+        "No casualties, it's purely the postbox fire we've got.",
+        "There's no one involved, just the postbox fire itself.",
+        "No patient to speak of, it's the postbox fire that's the issue.",
+        "Nobody's hurt so there's no name to give, it's just the postbox fire.",
+        "No one injured, it's only the postbox fire.",
+        "There's no patient, just the postbox fire needs sorting.",
+        "Nobody hurt at all, it's the postbox fire, that's it."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "We're at {{address}}.",
+        "That's {{address}}, yes.",
+        "{{address}}, that's the address.",
+        "You'll find it at {{address}}.",
+        "It's {{address}}, just so you know.",
+        "The location is {{address}}.",
+        "{{address}} is where we are.",
+        "That's the postcode and address, {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I just saw smoke coming out of it, then flames"
+        "It looks like someone's put something burning inside it, there's smoke coming out the slot.",
+        "I saw someone drop something in and then it started smoking.",
+        "It just started smoking a few minutes ago, I think someone set it alight.",
+        "There's flames coming from the slot, someone's clearly done this on purpose.",
+        "I think kids set it alight, it's been smoking for a while now.",
+        "The fire's contained to the postbox itself, nothing else nearby is affected.",
+        "It looks deliberate, there's smoke pouring out of the top.",
+        "I don't know exactly how it started, but it's well alight now.",
+        "The whole box is smoking, I could smell burning from down the street.",
+        "It's just the postbox on fire, nothing spreading to nearby buildings."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, there's no one to check on"
+        "Nobody's hurt, there's no one to check on.",
+        "No one's involved, so nothing like that applies.",
+        "There's no patient, no one to ask that about.",
+        "Nobody's affected, it's just the postbox fire.",
+        "No, there's no casualty here at all.",
+        "There's no one hurt, so no need for that.",
+        "Nobody to check, everyone's clear of it.",
+        "No patient here, so that doesn't apply.",
+        "There's nobody involved like that, just the postbox fire.",
+        "No one's hurt, so there's nothing to check."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No one's affected, everyone's clear"
+        "No one's affected, everyone's well clear of it.",
+        "There's no patient, so nothing like that to report.",
+        "Nobody's breathing in anything, we're all well away from it.",
+        "No, nobody's affected, it's just the postbox fire.",
+        "There's no one hurt, so that doesn't apply here.",
+        "Everyone's fine, nobody's near enough to be affected.",
+        "No casualties, no breathing problems, nothing like that.",
+        "Nobody's affected at all, we're all clear.",
+        "There's no patient to ask about that.",
+        "No, we're all outside and fine, nobody's affected."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can tell"
+        "No one's hurt as far as I can tell.",
+        "There's no patient, so no pain to report.",
+        "Nobody's in any pain, there's no one hurt.",
+        "No, nobody's injured, it's just the postbox fire.",
+        "There's no casualty, so that doesn't apply.",
+        "No one's hurt, nothing like that going on.",
+        "Nobody's in pain, there's no patient at all.",
+        "No injuries reported, nobody's hurt.",
+        "There's no one involved that way, just the postbox fire.",
+        "No, nobody's hurt, no pain, nothing like that."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries that I can see"
+        "No, no injuries that I can see.",
+        "There's no patient, so no bleeding to report.",
+        "Nobody's bleeding, there's no one hurt.",
+        "No, nothing like that, it's just the postbox fire.",
+        "There's no casualty here, no bleeding, nothing.",
+        "No one's injured at all, no bleeding.",
+        "Nobody's hurt, so there's no bleeding to speak of.",
+        "No, there's no patient, nothing like that.",
+        "There's no injury, no bleeding, just the postbox fire.",
+        "No, nobody's bleeding, nobody's hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, I can't help with that"
+        "There's no patient, I can't help with that.",
+        "No one's hurt, so there's no history to give.",
+        "Nobody involved that way, there's no patient.",
+        "No, there's no casualty, nothing like that applies.",
+        "There's no one to give history for, it's just the postbox fire.",
+        "No patient here, so I wouldn't know that.",
+        "Nobody's hurt, so that doesn't come into it.",
+        "There's no one injured, no history needed.",
+        "No casualty involved, so nothing like that.",
+        "There's no patient, that question doesn't apply here."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's nobody hurt"
+        "No idea, there's nobody hurt.",
+        "There's no patient, so no medication to mention.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No, there's no one involved that way.",
+        "There's no casualty, nothing like that to say.",
+        "No patient here, so I can't answer that.",
+        "Nobody's hurt at all, no medication needed.",
+        "There's no one injured, so that's not relevant.",
+        "No, it's just the postbox fire, no patient involved.",
+        "There's no patient, so nothing to report there."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's nobody hurt, no patient involved"
+        "There's nobody hurt, no patient involved.",
+        "No one to give an age for, there's no patient.",
+        "Nobody's hurt, so that doesn't apply.",
+        "No casualty here, just the postbox fire.",
+        "There's no one injured, so no age to give.",
+        "No patient at all, it's only the postbox fire.",
+        "Nobody's affected, so that question doesn't apply.",
+        "There's no one hurt, no age needed.",
+        "No, there's no patient here.",
+        "Nobody's involved that way, just the postbox fire, no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm keeping back"
+        "Ambulance? No, nobody's hurt, it's just the postbox fire.",
+        "Oh, we don't need an ambulance, nobody's injured here.",
+        "No need for that, nobody's hurt, it's only the postbox fire.",
+        "There's no one hurt, we just need the fire brigade.",
+        "No, thank you, nobody's injured, it's just the postbox fire.",
+        "We're fine, nobody's hurt, just get the fire engine here.",
+        "No ambulance needed, nobody's been hurt.",
+        "No one's injured, it's only the postbox fire that's the problem.",
+        "That's alright, nobody's hurt, we just need the fire service.",
+        "No, no one's injured, just send the fire brigade please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire, I need the fire brigade"
+        "No, I don't think 111 can help with the postbox fire, but thank you.",
+        "No, that's alright, it's the postbox fire, not really a medical thing.",
+        "No, I think I need the fire brigade for the postbox fire, not 111.",
+        "No, this isn't really a medical matter, thank you though.",
+        "No, I don't think that's quite right for the postbox fire.",
+        "No, it's not medical, it's the postbox fire, so I think I need the fire brigade.",
+        "No, I don't think 111 would be able to help with this one.",
+        "No, thank you, but the postbox fire isn't really a 111 sort of job.",
+        "No, I think this needs the fire brigade rather than 111.",
+        "No, it's fine, but the postbox fire really needs the fire service."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh, that would help, thank you, it's a bit of a scene here.",
+        "Yes, that's probably wise, thank you.",
+        "Okay, that makes sense with everything going on here.",
+        "Right, yes, that would be useful, thank you.",
+        "Okay, good, it's getting a bit busy here.",
+        "Yes, that sounds sensible, thank you.",
+        "Alright, that would help keep things in order.",
+        "Okay, thank you, that's probably needed.",
+        "Yes, good idea, thank you.",
+        "Okay, that would be a help, thank you."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them.",
+        "Right, thank you, I'll keep an eye out.",
+        "Okay, that's great, thank you.",
+        "Alright, thank you, I'll stay by the door for them.",
+        "Okay, good, I'll wait outside.",
+        "Thank you, I'll keep watching for the engine.",
+        "Right, thanks, I'll wait here for them.",
+        "Okay, that's good to know, thank you.",
+        "Alright, thank you, I appreciate it.",
+        "Okay, thank you, I'll look out for them."
       ]
     }
   },

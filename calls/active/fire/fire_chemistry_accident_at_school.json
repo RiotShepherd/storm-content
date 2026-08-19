@@ -45,6 +45,11 @@
     "single_pump": 1,
     "hazmat_unit": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 11,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -87,7 +92,15 @@
   "caller": {
     "openings": [
       "There's been an accident in the chemistry lab, some fumes have got out and a couple of pupils aren't well",
-      "I need the fire brigade, we've had a chemical reaction go wrong in the lab, pupils are coughing badly"
+      "I need the fire brigade, we've had a chemical reaction go wrong in the lab, pupils are coughing badly",
+      "Please hurry, there's been a lab accident, a couple of students are struggling to breathe",
+      "We've had a chemical spill in the science block, pupils have been evacuated but a few aren't well",
+      "Fire brigade please, fumes have got out of the chemistry lab, we're worried about a couple of students",
+      "There's been an incident in the lab, students are coughing and one's feeling faint",
+      "Please send help, we've had a chemical reaction go wrong and pupils are affected by fumes",
+      "We've evacuated the science block, a couple of students are struggling from the fumes",
+      "Fire brigade urgently please, there's chemical fumes in the lab and pupils are unwell",
+      "There's been a lab accident, we've got students coughing and one's gone very pale"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -100,78 +113,231 @@
     "start": {
       "answers": [
         "There's been an accident in the chemistry lab, some fumes have got out and a couple of pupils aren't well",
-        "I need the fire brigade, we've had a chemical reaction go wrong in the lab, pupils are coughing badly"
+        "I need the fire brigade, we've had a chemical reaction go wrong in the lab, pupils are coughing badly",
+        "Please hurry, there's been a lab accident, a couple of students are struggling to breathe",
+        "We've had a chemical spill in the science block, pupils have been evacuated but a few aren't well",
+        "Fire brigade please, fumes have got out of the chemistry lab, we're worried about a couple of students",
+        "There's been an incident in the lab, students are coughing and one's feeling faint",
+        "Please send help, we've had a chemical reaction go wrong and pupils are affected by fumes",
+        "We've evacuated the science block, a couple of students are struggling from the fumes",
+        "Fire brigade urgently please, there's chemical fumes in the lab and pupils are unwell",
+        "There's been a lab accident, we've got students coughing and one's gone very pale"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the science teacher"
+        "It's {{callerName}}, I'm the head of science",
+        "{{callerName}}, I'm the teacher who was running the lesson",
+        "My name's {{callerName}}, I'm the school's first aider",
+        "It's {{callerName}}, I'm with the affected pupils now",
+        "{{callerName}} speaking, I'm the deputy head",
+        "Name's {{callerName}}, I'm a science technician",
+        "It's {{callerName}}, I evacuated the lab straight away",
+        "{{callerName}}, I'm the teacher on duty in the lab",
+        "This is {{callerName}}, I'm looking after the pupils outside",
+        "{{callerName}} here, I'll meet you at reception"
       ]
     },
     "patientName": {
       "answers": [
-        "It's two of my pupils, {{firstPatientName}} is one of them"
+        "One's called {{firstPatientName}}, {{he}}'s in year ten",
+        "It's {{patientName}}, {{he}}'s one of my pupils",
+        "The pupil's {{firstPatientName}}, {{he}}'s feeling faint",
+        "{{His}} name's {{firstPatientName}}, {{he}}'s coughing badly",
+        "It's {{firstPatientName}}, another pupil's affected too but {{he}}'s the worst",
+        "Name's {{firstPatientName}}, {{he}}'s sat down feeling unwell",
+        "It's {{patientName}}, {{he}}'s one of the students from the lab",
+        "{{He}}'s called {{firstPatientName}}, {{he}}'s a year ten pupil",
+        "The main one affected is {{firstPatientName}}",
+        "It's {{firstPatientName}}, {{he}}'s with me now, quite shaken"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the school, go to reception and they'll direct you to the science block"
+        "{{address}}, it's the school, science block",
+        "It's {{address}}, come to the main reception",
+        "{{address}}, we'll have staff waiting at the gate",
+        "You want {{address}}, that's the school",
+        "{{address}}, come round to the science block entrance",
+        "{{address}}, that's confirmed, please hurry",
+        "{{address}}, the school off the main road",
+        "{{address}}, that's us, pupils are gathered on the field",
+        "{{address}}, come through the main gates",
+        "{{address}}, please hurry, the fumes are quite strong"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "An experiment went wrong and produced a lot of fumes, we've evacuated the lab but a couple of pupils breathed it in"
+        "Two chemicals got mixed that shouldn't have, it produced a strong gas",
+        "There was a reaction during a demonstration that released fumes",
+        "A student mixed the wrong chemicals and it started fuming badly",
+        "Not fully clear yet, but a chemical reaction released strong fumes",
+        "During an experiment something reacted badly and fumes filled the lab",
+        "A demonstration went wrong, gas built up before we could evacuate",
+        "We think acid and another chemical mixed accidentally",
+        "Not certain of the exact chemicals, but the fumes were very strong",
+        "A student error during an experiment caused a chemical reaction",
+        "We're not sure exactly, but the extraction fan couldn't clear it fast enough"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "They're both conscious, coughing and a bit distressed"
+        "{{He}}'s conscious but coughing a lot",
+        "{{He}}'s awake, feeling dizzy and sick",
+        "{{He}}'s conscious, quite pale and shaky",
+        "{{He}}'s awake but says {{his}} throat's burning",
+        "{{He}}'s conscious, sat down and coughing hard",
+        "{{He}}'s awake but feeling very faint",
+        "{{He}}'s conscious, keeps saying {{he}} can't get a breath",
+        "{{He}}'s awake, quite frightened and coughing",
+        "{{He}}'s conscious but says {{his}} eyes are stinging badly",
+        "{{He}}'s awake, we're keeping {{him}} sat down and calm"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "They're struggling to breathe properly, we've got them out in the fresh air"
+        "{{He}}'s breathing but coughing a lot from the fumes",
+        "{{He}}'s wheezing, breathing's a bit laboured",
+        "{{He}}'s struggling a little, coughing hard between breaths",
+        "{{He}}'s breathing but says {{his}} chest feels tight",
+        "{{He}}'s okay for now but coughing frequently",
+        "{{He}}'s breathing fast, a bit panicked from the fumes",
+        "{{He}}'s wheezing slightly, we've got {{him}} in fresh air now",
+        "{{He}}'s breathing but it's shallow and {{he}}'s coughing",
+        "{{He}}'s alright at the moment, just coughing badly",
+        "{{He}}'s breathing okay now we've got {{him}} outside"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "They say their throats and chests are sore"
+        "{{He}} says {{his}} throat and chest hurt from the fumes",
+        "{{His}} eyes are stinging and {{his}} throat's sore",
+        "{{He}}'s got a headache and says {{his}} chest feels tight",
+        "{{He}} says it burns when {{he}} breathes in",
+        "{{He}}'s complaining of a sore throat and stinging eyes",
+        "{{He}} says {{his}} chest hurts a bit from coughing so much",
+        "{{He}}'s got watering eyes and a scratchy throat",
+        "{{He}} says {{he}}'s got a headache coming on",
+        "{{He}}'s uncomfortable, throat irritation mostly",
+        "{{He}} says {{his}} lungs feel tight and sore"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, it's the fumes that are the problem"
+        "No, no bleeding, just breathing difficulty",
+        "No, {{he}}'s not bleeding, it's from the fumes",
+        "No bleeding at all, just coughing and feeling unwell",
+        "No, there's no injury, just the fume exposure",
+        "No bleeding, {{his}} eyes are just watering badly",
+        "No, nothing like that, just breathing trouble",
+        "No, no cuts or blood, just the chemical exposure",
+        "No bleeding, {{he}}'s just very shaken and coughing",
+        "No, this is purely from breathing in the fumes",
+        "No bleeding, {{he}}'s just struggling a bit to breathe"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I'd need to check with the office, one might have asthma"
+        "I believe {{he}} has asthma, we're checking with the office",
+        "Not sure exactly, we're pulling {{his}} records now",
+        "{{He}} might have a mild allergy, I'm not certain",
+        "I don't know off the top of my head, sorry",
+        "We're checking now, I think {{he}} may be asthmatic",
+        "Not certain, but the school office will have {{his}} records",
+        "I believe {{he}} has no known conditions, but I'm checking",
+        "Not sure, we're getting {{his}} file from the office",
+        "I think {{he}} carries an inhaler normally",
+        "Not certain, we're confirming with the school nurse now"
       ]
     },
     "medications": {
       "answers": [
-        "The school office holds medical records, I can check"
+        "I'm not sure, we're checking {{his}} records now",
+        "{{He}} may carry an inhaler, I believe",
+        "Not certain, the school office will know",
+        "I don't know off the top of my head, sorry",
+        "We're checking, I think {{he}} might have an inhaler with {{him}}",
+        "Not sure exactly, we're confirming with the office",
+        "I believe {{he}} doesn't take regular medication, not certain",
+        "Not certain, we'll check {{his}} file",
+        "I'm not sure, sorry, we're finding out now",
+        "Not certain, the school nurse is checking now"
       ]
     },
     "patientAge": {
       "answers": [
-        "They're both fourteen"
+        "{{He}}'s fourteen, in year ten",
+        "{{He}}'s about fifteen",
+        "{{He}}'s thirteen, year nine",
+        "{{He}}'s sixteen, in year eleven",
+        "{{He}}'s around fourteen years old",
+        "{{He}}'s fifteen, one of my GCSE students",
+        "{{He}}'s thirteen years old",
+        "{{He}}'s sixteen",
+        "{{He}}'s fourteen, quite a young looking {{lad}}",
+        "{{He}}'s fifteen years old"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've got them outside in fresh air with a first aider"
+        "Okay, we've got {{him}} sat down outside in fresh air",
+        "Understood, we're keeping {{him}} calm and monitoring {{him}}",
+        "Okay, the rest of the class is well clear of the lab now",
+        "Right, we'll keep {{him}} sat still until you arrive",
+        "Okay, thank you, we're staying with {{him}} the whole time",
+        "Understood, we've opened the windows and got everyone out",
+        "Okay, {{he}}'s a bit calmer now, still coughing though",
+        "Right, we'll keep the area clear for you when you arrive",
+        "Okay, thank you, we're doing what we can to keep {{him}} comfortable",
+        "Understood, we'll wait right here with {{him}}"
       ]
     },
     "refer111": {
       "answers": [
-        "No, they've breathed in fumes, we need you here"
+        "No, {{he}}'s struggling to breathe, this needs an ambulance",
+        "No, I don't think that's right, {{he}} needs to be seen properly",
+        "No, this is urgent, please send an ambulance",
+        "No, {{he}}'s in a bad way, this can't wait",
+        "No, this needs paramedics, not that",
+        "No, please, {{he}} needs help now",
+        "No, this is too serious for that",
+        "No, {{he}}'s a child struggling to breathe, please send help",
+        "No, we need an ambulance here as soon as possible",
+        "No, please just send someone quickly"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the fire brigade, please hurry them",
+        "We don't need police, please just get help for {{him}} fast",
+        "No, it's a fume exposure, not a police matter, please hurry the ambulance",
+        "I don't think we need them, please just send help quickly",
+        "No police needed, please, {{he}}'s struggling to breathe",
+        "We don't need police, please hurry the ambulance instead",
+        "No, it's not a police matter, please just get help here",
+        "I don't think that's necessary, please just send someone quickly",
+        "No police, please, we just need medical help urgently",
+        "We don't need them, please just get help here quickly"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry, {{he}}'s still coughing badly",
+        "Good, please, how long will they be",
+        "Thank you, we're keeping {{him}} outside, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we'll keep {{him}} in fresh air, please hurry",
+        "Oh good, please send them quickly, the fumes are still strong",
+        "Thank you, we're all stood well back, please hurry them up",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, {{he}} needs help"
       ]
     }
   },

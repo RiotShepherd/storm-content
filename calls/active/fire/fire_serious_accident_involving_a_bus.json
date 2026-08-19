@@ -50,6 +50,12 @@
     "traffic_car": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 5,
+    "ambulance": 8,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -115,7 +121,14 @@
     "openings": [
       "Ambulance and fire, there's been a serious crash, a bus has hit something, people are trapped.",
       "It's a bad accident, the bus has gone into the barrier, I can see people injured through the windows.",
-      "There's been a big crash involving a bus, some passengers can't get off, please hurry."
+      "There's been a big crash involving a bus, some passengers can't get off, please hurry.",
+      "There's been a serious bus crash, a few people look badly hurt.",
+      "The bus has crashed, some passengers are trapped and others are walking wounded.",
+      "There's been a terrible accident, the bus has overturned, people are hurt.",
+      "A bus has crashed badly, I can see several people injured inside it.",
+      "There's a serious accident, the bus hit something hard, passengers are hurt and some can't move.",
+      "The bus has crashed into the barrier, there's people trapped and others are bleeding.",
+      "There's been a bad crash, the bus is on its side, several passengers are injured."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -129,82 +142,230 @@
       "answers": [
         "Ambulance and fire, there's been a serious crash, a bus has hit something, people are trapped.",
         "It's a bad accident, the bus has gone into the barrier, I can see people injured through the windows.",
-        "There's been a big crash involving a bus, some passengers can't get off, please hurry."
+        "There's been a big crash involving a bus, some passengers can't get off, please hurry.",
+        "There's been a serious bus crash, a few people look badly hurt.",
+        "The bus has crashed, some passengers are trapped and others are walking wounded.",
+        "There's been a terrible accident, the bus has overturned, people are hurt.",
+        "A bus has crashed badly, I can see several people injured inside it.",
+        "There's a serious accident, the bus hit something hard, passengers are hurt and some can't move.",
+        "The bus has crashed into the barrier, there's people trapped and others are bleeding.",
+        "There's been a bad crash, the bus is on its side, several passengers are injured."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}.",
-        "{{callerName}}, I'm ringing about it now."
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know any of them, there's a lot of passengers hurt."
+        "There's a good few of them, I don't have names, sorry.",
+        "I don't know all their names, there's several affected.",
+        "No idea on names, we're just trying to get everyone out safely.",
+        "I can't give you names for all of them, there's too many.",
+        "Some staff know their names, I only know a couple of them.",
+        "I've not got names, sorry, there's a fair few people involved.",
+        "No names I'm afraid, it's chaos here with several affected.",
+        "I don't know them all personally, sorry.",
+        "Can't help with names, there's just too many people caught up in it.",
+        "Sorry, no names, we're focused on getting them out."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, please hurry.",
-        "It's {{address}}."
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The bus swerved and hit the central barrier, it's on its side, some passengers are trapped and there's a lot of injuries.",
-        "The bus collided with another vehicle, the front's crushed in, people are pinned in their seats."
+        "The bus has hit the central barrier hard, a few passengers are trapped and others have got themselves off but they're injured.",
+        "It looks like the bus lost control and hit the barrier side on, there's people trapped near the front.",
+        "The bus has gone into the back of another vehicle, some passengers were thrown forward and are badly hurt.",
+        "It's overturned partly, some passengers are still inside and can't get themselves out.",
+        "The bus hit the barrier at speed, several people are hurt, some can't move at all.",
+        "It looks like the driver lost control, the bus is on its side and people are trapped inside.",
+        "The front of the bus is badly damaged, a few passengers near the front are trapped.",
+        "It's a bad crash, some passengers got off themselves but they're clearly hurt, others are still trapped.",
+        "The bus swerved and hit the barrier, several people were thrown about inside and are injured.",
+        "It's overturned onto its side, some passengers are trapped underneath where they landed."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Most are conscious and shouting, a couple further up the bus aren't moving."
+        "Most are conscious, some are crying out in pain, but a couple aren't responding well.",
+        "They're mostly conscious, a couple seem quite dazed and not making much sense.",
+        "Most are awake, one or two aren't responding as well as the others.",
+        "They're conscious as far as I can tell, though a couple look quite out of it.",
+        "Most seem conscious, shouting in pain, but there's one who's very quiet and worrying.",
+        "They're awake, frightened, some in a lot of pain and crying out.",
+        "Conscious but distressed, one or two aren't responding well when I talk to them.",
+        "Most I can see are conscious, a couple look like they might be going in and out.",
+        "They're conscious, some worse than others, one really isn't responding well.",
+        "As far as I know most are conscious, but I'm worried about a couple of them."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Everyone I can see is breathing but some are struggling, it's chaos in there."
+        "Most seem to be breathing okay, though a couple are struggling with the pain of it.",
+        "Breathing looks alright for most, one person's breathing seems quite shallow though.",
+        "They seem to be breathing, but a couple are having a hard time with chest pain.",
+        "Breathing looks okay for most of them, I'm more worried about a couple who are quiet.",
+        "Most are breathing fine, one person's breathing does look laboured though.",
+        "They're all breathing that I can see, but it's clearly painful for some of them.",
+        "Breathing seems okay for most, though a couple look like they're struggling.",
+        "Most seem fine breathing wise, I'm worried about the quieter ones though.",
+        "They're breathing as far as I can tell, some more laboured than others.",
+        "Most look okay for breathing, but a couple concern me more than the rest."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "People are screaming in pain, looks like broken bones and cuts."
+        "Several are in a lot of pain, one's holding a leg, another their chest.",
+        "There's a lot of pain reported, fractures and chest injuries mostly.",
+        "A few are in severe pain, one looks like a broken leg, others chest and neck pain.",
+        "Some are in terrible pain, it looks like a couple of fractures among them.",
+        "There's significant pain, chest and neck injuries mostly from what I can see.",
+        "A number are in real pain, one's arm looks badly broken.",
+        "Some are in severe pain, holding their necks and backs.",
+        "There's a lot of pain, a mix of fractures and chest injuries it looks like.",
+        "Several are in significant pain, one's leg looks quite badly injured.",
+        "Some are in a lot of pain, mostly from what look like broken bones."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's blood, quite a few of them are bleeding from cuts to the head and arms."
+        "A couple are bleeding, cuts to the head mostly from broken glass.",
+        "Yes, there's some bleeding, a few cuts from the glass and metal.",
+        "A couple have head wounds that are bleeding quite a bit.",
+        "There's bleeding from a few of them, cuts from the crash mainly.",
+        "Yes, a couple are bleeding badly from cuts to the head and arms.",
+        "Some are bleeding, mostly from cuts caused by broken glass.",
+        "There's a bit of bleeding among a few of them, head cuts mostly.",
+        "Yes, a couple have quite bad cuts that are bleeding steadily.",
+        "Some bleeding, a few cuts from the glass and the impact.",
+        "A number have cuts that are bleeding, mostly to the head and hands."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've no idea, I don't know any of them, I just saw it happen."
+        "I don't know all their medical histories, sorry, there's too many.",
+        "No idea, we'd need to check with each of them individually.",
+        "Can't say for certain, I know one or two have asthma.",
+        "I'm not sure, some might have breathing conditions already.",
+        "I don't have that information for all of them.",
+        "Not sure, sorry, there's too many people to know that about.",
+        "I couldn't tell you, we're just trying to help them right now.",
+        "No idea about medical history, sorry, it's chaos here.",
+        "I know a couple mentioned asthma, not sure about the rest.",
+        "Can't say, sorry, I don't know them all that well."
       ]
     },
     "medications": {
       "answers": [
-        "I couldn't tell you, sorry."
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's too many people to ask.",
+        "Not a clue, sorry, we're just trying to keep them calm.",
+        "I don't know, I'd have to ask each of them.",
+        "No idea on medications, sorry, we're a bit overwhelmed here.",
+        "Can't help with that, sorry, I don't know them well enough.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's too many to know that about.",
+        "No idea, honestly, we're just focused on getting help to them.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "All sorts, there's kids on there and some older people too."
+        "All ages really, there's a real mix of people caught up in it.",
+        "Mixed ages, kids and adults both affected.",
+        "Hard to say exactly, there's a real range from young to old.",
+        "Mostly adults I'd say, but a couple of younger ones too.",
+        "A proper mix, teenagers up to older people.",
+        "Can't say exactly, it's a real mix of everyone.",
+        "There's a broad mix, young and old caught up in this.",
+        "Mostly working age adults from what I can see.",
+        "A mix, I'd say twenties up to sixties maybe.",
+        "Hard to tell, there's people of all ages here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry.",
-        "Right, we'll stay well back until you get here."
+        "Thank you, please hurry, some of them are in a really bad way.",
+        "Okay, good, we're doing what we can to keep them still and calm.",
+        "Thank you, that's a relief, a few of them really need help fast.",
+        "Right, we're staying with them and trying to keep them calm.",
+        "Okay, thank you, please hurry, a couple of them look quite serious.",
+        "Thank you, we'll keep them as comfortable as we can until you arrive.",
+        "Okay, good, we really need paramedics here quickly.",
+        "Thank you, some of them can barely speak from the pain.",
+        "Right, we're doing what we can, please get here fast.",
+        "Okay, thank you, we're staying with the injured until help arrives."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, yes, we need the road closed, traffic's building up already.",
+        "Thank you, it's chaos here, we need it controlled properly.",
+        "Yes please, cars keep trying to get past the bus.",
+        "Good, someone needs to manage the traffic around this.",
+        "Thank you, the road's blocked and it's getting worse.",
+        "Yes, good, we could really use them directing traffic.",
+        "Good, it's dangerous here with cars still passing.",
+        "Thank you, please tell them to hurry, it's not safe.",
+        "Yes please, we need the road shut properly.",
+        "Good, I'll keep everyone back until they arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, some of them are still trapped inside.",
+        "Good, thank you, they need to get them free quickly.",
+        "Okay, thank you, please tell them to hurry, people are still stuck.",
+        "Right, thank you, a few are trapped, please hurry them along.",
+        "Thank you, that's good to hear, please hurry, it's really serious.",
+        "Okay, good, we really need them here fast to free the trapped ones.",
+        "Thanks, we'll stay with everyone until the crews arrive.",
+        "That's a relief, please hurry, some are still stuck in the wreckage.",
+        "Okay, thank you, please get them here as quickly as you can.",
+        "Good, thank you, they really need to hurry, people are trapped."
       ]
     },
     "refer111": {
       "answers": [
-        "What? No, I need the fire brigade, not 111."
+        "No, this is a serious crash, they need fire and ambulance now, not 111.",
+        "No, this can't wait for 111, people are trapped and badly hurt.",
+        "No, please, this needs an emergency response right now.",
+        "No, 111 can't help with this, people are trapped in the bus.",
+        "No, this is far too serious for 111, please send crews now.",
+        "No, please hurry, several people are badly injured here.",
+        "No, this needs a proper response immediately, not a phone line.",
+        "No, please don't refer this to 111, people are trapped and hurt.",
+        "No, this can't wait, some of them are in a very bad way.",
+        "No, please, we need fire and ambulance here as fast as possible."
       ]
     }
   },

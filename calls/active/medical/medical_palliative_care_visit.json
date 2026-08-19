@@ -48,6 +48,10 @@
   "units": {
     "rrv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -71,8 +75,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "It's not an emergency, my mum's on palliative care and we just need someone to check her pain relief",
-      "I'm not sure who to call, my mum's terminally ill and her pain isn't controlled today"
+      "It's not an emergency, my {{dad}}'s on palliative care and we just need someone to check {{his}} pain relief.",
+      "I'm not sure who to call, my {{dad}}'s terminally ill and {{his}} pain isn't controlled today.",
+      "My {{dad}}'s on end of life care and {{his}} pain relief doesn't seem to be working today.",
+      "We just need some help with {{his}} pain relief, {{he}}'s on palliative care.",
+      "{{His}} pain isn't controlled today, the hospice nurse said we could call.",
+      "I'm calling about my {{dad}}, {{he}}'s terminally ill and {{his}} pain's worse today.",
+      "It's not urgent as such, but my {{dad}}'s palliative care pain relief needs reviewing.",
+      "My {{dad}}'s on a care plan for end of life care, but today {{he}}'s in more pain.",
+      "We were told to call if {{his}} pain got worse, and today it has.",
+      "It's about my {{dad}}'s palliative care, {{his}} pain relief isn't working properly today."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -84,82 +96,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "It's not an emergency, my mum's on palliative care and we just need someone to check her pain relief",
-        "I'm not sure who to call, my mum's terminally ill and her pain isn't controlled today"
+        "It's not an emergency, my {{dad}}'s on palliative care and we just need someone to check {{his}} pain relief.",
+        "I'm not sure who to call, my {{dad}}'s terminally ill and {{his}} pain isn't controlled today.",
+        "My {{dad}}'s on end of life care and {{his}} pain relief doesn't seem to be working today.",
+        "We just need some help with {{his}} pain relief, {{he}}'s on palliative care.",
+        "{{His}} pain isn't controlled today, the hospice nurse said we could call.",
+        "I'm calling about my {{dad}}, {{he}}'s terminally ill and {{his}} pain's worse today.",
+        "It's not urgent as such, but my {{dad}}'s palliative care pain relief needs reviewing.",
+        "My {{dad}}'s on a care plan for end of life care, but today {{he}}'s in more pain.",
+        "We were told to call if {{his}} pain got worse, and today it has.",
+        "It's about my {{dad}}'s palliative care, {{his}} pain relief isn't working properly today."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, her daughter",
-        "{{callerName}}, I'm her carer"
+        "It's {{callerName}}, I'm {{his}} {{callerChild}} and carer.",
+        "{{callerName}}, I'm {{his}} {{callerChild}} and carer.",
+        "My name's {{callerName}}, I'm {{his}} {{callerChild}} and carer.",
+        "{{callerName}} here, I'm {{his}} {{callerChild}} and carer.",
+        "It's {{callerName}} speaking, I'm {{his}} {{callerChild}} and carer.",
+        "You can put me down as {{callerName}}, I'm {{his}} {{callerChild}} and carer.",
+        "{{callerName}}. I'm {{his}} {{callerChild}} and carer.",
+        "It's {{callerName}}, I'm {{his}} {{callerChild}} and carer, please hurry.",
+        "{{callerName}}, that's me, I'm {{his}} {{callerChild}} and carer.",
+        "It's {{callerName}}, I'm {{his}} {{callerChild}} and carer, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "{{firstPatientName}}, that's my mum",
-        "It's {{firstPatientName}}"
+        "{{firstPatientName}}, that's my {{dad}}.",
+        "It's {{firstPatientName}}, my {{dad}}.",
+        "My {{dad}}'s name is {{firstPatientName}}.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, my {{dad}}.",
+        "It's {{firstPatientName}}, that's who I mean.",
+        "My {{dad}} is called {{firstPatientName}}.",
+        "{{firstPatientName}}, please hurry.",
+        "That's {{firstPatientName}}, my {{dad}}.",
+        "{{firstPatientName}}. {{He}}'s my {{dad}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}"
+        "We're at {{address}}.",
+        "It's {{address}}.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}.",
+        "We're at {{address}}, the door will be open.",
+        "{{address}}, come straight in.",
+        "You need {{address}}.",
+        "{{address}} is where we are.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She's comfortable but her pain's not quite controlled, the hospice nurse said to call if needed"
+        "{{He}}'s comfortable but {{his}} pain's not quite controlled, the hospice nurse said to call if needed.",
+        "{{His}} pain relief doesn't seem to be working as well as usual today.",
+        "{{He}}'s more uncomfortable than usual, the pain relief isn't quite covering it.",
+        "{{He}}'s on end of life care and today {{his}} pain's flared up more than usual.",
+        "{{He}}'s been more uncomfortable since this morning, {{his}} usual medication isn't helping enough.",
+        "{{His}} pain has increased and the current relief isn't managing it well.",
+        "{{He}}'s comfortable in {{himself}} but {{his}} pain levels have gone up today.",
+        "{{He}}'s on a care plan and today {{his}} pain's above what's normal for {{him}}.",
+        "{{His}} pain's worse than the usual baseline, we think the dose needs reviewing.",
+        "{{He}}'s not in distress exactly, but {{his}} pain isn't well controlled today."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's awake and alert"
+        "Yes, {{he}}'s awake and alert.",
+        "{{He}}'s conscious, just uncomfortable.",
+        "Yes, {{he}}'s alert, talking to me normally.",
+        "{{He}}'s awake and aware, just in some discomfort.",
+        "Yes, {{he}}'s conscious, in good spirits considering.",
+        "{{He}}'s alert, just wincing a bit with the pain.",
+        "Yes, {{he}}'s fully aware and talking.",
+        "{{He}}'s conscious, chatting but clearly uncomfortable.",
+        "Yes, {{he}}'s awake, just not settled with the pain.",
+        "{{He}}'s alert and calm, just needs {{his}} pain looked at."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A little laboured but that's normal for her"
+        "A little laboured but that's normal for {{him}}.",
+        "It's a bit slow, which is usual for {{his}} condition.",
+        "Not great, but that's how {{he}} normally is.",
+        "A bit laboured, consistent with {{his}} condition.",
+        "It's the same as usual for {{him}}, a little slow.",
+        "Slightly laboured, but nothing new for {{him}}.",
+        "It's about {{his}} normal, a bit slow but stable.",
+        "A little laboured, in keeping with how {{he}} usually is.",
+        "Nothing different from usual, a bit slow but stable.",
+        "It's {{his}} baseline really, slightly laboured."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says it's about a six today"
+        "{{He}} says it's about a six today.",
+        "{{He}} rates it worse than usual, {{he}} says a six or seven.",
+        "{{He}} says it's more than {{his}} usual level of pain.",
+        "{{He}} describes it as quite a bit worse than normal today.",
+        "{{He}} says the pain's higher than the medication's covering.",
+        "{{He}} rates it as fairly significant today, worse than {{his}} baseline.",
+        "{{He}} says it's uncomfortable, more than {{his}} usual level.",
+        "{{He}} describes it as noticeably worse than {{his}} normal pain.",
+        "{{He}} says it's above what {{his}} usual medication manages.",
+        "{{He}} rates the pain as higher than the last few days."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No bleeding.",
+        "None at all.",
+        "No, nothing like that.",
+        "No bleeding whatsoever.",
+        "None, no injuries.",
+        "No, {{he}}'s not bleeding.",
+        "Nothing, no bleeding involved.",
+        "No, completely fine on that front.",
+        "None visible.",
+        "No bleeding, this is about pain relief."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She has terminal cancer, it's all on her care plan"
+        "{{He}} has terminal cancer, it's all on {{his}} care plan.",
+        "{{He}}'s got advanced cancer, {{he}}'s under the hospice team.",
+        "{{He}} has terminal illness, {{his}} care plan covers the details.",
+        "{{He}}'s on end of life care for advanced cancer.",
+        "{{He}} has terminal cancer, {{he}}'s been under palliative care for months.",
+        "{{His}} diagnosis is terminal cancer, it's all documented with the hospice.",
+        "{{He}} has advanced cancer, {{his}} full history is with the hospice team.",
+        "{{He}}'s terminally ill, the details are on {{his}} care plan.",
+        "{{He}} has cancer, {{he}}'s under palliative care now.",
+        "{{His}} condition is terminal, {{his}} care plan has all the details."
       ]
     },
     "medications": {
       "answers": [
-        "She's on a syringe driver, morphine"
+        "{{He}}'s on a syringe driver, morphine.",
+        "{{He}} has a morphine syringe driver for {{his}} pain.",
+        "{{He}}'s on morphine via a syringe driver.",
+        "{{He}} takes morphine through a syringe driver, plus other medication.",
+        "{{His}} main pain relief is a morphine syringe driver.",
+        "{{He}}'s got a morphine driver running, plus regular medication.",
+        "{{He}} is on continuous morphine via a syringe driver.",
+        "{{His}} pain relief is morphine through a driver, set up by the hospice.",
+        "{{He}}'s on a morphine syringe driver, adjusted by the hospice team.",
+        "{{He}} has morphine running through a driver for pain control."
       ]
     },
     "patientAge": {
       "answers": [
-        "79"
+        "79",
+        "About 79",
+        "79, I think",
+        "{{He}}'s 79 years old",
+        "I believe {{he}}'s 79",
+        "Just turned 79 I think",
+        "79, same age as always",
+        "Around 79, give or take",
+        "{{He}} is 79",
+        "I'd say 79 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Thank you, that's reassuring"
+        "Thank you, that's reassuring.",
+        "Okay, thank you, that helps.",
+        "Thank you, we'll wait to hear what's suggested.",
+        "Okay, that's good to know, thank you.",
+        "Thank you, we appreciate the advice.",
+        "Okay, we'll keep {{him}} comfortable meanwhile.",
+        "Thank you, that puts my mind at ease a little.",
+        "Okay, thank you, we'll follow whatever's advised.",
+        "Thank you, I'll pass that on to the hospice nurse too.",
+        "Okay, thank you, we'll wait for further advice."
       ]
     },
     "refer111": {
       "answers": [
-        "We've got a care plan, I think this fits that"
+        "We've got a care plan, I think this fits that.",
+        "That sounds right, we do have a palliative care plan in place.",
+        "Okay, that makes sense given {{he}}'s on a care plan already.",
+        "Alright, we can follow the care plan for this.",
+        "Okay, the hospice team did say to use the care plan first.",
+        "That's fine, we'll follow the plan we've been given.",
+        "Alright, we do have a plan for exactly this situation.",
+        "Okay, that sounds sensible given {{his}} care plan.",
+        "Alright, thank you, we'll try the care plan advice first.",
+        "Okay, we'll follow what the care plan says."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

@@ -48,6 +48,10 @@
   "units": {
     "irv": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -68,7 +72,14 @@
     "openings": [
       "Police please, there's been a collision here at the drive-in, two cars have hit each other",
       "I need to report an accident in the car park at the drive-in cinema",
-      "There's been a crash between two cars here at the outdoor cinema"
+      "There's been a crash between two cars here at the outdoor cinema",
+      "Police, two cars have collided in the drive-in car park",
+      "I need to report a minor accident here at the drive-in",
+      "There's been a shunt between two vehicles at the cinema",
+      "Please send someone, two cars have bumped into each other here",
+      "I need to report a collision, no one's hurt but there's damage",
+      "There's been a fender bender here in the car park",
+      "Police please, two vehicles have collided at the drive-in cinema"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -82,90 +93,230 @@
       "answers": [
         "Police please, there's been a collision here at the drive-in, two cars have hit each other",
         "I need to report an accident in the car park at the drive-in cinema",
-        "There's been a crash between two cars here at the outdoor cinema"
+        "There's been a crash between two cars here at the outdoor cinema",
+        "Police, two cars have collided in the drive-in car park",
+        "I need to report a minor accident here at the drive-in",
+        "There's been a shunt between two vehicles at the cinema",
+        "Please send someone, two cars have bumped into each other here",
+        "I need to report a collision, no one's hurt but there's damage",
+        "There's been a fender bender here in the car park",
+        "Police please, two vehicles have collided at the drive-in cinema"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I was watching the film nearby",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I just saw it happen.",
+        "{{callerName}}, I'm a member of the public.",
+        "My name's {{callerName}}, I was passing by.",
+        "It's {{callerName}} here, I witnessed the whole thing.",
+        "{{callerName}}, that's me, I saw it from across the road.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I happened to be nearby.",
+        "{{callerName}} speaking, I saw everything.",
+        "My name is {{callerName}}, I was right there.",
+        "It's {{callerName}}, just a bystander really."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know the drivers",
-        "No idea who they are"
+        "There's no patient, nobody's hurt in this.",
+        "No one to name, it's just a bump between two cars.",
+        "N/A, there's no injury here at all.",
+        "Nobody's hurt, so there isn't a name to give.",
+        "There's no casualty, this isn't a medical matter.",
+        "No patient involved, it's not that kind of call.",
+        "It's not about an injured person, there's no name needed.",
+        "No one hurt at all, nothing to report there.",
+        "There's no one to name, it's just a bump between two cars causing the problem.",
+        "Not applicable, nobody's been injured."
       ]
-    },
-    "address": {
-      "answers": [
-        "{{address}}, it's the drive-in cinema field",
-        "We're at {{address}}"
-      ],
-      "revealsAddress": true
-    },
-    "whatHappened": {
-      "answers": [
-        "One car reversed into another while trying to leave, they're arguing about it now",
-        "It happened a couple of minutes ago, low speed but there's damage to both cars",
-        "A car clipped another while manoeuvring between the rows"
-      ],
-      "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, both drivers are out of their cars",
-        "No injuries, just damage and an argument"
+        "Nobody's hurt, there's no one to check on.",
+        "No injuries at all, it's just a bump between two cars.",
+        "N/A, no one's involved to be conscious or not.",
+        "There's no casualty here, nobody's been hurt.",
+        "No one's hurt, it's purely a bump between two cars.",
+        "Not applicable, there's no injured person.",
+        "No, nobody's been hurt in this at all.",
+        "There isn't anyone hurt, so that doesn't apply.",
+        "No injuries, this is just a bump between two cars, nothing more.",
+        "Nobody to worry about like that, no one's hurt."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries to report",
-        "Nobody's hurt"
+        "No one's struggling to breathe, nobody's hurt.",
+        "N/A, there's no injured person here.",
+        "Not applicable, it's just a bump between two cars.",
+        "No casualty, so breathing's not an issue.",
+        "Nobody's hurt, that doesn't apply here.",
+        "There's no one affected like that.",
+        "No injuries at all, it's only a bump between two cars.",
+        "Doesn't apply, nobody's been hurt.",
+        "No one to check, there's no patient.",
+        "Not relevant, no one's injured in this."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "N/A, no one's hurt",
-        "No injuries"
+        "No pain, nobody's hurt at all.",
+        "N/A, there's no one injured here.",
+        "Nobody's in pain, it's just a bump between two cars.",
+        "Not applicable, no casualty involved.",
+        "No one's hurt, so no pain to report.",
+        "Doesn't apply, nobody's been injured.",
+        "No, there's no injured person in this.",
+        "There isn't anyone hurt, no pain at all.",
+        "No pain, it's only a bump between two cars that's the problem.",
+        "Not relevant, nobody's been hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No bleeding, nobody's hurt.",
+        "N/A, there's no one injured.",
+        "None, it's just a bump between two cars.",
+        "No, nobody's been hurt at all.",
+        "Not applicable, no casualty here.",
+        "No blood, no injuries at all.",
+        "Doesn't apply, nobody's hurt in this.",
+        "No, there's no one to bleed, nobody's hurt.",
+        "None at all, it's only a bump between two cars.",
+        "Not relevant, no injuries to report."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them",
-        "No idea"
+        "N/A, there's no patient in this.",
+        "No idea, and it's not needed, nobody's hurt.",
+        "Not applicable, it's just a bump between two cars.",
+        "No one's involved medically, nothing to tell you.",
+        "Doesn't apply, no casualty here.",
+        "There's no patient to ask about.",
+        "No idea, this isn't medical, it's a bump between two cars.",
+        "Not relevant, nobody's hurt.",
+        "No patient, so no history to give.",
+        "N/A, no one's been injured."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "N/A, no patient to ask about.",
+        "No idea, nobody's hurt anyway.",
+        "Not applicable, it's just a bump between two cars.",
+        "No one's involved, nothing to tell you there.",
+        "Doesn't apply, there's no casualty.",
+        "No idea, this isn't a medical call.",
+        "N/A, nobody's been injured.",
+        "No patient, so nothing to report there.",
+        "Not relevant, it's only a bump between two cars.",
+        "No idea, no one's hurt in this."
       ]
     },
     "patientAge": {
       "answers": [
-        "Not applicable"
+        "N/A, there's no patient.",
+        "Doesn't apply, nobody's hurt.",
+        "No age to give, it's just a bump between two cars.",
+        "Not applicable, no one's involved like that.",
+        "There's no casualty, so no age needed.",
+        "N/A, this isn't about a person.",
+        "No idea, there's no patient here.",
+        "Doesn't apply, it's only a bump between two cars.",
+        "Not relevant, nobody's been hurt.",
+        "No age, there's no one injured."
       ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's where I am.",
+        "It's {{address}}, please hurry.",
+        "{{address}}, that's the address.",
+        "We're at {{address}}.",
+        "It's {{address}}, you can't miss it.",
+        "{{address}}, that's the postcode.",
+        "The address is {{address}}.",
+        "{{address}}, I'll wait for you here.",
+        "It's {{address}}, that's the spot.",
+        "{{address}}, that's it exactly."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One car reversed into another while trying to park for the film",
+        "Two cars pulled forward at the same time and clipped each other",
+        "Someone misjudged the space and knocked into the car parked next to them",
+        "A car rolled forward slightly and bumped the vehicle in front",
+        "Two drivers both went for the same space and collided",
+        "One driver wasn't looking and reversed straight into another car",
+        "The cars were parked close together and one clipped the other pulling out",
+        "Someone's handbrake wasn't fully on and the car rolled into another",
+        "Two vehicles collided at low speed trying to park in the dark",
+        "One car nudged another while manoeuvring between the rows"
+      ],
+      "diagnostic": true
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep an eye until you get here",
-        "Thank you, they're still arguing"
+        "No ambulance needed, nobody's hurt, thank you.",
+        "I don't need an ambulance, this isn't medical, I just need police.",
+        "No, nobody's injured, just send police please.",
+        "That's not necessary, no one's hurt here.",
+        "No ambulance, thank you, it's a police matter.",
+        "Nobody's hurt, I only need officers here.",
+        "No, that's not needed, this isn't a medical emergency.",
+        "I don't think so, no injuries here at all.",
+        "No, no one's hurt, just police please.",
+        "That's not required, nobody's been injured."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll wait for them to arrive.",
+        "Good, I'll stay right here until they get here.",
+        "Thank you, I'll keep everyone back until they arrive.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Please hurry, I'll be watching out for them.",
+        "Thank you, I'll wait outside for the officers.",
+        "Okay, that's a relief, I'll stay put.",
+        "Good, I'll let you know if anything changes before they arrive.",
+        "Thank you, I'll keep an eye on things until they get here.",
+        "Okay, I'll stay close by until the police arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, there's no fire, I need police.",
+        "No, this isn't a fire, it's a police matter.",
+        "I don't need the fire service, just police please.",
+        "No fire here at all, just send officers.",
+        "That's the wrong service, there's no fire involved.",
+        "No, I need police, not the fire brigade.",
+        "There's no fire, just police please.",
+        "No thank you, nothing's alight, I need police.",
+        "That's not right, no fire here, just police.",
+        "No, nothing's on fire, just send police please."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs police for the collision"
+        "111? No, this isn't medical, but I do need someone to sort this out.",
+        "No, that's not right, this isn't a health thing, it's for the police.",
+        "I don't think 111 can help with this, can you send police.",
+        "No, this isn't medical, but it still needs looking at.",
+        "That doesn't sound right, this isn't a 111 matter.",
+        "No, I don't think a callback will help, this needs police.",
+        "I'm not sure that's the right service, this isn't medical.",
+        "No, this isn't about health, it's a police issue.",
+        "That's not it, this needs officers, not a nurse calling back.",
+        "No, I don't think so, this is a police matter really."
       ]
     }
   },

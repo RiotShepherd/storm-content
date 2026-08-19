@@ -43,6 +43,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3
+  },
   "patients": {
     "range": [
       0,
@@ -66,7 +70,15 @@
   "caller": {
     "openings": [
       "Someone's set fire to the bus shelter on the high street",
-      "I need the fire brigade, the bus shelter's alight, the plastic's melting and smoking badly"
+      "I need the fire brigade, the bus shelter's alight, the plastic's melting and smoking badly",
+      "There's a fire at the bus stop, the shelter's well ablaze",
+      "Can you send someone, the shelter by the shops is on fire",
+      "The bus shelter's burning, it's giving off thick black smoke",
+      "There's a shelter on fire at the stop outside the school",
+      "Someone's torched the bus shelter down the road",
+      "The plastic roof of the bus shelter is well alight",
+      "There's a fire at the bus stop, it's melting fast",
+      "The shelter's ablaze, I can smell the plastic from here"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -79,78 +91,231 @@
     "start": {
       "answers": [
         "Someone's set fire to the bus shelter on the high street",
-        "I need the fire brigade, the bus shelter's alight, the plastic's melting and smoking badly"
+        "I need the fire brigade, the bus shelter's alight, the plastic's melting and smoking badly",
+        "There's a fire at the bus stop, the shelter's well ablaze",
+        "Can you send someone, the shelter by the shops is on fire",
+        "The bus shelter's burning, it's giving off thick black smoke",
+        "There's a shelter on fire at the stop outside the school",
+        "Someone's torched the bus shelter down the road",
+        "The plastic roof of the bus shelter is well alight",
+        "There's a fire at the bus stop, it's melting fast",
+        "The shelter's ablaze, I can smell the plastic from here"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was waiting for my bus"
+        "It's {{callerName}}, I was waiting for my bus",
+        "{{callerName}} here, I was walking past when I saw it",
+        "It's {{callerName}}, I live near the stop",
+        "{{callerName}}, I saw it from the shop across the road",
+        "It's {{callerName}}, I was stood just up the road",
+        "My name's {{callerName}}, I noticed it from my car",
+        "It's {{callerName}}, I'm at the stop now",
+        "{{callerName}} speaking, I saw the flames start",
+        "It's {{callerName}}, I was on my way to work",
+        "{{callerName}}, I'm across the road watching it"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, everyone moved away"
+        "There's no one hurt, nobody was anywhere near it.",
+        "No patient to report, it's just the fire itself.",
+        "Nobody's hurt, I haven't seen anyone go near it.",
+        "No casualties, no one was involved when it caught.",
+        "There's no one to name, no one's injured.",
+        "Nobody was caught up in it, no injuries at all.",
+        "No one's hurt, everyone's kept well clear.",
+        "There's nobody involved, it's not touched anyone.",
+        "No injuries to report, no one's anywhere near it.",
+        "Nobody's hurt, there's no patient here."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the bus stop outside the shops"
+        "{{address}}, the bus stop outside the shops",
+        "It's {{address}}, the shelter's right by the crossing",
+        "{{address}}, opposite the newsagents",
+        "It's {{address}}, the stop near the school gates",
+        "{{address}}, you'll see the smoke from the road",
+        "It's {{address}}, the shelter by the parade",
+        "{{address}}, next to the taxi rank",
+        "It's {{address}}, the stop just past the pub",
+        "{{address}}, the shelter on the corner",
+        "It's {{address}}, follow the smoke, it's obvious"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A group of lads set light to the shelter and ran off, it's burning well now"
+        "A group of lads set light to the shelter and ran off, it's burning well now",
+        "It just went up, I think someone dropped something in there",
+        "Looks like it's been deliberately set alight, kids were hanging round earlier",
+        "The perspex is melting and dripping, it's spreading along the roof",
+        "It started small then flared right up, the plastic burns fast",
+        "Someone set fire to the bin inside the shelter and it's caught the roof",
+        "No idea who did it, but it's well alight now",
+        "It's spreading along the whole shelter, black smoke pouring off it",
+        "The seating's caught too, it's a proper fire now",
+        "It's been smouldering and just flared up properly"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, we all moved clear"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so there's nothing to report there.",
+        "Everyone's fine, nobody's anywhere near it.",
+        "No casualties, no one's been affected by it.",
+        "There's no patient, nobody's hurt at all.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, just smoke off the plastic"
+        "No one's struggling, just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smoke that's bothering us.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's near enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke.",
+        "No breathing problems, nobody's close enough to it.",
+        "We've kept clear, so no one's had any trouble breathing.",
+        "No one's affected, just a bit of a smell in the air.",
+        "Nothing to report, we're all well away from the smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected.",
+        "Not applicable, there's no patient in pain.",
+        "No injuries, nobody's hurt in any way.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's been near it"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all.",
+        "Not applicable, nobody's been hurt.",
+        "No, no one's involved, so no injuries.",
+        "No bleeding to report, everyone's clear.",
+        "No injuries at all, nobody's near it.",
+        "No, there's no one hurt to report bleeding.",
+        "Not applicable, no one's been affected.",
+        "No, everyone's well away from it.",
+        "No bleeding, nobody's been caught up in it."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no one hurt.",
+        "No patient, so nothing to tell you there.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter.",
+        "No patient here, nothing to report.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that.",
+        "Not applicable, nobody's hurt.",
+        "No patient involved, nothing to tell you."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not medical.",
+        "No patient, nothing to tell you.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected.",
+        "No casualty, so nothing there.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient involved"
+        "There's no patient, nobody's hurt.",
+        "No one involved, so no age to give.",
+        "Not applicable, it's just the fire.",
+        "No casualty, there's no one to report.",
+        "Nobody's hurt, no patient here.",
+        "No one's involved, so nothing there.",
+        "Not applicable, there's no injuries.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping back from the fumes"
+        "Okay, we're keeping back from the fumes",
+        "Right, I've moved away from the smoke",
+        "Okay, I'm stood well clear now",
+        "Understood, I'll keep others away from it",
+        "Alright, I'm across the road out of the smoke",
+        "Okay, I've told people waiting to move on",
+        "Right, I'll let you know if it spreads further",
+        "Okay, I'm keeping well back",
+        "Understood, I'm staying clear until you arrive",
+        "Okay, we're all standing off from the fumes"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, they set it alight on purpose and ran off, someone should look into it",
+        "Yes please, I saw the lads who did it, they went towards the park",
+        "Thank you, it was definitely deliberate, not an accident",
+        "Okay, good, I can describe the group if it helps",
+        "Yes, send them, this keeps happening round here",
+        "Good, whoever's doing this needs catching",
+        "Thank you, I've got a rough description of them",
+        "Okay, they might still be nearby, they only just ran off",
+        "Good, this was clearly done on purpose",
+        "Yes please, someone needs to stop this happening again"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, the plastic's melting fast",
+        "Okay, good, I'm keeping back from the fumes",
+        "Please hurry, it's burning really well now",
+        "Thank you, I've moved away from the smoke",
+        "Okay, I can see them coming, thank god",
+        "Good, hurry, the shelter's properly alight",
+        "Thank you, I'm staying well clear of the fumes",
+        "Okay, please tell them to hurry, the smell's awful",
+        "Thank goodness, I'll point them to the high street shelter",
+        "Good, hurry please, it's still burning strong"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire, not medical"
+        "No, it's a fire, not medical",
+        "No, nobody's hurt, it's the shelter burning",
+        "No thank you, I need the fire brigade",
+        "No, there's no injury, please send the fire service",
+        "No, this isn't a medical matter, it's a fire",
+        "No, I don't need that, please send firefighters",
+        "No, nobody's involved, it's just the shelter",
+        "No, it's a fire call, not a health one",
+        "No, please just get the fire brigade here",
+        "No, it's not something 111 can help with"
       ]
     }
   },

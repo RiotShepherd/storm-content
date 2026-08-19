@@ -52,6 +52,11 @@
     "basu": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -84,7 +89,15 @@
   "caller": {
     "openings": [
       "There's a fire at the summer camp and we've got children to evacuate",
-      "I need the fire brigade urgently, one of the camp buildings is on fire and we've got kids here"
+      "I need the fire brigade urgently, one of the camp buildings is on fire and we've got kids here",
+      "Please hurry, one of the cabins is on fire, we're getting the children clear",
+      "Fire brigade please, there's a fire at the camp, all the kids are being moved to the field",
+      "We've a building fire here at camp, staff are counting all the children now",
+      "Please send help fast, a cabin's alight and we've got a lot of children to keep calm",
+      "There's smoke coming from one of the camp buildings, children are being evacuated",
+      "Fire brigade urgently please, one of our buildings is burning, kids are all outside now",
+      "We've got a fire at the summer camp, staff have everyone at the assembly point",
+      "Please hurry, a cabin's on fire, we're keeping the children well back from it"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -97,78 +110,231 @@
     "start": {
       "answers": [
         "There's a fire at the summer camp and we've got children to evacuate",
-        "I need the fire brigade urgently, one of the camp buildings is on fire and we've got kids here"
+        "I need the fire brigade urgently, one of the camp buildings is on fire and we've got kids here",
+        "Please hurry, one of the cabins is on fire, we're getting the children clear",
+        "Fire brigade please, there's a fire at the camp, all the kids are being moved to the field",
+        "We've a building fire here at camp, staff are counting all the children now",
+        "Please send help fast, a cabin's alight and we've got a lot of children to keep calm",
+        "There's smoke coming from one of the camp buildings, children are being evacuated",
+        "Fire brigade urgently please, one of our buildings is burning, kids are all outside now",
+        "We've got a fire at the summer camp, staff have everyone at the assembly point",
+        "Please hurry, a cabin's on fire, we're keeping the children well back from it"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm one of the camp leaders"
+        "It's {{callerName}}, I'm the camp director",
+        "{{callerName}}, I'm one of the camp leaders",
+        "My name's {{callerName}}, I'm counting the children now",
+        "It's {{callerName}}, sorry, I'm trying to keep everyone calm",
+        "{{callerName}} speaking, I'm at the assembly point",
+        "Name's {{callerName}}, I'm the site supervisor",
+        "It's {{callerName}}, I'll meet you at the entrance",
+        "{{callerName}}, I'm one of the activity instructors",
+        "This is {{callerName}}, all the children are with me now",
+        "{{callerName}} here, please hurry, I've got a lot of worried kids"
       ]
     },
     "patientName": {
       "answers": [
-        "All the children are out and being counted, no injuries so far"
+        "There's nobody hurt, the fire, all the children are out and safe",
+        "No patient to give a name for, the fire, all the children are out and safe",
+        "There's no one involved, the fire, all the children are out and safe",
+        "Nobody's hurt, the fire, all the children are out and safe",
+        "No casualty at all, the fire, all the children are out and safe",
+        "There's no one to report, the fire, all the children are out and safe",
+        "Not applicable, the fire, all the children are out and safe",
+        "No injuries, the fire, all the children are out and safe",
+        "Nobody to name, the fire, all the children are out and safe",
+        "No patient, the fire, all the children are out and safe"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the summer camp site"
+        "{{address}}, it's the summer camp",
+        "It's {{address}}, come down the track off the main road",
+        "{{address}}, we'll have someone waving you in",
+        "You want {{address}}, that's the camp site",
+        "{{address}}, come through the main gate, follow the signs",
+        "{{address}}, that's us, the cabin on fire is near the field",
+        "{{address}}, please hurry, the access road is a bit narrow",
+        "{{address}}, that's confirmed, come quickly please",
+        "{{address}}, that's the camp, I'll be at the gate for you",
+        "{{address}}, please hurry, all the children are outside now"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Fire's broken out in one of the cabins, we've got all the children out to the main field"
+        "Not sure of the cause, one of the wooden cabins just started smoking then caught",
+        "We think it might be from the kitchen area, not confirmed",
+        "Could be an electrical fault, the cabins are quite old",
+        "Not certain, but it went up quickly, wooden construction",
+        "We don't know exactly, staff spotted flames and raised the alarm",
+        "Possibly a campfire spark that caught the cabin, not sure",
+        "Unclear cause, but it's spreading along the cabin roof",
+        "Not sure, but we got everyone out the moment we saw the smoke",
+        "Could be electrical, we've had wiring issues in that cabin before",
+        "We're not certain, but the fire's taken hold of one whole cabin now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "All the children are conscious and with their group leaders"
+        "No one's hurt, the fire, all the children are out and safe",
+        "There's no patient here, the fire, all the children are out and safe",
+        "Not applicable, the fire, all the children are out and safe",
+        "Nobody's involved, the fire, all the children are out and safe",
+        "No injuries at all, the fire, all the children are out and safe",
+        "No one to check on, the fire, all the children are out and safe",
+        "There's no casualty, the fire, all the children are out and safe",
+        "No patient at all, the fire, all the children are out and safe",
+        "Nobody's hurt, thankfully, the fire, all the children are out and safe",
+        "No one's affected, the fire, all the children are out and safe"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple got a bit of smoke but they're fine in the fresh air"
+        "No one to worry about, the fire, all the children are out and safe",
+        "Not applicable, the fire, all the children are out and safe",
+        "Nobody's struggling to breathe, the fire, all the children are out and safe",
+        "No casualty, the fire, all the children are out and safe",
+        "No one's affected by any smoke, the fire, all the children are out and safe",
+        "There's no patient, the fire, all the children are out and safe",
+        "No breathing issues to report, the fire, all the children are out and safe",
+        "Nobody's been near any smoke, the fire, all the children are out and safe",
+        "No one's hurt, the fire, all the children are out and safe",
+        "Not applicable, no one's involved, the fire, all the children are out and safe"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No injuries reported"
+        "Nobody's in pain, the fire, all the children are out and safe",
+        "No one's hurt at all, the fire, all the children are out and safe",
+        "Not applicable, the fire, all the children are out and safe",
+        "No injuries to report, the fire, all the children are out and safe",
+        "There's no patient, the fire, all the children are out and safe",
+        "No one's complaining of anything, the fire, all the children are out and safe",
+        "Nobody's hurt, the fire, all the children are out and safe",
+        "No pain to report, the fire, all the children are out and safe",
+        "Not applicable, no casualty, the fire, all the children are out and safe",
+        "No one's injured, the fire, all the children are out and safe"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding reported"
+        "No, no one's involved, the fire, all the children are out and safe",
+        "No bleeding, there's no patient, the fire, all the children are out and safe",
+        "Not applicable, the fire, all the children are out and safe",
+        "No, everyone's uninjured, the fire, all the children are out and safe",
+        "No, nobody's hurt, the fire, all the children are out and safe",
+        "No bleeding to report, the fire, all the children are out and safe",
+        "Not applicable, no casualties, the fire, all the children are out and safe",
+        "No, no one's been near it, the fire, all the children are out and safe",
+        "No, we're all fine, the fire, all the children are out and safe",
+        "No, there's no one injured, the fire, all the children are out and safe"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "We hold medical forms for all the children in the office if needed"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Yes, we have an allergy and medication list for the group, I can bring it out"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "The children are aged between eight and twelve"
+        "No patient, the fire, all the children are out and safe",
+        "Not applicable, the fire, all the children are out and safe",
+        "No one to give an age for, the fire, all the children are out and safe",
+        "N/A, the fire, all the children are out and safe",
+        "No age to give, the fire, all the children are out and safe",
+        "Not applicable, no one's hurt, the fire, all the children are out and safe",
+        "No casualty, the fire, all the children are out and safe",
+        "Nobody's involved, the fire, all the children are out and safe",
+        "Not applicable at all, the fire, all the children are out and safe",
+        "No patient to speak of, the fire, all the children are out and safe"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're doing a full headcount now at the assembly point"
+        "Okay, please just hurry, everyone's outside now",
+        "Right, we're all clear of the building, please send them quickly",
+        "Okay, I'll try to stay calm, please get here soon",
+        "Understood, we're all accounted for, just waiting on you now",
+        "Okay, thank you, everyone's safe outside, please hurry",
+        "Right, we'll stay well back, please send the crews",
+        "Okay, I can hear it's getting worse, please hurry",
+        "Understood, we're all out, please just get here fast",
+        "Okay, thank you, we're keeping everyone away from the building",
+        "Right, please hurry, we're all waiting outside"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need the fire brigade urgently, we have a building alight with children on site"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the fire brigade, please hurry them",
+        "We don't need police, please just get the fire crew here fast",
+        "No, forget police, it's the fire brigade we're desperate for",
+        "I don't think we need them, please just send the fire crew quickly",
+        "No police needed, please, just the fire brigade, and fast",
+        "We don't need police, please hurry the fire crew instead",
+        "No, it's not a police matter, please just get the fire brigade here",
+        "I don't think that's necessary, please just send the fire crew",
+        "No police, please, we just need the fire brigade urgently",
+        "We don't need them, please just get the fire crew here quickly"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry",
+        "Good, please, how long will they be",
+        "Thank you, we're all outside waiting, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we'll keep well clear, please hurry",
+        "Oh good, please send them quickly, it's getting worse",
+        "Thank you, we're all stood well back, please hurry them up",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, we're all outside now"
       ]
     }
   },

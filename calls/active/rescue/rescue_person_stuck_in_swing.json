@@ -45,6 +45,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -63,8 +67,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My son's got his head stuck between the swing chains, he's scared and it hurts.",
-      "Fire brigade please, my daughter's leg is stuck in the swing and we can't free her."
+      "Hello, my {{callerChild}}'s got stuck in the swing at the park, {{he}}'s not hurt, just stuck.",
+      "My {{callerChild}}'s got a leg trapped in a swing seat, we can't get {{him}} free.",
+      "Hello, we've got a bit of a situation, my {{callerChild}}'s stuck in a swing.",
+      "My {{callerChild}}'s wedged in the swing at the playground, could you send someone.",
+      "Hello, {{firstPatientName}}'s got stuck in a swing seat and we can't work it free.",
+      "My {{callerChild}}'s trapped in a baby swing, we've tried everything to get {{him}} out.",
+      "Hello, we're at the park and my {{callerChild}}'s got stuck in the swing.",
+      "My {{callerChild}}'s foot's caught in the swing chains and won't come free.",
+      "Hello, {{firstPatientName}}'s stuck in the swing, {{he}}'s fine but can't get out.",
+      "My {{callerChild}}'s got wedged in a swing seat at the playground, please help."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -76,91 +88,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My son's got his head stuck between the swing chains, he's scared and it hurts.",
-        "Fire brigade please, my daughter's leg is stuck in the swing and we can't free her."
+        "Hello, my {{callerChild}}'s got stuck in the swing at the park, {{he}}'s not hurt, just stuck.",
+        "My {{callerChild}}'s got a leg trapped in a swing seat, we can't get {{him}} free.",
+        "Hello, we've got a bit of a situation, my {{callerChild}}'s stuck in a swing.",
+        "My {{callerChild}}'s wedged in the swing at the playground, could you send someone.",
+        "Hello, {{firstPatientName}}'s got stuck in a swing seat and we can't work it free.",
+        "My {{callerChild}}'s trapped in a baby swing, we've tried everything to get {{him}} out.",
+        "Hello, we're at the park and my {{callerChild}}'s got stuck in the swing.",
+        "My {{callerChild}}'s foot's caught in the swing chains and won't come free.",
+        "Hello, {{firstPatientName}}'s stuck in the swing, {{he}}'s fine but can't get out.",
+        "My {{callerChild}}'s got wedged in a swing seat at the playground, please help."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm his mum.",
-        "{{callerName}}, I'm her dad."
+        "It's {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}}, I'm here with {{him}} at the park.",
+        "My name's {{callerName}}, I'm {{his}} {{callerParent}}.",
+        "{{callerName}} here, {{he}}'s my {{callerChild}}.",
+        "It's {{callerName}} calling, I'm {{his}} {{callerParent}}.",
+        "{{callerName}}, I'm just watching {{him}} at the playground.",
+        "My name is {{callerName}}, {{he}}'s my {{callerChild}}.",
+        "{{callerName}}, I'm looking after {{him}} today.",
+        "It's {{callerName}}, sorry, I'm a bit flustered.",
+        "{{callerName}} speaking, I'm right here with {{him}}."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}.",
-        "Her name's {{firstPatientName}}."
+        "It's {{firstPatientName}}, {{he}}'s my {{callerChild}}.",
+        "{{firstPatientName}}, {{he}}'s my {{callerChild}}.",
+        "{{his}} name's {{firstPatientName}}.",
+        "It's {{patientName}}, {{he}}'s my {{callerChild}}.",
+        "{{firstPatientName}}, that's {{his}} name.",
+        "It's {{firstPatientName}}, my {{callerChild}}.",
+        "{{firstPatientName}} is {{his}} name.",
+        "It's {{firstPatientName}}, {{his}} leg's still caught.",
+        "{{patientName}}, {{he}}'s only little.",
+        "It's {{firstPatientName}}, my {{callerChild}}, {{he}}'s not hurt."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, in the play park.",
-        "{{address}}, by the swings."
+        "We're at {{address}}, it's the playground by the park entrance.",
+        "{{address}}, come to the play area, we're by the swings.",
+        "It's {{address}}, the park's easy to find from the road.",
+        "{{address}}, we're near the small children's play area.",
+        "We're at {{address}}, I'll wave you down when I see you.",
+        "{{address}}, it's the recreation ground.",
+        "It's {{address}}, follow the path to the swings.",
+        "{{address}}, we're right by the roundabout in the park.",
+        "We're at {{address}}, it's not far from the car park.",
+        "{{address}}, I'll stay right here with {{him}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He wriggled his head between the chains and now he can't get it back out.",
-        "Her leg's gone through the gap in the swing seat and it's stuck fast."
+        "{{He}} climbed into the swing seat and now {{his}} leg's wedged in the gap.",
+        "{{He}} got {{his}} foot caught between the chains and can't pull it free.",
+        "{{He}} slipped down into the swing and now {{he}}'s stuck fast.",
+        "{{He}}'s foot's gone through the gap in the seat and won't come back out.",
+        "{{He}} was playing on the baby swing and got {{his}} leg trapped in the frame.",
+        "Somehow {{he}}'s got wedged sideways in the swing seat.",
+        "{{He}} climbed in the wrong way and now {{he}}'s stuck.",
+        "{{His}} leg's gone through the bar of the swing and it won't come free.",
+        "{{He}} tried to get out on {{his}} own and got more stuck in the process.",
+        "{{He}}'s wedged {{his}} foot between the seat and the chain."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's awake and crying.",
-        "Yes, fully alert, just upset."
+        "Yes, {{he}}'s wide awake, just stuck.",
+        "{{He}}'s conscious and chatting away, just can't get out.",
+        "Yes, {{he}}'s fine, a bit fed up but talking to me.",
+        "{{He}}'s conscious, laughing about it actually.",
+        "Yes, {{he}}'s alert, just a bit annoyed about being stuck.",
+        "{{He}}'s awake and fine, just can't move {{his}} leg.",
+        "Yes, conscious, {{he}}'s being very patient about it.",
+        "{{He}}'s okay, just stuck, nothing to worry about there.",
+        "Yes, {{he}}'s talking to me fine, just trapped.",
+        "{{He}}'s conscious and calm, just wants to get out."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, breathing fine, just upset.",
-        "Yes, she's fine, just scared."
+        "Yes, {{his}} breathing's fine, no problems there.",
+        "{{He}}'s breathing normally, just a bit fed up.",
+        "Yes, no trouble breathing at all.",
+        "{{He}}'s fine breathing wise, just stuck.",
+        "Yes, breathing's fine, {{he}}'s just wanting to get out.",
+        "{{His}} breathing's okay, {{he}}'s just annoyed being stuck.",
+        "Yes, no issues breathing, just stuck.",
+        "{{He}}'s breathing normally, just a bit restless.",
+        "Yes, {{he}}'s fine, breathing's not a problem.",
+        "{{His}} breathing's absolutely fine."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says it hurts a bit but he's more scared than anything.",
-        "She's saying her leg hurts where it's pinched."
+        "No, {{he}} says it doesn't hurt, just uncomfortable.",
+        "{{He}} says {{his}} leg's a bit sore from the chain.",
+        "No real pain, {{he}}'s just stuck and fed up.",
+        "{{He}} says it's a bit tight but not painful.",
+        "No pain that {{he}}'s mentioned, just stuck.",
+        "{{He}} says {{his}} foot feels a bit squashed but not painful.",
+        "No, {{he}}'s not in pain, just can't move.",
+        "{{He}}'s not complaining of pain, just wants out.",
+        "No pain really, {{he}}'s more bored than hurt.",
+        "{{He}} says it's uncomfortable but not painful."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no bleeding.",
-        "A small graze, nothing serious."
+        "No, no bleeding, {{he}}'s fine.",
+        "No, nothing like that.",
+        "No, no cuts or marks that I can see.",
+        "No bleeding, no.",
+        "No, {{he}}'s not hurt like that.",
+        "No, nothing at all.",
+        "No, no bleeding, just stuck.",
+        "No, {{he}}'s fine on that front.",
+        "No, absolutely not.",
+        "No, nothing like that at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No, he's healthy.",
-        "Nothing I'm aware of."
+        "No, nothing relevant, {{he}}'s a healthy {{callerChild}}.",
+        "No medical conditions to speak of.",
+        "No, nothing, {{he}}'s fine health wise.",
+        "Nothing to mention really, no.",
+        "No, {{he}}'s got no health problems.",
+        "No, nothing relevant at all.",
+        "No conditions, no, {{he}}'s fine.",
+        "No, nothing to report there.",
+        "No, {{he}}'s generally in good health.",
+        "No, {{he}}'s never had anything like this before."
       ]
     },
     "medications": {
       "answers": [
-        "No, not on anything.",
-        "No medications."
+        "No, {{he}} doesn't take anything.",
+        "No medications, no.",
+        "No, nothing regular, no.",
+        "No, {{he}}'s not on anything.",
+        "No, nothing at all.",
+        "No medications that I know of.",
+        "No, {{he}} doesn't need anything regularly.",
+        "No, nothing, no.",
+        "No, {{he}} isn't on any medication.",
+        "No, {{he}} takes nothing regularly."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's five.",
-        "She's four."
+        "{{He}}'s three years old.",
+        "{{He}}'s only two.",
+        "{{He}} just turned four.",
+        "{{He}}'s five.",
+        "{{He}}'s three, nearly four.",
+        "{{He}}'s two years old.",
+        "{{He}}'s only eighteen months.",
+        "{{He}}'s four years old.",
+        "{{He}}'s two, {{he}}'s quite little.",
+        "{{He}}'s three years old, {{he}}'s very small for {{his}} age."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm holding him steady so he doesn't panic.",
-        "Please hurry, she's getting more upset."
+        "Okay, thank you, I'll keep {{him}} entertained until they arrive.",
+        "Right, I'll stay right here with {{him}} until help comes.",
+        "Okay, that's good, no rush, {{he}}'s not in any distress.",
+        "Thank you, I'll keep {{him}} calm until they get here.",
+        "Alright, I'll wait right here with {{him}}.",
+        "Okay, we'll wait here for the crew.",
+        "Thank you, that's a relief, I'll wait patiently with {{him}}.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, I'll keep {{him}} occupied until help arrives.",
+        "Thank you, I'll do what I can until they get here."
       ]
     },
     "refer111": {
       "answers": [
-        "No, she's physically stuck, we need the fire brigade!"
+        "Oh, that's fine actually, {{he}}'s not hurt, just stuck, if that's easier.",
+        "Yes, that sounds sensible, {{he}}'s not in any danger, just trapped.",
+        "Okay, if you think that's better, {{he}}'s quite calm really.",
+        "That's fine, {{he}}'s not hurt, just stuck in the swing.",
+        "Alright, if 111 can help arrange something, that's fine.",
+        "Okay, that's understandable, {{he}}'s not in any pain.",
+        "Yes, that's fine, {{he}}'s not injured, just can't get out.",
+        "Alright, whatever's quickest, we're not going anywhere.",
+        "That sounds fine, {{he}}'s not hurt, no rush really.",
+        "Okay, if that's the best way to sort it, that's fine by me."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, {{he}}'s just stuck in the swing.",
+        "Do we need police as well? I really just need someone to free {{him}}.",
+        "Okay, if you think that helps, though it's really the fire brigade we need.",
+        "I wasn't expecting police, but that's fine if it helps.",
+        "Alright, though I think it's really just a rescue matter, not police.",
+        "Okay, understood, though it's the swing that's the problem.",
+        "Fine, if that's needed, but nothing's gone wrong like that.",
+        "Okay, whatever you think's best.",
+        "Alright, I'll let them know when they arrive.",
+        "Okay, though I'm not sure what police can do about a stuck swing."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes, thank you, that's who we need, whenever they're free.",
+        "Okay, good, we'll be waiting by the swings for them.",
+        "Thank you, that's a relief, {{he}}'s getting a bit fed up now.",
+        "Right, I'll wave them over when they get here.",
+        "Okay, thank you, I've been keeping {{him}} calm and entertained.",
+        "Yes please, we'd really appreciate the help getting {{him}} free.",
+        "Thank you, we'll be right here by the play area.",
+        "Okay, that's good news, thank you.",
+        "Right, thank you, we'll keep waiting here for them.",
+        "Okay, thank you, we're ready whenever they can come."
       ]
     }
   },

@@ -44,6 +44,10 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1
+  },
   "patients": {
     "range": [
       0,
@@ -67,7 +71,15 @@
   "caller": {
     "openings": [
       "There's a grass fire spreading fast across the field",
-      "I need the fire brigade, the grassland's on fire and the wind's pushing it towards the houses"
+      "I need the fire brigade, the grassland's on fire and the wind's pushing it towards the houses",
+      "There's a fire spreading across the field near the path",
+      "Can you send someone, a big patch of grass has gone up",
+      "There's a grass fire on the common, it's spreading quickly",
+      "The field behind our house is on fire, it's grassland",
+      "There's smoke coming from a grass fire near the school field",
+      "A large area of grass is well alight, spreading with the wind",
+      "There's a fire on the verge that's spread into the field",
+      "The grassland's burning fast, it's already spread a good distance"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -80,78 +92,231 @@
     "start": {
       "answers": [
         "There's a grass fire spreading fast across the field",
-        "I need the fire brigade, the grassland's on fire and the wind's pushing it towards the houses"
+        "I need the fire brigade, the grassland's on fire and the wind's pushing it towards the houses",
+        "There's a fire spreading across the field near the path",
+        "Can you send someone, a big patch of grass has gone up",
+        "There's a grass fire on the common, it's spreading quickly",
+        "The field behind our house is on fire, it's grassland",
+        "There's smoke coming from a grass fire near the school field",
+        "A large area of grass is well alight, spreading with the wind",
+        "There's a fire on the verge that's spread into the field",
+        "The grassland's burning fast, it's already spread a good distance"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I live near the field"
+        "It's {{callerName}}, I live near the field",
+        "{{callerName}} here, I was walking the dog nearby",
+        "It's {{callerName}}, my garden backs onto it",
+        "{{callerName}}, I was out for a run when I saw it",
+        "It's {{callerName}}, I noticed the smoke from my house",
+        "My name's {{callerName}}, I'm stood by the field edge",
+        "It's {{callerName}}, I live on the road opposite",
+        "{{callerName}} speaking, I spotted it from the footpath",
+        "It's {{callerName}}, I was cycling past",
+        "{{callerName}}, I called as soon as I saw the flames"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, it's open ground"
+        "There's no one hurt, nobody was anywhere near it.",
+        "No patient to report, it's just the fire itself.",
+        "Nobody's hurt, I haven't seen anyone go near it.",
+        "No casualties, no one was involved when it caught.",
+        "There's no one to name, no one's injured.",
+        "Nobody was caught up in it, no injuries at all.",
+        "No one's hurt, everyone's kept well clear.",
+        "There's nobody involved, it's not touched anyone.",
+        "No injuries to report, no one's anywhere near it.",
+        "Nobody's hurt, there's no patient here."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the field behind the houses"
+        "{{address}}, the field behind the houses",
+        "It's {{address}}, access is via the footpath gate",
+        "{{address}}, the fire's spreading across the common",
+        "It's {{address}}, near the school playing field",
+        "{{address}}, you'll see the smoke from the road",
+        "It's {{address}}, the field off the bridle path",
+        "{{address}}, near the reservoir",
+        "It's {{address}}, the grassland behind the estate",
+        "{{address}}, follow the smoke over the field",
+        "It's {{address}}, the fire's near the pylons"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The grass has caught fire, it's spreading quickly with the wind, no one's out there"
+        "The grass has caught fire, it's spreading quickly with the wind, no one's out there",
+        "No idea how it started but it's moving fast across the dry grass",
+        "It might have been a discarded cigarette, it's spreading towards the houses",
+        "The grass is tinder dry and it's gone up fast, spreading with the breeze",
+        "It started small on the verge and has spread right across the field",
+        "No one saw it start but it's a big area now and still spreading",
+        "It's moving quickly towards the tree line",
+        "The wind's really pushing it along, it's covering ground fast",
+        "It's spread from the path into the open field, still growing",
+        "The fire's crept a long way already, smoke's drifting over the houses"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, it's open field"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so there's nothing to report there.",
+        "Everyone's fine, nobody's anywhere near it.",
+        "No casualties, no one's been affected by it.",
+        "There's no patient, nobody's hurt at all.",
+        "Not applicable, no one was caught up in it.",
+        "No one's hurt, we're all stood well back.",
+        "Nothing to report there, no one's involved.",
+        "No injuries, everyone's kept their distance.",
+        "Not applicable, there's no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, just smoke drifting over"
+        "No one's struggling, just smoke drifting about.",
+        "Nobody's affected, we've all moved well away from the smoke.",
+        "No injuries there, it's only the smoke that's bothering us.",
+        "Everyone's breathing fine, we're clear of the fumes.",
+        "No one's near enough to be affected by the smoke.",
+        "Not applicable, no one's been near the smoke.",
+        "No breathing problems, nobody's close enough to it.",
+        "We've kept clear, so no one's had any trouble breathing.",
+        "No one's affected, just a bit of a smell in the air.",
+        "Nothing to report, we're all well away from the smoke."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near it.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected.",
+        "Not applicable, there's no patient in pain.",
+        "No injuries, nobody's hurt in any way.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's involved"
+        "No, no one's been near it to get hurt.",
+        "No bleeding, there's no injuries at all.",
+        "Not applicable, nobody's been hurt.",
+        "No, no one's involved, so no injuries.",
+        "No bleeding to report, everyone's clear.",
+        "No injuries at all, nobody's near it.",
+        "No, there's no one hurt to report bleeding.",
+        "Not applicable, no one's been affected.",
+        "No, everyone's well away from it.",
+        "No bleeding, nobody's been caught up in it."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no one hurt.",
+        "No patient, so nothing to tell you there.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter.",
+        "No patient here, nothing to report.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that.",
+        "Not applicable, nobody's hurt.",
+        "No patient involved, nothing to tell you."
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not medical.",
+        "No patient, nothing to tell you.",
+        "Not applicable, no one's involved.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected.",
+        "No casualty, so nothing there.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient involved"
+        "There's no patient, nobody's hurt.",
+        "No one involved, so no age to give.",
+        "Not applicable, it's just the fire.",
+        "No casualty, there's no one to report.",
+        "Nobody's hurt, no patient here.",
+        "No one's involved, so nothing there.",
+        "Not applicable, there's no injuries.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll keep watching which way it's spreading"
+        "Okay, I'll keep watching which way it's spreading",
+        "Right, I'm staying well back from the smoke",
+        "Okay, I've kept the dog on the lead and away from it",
+        "Understood, I'll let you know if it reaches the houses",
+        "Alright, I'm well clear of the flames",
+        "Okay, I've told the neighbours to shut their windows",
+        "Right, I'll keep an eye on the wind direction",
+        "Okay, I'm stood a safe distance away now",
+        "Understood, I'll wait by the gate to point you in",
+        "Okay, we're all keeping well back from it"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's grass on fire, I need the fire brigade",
+        "Sorry, why police, it's just a field fire, nothing criminal",
+        "No, this isn't a police matter, it's the grass burning",
+        "There's no need for police, just send the fire engine",
+        "No, it's a grass fire, nobody's done anything wrong",
+        "Sorry, I don't need police, I need someone for the fire",
+        "No thank you, it's not a police job, it's just the field",
+        "That's not right, it's grass burning, not a police matter",
+        "No, please, just the fire brigade for the field",
+        "Sorry, there's no crime here, just a spreading grass fire"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, it's spreading with the wind fast",
+        "Okay, good, I'm keeping watching which way it's going",
+        "Please hurry, it's getting close to the houses",
+        "Thank you, I'm staying well back from it",
+        "Okay, I can see them coming, thank god",
+        "Good, hurry, the whole field could go up",
+        "Thank you, I'm keeping an eye on the wind direction",
+        "Okay, please tell them to hurry, it's moving quickly",
+        "Thank goodness, no one's out there thankfully",
+        "Good, hurry please, it's spreading faster than I thought"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire not medical"
+        "No, it's a fire not medical",
+        "No, nobody's hurt, it's open ground burning",
+        "No thank you, I need the fire brigade",
+        "No, there's no injury, please send the fire service",
+        "No, this isn't a medical matter, it's a fire",
+        "No, I don't need that, please send firefighters",
+        "No, nobody's involved, it's just the grass",
+        "No, it's a fire call, not a health one",
+        "No, please just get the fire brigade here",
+        "No, it's not something 111 can help with"
       ]
     }
   },

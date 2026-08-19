@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -69,8 +73,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Something's wrong with my dad, he's not making sense and seems really out of it",
-      "He's awake but he's not himself, talking gibberish"
+      "Something's wrong with my {{dad}}, {{he}}'s not making sense and seems really out of it",
+      "{{He}}'s awake but {{he}}'s not {{himself}}, talking gibberish",
+      "My {{dad}}'s acting really strange, {{he}}'s not making any sense",
+      "Something's not right with my {{dad}}, {{he}} seems confused and out of it",
+      "My {{dad}}'s talking nonsense, {{he}} doesn't seem to know where {{he}} is",
+      "I don't know what's wrong, my {{dad}}'s really confused and not {{himself}}",
+      "My {{dad}}'s acting oddly, {{he}}'s slurring and not making sense",
+      "Something's wrong with my {{dad}}, {{he}}'s disorientated and confused",
+      "My {{dad}} seems really out of it, {{he}}'s not responding properly",
+      "My {{dad}}'s not making sense at all, I'm really worried"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -82,90 +94,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Something's wrong with my dad, he's not making sense and seems really out of it",
-        "He's awake but he's not himself, talking gibberish"
+        "Something's wrong with my {{dad}}, {{he}}'s not making sense and seems really out of it",
+        "{{He}}'s awake but {{he}}'s not {{himself}}, talking gibberish",
+        "My {{dad}}'s acting really strange, {{he}}'s not making any sense",
+        "Something's not right with my {{dad}}, {{he}} seems confused and out of it",
+        "My {{dad}}'s talking nonsense, {{he}} doesn't seem to know where {{he}} is",
+        "I don't know what's wrong, my {{dad}}'s really confused and not {{himself}}",
+        "My {{dad}}'s acting oddly, {{he}}'s slurring and not making sense",
+        "Something's wrong with my {{dad}}, {{he}}'s disorientated and confused",
+        "My {{dad}} seems really out of it, {{he}}'s not responding properly",
+        "My {{dad}}'s not making sense at all, I'm really worried"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "Erm, it's {{callerName}}",
+        "{{callerName}}, sorry, I'm a bit flustered",
+        "My name is, sorry, {{callerName}}",
+        "{{callerName}}, sorry, yes, {{callerName}}",
+        "It's {{callerName}}, sorry, what did you ask",
+        "{{callerName}}, sorry, I'm not thinking straight",
+        "Um, {{callerName}}",
+        "{{callerName}}, sorry, can you repeat that",
+        "It's, sorry, {{callerName}}",
+        "{{callerName}}, sorry, I'm a bit confused"
       ]
     },
     "patientName": {
       "answers": [
         "It's {{firstPatientName}}",
-        "{{firstPatientName}}, my dad"
+        "{{His}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s my {{dad}}",
+        "It's {{firstPatientName}}, sorry, I'm a bit shaken",
+        "{{firstPatientName}}, that's {{his}} name",
+        "{{He}}'s called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "It's {{firstPatientName}}, I'm {{his}} {{callerChild}}",
+        "{{firstPatientName}}, sorry, yes, {{firstPatientName}}",
+        "{{firstPatientName}}, please, {{he}}'s not making sense"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, come quick"
+        "Erm, it's {{address}}",
+        "{{address}}, sorry, let me think, yes, {{address}}",
+        "We're at, sorry, {{address}}",
+        "The address, sorry, it's {{address}}",
+        "{{address}}, at home, sorry I'm flustered",
+        "It's {{address}}, sorry",
+        "Um, {{address}}",
+        "{{address}}, sorry, is that right, yes",
+        "Sorry, {{address}}",
+        "{{address}}, at home"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He's awake but very confused, not answering questions properly, doesn't know where he is",
-        "He's been acting strange for the last half hour, slurring and not making sense"
+        "{{He}} suddenly started talking nonsense and doesn't seem to know where {{he}} is",
+        "{{He}} was fine earlier and now {{he}}'s completely confused",
+        "{{He}}'s been getting more and more muddled over the last hour",
+        "{{He}} started slurring {{his}} words and isn't making sense",
+        "{{He}} seems to have gone downhill quite suddenly, very confused",
+        "{{He}}'s not recognising me properly and talking gibberish",
+        "{{He}} woke up confused and it hasn't got any better",
+        "{{He}}'s been acting strangely for the last thirty minutes or so",
+        "{{He}} doesn't know what day it is or where {{he}} is",
+        "{{He}}'s been increasingly muddled since this afternoon"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's awake but very confused",
-        "Yes, but not really with it"
+        "{{He}}'s awake but really confused, not making sense",
+        "{{He}}'s conscious, {{his}} eyes are open, but {{he}}'s not with it",
+        "{{He}}'s awake but doesn't seem to know where {{he}} is",
+        "{{He}}'s conscious but very disorientated",
+        "{{He}}'s awake, talking, but nothing {{he}} says makes sense",
+        "{{He}}'s conscious, {{he}}'s just really muddled",
+        "{{He}}'s awake but seems very out of it",
+        "{{He}}'s conscious, {{he}}'s just not making any sense",
+        "{{He}}'s awake and responding, but the words don't make sense",
+        "{{He}}'s conscious, though {{he}} seems to be getting worse"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, breathing seems fine",
-        "Seems okay"
+        "Yes, {{he}}'s breathing normally",
+        "{{His}} breathing seems fine, it's the confusion that's worrying me",
+        "Yes, breathing looks normal",
+        "{{He}}'s breathing okay as far as I can tell",
+        "Yes, no problems with breathing",
+        "{{His}} breathing seems fine to me",
+        "Yes, breathing's fine, it's just {{his}} confusion that's the issue",
+        "{{He}}'s breathing normally as far as I can see",
+        "Yes, {{he}}'s breathing okay",
+        "No breathing problems, just the confusion"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He hasn't said anything about pain",
-        "He's not able to tell me"
+        "No, {{he}} doesn't seem to be in pain",
+        "Doesn't seem to be, {{he}}'s just confused",
+        "No pain that {{he}}'s mentioned, just muddled",
+        "No, {{he}} isn't complaining of any pain",
+        "Doesn't seem to be in pain, just very disorientated",
+        "No pain apparent, {{he}}'s just not making sense",
+        "No, {{he}}'s not showing signs of pain",
+        "No pain that I can tell, just confusion",
+        "No, {{he}} hasn't said anything about pain",
+        "Doesn't seem in pain, just really confused"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No bleeding at all",
+        "No, no bleeding",
+        "No bleeding, {{he}} hasn't had any kind of fall or injury",
+        "No, {{he}}'s not bleeding",
+        "No bleeding, {{he}}'s just confused",
+        "No, there's no bleeding",
+        "No bleeding, no injuries",
+        "No, {{he}}'s not injured",
+        "No bleeding, nothing like that",
+        "No, no bleeding at all"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He's diabetic, that's all I know",
-        "He had a stroke a couple of years ago"
+        "{{He}}'s diabetic, that's the only thing I can think of",
+        "{{He}}'s had a stroke before",
+        "{{He}}'s got high blood pressure",
+        "No, {{he}}'s generally healthy, this is out of the blue",
+        "{{He}}'s diabetic, I wonder if that's it",
+        "{{He}}'s had memory problems before, but not like this",
+        "{{He}}'s got a heart condition",
+        "No significant history that I know of",
+        "{{He}}'s diabetic and takes tablets for it",
+        "{{He}}'s had something like this happen once before"
       ]
     },
     "medications": {
       "answers": [
-        "He takes tablets for diabetes",
-        "I'd have to check the cabinet"
+        "{{He}} takes tablets for diabetes",
+        "{{He}}'s on blood pressure medication",
+        "{{He}} takes several tablets, I'm not sure of them all",
+        "No, {{he}} doesn't take anything that I know of",
+        "{{He}} takes medication for {{his}} heart",
+        "{{He}}'s on diabetes medication, I think",
+        "{{He}} takes a few tablets daily, I can find the box",
+        "No idea exactly what, {{he}} takes something regularly",
+        "{{He}} takes tablets for blood pressure and diabetes",
+        "{{He}}'s on regular medication but I don't know all of it"
       ]
     },
     "patientAge": {
       "answers": [
-        "71"
+        "{{He}}'s in {{his}} seventies",
+        "{{He}}'s seventy three",
+        "I'd say {{he}}'s about seventy four",
+        "{{He}}'s in {{his}} mid seventies",
+        "About seventy, I think",
+        "{{He}}'s in {{his}} seventies, usually quite sharp",
+        "{{He}}'s seventy six",
+        "{{He}}'s in {{his}} late seventies",
+        "{{He}}'s around seventy three or four",
+        "{{He}}'s seventy one, I believe"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying with him",
-        "He's not getting any better"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "No, he's really not himself, I'm worried",
-        "I don't think that's enough, something's badly wrong"
+        "No, please, this can't wait for a call back, it's urgent",
+        "No, I really think this needs someone out straight away",
+        "No, please don't put this through to 111, it's serious",
+        "No, this needs an ambulance now, not a call back later",
+        "No, please, I don't think this can wait at all",
+        "No, I'm not happy waiting for 111 to call back on this",
+        "No, please send someone now, this feels really serious",
+        "No, this is urgent, we can't wait for a call back",
+        "No, please, I really think this needs seeing to now",
+        "No, I don't think 111 is enough for this, please send someone"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

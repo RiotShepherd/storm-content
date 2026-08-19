@@ -45,6 +45,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -80,8 +84,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "I think my brother's taken an overdose, I found empty packets by him",
-      "I need an ambulance, my brother's taken something, there's empty tablet packets everywhere"
+      "I think my {{brother}}'s taken an overdose, I found empty packets by {{him}}.",
+      "I need an ambulance, my {{brother}}'s taken something, there's empty tablet packets everywhere.",
+      "My {{brother}}'s taken too many tablets, I found {{him}} like this.",
+      "Please hurry, I think {{he}}'s overdosed, there's empty packets around {{him}}.",
+      "I found my {{brother}} with loads of empty tablet packets, {{he}}'s drowsy.",
+      "{{He}}'s taken something, I don't know how much, please send help.",
+      "My {{brother}}'s overdosed, I'm not sure what or how many {{he}}'s taken.",
+      "Please, I think {{he}}'s taken an overdose, {{he}}'s barely responding.",
+      "I need help urgently, there's empty packets everywhere and {{he}}'s drowsy.",
+      "I think my {{brother}}'s tried to hurt {{himself}}, please send an ambulance."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -93,82 +105,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "I think my brother's taken an overdose, I found empty packets by him",
-        "I need an ambulance, my brother's taken something, there's empty tablet packets everywhere"
+        "I think my {{brother}}'s taken an overdose, I found empty packets by {{him}}.",
+        "I need an ambulance, my {{brother}}'s taken something, there's empty tablet packets everywhere.",
+        "My {{brother}}'s taken too many tablets, I found {{him}} like this.",
+        "Please hurry, I think {{he}}'s overdosed, there's empty packets around {{him}}.",
+        "I found my {{brother}} with loads of empty tablet packets, {{he}}'s drowsy.",
+        "{{He}}'s taken something, I don't know how much, please send help.",
+        "My {{brother}}'s overdosed, I'm not sure what or how many {{he}}'s taken.",
+        "Please, I think {{he}}'s taken an overdose, {{he}}'s barely responding.",
+        "I need help urgently, there's empty packets everywhere and {{he}}'s drowsy.",
+        "I think my {{brother}}'s tried to hurt {{himself}}, please send an ambulance."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm his sister",
-        "{{callerName}}"
+        "It's {{callerName}}, I'm {{his}} {{callerSibling}}.",
+        "{{callerName}}, I'm {{his}} {{callerSibling}}.",
+        "My name's {{callerName}}, I'm {{his}} {{callerSibling}}.",
+        "{{callerName}} here, I'm {{his}} {{callerSibling}} and I'm with {{him}} now.",
+        "It's {{callerName}} speaking, {{his}} {{callerSibling}}.",
+        "You can put me down as {{callerName}}, I'm {{his}} {{callerSibling}}.",
+        "{{callerName}}. I'm {{his}} {{callerSibling}}, we're together.",
+        "It's {{callerName}}, {{his}} {{callerSibling}} here, please hurry.",
+        "{{callerName}}, that's me, I'm {{his}} {{callerSibling}}.",
+        "It's {{callerName}}, I'm {{his}} {{callerSibling}}, is help on the way?"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, my brother",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, that's my {{brother}}.",
+        "It's {{firstPatientName}}, my {{brother}}.",
+        "My {{brother}}'s name is {{firstPatientName}}.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, my {{brother}}.",
+        "It's {{firstPatientName}}, that's who I mean.",
+        "My {{brother}} is called {{firstPatientName}}.",
+        "{{firstPatientName}}, please hurry.",
+        "That's {{firstPatientName}}, my {{brother}}.",
+        "{{firstPatientName}}. {{He}}'s my {{brother}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, front door's unlocked"
+        "We're at {{address}}, front door's unlocked.",
+        "It's {{address}}, front door's unlocked.",
+        "{{address}}, front door's unlocked.",
+        "The address is {{address}}, front door's unlocked.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, front door's unlocked.",
+        "{{address}} is where we are, front door's unlocked.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "I found him like this with empty tablet packets around him, I don't know how many he's taken"
+        "I found {{him}} like this with empty tablet packets around {{him}}, I don't know how many {{he}}'s taken.",
+        "{{He}} seems to have taken a large number of tablets, I found the empty boxes.",
+        "There's several empty packets scattered near {{him}}, I think {{he}}'s taken them all.",
+        "I don't know exactly what {{he}}'s taken, but there's a lot of empty packaging.",
+        "{{He}} left a note and I found {{him}} with empty tablet strips nearby.",
+        "I came home and found {{him}} like this, with empty medication packets around.",
+        "{{He}} must have taken quite a few, there's multiple empty boxes here.",
+        "I found {{him}} on the bed with empty packets, {{he}}'s barely responding.",
+        "There's a lot of empty tablet packaging, I don't know exactly what {{he}}'s taken.",
+        "{{He}} seems to have taken an overdose, I found {{him}} like this a few minutes ago."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's drowsy, sort of responding"
+        "{{He}}'s drowsy, sort of responding.",
+        "{{He}}'s barely conscious, mumbling a little.",
+        "{{He}}'s drifting in and out, hard to keep {{him}} awake.",
+        "{{He}}'s semi conscious, {{he}} responds a bit if I shout.",
+        "{{He}}'s very drowsy, struggling to keep {{his}} eyes open.",
+        "{{He}}'s responding a little, but very out of it.",
+        "{{He}}'s barely awake, mumbling when I speak to {{him}}.",
+        "{{He}}'s drowsy and slow to respond to me.",
+        "{{He}}'s just about conscious, fading in and out.",
+        "{{He}}'s very sleepy, hard to get much response from {{him}}."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Slow, I'm worried about it"
+        "Slow, I'm worried about it.",
+        "It's slow and shallow, that's scaring me.",
+        "Slower than normal, I'm keeping a close eye on it.",
+        "It seems quite slow to me.",
+        "Slow breathing, I'm really worried.",
+        "It's shallow and slow, worse than I'd expect.",
+        "Slow, I've been counting and it seems too infrequent.",
+        "It's slow, that's what's worrying me most.",
+        "Breathing's slow and a bit irregular.",
+        "It seems slower than it should be."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's not really responding to say"
+        "{{He}}'s not really responding to say.",
+        "{{He}} can't tell me anything right now.",
+        "No idea, {{he}}'s too out of it to say.",
+        "{{He}}'s not responsive enough to answer that.",
+        "Can't tell, {{he}}'s barely conscious.",
+        "{{He}} hasn't said anything about pain.",
+        "No way to know, {{he}}'s too drowsy to respond.",
+        "{{He}} can't communicate properly right now.",
+        "I don't know, {{he}}'s not really responding.",
+        "Can't say, {{he}}'s too out of it."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No bleeding.",
+        "None that I can see.",
+        "No, nothing like that.",
+        "No bleeding at all.",
+        "None, no injuries visible.",
+        "No, {{he}}'s not bleeding.",
+        "Nothing, no bleeding.",
+        "No, completely fine on that front.",
+        "None visible, no.",
+        "No bleeding, it's the tablets I'm worried about."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He's been struggling with depression"
+        "{{He}}'s been struggling with depression.",
+        "{{He}}'s had depression for a while now.",
+        "{{He}}'s been diagnosed with depression, {{he}}'s been low lately.",
+        "{{He}}'s got a history of depression and anxiety.",
+        "{{He}}'s been under the mental health team for depression.",
+        "{{He}}'s had mental health difficulties, mainly depression.",
+        "{{He}}'s been struggling emotionally for a while, depression I think.",
+        "{{He}}'s got depression, {{he}}'s been on medication for it.",
+        "{{He}}'s had some mental health struggles, depression mostly.",
+        "{{He}}'s been diagnosed with depression and it's been a hard time recently."
       ]
     },
     "medications": {
       "answers": [
-        "Antidepressants, that's what the packets are"
+        "Antidepressants, that's what the packets are.",
+        "It's antidepressant tablets that are empty around {{him}}.",
+        "The empty packets are antidepressants, I think {{he}}'s taken a lot.",
+        "Antidepressant medication, that's what {{he}} was prescribed.",
+        "The packets are for {{his}} antidepressants.",
+        "It looks like antidepressants, that's what's normally in that box.",
+        "Antidepressants, prescribed by {{his}} GP.",
+        "The empty strips are antidepressant tablets.",
+        "It's {{his}} antidepressant medication that's missing.",
+        "Antidepressants, {{he}}'s been on them for depression."
       ]
     },
     "patientAge": {
       "answers": [
-        "26"
+        "26",
+        "About 26",
+        "26, I think",
+        "{{He}}'s 26 years old",
+        "I believe {{he}}'s 26",
+        "Just turned 26 I think",
+        "26, same age as always",
+        "Around 26, give or take",
+        "{{He}} is 26",
+        "I'd say 26 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've got him on his side"
+        "Okay, I've got {{him}} on {{his}} side.",
+        "Thank you, I'm staying with {{him}} until you arrive.",
+        "Okay, I'll keep checking {{his}} breathing.",
+        "Thank you, I've found the empty packets for the crew.",
+        "Okay, I'm watching {{him}} closely until help gets here.",
+        "Thank you, I won't leave {{him}} alone.",
+        "Okay, I've put {{him}} in the recovery position.",
+        "Thank you, I'll keep talking to {{him}} to keep {{him}} responsive.",
+        "Okay, I'll gather the packets to show the paramedics.",
+        "Thank you, I'll let you know if anything changes."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs an ambulance now"
+        "No, please, this can't wait for a call back.",
+        "No, I really think this needs an ambulance now.",
+        "Please no, {{he}} needs help now, not a phone call.",
+        "No, this is an emergency, we need someone now.",
+        "I don't think that's right, {{he}}'s really not well.",
+        "No, please send someone now, I'm begging you.",
+        "That doesn't sound right, this is urgent.",
+        "No, we can't wait for that, please send an ambulance.",
+        "Please, no, {{he}} needs help straight away.",
+        "No, I really think this is serious, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

@@ -43,6 +43,11 @@
   "units": {
     "dual_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -71,7 +76,15 @@
   "caller": {
     "openings": [
       "There's been an accident with the bandsaw in the butchery, one of my staff is badly hurt",
-      "I need an ambulance and the fire brigade, the bandsaw's malfunctioned and injured the butcher"
+      "I need an ambulance and the fire brigade, the bandsaw's malfunctioned and injured the butcher",
+      "Please hurry, the bandsaw's gone wrong and one of my butchers is badly injured",
+      "There's blood everywhere, the bandsaw's caught {{his}} arm, we need help fast",
+      "One of my staff has had a serious accident with the bandsaw, please send an ambulance",
+      "The bandsaw's malfunctioned and badly injured one of the butchers, {{he}}'s in a lot of pain",
+      "Quick, there's been an accident on the bandsaw, my colleague's badly hurt",
+      "I need help urgently, the bandsaw's caught one of my staff members badly",
+      "There's been a machine accident in the butchery, {{he}}'s bleeding heavily",
+      "Please hurry, the bandsaw's injured one of my team, it's serious"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -84,78 +97,231 @@
     "start": {
       "answers": [
         "There's been an accident with the bandsaw in the butchery, one of my staff is badly hurt",
-        "I need an ambulance and the fire brigade, the bandsaw's malfunctioned and injured the butcher"
+        "I need an ambulance and the fire brigade, the bandsaw's malfunctioned and injured the butcher",
+        "Please hurry, the bandsaw's gone wrong and one of my butchers is badly injured",
+        "There's blood everywhere, the bandsaw's caught {{his}} arm, we need help fast",
+        "One of my staff has had a serious accident with the bandsaw, please send an ambulance",
+        "The bandsaw's malfunctioned and badly injured one of the butchers, {{he}}'s in a lot of pain",
+        "Quick, there's been an accident on the bandsaw, my colleague's badly hurt",
+        "I need help urgently, the bandsaw's caught one of my staff members badly",
+        "There's been a machine accident in the butchery, {{he}}'s bleeding heavily",
+        "Please hurry, the bandsaw's injured one of my team, it's serious"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the department manager"
+        "It's {{callerName}}, I'm the department manager",
+        "{{callerName}} here, I'm {{his}} supervisor",
+        "It's {{callerName}}, I work alongside {{him}}",
+        "{{callerName}}, I'm the duty manager on the shop floor",
+        "It's {{callerName}}, I got to {{him}} straight away",
+        "My name's {{callerName}}, I'm {{his}} manager",
+        "It's {{callerName}}, I called as soon as it happened",
+        "{{callerName}} speaking, I'm with {{him}} now",
+        "It's {{callerName}}, I'm a colleague of {{his}}",
+        "{{callerName}}, I'm applying pressure to the wound now"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, he's one of our butchers"
+        "It's {{firstPatientName}}, {{he}}'s one of our butchers",
+        "{{firstPatientName}}, {{he}} works in the butchery department",
+        "It's {{firstPatientName}}, {{he}}'s been with us a few years",
+        "{{His}} name's {{firstPatientName}}",
+        "It's {{firstPatientName}}, {{he}}'s one of my team",
+        "{{firstPatientName}} is {{his}} name, {{he}}'s a butcher here",
+        "It's {{firstPatientName}}, {{he}} was using the bandsaw",
+        "{{His}} name is {{firstPatientName}}, {{he}} works on the counter",
+        "It's {{firstPatientName}}, please hurry",
+        "{{firstPatientName}}, that's {{him}}, {{he}}'s in a bad way"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the supermarket, go to the butchery counter at the back"
+        "{{address}}, it's the supermarket, go to the butchery counter at the back",
+        "It's {{address}}, come through the staff entrance to the butchery",
+        "{{address}}, the accident's in the preparation room at the back",
+        "It's {{address}}, I'll have someone meet you at the loading bay",
+        "{{address}}, follow signs to the butchery department",
+        "It's {{address}}, use the staff door round the side",
+        "{{address}}, the butchery's at the rear of the store",
+        "It's {{address}}, I'll meet you at the main entrance",
+        "{{address}}, come straight through, we'll direct you",
+        "It's {{address}}, the accident's near the meat counter"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The bandsaw malfunctioned while he was using it, he's got a serious injury to his hand and arm"
+        "The bandsaw malfunctioned while {{he}} was using it, {{he}}'s got a serious injury to {{his}} hand and arm",
+        "The blade caught {{his}} arm when the machine jammed, it's a deep wound",
+        "It malfunctioned suddenly, the blade's cut deep into {{his}} forearm",
+        "The bandsaw's guard failed and the blade caught {{his}} hand badly",
+        "It jammed then the blade caught {{him}}, there's a serious cut to {{his}} arm",
+        "The machine malfunctioned and the blade's gone through {{his}} hand",
+        "It happened in seconds, the bandsaw caught {{his}} arm badly",
+        "The blade slipped when it malfunctioned and cut deep into {{his}} hand",
+        "It's a nasty injury, the bandsaw's cut through to the bone we think",
+        "The machine failed suddenly and the blade caught {{his}} forearm badly"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious but in a lot of shock"
+        "{{He}}'s conscious but in a lot of shock",
+        "{{He}}'s awake, very pale, but talking to us",
+        "{{He}}'s conscious, gripping {{his}} arm and in pain",
+        "{{He}}'s alert but going into shock",
+        "{{He}}'s conscious, very shaken but responsive",
+        "{{He}}'s awake, {{he}} keeps looking at {{his}} arm",
+        "{{He}}'s conscious, talking but clearly in a lot of shock",
+        "{{He}}'s responding to us, awake but very shaky",
+        "{{He}}'s conscious, we're keeping {{him}} talking",
+        "{{He}}'s awake and aware, but {{he}}'s very pale and shaking"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "He's breathing fast, he's very shaken up"
+        "{{He}}'s breathing fast, {{he}}'s very shaken up",
+        "{{His}} breathing's quick, probably the shock and pain",
+        "{{He}}'s breathing okay but {{he}}'s clearly in distress",
+        "{{His}} breathing's a bit rapid, we think it's shock",
+        "{{He}}'s breathing fine, just very shaken",
+        "{{His}} breathing's fast, {{he}}'s going pale",
+        "{{He}}'s breathing normally but {{he}}'s in a lot of pain",
+        "{{His}} breathing's quickened, we're keeping {{him}} calm",
+        "{{He}}'s breathing okay, mostly just shaking with shock",
+        "{{He}}'s breathing quickly, we're trying to keep {{him}} calm and still"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's in severe pain, holding his arm"
+        "{{He}}'s in severe pain, holding {{his}} arm",
+        "{{He}} says the pain's really bad in {{his}} hand and arm",
+        "{{He}}'s in a lot of pain, we're trying to keep {{him}} still",
+        "{{He}}'s screaming in pain from {{his}} arm",
+        "{{He}} says it's agony, {{he}} can't stop shaking",
+        "{{He}}'s in severe pain, we've got {{him}} sat down",
+        "{{He}}'s in a huge amount of pain from the cut",
+        "{{He}} says the pain's unbearable in {{his}} hand",
+        "{{He}}'s clearly in severe pain, gripping {{his}} arm tight",
+        "{{He}}'s in a lot of pain, we're trying to keep {{him}} calm"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's a lot of blood, we've applied pressure with a clean cloth"
+        "Yes, there's a lot of blood, we've applied pressure with a clean cloth",
+        "Yes, {{he}}'s bleeding heavily from {{his}} arm, we're applying pressure",
+        "Yes, it's bleeding badly, we've got a cloth wrapped round it tight",
+        "Yes, there's a lot of blood, we're holding pressure on the wound",
+        "Yes, it's bleeding heavily, we're doing our best to control it",
+        "Yes, there's a lot of blood loss, we've got pressure on it",
+        "Yes, {{he}}'s bleeding badly from the cut, we're applying firm pressure",
+        "Yes, it's a lot of blood, we've wrapped it as tight as we can",
+        "Yes, bleeding heavily, we're keeping pressure on the wound",
+        "Yes, there's a serious amount of blood, we're applying pressure constantly"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know his full history, I'll ask his emergency contact"
+        "I don't know {{his}} full history, I'll ask {{his}} emergency contact",
+        "I'm not sure, I can check {{his}} staff file for anything relevant",
+        "I don't have that information, I'll try to find out",
+        "I'm not sure of {{his}} medical history, I'll check {{his}} records",
+        "I don't know, I'll ring {{his}} emergency contact for you",
+        "I can't say for certain, I'll look at {{his}} personnel file",
+        "I don't have {{his}} medical details, sorry",
+        "I'm not sure, I'll try to find someone who knows",
+        "I don't know {{his}} history, I can check with HR",
+        "I don't have that information to hand, sorry"
       ]
     },
     "medications": {
       "answers": [
-        "I'm not sure, I can check his staff file"
+        "I'm not sure, I can check {{his}} staff file",
+        "I don't know, I'll see if it's on {{his}} personnel record",
+        "I'm not sure of {{his}} medications, sorry",
+        "I don't have that information, I can check with HR",
+        "I'm not certain, I'll try to find out",
+        "I don't know off hand, I'll check {{his}} file",
+        "I'm not sure, sorry, I don't know {{him}} that well",
+        "I don't have that detail, I'll see what I can find",
+        "I'm not sure, I can ask {{his}} emergency contact",
+        "I don't know, sorry, I can try to find out"
       ]
     },
     "patientAge": {
       "answers": [
-        "He's in his forties"
+        "{{He}}'s in {{his}} forties",
+        "{{He}}'s about 45 I'd say",
+        "{{He}}'s in {{his}} mid forties",
+        "{{He}}'s around 44 or 45",
+        "{{He}}'s in {{his}} forties, been with us a while",
+        "{{He}}'s roughly mid forties",
+        "{{He}}'s about 45 years old",
+        "{{He}}'s in {{his}} forties, I'd guess mid to late",
+        "{{He}}'s around 44, I think",
+        "{{He}}'s in {{his}} mid to late forties"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping pressure on the wound and keeping him calm"
+        "Okay, we're keeping pressure on the wound and keeping {{him}} calm",
+        "Right, we've got {{him}} sat down and we're holding the pressure",
+        "Okay, we're doing our best to keep {{him}} still and calm",
+        "Understood, we'll keep the pressure on until you arrive",
+        "Alright, we're keeping {{him}} talking and comfortable",
+        "Okay, we've got a colleague sat with {{him}} constantly",
+        "Right, we're keeping {{him}} warm and calm",
+        "Okay, we're maintaining pressure and keeping {{him}} reassured",
+        "Understood, we won't let go of the pressure",
+        "Okay, we're keeping everyone else clear and focusing on {{him}}"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an accident with the bandsaw, I need an ambulance and fire crew",
+        "Sorry, why police, {{he}}'s hurt {{his}} hand, it's not a crime",
+        "No, this isn't a police matter, it was a machine malfunction",
+        "There's no need for police, {{he}} needs medical help urgently",
+        "No, it's just an accident, nobody's done anything wrong",
+        "Sorry, I don't need police, I need someone for the injury",
+        "No thank you, it's not a police job, it's a workplace accident",
+        "That's not right, it's the bandsaw, not a police matter",
+        "No, please, just get help here for {{him}}",
+        "Sorry, there's no crime here, the machine just malfunctioned"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, {{he}}'s losing a lot of blood",
+        "Okay, good, the machine's still powered, be careful",
+        "Please hurry, {{he}}'s in a lot of shock",
+        "Thank you, we're keeping pressure on the wound",
+        "Okay, I can hear the siren now, thank god",
+        "Good, hurry, {{his}} arm's badly hurt",
+        "Thank you, we've kept {{him}} talking and calm",
+        "Okay, please tell them to hurry, {{he}}'s very pale",
+        "Thank goodness, we've turned the machine off now",
+        "Good, hurry please, {{he}} needs help fast"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs an ambulance now, he's bleeding badly"
+        "No, this needs an ambulance now, {{he}}'s bleeding badly",
+        "No, this is an emergency, {{he}} needs help urgently",
+        "No thank you, we need an ambulance, not medical advice",
+        "No, please, {{he}}'s bleeding heavily, we need help now",
+        "No, this isn't something 111 can help with, it's urgent",
+        "No, please just send an ambulance, it's serious",
+        "No, {{he}} needs emergency care right now",
+        "No, this is too serious for that, please hurry",
+        "No, please, we need paramedics here immediately",
+        "No, it's a serious injury, we need an ambulance now"
       ]
     }
   },

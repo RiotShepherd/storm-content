@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 3
+  },
   "patients": {
     "range": [
       1,
@@ -74,7 +78,14 @@
     "openings": [
       "Ambulance please, we've disturbed a wasps' nest, my kids have been stung loads of times",
       "I need an ambulance, there's a swarm of wasps, several of us have been stung",
-      "Please hurry, my son's covered in stings and his face is swelling up"
+      "Please hurry, one of my kids is covered in stings and their face is swelling up",
+      "I need help now, we've been attacked by wasps, the kids are covered in stings",
+      "There's wasps everywhere, several of us have been stung quite badly",
+      "Ambulance please, one of my children's face has swollen up after being stung",
+      "Please, we disturbed a nest and now three of us have been stung repeatedly",
+      "I need someone quickly, the kids have been stung loads of times by wasps",
+      "It's an emergency, one of my children's face is swelling up after wasp stings",
+      "Please send an ambulance, we've all been stung badly by a swarm of wasps"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -88,91 +99,230 @@
       "answers": [
         "Ambulance please, we've disturbed a wasps' nest, my kids have been stung loads of times",
         "I need an ambulance, there's a swarm of wasps, several of us have been stung",
-        "Please hurry, my son's covered in stings and his face is swelling up"
+        "Please hurry, one of my kids is covered in stings and their face is swelling up",
+        "I need help now, we've been attacked by wasps, the kids are covered in stings",
+        "There's wasps everywhere, several of us have been stung quite badly",
+        "Ambulance please, one of my children's face has swollen up after being stung",
+        "Please, we disturbed a nest and now three of us have been stung repeatedly",
+        "I need someone quickly, the kids have been stung loads of times by wasps",
+        "It's an emergency, one of my children's face is swelling up after wasp stings",
+        "Please send an ambulance, we've all been stung badly by a swarm of wasps"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm the mum",
-        "It's {{callerName}}"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
-        "{{firstPatientName}} is the worst of them, he's my son",
-        "{{firstPatientName}}, and there's three others stung as well"
+        "There's a few of them hurt, I don't know all their names.",
+        "I can't get names for everyone, there's several people affected.",
+        "A number of people are hurt, I haven't got names for you.",
+        "I don't know their names, there's quite a few involved.",
+        "Some of the staff are hurt, I'd have to check names for you.",
+        "A few people are affected, I can't give you names right now.",
+        "There's several of them, I don't have names to hand.",
+        "Not sure of names, there's a group of people hurt here.",
+        "I can't say who exactly, there's a handful of people affected.",
+        "Multiple people are hurt, I haven't got their names sorted yet."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, in the back garden",
-        "{{address}}, come round the side gate"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "We knocked the nest by accident while mowing, the wasps went for the kids",
-        "It happened about two minutes ago, they've all been stung multiple times",
-        "My son's had at least ten stings, his face is coming up in lumps"
+        "We knocked a wasps' nest in the garden and they all came out at once",
+        "The kids disturbed a nest under the shed and got swarmed",
+        "We were having a picnic and a nest nearby went off, wasps everywhere",
+        "One of the kids poked at a nest in the hedge without realising",
+        "We were playing in the garden and a nest under the decking erupted",
+        "The lawnmower disturbed a nest in the ground and they swarmed us",
+        "We were walking past a nest in a tree and it set them off",
+        "The kids were climbing and knocked a nest hidden in the bushes",
+        "We opened an old shed and disturbed a nest inside",
+        "A nest in the garden wall got knocked and the wasps went for us"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, they're all conscious, but he's crying and his lips look swollen",
-        "Everyone's awake, but my son doesn't look right"
+        "Most of them are conscious, a couple are struggling though.",
+        "They're conscious as far as I can see, just shaken up.",
+        "A few are awake and talking, others I'm not sure about.",
+        "They seem conscious, coughing a lot from the smoke.",
+        "Most are alert, one or two look worse than the rest.",
+        "They're all conscious that I can see, just distressed.",
+        "As far as I can tell they're all awake, just in a state.",
+        "A couple are struggling to stay alert, the rest seem okay.",
+        "They're conscious, some more shaken than others.",
+        "Most of them are talking, a few look quite unwell."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "His breathing sounds a bit wheezy to me",
-        "Everyone else is breathing fine, just him I'm worried about"
+        "Most of them are breathing fine, but one's face is swelling and I'm worried",
+        "They're okay breathing wise so far, just very upset and in pain",
+        "One of them seems to be struggling a bit, the others are fine",
+        "So far everyone's breathing okay, but the swelling's worrying me",
+        "They're all breathing normally at the moment, just shaken and stung",
+        "One's lips look a bit puffy, the rest seem to be breathing fine",
+        "No breathing trouble yet, but I'm keeping a close eye on the swelling",
+        "They're fine breathing wise for now, just crying from the stings",
+        "Everyone's breathing okay, I'm watching for any change closely",
+        "So far so good with breathing, but the swelling's got me worried"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "They're all saying it stings and burns",
-        "Lots of pain from the stings, he's screaming"
+        "They're all in a lot of pain from the stings, crying and upset",
+        "A few of them have got multiple stings, really sore and swollen",
+        "They're in pain, lots of red swollen patches on their arms and legs",
+        "Quite a bit of pain, the stings are coming up in big red welts",
+        "They're saying it stings and burns where they've been hit multiple times",
+        "A lot of pain from the stings, some are quite swollen already",
+        "They're in real discomfort, several stings each on some of them",
+        "There's a lot of crying, the stings are clearly very painful",
+        "Quite sore, some have been stung more than a dozen times",
+        "They're in pain, the swelling's making it worse for a couple of them"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, just the sting marks",
-        "None"
+        "No bleeding, it's just the sting marks coming up red",
+        "No, no blood, just lots of red swollen sting marks",
+        "Not bleeding, no, just the stings themselves",
+        "No blood, just quite a few sting marks on their skin",
+        "No, nothing like that, just the stings swelling up",
+        "No bleeding at all, just red marks where they've been stung",
+        "No, no blood, just the swelling from the stings",
+        "Not bleeding, just really sore red patches",
+        "No blood, no, just multiple sting marks",
+        "No, nothing like that, purely the stings"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "He's never been stung before that I know of",
-        "No allergies that we know about"
+        "One of them's allergic to bee stings, that's what's worrying me most",
+        "No history that I know of, but I'm not sure about wasp allergies",
+        "None of them have been stung before as far as I know",
+        "I don't think any of them have allergies, but I'm not completely sure",
+        "One of the kids has hay fever, not sure if that's linked to allergies",
+        "No known allergies that I'm aware of",
+        "Nothing that I know of, none of them have reacted like this before",
+        "I don't know of any allergies, but I'm watching closely",
+        "No history of reactions before, this is the first time",
+        "Not that I know of, no allergies on record for any of them"
       ]
     },
     "medications": {
       "answers": [
-        "No, he doesn't take anything",
-        "We don't have an EpiPen in the house"
+        "No, none of them are on anything, no epipen or antihistamines",
+        "I've given them some antihistamine tablets we had in the cupboard",
+        "No medication normally, I've just put some cream on the stings",
+        "I've given them some children's antihistamine syrup",
+        "No, they're not on anything, I've just been keeping them calm",
+        "I've put some ice on the stings but no medication yet",
+        "No epipen, no, none of them carry one",
+        "I've given the worst affected one some antihistamine just now",
+        "No regular medication, I've just cooled the stings down with water",
+        "No, nothing normally, I've given antihistamine to the ones stung worst"
       ]
     },
     "patientAge": {
       "answers": [
-        "7"
+        "They're my kids, ages five, eight and eleven",
+        "Mostly children, the youngest is only four",
+        "My two kids and myself, ages six, nine and thirty five",
+        "The children are aged seven and ten",
+        "One of my kids is six, the other's nine, and I got stung too",
+        "They're young, five and seven, plus myself",
+        "The kids are eight and eleven, both stung several times",
+        "My youngest is only three, the other's six",
+        "Mostly under ten, my own kids and a couple of their friends",
+        "The children range from four to twelve years old"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've got him sitting down, please hurry",
-        "I'm trying to keep him calm but he's really upset"
+        "Okay, thank you, we'll keep them as comfortable as we can",
+        "Right, that's a relief, there's quite a few of them",
+        "Okay, we'll wait for them by the entrance",
+        "Thank you, I'll let everyone know help's coming",
+        "Okay, we're keeping them together until they arrive",
+        "Right, thank you, please send as many as you can",
+        "Okay, we'll point them to where everyone is",
+        "Thank you, that's good, some of them are quite unwell",
+        "Okay, we'll stay with them until they get here",
+        "Right, thank you, we'll keep everyone calm"
       ]
     },
     "refer111": {
       "answers": [
-        "No, his face is swelling, I think it's serious",
-        "Okay, if you're sure that's alright"
+        "No, please, one of them's swelling up badly, I don't think this can wait",
+        "No, I'm really worried about the allergic reaction, please send someone",
+        "No, please, there's too many of them stung for that",
+        "No, I don't think 111 is enough, one's face is swelling up",
+        "No, please, this feels urgent with the swelling I'm seeing",
+        "No, I'd rather someone came out given how many stings there are",
+        "No, please, I'm scared about the reaction, can you send an ambulance",
+        "No, this doesn't feel like it can wait, please hurry",
+        "No, please, there's multiple children stung, I need help now",
+        "No, I really think this needs seeing to now, not a call back"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, no police needed, we just need the ambulance for the stings",
+        "No, this isn't a police matter, we've just been stung by wasps",
+        "No police needed, please, we just need help with the stings",
+        "No, there's no crime here, just a wasps' nest, we need paramedics",
+        "No, we don't need police, just an ambulance for the kids please",
+        "No police required, it's just wasp stings, we need medical help",
+        "No, nothing for police to do, please just send the ambulance",
+        "No, this is medical, not police, please hurry with the ambulance",
+        "No police necessary, we just need someone to check the kids over",
+        "No, it's wasps, not a police matter, please send paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? We could do with them to deal with the nest itself",
+        "Actually yes, could they sort the nest so it doesn't happen again",
+        "No fire as such, but could someone deal with the nest afterwards",
+        "No, we just need the ambulance for the kids right now",
+        "Not urgently, but the nest itself will need dealing with at some point",
+        "No fire, no, just please get the ambulance here for the stings",
+        "No, there's no fire, just wasps, please send the paramedics",
+        "We might need someone for the nest later, but ambulance first please",
+        "No fire brigade needed right now, just the ambulance for the kids",
+        "No, it's not a fire, just please hurry with the ambulance"
       ]
     }
   },

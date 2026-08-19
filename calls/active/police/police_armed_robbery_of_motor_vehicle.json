@@ -52,6 +52,10 @@
     "arv": 3,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 10
+  },
   "patients": {
     "range": [
       0,
@@ -85,7 +89,14 @@
     "openings": [
       "Police, quick, someone's just pulled a gun on me and taken my car!",
       "Help, I've just been robbed at gunpoint, they've taken my car",
-      "Please send someone now, a man with a gun forced me out of my car and drove off"
+      "Please send someone now, someone with a gun forced me out of my car and drove off",
+      "I need police urgently, I've just had my car stolen at gunpoint",
+      "Someone just pointed a gun at me and took my car, please hurry",
+      "I need help now, I was just robbed of my car at gunpoint",
+      "Please send someone quickly, someone with a gun took my car right in front of me",
+      "I've just been threatened with a gun and my car's been stolen",
+      "Police please, I've been robbed at gunpoint, my car's gone",
+      "Please hurry, someone with a gun just forced me out of my car and drove off"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -99,90 +110,230 @@
       "answers": [
         "Police, quick, someone's just pulled a gun on me and taken my car!",
         "Help, I've just been robbed at gunpoint, they've taken my car",
-        "Please send someone now, a man with a gun forced me out of my car and drove off"
+        "Please send someone now, someone with a gun forced me out of my car and drove off",
+        "I need police urgently, I've just had my car stolen at gunpoint",
+        "Someone just pointed a gun at me and took my car, please hurry",
+        "I need help now, I was just robbed of my car at gunpoint",
+        "Please send someone quickly, someone with a gun took my car right in front of me",
+        "I've just been threatened with a gun and my car's been stolen",
+        "Police please, I've been robbed at gunpoint, my car's gone",
+        "Please hurry, someone with a gun just forced me out of my car and drove off"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, it's my car they've taken",
-        "It's {{callerName}}"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}, I'm the one it happened to"
+        "It's me, {{firstPatientName}}, I'm the one who called.",
+        "Just me, {{firstPatientName}}, nobody else is hurt.",
+        "{{firstPatientName}}, that's me, I'm on my own here.",
+        "It's just me, {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, there's no one else involved.",
+        "Me, {{firstPatientName}}, I live here alone.",
+        "It's only me affected, {{firstPatientName}}.",
+        "{{firstPatientName}}, yes, that's me.",
+        "Just myself, {{firstPatientName}}, no one else here.",
+        "I'm the patient, {{firstPatientName}}, it's just me."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, I'm still stood here",
-        "It's outside {{address}}, they drove off towards the main road"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A man pointed a gun at me and told me to get out of the car or he'd shoot",
-        "It happened seconds ago, he's driven off in my car",
-        "Two of them jumped out of nowhere, one had a gun, the other grabbed my keys"
+        "I'd just parked up when someone came up and pointed a gun at me",
+        "I was getting out of my car when someone appeared with a gun and demanded my keys",
+        "I stopped at the lights and someone opened my door and pulled a gun on me",
+        "I was loading the boot when someone with a gun forced me away from my car",
+        "Someone approached me on the driveway with a gun and demanded the keys",
+        "I was sat in the car when someone knocked on the window with a gun and forced me out",
+        "I'd just pulled up when someone ran over, pointed a gun at me and took the car",
+        "I was walking to my car when someone with a gun forced me to hand over the keys",
+        "Someone blocked my path with a gun and made me get out of the car",
+        "I was about to drive off when someone pulled a gun and forced me out"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I'm not hurt, just terrified",
-        "I'm fine physically, just shaking"
+        "Yes, I'm awake, just really shaken up",
+        "I'm conscious, yes, but I'm shaking",
+        "Yes, I'm fine that way, just terrified",
+        "I'm alert, yes, just in shock a bit",
+        "Yes, conscious, my heart's going though",
+        "I'm awake, talking to you, just really frightened",
+        "Yes, I'm okay in myself, just shaking like a leaf",
+        "Conscious, yes, I just can't stop shaking",
+        "Yes, I'm with it, just really panicked",
+        "I'm fine that way, just my nerves are shot"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I'm breathing fine, just in shock",
-        "Fine, just panicking"
+        "I'm breathing okay, just really shaken up",
+        "Fine I think, just a bit fast from the shock",
+        "Yes, breathing's alright, I'm just terrified",
+        "No trouble breathing, just my heart's racing",
+        "Breathing's fine, I'm just in shock",
+        "Yes, okay I think, just really panicky",
+        "Fine, I'm just shaking, not struggling to breathe",
+        "No breathing problems, just badly shaken",
+        "Yes, breathing's fine, just very frightened",
+        "I think so, I'm just so shaken up right now"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No pain, he didn't touch me",
-        "No, he just pointed the gun"
+        "No real pain, just feel dreadful and dizzy",
+        "Not pain exactly, just feel awful and weak",
+        "No, no pain, just really unsteady",
+        "Not painful, just feel sick and light headed",
+        "No pain as such, just feel rough all over",
+        "No, I'm not in pain, just feel really off",
+        "Not pain, just feel wobbly and unwell",
+        "No, no pain, just feel like I might pass out",
+        "Nothing painful, just feel really out of sorts",
+        "No pain, just feel weak and shaky"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries",
-        "No bleeding"
+        "No, no bleeding at all",
+        "No, nothing like that",
+        "No blood, just really swollen",
+        "No, I'm not bleeding, no",
+        "Not bleeding, no",
+        "No, no cuts or blood",
+        "No bleeding, just very sore",
+        "No, nothing like that at all",
+        "No blood, no",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not relevant, I'm not hurt",
-        "Nothing, I'm fine"
+        "I'm generally fit and well, nothing you need to worry about.",
+        "No real medical history to speak of, I'm usually fine.",
+        "Nothing major, I don't have any conditions.",
+        "I'm healthy normally, no history to mention.",
+        "No, nothing like that, I'm usually quite well.",
+        "Nothing significant, I don't have any ongoing conditions.",
+        "I don't have any medical issues normally.",
+        "No history worth mentioning, I'm generally okay.",
+        "Nothing really, I'm fit and well as a rule.",
+        "No, I don't have anything like that."
       ]
     },
     "medications": {
       "answers": [
-        "No",
-        "Nothing"
+        "No, I'm not on any medication.",
+        "I don't take anything regularly, no.",
+        "No medication, no, nothing like that.",
+        "I'm not on anything at the moment.",
+        "No, I don't take any tablets or anything.",
+        "Nothing, no, I don't take medication.",
+        "No, I'm not on any regular medication.",
+        "I don't take anything, no.",
+        "No medication to mention, no.",
+        "No, nothing like that at all."
       ]
     },
     "patientAge": {
       "answers": [
-        "41"
+        "{{He}}'s 40",
+        "About 40, I think",
+        "{{He}}'s 40 years old",
+        "40, {{he}}'ll be 41 next year",
+        "I think {{he}}'s 40 or thereabouts",
+        "40 years of age",
+        "{{He}}'s in {{his}} 40s, about 40",
+        "Just turned 40",
+        "{{He}}'s 40, always been fit for {{his}} age",
+        "40, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying here like you said",
-        "I'm trying to stay calm but I'm really shaken up"
+        "Oh, we don't need an ambulance, nobody's hurt here, but thank you.",
+        "No need for paramedics, everyone's fine, it's just the incident we need dealt with.",
+        "There's no one injured, so no ambulance necessary, but I appreciate it.",
+        "No thank you, nobody's hurt, we just need the crews out here.",
+        "We're all fine here, no one needs an ambulance.",
+        "No injuries at all, so there's no need for paramedics, thanks anyway.",
+        "Nobody's hurt, so I don't think we need an ambulance, just the crews.",
+        "That's kind, but no one's injured, we don't need paramedics.",
+        "No, honestly, everyone's fine, it's just the incident itself we need sorted.",
+        "No need, thank you, nobody's been hurt here at all."
       ]
     },
     "refer111": {
       "answers": [
-        "No, I need the police, someone had a gun!"
+        "No, please, this needs someone now, it's dangerous",
+        "No, I really think this is urgent, please send someone",
+        "No, please don't leave it, it's getting worse here",
+        "No, this can't wait, please send police now",
+        "No, please, I'm not safe, I need someone here quickly",
+        "No, please hurry, this is an emergency",
+        "No, I don't think that's right, please send someone now",
+        "No, please, this needs dealing with straight away",
+        "No, I really need help now, not later",
+        "No, please send someone urgently, this can't wait"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll point them to where they're needed when they arrive.",
+        "Right, that's good, we could do with them here to sort the traffic.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting a bit chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, we don't need them, nobody's dealing with a fire here.",
+        "No, this isn't a fire, we don't need the fire engines.",
+        "Sorry, no, there's no fire, it's not something for the fire brigade.",
+        "No thank you, we don't need fire crews, it's not that kind of incident.",
+        "I don't think we need the fire brigade, there's no fire involved.",
+        "No, no fire here, we just need police and paramedics really.",
+        "That's alright, we don't need fire engines, it's not a fire.",
+        "No, this doesn't need the fire brigade, it's a different kind of problem.",
+        "Sorry, no, fire crews aren't needed, there's no fire to speak of.",
+        "No, we're fine on the fire front, it's the other services we need."
       ]
     }
   },

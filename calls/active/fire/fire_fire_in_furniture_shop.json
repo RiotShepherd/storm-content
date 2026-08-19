@@ -50,6 +50,12 @@
     "irv": 5,
     "fire_officer": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 23,
+    "ambulance": 8,
+    "police": 6
+  },
   "patients": {
     "range": [
       0,
@@ -103,7 +109,15 @@
   "caller": {
     "openings": [
       "Fire in the furniture shop at the shopping centre, it's really taking hold",
-      "Fire brigade please, the furniture store's on fire, there's staff and customers still getting out"
+      "Fire brigade please, the furniture store's on fire, there's staff and customers still getting out",
+      "There's a fire in our shop, a colleague's been hurt getting everyone out",
+      "Please hurry, the furniture shop's ablaze and one of my colleagues is injured",
+      "The shop's on fire, we're evacuating but someone's been hurt on the way out",
+      "Fire brigade, our furniture store's alight, a colleague's cut themselves getting clear",
+      "Please send help, the shop's full of smoke and someone's been hurt escaping",
+      "There's a fire in the shopping centre unit, my colleague's hurt their leg getting out",
+      "Help, the furniture shop's on fire and a colleague went down on the way out",
+      "Fire brigade please, the shop's alight, someone's injured near the exit"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -116,80 +130,231 @@
     "start": {
       "answers": [
         "Fire in the furniture shop at the shopping centre, it's really taking hold",
-        "Fire brigade please, the furniture store's on fire, there's staff and customers still getting out"
+        "Fire brigade please, the furniture store's on fire, there's staff and customers still getting out",
+        "There's a fire in our shop, a colleague's been hurt getting everyone out",
+        "Please hurry, the furniture shop's ablaze and one of my colleagues is injured",
+        "The shop's on fire, we're evacuating but someone's been hurt on the way out",
+        "Fire brigade, our furniture store's alight, a colleague's cut themselves getting clear",
+        "Please send help, the shop's full of smoke and someone's been hurt escaping",
+        "There's a fire in the shopping centre unit, my colleague's hurt their leg getting out",
+        "Help, the furniture shop's on fire and a colleague went down on the way out",
+        "Fire brigade please, the shop's alight, someone's injured near the exit"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm one of the shop assistants"
+        "It's {{callerName}}, I'm one of the shop assistants",
+        "{{callerName}}, I work here, I'm with my injured colleague now",
+        "It's {{callerName}}, I'm on shift today",
+        "{{callerName}} here, I'm staying with my colleague until you arrive",
+        "It's {{callerName}}, I'm one of the sales team",
+        "My name's {{callerName}}, I called it in as soon as we got clear",
+        "It's {{callerName}}, I'm stood with the injured colleague",
+        "{{callerName}} speaking, I work in this store",
+        "It's {{callerName}}, I'm at the assembly point with the others",
+        "{{callerName}}, I'm one of the staff who helped everyone out"
       ]
     },
     "patientName": {
       "answers": [
-        "It's a colleague of mine, she cut her leg on a display unit getting out"
+        "It's a colleague of mine, {{firstPatientName}}, {{he}} cut {{his}} leg on a display unit getting out",
+        "{{firstPatientName}}, {{he}} works on the shop floor with me",
+        "It's {{firstPatientName}}, one of the other sales assistants",
+        "{{firstPatientName}} is {{his}} name, {{he}}'s hurt {{his}} leg",
+        "It's my colleague {{firstPatientName}}, {{he}} went down near the exit",
+        "{{firstPatientName}}, we work together on this floor",
+        "It's {{firstPatientName}}, {{he}}'s one of our team here",
+        "{{firstPatientName}}'s the name, {{he}}'s a colleague of mine",
+        "It's {{firstPatientName}}, {{he}} caught {{his}} leg on a unit as we left",
+        "{{firstPatientName}}, {{he}} works alongside me in the shop"
       ]
     },
     "address": {
       "answers": [
         "{{address}}, the furniture shop in the shopping centre",
-        "It's {{address}}, unit near the main entrance"
+        "It's {{address}}, unit near the main entrance",
+        "{{address}}, come to the loading bay round the back",
+        "It's {{address}}, the shop's on the ground floor of the centre",
+        "{{address}}, use the main mall entrance",
+        "It's {{address}}, I'll meet you by the assembly point",
+        "{{address}}, the smoke's coming from the back of the store",
+        "It's {{address}}, we're outside near the food court entrance",
+        "{{address}}, follow the signs for the shopping centre",
+        "It's {{address}}, security can direct you from the main doors"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The sofas and displays have gone up, it's spreading fast because of all the foam and fabric in there"
+        "The sofas and displays have gone up, it's spreading fast because of all the foam and fabric in there",
+        "A display caught fire near the back of the shop and it's spread quickly through the foam",
+        "We think it started near the storeroom, it's taken hold fast with all the fabric around",
+        "It started small near the sofa display but the foam's made it spread very quickly",
+        "No idea how it started, but it's ripping through the shop floor now",
+        "The stockroom's caught fire and it's spread out into the main shop",
+        "It looks like it started electrically near the till point, spread fast to the displays",
+        "The fire's taken hold of most of the shop floor now, the foam's fuelling it",
+        "We're not sure of the cause but it's spread through the whole furniture section",
+        "It started at the back and has spread right through to the front of the shop"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's conscious but shaken up"
+        "Yes, {{he}}'s conscious but shaken up",
+        "{{He}}'s awake and talking, just in a lot of pain",
+        "Conscious, yes, {{he}}'s just really shaken from the fall",
+        "{{He}}'s conscious, {{he}} just can't put weight on {{his}} leg",
+        "Yes, fully conscious, just upset and in pain",
+        "{{He}}'s conscious and talking to me now",
+        "Conscious, yes, but {{he}}'s in quite a bit of pain",
+        "{{He}}'s awake, just really shocked by the whole thing",
+        "Yes, {{he}}'s conscious, holding {{his}} leg and wincing",
+        "Conscious the whole time, just very shaken up"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "She's fine breathing wise, just upset"
+        "{{He}}'s fine breathing wise, just upset",
+        "Breathing's okay, no smoke inhalation as far as I can tell",
+        "{{He}}'s breathing normally, it's the leg that's the problem",
+        "No breathing issues, {{he}}'s just in pain from the leg",
+        "{{He}}'s breathing fine, just shaken and in pain",
+        "No trouble breathing, {{he}} got out before the smoke got too thick",
+        "{{He}}'s breathing okay, mostly just shocked",
+        "Fine on breathing, {{he}}'s more worried about the leg",
+        "No issues there, {{he}}'s breathing normally",
+        "{{He}}'s okay for breathing, it's the leg injury that's the concern"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her leg's really sore where she caught it"
+        "{{He}} says {{his}} leg's really sore where {{he}} caught it",
+        "Yes, {{he}}'s in a lot of pain from {{his}} leg",
+        "{{He}}'s wincing badly, says the pain's quite severe in {{his}} leg",
+        "{{He}} says it hurts a lot, {{he}} can't put any weight on it",
+        "Yes, quite a bit of pain, {{he}}'s holding {{his}} leg",
+        "{{He}}'s in pain, says it's a sharp pain in the leg",
+        "{{He}} says the pain's getting worse now {{he}}'s sat still",
+        "Yes, {{he}}'s in pain, keeps saying {{his}} leg's throbbing",
+        "{{He}}'s clearly in a lot of discomfort with the leg",
+        "{{He}} says it's very painful, especially when {{he}} tries to move"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, it's bleeding quite a bit, I've got a cloth on it"
+        "Yes, it's bleeding quite a bit, I've got a cloth on it",
+        "There's a fair amount of blood, I'm pressing a cloth on the wound",
+        "Yes, {{he}}'s bleeding from the cut, I've applied pressure",
+        "It's bleeding steadily, I've got something wrapped round it",
+        "Yes, quite a bit of blood, I'm keeping pressure on it now",
+        "There's blood coming through the cloth I've put on it",
+        "Yes, it's bleeding, I've tied a bandage from the first aid kit round it",
+        "It's still bleeding a bit, I'm holding a cloth firmly on it",
+        "Yes, there's a fair bit of blood, I'm applying pressure as best I can",
+        "It's bleeding, I've used our first aid kit to wrap it"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of, sorry"
+        "Not that I know of, sorry",
+        "I don't think {{he}}'s got anything, but I'm not certain",
+        "Sorry, I don't know {{his}} medical history well",
+        "Not that I'm aware of, we've never discussed it",
+        "I don't know, sorry, we're colleagues not close friends",
+        "Nothing that I know of, sorry",
+        "I couldn't say, sorry, I don't know {{his}} history",
+        "Not that I've heard, sorry",
+        "I don't believe so, but I can't be certain",
+        "Sorry, I don't know, we've not talked about that"
       ]
     },
     "medications": {
       "answers": [
-        "I don't think she's on anything, I'm not sure"
+        "I don't think {{he}}'s on anything, I'm not sure",
+        "Not that I know of, sorry",
+        "I couldn't say, sorry, I don't know {{his}} medications",
+        "I don't believe so, but I'm not completely sure",
+        "Sorry, I don't know what {{he}} takes",
+        "Not that I'm aware of, sorry",
+        "I don't know, sorry, we've never discussed it",
+        "I don't think so, but I really couldn't say for certain",
+        "Sorry, no idea, that's not something we've talked about",
+        "I don't know, sorry, I can't help with that"
       ]
     },
     "patientAge": {
       "answers": [
-        "She's in her twenties"
+        "{{He}}'s in {{his}} twenties",
+        "{{He}}'s about twenty five, I think",
+        "Early twenties, {{he}}'s one of our newer staff",
+        "{{He}}'s in {{his}} mid twenties",
+        "I'd say {{he}}'s around twenty six or so",
+        "{{He}}'s a younger member of staff, twenties",
+        "{{He}}'s in {{his}} late twenties",
+        "About twenty five, {{he}}'s been here a couple of years",
+        "{{He}}'s in {{his}} twenties, quite young",
+        "{{He}}'s twenty something, one of the younger staff"
       ]
     },
     "reassure": {
       "answers": [
         "Okay, we're all out at the assembly point now",
-        "Please hurry, the smoke's really thick"
+        "Please hurry, the smoke's really thick",
+        "Right, I'm staying with {{him}} until you get here",
+        "Okay, I've kept the cloth pressed on the wound",
+        "Understood, we're well away from the shop now",
+        "Alright, {{he}}'s sat down and I'm keeping {{him}} calm",
+        "Okay, I'll keep applying pressure until you arrive",
+        "Right, everyone else is safely out at the assembly point",
+        "Understood, I'm keeping {{him}} talking and calm",
+        "Okay, we're just waiting for you by the entrance"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need an ambulance, someone's hurt getting out"
+        "No, we need an ambulance, someone's hurt getting out",
+        "No, this needs paramedics, not 111",
+        "No, {{he}}'s bleeding and can't walk, we need an ambulance",
+        "No thank you, this is an emergency, {{he}} needs help now",
+        "No, please send an ambulance, the injury's quite bad",
+        "No, this isn't something 111 can sort, we need paramedics",
+        "No, {{he}} needs proper medical help urgently",
+        "No, please, {{he}}'s in a lot of pain and bleeding",
+        "No, we need emergency crews here, not a phone line",
+        "No, please hurry, {{he}} really needs an ambulance"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I think it's just the fire brigade and an ambulance we need",
+        "Oh, I suppose they could help keep shoppers away from the smoke",
+        "Police? I wasn't expecting them, but if it helps with the crowd that's fine",
+        "That's okay, I imagine they'll help clear the mall of shoppers",
+        "Police? There's no trouble, just a fire and an injured colleague",
+        "Oh right, I suppose someone needs to keep people away from the unit",
+        "I don't think we need them, but thank you for sending them anyway",
+        "That's fine, they can help manage the crowd building up outside",
+        "Police? I hadn't thought of that, but keeping the mall clear makes sense",
+        "Okay, thank you, I suppose the centre will need managing too"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, please hurry, the smoke's getting thicker in here",
+        "Okay, I'm staying with {{him}} until they arrive",
+        "Thank god, how long roughly until the crew gets here",
+        "Right, I'll keep the cloth pressed on the wound until they come",
+        "Okay, we're well away from the shop now, waiting for you",
+        "Thank you, please send them quickly, {{he}}'s in a lot of pain",
+        "Understood, I'll keep {{him}} calm until the crews arrive",
+        "Okay, everyone else is safely out at the assembly point now",
+        "Thank you, I'll wait by the entrance to point them in",
+        "Right, I'll keep talking to {{him}} until help gets here"
       ]
     }
   },

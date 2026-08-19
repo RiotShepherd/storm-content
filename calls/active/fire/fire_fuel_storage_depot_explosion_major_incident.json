@@ -55,6 +55,12 @@
     "fire_officer": 10,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 30,
+    "ambulance": 15,
+    "police": 8
+  },
   "patients": {
     "range": [
       5,
@@ -125,9 +131,16 @@
   ],
   "caller": {
     "openings": [
-      "There's been a massive explosion at the fuel depot, the whole sky's lit up",
-      "Please send everyone, the fuel storage tanks have exploded, there's people injured everywhere",
-      "Major incident, the fuel depot's gone up, I can feel the heat from here"
+      "There's been a massive explosion at the fuel depot, the whole sky's lit up.",
+      "Please send everyone, the fuel storage tanks have exploded, there's people injured.",
+      "Major incident, the fuel depot's gone up, I can feel the heat from here.",
+      "There's been an explosion at the depot, it's absolute chaos, people are hurt.",
+      "Please help, the fuel tanks have gone up, there's casualties everywhere.",
+      "There's been a huge blast at the depot, staff are running everywhere, some are hurt.",
+      "The fuel storage site's exploded, please send everything you've got.",
+      "There's been an explosion, the depot's on fire, people have been thrown off their feet.",
+      "Please hurry, the tanks have blown, there's people injured all over the site.",
+      "Major incident at the fuel depot, there's been an explosion, we need everyone."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -139,82 +152,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's been a massive explosion at the fuel depot, the whole sky's lit up",
-        "Please send everyone, the fuel storage tanks have exploded, there's people injured everywhere",
-        "Major incident, the fuel depot's gone up, I can feel the heat from here"
+        "There's been a massive explosion at the fuel depot, the whole sky's lit up.",
+        "Please send everyone, the fuel storage tanks have exploded, there's people injured.",
+        "Major incident, the fuel depot's gone up, I can feel the heat from here.",
+        "There's been an explosion at the depot, it's absolute chaos, people are hurt.",
+        "Please help, the fuel tanks have gone up, there's casualties everywhere.",
+        "There's been a huge blast at the depot, staff are running everywhere, some are hurt.",
+        "The fuel storage site's exploded, please send everything you've got.",
+        "There's been an explosion, the depot's on fire, people have been thrown off their feet.",
+        "Please hurry, the tanks have blown, there's people injured all over the site.",
+        "Major incident at the fuel depot, there's been an explosion, we need everyone."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I work on site, I got clear of the first blast"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "There's a lot of us hurt, I can't give you names for everyone"
+        "There's a few people hurt, I don't have names for all of them.",
+        "I can't give you names, there's several people affected.",
+        "No names I'm afraid, there's quite a few casualties.",
+        "I don't know everyone's name, there's a group of them hurt.",
+        "Can't tell you names, there's a fair number of people involved.",
+        "No idea on names, there's several people needing help.",
+        "I haven't got names, it's a good few people affected.",
+        "Sorry, no names, there's a number of people hurt here.",
+        "I can't say who's who, there's several casualties.",
+        "No names to give you, there's quite a lot of people hurt."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the fuel storage depot, approach from upwind if you can",
-        "It's {{address}}, keep well back from the tank farm"
+        "It's {{address}}, the fuel depot, come through the main gate.",
+        "{{address}}, security will need to let you through the barrier.",
+        "It's {{address}}, approach from the north side, it's safer there.",
+        "{{address}}, I'll meet you at the gatehouse.",
+        "We're at {{address}}, the whole site's on fire, be careful coming in.",
+        "It's {{address}}, there's a muster point near the entrance.",
+        "{{address}}, please stay well back from the tanks when you arrive.",
+        "That's {{address}}, the access road runs along the perimeter fence.",
+        "It's {{address}}, I'll direct you once you're through the gate.",
+        "{{address}}, come in slowly, there could be more explosions."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "One of the storage tanks exploded, then it set off others nearby, there's fire and injured people all over the site"
+        "One of the storage tanks exploded without warning, the fireball was enormous.",
+        "There was a huge bang, then the whole site seemed to go up at once.",
+        "A tank went up first, then it set off others nearby, it's chaos here.",
+        "We heard the explosion from the office, by the time we got out there were people down.",
+        "It just went up, no warning, people were thrown off their feet by the blast.",
+        "There's been at least one more explosion since the first, everyone's terrified.",
+        "The tanks are still going up one after another, we've pulled back as far as we can.",
+        "It happened so fast, the fireball took out a good part of the site.",
+        "We think it started in the tank farm, then it spread and more went up.",
+        "People are scattered everywhere, some can't move, it's a total mess here."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are conscious, a few aren't moving at all"
+        "They're conscious, just shaken and coughing a lot.",
+        "Most of them are awake, a couple are pretty out of it.",
+        "They're conscious but confused, some are in shock.",
+        "They're awake, terrified, some can barely stand.",
+        "A few are talking, others are just sat there dazed.",
+        "They're conscious, mostly, one or two aren't responding well.",
+        "They're awake but in a bad way, lots of coughing.",
+        "Most are conscious, a couple look like they might pass out.",
+        "They're conscious, scared, asking what's happening.",
+        "They're awake, some are more with it than others."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Some are struggling to breathe with the smoke, others have burns"
+        "They're all struggling for breath, the smoke's really thick.",
+        "A lot of coughing, breathing's rough for most of them.",
+        "They're breathing but wheezing badly, the smoke got to them.",
+        "Some are really struggling, gasping a bit.",
+        "They're breathing, just laboured, everyone's coughing.",
+        "A few are worse than others, but nobody's breathing easily.",
+        "They're all affected by the smoke, breathing's not good.",
+        "Breathing's fast and shallow across the board.",
+        "They're coughing constantly, struggling to get air in.",
+        "Breathing's rough for most of them, the smoke's everywhere."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "People are screaming in pain, there's burns everywhere"
+        "A few have burns, others are just banged up and sore.",
+        "Some are in a lot of pain, mostly from the smoke and heat.",
+        "They're in pain, various injuries, cuts, burns, bruises.",
+        "A couple have bad burns, the rest are shaken and sore.",
+        "They're all in some discomfort, chests mostly.",
+        "Some are in agony with burns, others just shaken up.",
+        "A few say their chests hurt badly from the smoke.",
+        "They're in pain, mixed injuries from the panic to get out.",
+        "Some have twisted ankles from running, others are burnt.",
+        "A lot of them are sore and scared, a couple badly hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's bleeding from the blast debris, quite a few of us"
+        "A couple have cuts from broken glass, bleeding but not too bad.",
+        "Some are bleeding from cuts, mostly minor as far as I can tell.",
+        "One or two have proper cuts, the rest are just bruised.",
+        "There's some bleeding, cuts from the rush to get out.",
+        "A few are cut and bleeding, nothing life threatening that I can see.",
+        "Some bleeding from scrapes and cuts getting clear of it.",
+        "A couple have deeper cuts, bleeding quite a bit.",
+        "Not much bleeding, mostly burns and smoke are the issue.",
+        "A few cuts here and there, bleeding but manageable.",
+        "Some are bleeding from falls in the rush, cuts mainly."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know everyone's history, there's too many people involved"
+        "No idea, I don't know any of them personally.",
+        "I can't say, there's too many people to know that about.",
+        "No idea, sorry, they're guests, I don't know their medical details.",
+        "I can't help with that, I don't know these people.",
+        "Sorry, no idea, there's not enough time to check with everyone.",
+        "No idea I'm afraid, I don't know any of them well.",
+        "Can't tell you that, sorry, they're strangers to me really.",
+        "No idea, there's too many of them to ask right now.",
+        "Sorry, I don't know, I haven't had chance to ask anyone.",
+        "No idea at all, I don't know these people personally."
       ]
     },
     "medications": {
       "answers": [
-        "I can't say, sorry, this is chaos"
+        "No idea, sorry, I don't know any of them.",
+        "I can't say, there's too many people to know that.",
+        "No idea, sorry, I don't know what any of them take.",
+        "I can't help with that, they're strangers to me really.",
+        "Sorry, no idea, there's no way to check with everyone now.",
+        "No idea I'm afraid, I don't know these people well.",
+        "Can't tell you that, sorry, I don't know any of them.",
+        "No idea, there's too many of them to ask right now.",
+        "Sorry, I don't know, I haven't had chance to ask.",
+        "No idea at all, I don't know these people personally."
       ]
     },
     "patientAge": {
       "answers": [
-        "All working age, this is our shift team, twenties to sixties"
+        "Mixed ages, mostly adults, a couple look older.",
+        "All sorts, staff and guests, mainly working age adults.",
+        "Hard to say for everyone, mostly grown ups from what I can see.",
+        "A real mix, some younger, some older guests.",
+        "Mostly adults as far as I can tell, no children that I've seen.",
+        "Can't give you exact ages, it's a real mix of people.",
+        "Mainly adults, one or two look a bit older, that's all I can say.",
+        "Hard to tell with everyone rushing about, mostly adults though.",
+        "A mix of ages, I haven't had chance to ask anyone properly.",
+        "Mostly working age adults, sorry, I can't be more precise."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're moving everyone we can to the assembly point",
-        "Please hurry, there could be more tanks going up"
+        "Okay, thank you, we're keeping them together at the assembly point.",
+        "Please hurry, some of them really need help.",
+        "Okay, we're doing what we can till you get here.",
+        "Thank you, I've got them all sat down now.",
+        "Okay, good, I'll keep them calm as best I can.",
+        "Thank you, please hurry, a few of them are in a bad way.",
+        "Okay, we're all staying together outside.",
+        "Right, thank you, I'll keep an eye on the worst hurt ones.",
+        "Okay, I'll let them know help's coming.",
+        "Thank you, we'll wait here together for you."
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a major explosion with multiple casualties, we need everything you have"
+        "No, they're hurt, this can't wait for 111, please send help.",
+        "No, I really think they need an ambulance now, not 111.",
+        "Please, no, some of them are in a bad way, we need paramedics.",
+        "No, this is serious, people are hurt, please send help now.",
+        "I don't think 111 can help with this many people hurt.",
+        "No, please, they need urgent help, not a phone line.",
+        "No, this needs 999, there's people badly hurt here.",
+        "Please, they can't wait for a call back, send someone now.",
+        "No, I really need ambulances here, not 111, people are hurt.",
+        "No, this is urgent, there's several people injured, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, that'll help with the traffic here.",
+        "Good, we could do with some help keeping people back.",
+        "Thanks, that makes sense, it's chaos here.",
+        "Okay, I'll let them know when they arrive.",
+        "Right, thank you, they can help clear the road.",
+        "Okay, that's good, we need some order here.",
+        "Thanks, they'll be needed to keep everyone safe.",
+        "Okay, understood, I'll watch out for them.",
+        "Good, thank you, it's getting busy here.",
+        "Okay, thanks, that'll help a lot."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay well back until you get here.",
+        "Right, thank you, we're keeping clear of it.",
+        "Okay, I've got everyone away from it.",
+        "Thanks, I'll wait here till the crews arrive.",
+        "Alright, we've kept the area clear for now.",
+        "Okay, I'll keep everyone back and wait for you.",
+        "Thank you, we're staying clear, please hurry.",
+        "Right, understood, we won't go near it.",
+        "Okay, we're all keeping our distance.",
+        "Thanks, we'll wait here for the crews."
       ]
     }
   },

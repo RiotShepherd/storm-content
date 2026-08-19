@@ -45,6 +45,12 @@
     "irv": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "police": 1,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -87,8 +93,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "A child's got his leg stuck in the climbing frame at school, he's really upset",
-      "I need help, one of our pupils is trapped in the play equipment and can't get free"
+      "A child's got {{his}} leg stuck in the climbing frame at school, {{he}}'s really upset.",
+      "I need help, one of our pupils is trapped in the play equipment and can't get free.",
+      "One of the {{boy}}s has got {{his}} leg wedged in the climbing frame, {{he}}'s crying.",
+      "A pupil's stuck fast in the play equipment, we can't work {{him}} loose.",
+      "{{He}}'s trapped by the leg in the climbing frame bars, please send help.",
+      "There's a child stuck in the playground equipment, {{he}}'s scared and it's tight.",
+      "We've got a pupil stuck fast in the frame, {{his}} leg won't come free.",
+      "Please hurry, one of our {{boy}}s is wedged in the climbing frame at playtime.",
+      "A child's leg is trapped between the bars on the climbing frame, we need help.",
+      "One of our pupils is stuck in the play equipment, {{he}}'s getting more upset."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -100,82 +114,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "A child's got his leg stuck in the climbing frame at school, he's really upset",
-        "I need help, one of our pupils is trapped in the play equipment and can't get free"
+        "A child's got {{his}} leg stuck in the climbing frame at school, {{he}}'s really upset.",
+        "I need help, one of our pupils is trapped in the play equipment and can't get free.",
+        "One of the {{boy}}s has got {{his}} leg wedged in the climbing frame, {{he}}'s crying.",
+        "A pupil's stuck fast in the play equipment, we can't work {{him}} loose.",
+        "{{He}}'s trapped by the leg in the climbing frame bars, please send help.",
+        "There's a child stuck in the playground equipment, {{he}}'s scared and it's tight.",
+        "We've got a pupil stuck fast in the frame, {{his}} leg won't come free.",
+        "Please hurry, one of our {{boy}}s is wedged in the climbing frame at playtime.",
+        "A child's leg is trapped between the bars on the climbing frame, we need help.",
+        "One of our pupils is stuck in the play equipment, {{he}}'s getting more upset."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I teach his class",
-        "{{callerName}}, playground supervisor"
+        "It's {{callerName}}, I teach {{his}} class.",
+        "{{callerName}}, I teach {{his}} class.",
+        "My name's {{callerName}}, I teach {{his}} class.",
+        "{{callerName}} here, I teach {{his}} class.",
+        "It's {{callerName}} speaking, I teach {{his}} class.",
+        "You can put me down as {{callerName}}, I teach {{his}} class.",
+        "{{callerName}}. I teach {{his}} class.",
+        "It's {{callerName}}, I teach {{his}} class, please hurry.",
+        "{{callerName}}, that's me, I teach {{his}} class.",
+        "It's {{callerName}}, I teach {{his}} class, is help coming?"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, one of our pupils",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, one of our pupils.",
+        "It's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's one of our pupils.",
+        "{{He}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}} is one of our pupils.",
+        "The name's {{firstPatientName}}.",
+        "{{firstPatientName}}, one of our pupils, please hurry.",
+        "It's {{firstPatientName}}, one of our pupils.",
+        "{{firstPatientName}}. That's {{his}} name.",
+        "{{firstPatientName}}, that's what {{he}} goes by."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, the primary school",
-        "{{address}}, come to the playground gate"
+        "We're at {{address}}, come to the playground gate.",
+        "It's {{address}}, come to the playground gate.",
+        "{{address}}, come to the playground gate.",
+        "The address is {{address}}, come to the playground gate.",
+        "We're at {{address}}.",
+        "{{address}}, come as quickly as you can.",
+        "You need {{address}}, come to the playground gate.",
+        "{{address}} is where we are, come to the playground gate.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He was climbing and his leg's gone through the bars, we can't get him free"
+        "{{He}} was climbing and {{his}} leg's gone through the bars, we can't get {{him}} free.",
+        "{{He}} slipped while climbing and {{his}} ankle got wedged between the bars.",
+        "{{He}} was playing and got {{his}} leg stuck trying to climb through a gap.",
+        "{{He}} climbed up and {{his}} foot's caught fast between the metal bars.",
+        "{{He}} was messing about on the frame and got {{his}} leg trapped.",
+        "{{He}} tried to squeeze through a gap and got stuck fast by the leg.",
+        "{{He}} was playing at break time and {{his}} leg's jammed in the frame.",
+        "{{He}} climbed too high and slipped, now {{his}} leg's wedged tight.",
+        "{{He}} got {{his}} leg caught between two bars while climbing.",
+        "{{He}} was playing chase and got {{his}} leg trapped in the frame."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's crying but talking"
+        "Yes, {{he}}'s crying but talking.",
+        "{{He}}'s awake and upset but responsive.",
+        "Yes, {{he}}'s conscious, just very frightened.",
+        "{{He}}'s fine in {{himself}}, just scared and stuck.",
+        "Yes, {{he}}'s talking to us, mostly crying.",
+        "{{He}}'s alert, just very upset about being stuck.",
+        "Yes, {{he}}'s conscious and calling out for {{his}} parents.",
+        "{{He}}'s awake, chatting a bit between sobs.",
+        "Yes, {{he}}'s responsive, just distressed.",
+        "{{He}}'s conscious and talking, just very shaken."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Breathing's fine.",
+        "Yes, {{his}} breathing's normal, just crying hard.",
+        "Fine, just a bit fast from crying.",
+        "Normal, no concerns there.",
+        "{{He}}'s breathing okay, just upset.",
+        "Breathing's fine, {{he}}'s just very tearful.",
+        "No problems there, just crying.",
+        "It's fine, {{he}}'s just sobbing a lot.",
+        "Normal breathing, just distressed.",
+        "Breathing's okay, nothing worrying there."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He says his leg hurts where it's trapped"
+        "{{He}} says {{his}} leg hurts where it's trapped.",
+        "{{He}}'s saying it hurts a bit but {{he}}'s more scared than sore.",
+        "{{He}} says {{his}} ankle's sore where it's wedged.",
+        "A bit of pain where the bars are pressing, {{he}} says.",
+        "{{He}} says it hurts but not too badly.",
+        "{{He}}'s complaining {{his}} leg's uncomfortable, not agony.",
+        "{{He}} says it's tight and a bit painful.",
+        "{{He}}'s saying {{his}} foot hurts where it's caught.",
+        "A little pain, {{he}} says, mostly {{he}}'s frightened.",
+        "{{He}} says it stings where the bar's pressing on {{him}}."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A small graze, nothing major"
+        "A small graze, nothing major.",
+        "Just a scratch on {{his}} leg, no real bleeding.",
+        "A tiny graze, nothing to worry about.",
+        "No real bleeding, just a small scrape.",
+        "A little graze where the bar's rubbing, that's all.",
+        "Nothing major, just a small scratch.",
+        "No, just a graze, no proper bleeding.",
+        "A minor scrape on {{his}} shin, nothing more.",
+        "Barely anything, just a small graze.",
+        "No significant bleeding, just a light graze."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "None that we know of, I'll check with the office"
+        "None that we know of, I'll check with the office.",
+        "Nothing on file that I'm aware of.",
+        "I don't know offhand, I'll check {{his}} records.",
+        "Not that we've been told, no.",
+        "I'm not sure, the office will have that on file.",
+        "Nothing flagged that I know of.",
+        "I don't have that in front of me, I'll find out.",
+        "Not that I'm aware of, I'll check the school records.",
+        "I don't know, I can ask the school office.",
+        "Nothing that I know of off the top of my head."
       ]
     },
     "medications": {
       "answers": [
-        "None that we know of"
+        "None that we know of.",
+        "Not that we've been told, no.",
+        "I don't think so, I'll check the records.",
+        "None on file as far as I know.",
+        "Not that I'm aware of.",
+        "I don't know, I'll ask the office.",
+        "None recorded that I can see.",
+        "I don't believe so, no.",
+        "Nothing that we know of.",
+        "Not on {{his}} file as far as I know."
       ]
     },
     "patientAge": {
       "answers": [
-        "7"
+        "7",
+        "About 7",
+        "7, I think",
+        "{{He}}'s 7 years old",
+        "I believe {{he}}'s 7",
+        "Just turned 7 I think",
+        "7, same age as always",
+        "Around 7, give or take",
+        "{{He}} is 7",
+        "I'd say 7 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've got a member of staff with him"
+        "Okay, we've got a member of staff with {{him}}.",
+        "Thank you, we're keeping {{him}} calm until they arrive.",
+        "Okay, we'll stay with {{him}} and keep talking to {{him}}.",
+        "Thank you, we've got a teacher sat with {{him}} now.",
+        "Okay, we're keeping {{him}} as comfortable as we can.",
+        "Thank you, we've cleared the other children away.",
+        "Okay, we'll keep reassuring {{him}} until help gets here.",
+        "Thank you, someone's staying right by {{him}}.",
+        "Okay, we've told {{him}} help is coming, that's calmed {{him}} a bit.",
+        "Thank you, we're doing everything we can to keep {{him}} settled."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need someone to free him, please hurry"
+        "No, we need someone to free {{him}}, please hurry.",
+        "No, {{he}}'s physically stuck, this isn't something 111 can help with.",
+        "No, we need someone here to get {{him}} out, please.",
+        "No, this needs the fire brigade, not a phone call.",
+        "No, {{he}}'s trapped, please send someone now.",
+        "No, this can't wait, {{he}}'s stuck fast.",
+        "No, we really need someone to come and free {{him}}.",
+        "No, please, {{he}}'s getting more distressed by the minute.",
+        "No, this needs hands on help, not advice over the phone.",
+        "No, please send someone, {{he}} can't get free on {{his}} own."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, we'll let the head teacher know they're coming too.",
+        "Alright, that's fine, we'll have someone meet them at the gate as well.",
+        "Okay, thank you for letting us know.",
+        "Alright, that's helpful, we'll inform the office.",
+        "Okay, we'll make sure the gate's open for everyone.",
+        "Alright, thank you, we'll let the school know.",
+        "Okay, that's fine, we appreciate it.",
+        "Alright, we'll have the playground gate ready for them.",
+        "Okay, thank you, that's reassuring.",
+        "Alright, thank you, we'll pass that on to the head."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes please, we can't free {{his}} leg ourselves.",
+        "Thank you, we need someone with the right tools to get {{him}} out.",
+        "Okay, please hurry, we've tried and can't shift the bars.",
+        "Yes, we need them, we don't want to hurt {{him}} trying ourselves.",
+        "Thank you, that's what we need, please come quickly.",
+        "Okay, good, we've stopped trying to pull {{him}} free ourselves.",
+        "Yes please, we're worried about hurting {{him}} more.",
+        "Thank you, please hurry, {{he}}'s getting more upset.",
+        "Okay, we'll keep {{him}} calm until they get here to free {{him}}.",
+        "Yes, please, we can't budge the bars at all."
       ]
     }
   },

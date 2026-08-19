@@ -49,6 +49,12 @@
     "irv": 2,
     "fire_officer": 5
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 3,
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -85,7 +91,15 @@
   "caller": {
     "openings": [
       "We've had a small chemical spill in the unit, one of my staff feels unwell",
-      "There's been a spill on the industrial estate, not huge, but someone's been affected"
+      "There's been a spill on the industrial estate, not huge, but someone's been affected",
+      "We've had a minor spill in the unit, one member of staff feels a bit off",
+      "There's been a small chemical spill here, one of the team feels unwell",
+      "A container leaked a bit in the unit, one of my staff isn't feeling great",
+      "We've had a small spill, nothing major, but one person's been affected by it",
+      "There's been a minor leak in the unit, one of my colleagues feels dizzy",
+      "A small amount of chemical spilled here, one member of staff feels unwell",
+      "We've had a small spill in the unit, one of the lads feels a bit sick",
+      "There's a small spill on the estate, one of my staff has been affected"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -98,89 +112,231 @@
     "start": {
       "answers": [
         "We've had a small chemical spill in the unit, one of my staff feels unwell",
-        "There's been a spill on the industrial estate, not huge, but someone's been affected"
+        "There's been a spill on the industrial estate, not huge, but someone's been affected",
+        "We've had a minor spill in the unit, one member of staff feels a bit off",
+        "There's been a small chemical spill here, one of the team feels unwell",
+        "A container leaked a bit in the unit, one of my staff isn't feeling great",
+        "We've had a small spill, nothing major, but one person's been affected by it",
+        "There's been a minor leak in the unit, one of my colleagues feels dizzy",
+        "A small amount of chemical spilled here, one member of staff feels unwell",
+        "We've had a small spill in the unit, one of the lads feels a bit sick",
+        "There's a small spill on the estate, one of my staff has been affected"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I'm on site"
+        "It's {{callerName}}",
+        "{{callerName}} speaking",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yes, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}}, hello",
+        "Sure, {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}} calling"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, one of our staff",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}, one of my staff",
+        "{{firstPatientName}}, {{he}}'s been with us a couple of years",
+        "{{His}} name's {{firstPatientName}}",
+        "It's {{firstPatientName}}, {{he}} works in the unit with me",
+        "{{firstPatientName}}, one of my team",
+        "{{He}}'s called {{firstPatientName}}, {{he}}'s a good worker",
+        "{{firstPatientName}} is {{his}} name",
+        "It's {{firstPatientName}}, {{he}}'s one of the staff here",
+        "{{firstPatientName}}, {{he}}'s not feeling great at all",
+        "{{firstPatientName}}, that's the one who's been affected"
       ]
     },
     "address": {
       "answers": [
-        "It's at {{address}}",
-        "{{address}}, industrial estate unit"
+        "It's {{address}}",
+        "{{address}}, in the unit",
+        "We're at {{address}}",
+        "The address is {{address}}",
+        "{{address}}, that's where we are",
+        "It's {{address}}, in the unit",
+        "Yes, {{address}}",
+        "{{address}} is the address",
+        "Sure, it's {{address}}",
+        "{{address}}, in the unit, if that helps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A small container of chemicals spilled and {{firstPatientName}} was nearby, breathed some fumes in",
-        "There's a small spill on the floor, {{firstPatientName}} got a bit of it on their skin and feels unwell"
+        "A container leaked a small amount of chemical and {{he}} was nearby",
+        "There was a small spill and {{he}} got a whiff of the fumes",
+        "{{He}} was working near a container that started leaking",
+        "A small amount spilled on the floor and {{he}} breathed some of it in",
+        "It was a minor leak but {{he}} was closest to it at the time",
+        "{{He}} noticed the smell first and started feeling unwell shortly after",
+        "A container split slightly and {{he}} got some of the fumes",
+        "It's not a big spill but {{he}} was right next to it",
+        "{{He}} was clearing up nearby when the spill happened",
+        "A small leak started and {{he}} was affected before we noticed"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake and talking",
-        "Yes, conscious throughout"
+        "Yes, {{he}}'s conscious and talking to me",
+        "{{He}}'s awake, just feels rough",
+        "Yes, conscious, a bit pale though",
+        "{{He}}'s alert, just not feeling great",
+        "Yes, {{he}}'s talking fine, just feels unwell",
+        "Conscious, {{he}}'s sat down and resting",
+        "Yes, {{he}}'s awake and responding normally",
+        "{{He}}'s conscious, just a bit dizzy",
+        "Yes, {{he}}'s alert, we're keeping {{him}} away from the fumes now",
+        "Conscious and talking, {{he}} just feels off colour"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A little tight, but managing",
-        "Breathing's okay, a bit of coughing"
+        "{{He}}'s breathing okay, just coughing a bit",
+        "A little wheezy but breathing alright",
+        "{{He}}'s breathing fine, just uncomfortable",
+        "A bit short of breath but nothing severe",
+        "{{He}}'s coughing but breathing is okay",
+        "Breathing's fine, just a scratchy throat from the fumes",
+        "A little breathless but coping okay",
+        "{{He}}'s breathing normally, just feels a bit sick",
+        "No real trouble breathing, just coughing occasionally",
+        "{{He}}'s breathing fine, we've got {{him}} in fresh air now"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Some stinging where it touched the skin",
-        "A sore throat, mainly"
+        "{{He}}'s got a bit of a headache",
+        "A sore throat mainly, nothing else",
+        "{{He}} says {{his}} chest feels a little tight",
+        "Just a mild headache and some dizziness",
+        "{{He}}'s uncomfortable but not in real pain",
+        "A bit of throat irritation, that's about it",
+        "{{He}} mentions a headache and feeling queasy",
+        "No real pain, just discomfort from the fumes",
+        "{{He}}'s got a slight headache, nothing severe",
+        "Some throat irritation, {{he}}'s otherwise okay"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "None"
+        "No, no bleeding at all",
+        "No, {{he}}'s not injured, just feels unwell",
+        "No bleeding, it's just from breathing in the fumes",
+        "No, there's no injury, just the exposure",
+        "No bleeding, {{he}}'s just feeling a bit off",
+        "No, nothing like that, just unwell from the fumes",
+        "No bleeding, {{he}}'s not hurt physically",
+        "No, {{he}}'s fine in that respect, just feels sick",
+        "No bleeding at all, just the chemical exposure",
+        "No, there's no bleeding, {{he}}'s just unwell"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of",
-        "No, nothing I'm aware of"
+        "Not that I know of, {{he}}'s never mentioned anything",
+        "I don't think so, but I'm not completely sure",
+        "No idea, sorry, that's not something we've discussed",
+        "Not as far as I know, {{he}} seems generally fit and well",
+        "I couldn't say for certain, sorry",
+        "No, not that {{he}}'s ever told me",
+        "I don't know, sorry, we've never talked about it",
+        "Not that I'm aware of, no",
+        "I couldn't tell you, sorry, that's private to {{him}}",
+        "No idea, sorry, I don't know {{his}} medical history"
       ]
     },
     "medications": {
       "answers": [
-        "Not that I know of",
-        "None that I'm aware of"
+        "I don't think {{he}}'s on anything, sorry",
+        "No idea, sorry, I don't know {{his}} medications",
+        "Not that I'm aware of, sorry",
+        "I couldn't say, sorry, we've never discussed that",
+        "No idea, sorry, I don't know {{him}} that well outside work",
+        "I don't think so, but I'm not completely certain",
+        "Sorry, no idea what {{he}} takes",
+        "Not that I know of, sorry",
+        "I don't know, sorry, that's not something we've talked about",
+        "No idea, sorry, I really can't help with that"
       ]
     },
     "patientAge": {
       "answers": [
-        "29"
+        "{{He}}'s in {{his}} thirties",
+        "I'd say {{he}}'s about thirty five",
+        "Early thirties, {{he}}'s one of the younger ones in the unit",
+        "{{He}}'s in {{his}} mid thirties",
+        "I'd say {{he}}'s around thirty two or so",
+        "{{He}}'s in {{his}} thirties, fairly fit normally",
+        "About thirty five, {{he}}'s been with us a couple of years",
+        "{{He}}'s in {{his}} late thirties",
+        "{{He}}'s thirty something, I couldn't say exactly",
+        "{{He}}'s in {{his}} thirties, usually pretty healthy"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've moved them away from the spill and it's contained",
-        "Right, we're keeping others clear of it"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "I think it's best they're checked properly given the chemical exposure",
-        "Could do, but I'd rather be safe with the exposure"
+        "No, please, people are unwell, this can't wait",
+        "No, we need help here now, not a call back",
+        "No, please send someone, people are struggling",
+        "No, this is urgent, there's people affected here",
+        "No, please, I don't think this can wait for 111",
+        "No, we really need help on scene, not advice over the phone",
+        "No, please hurry, this isn't something that can wait",
+        "No, people need treatment now, please send someone",
+        "No, I don't think 111 is enough, please send help",
+        "No, please, this needs an urgent response"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, good, we could do with them helping keep people back",
+        "Right, that's good, some of this area needs cordoning off",
+        "Okay, that'll help keep everyone clear of the area",
+        "Good, they can help control who comes near",
+        "Okay, thank you, it's getting crowded here",
+        "Right, that's useful, we need the area kept clear",
+        "Okay, good, there's a few onlookers we could do with moving back",
+        "Thank you, that'll help with keeping the road clear too",
+        "Okay, good, we could use the extra hands keeping people away",
+        "Right, thank you, that's reassuring"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, good, we really need them here",
+        "Right, that's a relief, thank you",
+        "Okay, thank you, please tell them to hurry",
+        "Good, we need them to deal with this properly",
+        "Okay, that's good news, thank you",
+        "Right, thank you, this needs specialist help",
+        "Okay, good, we've been trying to keep everyone clear",
+        "Thank you, that's reassuring to hear",
+        "Okay, good, we need them to make this safe",
+        "Right, thank you, please hurry them along"
       ]
     }
   },

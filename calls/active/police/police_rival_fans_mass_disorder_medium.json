@@ -50,6 +50,10 @@
     "dog_unit": 2,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 12
+  },
   "patients": {
     "range": [
       2,
@@ -75,8 +79,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police, a big fight's broken out between rival fans",
-      "There's a large group scrapping outside the ground"
+      "Police, it's kicked off between rival fans, a few people are hurt",
+      "Please send help, there's fighting broken out between two groups of fans",
+      "Police, this has turned violent, a few fans are down",
+      "Please hurry, fans are fighting and a few people are injured",
+      "Police, a scuffle between fans has turned into real trouble",
+      "Please send officers, there's a fight between fans and people are hurt",
+      "Police, it's turned nasty, a couple of people have been hit",
+      "Please hurry, this fan trouble's escalated, a few are hurt",
+      "Police, there's disorder here, a few people are down",
+      "Please send help, rival fans are fighting and some are hurt"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -88,91 +100,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police, a big fight's broken out between rival fans",
-        "There's a large group scrapping outside the ground"
+        "Police, it's kicked off between rival fans, a few people are hurt",
+        "Please send help, there's fighting broken out between two groups of fans",
+        "Police, this has turned violent, a few fans are down",
+        "Please hurry, fans are fighting and a few people are injured",
+        "Police, a scuffle between fans has turned into real trouble",
+        "Please send officers, there's a fight between fans and people are hurt",
+        "Police, it's turned nasty, a couple of people have been hit",
+        "Please hurry, this fan trouble's escalated, a few are hurt",
+        "Police, there's disorder here, a few people are down",
+        "Please send help, rival fans are fighting and some are hurt"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I just saw it happen",
-        "It's {{callerName}}"
+        "It's {{callerName}}, I saw the whole thing.",
+        "{{callerName}}, I was just walking past.",
+        "My name's {{callerName}}.",
+        "It's {{callerName}} here, I'm the one who called.",
+        "{{callerName}}, yes, that's me.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}.",
+        "{{callerName}} speaking, I saw it happen.",
+        "Name's {{callerName}}.",
+        "It's {{callerName}}, I'm just a witness."
       ]
     },
     "patientName": {
       "answers": [
-        "One's on the ground, holding his face",
-        "A lad's down, others are pulling him clear"
+        "I don't know their names, they're just people caught up in the crowd.",
+        "No names, sorry, they didn't introduce themselves.",
+        "Couldn't tell you, they're strangers to me.",
+        "No idea who they are, no names to give you.",
+        "Don't know them personally, that's all I can say.",
+        "No, never seen them before, can't give you names.",
+        "Can't help with names, I just saw them go down.",
+        "No names I'm afraid, it all happened so fast.",
+        "Nobody round here knows their names.",
+        "I've got no names for you, just what I saw happen."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, outside the pub",
-        "It's {{address}}, near the ground entrance"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Fans from both sides have squared off and it's turned into a brawl",
-        "A big group's fighting outside the pub, it's spreading"
+        "Two groups of fans clashed and a few punches were thrown",
+        "A bottle was thrown and it caught a couple of people",
+        "It kicked off between fans and a few people got knocked down",
+        "There's a scuffle, a few people are being pushed about",
+        "Fans squared up to each other and it turned physical fast",
+        "Objects were thrown and a couple of people got caught in the middle",
+        "It escalated quickly from shouting to a few people fighting",
+        "A group surged forward and a couple got knocked over in the crush",
+        "Fans threw a few punches, a couple are down injured",
+        "It spread across part of the stand, a few people got hurt"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "He's conscious but dazed",
-        "Yes, conscious, in a lot of pain"
+        "They're conscious, just shaken up and in a bit of shock.",
+        "A couple of them are dazed but talking, nobody's out cold.",
+        "They're all awake, just shocked and a bit confused.",
+        "Conscious, yes, but really shaken, one's gone very pale.",
+        "They're conscious, just winded and scared.",
+        "Everyone's talking, just shaken and bruised.",
+        "Conscious but distressed, a couple are crying.",
+        "They're awake, just in shock from being crushed.",
+        "All conscious as far as I can tell, just badly shaken.",
+        "They're conscious, just really frightened and sore."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, breathing fine",
-        "Yes, seems okay"
+        "They're breathing, just winded from being crushed.",
+        "Breathing okay, just gasping a bit from the shock.",
+        "They seem to be breathing fine, just very shaken.",
+        "Breathing's fine as far as I can tell, just distressed.",
+        "A couple are breathing fast, panicking more than anything.",
+        "They're breathing normally, just winded and scared.",
+        "Breathing okay, just struggling to catch their breath.",
+        "They seem to be breathing alright, just really shaken up.",
+        "Breathing's fine, just very out of breath from the panic.",
+        "They're breathing, just gasping from being squeezed in the crowd."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He's holding his face, took a punch",
-        "Says his ribs hurt"
+        "A few of them are holding their stomachs, say it really hurts from the crush.",
+        "One's doubled over saying their side hurts where they got squeezed.",
+        "A few are complaining of pain in their ribs and stomach.",
+        "One's holding their abdomen, looks really uncomfortable.",
+        "A couple say their stomachs hurt badly from being crushed against the rail.",
+        "One's in a lot of pain, clutching their side.",
+        "A few are wincing, holding their stomachs from the crush.",
+        "One's saying the pain in their abdomen is quite bad.",
+        "A couple are in pain, pressed hard against the barrier for a while.",
+        "One's holding their stomach and looks in real discomfort."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, bleeding from his nose",
-        "A little blood on his lip"
+        "One's got a cut to the head, bleeding quite a bit.",
+        "There's a gash on someone's arm, bleeding heavily.",
+        "One's bleeding from a cut above the eye, hit by something thrown.",
+        "Someone's got a bleeding wound on their leg from the railings.",
+        "One's cut on the forehead, blood's running down their face.",
+        "There's a bleeding cut on someone's hand from broken glass.",
+        "One's bleeding from a head wound, struck by something thrown.",
+        "Someone's got a nasty cut on their arm, bleeding steadily.",
+        "One's bleeding from the scalp, quite a lot of blood.",
+        "There's a cut on someone's leg that's bleeding fairly badly."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Don't know him",
-        "No idea, stranger"
+        "No idea, I don't know any of them personally.",
+        "Couldn't tell you, they're strangers to me.",
+        "No idea about their health, I've never met them.",
+        "I don't know them, sorry, can't help with that.",
+        "No idea, I only just met them in the crowd.",
+        "Couldn't say, they're not people I know.",
+        "No, I don't know any of their medical history.",
+        "I've no idea, we're all strangers here.",
+        "Couldn't tell you anything about their health.",
+        "No idea, I don't know these people at all."
       ]
     },
     "medications": {
       "answers": [
-        "No idea",
-        "Couldn't say"
+        "I've no idea what any of them take.",
+        "Couldn't tell you, I don't know them.",
+        "No idea, sorry, they're strangers to me.",
+        "I wouldn't know, never met them before today.",
+        "No clue what medication they might be on.",
+        "Couldn't say, I don't know these people.",
+        "No idea, I'm afraid, sorry.",
+        "Not a clue, they're not people I know.",
+        "I really couldn't tell you.",
+        "No idea, sorry, we're all strangers here."
       ]
     },
     "patientAge": {
       "answers": [
-        "Young man, twenties",
-        "Looks about thirty"
+        "Mixed ages really, mostly what looked like students.",
+        "Hard to say, a real spread from teens to older folks.",
+        "Some looked quite young, others much older.",
+        "Mostly twenties I'd guess, but a real mix.",
+        "Hard to tell exactly, but a good age range.",
+        "A mix of ages, young and old mixed in the crowd.",
+        "Some teenagers, some much older, hard to pin down.",
+        "Roughly twenties to forties, quite a spread.",
+        "Hard to say precisely, a real mixed crowd.",
+        "A wide range of ages honestly, couldn't narrow it down."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're keeping our distance",
-        "Right, please hurry, more are joining in"
+        "Oh good, yes please, a few of them really need it.",
+        "Thank you, that's a relief, they're quite hurt.",
+        "Yes please, hurry, some of them need help badly.",
+        "Thank god, yes, a couple of them are in a bad way.",
+        "Please, yes, send them quickly, people are hurt here.",
+        "Thank you, that's good, they really do need paramedics.",
+        "Yes, please hurry, a few are in quite a state.",
+        "Thank you, I'll keep them as comfortable as I can till they arrive.",
+        "Yes please, that's a relief, some of them are struggling.",
+        "Thank you, please hurry, a few of them are in real pain."
       ]
     },
     "refer111": {
       "answers": [
-        "This needs police and ambulance, not 111!"
+        "No, please, they need paramedics now, not a phone call back.",
+        "That's not good enough, someone's hurt, I need an ambulance, not 111.",
+        "No, this can't wait for a callback, people are injured here.",
+        "Please, no, this is urgent, we need help now, not later.",
+        "No, don't do that, someone needs to come out now, they're hurt.",
+        "That's not right, this is an emergency, I need an ambulance.",
+        "No, please, I really think this needs paramedics, not a callback.",
+        "Don't leave it to 111, someone's genuinely hurt here.",
+        "No, this is serious, we need help sent out now.",
+        "Please no, this can't wait, someone needs medical help now."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh thank god, please hurry, I don't know how long this can go on for.",
+        "Okay, okay, please tell them to hurry, I'm really worried.",
+        "Thank you, please, how long will they be, I'm scared.",
+        "Right, okay, thank you, please just get them here fast.",
+        "Oh good, thank you, I'll stay on the line until they arrive.",
+        "Please hurry, I don't feel safe until they get here.",
+        "Okay, thank you, I'm staying back, just please be quick.",
+        "Thank god, yes please, tell them to hurry.",
+        "Right, thank you, I'm shaking, please just get them here.",
+        "Okay, thank you, I'll wait, just please don't be long."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

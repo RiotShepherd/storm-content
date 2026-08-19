@@ -45,6 +45,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -79,8 +83,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My baby's choking, he can't breathe, please help",
-      "Someone's choking in the restaurant, they can't speak"
+      "My {{son}}'s choking, {{he}} can't breathe, please help",
+      "Please, my {{son}}'s choking on something, {{he}} can't cough it up",
+      "My {{son}}'s gone bright red, I think something's stuck in {{his}} throat",
+      "Ambulance please, my {{son}}'s choking and going quiet",
+      "My {{son}}'s got something stuck, {{he}} can't breathe properly",
+      "Please hurry, my {{son}}'s choking, {{he}}'s gone very quiet",
+      "My {{son}}'s choking on a bit of food, {{he}} can't get air in",
+      "Help, my {{son}}'s choking, {{his}} lips are going blue",
+      "My {{son}}'s got something lodged in {{his}} throat, {{he}} can't breathe",
+      "Please, my {{son}}'s choking badly, I don't know what to do"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -92,90 +104,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My baby's choking, he can't breathe, please help",
-        "Someone's choking in the restaurant, they can't speak"
+        "My {{son}}'s choking, {{he}} can't breathe, please help",
+        "Please, my {{son}}'s choking on something, {{he}} can't cough it up",
+        "My {{son}}'s gone bright red, I think something's stuck in {{his}} throat",
+        "Ambulance please, my {{son}}'s choking and going quiet",
+        "My {{son}}'s got something stuck, {{he}} can't breathe properly",
+        "Please hurry, my {{son}}'s choking, {{he}}'s gone very quiet",
+        "My {{son}}'s choking on a bit of food, {{he}} can't get air in",
+        "Help, my {{son}}'s choking, {{his}} lips are going blue",
+        "My {{son}}'s got something lodged in {{his}} throat, {{he}} can't breathe",
+        "Please, my {{son}}'s choking badly, I don't know what to do"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}, my son"
+        "It's {{firstPatientName}}, my {{son}}",
+        "{{firstPatientName}}, {{he}}'s only three",
+        "My {{son}}'s name is {{firstPatientName}}",
+        "{{firstPatientName}}, please hurry",
+        "It's my {{son}} {{firstPatientName}}",
+        "{{firstPatientName}}, that's {{him}}",
+        "My little {{son}} is called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "{{firstPatientName}}, {{he}}'s choking, please",
+        "{{firstPatientName}}, my {{son}}, please hurry"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, please hurry"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He was eating and suddenly started choking, he can't cough properly",
-        "Food's gone down the wrong way and they can't breathe or speak"
+        "{{He}} was eating and suddenly started choking, can't cough properly",
+        "{{He}} put something in {{his}} mouth and now {{he}}'s choking on it",
+        "{{He}} was eating grapes and one's gone down the wrong way",
+        "{{He}}'s choking on a bit of food, {{he}} can't speak or cough",
+        "{{He}} put a small toy in {{his}} mouth and now {{he}}'s choking",
+        "{{He}} was eating too fast and something's got stuck",
+        "{{He}}'s choking, {{his}} face has gone red then pale",
+        "Something's gone down the wrong way, {{he}} can't breathe or speak",
+        "{{He}} was chewing something and started choking suddenly",
+        "{{He}}'s got something stuck in {{his}} throat, started suddenly"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
         "Yes, awake but panicking",
-        "Yes, conscious, going red in the face"
+        "Yes, conscious, going red in the face",
+        "{{He}}'s awake, {{his}} eyes are wide with fear",
+        "Conscious, yes, but {{he}}'s starting to go quiet",
+        "Yes, {{he}}'s awake, still trying to cough",
+        "{{He}}'s conscious, clutching {{his}} throat",
+        "Yes, awake, but {{he}}'s going a funny colour",
+        "{{He}}'s awake, panicking badly",
+        "Yes, conscious, {{he}}'s making horrible noises",
+        "{{He}}'s awake but {{he}}'s stopped making noise now"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Struggling badly, can't get air in",
-        "Very poor, making a horrible noise trying to breathe"
+        "{{He}}'s really struggling, can't get {{his}} breath",
+        "Very poor, {{he}}'s wheezing badly",
+        "{{He}}'s gasping, it's frightening to hear",
+        "Bad, {{he}}'s using all {{his}} muscles just to breathe",
+        "{{He}} can barely get a sentence out, {{he}}'s that breathless",
+        "Struggling badly, making a horrible noise trying to breathe",
+        "{{He}}'s really fighting for breath",
+        "Very laboured, {{he}}'s going blue around the lips",
+        "{{He}}'s wheezing and gasping, it's getting worse",
+        "Poor, {{he}}'s exhausted just trying to breathe"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "He can't tell me, he's choking",
-        "N/A, can't speak"
+        "{{He}} can't tell me, {{he}}'s choking",
+        "N/A, {{he}} can't speak",
+        "{{He}} can't answer, {{he}}'s struggling to breathe",
+        "I don't know, {{he}} can't talk right now",
+        "Can't say, {{he}}'s too busy trying to breathe",
+        "{{He}} can't tell me anything, {{he}}'s choking",
+        "No idea, {{he}}'s not able to speak",
+        "{{He}} can't answer, {{his}} throat's blocked",
+        "Can't ask {{him}}, {{he}}'s choking badly",
+        "{{He}} can't say, {{he}}'s panicking too much"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No, no bleeding, {{he}}'s just unwell",
+        "No blood involved, no",
+        "No, this isn't that kind of thing",
+        "No bleeding, {{he}}'s just really weak",
+        "No, nothing like that at all",
+        "No, {{he}}'s not injured, just poorly",
+        "No blood, no",
+        "Not that I've seen, no",
+        "No, no cuts or blood, {{he}}'s just unwell",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of",
-        "No allergies that we know of"
+        "No, nothing that I know of",
+        "Not that I'm aware of, no",
+        "No history I know of, {{he}}'s usually fit and well",
+        "No, {{he}}'s never had anything like this before",
+        "Nothing at all, {{he}}'s normally very healthy",
+        "No, no medical conditions that I know of",
+        "Not that I know of, no",
+        "No, {{he}}'s never had any real health problems",
+        "Nothing I know of, {{he}}'s generally fine",
+        "No history at all as far as I know"
       ]
     },
     "medications": {
       "answers": [
-        "None",
-        "Not that I know of"
+        "No, {{he}} doesn't take anything",
+        "None that I know of",
+        "No medication, no",
+        "Not that I'm aware of, no",
+        "No, nothing regular",
+        "None at all as far as I know",
+        "No, {{he}}'s not on anything",
+        "Nothing, {{he}} doesn't take any tablets",
+        "No medication that I know of",
+        "None, no"
       ]
     },
     "patientAge": {
       "answers": [
-        "2"
+        "{{He}}'s 3",
+        "About 3, I think",
+        "{{He}}'s 3 years old",
+        "{{He}}'s only 3",
+        "I think {{he}}'s 3",
+        "3 years old",
+        "{{He}}'s just 3",
+        "Just turned 3",
+        "{{He}}'s 3, still little",
+        "3, {{he}}'s only small"
       ]
     },
     "reassure": {
       "answers": [
         "I'm doing back blows like you told me",
-        "Okay, trying that now, please stay with me"
+        "Okay, trying that now, please stay with me",
+        "Right, I've got {{him}} face down over my knee like you said",
+        "Doing it now, {{he}}'s still choking though",
+        "Okay, I'm doing the back blows, nothing's coming up yet",
+        "Right, trying that now, please don't hang up",
+        "I'm doing that now, {{he}}'s starting to cough",
+        "Okay, I've done a few back blows, please hurry",
+        "Doing it now, I'm so scared, please stay on the line",
+        "Right, I'm trying that, something's just come up"
       ]
     },
     "refer111": {
       "answers": [
-        "No, he can't breathe, this is an emergency",
-        "No, absolutely not, please hurry"
+        "No, {{he}} can't breathe, this is an emergency",
+        "No, absolutely not, please hurry",
+        "No, {{he}}'s choking, this can't wait",
+        "No, please, {{he}} needs help right now",
+        "No, this can't wait for a call back, {{he}}'s choking",
+        "No, please just send an ambulance now",
+        "No, {{he}} can't breathe properly, please hurry",
+        "No, this is serious, {{he}}'s choking badly",
+        "No, please, I need help right now",
+        "No, {{he}} needs an ambulance immediately"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, why would we need police, please just send the ambulance",
+        "No, no police, please, {{he}} just needs help right now",
+        "No, I don't understand, there's no crime, just get an ambulance here",
+        "No police needed, please, {{he}}'s really unwell, just paramedics",
+        "No, please, no police, {{he}} just needs medical help urgently",
+        "No, nothing like that, please just send the ambulance quickly",
+        "Police? No, please, {{he}} just needs paramedics, hurry",
+        "No, definitely not police, please, {{he}} needs an ambulance now",
+        "No, please, there's no need for police, just help {{him}}",
+        "No police, please, I'm begging you, just get an ambulance here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, no, there's no fire, please just get the ambulance here",
+        "No, no fire, why would we need that, {{he}} just needs help now",
+        "There's no fire, I don't understand, just send the ambulance please",
+        "No fire brigade, please, {{he}}'s not trapped, {{he}}'s just in a bad way",
+        "No, no, nothing's burning, please, {{he}} just needs paramedics",
+        "Fire service? No, please, just the ambulance, {{he}}'s really unwell",
+        "No, there's no fire here, I just need someone to help {{him}} now",
+        "No fire, please, I don't know why you'd say that, just hurry",
+        "No, please, no fire brigade, {{he}} just needs an ambulance urgently",
+        "There's definitely no fire, please just send the paramedics quickly"
       ]
     }
   },

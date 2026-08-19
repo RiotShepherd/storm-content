@@ -50,6 +50,10 @@
     "dog_unit": 1,
     "arv": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 8
+  },
   "patients": {
     "range": [
       0,
@@ -82,9 +86,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "Police please, I've just been robbed at knifepoint, he's taken my phone and wallet",
+      "Police please, I've just been robbed at knifepoint, they've taken my phone and wallet",
       "Help, someone pulled a knife on me and took my bag",
-      "Please hurry, a man threatened me with a knife and robbed me"
+      "Please hurry, someone threatened me with a knife and robbed me",
+      "I've just been robbed, they had a knife, I'm really shaken",
+      "Police, quick, I was threatened with a knife and they took my things",
+      "Help, I've just been mugged at knifepoint",
+      "Someone's just pulled a knife on me and stolen my bag, please hurry",
+      "I need police now, I've been robbed with a knife just now",
+      "Please, someone held a knife to me and took my phone",
+      "I've just been threatened with a knife and robbed, I'm still shaking"
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -96,92 +107,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Police please, I've just been robbed at knifepoint, he's taken my phone and wallet",
+        "Police please, I've just been robbed at knifepoint, they've taken my phone and wallet",
         "Help, someone pulled a knife on me and took my bag",
-        "Please hurry, a man threatened me with a knife and robbed me"
+        "Please hurry, someone threatened me with a knife and robbed me",
+        "I've just been robbed, they had a knife, I'm really shaken",
+        "Police, quick, I was threatened with a knife and they took my things",
+        "Help, I've just been mugged at knifepoint",
+        "Someone's just pulled a knife on me and stolen my bag, please hurry",
+        "I need police now, I've been robbed with a knife just now",
+        "Please, someone held a knife to me and took my phone",
+        "I've just been threatened with a knife and robbed, I'm still shaking"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, it's me that's been robbed",
-        "It's {{callerName}}"
+        "{{callerName}}",
+        "It's {{callerName}}",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me",
+        "Yeah, it's {{callerName}}",
+        "{{callerName}} here",
+        "It's {{callerName}} speaking",
+        "My name is {{callerName}}",
+        "{{callerName}}, please hurry",
+        "Sorry, yes, it's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}, I'm the one it happened to"
+        "It's {{firstPatientName}}, that's me",
+        "{{firstPatientName}}, I'm the one who was robbed",
+        "My name's {{firstPatientName}}",
+        "It's {{firstPatientName}}, please hurry",
+        "{{firstPatientName}}, that's my name",
+        "Yes, it's {{firstPatientName}}",
+        "My name is {{firstPatientName}}",
+        "{{firstPatientName}} here, I'm the victim",
+        "It's {{firstPatientName}} speaking",
+        "Sorry, yes, it's {{firstPatientName}}"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, I'm still stood here shaking",
-        "It happened near {{address}}"
+        "{{address}}, it's the street where it happened",
+        "We're at {{address}}",
+        "It's {{address}}, the street where it happened",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near the street where it happened",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "A man came up behind me, showed me a knife and demanded my phone and wallet",
-        "It happened less than a minute ago, he's run off towards the alley",
-        "He grabbed my bag and pulled a blade when I tried to hold on"
+        "They came up behind me, pulled a knife and demanded my phone and wallet",
+        "Someone stopped me, showed a knife and told me to hand everything over",
+        "They grabbed my arm, showed the knife and I just gave them my bag",
+        "It happened so fast, they pulled a knife and I handed over my phone",
+        "They approached me, threatened me with a knife, took my things and ran",
+        "Someone blocked my path, showed a knife, I gave them what I had",
+        "They demanded my bag at knifepoint, I was too scared to argue",
+        "It was quick, they flashed a knife and grabbed my phone out of my hand",
+        "They threatened me with the knife, took my wallet and ran off that way",
+        "Someone pulled a knife on me from nowhere and took my things"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I'm fine, just shaken, he didn't touch me with it",
-        "I'm conscious, just terrified"
+        "Yes, I'm conscious, just really shaken up",
+        "I'm awake, just shaking, it happened so fast",
+        "Yes, I'm fine that way, just terrified",
+        "I'm conscious, just my heart's racing",
+        "Yes, I'm okay, just badly shaken",
+        "I'm awake and talking to you, just very scared",
+        "Yes, conscious, just shaking a lot",
+        "I'm fine on that front, just really frightened",
+        "Yes, I'm okay, just my nerves are shot",
+        "I'm conscious, just very shaken by it"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing fine, just in shock",
-        "Fine, just shaking badly"
+        "Yes, I'm breathing okay, just fast from the shock",
+        "I'm fine breathing wise, just panicking a bit",
+        "Yes, breathing's fine, my heart's just racing",
+        "I'm okay, just a bit breathless from the shock",
+        "Yes, I'm fine, just shaky",
+        "Breathing's fine, I'm just really rattled",
+        "Yes, I'm okay, just adrenaline I think",
+        "I'm fine, just breathing fast from the fright",
+        "Yes, breathing's okay, just very shaken",
+        "I'm alright, just my breathing's a bit quick from the shock"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No pain, he didn't cut me",
-        "A bit sore where he grabbed my arm, but no cuts"
+        "They grabbed my arm quite hard, it's a bit sore",
+        "No real pain, just shaken up",
+        "A bit of pain where they grabbed me, nothing major",
+        "Not really, just shocked more than hurt",
+        "My wrist's a bit sore where they twisted it",
+        "No serious pain, just a bit bruised I think",
+        "Nothing major, just where they grabbed my arm",
+        "Not much pain, mostly just the shock of it",
+        "A little where they grabbed me but I'll live",
+        "No real pain, just very shaken"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries",
-        "No bleeding, he didn't get to use it"
+        "No, I'm not bleeding, they didn't cut me",
+        "No, thankfully, just shaken, no cuts",
+        "No blood, they didn't touch me with the knife itself",
+        "No, I'm not bleeding, just badly frightened",
+        "No, no cuts, just the fright of it",
+        "No, thankfully they didn't cut me",
+        "No bleeding, no, just shaking",
+        "No, I'm not hurt like that, just scared",
+        "No, they didn't cut me, just grabbed me",
+        "No, no blood, just shaken up"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not relevant, I'm fine",
-        "Nothing, I'm not hurt"
+        "No, I don't have any medical conditions",
+        "No, nothing like that, I'm healthy",
+        "No conditions, no",
+        "Nothing, I'm fine normally",
+        "No, I don't have anything like that",
+        "No, healthy otherwise",
+        "Nothing to report, no",
+        "No conditions at all",
+        "No, I'm generally fine",
+        "No, nothing like that"
       ]
     },
     "medications": {
       "answers": [
-        "No",
-        "Nothing"
+        "No, I don't take anything",
+        "No, I'm not on any medication",
+        "No medication, no",
+        "None, no",
+        "No, nothing regular",
+        "No, I don't take any medication",
+        "Nothing, no",
+        "No, I'm not on anything",
+        "No, I don't need anything like that",
+        "No, nothing at all"
       ]
     },
     "patientAge": {
       "answers": [
-        "27"
+        "I'm twenty eight",
+        "I'm thirty two",
+        "I'm twenty five",
+        "I'm thirty six",
+        "I'm twenty nine",
+        "I'm forty one",
+        "I'm twenty seven",
+        "I'm thirty three",
+        "I'm twenty two",
+        "I'm thirty nine"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying where I am like you said",
-        "Thank you, I'm trying to calm down"
+        "I don't think I need one, I'm not physically hurt, just shaken",
+        "I don't think so, I'm okay physically, just scared",
+        "No, I don't think I need an ambulance, just police please",
+        "I'm okay physically, I don't think I need that",
+        "No, I'm not hurt, just really shaken up",
+        "I don't think it's needed, I'm not injured",
+        "No, I'm fine physically, just very frightened",
+        "I don't think so, I'm not hurt, just shocked",
+        "No, I'm okay that way, just need police really",
+        "I don't think I need one, I'm just badly shaken"
       ]
     },
     "refer111": {
       "answers": [
-        "No, I need police, he had a knife!"
+        "No, please, this needs police now, someone's out there with a knife",
+        "No, I really need police, this isn't something 111 can help with",
+        "Please, no, they could still be nearby, I need police",
+        "No, this needs police straight away, not a callback",
+        "Please, no, someone just threatened me with a knife",
+        "No, this is urgent, please send police now",
+        "Please, no, they might do this to someone else, I need police",
+        "No, I really need officers here, not 111",
+        "Please, no, this just happened, I need police now",
+        "No, this can't wait, please send police"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, how long will they be?",
+        "Good, please hurry, it's getting worse here",
+        "Thank you, we'll wait for them",
+        "Okay, I'll stay on the line if you need anything else",
+        "Please tell them to hurry, we're keeping an eye on things",
+        "Thank goodness, how many are coming?",
+        "Okay, I'll let people know officers are on the way",
+        "Thank you, we'll keep back until they arrive",
+        "Good, we really need them here quickly",
+        "Okay, thank you, I'll stay put until they get here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

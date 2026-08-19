@@ -48,6 +48,12 @@
     "iccu": 1,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 18,
+    "ambulance": 6,
+    "police": 4
+  },
   "patients": {
     "range": [
       0,
@@ -126,7 +132,14 @@
     "openings": [
       "There's been an explosion at the car workshop, it's blown the doors off and there's people down",
       "I need the fire brigade and ambulance, the garage has exploded, there's casualties on the ground",
-      "Something's blown up at the workshop, glass everywhere, people are hurt"
+      "Something's blown up at the workshop, glass everywhere, people are hurt",
+      "Oh God, the mechanics' place just went up, there was a bang and now there's smoke everywhere",
+      "Explosion at the car workshop on the industrial estate, some of the lads are on the floor",
+      "I was driving past and the garage just blew, there's people crawling out covered in dust",
+      "Please send everyone, the workshop's exploded, I can see at least two people not moving",
+      "There's been a massive bang from the car garage, windows are out and people are screaming",
+      "The workshop's on fire after an explosion, some staff are hurt and can't get up",
+      "Ambulance and fire brigade please, a car workshop's just exploded, casualties everywhere"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -140,78 +153,230 @@
       "answers": [
         "There's been an explosion at the car workshop, it's blown the doors off and there's people down",
         "I need the fire brigade and ambulance, the garage has exploded, there's casualties on the ground",
-        "Something's blown up at the workshop, glass everywhere, people are hurt"
+        "Something's blown up at the workshop, glass everywhere, people are hurt",
+        "Oh God, the mechanics' place just went up, there was a bang and now there's smoke everywhere",
+        "Explosion at the car workshop on the industrial estate, some of the lads are on the floor",
+        "I was driving past and the garage just blew, there's people crawling out covered in dust",
+        "Please send everyone, the workshop's exploded, I can see at least two people not moving",
+        "There's been a massive bang from the car garage, windows are out and people are screaming",
+        "The workshop's on fire after an explosion, some staff are hurt and can't get up",
+        "Ambulance and fire brigade please, a car workshop's just exploded, casualties everywhere"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was passing when it happened"
+        "It's {{callerName}}, I was just passing when it went off",
+        "{{callerName}}, I work next door and heard the bang",
+        "My name's {{callerName}}, I'm across the road from the workshop",
+        "It's {{callerName}} speaking, sorry I'm shaking",
+        "{{callerName}} here, I was outside the shop opposite",
+        "Name's {{callerName}}, I'm one of the customers, I was in the waiting area",
+        "It's {{callerName}}, I run the cafe next door",
+        "{{callerName}}, I was walking past with my dog when it happened",
+        "This is {{callerName}}, I'm still stood outside the workshop",
+        "{{callerName}}, I'm a neighbour, I felt the bang through my windows"
       ]
     },
     "patientName": {
       "answers": [
-        "There's a few of them down, I don't know their names"
+        "I don't know {{his}} name, {{he}}'s one of the mechanics, quite young",
+        "There's a few of them down, I can't tell you names, sorry",
+        "One's called {{firstPatientName}} I think, someone shouted it",
+        "I don't know {{him}}, {{he}} works here, {{he}}'s in overalls",
+        "No idea of names, there's more than one hurt",
+        "Someone called out {{firstPatientName}} but I can't be sure that's right",
+        "I think {{his}} name's {{firstPatientName}}, {{he}}'s the one closest to the door",
+        "Not sure, {{he}}'s a mechanic, maybe mid twenties",
+        "I can't get names off anyone, they're all in shock",
+        "One of the customers is calling {{him}} {{firstPatientName}}"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the workshop on the industrial estate"
+        "{{address}}, it's the car workshop, you can't miss the smoke",
+        "It's at {{address}}, the garage on the industrial estate",
+        "{{address}}, there's smoke coming right up over the roof",
+        "The workshop's at {{address}}, next to the tyre place",
+        "{{address}}, I'm stood right outside it now",
+        "It's {{address}}, behind the retail park",
+        "{{address}}, the whole front of the building's blown out",
+        "You want {{address}}, come from the ring road side",
+        "{{address}}, it's the big workshop with the red shutters",
+        "{{address}}, please hurry, people are hurt"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There was a loud bang and the front of the workshop blew out, there's people on the ground with injuries"
+        "There was a bang and the front of the workshop's blown out, people are on the ground",
+        "I think a fuel tank or gas bottle went up, the whole place shook",
+        "Something exploded inside, maybe a car on the ramp, there's fire now too",
+        "No warning, just a massive bang and glass everywhere, people knocked off their feet",
+        "It sounded like a gas explosion, there's smoke and flames coming from inside",
+        "One of the cars must have gone up, there's a fire starting near the doors",
+        "The whole building shook, I think it's a fuel or gas explosion in the workshop",
+        "There was smoke first then it just went bang, debris landed in the car park",
+        "I heard a huge crack, the roof's partly come down and there's a fire",
+        "Something ignited inside, the doors blew off their hinges, people are hurt"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "A couple are conscious and moving, one isn't responding"
+        "One of them's talking, the other two aren't responding",
+        "The {{lad}} nearest me is awake but dazed, not sure about the others",
+        "I can see one moving, the rest aren't",
+        "{{He}}'s conscious but confused, keeps asking what happened",
+        "A couple are awake and shouting, one's completely still",
+        "One's sat up holding their head, another's not moving at all",
+        "They're conscious but covered in dust, coughing badly",
+        "One's talking to me, the person next to them isn't responding",
+        "Most are awake and moving, one's lying still near the doorway",
+        "I think one's unconscious, the others are dazed but awake"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "One of them doesn't seem to be breathing right"
+        "They're breathing but there's smoke everywhere, coughing a lot",
+        "One's struggling to breathe with all the smoke and dust",
+        "I think they're breathing, hard to tell with the dust cloud",
+        "They're coughing badly from the smoke, still breathing though",
+        "One's wheezing badly, breathing but not right",
+        "As far as I can see they're all breathing, just choking on smoke",
+        "Breathing looks okay on the ones I can see clearly",
+        "There's so much smoke I can't be sure, but I can hear them coughing",
+        "One's breathing fast and panicked, the others seem steadier",
+        "They're all coughing and spluttering but breathing"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "The ones awake are in a lot of pain, cuts and burns"
+        "One's screaming about their leg, another's holding their arm",
+        "There's cuts from the glass, and one's saying their back hurts",
+        "A few of them are in pain, burns and cuts mostly",
+        "One's got a nasty gash on their head, bleeding quite a bit",
+        "They're all saying they're in pain, mostly cuts and bruises",
+        "One's clutching their chest, says it hurts to breathe",
+        "Burns on a couple of them, and one's leg looks broken",
+        "Lots of cuts from flying glass, one's in agony with their arm",
+        "One's saying their ribs hurt, might be from being thrown back",
+        "Pain all over from the blast, cuts and what looks like burns"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, there's blood, cuts from glass and debris"
+        "Yes, one's got blood pouring from a head wound",
+        "There's cuts bleeding on a couple of them from the glass",
+        "One's bleeding badly from their arm, someone's pressing a rag on it",
+        "A bit of blood on the ones nearest the blast, mostly from cuts",
+        "Yes, quite a lot, one of them's got a head wound",
+        "There's blood on the ground near the doorway, from glass I think",
+        "One's got a deep cut on their leg, bleeding a lot",
+        "Not much bleeding that I can see, mostly burns and bruising",
+        "One's bleeding from their face, cut by flying debris",
+        "Yes, a couple of them are bleeding from cuts"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know any of them, I was just walking past"
+        "I've no idea, I don't know these people",
+        "No idea, they're staff here, I'm just a passer by",
+        "Can't tell you, sorry, I don't know them",
+        "No idea about medical history, I only know one of them to nod to",
+        "I don't know, someone from the workshop might know",
+        "Not a clue, sorry, I've never met any of them before",
+        "No idea, I think one of them might be diabetic, not sure",
+        "I couldn't tell you, I'm just a customer here",
+        "No idea, you'd need to ask the manager once they're found",
+        "Sorry, no idea about any of that"
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea, sorry"
+        "I don't know, I don't know these people",
+        "No idea, sorry",
+        "Couldn't tell you, I'm not family or a colleague",
+        "No idea what medication anyone's on",
+        "I've no idea, sorry, I only just arrived",
+        "Not a clue, sorry",
+        "I don't know, someone else here might",
+        "No idea, sorry, I can't help with that",
+        "Couldn't say, I don't know any of the injured",
+        "None that I know of, sorry"
       ]
     },
     "patientAge": {
       "answers": [
-        "Mostly adults, workshop staff I think"
+        "The youngest one's maybe early twenties, the others look older, forties maybe",
+        "Hard to say, one looks young, the rest are middle aged I'd guess",
+        "One's quite young, twenties, another's older, could be fifties",
+        "I'd guess mixed ages, staff and customers, thirties to fifties",
+        "The mechanics look young, twenties, the customer's older",
+        "Can't say exactly, ages range from early twenties to fifties or so",
+        "One looks about twenty, another maybe forty odd",
+        "Hard to tell with the dust on them, mixed ages I'd say",
+        "The apprentice looks about eighteen, the others are older",
+        "I'd say thirties to fifties for most of them"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm trying to keep people from moving too much"
+        "Okay, please hurry, there's smoke getting worse",
+        "Understood, I'll stay on the line and keep watching them",
+        "Right, I'll try to keep everyone calm till you get here",
+        "Okay, some people are trying to help the injured already",
+        "Understood, I can hear sirens now I think",
+        "Okay, I'll stay back from the building like you said",
+        "Right, I'm keeping everyone away from the doorway",
+        "Okay, please hurry, the fire's spreading a bit",
+        "Understood, I'll let you know if anything changes",
+        "Okay, thank you, please just get here quickly"
       ]
     },
     "refer111": {
       "answers": [
-        "No, there's been an explosion, we need everyone you can send"
+        "No, this needs an ambulance, they're seriously hurt",
+        "No, there's people down from an explosion, this isn't a 111 job",
+        "No way, this is an emergency, please send help now",
+        "No, I don't think that's right, these people need urgent help",
+        "No, this is far too serious for that",
+        "No, please, just send an ambulance and fire brigade",
+        "No, this can't wait, people are badly injured",
+        "No, absolutely not, this is a proper emergency",
+        "No, they need paramedics now, not a phone line",
+        "No, please just get someone here fast"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Oh good, please, we need help keeping people back from the wreckage",
+        "Thank you, yes, there's a crowd gathering, we need help controlling it",
+        "Good, please send them quick, the road's getting chaotic here",
+        "Thank you, that's a relief, we can't manage the crowd and the injured together",
+        "Oh good, yes please, people keep trying to get close to help",
+        "Thank you, please hurry them, we need the road kept clear for ambulances",
+        "Good, yes, we really need that, traffic's building up around the scene",
+        "Thank you, please, we're struggling to keep bystanders back",
+        "Oh good, that's needed, please send them as fast as you can",
+        "Thank you, yes please, we need help managing everyone here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry",
+        "Good, please, how long will they be, there's still smoke",
+        "Thank you, we're trying to keep everyone back, please hurry them along",
+        "Okay, please, just get them here fast, it's still smoking",
+        "Thank you, we'll keep clear, please hurry",
+        "Oh good, please send them quickly, it's getting worse",
+        "Thank you, we're all stood well back, please hurry them up",
+        "Okay, thank you, please, how much longer",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, people are still hurt here"
       ]
     }
   },

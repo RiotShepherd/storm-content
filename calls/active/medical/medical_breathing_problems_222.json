@@ -45,6 +45,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -68,8 +72,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My mum can't breathe properly, it's come on suddenly",
-      "She's really struggling for breath, please send someone quickly"
+      "My {{dad}} can't breathe properly, it's come on suddenly",
+      "My {{dad}}'s really struggling for breath, please send someone quickly",
+      "Please hurry, my {{dad}} can't catch {{his}} breath at all",
+      "My {{dad}}'s breathing's really bad, it started out of nowhere",
+      "Please, my {{dad}}'s gasping for air, I don't know what to do",
+      "My {{dad}}'s having serious trouble breathing right now",
+      "Please send help, my {{dad}} can barely breathe",
+      "My {{dad}}'s breathing's got much worse in the last few minutes",
+      "Please hurry, my {{dad}}'s really struggling to breathe",
+      "My {{dad}} can't get {{his}} breath, it happened really suddenly"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -81,90 +93,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My mum can't breathe properly, it's come on suddenly",
-        "She's really struggling for breath, please send someone quickly"
+        "My {{dad}} can't breathe properly, it's come on suddenly",
+        "My {{dad}}'s really struggling for breath, please send someone quickly",
+        "Please hurry, my {{dad}} can't catch {{his}} breath at all",
+        "My {{dad}}'s breathing's really bad, it started out of nowhere",
+        "Please, my {{dad}}'s gasping for air, I don't know what to do",
+        "My {{dad}}'s having serious trouble breathing right now",
+        "Please send help, my {{dad}} can barely breathe",
+        "My {{dad}}'s breathing's got much worse in the last few minutes",
+        "Please hurry, my {{dad}}'s really struggling to breathe",
+        "My {{dad}} can't get {{his}} breath, it happened really suddenly"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
         "It's {{firstPatientName}}",
-        "{{firstPatientName}}, my mum"
+        "{{His}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, {{he}}'s my {{dad}}",
+        "It's {{firstPatientName}}, please hurry",
+        "{{firstPatientName}}, that's {{his}} name",
+        "{{He}}'s called {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "It's {{firstPatientName}}, I'm {{his}} {{callerChild}}",
+        "{{firstPatientName}}, please, {{he}} can't breathe properly",
+        "{{firstPatientName}}, please send someone now"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}",
-        "{{address}}, hurry please"
+        "It's {{address}}, please hurry",
+        "{{address}}, quickly please",
+        "We're at {{address}}, please send someone fast",
+        "The address is {{address}}, please hurry",
+        "{{address}}, at home, please hurry",
+        "It's {{address}}, oh please be quick",
+        "{{address}}, come quickly please",
+        "{{address}} is the address, please hurry",
+        "Please, it's {{address}}",
+        "{{address}}, at home, quickly please"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She's suddenly become very breathless, it's been getting worse for the last twenty minutes",
-        "Out of nowhere she started struggling to breathe, she's gone quite pale"
+        "{{His}} breathing suddenly got really bad about ten minutes ago",
+        "{{He}} started gasping for breath out of nowhere",
+        "{{His}} breathing's been getting worse for the last twenty minutes",
+        "{{He}} was fine and then suddenly couldn't catch {{his}} breath",
+        "{{He}}'s been struggling to breathe since {{he}} woke up",
+        "{{His}} chest started feeling tight and {{his}} breathing's been bad since",
+        "{{He}} started wheezing badly and it hasn't settled",
+        "{{His}} breathing just got worse and worse over the last half hour",
+        "{{He}} suddenly couldn't get enough air in, it's frightening",
+        "{{His}} breathing's been laboured since {{he}} came in from outside"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, awake but frightened",
-        "Yes, conscious"
+        "Yes, {{he}}'s conscious, just really struggling to breathe",
+        "{{He}}'s awake, {{he}}'s frightened but alert",
+        "Yes, conscious, {{he}}'s panicking a bit with it",
+        "{{He}}'s alert, but clearly exhausted from trying to breathe",
+        "Yes, {{he}}'s conscious and talking, just breathless",
+        "Conscious, {{he}}'s scared but awake",
+        "Yes, {{he}}'s awake, {{he}}'s working hard to breathe though",
+        "{{He}}'s conscious, just very distressed",
+        "Yes, awake and responding, but really struggling",
+        "Conscious, {{he}}'s getting tired from the effort of breathing"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Very laboured, fast and shallow",
-        "Really struggling, gasping a bit"
+        "No, {{he}}'s really struggling, it's very laboured",
+        "{{He}}'s having real trouble, {{his}} chest is heaving",
+        "No, {{his}} breathing's very bad right now",
+        "{{He}}'s gasping, {{he}} can barely speak",
+        "No, {{he}}'s struggling badly, please hurry",
+        "{{His}} breathing's really bad, {{he}}'s using all {{his}} effort",
+        "No, {{he}}'s wheezing loudly, it's getting worse",
+        "{{He}}'s wheezing and can't get a full breath in",
+        "No, {{his}} chest is tight and {{he}}'s working hard to breathe",
+        "{{He}}'s really struggling for breath right now"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her chest feels tight",
-        "No pain, just can't get her breath"
+        "{{He}} says {{his}} chest feels really tight",
+        "{{He}}'s uncomfortable, {{his}} chest hurts from the effort",
+        "{{He}} says it's tight across {{his}} chest",
+        "{{He}}'s in discomfort, mostly the tightness in {{his}} chest",
+        "{{He}} says {{his}} chest feels really tight and sore",
+        "Some discomfort, mostly the tightness from struggling to breathe",
+        "{{He}} says it hurts to breathe in properly",
+        "{{His}} chest feels tight, {{he}}'s finding it painful to breathe",
+        "{{He}}'s uncomfortable, the tightness is the main thing",
+        "{{He}} says {{his}} chest is really tight and sore"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No"
+        "No bleeding, it's {{his}} breathing that's the problem",
+        "No, no bleeding at all",
+        "No bleeding, this is all breathing related",
+        "No, {{he}}'s not bleeding, just struggling to breathe",
+        "No bleeding, it's the breathing difficulty",
+        "No, nothing like that, just the breathing trouble",
+        "No bleeding reported",
+        "No, no injuries, just {{his}} breathing",
+        "No bleeding, {{he}}'s just really breathless",
+        "No, no bleeding, it's purely the breathing"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She has COPD",
-        "Heart problems, I believe"
+        "{{He}}'s got COPD, {{he}}'s had it for years",
+        "{{He}}'s had breathing problems before",
+        "No significant history that I know of",
+        "{{He}}'s got a heart condition too",
+        "{{He}}'s diabetic and has some breathing issues",
+        "{{He}}'s never had anything quite this bad before",
+        "{{He}}'s got a history of chest infections",
+        "No history that I'm aware of, this came on suddenly",
+        "{{He}}'s had pneumonia before",
+        "{{He}}'s got a history of angina"
       ]
     },
     "medications": {
       "answers": [
-        "She's got an inhaler somewhere",
-        "I'll need to find her tablets"
+        "{{He}} uses an inhaler regularly",
+        "{{He}}'s on medication for {{his}} heart",
+        "No, {{he}} doesn't take anything regular",
+        "{{He}} takes tablets for {{his}} chest",
+        "{{He}} uses oxygen at home sometimes",
+        "No idea exactly what, {{he}} takes something regularly",
+        "{{He}} takes an inhaler and some tablets",
+        "{{He}}'s on regular medication for COPD",
+        "No medication that I know of",
+        "{{He}} takes regular tablets but I don't know all of them"
       ]
     },
     "patientAge": {
       "answers": [
-        "74"
+        "{{He}}'s in {{his}} eighties",
+        "{{He}}'s eighty two",
+        "I'd say {{he}}'s about eighty three",
+        "{{He}}'s in {{his}} mid eighties",
+        "About eighty, I think",
+        "{{He}}'s in {{his}} eighties, usually gets about okay",
+        "{{He}}'s eighty five",
+        "{{He}}'s in {{his}} late eighties",
+        "{{He}}'s around eighty two or three",
+        "{{He}}'s eighty one, I believe"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've got her sitting upright",
-        "I'm doing my best to keep her calm"
+        "Okay, thank you, I'll stay with {{him}} until they arrive",
+        "Right, that's a relief, how long will they be",
+        "Okay, I'll keep {{him}} as comfortable as I can",
+        "Thank you, I'll let {{him}} know help's coming",
+        "Okay, I'll stay on the line until they get here",
+        "Right, thank you, please hurry",
+        "Okay, I'm keeping {{him}} calm until they arrive",
+        "Thank you, that's good news",
+        "Okay, I'll watch for them at the door",
+        "Right, thank you, I'll keep {{him}} still"
       ]
     },
     "refer111": {
       "answers": [
-        "No, she really can't breathe properly, please hurry",
-        "No, this needs an ambulance now"
+        "No, please, this can't wait for a call back, it's urgent",
+        "No, I really think this needs someone out straight away",
+        "No, please don't put this through to 111, it's serious",
+        "No, this needs an ambulance now, not a call back later",
+        "No, please, I don't think this can wait at all",
+        "No, I'm not happy waiting for 111 to call back on this",
+        "No, please send someone now, this feels really serious",
+        "No, this is urgent, we can't wait for a call back",
+        "No, please, I really think this needs seeing to now",
+        "No, I don't think 111 is enough for this, please send someone"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we just need the ambulance, thank you",
+        "I don't think we need police, it's a medical emergency",
+        "No, this isn't a police matter, we need paramedics",
+        "Police aren't needed here, just send the ambulance please",
+        "No thank you, there's no need for police, it's medical",
+        "I don't see why we'd need police for this",
+        "No, it's not a police thing, just the ambulance please",
+        "Police? No, nobody's done anything wrong, it's just an illness",
+        "No need for police, this is purely medical",
+        "I don't think that's necessary, we just need paramedics"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, nothing's on fire, it's medical",
+        "No, we don't need the fire service, just the ambulance",
+        "Fire? No, there's no fire here, it's a medical emergency",
+        "No thank you, we just need paramedics, nothing's burning",
+        "I don't think we need the fire brigade for this",
+        "No, it's not a fire, just send the ambulance please",
+        "Fire service? No, that's not what we need here",
+        "No, nothing's alight, we just need medical help",
+        "No need for fire crews, this is a medical matter",
+        "I don't think that's necessary, there's no fire"
       ]
     }
   },

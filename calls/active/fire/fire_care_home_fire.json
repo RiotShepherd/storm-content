@@ -46,6 +46,10 @@
     "aerial": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3
+  },
   "patients": {
     "range": [
       0,
@@ -95,7 +99,15 @@
   "caller": {
     "openings": [
       "There's a fire in one of the residents' rooms at the care home",
-      "I need the fire brigade, we've got smoke coming from a bedroom and we're evacuating residents"
+      "I need the fire brigade, we've got smoke coming from a bedroom and we're evacuating residents",
+      "We've got a small fire in a bedroom here at the care home, we're moving residents now",
+      "Fire brigade please, one of our rooms has caught fire, staff are evacuating the corridor",
+      "There's smoke coming from a resident's room, we've started our evacuation procedure",
+      "I'm calling from the care home, we've a fire in a bedroom, no one's trapped as far as we know",
+      "We need the fire brigade, a room's on fire and we're moving residents to the day room",
+      "There's a fire alarm and actual smoke this time, we're evacuating the affected wing",
+      "One of the bedrooms is on fire, staff are helping residents out calmly",
+      "Fire brigade please, we've got smoke logging in one corridor, evacuation's underway"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -108,78 +120,231 @@
     "start": {
       "answers": [
         "There's a fire in one of the residents' rooms at the care home",
-        "I need the fire brigade, we've got smoke coming from a bedroom and we're evacuating residents"
+        "I need the fire brigade, we've got smoke coming from a bedroom and we're evacuating residents",
+        "We've got a small fire in a bedroom here at the care home, we're moving residents now",
+        "Fire brigade please, one of our rooms has caught fire, staff are evacuating the corridor",
+        "There's smoke coming from a resident's room, we've started our evacuation procedure",
+        "I'm calling from the care home, we've a fire in a bedroom, no one's trapped as far as we know",
+        "We need the fire brigade, a room's on fire and we're moving residents to the day room",
+        "There's a fire alarm and actual smoke this time, we're evacuating the affected wing",
+        "One of the bedrooms is on fire, staff are helping residents out calmly",
+        "Fire brigade please, we've got smoke logging in one corridor, evacuation's underway"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the duty manager here"
+        "It's {{callerName}}, I'm the shift leader here tonight",
+        "{{callerName}}, I'm one of the care assistants on duty",
+        "My name's {{callerName}}, I manage this care home",
+        "It's {{callerName}}, I'm on nights here",
+        "{{callerName}} speaking, I'm the senior carer on shift",
+        "Name's {{callerName}}, I'm the duty manager",
+        "It's {{callerName}}, I've just raised the alarm here",
+        "{{callerName}}, I'm a care assistant, we're evacuating now",
+        "This is {{callerName}}, I'm the home manager",
+        "{{callerName}} here, I'm supervising the evacuation"
       ]
     },
     "patientName": {
       "answers": [
-        "We're getting the residents out now, I don't have a full list yet"
+        "There's nobody hurt, we're evacuating but no one's hurt yet",
+        "No patient to give a name for, we're evacuating but no one's hurt yet",
+        "There's no one involved, we're evacuating but no one's hurt yet",
+        "Nobody's hurt, we're evacuating but no one's hurt yet",
+        "No casualty at all, we're evacuating but no one's hurt yet",
+        "There's no one to report, we're evacuating but no one's hurt yet",
+        "Not applicable, we're evacuating but no one's hurt yet",
+        "No injuries, we're evacuating but no one's hurt yet",
+        "Nobody to name, we're evacuating but no one's hurt yet",
+        "No patient, we're evacuating but no one's hurt yet"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the care home, main entrance on the front"
+        "{{address}}, it's the care home",
+        "It's {{address}}, come to the main entrance",
+        "{{address}}, we're the care home on that road",
+        "You want {{address}}, the gates are open for you",
+        "{{address}}, please use the side entrance, it's quicker",
+        "{{address}}, the care home with the blue sign",
+        "{{address}}, I'll have someone waiting at the door",
+        "{{address}}, come round the back, that's where the smoke is",
+        "{{address}}, please hurry, we're still evacuating",
+        "{{address}}, that's us, the smoke's coming from the east wing"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Smoke's coming from one of the bedrooms, we've started our evacuation procedure for that wing"
+        "We think it started with something left on a heater in the room",
+        "Not sure of the cause yet, staff spotted smoke under the door",
+        "Might be an electrical fault, the smoke alarm went off first",
+        "We think a resident may have left something near a lamp",
+        "Not certain, but there's definite smoke, not just an alarm",
+        "Could be a candle or an oil burner, we're not sure yet",
+        "We don't know the cause, just smoke coming from the room",
+        "Possibly bedding too close to a radiator, we're not sure",
+        "Unclear cause, the smoke detector triggered and staff found smoke",
+        "We think it's electrical, there was a burning smell before the smoke"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "As far as we know all residents are conscious, we're moving them now"
+        "No one's hurt, we're evacuating but no one's hurt yet",
+        "There's no patient here, we're evacuating but no one's hurt yet",
+        "Not applicable, we're evacuating but no one's hurt yet",
+        "Nobody's involved, we're evacuating but no one's hurt yet",
+        "No injuries at all, we're evacuating but no one's hurt yet",
+        "No one to check on, we're evacuating but no one's hurt yet",
+        "There's no casualty, we're evacuating but no one's hurt yet",
+        "No patient at all, we're evacuating but no one's hurt yet",
+        "Nobody's hurt, thankfully, we're evacuating but no one's hurt yet",
+        "No one's affected, we're evacuating but no one's hurt yet"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple of the more frail residents are struggling with the smoke"
+        "No one to worry about, we're evacuating but no one's hurt yet",
+        "Not applicable, we're evacuating but no one's hurt yet",
+        "Nobody's struggling to breathe, we're evacuating but no one's hurt yet",
+        "No casualty, we're evacuating but no one's hurt yet",
+        "No one's affected by any smoke, we're evacuating but no one's hurt yet",
+        "There's no patient, we're evacuating but no one's hurt yet",
+        "No breathing issues to report, we're evacuating but no one's hurt yet",
+        "Nobody's been near any smoke, we're evacuating but no one's hurt yet",
+        "No one's hurt, we're evacuating but no one's hurt yet",
+        "Not applicable, no one's involved, we're evacuating but no one's hurt yet"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No injuries reported yet, we're still evacuating"
+        "Nobody's in pain, we're evacuating but no one's hurt yet",
+        "No one's hurt at all, we're evacuating but no one's hurt yet",
+        "Not applicable, we're evacuating but no one's hurt yet",
+        "No injuries to report, we're evacuating but no one's hurt yet",
+        "There's no patient, we're evacuating but no one's hurt yet",
+        "No one's complaining of anything, we're evacuating but no one's hurt yet",
+        "Nobody's hurt, we're evacuating but no one's hurt yet",
+        "No pain to report, we're evacuating but no one's hurt yet",
+        "Not applicable, no casualty, we're evacuating but no one's hurt yet",
+        "No one's injured, we're evacuating but no one's hurt yet"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding reported"
+        "No, no one's involved, we're evacuating but no one's hurt yet",
+        "No bleeding, there's no patient, we're evacuating but no one's hurt yet",
+        "Not applicable, we're evacuating but no one's hurt yet",
+        "No, everyone's uninjured, we're evacuating but no one's hurt yet",
+        "No, nobody's hurt, we're evacuating but no one's hurt yet",
+        "No bleeding to report, we're evacuating but no one's hurt yet",
+        "Not applicable, no casualties, we're evacuating but no one's hurt yet",
+        "No, no one's been near it, we're evacuating but no one's hurt yet",
+        "No, we're all fine, we're evacuating but no one's hurt yet",
+        "No, there's no one injured, we're evacuating but no one's hurt yet"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Many residents have dementia and mobility issues, staff know their needs"
+        "Not applicable, there's no patient",
+        "No one to report on, nobody's involved",
+        "N/A, no casualty at all",
+        "Not applicable, nobody's hurt",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine",
+        "Not applicable, no one's injured",
+        "No medical history needed, no one's hurt",
+        "Not applicable, there's no one to ask about"
       ]
     },
     "medications": {
       "answers": [
-        "Medication charts are with each resident's file, staff have them"
+        "Not applicable, there's no patient",
+        "No one to report on",
+        "N/A, nobody's hurt",
+        "Not applicable, no casualties",
+        "No medications relevant, no patient involved",
+        "Not applicable at all",
+        "N/A, no one's injured",
+        "Not applicable, everyone's fine",
+        "No patient, so nothing to report",
+        "Not applicable, no one to ask about"
       ]
     },
     "patientAge": {
       "answers": [
-        "Our residents are mostly in their eighties and nineties"
+        "No patient, we're evacuating but no one's hurt yet",
+        "Not applicable, we're evacuating but no one's hurt yet",
+        "No one to give an age for, we're evacuating but no one's hurt yet",
+        "N/A, we're evacuating but no one's hurt yet",
+        "No age to give, we're evacuating but no one's hurt yet",
+        "Not applicable, no one's hurt, we're evacuating but no one's hurt yet",
+        "No casualty, we're evacuating but no one's hurt yet",
+        "Nobody's involved, we're evacuating but no one's hurt yet",
+        "Not applicable at all, we're evacuating but no one's hurt yet",
+        "No patient to speak of, we're evacuating but no one's hurt yet"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're following our evacuation plan and moving residents to the assembly point"
+        "Okay, thank you, we'll wait for the crew to arrive",
+        "Right, we'll stay clear and let you know if anything changes",
+        "Okay, we're all outside and safe, just waiting now",
+        "Understood, we'll keep everyone back until the crew gets here",
+        "Okay, thank you, we'll stay on the line if needed",
+        "Right, we'll wait by the entrance to show the crew in",
+        "Okay, nothing's changed, we'll just wait",
+        "Understood, thank you, we'll stay put",
+        "Okay, we'll keep the access clear for you",
+        "Right, thanks, we'll wait here until they arrive"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need the fire brigade urgently, this is an evacuation"
+        "No, it's a fire matter, not medical",
+        "No need, nobody's hurt",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury here",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a fire brigade matter",
+        "No, that's not needed, everyone's fine",
+        "No, this isn't a medical call at all",
+        "No thank you, no one needs medical help",
+        "No, it's just the fire brigade we need"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the fire brigade for this",
+        "Oh, we don't need police, it's purely a fire matter",
+        "No need for police here, it's just the alarm and the fire crew",
+        "I don't think that's necessary, it's not a police job",
+        "Police aren't needed, it's just the fire we're dealing with",
+        "No, we're fine without police, it's the fire brigade we want",
+        "I don't believe police are required, it's just a fire matter",
+        "That's probably not needed, there's no police issue here",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's a fire brigade job"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep everything clear for them",
+        "That's great, we'll be waiting to let them straight in",
+        "Thank you, we'll stay by the entrance so they can get to it",
+        "Good, I'll let the others know they're on their way",
+        "Understood, we'll keep the access route clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by for them",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep everyone back until the crew's here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

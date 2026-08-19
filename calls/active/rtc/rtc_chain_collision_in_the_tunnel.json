@@ -54,6 +54,12 @@
     "irv": 3,
     "fire_officer": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13,
+    "ambulance": 7,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -99,8 +105,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's been a massive pile up in the tunnel, loads of cars have gone into each other!",
-      "Emergency, multiple cars have crashed in the tunnel, there's smoke starting to build up in here."
+      "There's been a huge pile up in the tunnel, there's smoke and people are trapped!",
+      "Help, loads of cars have crashed in the tunnel, it's filling with smoke!",
+      "There's been a multi car crash in the tunnel, people can't breathe properly in here!",
+      "Please hurry, there's a chain collision in the tunnel, smoke's building up fast!",
+      "Help, cars keep crashing into each other in the tunnel, there's smoke everywhere!",
+      "There's a serious pile up in the tunnel, I can see people trapped in cars!",
+      "Please send everyone, there's a chain collision and smoke's filling the tunnel!",
+      "Help, there's been a big crash in the tunnel, people are struggling to breathe!",
+      "There's multiple vehicles crashed in the tunnel, it's getting smoky in here!",
+      "Please hurry, there's a serious multi vehicle crash in the tunnel with smoke!"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -112,91 +126,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's been a massive pile up in the tunnel, loads of cars have gone into each other!",
-        "Emergency, multiple cars have crashed in the tunnel, there's smoke starting to build up in here."
+        "There's been a huge pile up in the tunnel, there's smoke and people are trapped!",
+        "Help, loads of cars have crashed in the tunnel, it's filling with smoke!",
+        "There's been a multi car crash in the tunnel, people can't breathe properly in here!",
+        "Please hurry, there's a chain collision in the tunnel, smoke's building up fast!",
+        "Help, cars keep crashing into each other in the tunnel, there's smoke everywhere!",
+        "There's a serious pile up in the tunnel, I can see people trapped in cars!",
+        "Please send everyone, there's a chain collision and smoke's filling the tunnel!",
+        "Help, there's been a big crash in the tunnel, people are struggling to breathe!",
+        "There's multiple vehicles crashed in the tunnel, it's getting smoky in here!",
+        "Please hurry, there's a serious multi vehicle crash in the tunnel with smoke!"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm a few cars back in the tunnel.",
-        "{{callerName}}, I've had to get out and leave my car."
+        "It's {{callerName}}, I was a few cars back when it happened.",
+        "{{callerName}}, I'm caught up in the tunnel too.",
+        "My name's {{callerName}}.",
+        "{{callerName}} here, I've stopped my car and I'm trying to help.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm one of the drivers caught up in this.",
+        "My name is {{callerName}}, I was driving through when it happened.",
+        "{{callerName}}, I've got out of my car to help where I can.",
+        "It's {{callerName}}, I saw the crash happen ahead of me.",
+        "{{callerName}} speaking, I'm inside the tunnel right now."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know any of them, there's cars everywhere.",
-        "I can't tell you, there's too many people involved."
+        "There's a lot of people involved, I don't have names, sorry.",
+        "No names, there's too many vehicles caught up in this.",
+        "I don't know anyone's name, it's chaos in here.",
+        "Can't help with names, there's just too many people affected.",
+        "No idea on names, we're trying to get everyone out.",
+        "Sorry, no names, there's a fair few vehicles involved.",
+        "I can't give you any names, there's several cars caught up in it.",
+        "No, there's too many casualties for names right now.",
+        "Sorry, no names, we're just trying to help however we can.",
+        "I don't know any of them, there's just so many people affected."
       ]
     },
     "address": {
       "answers": [
-        "We're inside {{address}}, near the middle of the tunnel.",
-        "{{address}}, it's chaos in here, loads of cars piled up."
+        "It's {{address}}, the tunnel, the crash is a few hundred metres in.",
+        "{{address}}, the tunnel, please hurry, the smoke's getting worse.",
+        "It's {{address}}, come in from the northbound entrance.",
+        "{{address}}, the tunnel's filling with smoke, please hurry.",
+        "It's {{address}}, the collision's blocking both lanes.",
+        "{{address}}, the tunnel, you'll see the smoke from the entrance.",
+        "It's {{address}}, there's several cars piled up inside.",
+        "{{address}}, please send everyone, it's a big scene in here.",
+        "It's {{address}}, the tunnel, the smoke's making it hard to see.",
+        "{{address}}, please hurry, we're stuck in the smoke."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "One car braked suddenly and then everyone behind went into each other, there's smoke starting to fill the tunnel.",
-        "It's a huge pile up, cars are still colliding as people can't stop in time."
+        "One car braked suddenly and several vehicles went into the back of each other.",
+        "There was a crash ahead and cars kept piling into the back of one another.",
+        "Visibility dropped in the tunnel and a chain of cars collided one after another.",
+        "One vehicle stopped suddenly and the cars behind couldn't stop in time.",
+        "There's been a multi vehicle pile up, smoke's now filling the tunnel from the crash.",
+        "A vehicle fire seems to have started and now there's smoke logging the tunnel.",
+        "Several cars have crashed into each other, and now there's smoke building up.",
+        "A vehicle broke down and others crashed into it, blocking both lanes.",
+        "There was a sudden stop ahead and a whole line of traffic crashed into each other.",
+        "Multiple vehicles have collided and the smoke's making it hard to see or breathe."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are, others aren't moving in their cars.",
-        "A few people are out and walking, others look trapped."
+        "Most are conscious, coughing from the smoke, but awake.",
+        "They're all conscious as far as I can see, just shaken up.",
+        "A couple seem a bit dazed but everyone's conscious.",
+        "Yes, conscious, but some are struggling more than others with the smoke.",
+        "They're awake, frightened, some coughing badly.",
+        "All conscious that I can see, no one's collapsed.",
+        "Conscious but distressed, a lot of coughing going on.",
+        "Everyone I can see is conscious, just very shaken.",
+        "They're conscious, some worse than others with the coughing.",
+        "As far as I know they're all conscious, just unwell from the smoke."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I don't know about everyone, it's getting smoky in here.",
-        "Some are coughing from the smoke."
+        "Several are struggling to breathe because of the smoke.",
+        "A few are wheezing badly, the rest seem okay so far.",
+        "Some are really short of breath, it's quite bad for a couple of them.",
+        "Breathing's laboured for a number of them, lots of coughing.",
+        "A handful are having real trouble breathing in the smoke.",
+        "Most are breathing okay for now, a few are struggling badly.",
+        "Some are gasping a bit, we're trying to get them clear of the smoke.",
+        "A couple are really struggling for breath, the others are coughing.",
+        "Breathing's an issue for several of them, getting worse by the minute.",
+        "Some are fine, others are really wheezy and short of breath."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "People are shouting they're trapped and hurt.",
-        "I can hear screaming from further up."
+        "A few are complaining of chest pain and sore throats.",
+        "Some say their chests hurt and their eyes are stinging from the smoke.",
+        "There's chest pain and headaches among some of them.",
+        "A couple are holding their chests, say it hurts to breathe.",
+        "Some have got sore eyes and throats from the smoke.",
+        "A few are saying their chests feel tight.",
+        "Some are in discomfort, chest pain mostly.",
+        "There's a bit of chest pain reported, and some headaches.",
+        "A number of them say it hurts when they breathe in.",
+        "Some are complaining of pain in their chest and throat."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, I can see blood on a few people who've got out.",
-        "Yes, on at least a couple of them."
+        "A few are bleeding, cuts from broken glass in some of the cars.",
+        "Some are bleeding a bit, mostly cuts from the crash itself.",
+        "There's some blood, mainly minor cuts from the collisions.",
+        "A couple have cuts and are bleeding lightly.",
+        "Not much bleeding, it's mostly the smoke causing problems.",
+        "Some minor bleeding from cuts, nothing too severe that I can see.",
+        "A few have got small cuts and are bleeding a bit.",
+        "There's some bleeding, mostly minor from the impacts.",
+        "A couple are bleeding lightly, cuts from broken glass.",
+        "Not a lot of bleeding, it's mainly the smoke that's the worry."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know any of them.",
-        "No idea, there's too many people."
+        "I don't know all their medical histories, sorry, there's too many.",
+        "No idea, we'd need to check with each of them individually.",
+        "Can't say for certain, I know one or two have asthma.",
+        "I'm not sure, some might have breathing conditions already.",
+        "I don't have that information for all of them.",
+        "Not sure, sorry, there's too many people to know that about.",
+        "I couldn't tell you, we're just trying to help them right now.",
+        "No idea about medical history, sorry, it's chaos here.",
+        "I know a couple mentioned asthma, not sure about the rest.",
+        "Can't say, sorry, I don't know them all that well."
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea, sorry.",
-        "I can't tell you."
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's too many people to ask.",
+        "Not a clue, sorry, we're just trying to keep them calm.",
+        "I don't know, I'd have to ask each of them.",
+        "No idea on medications, sorry, we're a bit overwhelmed here.",
+        "Can't help with that, sorry, I don't know them well enough.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's too many to know that about.",
+        "No idea, honestly, we're just focused on getting help to them.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "All sorts, it's a lot of vehicles.",
-        "Mixed ages, hard to say exactly."
+        "All ages really, there's a real mix of drivers caught up in it.",
+        "Mixed ages, there's a real range from young to old.",
+        "Hard to say exactly, there's a real range across the vehicles.",
+        "Mostly adults I'd say, driving age obviously.",
+        "A proper mix, twenties up to older people.",
+        "Can't say exactly, it's a real mix of everyone caught up in it.",
+        "There's a broad mix, young and old caught up in this.",
+        "Mostly working age adults from what I can see.",
+        "A mix, I'd say twenties up to sixties maybe.",
+        "Hard to tell, there's people of all ages here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm moving away from the smoke towards the exit.",
-        "Please hurry, the smoke's getting worse in here."
+        "Okay, thank you, we'll try to keep them calm until the crews get here.",
+        "Right, I'll stay with them until the ambulance gets here.",
+        "Okay, that's good, please hurry, the smoke's getting worse.",
+        "Thank you, we'll keep them as comfortable as we can.",
+        "Alright, I'll keep talking to them until the ambulance arrives.",
+        "Okay, we're trying to get everyone clear of the smoke.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we'll keep everyone together until help arrives.",
+        "Thank you, I'll do what I can until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "Are you serious, there's a huge crash in the tunnel, we need help now!"
+        "No, they need proper help now, not 111, some can barely breathe.",
+        "I don't think 111 can deal with this, we need paramedics and fire out here.",
+        "No, this can't wait for 111, people are struggling to breathe.",
+        "Sorry, no, we need an ambulance and the fire brigade now.",
+        "No, 111's too slow for this, please send help quickly.",
+        "I really think we need 999 crews here, not 111.",
+        "No, this is urgent, please don't put me through to 111.",
+        "Sorry, I don't think 111 is right for this, people are unwell.",
+        "No, we need someone out here now, not a phone line.",
+        "No, please, this needs paramedics, not 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, we need them to close the tunnel off.",
+        "Right, that's good, we could do with them here to sort the traffic.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting a bit chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay back until the crews get here.",
+        "Right, that's a relief, please send them as quickly as you can.",
+        "Okay, we'll keep everyone well clear until the fire engines arrive.",
+        "Thank you, I'll wait here and point them in the right direction.",
+        "Alright, understood, we won't go near it till they arrive.",
+        "Okay, good, we're all trying to move clear and waiting for the crews.",
+        "Thank you, we'll keep our distance until the brigade gets here.",
+        "Right, please hurry, the smoke's not looking any better.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, we'll wait here for them."
       ]
     }
   },

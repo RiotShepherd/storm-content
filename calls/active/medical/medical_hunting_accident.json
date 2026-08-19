@@ -43,6 +43,11 @@
   "units": {
     "irv": 2
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 2,
+    "police": 2
+  },
   "patients": {
     "range": [
       1,
@@ -70,7 +75,15 @@
   "caller": {
     "openings": [
       "There's been a shooting accident, my mate's been shot, we were out hunting",
-      "I need an ambulance and the police, the gun's gone off and hit my mate"
+      "I need an ambulance and the police, the gun's gone off and hit my mate",
+      "There's been an accident with a shotgun, my mate's hit, we were out hunting pheasant",
+      "My mate's been shot, it was an accident, we need an ambulance and police out here",
+      "Please help, a gun's gone off and hit my mate, we're out on the shoot",
+      "There's been a firearms accident, my mate's bleeding badly, please hurry",
+      "My mate's taken a shotgun blast by accident, we're out in the field",
+      "Please, my mate's been shot accidentally, we need help fast",
+      "There's been a hunting accident, a gun's discharged and hit my mate",
+      "My mate's hurt badly, the gun went off by accident while we were out shooting"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -83,81 +96,231 @@
     "start": {
       "answers": [
         "There's been a shooting accident, my mate's been shot, we were out hunting",
-        "I need an ambulance and the police, the gun's gone off and hit my mate"
+        "I need an ambulance and the police, the gun's gone off and hit my mate",
+        "There's been an accident with a shotgun, my mate's hit, we were out hunting pheasant",
+        "My mate's been shot, it was an accident, we need an ambulance and police out here",
+        "Please help, a gun's gone off and hit my mate, we're out on the shoot",
+        "There's been a firearms accident, my mate's bleeding badly, please hurry",
+        "My mate's taken a shotgun blast by accident, we're out in the field",
+        "Please, my mate's been shot accidentally, we need help fast",
+        "There's been a hunting accident, a gun's discharged and hit my mate",
+        "My mate's hurt badly, the gun went off by accident while we were out shooting"
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, we were out together",
-        "{{callerName}}"
+        "{{callerName}}, I'm one of the shooting party",
+        "My name's {{callerName}}",
+        "{{callerName}}, that's me, I was stood next to {{him}}",
+        "It's {{callerName}}, I've called the ambulance",
+        "{{callerName}}, I'm with {{him}} now",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "It's {{callerName}}, we're out on the shoot together",
+        "{{callerName}}, that's who's speaking"
       ]
     },
     "patientName": {
       "answers": [
         "It's {{firstPatientName}}, my mate",
-        "{{firstPatientName}}"
+        "{{firstPatientName}}, {{he}}'s a mate of mine from the shoot",
+        "{{His}} name's {{firstPatientName}}",
+        "{{firstPatientName}}, that's {{him}}",
+        "It's my mate {{firstPatientName}}",
+        "{{firstPatientName}} is {{his}} name",
+        "{{firstPatientName}}, {{he}}'s one of our group",
+        "We've known each other years, {{he}}'s {{firstPatientName}}",
+        "{{firstPatientName}}, please hurry, {{he}}'s losing a lot of blood",
+        "{{firstPatientName}}, my mate, please come quickly"
       ]
     },
     "address": {
       "answers": [
         "We're out near {{address}}, it's rough ground so come carefully",
-        "{{address}}, I'll wave you in"
+        "{{address}}, I'll wave you in from the track",
+        "It's {{address}}, but you'll need to come in on foot from the road",
+        "We're near {{address}}, out in the field, it's a bit remote",
+        "{{address}}, come in via the farm track, we're out past there",
+        "It's {{address}}, but access is difficult, it's open land",
+        "We're out at {{address}}, I'll meet you at the gate",
+        "{{address}}, there's a track in, I'll flag you down",
+        "It's {{address}}, we're a fair way from the road",
+        "We're near {{address}}, in the woods, come in carefully"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "We were out after pheasant and the gun went off, he's been hit in the leg"
+        "We were out after pheasant and the gun went off, {{he}}'s been hit in the leg",
+        "{{He}} was climbing over a stile with the gun broken but it went off somehow",
+        "A shot went wide and caught {{him}} as we were walking the line",
+        "The gun discharged accidentally while {{he}} was reloading",
+        "{{He}} slipped and the gun went off as {{he}} fell",
+        "We were beating through cover and a shot caught {{him}} by accident",
+        "The safety must have failed, the gun went off and hit {{him}}",
+        "{{He}} was hit by a stray shot from further down the line",
+        "The gun went off as {{he}} was climbing through a hedge",
+        "It happened in a split second, the gun discharged and caught {{him}}"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious, in agony"
+        "Yes, {{he}}'s conscious, in agony",
+        "{{He}}'s awake, {{he}}'s gone very pale",
+        "Yes, {{he}}'s talking, but {{he}}'s in a lot of pain",
+        "Conscious, yes, {{he}}'s gritting {{his}} teeth",
+        "{{He}}'s awake, {{he}}'s in shock but talking",
+        "Yes, {{he}}'s conscious, {{he}}'s frightened",
+        "{{He}}'s alert, {{he}}'s asking how bad it is",
+        "Yes, {{he}}'s awake, {{he}}'s losing colour fast",
+        "Conscious, yes, but {{he}}'s starting to look drowsy",
+        "{{He}}'s talking to me, still conscious, in a bad way"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "Yes, breathing fine, just winded from the fall",
+        "{{He}}'s breathing okay, just shaken",
+        "Fine, {{his}} breathing's normal",
+        "Yes, {{he}}'s breathing normally",
+        "{{His}} breathing seems fine to me",
+        "Yes, no problem breathing",
+        "{{He}}'s breathing okay, a bit out of breath from the shock",
+        "Normal breathing, yes",
+        "Fine, {{he}}'s just shaken, breathing's okay",
+        "Yes, breathing's fine"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Awful, he's screaming"
+        "Awful, {{he}}'s screaming with the pain",
+        "Severe, {{he}} says it's agony where {{he}}'s been hit",
+        "{{He}}'s in terrible pain, {{he}} can barely speak from it",
+        "Yes, {{he}}'s in a lot of pain, {{his}} leg's the worst of it",
+        "{{He}}'s in agony, {{he}} keeps crying out",
+        "Bad pain, {{he}} says it's burning where the shot hit",
+        "{{He}}'s in real pain, {{he}}'s gone very quiet with it now",
+        "Severe pain, {{he}}'s struggling to stay still",
+        "{{He}} says it's the worst pain {{he}}'s ever felt",
+        "Yes, terrible pain, {{he}}'s shaking with it"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, heavily, I'm pressing on it with my jacket"
+        "Yes, a bit of blood from {{his}} leg",
+        "There's some bleeding from {{his}} leg, not huge but steady",
+        "A small amount from {{his}} leg",
+        "Yes, {{his}} leg is bleeding, I've got something pressed on it",
+        "A bit of blood, coming from {{his}} leg",
+        "Yes, {{his}} leg is cut and bleeding",
+        "Some bleeding from {{his}} leg, I'm keeping pressure on",
+        "There's a fair bit of blood from {{his}} leg",
+        "Yes, {{his}} leg is bleeding, quite a lot actually",
+        "A little blood from {{his}} leg, I've dabbed it with a tissue"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Nothing that I know of"
+        "I don't know, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}} at all",
+        "No idea I'm afraid, never met {{him}} before",
+        "Sorry, I've got no idea, I just saw what happened",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, sorry, we're not together",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I've no idea, I only just met {{him}}"
       ]
     },
     "medications": {
       "answers": [
-        "None that I know of"
+        "No idea, sorry, I don't know {{him}}",
+        "I couldn't tell you, {{he}}'s a stranger to me",
+        "No idea I'm afraid, sorry",
+        "Sorry, I don't know {{him}} well enough to say",
+        "Can't help with that, I don't know {{him}}",
+        "No idea, sorry, I don't know",
+        "I've no clue, never met {{him}} before today",
+        "Sorry, I really don't know",
+        "No idea, we're not together, I just saw {{him}} fall",
+        "Couldn't tell you I'm afraid"
       ]
     },
     "patientAge": {
       "answers": [
-        "About 40"
+        "{{He}}'s 40",
+        "About 40, I think",
+        "{{He}}'s 40 years old",
+        "40, {{he}}'ll be 41 next year",
+        "I think {{he}}'s 40 or thereabouts",
+        "40 years of age",
+        "{{He}}'s in {{his}} 40s, about 40",
+        "Just turned 40",
+        "{{He}}'s 40, always been fit for {{his}} age",
+        "40, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm keeping pressure on"
+        "Okay, I'm pressing down on the wound like you said",
+        "Right, I've got my jacket pressed on it, {{he}}'s still talking",
+        "I'm keeping {{him}} calm, telling {{him}} help's coming",
+        "Okay, doing that now, there's a lot of blood though",
+        "Yes, I'm holding pressure on it, {{he}}'s gone very pale",
+        "Okay, I've got {{him}} lying down, keeping pressure on the wound",
+        "Right, I'm staying with {{him}}, {{he}}'s still conscious",
+        "Okay, I've taken my top off to press on the wound",
+        "I'm doing that now, please hurry, {{he}}'s losing a lot of blood",
+        "Okay, keeping pressure on, {{he}}'s still breathing"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this can't wait, he needs an ambulance"
+        "No, {{he}}'s been shot, this needs an ambulance and the police now",
+        "No, this is not a 111 job, {{he}}'s bleeding badly",
+        "No, please, this is serious, {{he}}'s been hit by a shotgun",
+        "No, absolutely not, {{he}} needs help right now",
+        "No, {{he}}'s losing blood fast, please hurry",
+        "No, this can't wait, {{he}}'s been shot",
+        "No, please just send help, {{he}}'s in a bad way",
+        "No, this is an emergency, {{he}}'s been injured by a gun",
+        "No, please, {{he}} needs an ambulance immediately",
+        "No, this needs blue lights, {{he}}'s badly hurt"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, the gun's safe now, it's on the ground away from us",
+        "Right, good, someone needs to deal with the firearm anyway",
+        "Okay, that's sensible, we've not touched the gun since it happened",
+        "Alright, thank you, I'll point out exactly where the gun is",
+        "Okay, good, I suppose that's standard for something like this",
+        "Right, thank you, we've left everything as it is for them",
+        "Okay, that makes sense, there's a firearm involved after all",
+        "Alright, good, we'll wait here for both of them to arrive",
+        "Okay, thank you, I'll tell them exactly what happened when they get here",
+        "Right, okay, that's probably wise given it's a shooting"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, just an ambulance and the police please",
+        "No, no fire brigade needed, {{he}}'s been shot, not burned",
+        "No, wrong service, {{he}} just needs paramedics and police out here",
+        "No fire involved, we just need the ambulance and police to attend",
+        "No thank you, no fire needed, just send the other two services",
+        "Fire brigade? No, {{he}}'s not trapped, {{he}}'s been shot, it's medical",
+        "No, that's not necessary, {{he}} needs paramedics, not fire crews",
+        "No fire required, just the ambulance and police for the gun",
+        "Fire? No, I don't think that's needed, send the ambulance and police",
+        "No, no fire service required, this is a shooting, not a fire"
       ]
     }
   },

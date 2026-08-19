@@ -48,6 +48,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -66,8 +70,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "This is the monitoring centre, we've had an alarm activation, no confirmation yet",
-      "Control room, an alarm's triggered at a client property, unconfirmed cause"
+      "Hello, this is the monitoring centre, we've got an alarm activation to report.",
+      "Hi, we're an alarm company, one of our sites has triggered an intruder alarm.",
+      "Yeah hiya, calling from the alarm centre, we've had an activation come through.",
+      "Oh hello, this is the control room, an intruder alarm's gone off at a premises.",
+      "Hi there, I need to report an unconfirmed alarm activation.",
+      "Hello, quick one, we've had an intruder alarm trigger with no keyholder response.",
+      "Hi, I'm calling from the monitoring station about an alarm going off.",
+      "Oh, hello, sorry, we've got an alarm signal from a property we monitor.",
+      "Hiya, this is the alarm company, we need police to attend an activation.",
+      "Hello, I need to report an intruder alarm that's just gone off."
     ],
     "phoneArea": "auto",
     "callerType": "alarm_company"
@@ -79,92 +91,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "This is the monitoring centre, we've had an alarm activation, no confirmation yet",
-        "Control room, an alarm's triggered at a client property, unconfirmed cause"
+        "Hello, this is the monitoring centre, we've got an alarm activation to report.",
+        "Hi, we're an alarm company, one of our sites has triggered an intruder alarm.",
+        "Yeah hiya, calling from the alarm centre, we've had an activation come through.",
+        "Oh hello, this is the control room, an intruder alarm's gone off at a premises.",
+        "Hi there, I need to report an unconfirmed alarm activation.",
+        "Hello, quick one, we've had an intruder alarm trigger with no keyholder response.",
+        "Hi, I'm calling from the monitoring station about an alarm going off.",
+        "Oh, hello, sorry, we've got an alarm signal from a property we monitor.",
+        "Hiya, this is the alarm company, we need police to attend an activation.",
+        "Hello, I need to report an intruder alarm that's just gone off."
       ]
     },
     "callerName": {
       "answers": [
-        "This is the control room, operator {{callerName}}",
-        "{{callerName}}, calling from the monitoring centre"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}.",
+        "{{callerName}} speaking.",
+        "It's {{callerName}} here.",
+        "Name's {{callerName}}.",
+        "{{callerName}}, yes.",
+        "This is {{callerName}}."
       ]
     },
     "patientName": {
       "answers": [
-        "No patient, this is an unconfirmed alarm",
-        "Not applicable, no one on scene"
+        "There's nobody hurt, it's just an alarm going off at a property.",
+        "No patient, it's only an alarm going off at a property I'm calling about.",
+        "Nobody's hurt, this is just about an alarm going off at a property.",
+        "No one needs a name, no one's hurt, it's an alarm going off at a property.",
+        "Not applicable, nobody's injured, just an alarm going off at a property.",
+        "There's no casualty, purely an alarm going off at a property.",
+        "No injuries here, it's simply an alarm going off at a property.",
+        "Nobody to name, it's not a medical thing, it's an alarm going off at a property.",
+        "No patient involved, just an alarm going off at a property I'm reporting.",
+        "There's no one hurt, this is only about an alarm going off at a property."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, that's the premises on our system",
-        "It's {{address}}, registered to us"
+        "It's {{address}}.",
+        "The address is {{address}}, can you get someone there quickly.",
+        "{{address}}, that's where I am.",
+        "We're at {{address}}.",
+        "It's {{address}}, just past the corner.",
+        "{{address}}, that's the postcode area.",
+        "I'm calling from {{address}}.",
+        "You need {{address}}, that's the one.",
+        "It's {{address}}, look for the front door.",
+        "{{address}}, please hurry."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Sensors triggered in the hallway, no CCTV to confirm the cause",
-        "The alarm's gone off once, could be a fault, no keyholder response yet"
+        "We got a signal from the rear door sensor, no keyholder's answering their phone.",
+        "The alarm's triggered on two zones, motion sensor and a window contact.",
+        "It's an unconfirmed activation, we can't reach anyone at the property.",
+        "The system's shown movement inside after hours, no one should be there.",
+        "We've had a break glass sensor trigger, keyholder isn't picking up.",
+        "It's activated on the ground floor sensors, the site should be empty tonight.",
+        "There's a signal on the back office window, we can't get hold of the keyholder.",
+        "The panel shows an intruder alert, our second call to the keyholder went unanswered.",
+        "It's triggered twice in the last ten minutes on different zones.",
+        "We've got a confirmed movement alert but no visual, need police to check it out."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's nobody hurt, it's just the property",
-        "No one's hurt, it's just damage"
+        "Nobody's hurt, so that doesn't apply here.",
+        "There's no patient, no one's unconscious or anything.",
+        "No one's collapsed, nobody's hurt at all.",
+        "Not applicable, there's no casualty.",
+        "No one's affected like that, nobody's injured.",
+        "There's nobody down, no injuries here.",
+        "No, nobody's hurt, so there's no one to check.",
+        "That doesn't apply, no one's been hurt.",
+        "No casualty, nobody's collapsed or anything.",
+        "Nobody's hurt, everyone's fine physically."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Nobody needing that, no one's hurt",
-        "There's no injuries, just the damage"
+        "No one's struggling to breathe, nobody's hurt.",
+        "That's not an issue, there's no injuries.",
+        "Nobody needs that, no one's hurt at all.",
+        "No, there's no casualty, nobody's affected.",
+        "Not applicable, no one's hurt here.",
+        "No breathing problems, nobody's injured.",
+        "There's no patient, so no, nothing like that.",
+        "No one's hurt, that doesn't come into it.",
+        "Not a medical thing, nobody's hurt.",
+        "No, nobody's hurt, everyone's breathing fine."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's in pain, nobody's here",
-        "No, nobody's hurt at all"
+        "No one's in pain, nobody's hurt.",
+        "Nobody's hurt, so no pain to report.",
+        "No, there's no casualty in pain.",
+        "Not applicable, no one's injured.",
+        "No pain, nobody's hurt at all.",
+        "There's no patient, so no.",
+        "No one's suffering, nobody's hurt.",
+        "No, everyone's fine, nobody's hurt.",
+        "Not a medical call really, no pain involved.",
+        "No one's hurt, so no pain to speak of."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, there's no one hurt",
-        "No bleeding, nobody was here when it happened"
+        "No bleeding, nobody's hurt.",
+        "No, there's no injuries at all.",
+        "Nobody's bleeding, no one's hurt.",
+        "Not applicable, no casualty here.",
+        "No, no one's hurt, no bleeding.",
+        "There's no patient, so no bleeding.",
+        "No injuries, nobody's hurt.",
+        "No, everyone's unhurt.",
+        "Not a medical emergency, no bleeding.",
+        "No, nobody's hurt at all."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, it's not medical",
-        "Not applicable, nobody's hurt"
+        "There's no patient, so that's not relevant.",
+        "Not applicable, nobody's hurt.",
+        "No one's involved medically, nobody's hurt.",
+        "N/A, no casualty here.",
+        "There's no one to ask that about.",
+        "Not a medical matter, no one's hurt.",
+        "No patient, so no history to give.",
+        "Nobody's hurt, that doesn't apply.",
+        "Not relevant, no one's injured.",
+        "No, there's no patient for that."
       ]
     },
     "medications": {
       "answers": [
-        "No one needs that, nobody's hurt",
-        "Not applicable"
+        "Not applicable, no one's hurt.",
+        "No patient, so no medication to mention.",
+        "N/A, nobody's involved medically.",
+        "No one's hurt, that doesn't apply.",
+        "Not relevant, no casualty here.",
+        "No, there's no patient.",
+        "Nobody needs that, no one's hurt.",
+        "Not a medical matter, no medication needed.",
+        "No one's hurt, so no.",
+        "N/A, no injuries here."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient, it's just property",
-        "N/A, nobody's involved that way"
+        "There's no patient, so no age to give.",
+        "Not applicable, nobody's hurt.",
+        "N/A, no casualty here.",
+        "No one's hurt, that doesn't apply.",
+        "Not relevant, no injuries.",
+        "No patient involved, no age needed.",
+        "Nobody's hurt, so no.",
+        "Not a medical thing, no age to give.",
+        "No one's injured, that doesn't apply.",
+        "N/A, there's no one hurt."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep watching from here",
-        "Right, understood, I'll wait"
+        "Ambulance? No, nobody's hurt, I don't need that.",
+        "I don't think we need an ambulance, no one's injured.",
+        "Sorry, why an ambulance, nobody's hurt here.",
+        "No, there's no injuries, I don't need paramedics.",
+        "I think you've misunderstood, nobody needs medical help.",
+        "No ambulance needed, nobody's hurt at all.",
+        "No, no one's hurt, just cancel that if you can.",
+        "I'm confused, why would I need an ambulance.",
+        "No thank you, nobody's hurt, we're all fine.",
+        "No need for that, nobody's injured here."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "111? No, this needs a proper response now, not a call back.",
+        "I don't think 111 is right for this, please send someone.",
+        "This can't wait for 111, I need help now.",
+        "No, please, this needs someone out here, not 111.",
+        "I really don't think 111 is going to cut it here.",
+        "Please, I need this dealt with now, not a call back later.",
+        "No, this is urgent, 111 won't do.",
+        "I don't understand, this needs a response, not 111.",
+        "Please don't fob me off to 111, this needs attention.",
+        "No, I need someone here, not a phone call from 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Thank you, I'll keep an eye out for the officers.",
+        "Okay, good, how long will the police be please.",
+        "Right, I'll wait here till they arrive.",
+        "That's a relief, thank you for sending someone.",
+        "Okay, I'll stay on the line if you need anything else.",
+        "Thank you, I'll point them in the right direction when they get here.",
+        "Good, I was starting to worry, thank you.",
+        "Okay, I'll keep back and let them deal with it.",
+        "Thanks, I'll watch out for the patrol car.",
+        "Alright, I'll stay put until the officers arrive."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, I need police, there's no fire.",
+        "I don't need the fire service, this is a police matter.",
+        "Sorry, why fire brigade, I need police out here.",
+        "No, there's no fire, I called about a police issue.",
+        "I think you've misunderstood, I need officers, not firefighters.",
+        "Fire crews won't help with this, I need the police.",
+        "No, no fire brigade needed, just send police please.",
+        "I'm confused, this isn't a fire, is it.",
+        "I don't think I need fire, it's a police problem.",
+        "No thank you, I just need police, not the fire brigade."
       ]
     }
   },

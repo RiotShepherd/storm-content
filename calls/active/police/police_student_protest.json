@@ -42,6 +42,10 @@
     "irv": 5,
     "cell_van": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 3
+  },
   "patients": {
     "range": [
       0,
@@ -61,7 +65,15 @@
   "caller": {
     "openings": [
       "Police please, students have walked out and gathered at the gates",
-      "We've got a large group of students protesting outside school, refusing to go to lessons"
+      "We've got a large group of students protesting outside school, refusing to go to lessons",
+      "Police, we need help, a big group of students have walked out of class",
+      "Can you send officers, students have gathered and blocked the gates",
+      "Police please, a large group of pupils are refusing to return to lessons",
+      "We've got students protesting outside, it's growing bigger by the minute",
+      "Can someone come, students have gathered and are chanting at the gates",
+      "Police, students have blocked the main entrance and won't move",
+      "Can you send help, a walkout's happening and staff can't manage the crowd",
+      "We need officers, students have gathered outside and it's getting busy"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -74,91 +86,231 @@
     "start": {
       "answers": [
         "Police please, students have walked out and gathered at the gates",
-        "We've got a large group of students protesting outside school, refusing to go to lessons"
+        "We've got a large group of students protesting outside school, refusing to go to lessons",
+        "Police, we need help, a big group of students have walked out of class",
+        "Can you send officers, students have gathered and blocked the gates",
+        "Police please, a large group of pupils are refusing to return to lessons",
+        "We've got students protesting outside, it's growing bigger by the minute",
+        "Can someone come, students have gathered and are chanting at the gates",
+        "Police, students have blocked the main entrance and won't move",
+        "Can you send help, a walkout's happening and staff can't manage the crowd",
+        "We need officers, students have gathered outside and it's getting busy"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I work here",
-        "It's {{callerName}}, I'm on shift"
+        "It's {{callerName}}, I work here.",
+        "{{callerName}}, I'm on shift today.",
+        "My name's {{callerName}}, I'm staff here.",
+        "It's {{callerName}} here, I'm the manager on duty.",
+        "{{callerName}}, yes, I work on site.",
+        "You can put me down as {{callerName}}.",
+        "Sorry, it's {{callerName}}, I'm one of the staff.",
+        "{{callerName}} speaking, I'm on the desk today.",
+        "Name's {{callerName}}, I'm working here.",
+        "It's {{callerName}}, I'm the one who spotted it."
       ]
     },
     "patientName": {
       "answers": [
-        "No one's hurt, they're just protesting",
-        "Nobody hurt, just refusing to disperse"
+        "I don't know any of their names, the students protesting at the gates.",
+        "No names, sorry, they didn't introduce themselves.",
+        "Couldn't tell you, the students protesting at the gates were strangers to me.",
+        "No idea who they are, no names to give you.",
+        "Don't know them personally, that's all I can say.",
+        "No, never seen them before, can't give you names.",
+        "Can't help with names, only a description of the students protesting at the gates.",
+        "No names I'm afraid, they were gone before I could ask.",
+        "Nobody round here knows their names.",
+        "I've got no names for you, just what they looked like."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the school",
-        "It's {{address}}, by the main gates"
+        "It's {{address}}.",
+        "The address is {{address}}.",
+        "{{address}}, that's where I am.",
+        "It's happening at {{address}}.",
+        "You need {{address}}.",
+        "{{address}}, can you send someone there.",
+        "That's {{address}}.",
+        "I'm at {{address}} right now.",
+        "It's {{address}}, that's the location.",
+        "{{address}}, yes."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "A big group walked out of lessons and are gathered by the main gates chanting",
-        "Students have blocked the entrance with banners, refusing to move for lessons"
+        "Students have blocked the entrance with banners, refusing to move for lessons",
+        "They've all gathered on the drive holding placards, chanting loudly",
+        "A large group left their classrooms together and are stood by the gates",
+        "They're blocking the entrance so no one can get in or out easily",
+        "It started small but more students keep joining the group outside",
+        "They've locked arms across the gate and are refusing to let cars through",
+        "The group's grown steadily and staff can't get them back inside",
+        "They're chanting and holding signs, refusing every request to disperse",
+        "A big crowd's formed by the gates and it's stopping normal school traffic"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's nobody hurt, it's just the property",
-        "No one's hurt, it's just damage"
+        "Nobody's hurt, so there's nobody to check on for that.",
+        "There's no injured people here, the students protesting at the gates are just causing trouble.",
+        "No one's collapsed or anything, they're all moving about fine.",
+        "It's not that kind of call, nobody's unconscious.",
+        "No casualties here, nobody needs checking over.",
+        "There isn't a patient as such, the students protesting at the gates.",
+        "They're all on their feet, no one's hurt.",
+        "No, nobody's hurt, this isn't a medical one.",
+        "Nobody needs an ambulance, no one's injured.",
+        "No one's out cold, nobody's been hurt at all."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Nobody needing that, no one's hurt",
-        "There's no injuries, just the damage"
+        "Nobody's struggling to breathe, no one's hurt.",
+        "There's no injuries at all here, so nothing like that.",
+        "No, they're all breathing fine, shouting loud enough.",
+        "It's not a medical call, nobody's had trouble breathing.",
+        "No casualties, nobody needs checking for that.",
+        "Nobody's hurt, the students protesting at the gates, that's the whole problem.",
+        "No, this isn't that kind of emergency.",
+        "Everyone's fine physically as far as I can see.",
+        "No one's been injured, so no breathing issues to report.",
+        "Not a medical one, nobody's struggling with anything like that."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's in pain, nobody's here",
-        "No, nobody's hurt at all"
+        "No one's in pain, nobody's hurt.",
+        "Nobody's complaining of any pain, the students protesting at the gates.",
+        "No injuries, so no pain that I know of.",
+        "Not that I've seen, nobody's hurt here.",
+        "No, nobody's been hurt at all.",
+        "There's no one in pain, this isn't medical.",
+        "No casualties, nobody's said they're in pain.",
+        "Not a soul hurt, the students protesting at the gates.",
+        "No, nobody needs anything for pain.",
+        "No injuries to report, everyone's fine that way."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, there's no one hurt",
-        "No bleeding, nobody was here when it happened"
+        "No, no one's bleeding.",
+        "Nobody's bleeding, there's no injuries at all.",
+        "No, nothing like that, the students protesting at the gates.",
+        "No blood, no injuries, nobody's hurt.",
+        "Not that I've seen, no one's bleeding.",
+        "No, it's not that kind of call.",
+        "Nobody's injured, so no bleeding to report.",
+        "No, the students protesting at the gates, nobody's hurt.",
+        "No blood anywhere that I can see.",
+        "Not at all, no one's been hurt."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "There's no patient, it's not medical",
-        "Not applicable, nobody's hurt"
+        "I wouldn't know, the students protesting at the gates.",
+        "No idea, I don't know any of them.",
+        "Couldn't tell you, never met them before.",
+        "No idea about that, sorry.",
+        "I don't know them well enough to say.",
+        "Not a clue, the students protesting at the gates.",
+        "No, I've no idea about their health.",
+        "Couldn't say, I don't know them personally.",
+        "No idea whatsoever, sorry.",
+        "I really wouldn't know, never spoken to any of them."
       ]
     },
     "medications": {
       "answers": [
-        "No one needs that, nobody's hurt",
-        "Not applicable"
+        "I've no idea.",
+        "Couldn't tell you, sorry.",
+        "No idea at all, the students protesting at the gates.",
+        "I wouldn't know, never met them.",
+        "No clue, sorry.",
+        "Couldn't say, I don't know them.",
+        "No idea, I'm afraid.",
+        "Not a clue what any of them take.",
+        "I really couldn't tell you.",
+        "No idea, sorry, I don't know them."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no patient, it's just property",
-        "N/A, nobody's involved that way"
+        "Hard to say, mixed ages, mostly young looking.",
+        "I'd guess most were in their teens or twenties.",
+        "Looked youngish, a real mix of ages honestly.",
+        "Not sure exactly, some looked older than others.",
+        "Couldn't tell you exactly, twenties mostly at a guess.",
+        "I'd say mostly in their twenties, but don't quote me.",
+        "Maybe teens to thirties, hard to tell from a distance.",
+        "I only got a quick look, they seemed fairly young overall.",
+        "Roughly twenty to thirty, that's my best guess.",
+        "A real spread of ages, some young, some older."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, thank you, I'll keep watching from here",
-        "Right, understood, I'll wait"
+        "Ambulance? No, nobody's hurt, it's a police matter.",
+        "No, we don't need an ambulance, nobody's injured here.",
+        "Sorry, why an ambulance, nobody's hurt, I just need police.",
+        "No, there's no injury, I only need the police out here.",
+        "That's not needed, nobody's been hurt, it's police I want.",
+        "No ambulance required, nobody's injured, just send police please.",
+        "No, I don't think that's right, nobody's hurt, it's a police job.",
+        "There's no injury here, I only asked for police.",
+        "No, nobody needs an ambulance, this isn't medical.",
+        "No thank you, nobody's hurt, just the police please."
       ]
     },
     "refer111": {
       "answers": [
-        "This is a police matter, nobody needs a doctor!",
-        "No one's ill, I need the police not 111!"
+        "No, this isn't a health thing, I need the police out here.",
+        "This isn't a 111 matter, someone's committing an offence, I need police.",
+        "No, I don't need a doctor, I need the police to come now.",
+        "That's not right, nobody's ill, this needs police attention.",
+        "No, please, this is a crime, not a medical thing, send police.",
+        "I don't need 111, I need officers here, this is a police matter.",
+        "No, nobody's poorly, I need police, not a callback.",
+        "That won't help, this needs police, not health advice.",
+        "No, please don't fob me off, I need police out here.",
+        "This isn't medical at all, I need the police, please."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll keep an eye out until they arrive.",
+        "Right, good, I'll wait here for them.",
+        "Thank you, I'll point them the right way when they get here.",
+        "Okay, that's good to hear, I'll stay on the line if you need.",
+        "Right, thanks, I'll let you know if anything changes.",
+        "Good, thank you, I'll stay well back until they turn up.",
+        "Okay, I'll keep watching from here until they arrive.",
+        "Thanks, that's a relief, I'll wait for them outside.",
+        "Right, understood, I'll stay put until they get here.",
+        "Okay, thank you, appreciate it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, it's a police matter.",
+        "No, there's no fire, why would you send fire engines?",
+        "Sorry, I don't think you need that, it's not a fire, it's the police I need.",
+        "No fire here, I'm not sure why that's needed, just the police please.",
+        "There's no fire, nothing's burning, I only need police.",
+        "No, that's not right, it's a police job, not the fire service.",
+        "I don't understand, there's nothing on fire, just send the police.",
+        "No, no fire, I definitely said police.",
+        "That doesn't sound right, nothing's alight here, it's police I need.",
+        "No fire brigade needed, honestly, it's police I'm after."
       ]
     }
   },

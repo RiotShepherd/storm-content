@@ -41,6 +41,10 @@
     "park"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 4
+  },
   "patients": {
     "range": [
       1,
@@ -76,8 +80,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "His leg's been taken off by the baler, he's bleeding out, please hurry",
-      "I need an ambulance urgently, he's caught his leg in the farm machinery"
+      "{{His}} leg's been taken off by the baler, {{he}}'s bleeding out, please hurry",
+      "I need an ambulance urgently, {{he}}'s caught {{his}} leg in the farm machinery",
+      "Please hurry, {{his}} leg's gone into the baler, there's so much blood",
+      "I need help now, {{he}}'s lost {{his}} leg in the baler, {{he}}'s in a terrible state",
+      "There's been a terrible accident, {{his}} leg's been severed by the machine",
+      "Ambulance please, {{he}}'s caught {{his}} leg in the baler, it's come off",
+      "Please, {{his}} leg's gone in the machine, {{he}}'s losing a huge amount of blood",
+      "I need someone quickly, {{he}}'s had {{his}} leg taken off in a farm accident",
+      "It's an emergency, {{his}} leg's been severed by the baler, please hurry",
+      "Please send an ambulance now, {{he}}'s lost {{his}} leg, {{he}}'s bleeding badly"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -89,82 +101,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "His leg's been taken off by the baler, he's bleeding out, please hurry",
-        "I need an ambulance urgently, he's caught his leg in the farm machinery"
+        "{{His}} leg's been taken off by the baler, {{he}}'s bleeding out, please hurry",
+        "I need an ambulance urgently, {{he}}'s caught {{his}} leg in the farm machinery",
+        "Please hurry, {{his}} leg's gone into the baler, there's so much blood",
+        "I need help now, {{he}}'s lost {{his}} leg in the baler, {{he}}'s in a terrible state",
+        "There's been a terrible accident, {{his}} leg's been severed by the machine",
+        "Ambulance please, {{he}}'s caught {{his}} leg in the baler, it's come off",
+        "Please, {{his}} leg's gone in the machine, {{he}}'s losing a huge amount of blood",
+        "I need someone quickly, {{he}}'s had {{his}} leg taken off in a farm accident",
+        "It's an emergency, {{his}} leg's been severed by the baler, please hurry",
+        "Please send an ambulance now, {{he}}'s lost {{his}} leg, {{he}}'s bleeding badly"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, we work the farm together",
-        "{{callerName}}"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "I don't know, I've never seen {{him}} before",
+        "No idea, {{he}}'s a stranger to me",
+        "I don't know {{him}} at all, sorry",
+        "No idea what {{his}} name is, I just saw {{him}} go down",
+        "I couldn't tell you, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I don't know {{him}}, we're not together",
+        "No idea, sorry, {{he}}'s not someone I recognise",
+        "Couldn't say, I've never met {{him}} before",
+        "No idea, I only just came across {{him}} like this"
       ]
     },
     "address": {
       "answers": [
-        "We're out at {{address}}, please hurry",
-        "{{address}}"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He got caught in the baler out on the farm, his leg's gone below the knee"
+        "{{He}} was clearing a blockage in the baler and {{his}} leg got pulled in",
+        "{{His}} trouser leg got caught in the machine and dragged {{him}} in",
+        "{{He}} slipped near the baler and {{his}} leg went straight into it",
+        "{{He}} was working near the machine when it started up with {{his}} leg still close",
+        "{{He}} climbed up to clear a jam and lost {{his}} footing into the baler",
+        "{{He}} was feeding bales in and {{his}} leg got caught in the mechanism",
+        "{{He}} tripped near the machine and {{his}} leg was pulled into the rollers",
+        "{{He}} was working alone in the field when the baler caught {{his}} leg",
+        "{{He}} reached in to sort a jam while it was still running and it took {{his}} leg",
+        "{{He}} lost {{his}} footing on the wet ground right by the baler"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's conscious, in shock"
+        "{{He}} was talking a moment ago, not so much now",
+        "I'm not sure, {{he}}'s in and out of it",
+        "{{He}}'s not really responding to me properly",
+        "{{He}} was awake, now {{he}}'s gone very quiet",
+        "{{He}}'s barely responding, just groaning a bit",
+        "I don't think {{he}}'s fully with it, {{his}} eyes keep closing",
+        "{{He}} answered me once, not since",
+        "{{He}}'s drifting in and out, I'm really worried",
+        "Not properly, {{he}}'s making noises but not talking",
+        "{{He}} opened {{his}} eyes but isn't really responding"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "I'm not sure, it looks shallow to me",
+        "{{His}} breathing seems really shallow",
+        "I can't tell properly, it doesn't sound right",
+        "Shallow I think, {{he}}'s not breathing normally",
+        "I'm not certain, it looks laboured",
+        "It doesn't look right, quite shallow and fast",
+        "I think so but it's hard to tell, {{he}}'s not moving much",
+        "{{His}} breathing looks weak to me",
+        "Not sure, it seems irregular",
+        "I think {{he}}'s breathing but it's very shallow"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Screaming in pain"
+        "{{He}}'s in agony, screaming out.",
+        "{{He}} says {{his}} leg's the worst of it.",
+        "{{He}}'s in a lot of pain, can barely speak.",
+        "{{He}} keeps saying {{his}} back hurts.",
+        "{{He}}'s clearly in a lot of pain, crying out.",
+        "{{He}} says everything hurts, {{he}}'s in a state.",
+        "{{He}}'s in serious pain, I can tell from {{his}} face.",
+        "{{He}}'s groaning in pain, doesn't want to move.",
+        "{{He}} says {{his}} chest and legs hurt the most.",
+        "{{He}}'s in a lot of pain, {{he}} can't get comfortable."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Catastrophic, I've got a tourniquet made from a belt"
+        "There's blood pumping out of it, I'm pressing down as hard as I can",
+        "{{He}}'s losing a lot of blood, I've got my coat wrapped round it tight",
+        "It's bleeding heavily, I've tied a rope round {{his}} leg above it",
+        "There's blood everywhere, I've got both hands pressed on the wound",
+        "{{He}}'s bleeding badly, I'm keeping {{his}} leg raised and pressing hard",
+        "It won't stop bleeding, I'm applying as much pressure as I can",
+        "There's a huge amount of blood, I've got my jacket pressed on tight",
+        "{{He}}'s bleeding heavily, I've used my belt as a tourniquet above it",
+        "It's bleeding a lot, I've wrapped it tight and I'm holding pressure on",
+        "{{He}}'s losing blood fast, I'm doing everything I can to stop it"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, sorry"
+        "I don't know, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}} at all",
+        "No idea I'm afraid, never met {{him}} before",
+        "Sorry, I've got no idea, I just saw what happened",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, sorry, we're not together",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I've no idea, I only just met {{him}}"
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, sorry"
+        "No idea, sorry, I don't know {{him}}",
+        "I couldn't tell you, {{he}}'s a stranger to me",
+        "No idea I'm afraid, sorry",
+        "Sorry, I don't know {{him}} well enough to say",
+        "Can't help with that, I don't know {{him}}",
+        "No idea, sorry, I don't know",
+        "I've no clue, never met {{him}} before today",
+        "Sorry, I really don't know",
+        "No idea, we're not together, I just saw {{him}} fall",
+        "Couldn't tell you I'm afraid"
       ]
     },
     "patientAge": {
       "answers": [
-        "50"
+        "{{He}}'s 52",
+        "About 52, I think",
+        "{{He}}'s 52 years old",
+        "52, {{he}}'ll be 53 next year",
+        "I think {{he}}'s 52 or thereabouts",
+        "52 years of age",
+        "{{He}}'s in {{his}} 50s, about 52",
+        "Just turned 52",
+        "{{He}}'s 52, always been fit for {{his}} age",
+        "52, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "I've turned the machine off"
+        "Okay, I'm pressing down on the wound like you said",
+        "Right, I've got my jacket pressed on it, {{he}}'s still talking",
+        "I'm keeping {{him}} calm, telling {{him}} help's coming",
+        "Okay, doing that now, there's a lot of blood though",
+        "Yes, I'm holding pressure on it, {{he}}'s gone very pale",
+        "Okay, I've got {{him}} lying down, keeping pressure on the wound",
+        "Right, I'm staying with {{him}}, {{he}}'s still conscious",
+        "Okay, I've taken my top off to press on the wound",
+        "I'm doing that now, please hurry, {{he}}'s losing a lot of blood",
+        "Okay, keeping pressure on, {{he}}'s still breathing"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this needs an ambulance right now"
+        "No, {{he}}'s been shot, this needs an ambulance and the police now",
+        "No, this is not a 111 job, {{he}}'s bleeding badly",
+        "No, please, this is serious, {{he}}'s been hit by a shotgun",
+        "No, absolutely not, {{he}} needs help right now",
+        "No, {{he}}'s losing blood fast, please hurry",
+        "No, this can't wait, {{he}}'s been shot",
+        "No, please just send help, {{he}}'s in a bad way",
+        "No, this is an emergency, {{he}}'s been injured by a gun",
+        "No, please, {{he}} needs an ambulance immediately",
+        "No, this needs blue lights, {{he}}'s badly hurt"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, why would we need police, please just send the ambulance",
+        "No, no police, please, {{he}} just needs help right now",
+        "No, I don't understand, there's no crime, just get an ambulance here",
+        "No police needed, please, {{he}}'s really unwell, just paramedics",
+        "No, please, no police, {{he}} just needs medical help urgently",
+        "No, nothing like that, please just send the ambulance quickly",
+        "Police? No, please, {{he}} just needs paramedics, hurry",
+        "No, definitely not police, please, {{he}} needs an ambulance now",
+        "No, please, there's no need for police, just help {{him}}",
+        "No police, please, I'm begging you, just get an ambulance here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Yes please, {{his}} leg's still caught in the baler",
+        "Yes, the machine's still running, we need it made safe",
+        "Please, yes, someone needs to free {{his}} leg from the baler",
+        "Yes, {{he}}'s still trapped in the machine, please hurry them",
+        "Please send them, we can't get {{his}} leg free ourselves",
+        "Yes, the baler's jammed with {{his}} leg still in it",
+        "Yes please, we need someone to cut the power and free {{him}}",
+        "Please, yes, {{he}}'s still caught, we need help getting {{him}} out",
+        "Yes, we've switched it off but {{he}}'s still trapped in it",
+        "Yes please, hurry, {{his}} leg's still in the baler"
       ]
     }
   },

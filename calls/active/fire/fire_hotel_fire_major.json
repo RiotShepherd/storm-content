@@ -50,6 +50,12 @@
     "fire_officer": 4,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 20,
+    "ambulance": 15,
+    "police": 6
+  },
   "patients": {
     "range": [
       0,
@@ -129,8 +135,16 @@
   ],
   "caller": {
     "openings": [
-      "Fire brigade, the hotel's on fire, it's a huge hotel, hundreds of guests, several are hurt",
-      "Please hurry, it's a major incident hotel fire, guests are still getting out"
+      "Fire brigade, this is a major fire at the hotel, lots of guests are hurt.",
+      "Please send everyone, the whole hotel's on fire, people are badly hurt.",
+      "This is a major incident, the hotel's fully alight, many injuries.",
+      "Please hurry, it's a huge fire, guests are hurt all over the building.",
+      "There's a massive fire at the hotel, please send as much help as you can.",
+      "Please send help urgently, the hotel's engulfed, lots of casualties.",
+      "This is huge, the whole hotel's on fire, so many people are hurt.",
+      "Please hurry, it's out of control, guests are injured everywhere.",
+      "There's a major fire, the hotel's badly alight, please send everything.",
+      "Please send help now, it's a massive fire, there's injuries throughout the hotel."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -142,81 +156,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire brigade, the hotel's on fire, it's a huge hotel, hundreds of guests, several are hurt",
-        "Please hurry, it's a major incident hotel fire, guests are still getting out"
+        "Fire brigade, this is a major fire at the hotel, lots of guests are hurt.",
+        "Please send everyone, the whole hotel's on fire, people are badly hurt.",
+        "This is a major incident, the hotel's fully alight, many injuries.",
+        "Please hurry, it's a huge fire, guests are hurt all over the building.",
+        "There's a massive fire at the hotel, please send as much help as you can.",
+        "Please send help urgently, the hotel's engulfed, lots of casualties.",
+        "This is huge, the whole hotel's on fire, so many people are hurt.",
+        "Please hurry, it's out of control, guests are injured everywhere.",
+        "There's a major fire, the hotel's badly alight, please send everything.",
+        "Please send help now, it's a massive fire, there's injuries throughout the hotel."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the duty manager"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "A couple of guests got hurt in the rush down the stairs, I don't know their names"
+        "There's a few people hurt, I don't have names for all of them.",
+        "I can't give you names, there's several people affected.",
+        "No names I'm afraid, there's quite a few casualties.",
+        "I don't know everyone's name, there's a group of them hurt.",
+        "Can't tell you names, there's a fair number of people involved.",
+        "No idea on names, there's several people needing help.",
+        "I haven't got names, it's a good few people affected.",
+        "Sorry, no names, there's a number of people hurt here.",
+        "I can't say who's who, there's several casualties.",
+        "No names to give you, there's quite a lot of people hurt."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the hotel, main entrance",
-        "It's {{address}}, come to reception"
+        "It's {{address}}, the hotel, come to the main entrance.",
+        "{{address}}, there's a car park round the side you can use.",
+        "It's {{address}}, I'll meet you at the front doors.",
+        "{{address}}, that's the hotel, guests are gathering out front.",
+        "We're at {{address}}, the fire exit's round the back if you need it.",
+        "It's {{address}}, I'll have reception hold the doors open for you.",
+        "{{address}}, there's a service entrance at the rear too.",
+        "That's {{address}}, the hotel car park should be clear enough now.",
+        "It's {{address}}, come round to the front, it's easier access.",
+        "{{address}}, I'll be waiting outside to point you the right way."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The fire alarm's gone off at the hotel and there's smoke on some of the floors, a major incident fire, guests are evacuating and a couple have been hurt in the rush"
+        "The fire's spread through most of the building, it's completely out of control.",
+        "It's a huge fire now, guests are struggling to get out from every floor.",
+        "No idea how it started, it's engulfed a large part of the hotel already.",
+        "Staff and guests are hurt all over, we can't keep up with checking everyone.",
+        "It's spread incredibly fast, we're doing what we can at the assembly point.",
+        "The whole building's affected, there's people injured on multiple floors.",
+        "No idea what caused it, it's just kept spreading floor by floor.",
+        "It's a major fire, we've got a lot of injured guests already out front.",
+        "The fire's taken over most of the hotel, evacuation's still ongoing everywhere.",
+        "It's completely out of hand, there's injuries all over the site."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, they're conscious, just shaken and a bit banged up"
+        "They're conscious, just shaken and coughing a lot.",
+        "Most of them are awake, a couple are pretty out of it.",
+        "They're conscious but confused, some are in shock.",
+        "They're awake, terrified, some can barely stand.",
+        "A few are talking, others are just sat there dazed.",
+        "They're conscious, mostly, one or two aren't responding well.",
+        "They're awake but in a bad way, lots of coughing.",
+        "Most are conscious, a couple look like they might pass out.",
+        "They're conscious, scared, asking what's happening.",
+        "They're awake, some are more with it than others."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "One's coughing from the smoke on the stairwell"
+        "They're all struggling for breath, the smoke's really thick.",
+        "A lot of coughing, breathing's rough for most of them.",
+        "They're breathing but wheezing badly, the smoke got to them.",
+        "Some are really struggling, gasping a bit.",
+        "They're breathing, just laboured, everyone's coughing.",
+        "A few are worse than others, but nobody's breathing easily.",
+        "They're all affected by the smoke, breathing's not good.",
+        "Breathing's fast and shallow across the board.",
+        "They're coughing constantly, struggling to get air in.",
+        "Breathing's rough for most of them, the smoke's everywhere."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "One guest says her ankle hurts, she twisted it on the stairs"
+        "A few have burns, others are just banged up and sore.",
+        "Some are in a lot of pain, mostly from the smoke and heat.",
+        "They're in pain, various injuries, cuts, burns, bruises.",
+        "A couple have bad burns, the rest are shaken and sore.",
+        "They're all in some discomfort, chests mostly.",
+        "Some are in agony with burns, others just shaken up.",
+        "A few say their chests hurt badly from the smoke.",
+        "They're in pain, mixed injuries from the panic to get out.",
+        "Some have twisted ankles from running, others are burnt.",
+        "A lot of them are sore and scared, a couple badly hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A small cut to someone's hand from the handrail, nothing major"
+        "A couple have cuts from broken glass, bleeding but not too bad.",
+        "Some are bleeding from cuts, mostly minor as far as I can tell.",
+        "One or two have proper cuts, the rest are just bruised.",
+        "There's some bleeding, cuts from the rush to get out.",
+        "A few are cut and bleeding, nothing life threatening that I can see.",
+        "Some bleeding from scrapes and cuts getting clear of it.",
+        "A couple have deeper cuts, bleeding quite a bit.",
+        "Not much bleeding, mostly burns and smoke are the issue.",
+        "A few cuts here and there, bleeding but manageable.",
+        "Some are bleeding from falls in the rush, cuts mainly."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know, they're guests, I don't have that information"
+        "No idea, I don't know any of them personally.",
+        "I can't say, there's too many people to know that about.",
+        "No idea, sorry, they're guests, I don't know their medical details.",
+        "I can't help with that, I don't know these people.",
+        "Sorry, no idea, there's not enough time to check with everyone.",
+        "No idea I'm afraid, I don't know any of them well.",
+        "Can't tell you that, sorry, they're strangers to me really.",
+        "No idea, there's too many of them to ask right now.",
+        "Sorry, I don't know, I haven't had chance to ask anyone.",
+        "No idea at all, I don't know these people personally."
       ]
     },
     "medications": {
       "answers": [
-        "I've no idea, sorry"
+        "No idea, sorry, I don't know any of them.",
+        "I can't say, there's too many people to know that.",
+        "No idea, sorry, I don't know what any of them take.",
+        "I can't help with that, they're strangers to me really.",
+        "Sorry, no idea, there's no way to check with everyone now.",
+        "No idea I'm afraid, I don't know these people well.",
+        "Can't tell you that, sorry, I don't know any of them.",
+        "No idea, there's too many of them to ask right now.",
+        "Sorry, I don't know, I haven't had chance to ask.",
+        "No idea at all, I don't know these people personally."
       ]
     },
     "patientAge": {
       "answers": [
-        "Mixed ages, it's a full hotel"
+        "Mixed ages, mostly adults, a couple look older.",
+        "All sorts, staff and guests, mainly working age adults.",
+        "Hard to say for everyone, mostly grown ups from what I can see.",
+        "A real mix, some younger, some older guests.",
+        "Mostly adults as far as I can tell, no children that I've seen.",
+        "Can't give you exact ages, it's a real mix of people.",
+        "Mainly adults, one or two look a bit older, that's all I can say.",
+        "Hard to tell with everyone rushing about, mostly adults though.",
+        "A mix of ages, I haven't had chance to ask anyone properly.",
+        "Mostly working age adults, sorry, I can't be more precise."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're gathering guests at the assembly point",
-        "Please hurry, we've got guests who need help getting down"
+        "Okay, thank you, we're keeping them together at the assembly point.",
+        "Please hurry, some of them really need help.",
+        "Okay, we're doing what we can till you get here.",
+        "Thank you, I've got them all sat down now.",
+        "Okay, good, I'll keep them calm as best I can.",
+        "Thank you, please hurry, a few of them are in a bad way.",
+        "Okay, we're all staying together outside.",
+        "Right, thank you, I'll keep an eye on the worst hurt ones.",
+        "Okay, I'll let them know help's coming.",
+        "Thank you, we'll wait here together for you."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we've got injured guests and a fire, we need fire and ambulance"
+        "No, they're hurt, this can't wait for 111, please send help.",
+        "No, I really think they need an ambulance now, not 111.",
+        "Please, no, some of them are in a bad way, we need paramedics.",
+        "No, this is serious, people are hurt, please send help now.",
+        "I don't think 111 can help with this many people hurt.",
+        "No, please, they need urgent help, not a phone line.",
+        "No, this needs 999, there's people badly hurt here.",
+        "Please, they can't wait for a call back, send someone now.",
+        "No, I really need ambulances here, not 111, people are hurt.",
+        "No, this is urgent, there's several people injured, please hurry."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, that'll help with the traffic here.",
+        "Good, we could do with some help keeping people back.",
+        "Thanks, that makes sense, it's chaos here.",
+        "Okay, I'll let them know when they arrive.",
+        "Right, thank you, they can help clear the road.",
+        "Okay, that's good, we need some order here.",
+        "Thanks, they'll be needed to keep everyone safe.",
+        "Okay, understood, I'll watch out for them.",
+        "Good, thank you, it's getting busy here.",
+        "Okay, thanks, that'll help a lot."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, we'll stay well back until you get here.",
+        "Right, thank you, we're keeping clear of it.",
+        "Okay, I've got everyone away from it.",
+        "Thanks, I'll wait here till the crews arrive.",
+        "Alright, we've kept the area clear for now.",
+        "Okay, I'll keep everyone back and wait for you.",
+        "Thank you, we're staying clear, please hurry.",
+        "Right, understood, we won't go near it.",
+        "Okay, we're all keeping our distance.",
+        "Thanks, we'll wait here for the crews."
       ]
     }
   },

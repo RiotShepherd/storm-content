@@ -45,6 +45,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -68,8 +72,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "There's a woman collapsed outside the supermarket, it's roasting today",
-      "I need an ambulance, a lady's gone down in the heat and she's barely responding"
+      "There's a {{gentleman}} collapsed outside the supermarket, it's roasting today",
+      "I need an ambulance, a {{gentleman}}'s gone down in the heat and {{he}}'s barely responding",
+      "Someone's collapsed on the pavement outside the shop, it's boiling out here",
+      "There's a {{gentleman}} down outside the supermarket, {{he}}'s barely conscious",
+      "Please help, someone's collapsed in this heat outside the shops",
+      "A {{gentleman}}'s gone down on the pavement, it's so hot today",
+      "There's someone collapsed outside the supermarket, {{he}}'s not responding well",
+      "Please, a {{gentleman}}'s collapsed in the heat, {{he}}'s barely with it",
+      "Someone's gone down outside the shops, it's roasting, {{he}}'s in a bad way",
+      "There's a {{gentleman}} on the ground outside the supermarket, the heat's got to {{him}}"
     ],
     "phoneArea": "auto",
     "callerType": "passer_by"
@@ -81,82 +93,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's a woman collapsed outside the supermarket, it's roasting today",
-        "I need an ambulance, a lady's gone down in the heat and she's barely responding"
+        "There's a {{gentleman}} collapsed outside the supermarket, it's roasting today",
+        "I need an ambulance, a {{gentleman}}'s gone down in the heat and {{he}}'s barely responding",
+        "Someone's collapsed on the pavement outside the shop, it's boiling out here",
+        "There's a {{gentleman}} down outside the supermarket, {{he}}'s barely conscious",
+        "Please help, someone's collapsed in this heat outside the shops",
+        "A {{gentleman}}'s gone down on the pavement, it's so hot today",
+        "There's someone collapsed outside the supermarket, {{he}}'s not responding well",
+        "Please, a {{gentleman}}'s collapsed in the heat, {{he}}'s barely with it",
+        "Someone's gone down outside the shops, it's roasting, {{he}}'s in a bad way",
+        "There's a {{gentleman}} on the ground outside the supermarket, the heat's got to {{him}}"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I was just walking past",
-        "It's {{callerName}}"
+        "It's {{callerName}}",
+        "{{callerName}}, that's me",
+        "My name's {{callerName}}",
+        "You can put me down as {{callerName}}",
+        "{{callerName}} is my name",
+        "Sorry, it's {{callerName}} here",
+        "{{callerName}}, yes that's right",
+        "It's {{callerName}} calling",
+        "{{callerName}}, that's who's speaking",
+        "Name's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know her name, she's not really responding to me",
-        "I'm not sure, sorry"
+        "I don't know, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}} at all",
+        "No idea I'm afraid, never met {{him}} before",
+        "Sorry, I've got no idea, I just saw what happened",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, sorry, we're not together",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I've no idea, I only just met {{him}}"
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, outside the supermarket",
-        "{{address}}"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She just went down, she's hot to touch and barely responding"
+        "{{He}} came out of the supermarket and just collapsed in the heat",
+        "{{He}} was queuing outside in direct sun and went down suddenly",
+        "{{He}} said {{he}} felt dizzy then collapsed on the pavement",
+        "{{He}} had been stood in the sun a while then just went down",
+        "{{He}} came over faint in the heat and collapsed near the entrance",
+        "{{He}} was walking to {{his}} car and just dropped in the heat",
+        "{{He}} looked unsteady then collapsed outside the shop",
+        "{{He}} was overcome by the heat and went down without warning",
+        "{{He}} staggered and then collapsed on the hot pavement",
+        "{{He}} was stood in the queue and suddenly went down"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "She's semi conscious, mumbling"
+        "{{He}} was talking a moment ago, not so much now",
+        "I'm not sure, {{he}}'s in and out of it",
+        "{{He}}'s not really responding to me properly",
+        "{{He}} was awake, now {{he}}'s gone very quiet",
+        "{{He}}'s barely responding, just groaning a bit",
+        "I don't think {{he}}'s fully with it, {{his}} eyes keep closing",
+        "{{He}} answered me once, not since",
+        "{{He}}'s drifting in and out, I'm really worried",
+        "Not properly, {{he}}'s making noises but not talking",
+        "{{He}} opened {{his}} eyes but isn't really responding"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Quick and shallow"
+        "I'm not sure, it looks shallow to me",
+        "{{His}} breathing seems really shallow",
+        "I can't tell properly, it doesn't sound right",
+        "Shallow I think, {{he}}'s not breathing normally",
+        "I'm not certain, it looks laboured",
+        "It doesn't look right, quite shallow and fast",
+        "I think so but it's hard to tell, {{he}}'s not moving much",
+        "{{His}} breathing looks weak to me",
+        "Not sure, it seems irregular",
+        "I think {{he}}'s breathing but it's very shallow"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Can't tell, she's not really responding"
+        "No real pain, just feels dreadful all over",
+        "Not pain exactly, just very weak and unwell",
+        "No, {{he}} says {{he}} just feels awful",
+        "No pain as such, just really lethargic",
+        "Not pain, just no energy at all",
+        "No, {{he}}'s not in pain, just very unwell",
+        "No pain, just feels rough and shaky",
+        "Not really, just generally unwell",
+        "No, no pain, {{he}}'s just exhausted",
+        "No pain, {{he}} just seems really off colour"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No, no bleeding, {{he}}'s just unwell",
+        "No blood involved, no",
+        "No, this isn't that kind of thing",
+        "No bleeding, {{he}}'s just really weak",
+        "No, nothing like that at all",
+        "No, {{he}}'s not injured, just poorly",
+        "No blood, no",
+        "Not that I've seen, no",
+        "No, no cuts or blood, {{he}}'s just unwell",
+        "No, definitely no bleeding"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've no idea, I don't know her"
+        "I don't know, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}} at all",
+        "No idea I'm afraid, never met {{him}} before",
+        "Sorry, I've got no idea, I just saw what happened",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, sorry, we're not together",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I've no idea, I only just met {{him}}"
       ]
     },
     "medications": {
       "answers": [
-        "I don't know, sorry"
+        "No idea, sorry, I don't know {{him}}",
+        "I couldn't tell you, {{he}}'s a stranger to me",
+        "No idea I'm afraid, sorry",
+        "Sorry, I don't know {{him}} well enough to say",
+        "Can't help with that, I don't know {{him}}",
+        "No idea, sorry, I don't know",
+        "I've no clue, never met {{him}} before today",
+        "Sorry, I really don't know",
+        "No idea, we're not together, I just saw {{him}} fall",
+        "Couldn't tell you I'm afraid"
       ]
     },
     "patientAge": {
       "answers": [
-        "She looks about 60, I'm not sure"
+        "I don't know, {{he}} looks about 65",
+        "Not sure, maybe 65, I don't know {{him}}",
+        "I'd guess 65, but I couldn't say for certain",
+        "No idea really, {{he}} looks to be around 65",
+        "I don't know {{him}}, but {{he}} looks about 65",
+        "Hard to say, 65 maybe",
+        "I couldn't tell you exactly, around 65 I'd guess",
+        "Sorry, no idea, 65 perhaps",
+        "I'm not sure, {{he}} looks to be in {{his}} 60s",
+        "Can't say for certain, 65 ish"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've got a coat under her head"
+        "Okay, I've got {{him}} into the shade of the doorway",
+        "Right, I'm pouring water over {{him}} to cool {{him}} down",
+        "I've moved {{him}} away from the sun, {{he}}'s still very hot",
+        "Okay, someone's bringing cold water from the shop for {{him}}",
+        "Yes, doing that now, {{he}}'s barely responding still",
+        "Okay, I've got wet paper towels on {{him}} from the shop",
+        "Right, {{he}}'s in the shade, I'm fanning {{him}} with my bag",
+        "I'm cooling {{him}} down as best I can, {{he}}'s still very hot",
+        "Okay, doing that now, {{he}}'s starting to stir a little",
+        "Right, staff have brought a cold drink, I'm cooling {{him}} down"
       ]
     },
     "refer111": {
       "answers": [
-        "No, she needs an ambulance now"
+        "No, {{he}}'s in too much pain for that, please send an ambulance",
+        "No, I really think {{he}} needs to be seen now",
+        "I don't think that's enough, {{he}}'s hurt badly",
+        "No, please, {{he}} can't wait for a call back",
+        "I'd rather someone came out, {{he}}'s in a bad way",
+        "No, this needs an ambulance, {{he}} can't move properly",
+        "I don't think 111 can help with this, please send someone",
+        "No, {{he}}'s really struggling, this can't wait",
+        "Please just send an ambulance, {{he}} needs help now",
+        "No, I think this is an emergency, {{he}} needs to go to hospital"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, why would we need police, please just send the ambulance",
+        "No, no police, please, {{he}} just needs help right now",
+        "No, I don't understand, there's no crime, just get an ambulance here",
+        "No police needed, please, {{he}}'s really unwell, just paramedics",
+        "No, please, no police, {{he}} just needs medical help urgently",
+        "No, nothing like that, please just send the ambulance quickly",
+        "Police? No, please, {{he}} just needs paramedics, hurry",
+        "No, definitely not police, please, {{he}} needs an ambulance now",
+        "No, please, there's no need for police, just help {{him}}",
+        "No police, please, I'm begging you, just get an ambulance here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, no, there's no fire, please just get the ambulance here",
+        "No, no fire, why would we need that, {{he}} just needs help now",
+        "There's no fire, I don't understand, just send the ambulance please",
+        "No fire brigade, please, {{he}}'s not trapped, {{he}}'s just in a bad way",
+        "No, no, nothing's burning, please, {{he}} just needs paramedics",
+        "Fire service? No, please, just the ambulance, {{he}}'s really unwell",
+        "No, there's no fire here, I just need someone to help {{him}} now",
+        "No fire, please, I don't know why you'd say that, just hurry",
+        "No, please, no fire brigade, {{he}} just needs an ambulance urgently",
+        "There's definitely no fire, please just send the paramedics quickly"
       ]
     }
   },

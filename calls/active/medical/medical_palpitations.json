@@ -46,6 +46,10 @@
     "office"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -69,8 +73,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My heart's racing, it won't slow down, I'm getting worried",
-      "I need some advice, my heart's pounding really fast and it's not stopping"
+      "My heart's racing, it won't slow down, I'm getting worried.",
+      "I need some advice, my heart's pounding really fast and it's not stopping.",
+      "My heart's been racing for a while now, I don't know why.",
+      "I've got heart palpitations that won't settle down.",
+      "My heart's beating really fast, it's been going on for a bit now.",
+      "I'm not sure if this is serious, my heart's racing away.",
+      "My heart just started pounding out of nowhere and it won't slow down.",
+      "I'm getting palpitations, my heart's really fast, I'm a bit anxious about it.",
+      "My heart rate's shot up and it's staying fast, I wanted some advice.",
+      "I've got a really fast heartbeat that's not settling, I thought I should call."
     ],
     "phoneArea": "auto",
     "callerType": "patient"
@@ -82,82 +94,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My heart's racing, it won't slow down, I'm getting worried",
-        "I need some advice, my heart's pounding really fast and it's not stopping"
+        "My heart's racing, it won't slow down, I'm getting worried.",
+        "I need some advice, my heart's pounding really fast and it's not stopping.",
+        "My heart's been racing for a while now, I don't know why.",
+        "I've got heart palpitations that won't settle down.",
+        "My heart's beating really fast, it's been going on for a bit now.",
+        "I'm not sure if this is serious, my heart's racing away.",
+        "My heart just started pounding out of nowhere and it won't slow down.",
+        "I'm getting palpitations, my heart's really fast, I'm a bit anxious about it.",
+        "My heart rate's shot up and it's staying fast, I wanted some advice.",
+        "I've got a really fast heartbeat that's not settling, I thought I should call."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, that's me",
-        "It's {{callerName}}"
+        "It's {{callerName}}, that's me.",
+        "{{callerName}}, speaking.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's who's calling.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, it's me you're talking to.",
+        "You can put me down as {{callerName}}.",
+        "{{callerName}}, that's my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, I'm the one who needs help."
       ]
     },
     "patientName": {
       "answers": [
-        "It's me, {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "It's {{firstPatientName}}, that's me.",
+        "{{firstPatientName}}, I'm the one who needs help.",
+        "My name's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's who's calling.",
+        "It's {{firstPatientName}} here.",
+        "{{firstPatientName}}, it's me.",
+        "You can put me down as {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my name.",
+        "It's {{firstPatientName}} calling.",
+        "{{firstPatientName}}, that's me on the phone."
       ]
     },
     "address": {
       "answers": [
-        "I'm at {{address}}",
-        "{{address}}"
+        "We're at {{address}}.",
+        "It's {{address}}.",
+        "{{address}}, please hurry.",
+        "The address is {{address}}.",
+        "We're at {{address}}, the door will be open.",
+        "{{address}}, come straight in.",
+        "You need {{address}}.",
+        "{{address}} is where we are.",
+        "We're at {{address}}, I'll be watching for you.",
+        "It's {{address}}, please get here quickly."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "It just started out of nowhere, my heart's pounding really fast"
+        "It just started out of nowhere, my heart's pounding really fast.",
+        "I was just sitting down when it suddenly started racing.",
+        "No obvious trigger, my heart just started pounding away.",
+        "It came on all of a sudden, no exercise or anything before it.",
+        "I noticed my heart racing about twenty minutes ago, hasn't settled.",
+        "It just started, I haven't done anything unusual today.",
+        "My heart suddenly sped up and it's staying fast.",
+        "No warning, it just started racing while I was resting.",
+        "It came on out of the blue, my heart's just pounding.",
+        "I don't know why it started, it's just racing and won't stop."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, I'm awake, just anxious"
+        "Yes, I'm awake, just anxious.",
+        "Yes, completely alert, just worried about my heart.",
+        "I'm fine mentally, just my heart's the issue.",
+        "Yes, wide awake, just a bit panicky about it.",
+        "I'm conscious and fine, just concerned about the racing.",
+        "Yes, totally aware, just anxious watching it not settle.",
+        "I'm fine, just my heart won't calm down.",
+        "Yes, alert, just nervous about how fast it is.",
+        "I'm okay in myself, just worried about the palpitations.",
+        "Yes, completely conscious, just uneasy about it."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A bit breathless with it"
+        "A bit breathless with it.",
+        "Slightly breathless, but managing okay.",
+        "A little short of breath along with the racing heart.",
+        "Not too bad, a bit breathless when it's at its fastest.",
+        "A little breathless, nothing severe though.",
+        "Slightly out of breath, comes and goes with the racing.",
+        "A bit breathless, mostly just from being anxious about it.",
+        "Not majorly, just slightly breathless with the palpitations.",
+        "A little short of breath, nothing too alarming.",
+        "Slightly breathless, but I can still talk fine."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "A tightness in my chest, not painful exactly"
+        "A tightness in my chest, not painful exactly.",
+        "A bit of tightness, more uncomfortable than painful.",
+        "Not really pain, more of a fluttering, tight feeling.",
+        "A slight tightness in my chest, nothing severe.",
+        "Not painful, just an odd tight sensation.",
+        "A bit of pressure, not sharp pain though.",
+        "Not really painful, more a strange fluttering feeling.",
+        "A mild tightness, nothing I'd call proper pain.",
+        "No real pain, just an uncomfortable racing feeling.",
+        "A little tightness, but not what I'd describe as pain."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding"
+        "No bleeding.",
+        "None at all.",
+        "No, nothing like that.",
+        "No bleeding whatsoever.",
+        "None, this is just my heart racing.",
+        "No, not bleeding.",
+        "Nothing, no bleeding involved.",
+        "No, completely fine on that front.",
+        "None, no.",
+        "No bleeding, it's just palpitations."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I've had this before, a few years ago"
+        "I've had this before, a few years ago.",
+        "This has happened once or twice before over the years.",
+        "I had something similar a couple of years back.",
+        "I've had palpitations before, nothing was ever found.",
+        "This isn't the first time, it happened once before.",
+        "I've had a similar episode a few years ago, it settled itself.",
+        "I had this checked once before and it was put down to anxiety.",
+        "I've had a couple of episodes like this in the past.",
+        "This has happened before, doctors said it wasn't serious.",
+        "I've experienced this once or twice previously."
       ]
     },
     "medications": {
       "answers": [
-        "None regularly"
+        "None regularly.",
+        "Nothing that I take regularly.",
+        "No regular medication, no.",
+        "I don't take anything regularly.",
+        "None, no regular tablets.",
+        "Nothing regularly, no.",
+        "I'm not on any regular medication.",
+        "None that I take on a regular basis.",
+        "No, I don't take anything daily.",
+        "Nothing regular, no."
       ]
     },
     "patientAge": {
       "answers": [
-        "38"
+        "38",
+        "About 38",
+        "38, I think",
+        "{{He}}'s 38 years old",
+        "I believe {{he}}'s 38",
+        "Just turned 38 I think",
+        "38, same age as always",
+        "Around 38, give or take",
+        "{{He}} is 38",
+        "I'd say 38 exactly"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll try to stay calm"
+        "Okay, thank you, I'll wait for them.",
+        "Thank you, I'll sit tight until they arrive.",
+        "Okay, that's a relief, how long will they be?",
+        "Thank you, I'll leave the door unlocked for them.",
+        "Okay, I'll stay on the line until they get here.",
+        "Thank you, I'll try to stay calm until they arrive.",
+        "Okay, I'll keep still and wait.",
+        "Thank you, I'll let you know if anything changes.",
+        "Okay, that's good to hear, please hurry.",
+        "Thank you, I'll wait by the window for them."
       ]
     },
     "refer111": {
       "answers": [
-        "If you think that's safer, but it's quite fast"
+        "If you think that's safer, but it's quite fast.",
+        "Okay, if you think that's best, though it's still racing.",
+        "Alright, I suppose that's fine if you're sure.",
+        "That sounds okay, I wasn't sure if this needed an ambulance.",
+        "Okay, if that's the right call, I'll wait for 111.",
+        "Alright, I did wonder if this was a 999 situation or not.",
+        "That's fine, though it hasn't slowed down at all yet.",
+        "Okay, if you think that's appropriate, I'll wait.",
+        "Alright, I'll try to stay calm and wait for the call back.",
+        "Okay, that sounds sensible, I'll keep an eye on it myself."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's an ambulance we need, this is medical.",
+        "I don't think we need police, just an ambulance please.",
+        "No, there's no crime here, just send an ambulance.",
+        "Police aren't needed, it's a medical emergency.",
+        "I didn't ask for police, we just need paramedics.",
+        "No need for police as far as I can see, just the ambulance.",
+        "There's no trouble here, just send the ambulance please.",
+        "Police? Is that normal, we just need medical help.",
+        "No, nothing like that's happened, just an ambulance.",
+        "I don't think police are needed, this is just medical."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, we don't need the fire brigade, just an ambulance.",
+        "I don't think fire's needed, it's a medical problem.",
+        "No, there's no fire here, just send an ambulance please.",
+        "Fire brigade? I think you mean ambulance, that's what we need.",
+        "No need for fire crews, just paramedics please.",
+        "There's nothing burning, we just need medical help.",
+        "I didn't call about a fire, just an ambulance please.",
+        "No, just an ambulance, nothing for the fire brigade to do.",
+        "Fire's not needed here, it's just a medical emergency.",
+        "No, we're fine on that front, just send the ambulance."
       ]
     }
   },

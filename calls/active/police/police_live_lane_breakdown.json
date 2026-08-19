@@ -48,6 +48,10 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "police": 3
+  },
   "patients": {
     "range": [
       0,
@@ -72,7 +76,14 @@
     "openings": [
       "Police please, my car's broken down in a live lane on the motorway, I'm really scared",
       "I need urgent help, I've broken down in the middle lane and can't move",
-      "There's a car stopped in a live lane, it's mine, please send help quickly"
+      "There's a car stopped in a live lane, it's mine, please send help quickly",
+      "Police please, I've stalled in a live lane, cars are swerving round me",
+      "I need help urgently, my car's died in a live lane on the motorway",
+      "There's a vehicle stuck in a live lane, it's mine, I'm really frightened",
+      "Police please, I can't get my car started, I'm stuck in a live lane",
+      "I need urgent help, I'm stranded in a live lane, traffic's flying past",
+      "There's a car stopped dead in a live lane, please hurry, it's mine",
+      "Police please, my engine's cut out in a live lane, I don't know what to do"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -86,90 +97,230 @@
       "answers": [
         "Police please, my car's broken down in a live lane on the motorway, I'm really scared",
         "I need urgent help, I've broken down in the middle lane and can't move",
-        "There's a car stopped in a live lane, it's mine, please send help quickly"
+        "There's a car stopped in a live lane, it's mine, please send help quickly",
+        "Police please, I've stalled in a live lane, cars are swerving round me",
+        "I need help urgently, my car's died in a live lane on the motorway",
+        "There's a vehicle stuck in a live lane, it's mine, I'm really frightened",
+        "Police please, I can't get my car started, I'm stuck in a live lane",
+        "I need urgent help, I'm stranded in a live lane, traffic's flying past",
+        "There's a car stopped dead in a live lane, please hurry, it's mine",
+        "Police please, my engine's cut out in a live lane, I don't know what to do"
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, it's my car",
-        "It's {{callerName}}, I'm the driver"
+        "{{callerName}}",
+        "It's {{callerName}} calling",
+        "My name's {{callerName}}",
+        "{{callerName}}, I just saw it happen",
+        "Yeah, it's {{callerName}}",
+        "{{callerName}} here, I'm a member of the public",
+        "It's {{callerName}}, I happened to be passing",
+        "My name is {{callerName}}",
+        "{{callerName}}, that's me",
+        "Sorry, yes, it's {{callerName}}"
       ]
     },
     "patientName": {
       "answers": [
-        "Just me, no one else in the car",
-        "It's just me"
+        "There's no one else involved, it's just me and the car",
+        "N/A, it's just me here, nobody else",
+        "No one else, it's just my car and me",
+        "There's nobody else with me, just myself",
+        "N/A, it's only me in the car",
+        "No one else involved, I'm on my own",
+        "It's just me, nobody else in the vehicle",
+        "N/A, no other person involved",
+        "There's no one else, just me stuck here",
+        "No one else, it's only me"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, I'm stuck in lane two",
-        "I'm at {{address}}, hazards on"
+        "{{address}}, it's the motorway, middle lane",
+        "We're at {{address}}",
+        "It's {{address}}, the motorway, middle lane",
+        "{{address}} is where we are",
+        "You'll find us at {{address}}",
+        "Yes, it's {{address}}",
+        "{{address}}, that's the address",
+        "We're at {{address}}, near the motorway, middle lane",
+        "{{address}}, please hurry",
+        "That's {{address}}"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The car just cut out and I couldn't get it to the hard shoulder in time",
-        "It happened a minute ago, I'm stuck in the middle lane with traffic behind me",
-        "Smoke started coming from the engine and then it died"
+        "The engine just cut out with no warning and I couldn't get it to the hard shoulder",
+        "There was a warning light, then it just died in the middle lane",
+        "It started losing power and then stopped completely in the live lane",
+        "The car just stalled, I couldn't restart it in time to move over",
+        "It cut out suddenly, I've got my hazards on but I'm stuck here",
+        "The engine died and I couldn't coast far enough to get off the lane",
+        "It just stopped, no warning at all, right in the middle lane",
+        "There was a bang and then the car cut out completely",
+        "It lost power gradually then died right where I am now",
+        "The car just stopped, I'm stuck here with traffic going round me"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I'm fine, just terrified being stuck here",
-        "No one's hurt, just me and I'm okay"
+        "Nobody's hurt, so there's nothing to report on that front",
+        "N/A, no one's injured here",
+        "No casualties at all, we just need police",
+        "Nobody's hurt, this isn't a medical matter",
+        "Not applicable, no one's been hurt",
+        "No injuries to report, it's not that kind of call",
+        "Nobody's collapsed or hurt, we just need officers down here",
+        "N/A, this is a police matter, no casualties",
+        "No one's been hurt in this, I promise",
+        "Not applicable, there's no patient here"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I'm breathing fine, just panicking",
-        "Fine, just very scared"
+        "No breathing problems, nobody's been hurt",
+        "N/A, there's no injuries here to speak of",
+        "Nobody needs help breathing, this isn't medical",
+        "Not applicable, no one's hurt",
+        "No one's struggling for breath, no casualties at all",
+        "N/A, we just need police, not an ambulance",
+        "Nobody's been affected like that, no injuries",
+        "No breathing issues, nobody's hurt in this",
+        "Not a medical thing at all, no one's struggling",
+        "N/A, there's no patient here"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No pain, I'm not hurt",
-        "None"
+        "No pain to report, nobody's hurt",
+        "N/A, no injuries at all",
+        "Nobody's in pain, this isn't medical",
+        "Not applicable, no one's been hurt",
+        "No one's complained of any pain",
+        "N/A, we don't need an ambulance for this",
+        "Nobody's hurt themselves, no pain reported",
+        "No injuries, so no pain to speak of",
+        "Not that I'm aware of, nobody's hurt",
+        "N/A, it's purely a police matter"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No",
-        "None"
+        "No bleeding, nobody's hurt",
+        "N/A, there's no injuries",
+        "No one's bleeding, this isn't medical",
+        "Not applicable, nobody's been hurt",
+        "No blood, no injuries at all",
+        "N/A, we just need police here",
+        "Nobody's hurt themselves, no bleeding",
+        "No, there's no injuries to report",
+        "Not that I can see, nobody's hurt",
+        "N/A, it's not a medical call"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not relevant, I'm not hurt",
-        "N/A"
+        "N/A, nobody's hurt so there's no history needed",
+        "Not applicable, no patient involved",
+        "No idea, and it's not relevant, nobody's hurt",
+        "N/A, this isn't a medical matter",
+        "Not applicable, we just need police",
+        "No one's been hurt, so no history to give",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "I couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's a police matter, not medical"
       ]
     },
     "medications": {
       "answers": [
-        "No",
-        "N/A"
+        "N/A, nobody's hurt",
+        "Not applicable, no patient involved",
+        "No idea, and it doesn't matter, no one's hurt",
+        "N/A, this isn't medical",
+        "Not applicable, we need police, not paramedics",
+        "No one's been hurt, so nothing like that to report",
+        "N/A, there's no patient here",
+        "Not applicable, no injuries at all",
+        "Couldn't tell you, but nobody's hurt anyway",
+        "N/A, it's not a medical call"
       ]
     },
     "patientAge": {
       "answers": [
-        "Not applicable"
+        "N/A, there's no one else here to give an age for",
+        "Not applicable, it's just me",
+        "N/A, no one else involved",
+        "Not applicable, there's only me here",
+        "N/A, it's just myself",
+        "Not applicable, no other person",
+        "N/A, there's nobody else to describe",
+        "Not applicable, it's only me in the car",
+        "N/A, no one else is involved",
+        "Not applicable, just me here"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I've got my seatbelt on and hazards flashing",
-        "Please hurry, cars are still coming at speed"
+        "Ambulance? No need, nobody's hurt, it's police we're after",
+        "We don't need an ambulance, just get police here please",
+        "No ambulance needed, this is a police matter",
+        "There's no injuries, we just need officers down here",
+        "Nobody's hurt, so an ambulance won't be needed",
+        "That's not necessary, it's police we need, not paramedics",
+        "No thank you, nobody's injured, just send police",
+        "We're fine on that front, it's police we're waiting for",
+        "Not needed, there's no casualties, just police please",
+        "No one's hurt, an ambulance isn't required for this"
       ]
     },
     "refer111": {
       "answers": [
-        "No, I need police for this, not 111"
+        "111? No, this needs police now, not a callback",
+        "We can't wait for 111, this needs officers straight away",
+        "This isn't something 111 can help with, we need police",
+        "No, please, this needs police, not NHS 111",
+        "I don't think 111 is right for this, we need police here",
+        "This is a police matter, 111 won't be able to help",
+        "Please, we really need police, not a 111 callback",
+        "That's not going to help, this needs police attendance",
+        "No, this can't wait for a callback, we need officers now",
+        "111 isn't going to sort this, we need police please"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes please, hurry, cars are swerving round me",
+        "Please, I'm really scared, traffic's still moving fast",
+        "Okay, please hurry, I don't feel safe staying in the car",
+        "Yes, please, I've got my hazards on but it's terrifying",
+        "Thank you, please hurry, this lane's still open",
+        "Okay, should I get out of the car or stay inside?",
+        "Yes please, I'm really frightened, please hurry",
+        "Thank you, I'll keep my hazards on until they arrive",
+        "Okay, please hurry, lorries are going past really close",
+        "Yes, please, I don't know how much longer I can stay here safely"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, there's no fire, it's police we need here",
+        "We don't need the fire brigade, this isn't a fire matter",
+        "No fire involved, just police please",
+        "That's not needed, there's no fire here",
+        "No thank you, it's police we're after, not fire crews",
+        "Not necessary, there's nothing burning, just send police",
+        "We're fine there, no fire, just need officers",
+        "No fire risk here, it's a police matter",
+        "Not needed, this doesn't involve the fire brigade",
+        "No, it's police we need, not fire"
       ]
     }
   },

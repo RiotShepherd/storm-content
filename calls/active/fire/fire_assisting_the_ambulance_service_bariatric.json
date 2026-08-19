@@ -48,6 +48,11 @@
     "aerial": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 4,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       1,
@@ -84,8 +89,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "The ambulance crew need the fire brigade, my mum's a big lady and they can't get her down the stairs safely",
-      "I need extra help for the paramedics, my husband's very large and he's collapsed upstairs"
+      "The ambulance crew need the fire brigade, my {{dad}}'s a big {{man}} and they can't get {{him}} down the stairs safely",
+      "I need extra help for the paramedics, my {{dad}}'s very large and {{he}}'s collapsed upstairs",
+      "Please hurry, my {{dad}}'s collapsed and the ambulance crew can't manage the stairs alone",
+      "The paramedics are with my {{dad}} but they need fire crew for the stairs, {{he}}'s a big {{fella}}",
+      "My {{dad}}'s upstairs and collapsed, the crew need extra people to move {{him}}",
+      "I need the fire brigade please, my {{dad}}'s too heavy for the ambulance crew to carry down alone",
+      "The ambulance crew have asked for the fire brigade, my {{dad}}'s collapsed upstairs and it's a narrow staircase",
+      "My {{dad}}'s collapsed on the landing, the paramedics can't get {{him}} down by themselves",
+      "Please send help, my {{dad}} is a big {{man}} and {{he}}'s stuck upstairs after collapsing",
+      "The crew need fire brigade assistance, my {{dad}}'s collapsed and the stairs are too narrow for them alone"
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -97,79 +110,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "The ambulance crew need the fire brigade, my mum's a big lady and they can't get her down the stairs safely",
-        "I need extra help for the paramedics, my husband's very large and he's collapsed upstairs"
+        "The ambulance crew need the fire brigade, my {{dad}}'s a big {{man}} and they can't get {{him}} down the stairs safely",
+        "I need extra help for the paramedics, my {{dad}}'s very large and {{he}}'s collapsed upstairs",
+        "Please hurry, my {{dad}}'s collapsed and the ambulance crew can't manage the stairs alone",
+        "The paramedics are with my {{dad}} but they need fire crew for the stairs, {{he}}'s a big {{fella}}",
+        "My {{dad}}'s upstairs and collapsed, the crew need extra people to move {{him}}",
+        "I need the fire brigade please, my {{dad}}'s too heavy for the ambulance crew to carry down alone",
+        "The ambulance crew have asked for the fire brigade, my {{dad}}'s collapsed upstairs and it's a narrow staircase",
+        "My {{dad}}'s collapsed on the landing, the paramedics can't get {{him}} down by themselves",
+        "Please send help, my {{dad}} is a big {{man}} and {{he}}'s stuck upstairs after collapsing",
+        "The crew need fire brigade assistance, my {{dad}}'s collapsed and the stairs are too narrow for them alone"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm her daughter"
+        "It's {{callerName}}, I'm {{his}} {{callerChild}}",
+        "{{callerName}} here, I'm {{his}} {{callerChild}}, please hurry",
+        "It's {{callerName}}, I called the ambulance for {{him}} earlier",
+        "{{callerName}}, I'm upstairs with {{him}} now",
+        "It's {{callerName}}, I've been with {{him}} since {{he}} went down",
+        "My name's {{callerName}}, I'm {{his}} {{callerChild}}",
+        "It's {{callerName}}, the paramedics told me to call again",
+        "{{callerName}} speaking, I'm stood with {{him}} now",
+        "It's {{callerName}}, I'm waiting with the crew upstairs",
+        "{{callerName}}, I've been on the phone to the ambulance service already"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}, she's my mum"
+        "It's {{firstPatientName}}, {{he}}'s my {{dad}}",
+        "{{firstPatientName}}, {{he}}'s my {{dad}}, {{he}}'s 54",
+        "It's {{firstPatientName}}, my {{dad}}",
+        "{{His}} name's {{firstPatientName}}",
+        "It's {{firstPatientName}}, that's my {{dad}}",
+        "{{firstPatientName}} is {{his}} name, my {{dad}}",
+        "It's {{firstPatientName}}, that's {{him}}, my {{dad}}",
+        "{{His}} name is {{firstPatientName}}, {{he}}'s my {{dad}}",
+        "It's {{firstPatientName}}, my {{dad}}, please hurry",
+        "{{firstPatientName}}, that's {{him}}, my {{dad}}"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, second floor flat, there's no lift"
+        "{{address}}, second floor flat, there's no lift",
+        "It's {{address}}, the crew are already inside",
+        "{{address}}, come straight up, the door's open",
+        "It's {{address}}, the paramedics are on the landing",
+        "{{address}}, the ambulance is parked outside",
+        "It's {{address}}, up the narrow staircase to the landing",
+        "{{address}}, I'll leave the front door open for you",
+        "It's {{address}}, you'll see the ambulance outside",
+        "{{address}}, please hurry, {{he}}'s on the landing upstairs",
+        "It's {{address}}, the crew are waiting for you upstairs"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "She's collapsed upstairs and she's a big lady, the ambulance crew can't manage the stairs alone"
+        "{{He}}'s collapsed upstairs and {{he}}'s a big {{man}}, the ambulance crew can't manage the stairs alone",
+        "{{He}} went down on the landing and the crew can't get {{him}} down safely by themselves",
+        "{{He}} collapsed and {{he}}'s a big {{fella}}, the staircase is too narrow for the crew alone",
+        "{{He}}'s on the floor upstairs and the paramedics say they need fire crew to move {{him}}",
+        "{{He}} fell on the landing and {{he}}'s too heavy for the crew to carry down alone",
+        "{{He}}'s collapsed and can't get up, the ambulance crew have asked for backup",
+        "{{He}} went down upstairs and the space is tight, the crew need help getting {{him}} out",
+        "{{He}} collapsed suddenly on the landing, the paramedics can't manage the lift themselves",
+        "{{He}}'s stuck on the floor upstairs, the crew say they need fire brigade assistance",
+        "{{He}} collapsed in a narrow spot upstairs and the paramedics can't lift {{him}} safely alone"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "She's conscious but very distressed and struggling"
+        "{{He}}'s conscious but very distressed and struggling",
+        "{{He}}'s awake and responding, just very embarrassed and upset",
+        "{{He}}'s conscious, {{he}} keeps apologising for the trouble",
+        "{{He}}'s alert, talking to the paramedics now",
+        "{{He}}'s conscious but frightened",
+        "{{He}}'s awake, the crew are keeping {{him}} talking and calm",
+        "{{He}}'s conscious, {{he}}'s just scared {{he}}'s hurt something",
+        "{{He}}'s responding to the paramedics fine",
+        "{{He}}'s conscious, a bit confused but talking",
+        "{{He}}'s awake and aware, just distressed about the situation"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "She's breathless, the paramedics have her on oxygen"
+        "{{He}}'s breathless, the paramedics have {{him}} on oxygen",
+        "{{He}}'s a bit breathless, the crew are keeping a close eye",
+        "{{His}} breathing's laboured, the paramedics are monitoring {{him}}",
+        "{{He}}'s on oxygen now, breathing's a bit shallow",
+        "{{He}}'s struggling slightly, the crew have {{him}} on oxygen",
+        "{{He}}'s breathing okay now the paramedics have settled {{him}}",
+        "{{He}} was breathless earlier, the crew have it under control",
+        "{{He}}'s a bit short of breath, nothing the crew aren't managing",
+        "The paramedics have {{him}} on oxygen, {{his}} breathing's steadying",
+        "{{He}}'s breathing a bit fast, the crew are watching {{him}} closely"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her back and chest hurt"
+        "{{He}} says {{his}} back and chest hurt",
+        "{{He}}'s complaining of some discomfort in {{his}} back",
+        "{{He}} says {{he}}'s sore from the fall",
+        "{{He}}'s mentioned {{his}} chest feels tight, the crew are checking {{him}}",
+        "{{He}} says {{his}} hip hurts from going down",
+        "{{He}}'s uncomfortable but the paramedics are managing {{his}} pain",
+        "{{He}} says {{his}} back and legs are sore",
+        "{{He}}'s in some discomfort but talking through it",
+        "{{He}} mentioned a tight chest to the paramedics",
+        "{{He}}'s sore all over but nothing the crew seem overly worried about"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding, it's a mobility and lifting problem"
+        "No bleeding, it's a mobility and lifting problem",
+        "No, there's no bleeding, it's about getting {{him}} down safely",
+        "No blood, {{he}}'s just collapsed, not cut",
+        "No bleeding at all, the issue is the stairs and {{his}} weight",
+        "No, no injuries like that, just the collapse",
+        "No bleeding, the crew are focused on moving {{him}} safely",
+        "No, nothing like that, {{he}}'s just stuck upstairs",
+        "No bleeding to report, it's purely the lift that's the issue",
+        "No, no visible injuries, just the collapse",
+        "No bleeding, {{he}}'s just too heavy for them to carry alone"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She's diabetic and has heart problems"
+        "{{He}}'s diabetic and has heart problems",
+        "{{He}}'s diabetic and has had heart trouble before",
+        "{{He}}'s got a history of heart problems and high blood pressure",
+        "{{He}}'s had a couple of heart scares before this",
+        "{{He}}'s on medication for {{his}} heart and blood pressure",
+        "{{He}}'s diabetic, and {{he}}'s got a dodgy heart",
+        "{{He}}'s had high blood pressure for years",
+        "{{He}}'s got heart problems, the paramedics are aware",
+        "{{He}}'s had issues with {{his}} heart before",
+        "{{He}}'s got a history of blood pressure problems"
       ]
     },
     "medications": {
       "answers": [
-        "She's on insulin and heart tablets, they're on the side"
+        "{{He}}'s on insulin and heart tablets, they're on the side",
+        "{{He}}'s on insulin and tablets for {{his}} heart",
+        "{{He}} takes tablets daily, I can get the list for you",
+        "{{He}}'s on blood pressure tablets and insulin",
+        "{{He}} takes a few tablets, I've got them here",
+        "{{He}}'s on regular medication, I'll grab the packet",
+        "{{He}} takes heart tablets every morning",
+        "{{He}}'s on insulin, the crew have seen it",
+        "{{He}} takes several tablets, I've got them by the door",
+        "{{He}}'s on medication for {{his}} heart and diabetes, the crew have seen it"
       ]
     },
     "patientAge": {
       "answers": [
-        "She's 54"
+        "{{He}}'s 54",
+        "{{He}}'s 54 years old",
+        "{{He}}'s in {{his}} mid fifties",
+        "{{He}}'s 54, just had a birthday recently",
+        "{{He}}'s fifty four",
+        "{{He}} turned 54 this year",
+        "{{He}}'s 54, the paramedics have it noted",
+        "{{He}}'s in {{his}} mid fifties, 54 I think",
+        "{{He}}'s 54, been struggling with {{his}} health lately",
+        "{{He}}'s fifty four, retired early due to {{his}} health"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, the crew are with her, please get here quickly, the stairs are narrow"
+        "Okay, the crew are with {{him}}, please get here quickly, the stairs are narrow",
+        "Right, they're keeping {{him}} comfortable while we wait for you",
+        "Okay, the crew have {{him}} settled, just need the lift help now",
+        "Understood, I'll stay with {{him}} until you arrive",
+        "Alright, the paramedics are looking after {{him}} well",
+        "Okay, {{he}}'s calmer now the crew are here",
+        "Right, we're just waiting on you for the lift down",
+        "Okay, the crew are keeping {{him}} talking and comfortable",
+        "Understood, I'll let you know if anything changes",
+        "Okay, please just hurry, {{he}}'s getting tired on the landing"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, we need fire crew to help get {{him}} down the stairs",
+        "Sorry, why police, the ambulance already asked for fire brigade",
+        "No, there's no trouble here, just a difficult lift",
+        "That's not right, we need extra hands, not police",
+        "No thank you, it's a medical matter, the stairs are just narrow",
+        "Sorry, I don't need police, {{he}}'s just too heavy for the crew alone",
+        "No, it's not that kind of call, we need fire crew for the stairs",
+        "There's no need for police, it's the stairwell that's the problem",
+        "No, please, we need the fire brigade for the carry down",
+        "Sorry, that's not necessary, it's just a bariatric lift"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, the ambulance crew are waiting",
+        "Okay, good, {{he}}'s conscious but the stairs are so narrow",
+        "Please hurry, {{he}}'s getting distressed waiting on the floor",
+        "Thank you, the paramedics are keeping {{him}} comfortable for now",
+        "Okay, I can hear them coming, thank god",
+        "Good, hurry, {{he}}'s a big {{man}} and the crew can't manage alone",
+        "Thank you, we've cleared the stairs as best we can",
+        "Okay, please tell them to hurry, there's no lift in this building",
+        "Thank goodness, {{he}}'s stable but uncomfortable up there",
+        "Good, hurry please, the paramedics really need the extra hands"
       ]
     },
     "refer111": {
       "answers": [
-        "No, the ambulance is already here, they need fire crew for the lift"
+        "No, the ambulance is already here, they need fire crew for the lift",
+        "No, this is urgent, the ambulance crew need the fire brigade now",
+        "No thank you, we need fire crew for the stairs, not medical advice",
+        "No, the ambulance is already on scene, please just send fire crew",
+        "No, this isn't something 111 can help with, we need the lift assistance",
+        "No, the crew are here, we just need the extra hands",
+        "No, please, the paramedics specifically asked for fire brigade",
+        "No, this is already an ambulance job, we just need the lift help",
+        "No, please hurry, the crew are waiting on you",
+        "No, it's not medical advice we need, it's the physical lift down the stairs"
       ]
     }
   },

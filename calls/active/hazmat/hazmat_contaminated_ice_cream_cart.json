@@ -45,6 +45,11 @@
   "units": {
     "irv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 2,
+    "police": 1
+  },
   "patients": {
     "range": [
       1,
@@ -71,9 +76,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "It's the ice cream van on the industrial estate, people are being sick after eating from it",
-      "I need an ambulance, my son's been throwing up since he had an ice cream from that van",
-      "There's something wrong with the ice cream, three or four of us feel awful"
+      "A load of people who bought from the ice cream van are being sick, something's wrong with it.",
+      "There's a group of us feeling really ill after eating from the ice cream cart here.",
+      "People are being sick after having ice cream from the van on the corner.",
+      "We think the ice cream's contaminated, quite a few of us are unwell now.",
+      "There's several people here being sick, we all had ice cream from the same cart.",
+      "The ice cream from that cart's made a load of people ill, kids included.",
+      "A few families are unwell after buying from the ice cream van, it must be contaminated.",
+      "There's people being sick all around the cart, something's wrong with the ice cream.",
+      "Loads of us feel dreadful after the ice cream van, cramps and being sick.",
+      "We think it's the ice cream, several people including children are now unwell."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -85,93 +97,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "It's the ice cream van on the industrial estate, people are being sick after eating from it",
-        "I need an ambulance, my son's been throwing up since he had an ice cream from that van",
-        "There's something wrong with the ice cream, three or four of us feel awful"
+        "A load of people who bought from the ice cream van are being sick, something's wrong with it.",
+        "There's a group of us feeling really ill after eating from the ice cream cart here.",
+        "People are being sick after having ice cream from the van on the corner.",
+        "We think the ice cream's contaminated, quite a few of us are unwell now.",
+        "There's several people here being sick, we all had ice cream from the same cart.",
+        "The ice cream from that cart's made a load of people ill, kids included.",
+        "A few families are unwell after buying from the ice cream van, it must be contaminated.",
+        "There's people being sick all around the cart, something's wrong with the ice cream.",
+        "Loads of us feel dreadful after the ice cream van, cramps and being sick.",
+        "We think it's the ice cream, several people including children are now unwell."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}",
-        "{{callerName}}, I run the unit next door"
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, sorry, I should have said.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}} here.",
+        "{{callerName}}, yes.",
+        "Sorry, {{callerName}}, I'm a bit flustered.",
+        "{{callerName}} is my name.",
+        "It's {{callerName}} calling.",
+        "{{callerName}}, that's me."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know all their names, one's called {{firstPatientName}}",
-        "{{firstPatientName}} is the worst of them"
+        "There's a good few of them, I don't have names, sorry.",
+        "I don't know all their names, there's several affected.",
+        "No idea on names, we're just trying to get everyone out safely.",
+        "I can't give you names for all of them, there's too many.",
+        "Some staff know their names, I only know a couple of them.",
+        "I've not got names, sorry, there's a fair few people involved.",
+        "No names I'm afraid, it's chaos here with several affected.",
+        "I don't know them all personally, sorry.",
+        "Can't help with names, there's just too many people caught up in it.",
+        "Sorry, no names, we're focused on getting them out."
       ]
     },
     "address": {
       "answers": [
-        "We're by the ice cream cart at {{address}}",
-        "{{address}}, near the industrial estate entrance"
+        "It's {{address}}.",
+        "The address is {{address}}, please hurry.",
+        "{{address}}, that's where we are.",
+        "We're at {{address}}.",
+        "It's {{address}}, can you send someone quickly.",
+        "{{address}}, I'll stay on the line if you need it again.",
+        "Sorry, yes, {{address}}.",
+        "That's {{address}}, I'm right outside.",
+        "{{address}}, there should be someone to meet you there.",
+        "The postcode's tricky but it's {{address}}."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "They've all had ice cream from the cart and started being sick and getting stomach cramps",
-        "It smells off, like it's gone bad, and now people are ill"
+        "A group of us bought ice cream from the cart and started feeling ill within the hour.",
+        "It seems the ice cream's been contaminated somehow, everyone who had it is unwell.",
+        "We think the machine wasn't cleaned properly, people are getting sick after eating it.",
+        "Several of us had ice cream from the same cart and now we're all being sick.",
+        "It looks like something's wrong with the ice cream mix, a lot of people are affected.",
+        "We all bought from the same cart earlier and now everyone's feeling dreadful.",
+        "It seems the ice cream's off somehow, quite a few customers are now unwell.",
+        "A number of people had ice cream from that cart and are now being sick.",
+        "We think there's contamination in the ice cream machine, lots of people are ill.",
+        "Everyone who's had ice cream from that cart today seems to be getting sick."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, all of them are awake",
-        "{{firstPatientName}}'s awake but very pale"
+        "They're all conscious, just feeling very sick and dizzy.",
+        "Yes, conscious, but a lot of them are being sick.",
+        "Conscious, though a couple look like they might faint.",
+        "They're awake, just doubled over with stomach cramps.",
+        "All conscious as far as I can see, just really unwell.",
+        "Conscious but weak, quite a few are vomiting.",
+        "Yes, they're all conscious, just feeling dreadful.",
+        "Awake but very pale and unsteady, some being sick.",
+        "Conscious, just struggling with sickness and cramps.",
+        "They're all conscious, just very poorly right now."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine, just very sick",
-        "A couple of them seem to be struggling a bit for breath"
+        "Breathing's fine, it's their stomachs that are the problem.",
+        "No breathing issues, they're just being sick and in pain.",
+        "Breathing seems normal, it's all sickness and cramps.",
+        "No trouble breathing, just vomiting and stomach pain.",
+        "Breathing's okay, the trouble's all in their stomachs.",
+        "No issues breathing, just a lot of nausea and being sick.",
+        "Breathing normally, it's the sickness that's the problem.",
+        "No breathing problems that I can see, just very unwell stomachs.",
+        "They're breathing fine, just really struggling with the sickness.",
+        "No breathing trouble, just cramps and vomiting."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Bad stomach cramps, yes",
-        "{{firstPatientName}} says it's like a burning pain in the stomach"
+        "Several are complaining of bad stomach cramps.",
+        "A lot of them have got stomach pain and are being sick.",
+        "There's stomach cramps and nausea right across the group.",
+        "Some are doubled over with pain in their stomachs.",
+        "A few say it's like sharp cramps, really uncomfortable.",
+        "Stomach pain mostly, and quite a bit of vomiting.",
+        "Some are in real discomfort, gripping their stomachs.",
+        "There's a lot of stomach ache and sickness going round.",
+        "A number of them say their stomachs are in agony.",
+        "Some have got cramping pain and keep being sick."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No bleeding",
-        "No, nothing like that"
+        "No bleeding, no, it's all sickness and stomach trouble.",
+        "No, nobody's bleeding, it's food poisoning symptoms.",
+        "No blood, just a lot of vomiting and cramps.",
+        "Not that I've seen, it's all sickness related.",
+        "No bleeding, thankfully, just everyone feeling very unwell.",
+        "No, no injuries like that, just stomach upset.",
+        "Nobody's cut or bleeding, it's their stomachs that are the issue.",
+        "No bleeding at all, it's purely sickness.",
+        "Not bleeding, no, just really poorly with their stomachs.",
+        "No blood, no, this is all down to something they've eaten."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not that I know of",
-        "I've no idea, I only know {{firstPatientName}}"
+        "I don't know all their medical histories, sorry, there's too many.",
+        "No idea, we'd need to check with each of them individually.",
+        "Can't say for certain, I know one or two have allergies.",
+        "I'm not sure, some might have stomach conditions already.",
+        "I don't have that information for all of them, sorry.",
+        "Not sure, sorry, there's too many people to know that about.",
+        "I couldn't tell you, we're just trying to help them right now.",
+        "No idea about medical history, sorry, it's chaos here.",
+        "I know a couple mentioned allergies, not sure about the rest.",
+        "Can't say, sorry, I don't know them all that well."
       ]
     },
     "medications": {
       "answers": [
-        "I don't know",
-        "None that anyone's mentioned"
+        "No idea, sorry, I wouldn't know what any of them take.",
+        "I couldn't tell you, there's too many people to ask.",
+        "Not a clue, sorry, we're just trying to keep them comfortable.",
+        "I don't know, I'd have to ask each of them.",
+        "No idea on medications, sorry, we're a bit overwhelmed here.",
+        "Can't help with that, sorry, I don't know them well enough.",
+        "I've no idea what any of them are on, sorry.",
+        "Not sure, sorry, there's too many to know that about.",
+        "No idea, honestly, we're just focused on getting help to them.",
+        "I couldn't say, sorry, I don't know their medical details."
       ]
     },
     "patientAge": {
       "answers": [
-        "A mix, one's about 8, the rest are adults",
-        "{{firstPatientName}} is 34"
+        "All ages really, there's a real mix of people caught up in it.",
+        "Mixed ages, kids and adults both affected.",
+        "Hard to say exactly, there's a real range from young to old.",
+        "Mostly adults I'd say, but a couple of younger ones too.",
+        "A proper mix, teenagers up to older people.",
+        "Can't say exactly, it's a real mix of everyone.",
+        "There's a broad mix, young and old caught up in this.",
+        "Mostly working age adults from what I can see.",
+        "A mix, I'd say twenties up to sixties maybe.",
+        "Hard to tell, there's people of all ages here."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, please hurry, more people keep coming over feeling sick",
-        "Right, I'll keep them away from the cart"
+        "Okay, thank you, we'll keep them comfortable till the paramedics arrive.",
+        "Right, I'll stay with them until the ambulance gets here.",
+        "Okay, that's good, please hurry, they're not looking great.",
+        "Thank you, we'll keep them still and wait for the crew.",
+        "Alright, I'll keep talking to them until the ambulance arrives.",
+        "Okay, we're keeping them warm and calm, waiting for you.",
+        "Thank you, that's a relief, please send them quickly.",
+        "Right, understood, I'll stay on the line if you need me.",
+        "Okay, we'll keep everyone together until the ambulance turns up.",
+        "Thank you, I'll do what I can until they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "No, there's several of them and they're getting worse",
-        "Should I call that instead of an ambulance?"
+        "No, they need proper help now, not 111, please send someone.",
+        "I don't think 111 can deal with this, we need paramedics and fire out here.",
+        "No, this can't wait for 111, people are struggling to breathe.",
+        "Sorry, no, we need an ambulance and the fire brigade now.",
+        "No, 111's too slow for this, please send help quickly.",
+        "I really think we need 999 crews here, not 111.",
+        "No, this is urgent, please don't put me through to 111.",
+        "Sorry, I don't think 111 is right for this, people are unwell.",
+        "No, we need someone out here now, not a phone line.",
+        "No, please, this needs paramedics, not 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Okay, thank you, I'll point them to where they're needed when they arrive.",
+        "Right, that's good, we could do with them here to sort the traffic.",
+        "Okay, I'll wait for them, they'll want to see this for themselves.",
+        "Thank you, please send them quickly, it's getting a bit chaotic.",
+        "Alright, I'll keep an eye out for them and flag them down.",
+        "Okay, that's a relief, we need them to help keep people back.",
+        "Right, thank you, I'll let them know what's happened when they get here.",
+        "Okay, good, we could use some help managing this.",
+        "Thank you, I'll stay put until they arrive.",
+        "Okay, please hurry, we need them here as soon as possible."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire brigade? No, we don't need them, nobody's dealing with a fire here.",
+        "No, this isn't a fire, we don't need the fire engines.",
+        "Sorry, no, there's no fire, it's not something for the fire brigade.",
+        "No thank you, we don't need fire crews, it's not that kind of incident.",
+        "I don't think we need the fire brigade, there's no fire involved.",
+        "No, no fire here, we just need police and paramedics really.",
+        "That's alright, we don't need fire engines, it's not a fire.",
+        "No, this doesn't need the fire brigade, it's a different kind of problem.",
+        "Sorry, no, fire crews aren't needed, there's no fire to speak of.",
+        "No, we're fine on the fire front, it's the other services we need."
       ]
     }
   },

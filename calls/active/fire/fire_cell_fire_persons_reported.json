@@ -45,6 +45,12 @@
     "irv": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 6,
+    "ambulance": 1,
+    "police": 1
+  },
   "patients": {
     "range": [
       0,
@@ -82,7 +88,15 @@
   "caller": {
     "openings": [
       "There's a fire in a cell and the prisoner hasn't come out, we can't get the door open safely",
-      "I need the fire brigade urgently, a prisoner's collapsed in his cell and there's smoke coming under the door"
+      "I need the fire brigade urgently, a prisoner's collapsed in the cell and there's smoke coming under the door",
+      "Please hurry, we can't open the cell door, there's smoke and the prisoner's not responding",
+      "We've a fire in a cell, the prisoner inside hasn't answered when we called through the door",
+      "Fire brigade urgently please, smoke's coming from under a cell door and we can't reach the prisoner",
+      "Please send help fast, we think the prisoner's collapsed, the door's too hot to open",
+      "There's a serious fire in a cell, we can hear nothing from inside now",
+      "We need help urgently, a prisoner's in a smoke filled cell and isn't responding to us",
+      "Fire brigade please, we can't get to the prisoner, the cell's full of smoke",
+      "Please hurry, the cell door's jammed and there's a prisoner inside with a fire"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -95,78 +109,231 @@
     "start": {
       "answers": [
         "There's a fire in a cell and the prisoner hasn't come out, we can't get the door open safely",
-        "I need the fire brigade urgently, a prisoner's collapsed in his cell and there's smoke coming under the door"
+        "I need the fire brigade urgently, a prisoner's collapsed in the cell and there's smoke coming under the door",
+        "Please hurry, we can't open the cell door, there's smoke and the prisoner's not responding",
+        "We've a fire in a cell, the prisoner inside hasn't answered when we called through the door",
+        "Fire brigade urgently please, smoke's coming from under a cell door and we can't reach the prisoner",
+        "Please send help fast, we think the prisoner's collapsed, the door's too hot to open",
+        "There's a serious fire in a cell, we can hear nothing from inside now",
+        "We need help urgently, a prisoner's in a smoke filled cell and isn't responding to us",
+        "Fire brigade please, we can't get to the prisoner, the cell's full of smoke",
+        "Please hurry, the cell door's jammed and there's a prisoner inside with a fire"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the officer on duty on this wing"
+        "It's {{callerName}}, I'm the duty officer on the wing",
+        "{{callerName}}, please hurry, I'm trying to get the door open",
+        "My name's {{callerName}}, I'm the officer in charge tonight",
+        "It's {{callerName}}, I've called for backup on the wing too",
+        "{{callerName}} speaking, I'm at the cell door now",
+        "Name's {{callerName}}, control room's aware and I'm on scene",
+        "It's {{callerName}}, please, I need to get back to the door",
+        "{{callerName}}, I'm the senior officer here tonight",
+        "This is {{callerName}}, I'll meet your crew at the gate",
+        "{{callerName}} here, please hurry, we're very worried"
       ]
     },
     "patientName": {
       "answers": [
-        "It's the prisoner in cell twelve, {{firstPatientName}} I believe"
+        "The prisoner's called {{firstPatientName}}",
+        "{{His}} name's {{patientName}}, {{he}}'s the only one in that cell",
+        "It's {{firstPatientName}}, {{he}}'s been in that cell a few weeks",
+        "The prisoner is {{firstPatientName}}, we've got {{his}} details here",
+        "{{He}}'s known as {{firstPatientName}} on the wing",
+        "Name's {{patientName}}, we can confirm from our records",
+        "It's {{firstPatientName}}, that's the prisoner in the cell",
+        "{{He}}'s called {{firstPatientName}}, {{he}}'s alone in there",
+        "The prisoner's name is {{firstPatientName}}",
+        "It's {{firstPatientName}}, we're trying to reach {{him}} now"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the prison, report to the gate lodge"
+        "{{address}}, it's the prison, use the main gate",
+        "It's {{address}}, security will let you straight through",
+        "{{address}}, please hurry, come to the gatehouse",
+        "You want {{address}}, we'll have the gate open",
+        "{{address}}, that's the prison, please come quickly",
+        "{{address}}, come to the main entrance, staff are waiting",
+        "{{address}}, that's confirmed, please hurry",
+        "{{address}}, the prison off the main road, please hurry",
+        "{{address}}, come to the gate, B wing is where the fire is",
+        "{{address}}, please, we need you here fast"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's a fire in his cell, we can see smoke under the door but haven't been able to safely open it yet"
+        "We think {{he}} set fire to bedding, the smoke's now filling the cell",
+        "The fire's grown and {{he}}'s stopped answering when we call through the door",
+        "Not sure exactly, but there's smoke pouring from under the door now",
+        "We believe {{he}} started it {{himself}}, but now {{he}}'s not responding",
+        "The fire's spread inside the cell, the door's too hot to open safely",
+        "Unclear cause, but staff can hear nothing from inside now",
+        "We think it's bedding alight, smoke's now filling the whole cell",
+        "Not certain, but the fire's clearly grown, {{he}} went quiet a while ago",
+        "We believe {{he}} may have started it deliberately, we're very worried now",
+        "The cell's now fully smoke logged, we can't get {{him}} to respond"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "We don't know, he's not responding when we call through the door"
+        "We don't know, {{he}}'s stopped answering when we call through",
+        "Unknown, {{he}} went quiet a few minutes ago",
+        "We can't tell, the door's too hot to open and check",
+        "Unknown, staff have been calling through but no response",
+        "We don't know {{his}} condition, we can't get in safely",
+        "Can't confirm, {{he}}'s not responding to us at all now",
+        "Unknown, we're very worried {{he}}'s been overcome by smoke",
+        "We can't say, {{he}} hasn't answered for a few minutes",
+        "Unknown, that's exactly why we're so worried",
+        "Can't confirm, please hurry, we need to get that door open"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "We can't tell from out here, there's smoke coming under the door"
+        "We don't know, the cell's full of smoke and we can't reach {{him}}",
+        "Unknown, we're very worried about smoke inhalation",
+        "Can't say, the smoke's thick under the door already",
+        "We don't know, that's exactly our biggest fear right now",
+        "Unknown, we can't get near enough to check on {{him}}",
+        "Can't confirm, please hurry, the smoke's getting worse",
+        "We don't know {{his}} breathing at all right now",
+        "Unknown, staff can't safely open the door yet",
+        "Can't say, we're doing everything we can to get in",
+        "We don't know, that's why we need you here urgently"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "We can't say, we haven't been able to reach him"
+        "We don't know, we can't reach {{him}} to check",
+        "Unknown, {{he}}'s not responding to us at all",
+        "Can't say, the door's too hot to open right now",
+        "We don't know {{his}} condition, sorry",
+        "Unknown, staff haven't been able to get near {{him}}",
+        "Can't confirm anything, we're extremely worried",
+        "We don't know, that's the honest truth right now",
+        "Unknown, please hurry, we need to reach {{him}}",
+        "Can't say, {{he}} hasn't made a sound for a while",
+        "We don't know, sorry, we simply can't get to {{him}}"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "We don't know, we can't see him"
+        "We don't know, we can't see into the cell",
+        "Unknown, the smoke's too thick to check",
+        "Can't say, we haven't been able to reach {{him}}",
+        "We don't know, sorry, we're waiting to get the door open",
+        "Unknown, that's not something we can check right now",
+        "Can't confirm, the door's still too hot",
+        "We don't know, staff can't get in safely yet",
+        "Unknown, please just hurry, we're very worried",
+        "Can't say, we have no visual on {{him}} at all",
+        "We don't know, sorry, we simply can't tell from out here"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I'll check his medical file, prisoners often have conditions on record"
+        "{{He}}'s got asthma, that's on {{his}} record",
+        "I believe {{he}} has some mental health needs, it's noted on file",
+        "Not sure of full details, but {{his}} medical record is in the office",
+        "{{He}}'s been treated for anxiety, according to {{his}} notes",
+        "I don't know off the top of my head, but healthcare will have it",
+        "{{He}} has no known conditions on file that I'm aware of",
+        "I believe {{he}} has epilepsy, it's flagged on {{his}} record",
+        "Not certain, but {{his}} history is with the healthcare wing",
+        "{{He}}'s got a history of self harm noted on {{his}} file",
+        "I'm not sure exactly, healthcare staff can confirm once we're through"
       ]
     },
     "medications": {
       "answers": [
-        "His medication record is held by healthcare, I can get it"
+        "I'm not sure exactly, healthcare hold {{his}} medication record",
+        "{{He}} takes something for anxiety I believe, not certain of the name",
+        "Not sure off the top of my head, it's on {{his}} file",
+        "{{He}} may be on regular medication, healthcare will know",
+        "I can't recall exactly, sorry, healthcare have the details",
+        "Not certain, but {{his}} medication chart is in the wing office",
+        "I believe {{he}} takes something daily, not sure what exactly",
+        "Not sure of specifics, healthcare will confirm once we're in",
+        "I don't know exactly, sorry, it's all on {{his}} record",
+        "Not certain, healthcare staff can give full details"
       ]
     },
     "patientAge": {
       "answers": [
-        "He's in his thirties"
+        "{{He}}'s in {{his}} thirties",
+        "{{He}}'s about twenty five",
+        "{{He}}'s in {{his}} late twenties",
+        "{{He}}'s around forty years old",
+        "{{He}}'s in {{his}} early thirties",
+        "{{He}}'s about twenty, quite young",
+        "{{He}}'s in {{his}} forties",
+        "{{He}}'s around thirty five",
+        "{{He}}'s in {{his}} mid twenties",
+        "{{He}}'s about forty five"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we have staff standing by at the cell door"
+        "Okay, please hurry, I'm going to try the door again now",
+        "Understood, other officers are with me trying to reach {{him}}",
+        "Okay, I'll stay on the line as long as I can",
+        "Right, please hurry, the smoke's still building",
+        "Okay, I'll let you know the second anything changes",
+        "Understood, we're doing everything we safely can here",
+        "Okay, please, we really need you here fast",
+        "Right, I've got other staff clearing the rest of the wing",
+        "Okay, please hurry, we're extremely worried about {{him}}",
+        "Understood, I'll keep trying to raise {{him}} through the door"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need you here urgently, he's not responding"
+        "No, this needs the fire brigade urgently, not that",
+        "No, this is far too serious for that",
+        "No, please, we need emergency help right now",
+        "No, this can't wait, {{he}} may be seriously unwell",
+        "No, absolutely not, please just send help",
+        "No, this is a genuine emergency, not a medical line matter",
+        "No, please, there's no time for that",
+        "No, we need the fire brigade here as fast as possible",
+        "No, this needs an urgent response, not that",
+        "No, please just get someone here quickly"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, prison staff have this secured, we just need the fire brigade",
+        "We don't need police, security's already in place here, please hurry the fire crew",
+        "No, we've got officers on the wing, it's the fire brigade we need",
+        "I don't think we need them, please just send the fire crew quickly",
+        "No police needed, the wing's secure, just the fire brigade please",
+        "We don't need police, please hurry the fire crew instead",
+        "No, security's in hand, please just get the fire brigade here",
+        "I don't think that's necessary, please just send the fire crew",
+        "No police, please, we just need the fire brigade urgently",
+        "We don't need them, please just get the fire brigade here quickly"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Oh thank God, please tell them to hurry, {{he}}'s still not answering",
+        "Good, please, how long will they be, the door's too hot",
+        "Thank you, we're stood by the door, please hurry them along",
+        "Okay, please, just get them here as fast as you can",
+        "Thank you, we'll keep trying to reach {{him}}, please hurry",
+        "Oh good, please send them quickly, we're very worried now",
+        "Thank you, other officers are with me, please hurry them",
+        "Okay, thank you, please, how much longer will they be",
+        "Thank you, we'll wait right here, please tell them to hurry",
+        "Good, please hurry them along, we need that door open"
       ]
     }
   },

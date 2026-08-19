@@ -41,6 +41,10 @@
     "park"
   ],
   "units": {},
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "ambulance": 2
+  },
   "patients": {
     "range": [
       1,
@@ -76,8 +80,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "He's come off a quad bike out on the farm, he says his back's gone numb",
-      "I need an ambulance, he's had a fall from a quad bike and can't feel his legs properly"
+      "{{He}}'s come off a quad bike out on the farm, {{he}} says {{his}} back's gone numb",
+      "I need an ambulance, {{he}}'s had a fall from a quad bike and can't feel {{his}} legs properly",
+      "Please hurry, {{he}}'s come off the quad in the field and won't move",
+      "I need help now, {{he}} flipped the quad bike and {{he}}'s saying {{he}} can't feel {{his}} legs",
+      "There's a {{man}} who's come off a quad bike, {{he}} can't move below {{his}} waist",
+      "Ambulance please, the quad bike rolled and {{he}}'s not able to feel {{his}} legs",
+      "Please, {{he}}'s had a bad accident on the quad out in the field",
+      "I need someone quickly, {{he}}'s come off a quad bike and {{he}} can't move",
+      "It's an emergency, {{he}} came off the quad at speed and {{he}}'s not moving right",
+      "Please send an ambulance, {{he}}'s had a fall from a quad bike on the farm"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -89,82 +101,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "He's come off a quad bike out on the farm, he says his back's gone numb",
-        "I need an ambulance, he's had a fall from a quad bike and can't feel his legs properly"
+        "{{He}}'s come off a quad bike out on the farm, {{he}} says {{his}} back's gone numb",
+        "I need an ambulance, {{he}}'s had a fall from a quad bike and can't feel {{his}} legs properly",
+        "Please hurry, {{he}}'s come off the quad in the field and won't move",
+        "I need help now, {{he}} flipped the quad bike and {{he}}'s saying {{he}} can't feel {{his}} legs",
+        "There's a {{man}} who's come off a quad bike, {{he}} can't move below {{his}} waist",
+        "Ambulance please, the quad bike rolled and {{he}}'s not able to feel {{his}} legs",
+        "Please, {{he}}'s had a bad accident on the quad out in the field",
+        "I need someone quickly, {{he}}'s come off a quad bike and {{he}} can't move",
+        "It's an emergency, {{he}} came off the quad at speed and {{he}}'s not moving right",
+        "Please send an ambulance, {{he}}'s had a fall from a quad bike on the farm"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, we work the farm together",
-        "{{callerName}}"
+        "It's {{callerName}}, please hurry",
+        "{{callerName}}, please just send someone",
+        "My name's {{callerName}}, please help",
+        "{{callerName}}, quickly, please",
+        "Yes, {{callerName}}, please hurry up",
+        "{{callerName}}, I don't know what else to say, please help",
+        "It's {{callerName}}, oh please hurry",
+        "{{callerName}}, just send someone now please",
+        "{{callerName}} here, please, quickly",
+        "It's {{callerName}}, I'm panicking, please help"
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}",
-        "{{firstPatientName}}"
+        "I don't know, I've never seen {{him}} before",
+        "No idea, {{he}}'s a stranger to me",
+        "I don't know {{him}} at all, sorry",
+        "No idea what {{his}} name is, I just saw {{him}} go down",
+        "I couldn't tell you, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I don't know {{him}}, we're not together",
+        "No idea, sorry, {{he}}'s not someone I recognise",
+        "Couldn't say, I've never met {{him}} before",
+        "No idea, I only just came across {{him}} like this"
       ]
     },
     "address": {
       "answers": [
-        "We're out at {{address}}, it's the farm",
-        "{{address}}"
+        "We're at {{address}}, please hurry",
+        "It's {{address}}, please come quickly",
+        "{{address}}, oh please hurry",
+        "The address is {{address}}, quick as you can",
+        "We're at {{address}}, I don't know what else to do",
+        "{{address}}, please, hurry",
+        "It's {{address}}, can you send someone now",
+        "Send someone to {{address}} right now please",
+        "We're at {{address}}, I'm scared, please hurry",
+        "{{address}}, that's where we are, please be quick"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He hit a rut and was thrown off the quad, landed badly on his back"
+        "{{He}} was riding the quad across the field and it flipped over on the rough ground",
+        "{{He}} hit a rut at speed and the quad bike rolled, {{he}} came off hard",
+        "{{He}} was checking the fences on the quad and it tipped on the slope",
+        "{{He}} lost control on the mud and the quad rolled over on top of {{him}}",
+        "{{He}} came off the quad bike going over a ditch, landed hard on {{his}} back",
+        "{{He}} was riding too fast across the field and the quad flipped",
+        "{{He}} hit a bump and was thrown off the quad, landed awkwardly",
+        "{{He}} was moving stock on the quad and it rolled on the uneven ground",
+        "{{He}} skidded on the wet grass and the quad bike went over",
+        "{{He}} was thrown clear when the quad rolled coming down the bank"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's awake and talking"
+        "{{He}}'s conscious but in a lot of pain.",
+        "{{He}} was talking a second ago, now {{he}}'s gone quiet.",
+        "{{He}}'s awake, groaning, {{he}} knows I'm here.",
+        "{{He}} keeps drifting in and out, {{he}}'s not right.",
+        "{{He}}'s conscious, shouting out in pain.",
+        "{{He}} was responsive but {{he}}'s fading now.",
+        "{{He}}'s awake but not making much sense.",
+        "{{He}}'s conscious, very shaken and in shock.",
+        "{{He}} opened {{his}} eyes when I called out to {{him}}.",
+        "{{He}}'s conscious but really struggling."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Breathing's fine"
+        "{{He}}'s breathing, but it sounds laboured.",
+        "{{He}} seems to be breathing okay, just in pain.",
+        "{{He}}'s breathing fast, {{he}}'s clearly in shock.",
+        "Yes, {{he}}'s breathing, I can see {{his}} chest moving.",
+        "{{He}}'s breathing but it's shallow.",
+        "{{He}} seems to be getting enough air, just distressed.",
+        "{{He}}'s breathing, but struggling with the pain.",
+        "Yes, {{he}}'s breathing, quite fast though.",
+        "{{He}}'s breathing okay as far as I can tell.",
+        "{{He}}'s breathing, but {{he}}'s clearly in a bad way."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Bad pain in his back"
+        "{{He}}'s in agony, screaming out.",
+        "{{He}} says {{his}} leg's the worst of it.",
+        "{{He}}'s in a lot of pain, can barely speak.",
+        "{{He}} keeps saying {{his}} back hurts.",
+        "{{He}}'s clearly in a lot of pain, crying out.",
+        "{{He}} says everything hurts, {{he}}'s in a state.",
+        "{{He}}'s in serious pain, I can tell from {{his}} face.",
+        "{{He}}'s groaning in pain, doesn't want to move.",
+        "{{He}} says {{his}} chest and legs hurt the most.",
+        "{{He}}'s in a lot of pain, {{he}} can't get comfortable."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A small cut, nothing serious"
+        "No bleeding that I can see",
+        "No, there's no blood anywhere",
+        "Doesn't look like it, no cuts or blood",
+        "No, {{he}}'s not bleeding at all",
+        "Not that I can see, no visible blood",
+        "No blood, thankfully",
+        "No, nothing like that, no bleeding",
+        "I don't think so, no blood that I can see",
+        "No, {{he}}'s not cut anywhere",
+        "No bleeding, {{he}} just can't move well"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "None that I know of"
+        "I don't know, I don't know {{him}}",
+        "No idea, sorry, {{he}}'s a stranger to me",
+        "I couldn't tell you, I don't know {{him}} at all",
+        "No idea I'm afraid, never met {{him}} before",
+        "Sorry, I've got no idea, I just saw what happened",
+        "I don't know {{him}}, so I couldn't say",
+        "No idea, sorry, we're not together",
+        "Can't help you there, I don't know {{him}}",
+        "Sorry, no idea, I just stopped to help",
+        "I've no idea, I only just met {{him}}"
       ]
     },
     "medications": {
       "answers": [
-        "None that I know of"
+        "No idea, sorry, I don't know {{him}}",
+        "I couldn't tell you, {{he}}'s a stranger to me",
+        "No idea I'm afraid, sorry",
+        "Sorry, I don't know {{him}} well enough to say",
+        "Can't help with that, I don't know {{him}}",
+        "No idea, sorry, I don't know",
+        "I've no clue, never met {{him}} before today",
+        "Sorry, I really don't know",
+        "No idea, we're not together, I just saw {{him}} fall",
+        "Couldn't tell you I'm afraid"
       ]
     },
     "patientAge": {
       "answers": [
-        "44"
+        "{{He}}'s 38",
+        "About 38, I think",
+        "{{He}}'s 38 years old",
+        "38, {{he}}'ll be 39 next year",
+        "I think {{he}}'s 38 or thereabouts",
+        "38 years of age",
+        "{{He}}'s in {{his}} 30s, about 38",
+        "Just turned 38",
+        "{{He}}'s 38, always been fit for {{his}} age",
+        "38, give or take a year"
       ]
     },
     "reassure": {
       "answers": [
-        "We've kept him still, haven't moved him"
+        "Okay, I'm keeping {{him}} still like you said",
+        "Right, I've got a coat under {{his}} head",
+        "I'm staying with {{him}}, talking to {{him}}",
+        "Okay, I won't move {{him}}, just keeping {{him}} calm",
+        "I'm doing that now, {{he}}'s still talking to me",
+        "Yes, I'm holding {{his}} hand, telling {{him}} help's coming",
+        "Okay, I've covered {{him}} with a coat to keep {{him}} warm",
+        "I'm keeping {{him}} calm, {{he}}'s still with me",
+        "Right, doing that now, {{he}}'s in a lot of pain though",
+        "Okay, I've got {{him}} propped up like you said"
       ]
     },
     "refer111": {
       "answers": [
-        "No, I think this needs an ambulance, he can't feel his legs properly"
+        "No, {{he}}'s in too much pain for that, please send an ambulance",
+        "No, I really think {{he}} needs to be seen now",
+        "I don't think that's enough, {{he}}'s hurt badly",
+        "No, please, {{he}} can't wait for a call back",
+        "I'd rather someone came out, {{he}}'s in a bad way",
+        "No, this needs an ambulance, {{he}} can't move properly",
+        "I don't think 111 can help with this, please send someone",
+        "No, {{he}}'s really struggling, this can't wait",
+        "Please just send an ambulance, {{he}} needs help now",
+        "No, I think this is an emergency, {{he}} needs to go to hospital"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, why would we need police, please just send the ambulance",
+        "No, no police, please, {{he}} just needs help right now",
+        "No, I don't understand, there's no crime, just get an ambulance here",
+        "No police needed, please, {{he}}'s really unwell, just paramedics",
+        "No, please, no police, {{he}} just needs medical help urgently",
+        "No, nothing like that, please just send the ambulance quickly",
+        "Police? No, please, {{he}} just needs paramedics, hurry",
+        "No, definitely not police, please, {{he}} needs an ambulance now",
+        "No, please, there's no need for police, just help {{him}}",
+        "No police, please, I'm begging you, just get an ambulance here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Fire? No, no, there's no fire, please just get the ambulance here",
+        "No, no fire, why would we need that, {{he}} just needs help now",
+        "There's no fire, I don't understand, just send the ambulance please",
+        "No fire brigade, please, {{he}}'s not trapped, {{he}}'s just in a bad way",
+        "No, no, nothing's burning, please, {{he}} just needs paramedics",
+        "Fire service? No, please, just the ambulance, {{he}}'s really unwell",
+        "No, there's no fire here, I just need someone to help {{him}} now",
+        "No fire, please, I don't know why you'd say that, just hurry",
+        "No, please, no fire brigade, {{he}} just needs an ambulance urgently",
+        "There's definitely no fire, please just send the paramedics quickly"
       ]
     }
   },

@@ -49,6 +49,11 @@
     "traffic_car": 1,
     "arv": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 1,
+    "police": 8
+  },
   "patients": {
     "range": [
       0,
@@ -80,7 +85,15 @@
   "caller": {
     "openings": [
       "A lorry's lost its load and there's sheep loose all over the road!",
-      "Police please, livestock have escaped from an overturned trailer, they're running into traffic."
+      "Police please, livestock have escaped from an overturned trailer, they're running into traffic.",
+      "There's animals everywhere, a lorry's trailer has come open and they've got loose.",
+      "Sheep are running all over the carriageway, a lorry's shed its load.",
+      "Can you send someone, livestock have got out of a lorry and they're on the road.",
+      "There's cows loose on the road, a trailer's come open on a lorry.",
+      "Hello, an HGV's lost its livestock load, they're wandering into traffic.",
+      "Animals are running across the carriageway, a lorry's trailer has opened up.",
+      "There's sheep everywhere, they've escaped from a lorry that's shed its load.",
+      "A livestock trailer's come open, there's animals loose across both lanes."
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -93,90 +106,231 @@
     "start": {
       "answers": [
         "A lorry's lost its load and there's sheep loose all over the road!",
-        "Police please, livestock have escaped from an overturned trailer, they're running into traffic."
+        "Police please, livestock have escaped from an overturned trailer, they're running into traffic.",
+        "There's animals everywhere, a lorry's trailer has come open and they've got loose.",
+        "Sheep are running all over the carriageway, a lorry's shed its load.",
+        "Can you send someone, livestock have got out of a lorry and they're on the road.",
+        "There's cows loose on the road, a trailer's come open on a lorry.",
+        "Hello, an HGV's lost its livestock load, they're wandering into traffic.",
+        "Animals are running across the carriageway, a lorry's trailer has opened up.",
+        "There's sheep everywhere, they've escaped from a lorry that's shed its load.",
+        "A livestock trailer's come open, there's animals loose across both lanes."
       ]
     },
     "callerName": {
       "answers": [
         "It's {{callerName}}, I had to stop suddenly.",
-        "{{callerName}}, I've pulled over just up the road."
+        "{{callerName}}, I've pulled over just up the road.",
+        "My name's {{callerName}}, I'm parked on the verge watching them.",
+        "{{callerName}} here, I nearly hit one of the sheep.",
+        "It's {{callerName}} speaking, I'm still on scene.",
+        "{{callerName}}, I've got my hazards on near the animals.",
+        "You can put me down as {{callerName}}.",
+        "It's {{callerName}}, I'm a bit further up from the trailer.",
+        "{{callerName}}, I'm the one who rang it in.",
+        "Name's {{callerName}}, I'm stuck behind the animals now."
       ]
     },
     "patientName": {
       "answers": [
-        "Nobody's hurt, it's the animals that are loose.",
-        "No injuries, just livestock on the road."
+        "Nobody's hurt, it's just the load that's come off.",
+        "No injuries, it's a spillage, there's no patient as such.",
+        "There's no one to name, it's just debris on the road.",
+        "No casualties, everyone involved is out and fine.",
+        "Nobody needs a name taken, no one's been hurt.",
+        "It's just an obstruction, there's no patient involved.",
+        "No injuries here, it's purely a road hazard.",
+        "There's nobody hurt to give you a name for.",
+        "No one's been struck, everyone's fine.",
+        "Not applicable, nobody's been injured."
       ]
     },
     "address": {
       "answers": [
         "We're on {{address}}.",
-        "{{address}}, there's sheep running all over the carriageway."
+        "{{address}}, there's sheep running all over the carriageway.",
+        "It's happened on {{address}}, near the field entrance.",
+        "{{address}}, you can't miss it, animals everywhere.",
+        "We're at {{address}}, both lanes are affected.",
+        "{{address}}, right in the middle of the road.",
+        "It's on {{address}}, close to the junction.",
+        "{{address}} is where it is, traffic's stopped completely.",
+        "We're stopped on {{address}}, the animals are blocking the way.",
+        "{{address}}, just past the bend."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
         "The trailer's gate must have come open, there's animals loose right across both lanes.",
-        "The lorry's shed part of its load and now livestock are wandering into traffic."
+        "The lorry's shed part of its load and now livestock are wandering into traffic.",
+        "Looks like the ramp wasn't secured and the animals have got out onto the road.",
+        "The trailer's tipped slightly and the gate's swung open, they've all got loose.",
+        "The lorry hit a bump and the back's come open, animals everywhere now.",
+        "I think the latch failed, the whole load of sheep is out on the carriageway.",
+        "The driver's stopped but the animals have already scattered across the road.",
+        "It looks like the trailer door wasn't fastened properly and they've escaped.",
+        "Something's come loose on the trailer and the livestock are all over the road.",
+        "The gate's swung open somehow and the animals have bolted onto the carriageway."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Nobody's hurt, it's the animals loose on the road.",
-        "No injuries, just a hazard for other drivers."
+        "Nobody's hurt, everyone involved is fine.",
+        "No injuries, the driver's out and about, no one's hurt.",
+        "There's no one unconscious, nobody's been hurt at all.",
+        "Not applicable, no one's been struck by anything.",
+        "No patient here, everyone involved is fine.",
+        "Everyone's absolutely fine, no one's hurt.",
+        "No casualties, nobody's collapsed or been struck.",
+        "Nobody's hurt, this is just a road hazard.",
+        "No one needs checking, there's no injuries at all.",
+        "Not applicable, no one was hurt in this."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Everyone's fine, this isn't medical.",
-        "No injuries at all."
+        "Everyone's fine, this isn't a medical call.",
+        "No injuries at all.",
+        "Nobody's struggling, there's no patient here.",
+        "Not applicable, no one's hurt.",
+        "Everyone involved is breathing fine, nobody's injured.",
+        "No one needs checking, it's just an obstruction.",
+        "This isn't a medical emergency, no one's hurt.",
+        "There's no patient to check breathing on.",
+        "Not applicable, nobody's been affected physically.",
+        "No injuries reported at all."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt, it's about the animals.",
-        "Not applicable."
+        "No one's hurt, it's just the road hazard.",
+        "Not applicable, no injuries.",
+        "Nobody's in pain, no one's been hurt.",
+        "No patient here, so no pain to report.",
+        "There's nothing like that, nobody's injured.",
+        "No one's complaining of anything, they're all fine.",
+        "Not applicable, this is just an obstruction.",
+        "No injuries at all to report.",
+        "Nobody's hurt in any way.",
+        "No, there's no patient in pain here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
         "No, nobody's injured.",
-        "No injuries."
+        "No injuries.",
+        "No, there's no one bleeding, nobody's hurt.",
+        "Not applicable, no patient involved.",
+        "No, everyone's fine, it's just the obstruction.",
+        "No bleeding, no injuries at all.",
+        "Nobody's been cut or hurt in any way.",
+        "No, there's no patient here to check.",
+        "Not applicable, nobody's been struck.",
+        "No, this is purely a road hazard, no injuries."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
         "There's no patient.",
-        "Not applicable."
+        "Not applicable.",
+        "No one to ask about, nobody's hurt.",
+        "There's no patient here to speak of.",
+        "N/A, nobody's been injured.",
+        "No need, there's no casualty.",
+        "Not relevant, no one's hurt.",
+        "There's no patient involved in this.",
+        "No history needed, nobody's injured.",
+        "Not applicable, it's just an obstruction."
       ]
     },
     "medications": {
       "answers": [
         "No one needs medical help.",
-        "Not applicable."
+        "Not applicable.",
+        "There's no patient taking anything.",
+        "N/A, nobody's hurt.",
+        "No need, there's no casualty here.",
+        "Not relevant, no one's injured.",
+        "There's no patient to ask about.",
+        "No medication needed, nobody's hurt.",
+        "Not applicable at all.",
+        "No, there's no one who needs that."
       ]
     },
     "patientAge": {
       "answers": [
         "There's no patient.",
-        "Not applicable."
+        "Not applicable.",
+        "No one to give an age for.",
+        "N/A, there's no casualty.",
+        "Not relevant, nobody's hurt.",
+        "There's no patient here to speak of.",
+        "No age needed, nobody's injured.",
+        "Not applicable, it's just the obstruction.",
+        "No one's hurt, so there's no patient age.",
+        "N/A, this isn't a medical call."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll stay in the car with my hazards on.",
-        "Understood, I'll warn other drivers as they approach."
+        "Ambulance? No, honestly, nobody's hurt, we just need the road sorted.",
+        "Oh, we don't need that, nobody's injured, just help with the road.",
+        "There's no need for an ambulance, nobody's hurt.",
+        "No one's hurt so we won't need that, but thanks.",
+        "That's not necessary, nobody's been injured here.",
+        "We're fine on that front, it's just a road hazard, nobody's hurt.",
+        "No thank you, no injuries at all.",
+        "You can stand that down, nobody's hurt at all.",
+        "That won't be needed, everyone's absolutely fine.",
+        "No, honestly, nobody's injured here."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, thank you, we could really use them to direct the traffic.",
+        "Yes please, it's chaos out here, we need them to close a lane.",
+        "Thank goodness, cars are swerving about, we need them quickly.",
+        "That's great, someone needs to manage this before there's a crash.",
+        "Okay, I'll flag them down when I see them coming.",
+        "Thank you, drivers keep nearly hitting the obstruction.",
+        "Good, we really need someone controlling the traffic here.",
+        "Thanks, I'll point them to the right spot when they arrive.",
+        "That's a relief, it's getting dangerous with the traffic.",
+        "Perfect, we need them here before someone crashes into it."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, I'll keep my hazards on to warn others.",
+        "Understood, I'll wait clear of the road.",
+        "Good, thank you, they can get this cleared off the road.",
+        "Thanks, we really need the road cleared before it causes a crash.",
+        "That's great, I'll stay back until they've dealt with it.",
+        "Thank you, I'll point them to where the problem is.",
+        "Good, the sooner it's cleared the better, it's a real hazard.",
+        "Okay, I'll keep everyone back until they've sorted it.",
+        "Thanks, that really needs shifting off the carriageway.",
+        "Great, I'll stay here and wave them down when they arrive."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need help with animals loose on the road!"
+        "No, we need help with animals loose on the road!",
+        "111? This isn't medical, we've got livestock running into traffic.",
+        "No, that's not right, there's animals on a live road, we need you now.",
+        "I don't think so, they're wandering into cars, that's not a 111 job.",
+        "No, please, someone could hit one of them any second.",
+        "That doesn't sound right, this needs sorting urgently, not a callback.",
+        "No, we need people out here now, there's animals everywhere.",
+        "I really don't think 111 can round up loose livestock.",
+        "No, this needs sorting straight away, they're running into the road.",
+        "Please, no, someone needs to come and deal with this now."
       ]
     }
   },

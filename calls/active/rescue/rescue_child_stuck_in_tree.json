@@ -42,6 +42,11 @@
     "dual_pump": 1,
     "aerial": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3,
+    "ambulance": 1
+  },
   "patients": {
     "range": [
       0,
@@ -71,8 +76,16 @@
   "escalations": [],
   "caller": {
     "openings": [
-      "My son's climbed up a tree in the park and now he's too scared to get down.",
-      "Fire brigade please, there's a child stuck up a tree, he can't climb down and he's crying."
+      "Hello, please hurry, my {{son}}'s stuck up a tree and can't get down.",
+      "Hi, please, {{firstPatientName}}'s climbed a tree and now {{he}}'s stuck.",
+      "Yeah hiya, please, my {{son}}'s up a tree in the park and won't come down.",
+      "Oh hello, I'm panicking, my {{son}}'s stuck right at the top of a tree.",
+      "Hi there, please send someone, {{firstPatientName}}'s stuck up a tree, too scared to climb down.",
+      "Hello, this is urgent, my {{son}}'s climbed too high and can't get back down.",
+      "Hi, please hurry, my {{son}}'s stuck in a tree, {{he}}'s really frightened.",
+      "Oh, hello, I'm so worried, my {{son}}'s up a tree and can't move.",
+      "Hiya, please hurry, {{firstPatientName}}'s stuck up a tree in the park.",
+      "Hello, please, my {{son}}'s stuck up a tree, {{he}} won't move, {{he}}'s scared stiff."
     ],
     "phoneArea": "auto",
     "callerType": "relative"
@@ -84,91 +97,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "My son's climbed up a tree in the park and now he's too scared to get down.",
-        "Fire brigade please, there's a child stuck up a tree, he can't climb down and he's crying."
+        "Hello, please hurry, my {{son}}'s stuck up a tree and can't get down.",
+        "Hi, please, {{firstPatientName}}'s climbed a tree and now {{he}}'s stuck.",
+        "Yeah hiya, please, my {{son}}'s up a tree in the park and won't come down.",
+        "Oh hello, I'm panicking, my {{son}}'s stuck right at the top of a tree.",
+        "Hi there, please send someone, {{firstPatientName}}'s stuck up a tree, too scared to climb down.",
+        "Hello, this is urgent, my {{son}}'s climbed too high and can't get back down.",
+        "Hi, please hurry, my {{son}}'s stuck in a tree, {{he}}'s really frightened.",
+        "Oh, hello, I'm so worried, my {{son}}'s up a tree and can't move.",
+        "Hiya, please hurry, {{firstPatientName}}'s stuck up a tree in the park.",
+        "Hello, please, my {{son}}'s stuck up a tree, {{he}} won't move, {{he}}'s scared stiff."
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm his mum.",
-        "{{callerName}}, I'm his dad, I'm right below the tree."
+        "It's {{callerName}}.",
+        "My name's {{callerName}}.",
+        "{{callerName}}, that's me.",
+        "You can put me down as {{callerName}}.",
+        "I'm {{callerName}}.",
+        "{{callerName}} speaking.",
+        "It's {{callerName}} here.",
+        "Name's {{callerName}}.",
+        "{{callerName}}, yes.",
+        "This is {{callerName}}."
       ]
     },
     "patientName": {
       "answers": [
-        "It's {{firstPatientName}}.",
-        "His name's {{firstPatientName}}, he's my son."
+        "It's {{firstPatientName}}, my {{son}}.",
+        "{{His}} name's {{firstPatientName}}.",
+        "{{firstPatientName}}, that's my {{son}}'s name.",
+        "It's {{firstPatientName}}, please hurry.",
+        "My {{son}}'s called {{firstPatientName}}.",
+        "{{firstPatientName}}, that's {{him}}, up in the tree.",
+        "{{His}} name is {{firstPatientName}}.",
+        "It's {{firstPatientName}}, my {{son}}, please send someone.",
+        "{{firstPatientName}} is {{his}} name.",
+        "My {{son}} is {{firstPatientName}}."
       ]
     },
     "address": {
       "answers": [
-        "We're at {{address}}, in the park.",
-        "{{address}}, near the big oak tree by the playground."
+        "It's {{address}}.",
+        "The address is {{address}}, can you get someone there quickly.",
+        "{{address}}, that's where I am.",
+        "We're at {{address}}.",
+        "It's {{address}}, just past the corner.",
+        "{{address}}, that's the postcode area.",
+        "I'm calling from {{address}}.",
+        "You need {{address}}, that's the one.",
+        "It's {{address}}, look for the front door.",
+        "{{address}}, please hurry."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "He climbed up higher than he meant to chasing a ball and now he's frozen, too scared to come down.",
-        "He's stuck near the top of the tree, he won't move and he's getting upset."
+        "{{He}} climbed up chasing a squirrel and now {{he}}'s too scared to climb down.",
+        "{{He}} got right up to the top branch and now {{he}}'s frozen, won't move.",
+        "{{He}} was playing with friends, climbed up and now {{he}} can't get back down.",
+        "{{He}}'s stuck on a branch quite high up, keeps saying {{he}}'s scared.",
+        "{{He}} climbed up for a dare and now {{he}}'s stuck, too high to jump.",
+        "{{He}}'s wedged between two branches and can't work out how to get down.",
+        "{{He}} went up after a ball and now {{he}}'s stuck near the top.",
+        "{{He}}'s been up there twenty minutes now, too frightened to climb down.",
+        "{{He}} climbed higher than {{he}} meant to and now {{he}}'s frozen with fear.",
+        "{{He}}'s stuck on a thin branch, we're worried it won't hold {{his}} weight."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, he's talking to me from up there.",
-        "He's awake, just frightened and crying."
+        "{{He}}'s wide awake, {{he}}'s just really scared, crying up there.",
+        "Yes, {{he}}'s fine that way, just frightened and won't move.",
+        "{{He}}'s conscious and talking to me from up there.",
+        "Yes, {{he}}'s alert, just too scared to climb down.",
+        "{{He}}'s fully awake, {{he}}'s just stuck and frightened.",
+        "Yes, {{he}}'s calling down to me, {{he}}'s just scared.",
+        "{{He}}'s conscious, crying but talking to me fine.",
+        "Yes, {{he}}'s aware, just really frightened up there.",
+        "{{He}}'s awake and okay, just won't move from fear.",
+        "Yes, {{he}}'s conscious, {{he}}'s just too scared to come down."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "Yes, he's fine, just upset.",
-        "Yes, breathing fine, just scared."
+        "{{He}}'s breathing fine, just crying and scared.",
+        "Yes, {{he}}'s breathing okay, {{he}}'s just upset.",
+        "{{He}}'s fine breathing wise, just frightened.",
+        "Yes, {{he}}'s breathing normally, just very upset.",
+        "{{He}}'s okay that way, just crying up there.",
+        "Yes, {{he}}'s breathing fine, {{he}}'s just scared.",
+        "{{He}}'s breathing okay, just a bit out of breath from crying.",
+        "Yes, {{he}}'s fine breathing wise, just very frightened.",
+        "{{He}}'s breathing normally, no problems there.",
+        "Yes, {{he}}'s okay, just crying and scared up there."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No, he says he's not hurt, just stuck.",
-        "He's not in pain, just too scared to move."
+        "{{He}} says {{he}}'s not hurt, just really scared.",
+        "No pain that {{he}}'s said, just frightened.",
+        "{{He}}'s not in pain, just scared of falling.",
+        "No, {{he}} says {{he}}'s fine, just doesn't want to fall.",
+        "{{He}} might have a scrape from climbing but no real pain.",
+        "No, {{he}}'s not hurt, just too scared to move.",
+        "{{He}} says {{he}}'s okay, just frightened of the height.",
+        "No pain, {{he}}'s just crying because {{he}}'s scared.",
+        "{{He}}'s not hurt as far as I can tell, just terrified.",
+        "No, {{he}} seems okay, just really scared up there."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, he's not hurt.",
-        "No, he hasn't fallen, just stuck."
+        "No bleeding, just a couple of scratches from the branches.",
+        "{{He}}'s got a small scratch on {{his}} arm, nothing serious.",
+        "No, no bleeding that I can see.",
+        "Just a small graze on {{his}} leg from climbing, nothing bad.",
+        "No bleeding, {{he}}'s just got a few scrapes.",
+        "There's a tiny scratch but no real bleeding.",
+        "No, {{he}}'s not bleeding, just a bit scraped up.",
+        "Just a graze on {{his}} hand, no proper bleeding.",
+        "No bleeding at all as far as I can tell.",
+        "A small scratch on {{his}} knee, nothing serious."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "No, he's a healthy little boy.",
-        "Nothing I'm aware of."
+        "No, {{he}} doesn't have any medical conditions.",
+        "Nothing at all, {{he}}'s a healthy {{boy}}.",
+        "No history to speak of, {{he}}'s fit and well.",
+        "No, nothing, {{he}}'s never had any issues.",
+        "{{He}}'s got asthma but otherwise nothing.",
+        "No conditions at all that I know of.",
+        "Nothing significant, {{he}}'s generally very healthy.",
+        "No, {{he}} doesn't have any conditions.",
+        "{{He}}'s completely healthy, no history.",
+        "No, nothing, {{he}}'s never been seriously ill."
       ]
     },
     "medications": {
       "answers": [
-        "No, he's not on anything.",
-        "No medications."
+        "No, {{he}} doesn't take anything.",
+        "Nothing at all, {{he}}'s not on any medication.",
+        "{{He}} uses an inhaler sometimes for {{his}} asthma, that's it.",
+        "No medication, {{he}}'s a healthy {{boy}}.",
+        "No, nothing that {{he}} takes regularly.",
+        "Nothing at all as far as I know.",
+        "{{He}} doesn't take any medication, no.",
+        "No, {{he}}'s not on anything.",
+        "Nothing, {{he}}'s never needed regular medication.",
+        "No, {{he}} doesn't take anything at all."
       ]
     },
     "patientAge": {
       "answers": [
-        "He's eight.",
-        "He's seven years old."
+        "{{He}}'s seven.",
+        "{{He}}'s only six years old.",
+        "{{He}}'s nine, {{he}} climbed higher than usual today.",
+        "{{He}}'s eight years old.",
+        "{{He}}'s ten.",
+        "{{He}}'s only five, {{he}} got a bit carried away.",
+        "{{He}}'s eleven.",
+        "{{He}}'s just turned seven.",
+        "{{He}}'s six.",
+        "{{He}}'s nine years old."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying right below him talking to him.",
-        "Please hurry, he's getting more upset."
+        "Oh, okay, that's probably wise just to check {{him}} over.",
+        "Right, thank you, I'd feel better with someone checking {{him}}.",
+        "Okay, good, {{he}}'s probably fine but thank you.",
+        "Alright, thank you, just in case {{he}}'s hurt {{himself}} climbing.",
+        "Okay, that's reassuring, thank you for sending them.",
+        "Right, thank you, {{he}}'ll be glad to see them I think.",
+        "Okay, good idea, better safe than sorry with kids.",
+        "Alright, thank you, I'll keep {{him}} calm till they arrive.",
+        "Okay, thank you, that puts my mind at ease a bit.",
+        "Right, thank you, I appreciate you sending someone."
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need the fire brigade to get him down!"
+        "111? No, this needs a proper response now, not a call back.",
+        "I don't think 111 is right for this, please send someone.",
+        "This can't wait for 111, I need help now.",
+        "No, please, this needs someone out here, not 111.",
+        "I really don't think 111 is going to cut it here.",
+        "Please, I need this dealt with now, not a call back later.",
+        "No, this is urgent, 111 won't do.",
+        "I don't understand, this needs a response, not 111.",
+        "Please don't fob me off to 111, this needs attention.",
+        "No, I need someone here, not a phone call from 111."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, I don't think we need police for this.",
+        "I'm not sure why police, this needs the fire brigade really.",
+        "No, it's not a police matter, it just needs the fire service.",
+        "I think you've misunderstood, this needs the fire brigade.",
+        "Police aren't going to help with this, I need firefighters.",
+        "No, no police needed, just get the fire engine here.",
+        "I'm confused, this isn't a police job, is it.",
+        "I don't think I need police for this, it's a fire brigade job.",
+        "No thank you, I just need the fire service, not police.",
+        "Sorry, why police, I called about a rescue, not a crime."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, that's what we need, how long will they be.",
+        "Okay, good, I'll wait for the fire engine.",
+        "Right, thank you, I'll stay clear until they arrive.",
+        "That's a relief, thank you for sending the crew.",
+        "Okay, I'll keep everyone back until the fire brigade gets here.",
+        "Thanks, I'll watch out for the engine.",
+        "Good, I was hoping you'd send fire crews.",
+        "Okay, I'll stay on the line if needed.",
+        "Thank you, I'll point them the right way when they arrive.",
+        "Alright, I'll wait here for them."
       ]
     }
   },

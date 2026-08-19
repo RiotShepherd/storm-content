@@ -50,6 +50,12 @@
     "iccu": 1,
     "fire_officer": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13,
+    "ambulance": 3,
+    "police": 1
+  },
   "patients": {
     "range": [
       1,
@@ -112,8 +118,16 @@
   ],
   "caller": {
     "openings": [
-      "There's been an explosion at the pipeline, people are hurt",
-      "Please help, the pipeline's gone up, there's been an explosion and casualties"
+      "There's been an explosion at the pipeline, people are hurt.",
+      "Please help, the pipeline's gone up, there's been an explosion and casualties.",
+      "There's been a huge bang at the site, the pipeline's exploded.",
+      "Fire brigade please, we've had an explosion on the pipeline, several of us are hurt.",
+      "Please send everyone, the pipeline's blown and there's people down.",
+      "There's been a massive explosion here, workers are injured.",
+      "Help, the pipeline's exploded, we've got people hurt on the ground.",
+      "Please hurry, there's been a blast at the pipeline and casualties everywhere.",
+      "It's chaos here, the pipeline exploded and several colleagues are down.",
+      "There's been an explosion at the site, please send ambulances quickly."
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -125,79 +139,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "There's been an explosion at the pipeline, people are hurt",
-        "Please help, the pipeline's gone up, there's been an explosion and casualties"
+        "There's been an explosion at the pipeline, people are hurt.",
+        "Please help, the pipeline's gone up, there's been an explosion and casualties.",
+        "There's been a huge bang at the site, the pipeline's exploded.",
+        "Fire brigade please, we've had an explosion on the pipeline, several of us are hurt.",
+        "Please send everyone, the pipeline's blown and there's people down.",
+        "There's been a massive explosion here, workers are injured.",
+        "Help, the pipeline's exploded, we've got people hurt on the ground.",
+        "Please hurry, there's been a blast at the pipeline and casualties everywhere.",
+        "It's chaos here, the pipeline exploded and several colleagues are down.",
+        "There's been an explosion at the site, please send ambulances quickly."
       ]
     },
     "callerName": {
       "answers": [
-        "{{callerName}}, I work on site here"
+        "It's {{callerName}}, please just send someone.",
+        "{{callerName}}, look I just need help quickly.",
+        "My name's {{callerName}}, can you hurry.",
+        "{{callerName}}, yes, now please send someone.",
+        "It's {{callerName}} calling, please.",
+        "{{callerName}}, that's me, please get someone here.",
+        "Sorry, {{callerName}}, I'm a bit shaken.",
+        "{{callerName}} here, please just send help.",
+        "My name is {{callerName}}, please hurry.",
+        "It's {{callerName}}, can you send someone now."
       ]
     },
     "patientName": {
       "answers": [
-        "I don't know all their names, a few of the crew are hurt"
+        "There's a few of them hurt, I don't know all their names.",
+        "I can't get names for everyone, there's several people affected.",
+        "A number of people are hurt, I haven't got names for you.",
+        "I don't know their names, there's quite a few involved.",
+        "Some of the staff are hurt, I'd have to check names for you.",
+        "A few people are affected, I can't give you names right now.",
+        "There's several of them, I don't have names to hand.",
+        "Not sure of names, there's a group of people hurt here.",
+        "I can't say who exactly, there's a handful of people affected.",
+        "Multiple people are hurt, I haven't got their names sorted yet."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's the pipeline site"
+        "{{address}}, it's the pipeline site, please hurry.",
+        "It's {{address}}, the pipeline compound, send everyone please.",
+        "{{address}}, the site entrance leads to the pipeline area.",
+        "It's {{address}}, please send ambulances to the pipeline site.",
+        "{{address}}, I'll meet you at the gate to guide you in.",
+        "It's {{address}}, the explosion was near the pipeline itself.",
+        "{{address}}, that's the site, please hurry, people are hurt.",
+        "It's {{address}}, the pipeline yard, please send everyone quickly.",
+        "{{address}}, ask for the pipeline section when you arrive.",
+        "It's {{address}}, please hurry, there's a lot of us hurt."
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There was a loud bang and the pipeline's on fire now, a few workers were caught in the blast"
+        "There was a sudden bang and the pipeline went up, people were thrown off their feet.",
+        "We heard a loud explosion and then flames from the pipeline section.",
+        "The pipeline ruptured and exploded, a few of us were caught in the blast.",
+        "There was a huge flash and bang, the pipeline's on fire now too.",
+        "Something failed on the line and it went up with a massive explosion.",
+        "The explosion knocked several people down, some got caught by debris.",
+        "It went up without warning, people were working nearby when it blew.",
+        "The pipeline section just exploded, workers were thrown back by the blast.",
+        "There was a build up of pressure I think, then it just went up.",
+        "The blast came from the pipeline itself, people were hit by flying debris."
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Some are conscious, one's not responding"
+        "Most of them are conscious, a couple are struggling though.",
+        "They're conscious as far as I can see, just shaken up.",
+        "A few are awake and talking, others I'm not sure about.",
+        "They seem conscious, coughing a lot from the smoke.",
+        "Most are alert, one or two look worse than the rest.",
+        "They're all conscious that I can see, just distressed.",
+        "As far as I can tell they're all awake, just in a state.",
+        "A couple are struggling to stay alert, the rest seem okay.",
+        "They're conscious, some more shaken than others.",
+        "Most of them are talking, a few look quite unwell."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A couple are struggling, there's fumes in the air"
+        "A few of them are coughing badly from the smoke.",
+        "They're breathing but some are struggling with the smoke.",
+        "Most seem okay, one or two are really coughing.",
+        "They're all breathing as far as I can see, just coughing a lot.",
+        "Some are wheezing from the smoke, others seem fine.",
+        "A couple are having real trouble breathing, the rest are okay.",
+        "They're breathing, but there's a lot of coughing going on.",
+        "Most are alright, a few got a lungful of smoke.",
+        "They seem to be breathing okay, just choking on the smoke a bit.",
+        "Some are struggling more than others with their breathing."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Some are in a lot of pain, looks like fractures"
+        "A few of them say they're in pain, mostly cuts and bruises.",
+        "Some are complaining of pain, others seem alright.",
+        "A couple say their chests hurt, probably the smoke.",
+        "They're saying various things, some pain, some just shaken.",
+        "A few have pain in their arms and legs from the incident.",
+        "Some are in a fair bit of pain, others just shocked.",
+        "A couple are holding their chests, saying it hurts to breathe.",
+        "They're in pain, different injuries by the sound of it.",
+        "Some have burns that are clearly painful, others are okay.",
+        "A few are in obvious pain, the rest seem more shaken than hurt."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "Yes, a few cuts from flying debris"
+        "A couple of them have cuts, nothing too heavy that I can see.",
+        "Some are bleeding a bit, mostly small cuts from the debris.",
+        "A few have grazes and cuts, nothing major as far as I can tell.",
+        "One or two are bleeding, the rest look unhurt in that way.",
+        "There's some bleeding among them, mostly minor from what I see.",
+        "A couple have cuts on their arms and faces, bleeding a little.",
+        "Some have visible cuts, others don't seem to be bleeding.",
+        "A few are bleeding lightly, nothing gushing that I can see.",
+        "There's a bit of bleeding here and there, mostly small wounds.",
+        "One or two have bad cuts, the others seem alright in that way."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know them well enough"
+        "I wouldn't know their medical history, there's too many to ask.",
+        "No idea about that for all of them, sorry.",
+        "I can't say, I don't know these people well enough.",
+        "I've no idea about their health history, there's a lot of them.",
+        "Sorry, I couldn't tell you that for everyone here.",
+        "I don't know, there's too many people to ask right now.",
+        "No idea, I only know a couple of them by sight.",
+        "Can't say, I'm not sure about anyone's history here.",
+        "I wouldn't have a clue, there's quite a crowd affected.",
+        "Sorry, I can't give you that, I don't know them all."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, sorry"
+        "I don't know if any of them are on medication, sorry.",
+        "No idea, there's too many people to ask that of.",
+        "Couldn't tell you, I don't know these people well.",
+        "I've no idea what any of them take, sorry.",
+        "No idea about medication, sorry, there's a lot of them.",
+        "Can't say, I don't know their medical details.",
+        "I wouldn't know, there's quite a few people affected.",
+        "No idea, sorry, I only know a couple of them.",
+        "Couldn't say, I'm not sure about any of them.",
+        "I don't know, sorry, there's too many to check."
       ]
     },
     "patientAge": {
       "answers": [
-        "Adults, site workers"
+        "Mixed ages, mostly adults but I couldn't say exactly.",
+        "There's a real mix, some younger, some older.",
+        "I'd say mostly adults, a range of ages though.",
+        "Can't say exactly, there's people of all sorts of ages here.",
+        "A mix of ages, I couldn't give you exact numbers.",
+        "Mostly working age adults as far as I can tell.",
+        "There's a spread of ages among them, hard to say exactly.",
+        "I couldn't say precisely, a real mix of ages.",
+        "Some are younger, some older, hard to pin down.",
+        "A range of ages, mostly adults from what I can see."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're moving people away from the fire"
+        "Okay, okay, I'll do that.",
+        "Right, yes, I'll stay back, just please hurry.",
+        "Okay, thank you, please send them quickly.",
+        "Alright, I'll wait, but please hurry.",
+        "Okay okay, I'm moving back now.",
+        "Yes, alright, I'll do what you say.",
+        "Okay, thank you, I'm staying clear.",
+        "Right, understood, please just get here soon.",
+        "Okay, I will, please hurry though.",
+        "Alright, thank you, I'm keeping everyone back."
       ]
     },
     "refer111": {
       "answers": [
-        "No, there's been an explosion, people are hurt"
+        "No, there's people hurt here, I need an ambulance and the fire brigade.",
+        "No, this isn't a 111 job, there's several people injured.",
+        "No, we need proper help here, there's a few of them hurt.",
+        "No, it's serious, I can't wait for 111 with people hurt like this.",
+        "No thank you, there's real injuries here, I need 999 help.",
+        "No, this is an emergency, people are actually hurt.",
+        "No, I need paramedics, not 111, there's people injured.",
+        "No, it can't wait, there's a number of people hurt here.",
+        "No, this needs urgent help, not a 111 call.",
+        "No, please, there's people hurt, I need help now."
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Yes please, it's chaos here, that would help.",
+        "Okay, good, we need someone keeping people back.",
+        "Yes, please send them, it's really busy here.",
+        "Okay, thank you, that would help a lot right now.",
+        "Yes, good, there's people everywhere, please hurry them along.",
+        "Okay, please, we need help keeping this under control.",
+        "Yes, that's needed, it's mayhem here.",
+        "Okay, thank you, please send them quickly.",
+        "Yes please, we could really use them here.",
+        "Okay, good, just please hurry everyone up."
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Okay, thank you, please hurry.",
+        "Right, thank you, please get here quickly.",
+        "Okay, please, as fast as you can.",
+        "Thank you, please hurry, it's getting worse.",
+        "Okay, thank god, please hurry.",
+        "Right, okay, please just get here fast.",
+        "Okay, thank you, please be quick.",
+        "Thank you, please hurry, I'm really worried.",
+        "Okay, good, please hurry them up.",
+        "Okay, thank you, please come quickly."
       ]
     }
   },

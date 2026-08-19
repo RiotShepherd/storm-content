@@ -48,6 +48,10 @@
     "single_pump": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 3
+  },
   "patients": {
     "range": [
       0,
@@ -102,7 +106,15 @@
   "caller": {
     "openings": [
       "There's smoke coming up from the basement flat, I think it's on fire down there",
-      "I need the fire brigade, smoke's coming through the floor from the basement"
+      "I need the fire brigade, smoke's coming through the floor from the basement",
+      "Please hurry, there's a fire in the basement and I think someone's still down there",
+      "Smoke's pouring up from the basement flat, I can't get an answer at the door",
+      "There's a fire below me, the basement flat's filling with smoke",
+      "I can smell burning and see smoke coming up from downstairs",
+      "There's smoke coming through my floorboards from the basement flat",
+      "Please hurry, the basement's on fire and I think {{he}}'s still in there",
+      "Smoke's coming up the stairwell from the basement flat",
+      "There's a fire below, I've been banging on the door with no answer"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -115,78 +127,231 @@
     "start": {
       "answers": [
         "There's smoke coming up from the basement flat, I think it's on fire down there",
-        "I need the fire brigade, smoke's coming through the floor from the basement"
+        "I need the fire brigade, smoke's coming through the floor from the basement",
+        "Please hurry, there's a fire in the basement and I think someone's still down there",
+        "Smoke's pouring up from the basement flat, I can't get an answer at the door",
+        "There's a fire below me, the basement flat's filling with smoke",
+        "I can smell burning and see smoke coming up from downstairs",
+        "There's smoke coming through my floorboards from the basement flat",
+        "Please hurry, the basement's on fire and I think {{he}}'s still in there",
+        "Smoke's coming up the stairwell from the basement flat",
+        "There's a fire below, I've been banging on the door with no answer"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm in the flat above"
+        "It's {{callerName}}, I'm in the flat above",
+        "{{callerName}} here, I live in the flat upstairs",
+        "It's {{callerName}}, I'm a neighbour in the building",
+        "{{callerName}}, I live above the basement flat",
+        "It's {{callerName}}, I've been trying to raise {{him}}",
+        "My name's {{callerName}}, I'm in the flat directly above",
+        "It's {{callerName}}, I noticed the smoke straight away",
+        "{{callerName}} speaking, I'm stood outside the building now",
+        "It's {{callerName}}, I live in this building",
+        "{{callerName}}, I'm outside the basement door now"
       ]
     },
     "patientName": {
       "answers": [
-        "I think the fella who lives in the basement might still be down there"
+        "I think the {{fella}} who lives in the basement might still be down there",
+        "I don't know {{his}} name, {{he}}'s the {{guy}} in the basement flat",
+        "I'm not sure of {{his}} name, {{he}} keeps {{himself}} to {{himself}}",
+        "I don't have {{his}} name, but {{he}} lives down there alone",
+        "I think it's the {{bloke}} who moved in a few months ago",
+        "I don't know {{his}} name, sorry, we've never really spoken",
+        "I believe {{he}} lives alone down there, I don't know {{his}} name",
+        "I'm not certain of {{his}} name, {{he}}'s the tenant of the basement flat",
+        "I don't have a name for {{him}}, I've only seen {{him}} a couple of times",
+        "I don't know, {{he}}'s quite private, I've never got {{his}} name"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the basement flat, door's round the side"
+        "{{address}}, the basement flat, door's round the side",
+        "It's {{address}}, the basement entrance is down the steps",
+        "{{address}}, the flat's below street level, round the back",
+        "It's {{address}}, you'll see the steps down to the basement door",
+        "{{address}}, the basement's accessed from the side alley",
+        "It's {{address}}, the door's at the bottom of the steps",
+        "{{address}}, follow the smoke down to the basement door",
+        "It's {{address}}, the flat's underneath mine",
+        "{{address}}, the basement entrance is round the side of the building",
+        "It's {{address}}, please hurry, the door's down the steps"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Smoke's coming up through the floorboards, I think there's a fire in the basement flat below"
+        "Smoke's coming up through the floorboards, I think there's a fire in the basement flat below",
+        "I smelled burning first, now there's thick smoke coming up the stairwell",
+        "There was a smell of smoke and now it's getting thicker by the minute",
+        "I heard something crack downstairs and now there's smoke everywhere",
+        "The smoke started coming through my floor about ten minutes ago",
+        "I don't know how it started, but the basement's clearly on fire",
+        "Smoke's been building up in the stairwell, I can't see anything down there",
+        "It started with a smell of burning and now smoke's pouring up",
+        "I can hear crackling from below and there's smoke coming through",
+        "The whole stairwell's filling with smoke, it's getting worse"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "I don't know, I've been banging on his door and there's no answer"
+        "I don't know, I've been banging on {{his}} door and there's no answer",
+        "I can't tell, {{he}}'s not responding to me at all",
+        "I don't know if {{he}}'s conscious, there's no reply from inside",
+        "I've shouted through the door and got nothing back",
+        "I can't tell you, {{he}}'s not answering and I can't get in",
+        "I don't know, there's been no sound from inside at all",
+        "I can't say, I've knocked several times with no response",
+        "I don't know, I'm worried {{he}} might still be in there",
+        "I can't tell, the smoke's too thick to see anything",
+        "I don't know, there's no answer at all from the flat"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "I can't tell, the smoke's too thick to go down and check"
+        "I can't tell, the smoke's too thick to go down and check",
+        "I don't know, I can't get near enough to check",
+        "I can't say, the smoke's stopping me getting close",
+        "I don't know, I can't get into the flat to check",
+        "I can't tell you, the stairwell's full of smoke",
+        "I don't know, it's too smoky to get down there",
+        "I can't check, the smoke's too thick near the door",
+        "I don't know, I can't risk going down there myself",
+        "I can't tell, there's too much smoke to see or hear anything",
+        "I don't know, I've had to stay back because of the smoke"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "I don't know, I can't get to him"
+        "I don't know, I can't get to {{him}}",
+        "I can't say, there's no way for me to check",
+        "I don't know, I haven't been able to reach {{him}}",
+        "I can't tell you, the smoke's stopping me getting close",
+        "I don't know, I can't get into the flat",
+        "I can't say, I've had to stay outside because of the smoke",
+        "I don't know, there's no way to check from here",
+        "I can't tell, I haven't been able to get near {{him}}",
+        "I don't know, I'm just waiting for you to arrive",
+        "I can't say, I've not been able to reach the flat"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "I can't see, I haven't been able to get near"
+        "I can't see, I haven't been able to get near",
+        "I don't know, I can't get close enough to check",
+        "I can't tell, the smoke's blocking my view completely",
+        "I don't know, I've not been able to get into the flat",
+        "I can't say, there's no way for me to see inside",
+        "I don't know, it's too smoky to see anything",
+        "I can't tell you, I haven't been able to reach {{him}}",
+        "I don't know, I've had to stay back from the smoke",
+        "I can't see anything from here, the smoke's too thick",
+        "I don't know, I've not managed to get near the door"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I don't know him well, sorry"
+        "I don't know {{him}} well, sorry",
+        "I don't know, we've never really spoken",
+        "I've no idea, I only know {{him}} to nod to",
+        "I don't know anything about {{him}}, sorry",
+        "I can't say, I barely know {{him}}",
+        "I don't know, we're not close neighbours",
+        "I've no idea about {{his}} health, sorry",
+        "I don't know, {{he}} keeps {{himself}} private",
+        "I can't tell you, I don't know {{him}} that well",
+        "I don't know, sorry, we've only spoken once or twice"
       ]
     },
     "medications": {
       "answers": [
-        "No idea"
+        "No idea",
+        "I don't know, sorry",
+        "I've no idea about that",
+        "I don't know {{him}} well enough to say",
+        "I can't tell you, sorry",
+        "No idea at all, sorry",
+        "I don't know, we've never really spoken",
+        "I've no information on that",
+        "I don't know, sorry, I barely know {{him}}",
+        "No idea, I wish I could help more"
       ]
     },
     "patientAge": {
       "answers": [
-        "He's a younger man, maybe thirties"
+        "{{He}}'s a younger {{man}}, maybe thirties",
+        "{{He}} looks like {{he}}'s in {{his}} thirties",
+        "I'd guess {{he}}'s in {{his}} early thirties",
+        "{{He}}'s youngish, maybe early thirties",
+        "I think {{he}}'s in {{his}} thirties, hard to say exactly",
+        "{{He}} looks to be in {{his}} thirties",
+        "I'd say {{he}}'s a younger {{man}}, thirties maybe",
+        "{{He}}'s fairly young, I'd guess thirties",
+        "I think {{he}}'s in {{his}} early thirties",
+        "{{He}} looks to be in {{his}} thirties, moved in recently"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'll wait outside and keep the door clear"
+        "Okay, I'll wait outside and keep the door clear",
+        "Right, I'll stay back from the smoke and wait for you",
+        "Okay, I'm outside the building now",
+        "Understood, I'll keep others away from the smoke",
+        "Alright, I'll wait by the front of the building",
+        "Okay, I've got the other residents out too",
+        "Right, I'll keep knocking until you arrive",
+        "Okay, I'm staying clear of the stairwell now",
+        "Understood, I'll wait to point you to the basement door",
+        "Okay, I'm keeping everyone else back from the smoke"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? No, it's smoke coming from the basement, I need the fire brigade",
+        "Sorry, why police, there might be someone trapped down there, not a crime",
+        "No, this isn't a police matter, it's a fire in the flat below",
+        "There's no need for police, just get the fire service here",
+        "No, it's smoke and fire, nobody's done anything wrong",
+        "Sorry, I don't need police, I need someone for the fire",
+        "No thank you, it's not a police job, it's a basement fire",
+        "That's not right, it's smoke logging the flat, not police",
+        "No, please, just the fire brigade, someone might be down there",
+        "Sorry, there's no crime here, just a fire below us"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank goodness, please hurry, I still can't raise {{him}} at the door",
+        "Okay, good, I'm keeping the door area clear for you",
+        "Please hurry, the smoke's getting thicker through the floorboards",
+        "Thank you, I'm waiting outside like you said",
+        "Okay, I can see them arriving now, thank god",
+        "Good, hurry, I think {{he}} might still be down there",
+        "Thank you, we've knocked on every door in the block",
+        "Okay, please tell them to hurry, the smoke's worse now",
+        "Thank goodness, I'll point them straight to the basement door",
+        "Good, hurry please, nobody's answering down there"
       ]
     },
     "refer111": {
       "answers": [
-        "No, there's a fire and someone might be trapped, we need you now"
+        "No, there's a fire and someone might be trapped, we need you now",
+        "No, this is an emergency, please hurry",
+        "No thank you, there's a fire and someone's not answering",
+        "No, please, {{he}} might still be inside, we need the fire brigade",
+        "No, this isn't something 111 can help with",
+        "No, please just send the fire brigade urgently",
+        "No, there's a real risk someone's trapped, we need help now",
+        "No, please hurry, the smoke's getting worse",
+        "No, this is urgent, someone could be inside",
+        "No, we need the fire brigade here right now"
       ]
     }
   },

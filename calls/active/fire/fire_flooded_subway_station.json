@@ -48,6 +48,11 @@
     "iccu": 1,
     "fire_officer": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13,
+    "police": 2
+  },
   "patients": {
     "range": [
       0,
@@ -96,8 +101,16 @@
   ],
   "caller": {
     "openings": [
-      "The subway station's flooding, water's coming down the stairs fast",
-      "Please help, the underpass has flooded, there's water pouring in from somewhere"
+      "The subway station's flooding badly, water's coming up onto the platform",
+      "I need the fire brigade, water's pouring into the underground station",
+      "There's flooding in the subway station, the lower level's already under water",
+      "Please send a crew, the station's flooding fast, staff have closed it",
+      "There's water rising in the subway, it's coming from somewhere underground",
+      "The underground station's flooded, staff have shut the gates already",
+      "Please hurry, water's flooding into the subway station rapidly",
+      "There's a burst pipe or something, the station's flooding badly",
+      "The subway's under water on the lower level, it's rising quickly",
+      "There's flooding at the station, we've had to close it to the public"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -109,81 +122,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "The subway station's flooding, water's coming down the stairs fast",
-        "Please help, the underpass has flooded, there's water pouring in from somewhere"
+        "The subway station's flooding badly, water's coming up onto the platform",
+        "I need the fire brigade, water's pouring into the underground station",
+        "There's flooding in the subway station, the lower level's already under water",
+        "Please send a crew, the station's flooding fast, staff have closed it",
+        "There's water rising in the subway, it's coming from somewhere underground",
+        "The underground station's flooded, staff have shut the gates already",
+        "Please hurry, water's flooding into the subway station rapidly",
+        "There's a burst pipe or something, the station's flooding badly",
+        "The subway's under water on the lower level, it's rising quickly",
+        "There's flooding at the station, we've had to close it to the public"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I was passing through when I saw it"
+        "It's {{callerName}}, I was passing through the station",
+        "{{callerName}}, I work at the station",
+        "It's {{callerName}}, I was waiting for a train when it started",
+        "{{callerName}} here, I noticed the water on the platform",
+        "It's {{callerName}}, I'm one of the station staff",
+        "My name's {{callerName}}, I raised the alarm",
+        "It's {{callerName}}, I'm a member of the public who was inside",
+        "{{callerName}} speaking, I'm stood outside the station now",
+        "It's {{callerName}}, I saw the water coming up the stairs",
+        "{{callerName}}, I called as soon as I saw how fast it was rising"
       ]
     },
     "patientName": {
       "answers": [
-        "No, everyone got clear of the water before it got too deep, nobody's hurt"
+        "No, there's nobody hurt, everyone got clear before the water rose.",
+        "Nobody to name, no one's been caught by the water.",
+        "No patient, no one's injured down there.",
+        "There's no casualties, everyone's up on dry ground.",
+        "No one's hurt, staff got everyone out in time.",
+        "Nobody's involved, there's no one to give a name for.",
+        "No injuries, no one was down there when it flooded.",
+        "There's no patient here, nobody's been affected.",
+        "No one's hurt, we're all well clear of the water.",
+        "Nobody at all, there's no casualties to report."
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the subway station entrance",
-        "It's {{address}}, the underpass by the station"
+        "{{address}}, it's the subway station, main entrance on the street",
+        "It's {{address}}, the gates are shut but I'll meet you outside",
+        "{{address}}, the flooding's on the lower platform level",
+        "It's {{address}}, staff are at the entrance to let you in",
+        "{{address}}, you'll see the water coming up the steps",
+        "It's {{address}}, follow the signs down to the platforms",
+        "{{address}}, we've closed the station to the public",
+        "It's {{address}}, the entrance nearest the flooding is cordoned off",
+        "{{address}}, please come to the main ticket hall",
+        "It's {{address}}, I'm waiting by the barriers for you"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Water started coming into the subway station, I think a main's burst or the drains have backed up, it's rising quickly"
+        "Water's started coming up from the lower level, we're not sure of the source yet",
+        "It looks like a burst water main has flooded the platform area",
+        "Water's rising fast on the lower platform, staff shut the station straight away",
+        "No one's sure what's caused it but it's rising quickly down there",
+        "There's water pouring in near the tracks, the whole platform's affected",
+        "It might be heavy rain getting into the drainage system underground",
+        "Staff noticed the water first thing and closed the gates immediately",
+        "The lower level's completely under water now, it happened fast",
+        "We think a pipe's burst somewhere below the platform",
+        "Water's been rising steadily for the last twenty minutes or so"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "There's no one involved, I've not seen anybody hurt"
+        "Not applicable, there's no one hurt to check on.",
+        "No one's involved, so nothing to report there.",
+        "Everyone's fine, nobody's anywhere near the water.",
+        "No casualties at all, no one's been affected.",
+        "There's no patient, nobody's hurt in any way.",
+        "Not applicable, no one was caught up in the flooding.",
+        "No one's hurt, we're all stood well back from it.",
+        "Nothing to report there, no one's involved at all.",
+        "No injuries, everyone's kept clear of the water.",
+        "Not applicable, there's genuinely no one to check on."
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No, there's nobody to check, it's just the fire"
+        "No one's struggling, it's just the water rising.",
+        "Nobody's affected, we've all moved well away from it.",
+        "No injuries there, it's only the station that's flooded.",
+        "Everyone's breathing fine, no one's near the water.",
+        "No one's close enough to the flooding to be affected.",
+        "Not applicable, no one's been near the water at all.",
+        "No breathing problems, nobody's near enough to it.",
+        "We've kept well clear, so nothing to report there.",
+        "No one's affected, it's just the platform that's under water.",
+        "Nothing to report, we're all well away from the flooding."
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "No one's hurt as far as I can see"
+        "Nobody's hurt, so there's no pain to report.",
+        "No one's in any pain, no one's been near the water.",
+        "Not applicable, there's no injuries at all.",
+        "No one's hurt, so there's nothing to report there.",
+        "Nobody's complaining of anything, no one's involved.",
+        "No pain reported, no one's been affected by it.",
+        "Not applicable, there's no patient in any pain.",
+        "No injuries, nobody's hurt in any way at all.",
+        "No one's hurt, so nothing on that front.",
+        "Nobody's in pain, there's no one involved here."
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no injuries, nobody's here"
+        "No, no one's been near the water to get hurt.",
+        "No bleeding, there's no injuries at all here.",
+        "Not applicable, nobody's been hurt in this.",
+        "No, no one's involved, so there's no injuries.",
+        "No bleeding to report, everyone's well clear.",
+        "No injuries at all, nobody's anywhere near it.",
+        "No, there's no one hurt to report bleeding on.",
+        "Not applicable, no one's been affected by it.",
+        "No, everyone's well away from the flooded platform.",
+        "No bleeding, nobody's been caught up in this."
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "I can't help with that, there's no one hurt"
+        "Not applicable, there's no one hurt.",
+        "No patient, so there's nothing to tell you there.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no history to give.",
+        "Not applicable, it's not a medical matter here.",
+        "No patient at all, nothing to report on that.",
+        "Not applicable, no one's been affected.",
+        "There's no casualty, so nothing on that front.",
+        "Not applicable, nobody's hurt, sorry.",
+        "No patient involved, nothing to tell you there."
       ]
     },
     "medications": {
       "answers": [
-        "No idea, there's no patient, sorry"
+        "Not applicable, there's no patient.",
+        "No one's hurt, so nothing to report there.",
+        "Not applicable, it's not a medical call.",
+        "No patient at all, nothing to tell you.",
+        "Not applicable, no one's involved in this.",
+        "There's no one hurt, so no medications to mention.",
+        "Not applicable, nobody's affected by it.",
+        "No casualty here, so nothing on that.",
+        "Not applicable, there's no one to ask.",
+        "No patient involved, nothing on that front."
       ]
     },
     "patientAge": {
       "answers": [
-        "There's no one to ask, nobody's been hurt"
+        "There's no patient, nobody's hurt at all.",
+        "No one involved, so no age to give you.",
+        "Not applicable, it's just the flooding itself.",
+        "No casualty, there's no one to report on.",
+        "Nobody's hurt, there's no patient here.",
+        "No one's involved, so nothing there, sorry.",
+        "Not applicable, there's no injuries at all.",
+        "No patient to report, everyone's fine.",
+        "Nobody's hurt, so no age to give.",
+        "No one's involved, there's no patient at all."
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, I'm staying up on the street, not going near the water",
-        "Please hurry, it's getting deep down there"
+        "Okay, we've closed the station and moved everyone up top",
+        "Please hurry, the water's still rising on the lower level",
+        "Right, everyone's been evacuated from the platforms",
+        "Okay, I've got the station plans ready for you",
+        "Understood, we're keeping the public away from the entrance",
+        "Alright, staff are directing people to the street level",
+        "Okay, I'll meet you at the ticket hall to brief you",
+        "Right, we've cut the power to that section as a precaution",
+        "Understood, we're staying well clear of the flooded area",
+        "Okay, everyone's safely up on the street now"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's flooding, we need the fire service, not a GP"
+        "No, it's flooding, not a medical matter",
+        "No thank you, this is a fire and rescue call for the water",
+        "No, nobody's hurt, everyone got off the platform in time",
+        "No, I need the fire brigade for the flooding",
+        "No, please just send someone to deal with the water",
+        "No, this isn't medical, it's the station that's flooding",
+        "No, there's no injury, just the water rising",
+        "No, it's purely a flooding issue, please send a crew",
+        "No, it's not something 111 can help with",
+        "No, please hurry, the water's still coming up"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I think we just need the pumps out, it's a flood not a crime",
+        "Oh, I suppose they could help keep people away from the barriers",
+        "Police? I wasn't expecting them, but I understand if it's for safety",
+        "That's fine, I imagine they'll help close the station off",
+        "Police? There's no trouble here, just water coming up through the station",
+        "Oh right, I suppose someone needs to manage people trying to get through",
+        "I don't think we need police, but thank you for sending them anyway",
+        "Police? I hadn't thought of that, but keeping folk off the platform makes sense",
+        "That's okay, I expect they'll help with the crowd by the barriers",
+        "Police? I was only expecting the fire brigade for the water"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, I'll stay up on the stairs until they arrive",
+        "That's great, I'll keep everyone back from the water until they get here",
+        "Okay, thank you, I'll wait by the entrance to show them where it is",
+        "Brilliant, I'll stay clear of the flooded section until the crew arrives",
+        "Thank you, I'll make sure no one tries to walk through the water",
+        "That's a relief, I'll wait up top until they come down",
+        "Okay, I'll keep watching the water level until they arrive",
+        "Thank you, I'll stay well away from the flooded platform",
+        "Understood, I'll wait here and point them to the flooded area",
+        "Okay, thank you, I'll keep everyone off the stairs down to the platform"
       ]
     }
   },

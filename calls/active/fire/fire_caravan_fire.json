@@ -46,6 +46,10 @@
     "dual_pump": 1,
     "single_pump": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 2
+  },
   "patients": {
     "range": [
       0,
@@ -68,7 +72,15 @@
   "caller": {
     "openings": [
       "Our caravan's caught fire on the drive",
-      "I need the fire brigade, the touring caravan's well alight, no one's inside"
+      "I need the fire brigade, the touring caravan's well alight, no one's inside",
+      "There's a caravan on fire outside the house, nobody's in it",
+      "My touring caravan's gone up on the driveway, it's empty thankfully",
+      "Fire brigade please, the caravan on our drive is well alight",
+      "I've just come out to find the caravan on fire, no one was in there",
+      "There's smoke and flames coming off the caravan parked outside",
+      "The caravan's on fire, we think it's the gas fridge, it's unoccupied",
+      "Can you send the fire brigade, our caravan's burning on the driveway",
+      "I need to report a caravan fire, it's empty, just want it put out"
     ],
     "phoneArea": "auto",
     "callerType": "witness"
@@ -81,78 +93,231 @@
     "start": {
       "answers": [
         "Our caravan's caught fire on the drive",
-        "I need the fire brigade, the touring caravan's well alight, no one's inside"
+        "I need the fire brigade, the touring caravan's well alight, no one's inside",
+        "There's a caravan on fire outside the house, nobody's in it",
+        "My touring caravan's gone up on the driveway, it's empty thankfully",
+        "Fire brigade please, the caravan on our drive is well alight",
+        "I've just come out to find the caravan on fire, no one was in there",
+        "There's smoke and flames coming off the caravan parked outside",
+        "The caravan's on fire, we think it's the gas fridge, it's unoccupied",
+        "Can you send the fire brigade, our caravan's burning on the driveway",
+        "I need to report a caravan fire, it's empty, just want it put out"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, it's my caravan"
+        "It's {{callerName}}, it's my caravan",
+        "{{callerName}} here, we own the caravan on fire",
+        "My name's {{callerName}}, I called about the caravan",
+        "It's {{callerName}}, the caravan on the drive is ours",
+        "{{callerName}} speaking, that's our touring caravan",
+        "Name's {{callerName}}, I'm the homeowner",
+        "It's {{callerName}}, sorry I'm a bit flustered",
+        "{{callerName}}, we bought the caravan last year, it's ours",
+        "This is {{callerName}}, I'm stood outside watching it burn",
+        "{{callerName}} here, thanks for getting back to me so quick"
       ]
     },
     "patientName": {
       "answers": [
-        "No one's inside, we're all out of the house"
+        "No one's inside, we're all out of the house",
+        "There's no patient, the caravan's completely empty",
+        "Nobody was in it, we're all safely out on the drive",
+        "No injuries, it was empty when it caught",
+        "Nobody to report, the caravan's unoccupied",
+        "No patient at all, thankfully everyone's inside the house safe",
+        "There's no one hurt, we noticed it from the kitchen window",
+        "No one was near it, the kids are inside with me",
+        "Nobody's involved, we just want it put out before it spreads",
+        "No casualties, the caravan's stood empty on the drive"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, it's on the driveway"
+        "{{address}}, it's on the driveway",
+        "{{address}}, the caravan's right outside the front of the house",
+        "It's {{address}}, you'll see the smoke from the road",
+        "{{address}}, we're the house with the caravan on the drive",
+        "{{address}}, please hurry, it's close to the house",
+        "{{address}}, it's parked on the gravel drive",
+        "{{address}}, the fire's on our driveway",
+        "You want {{address}}, second house on the left",
+        "{{address}}, there's smoke visible from the road already",
+        "{{address}}, come quick, it's near the front door"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "The caravan's caught fire, might be the gas fridge, no one was in it at the time"
+        "The caravan's caught fire, might be the gas fridge, no one was in it at the time",
+        "We think it started in the fridge unit, it's been playing up",
+        "No idea what started it, we just saw flames from the kitchen window",
+        "It might be electrical, we'd plugged it in to charge the leisure battery",
+        "We were doing some maintenance earlier, not sure if that's connected",
+        "It just went up suddenly, we hadn't touched it in days",
+        "Could be the gas bottle, there was a hissing noise before the flames",
+        "We're not sure, it was fine this morning, then smoke started coming out",
+        "Might be a wiring fault, we noticed a burning smell earlier",
+        "No idea, we just heard a pop and then saw the flames"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "No one's hurt, it was empty"
+        "No one's hurt, it was empty",
+        "There's no patient, nobody was in the caravan",
+        "Nobody involved at all, it's just the caravan burning",
+        "No one to check, the caravan was empty",
+        "No injuries, everyone's safe inside the house",
+        "There's no casualty, no one was near it",
+        "Not applicable, nobody was in the caravan",
+        "No one hurt, we're all watching from a safe distance",
+        "Nobody's involved, it's purely a caravan fire",
+        "No patient, we made sure everyone was accounted for straight away"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "No injuries, just smoke"
+        "No injuries, just smoke",
+        "Nobody's affected, we're all well clear of the smoke",
+        "No one to worry about, we're all outside in the fresh air",
+        "Not applicable, no one was in the caravan",
+        "No breathing issues, no one was anywhere near it",
+        "Everyone's fine, we're all stood well back",
+        "No casualties at all, just the caravan burning",
+        "Nobody's inhaled anything, we saw it early and got clear",
+        "No one affected, it's just property damage",
+        "Not applicable, no patient involved"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Nobody's hurt"
+        "Nobody's hurt",
+        "No one's in pain, there's no patient",
+        "Not applicable, the caravan was empty",
+        "No injuries at all, everyone's fine",
+        "No one to report, nobody was involved",
+        "Nobody's hurt, we're just worried about the fire spreading",
+        "No pain to report, no one was near the caravan",
+        "No casualties, we're all safe in the house",
+        "Not applicable, nobody's injured",
+        "No one's hurt, thankfully"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No, no one's involved"
+        "No, no one's involved",
+        "No bleeding, there's no patient",
+        "Not applicable, nobody was in the caravan",
+        "No, everyone's uninjured",
+        "No, we're all fine, just watching the fire",
+        "No bleeding to report, no one's hurt",
+        "Not applicable, no casualties",
+        "No, nobody's been near the caravan",
+        "No, we're all safely inside the house",
+        "No, there's no one injured at all"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Not applicable"
+        "Not applicable",
+        "No one to report on, nobody's involved",
+        "Not applicable, there's no patient",
+        "No medical history needed, nobody's hurt",
+        "N/A, the caravan was empty",
+        "Not applicable, no casualties",
+        "No patient involved, so nothing to say",
+        "Not applicable at all",
+        "N/A, everyone's fine and out of the house",
+        "Not applicable, no one's injured"
       ]
     },
     "medications": {
       "answers": [
-        "Not applicable"
+        "Not applicable",
+        "No one to report on",
+        "Not applicable, there's no patient",
+        "N/A, nobody's hurt",
+        "Not applicable, the caravan was empty",
+        "No medications relevant, no casualties",
+        "Not applicable at all",
+        "N/A, no one's involved",
+        "Not applicable, everyone's safe",
+        "No patient, so nothing to report"
       ]
     },
     "patientAge": {
       "answers": [
-        "No patient, the caravan's empty"
+        "No patient, the caravan's empty",
+        "Not applicable, nobody's involved",
+        "No one to give an age for, it's just the caravan",
+        "N/A, there's no casualty",
+        "Not applicable, everyone's safe in the house",
+        "No patient at all",
+        "Not applicable, nobody was near it",
+        "N/A, no one's hurt",
+        "No age to give, there's no injured person",
+        "Not applicable, no patient"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we've moved the cars off the drive"
+        "Okay, we've moved the cars off the drive",
+        "Right, we're keeping well back from it now",
+        "Okay, thank you, we'll wait for the engine to arrive",
+        "Understood, we've got the hose ready just in case it spreads",
+        "Okay, we'll stay clear of the smoke and wait",
+        "Right, we've woken the neighbours in case it spreads to their fence",
+        "Okay, thank you, we're all safe and just watching from a distance",
+        "Understood, we'll keep the drive clear for the engine",
+        "Okay, we'll stay on the line if you need anything else",
+        "Right, thanks, we'll wait by the gate to show you in"
       ]
     },
     "refer111": {
       "answers": [
-        "No, it's a fire not medical"
+        "No, it's a fire not medical",
+        "No need, nobody's hurt, it's just the caravan burning",
+        "No, this is a fire brigade job, not medical",
+        "No, there's no injury, just want the fire dealt with",
+        "No, we don't need that, no one's hurt",
+        "No, it's purely a property fire, no casualties",
+        "No, that's not needed, everyone's safe",
+        "No, this is just about the caravan, nobody's injured",
+        "No thank you, no one needs medical help",
+        "No, it's just a fire, no patients involved"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Police? I don't think we need them, it's just the caravan burning",
+        "Oh, we don't need police, it's just a fire on the drive",
+        "No need for police, it's purely the caravan that's alight",
+        "I don't think that's necessary, there's no one hurt or anything like that",
+        "Police aren't needed, it's just the fire brigade we want for this",
+        "No, we're fine without police, it's just the caravan",
+        "I don't believe police are required, nothing like that's happened here",
+        "That's probably not needed, it's only the caravan on fire",
+        "No, we don't need police, just the fire crew please",
+        "I don't think police need to attend, it's just our caravan burning"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Good, thank you, we'll keep clear of the drive until they arrive",
+        "That's great, we'll move the cars further back for them",
+        "Thank you, we'll wait by the gate to let them in",
+        "Good, I'll let the neighbours know they're on their way",
+        "Understood, we'll keep the drive clear for the engine",
+        "Thank you, we'll wait right here until they arrive",
+        "Good, that's what we need, we'll stand by",
+        "Thank you, we'll make sure someone's outside to meet them",
+        "Understood, we'll keep back from the smoke until they're here",
+        "Good, thank you, we'll be ready and waiting for them"
       ]
     }
   },

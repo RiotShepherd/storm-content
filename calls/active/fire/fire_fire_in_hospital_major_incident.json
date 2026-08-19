@@ -51,6 +51,12 @@
     "fire_officer": 8,
     "otl": 1
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13,
+    "ambulance": 6,
+    "police": 5
+  },
   "patients": {
     "range": [
       0,
@@ -128,7 +134,14 @@
     "openings": [
       "Major fire at the hospital, we're having to evacuate patients, please send everything you've got",
       "Fire brigade, it's the hospital, there's smoke on several wards and we're moving patients out",
-      "Please hurry, the hospital's on fire and we can't move all the patients quickly"
+      "Please hurry, the hospital's on fire and we can't move all the patients quickly",
+      "There's a serious fire here at the hospital, we're evacuating multiple wards",
+      "Fire brigade please, our hospital's alight, we've got vulnerable patients to move",
+      "This is the hospital, we've got smoke on several floors and patients being evacuated",
+      "Please send everything you can, the hospital's on fire and we've got critical patients",
+      "There's a major fire at the hospital, staff are moving patients as fast as we safely can",
+      "Fire at the hospital, we're following our major incident plan and evacuating wards",
+      "Please hurry, smoke's spreading through the hospital and we've patients who can't walk"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -142,80 +155,230 @@
       "answers": [
         "Major fire at the hospital, we're having to evacuate patients, please send everything you've got",
         "Fire brigade, it's the hospital, there's smoke on several wards and we're moving patients out",
-        "Please hurry, the hospital's on fire and we can't move all the patients quickly"
+        "Please hurry, the hospital's on fire and we can't move all the patients quickly",
+        "There's a serious fire here at the hospital, we're evacuating multiple wards",
+        "Fire brigade please, our hospital's alight, we've got vulnerable patients to move",
+        "This is the hospital, we've got smoke on several floors and patients being evacuated",
+        "Please send everything you can, the hospital's on fire and we've got critical patients",
+        "There's a major fire at the hospital, staff are moving patients as fast as we safely can",
+        "Fire at the hospital, we're following our major incident plan and evacuating wards",
+        "Please hurry, smoke's spreading through the hospital and we've patients who can't walk"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm the duty manager here"
+        "It's {{callerName}}, I'm the duty manager here",
+        "{{callerName}}, I'm coordinating the evacuation from the control room",
+        "It's {{callerName}}, I'm senior nursing staff on duty",
+        "{{callerName}} here, I'm the hospital's fire officer for today",
+        "It's {{callerName}}, I'm managing our major incident response",
+        "My name's {{callerName}}, I'm calling from the switchboard",
+        "It's {{callerName}}, I'm part of the senior management team",
+        "{{callerName}} speaking, I'm coordinating with ward staff",
+        "It's {{callerName}}, I'm the on call manager tonight",
+        "{{callerName}}, I'm liaising between the wards and emergency services"
       ]
     },
     "patientName": {
       "answers": [
-        "There's dozens of patients involved, I can't give you individual names right now"
+        "There's dozens of patients involved, I can't give you individual names right now",
+        "We've got multiple wards affected, too many patients to name individually",
+        "There's a large number of patients being moved, I can't list them all",
+        "Many patients across several wards, our staff have the individual records",
+        "There's too many involved to give names, our ward staff can brief your crews",
+        "A significant number of patients, our clinical teams have the details",
+        "I can't give individual names, this covers several wards worth of patients",
+        "There's a lot of patients affected, ward sisters have the full lists",
+        "Too many to name right now, we're focused on getting everyone safe",
+        "Multiple patients across the affected wards, staff will hand over details on scene"
       ]
     },
     "address": {
       "answers": [
         "{{address}}, the main hospital, use the ambulance entrance",
-        "It's {{address}}, staff will direct you at the barrier"
+        "It's {{address}}, staff will direct you at the barrier",
+        "{{address}}, our major incident team is assembling at the front entrance",
+        "It's {{address}}, please use the emergency vehicle access",
+        "{{address}}, security will guide your crews on arrival",
+        "It's {{address}}, come to the main reception, we're expecting you",
+        "{{address}}, the affected wards are on the upper floors",
+        "It's {{address}}, our incident control point is at the main entrance",
+        "{{address}}, please approach via the ambulance bay",
+        "It's {{address}}, we've got staff ready to brief you on arrival"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "There's been a fire in the plant room that's spread into the ward areas, we're evacuating as many patients as we can"
+        "There's been a fire in the plant room that's spread into the ward areas, we're evacuating as many patients as we can",
+        "A fire started in a service area and smoke has spread through several floors",
+        "We think it started in an equipment room, it's now affecting multiple wards",
+        "The fire's in the building services area, smoke's logging into the corridors",
+        "It started away from the wards but the smoke has spread through the ventilation",
+        "We're not certain of the cause but it's affecting several floors of the hospital",
+        "The fire began in a utility area and has since spread smoke through the building",
+        "It's a serious fire, we've triggered our full evacuation and major incident plan",
+        "Smoke's spread through multiple wards from what we believe started in a plant room",
+        "The fire's contained to one area for now but smoke is affecting several wards"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Mixed, some are conscious, some of our sicker patients aren't easily rousable"
+        "Mixed, some are conscious, some of our sicker patients aren't easily rousable",
+        "Most are conscious, but our critical care patients need extra help evacuating",
+        "The majority are conscious, a few are sedated or very unwell",
+        "Conscious for most, but we've a number who are seriously unwell and need assistance",
+        "Mostly conscious, though our intensive care patients need close monitoring throughout",
+        "Many are conscious, some of our elderly patients are confused by the disruption",
+        "Most patients are conscious, a smaller group are critically unwell",
+        "The majority are conscious and mobile, others need full assistance",
+        "Conscious for the most part, but we have some very sick patients too",
+        "Mixed, most conscious, though our sickest patients need careful handling"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "A number are on oxygen already, some are struggling more with the smoke"
+        "A number are on oxygen already, some are struggling more with the smoke",
+        "Several patients need oxygen support, the smoke's affecting our respiratory ward especially",
+        "Many are already on breathing support, this is making things harder for them",
+        "A good number need oxygen, we're prioritising them for evacuation first",
+        "Some patients are really struggling with the smoke, particularly on the upper floors",
+        "Quite a few need respiratory support already, before you even factor in the smoke",
+        "Several are struggling to breathe, we're trying to get them out first",
+        "A number are on ventilators, that's our biggest concern with the evacuation",
+        "Some are coughing badly from the smoke, others were already breathless",
+        "Many need breathing support, this is a real priority for us right now"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "Several are reporting chest pain, it's hard to say how many exactly"
+        "Several are reporting chest pain, it's hard to say how many exactly",
+        "A number of patients are complaining of chest tightness from the smoke",
+        "Some are in pain from being moved quickly, others report chest discomfort",
+        "A few are reporting chest pain, we're keeping a close eye on them",
+        "Several patients have mentioned chest pain, could be smoke related",
+        "Some are in pain from the evacuation itself, moving unwell patients is difficult",
+        "A number report chest tightness, we're monitoring them as we move",
+        "Some are in discomfort from being moved, others from the smoke itself",
+        "Several complain of chest pain, we're treating that as a priority",
+        "A few are in pain, mostly chest related, we're watching them closely"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "No major bleeding reported, this is a smoke and evacuation situation"
+        "No major bleeding reported, this is a smoke and evacuation situation",
+        "No bleeding as such, our concern is smoke exposure and mobility",
+        "Nothing bleeding related, it's the smoke and evacuation that's the issue",
+        "No bleeding reported, some patients have had lines and drips disturbed moving them",
+        "No significant bleeding, our focus is on smoke inhalation and evacuation",
+        "Not bleeding related, though moving some patients has been difficult with their equipment",
+        "No bleeding to report, this is primarily a smoke and mobility issue",
+        "Nothing on bleeding, we're more concerned about respiratory patients",
+        "No bleeding as such, some IV lines have come loose during the move",
+        "No bleeding reported, the main issue is smoke and safe evacuation"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "Our clinical staff have the notes, I can get someone to hand over"
+        "Our clinical staff have the notes, I can get someone to hand over",
+        "Ward staff have full medical records for each patient, they'll brief you on scene",
+        "Our nurses have the patient notes with them, they'll hand over on arrival",
+        "Each ward team has the relevant history, they're ready to brief your crews",
+        "Clinical notes are being brought out with the patients where possible",
+        "Our staff have the records, we'll do a full handover when you get here",
+        "Ward sisters have the medical history for their patients ready to share",
+        "The clinical team has all the notes, they'll pass them to your paramedics",
+        "Our staff are keeping records with the patients as they're moved",
+        "Full histories are with the ward teams, they'll brief on scene"
       ]
     },
     "medications": {
       "answers": [
-        "Our staff are bringing medication charts with the patients where they can"
+        "Our staff are bringing medication charts with the patients where they can",
+        "Ward teams have medication records and are bringing what they can",
+        "Nursing staff are trying to bring charts and essential medications with patients",
+        "We're prioritising getting medication information out with each patient",
+        "Staff have medication lists ready to hand over to your crews",
+        "Our teams are bringing charts where possible during the evacuation",
+        "Medication records are being kept with patients as they're moved out",
+        "Ward staff have the details and are bringing essential medicines where they can",
+        "We're trying to keep medication charts with each patient during the move",
+        "Nursing teams have this information ready for handover on scene"
       ]
     },
     "patientAge": {
       "answers": [
-        "All ages, this is a general hospital, we've got children's and elderly wards affected"
+        "All ages, this is a general hospital, we've got children's and elderly wards affected",
+        "A full range, from our paediatric ward right up to elderly care",
+        "All ages are represented, this covers several different wards",
+        "A wide range of ages across the affected wards",
+        "Every age group really, from young patients to our oldest",
+        "All ages, we've got maternity, general and elderly wards involved",
+        "A broad range, this affects multiple departments with different age groups",
+        "All ages, it's a general hospital so there's a real mix",
+        "Right across the board, children through to elderly patients",
+        "All ages affected, several different wards and departments"
       ]
     },
     "reassure": {
       "answers": [
         "Okay, we've got our major incident plan running",
-        "Please hurry, we've got patients who can't be moved quickly"
+        "Please hurry, we've got patients who can't be moved quickly",
+        "Right, our teams are working through the evacuation systematically",
+        "Okay, we've got extra staff mobilised to help with the move",
+        "Understood, we're prioritising our sickest patients first",
+        "Alright, our incident control team is coordinating everything",
+        "Okay, I'll keep you updated on numbers as we go",
+        "Right, we've got the corridors clear for the evacuation",
+        "Understood, staff are doing everything they can right now",
+        "Okay, our major incident procedure is fully underway"
       ]
     },
     "refer111": {
       "answers": [
-        "No, this is a major incident, we need every crew you can send"
+        "No, this is a major incident, we need every crew you can send",
+        "No thank you, this needs a full emergency response, not 111",
+        "No, we've got patients who can't be moved without help, we need crews now",
+        "No, this is way beyond what 111 can assist with",
+        "No, please, we need ambulances and fire crews here urgently",
+        "No, this is a major hospital fire, we need full support",
+        "No, it's a major incident, please send everything available",
+        "No, this needs emergency response, we've got vulnerable patients",
+        "No, please hurry, we need as many crews as you can spare",
+        "No, this is far too serious for anything other than a full response"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we'll need help managing traffic around the ambulance bay",
+        "Yes, that's useful, there'll be a lot of vehicles here shortly",
+        "Thank you, they can help keep the entrance clear for the crews",
+        "Okay, that's helpful, we'll have a lot of people moving about",
+        "Good, we could use help keeping the access roads clear",
+        "Yes please, this is a major incident, every bit of help matters",
+        "Thank you, they can direct traffic while we manage the evacuation",
+        "Okay, that makes sense given the scale of what's happening here",
+        "Good, we'll need the roads kept open for all the ambulances",
+        "Yes, that's welcome, we've got a lot of vehicles converging here"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, our major incident plan is running, please hurry",
+        "Okay, we've got extra staff mobilised while we wait for the crews",
+        "Understood, I'll keep you updated on patient numbers as they arrive",
+        "Thank you, we're prioritising our sickest patients until they get here",
+        "Okay, our incident control team is ready for the crews on arrival",
+        "Right, we'll have staff at the entrance to direct them straight in",
+        "Thank you, please hurry, we've got patients who can't wait long",
+        "Understood, the corridors are being kept clear for their arrival",
+        "Okay, we're doing everything we can until the crews reach us",
+        "Thank you, our major incident procedure is fully underway now"
       ]
     }
   },

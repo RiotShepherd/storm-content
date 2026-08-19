@@ -49,6 +49,12 @@
     "basu": 1,
     "fire_officer": 3
   },
+  "_buildings": "MissionChief style requirement: how many stations of each service the player must own before this call can come in. Counted across the whole save. Empty = no requirement beyond having the services the units need.",
+  "buildings": {
+    "fire": 13,
+    "police": 1,
+    "ambulance": 5
+  },
   "patients": {
     "range": [
       0,
@@ -123,8 +129,16 @@
   ],
   "caller": {
     "openings": [
-      "Fire in the shopping centre, the alarm's gone and there's smoke by one of the units",
-      "Fire brigade please, the shopping centre's got a fire, shoppers are evacuating"
+      "Fire brigade, there's a major fire in the shopping centre, we're evacuating everyone",
+      "It's the shopping centre, smoke's filling the mall and people are panicking",
+      "There's a big fire here at the centre, please send everything you've got",
+      "Fire brigade please, the mall's on fire and it's absolutely packed today",
+      "Help, there's smoke everywhere in the shopping centre, we're trying to get everyone out",
+      "This is a major fire at the shopping centre, some shoppers can't find the exits",
+      "Please hurry, the centre's on fire and there's a real crush at the doors",
+      "Fire at the shopping centre, we're evacuating but it's chaos in here",
+      "There's a serious fire in the mall, staff are trying to guide everyone out",
+      "Please send help, smoke's spreading through the shopping centre fast"
     ],
     "phoneArea": "auto",
     "callerType": "staff"
@@ -136,81 +150,232 @@
   "dialogue": {
     "start": {
       "answers": [
-        "Fire in the shopping centre, the alarm's gone and there's smoke by one of the units",
-        "Fire brigade please, the shopping centre's got a fire, shoppers are evacuating"
+        "Fire brigade, there's a major fire in the shopping centre, we're evacuating everyone",
+        "It's the shopping centre, smoke's filling the mall and people are panicking",
+        "There's a big fire here at the centre, please send everything you've got",
+        "Fire brigade please, the mall's on fire and it's absolutely packed today",
+        "Help, there's smoke everywhere in the shopping centre, we're trying to get everyone out",
+        "This is a major fire at the shopping centre, some shoppers can't find the exits",
+        "Please hurry, the centre's on fire and there's a real crush at the doors",
+        "Fire at the shopping centre, we're evacuating but it's chaos in here",
+        "There's a serious fire in the mall, staff are trying to guide everyone out",
+        "Please send help, smoke's spreading through the shopping centre fast"
       ]
     },
     "callerName": {
       "answers": [
-        "It's {{callerName}}, I'm centre security"
+        "It's {{callerName}}, I work at the centre",
+        "{{callerName}}, I'm one of the centre security staff",
+        "It's {{callerName}}, I'm helping coordinate the evacuation",
+        "{{callerName}} here, I work in one of the units",
+        "It's {{callerName}}, I'm centre management",
+        "My name's {{callerName}}, I'm at the main entrance directing people out",
+        "It's {{callerName}}, I'm part of the centre's fire team",
+        "{{callerName}} speaking, I work on the customer service desk",
+        "It's {{callerName}}, I'm stood outside now with a group of shoppers",
+        "{{callerName}}, I'm helping keep people calm near the exits"
       ]
     },
     "patientName": {
       "answers": [
-        "It's a shopper, an older lady, she got knocked in the rush for the exits"
+        "There's a shopper, {{firstPatientName}}, {{he}}'s struggling to breathe from the smoke",
+        "It's {{firstPatientName}}, I don't know {{him}}, {{he}} got caught up in the crush",
+        "{{firstPatientName}}, {{he}} was near the food court when the smoke came through",
+        "It's {{firstPatientName}}, {{he}}'s having chest pain, we think it's the smoke",
+        "There's a few affected but {{firstPatientName}}'s the worst, {{he}} can barely breathe",
+        "{{firstPatientName}}, {{he}} was knocked over in the crowd near the exit",
+        "It's {{firstPatientName}}, {{he}}'s a customer, I don't know {{him}} personally",
+        "{{firstPatientName}}'s the one who needs help most, others are shaken but out",
+        "It's {{firstPatientName}}, {{he}} was struggling to get through the crowd",
+        "{{firstPatientName}}, {{he}}'s sat down outside, really coughing badly"
       ]
     },
     "address": {
       "answers": [
-        "{{address}}, the shopping centre, main entrance is on the high street",
-        "It's {{address}}, use the service road for access"
+        "{{address}}, the shopping centre, use the main entrance",
+        "It's {{address}}, please come round to the loading bay for better access",
+        "{{address}}, we're evacuating people at the main doors",
+        "It's {{address}}, security will meet you at the entrance",
+        "{{address}}, the smoke's coming from somewhere in the middle of the mall",
+        "It's {{address}}, use the car park entrance if the main doors are blocked",
+        "{{address}}, we're gathering people in the car park",
+        "It's {{address}}, please hurry, there's a lot of people still inside",
+        "{{address}}, the fire exits are all open, come straight through",
+        "It's {{address}}, I'm stood outside to direct you in"
       ],
       "revealsAddress": true
     },
     "whatHappened": {
       "answers": [
-        "Smoke started coming from one of the units and now the whole centre's evacuating through the fire exits"
+        "We think a fire started in one of the units and smoke's spread fast through the mall",
+        "There's a fire somewhere in the centre and it's filled the whole place with smoke",
+        "No idea exactly where it started but the smoke's spreading through every level",
+        "It looks like it started in a shop unit and has spread into the main concourse",
+        "The fire alarm went off and smoke came through the ventilation system fast",
+        "We're not sure of the cause, but it's a serious fire and the centre's packed",
+        "It started in one area but the smoke's now affecting most of the mall",
+        "A fire's broken out somewhere in the centre and it's causing mass panic",
+        "It's spread quickly through the concourse, there's a real crush at the exits",
+        "We think it started near one of the shop units, smoke's everywhere now"
       ],
       "diagnostic": true
     },
     "conscious": {
       "answers": [
-        "Yes, she's conscious but shaken"
+        "Yes, {{he}}'s conscious, just really struggling to breathe",
+        "{{He}}'s awake, coughing badly from the smoke",
+        "Conscious, yes, but very shaken from being caught in the crowd",
+        "{{He}}'s conscious, we've got {{him}} sat down away from the smoke",
+        "Yes, {{he}}'s conscious, just very frightened and short of breath",
+        "{{He}}'s awake and talking, struggling with the smoke though",
+        "Conscious, yes, {{he}}'s just finding it hard to catch {{his}} breath",
+        "{{He}}'s conscious, we're keeping {{him}} calm and still",
+        "Yes, {{he}}'s conscious, {{he}} just can't stop coughing",
+        "{{He}}'s conscious, but really shaken up by the crush at the doors"
       ],
       "diagnostic": true
     },
     "breathing": {
       "answers": [
-        "She's breathing okay, just winded"
+        "{{He}}'s struggling badly, the smoke was really thick near the food court",
+        "Not great, {{he}}'s coughing constantly and finding it hard to talk",
+        "{{He}}'s wheezing, got caught in the smoke before getting to the exit",
+        "Breathing's difficult, {{he}} was in there a while before we got {{him}} out",
+        "{{He}}'s having real trouble catching {{his}} breath",
+        "Not good, {{he}}'s coughing badly and struggling for air",
+        "{{He}}'s struggling for breath, we've moved {{him}} well away from the smoke now",
+        "Breathing's laboured, {{he}} inhaled a fair bit of smoke",
+        "{{He}}'s coughing a lot, but we've got {{him}} in fresh air now",
+        "{{He}}'s finding it hard to breathe, we're keeping {{him}} sat upright"
       ],
       "diagnostic": true
     },
     "pain": {
       "answers": [
-        "She says her hip hurts where she fell"
+        "{{He}} says {{his}} chest feels tight from the smoke",
+        "Yes, {{he}}'s complaining of chest pain, could be from the smoke",
+        "{{He}}'s got a sore chest and throat from all the coughing",
+        "{{He}} says it hurts to breathe in deeply",
+        "Yes, some chest discomfort, {{he}} thinks it's the smoke",
+        "{{He}}'s in some pain, mostly {{his}} chest and throat",
+        "{{He}} says {{his}} chest is tight and sore",
+        "Yes, {{he}}'s uncomfortable, worried about the chest pain",
+        "{{He}}'s got some chest pain, we're watching {{him}} closely",
+        "{{He}} says it's a tight feeling in {{his}} chest when {{he}} breathes"
       ],
       "diagnostic": true
     },
     "bleeding": {
       "answers": [
-        "A small cut to her hand, not too bad"
+        "No bleeding, it's the smoke and the crush that's affected {{him}}",
+        "No, nothing's bleeding, {{he}}'s just struggling to breathe",
+        "No bleeding at all, {{he}}'s got a few bruises from the crowd though",
+        "No, {{he}} hasn't cut {{himself}}, breathing's the main worry",
+        "No bleeding to report, mostly it's the smoke that's the issue",
+        "No, nothing like that, just shaken from the crush and the smoke",
+        "No bleeding, {{he}}'s not physically hurt, just struggling for breath",
+        "No, {{he}}'s not cut, though {{he}} was knocked about a bit in the crowd",
+        "No bleeding at all, it's purely the smoke that's affected {{him}}",
+        "No, there's no bleeding, breathing's the real concern here"
       ],
       "diagnostic": true
     },
     "medicalHistory": {
       "answers": [
-        "She's mentioned she's got a hip replacement already"
+        "I don't know {{him}}, {{he}}'s just a shopper, sorry",
+        "No idea, sorry, we're complete strangers",
+        "I couldn't tell you, {{he}}'s not someone I know",
+        "Sorry, no idea, {{he}} was just here shopping like everyone else",
+        "I don't know {{him}} at all, sorry",
+        "No idea about that, sorry, we've never met",
+        "I can't help with that, sorry, {{he}}'s a stranger to me",
+        "Sorry, I don't know {{his}} history, we just met in the crush",
+        "No idea, sorry, {{he}}'s not someone I know personally",
+        "I couldn't say, sorry, {{he}}'s just another customer"
       ]
     },
     "medications": {
       "answers": [
-        "She says she takes blood pressure tablets"
+        "No idea, sorry, I don't know {{him}} at all",
+        "I couldn't tell you, sorry, we're strangers",
+        "No idea about medications, sorry",
+        "Sorry, I can't help, {{he}}'s not someone I know",
+        "No idea, sorry, we only just met in the evacuation",
+        "I don't know, sorry, {{he}}'s a complete stranger to me",
+        "Sorry, no idea what {{he}} takes",
+        "No idea, sorry, I can't help with that",
+        "I couldn't say, sorry, we've never met before today",
+        "No idea, sorry, {{he}}'s just a shopper caught up in this"
       ]
     },
     "patientAge": {
       "answers": [
-        "She's in her seventies"
+        "{{He}}'s maybe in {{his}} thirties, I'd guess",
+        "I'd say {{he}}'s around thirty five, but I couldn't be certain",
+        "Adult, thirties maybe, hard to say exactly",
+        "{{He}} looks to be in {{his}} thirties",
+        "I couldn't say exactly, maybe mid thirties",
+        "{{He}}'s an adult, I'd guess thirties",
+        "Hard to say, {{he}} looks around thirty five to me",
+        "{{He}}'s maybe thirty, I'm only guessing though",
+        "I'd guess {{he}}'s in {{his}} thirties, but I really don't know",
+        "Maybe thirty odd, I couldn't say for certain"
       ]
     },
     "reassure": {
       "answers": [
-        "Okay, we're marshalling everyone at the assembly points",
-        "Please hurry, it's a busy Saturday, there's hundreds of people in here"
+        "Okay, we've got {{him}} sat down away from the smoke now",
+        "Please hurry, it's really chaotic in here",
+        "Right, I'm keeping {{him}} calm and talking to {{him}}",
+        "Okay, we've moved everyone we can out to the car park",
+        "Understood, I'll stay with {{him}} until you arrive",
+        "Alright, we're doing our best to keep people calm out here",
+        "Okay, I'll keep {{him}} still and reassured until help gets here",
+        "Right, security are helping manage the crowd at the doors",
+        "Understood, I'm watching {{him}} closely until the crew arrives",
+        "Okay, we're gathering everyone in the car park to wait for you"
       ]
     },
     "refer111": {
       "answers": [
-        "No, we need an ambulance too, someone's been hurt in the crush getting out"
+        "No, we need the fire brigade and ambulances, this is a major fire",
+        "No thank you, this needs emergency crews here right now",
+        "No, {{he}} can't breathe properly, this needs paramedics urgently",
+        "No, this is far too serious for anything other than a full response",
+        "No, please, there's still people trying to get out of the centre",
+        "No, this isn't something 111 can help with, we need crews here",
+        "No, we need fire and ambulance crews, this is urgent",
+        "No, please hurry, {{he}}'s in a bad way with the smoke",
+        "No, this needs a proper emergency response, it's a major incident",
+        "No, please send help, we can't manage this many people ourselves"
+      ]
+    },
+    "policeComing": {
+      "answers": [
+        "Good, we really need them, there's a crush at the doors right now",
+        "Yes please, it's chaos in here, we need help managing the crowd",
+        "That's good, someone needs to control the exits, it's dangerous out here",
+        "Thank you, they can help stop people trying to go back inside",
+        "Okay, that's helpful, we've got a huge crowd building outside",
+        "Yes, we need them for crowd control, it's getting worse by the minute",
+        "Good, they can help keep the car park clear for the ambulances",
+        "Thank you, we desperately need help managing this many people",
+        "Okay, that makes sense, there's hundreds of people out here",
+        "Yes please, this is a major incident, we need every bit of help"
+      ]
+    },
+    "fireComing": {
+      "answers": [
+        "Thank you, please hurry, there's still people trying to get out",
+        "Okay, we're doing everything we can to keep people calm until they arrive",
+        "Thank god, how long roughly until they get here",
+        "Right, I'll keep directing people to the exits until the crew arrives",
+        "Okay, we're gathering everyone in the car park, waiting for you",
+        "Thank you, please send everyone you can, it's spreading fast",
+        "Understood, I'll stay with {{him}} until the crews get here",
+        "Okay, we're keeping {{him}} away from the smoke until you arrive",
+        "Thank you, please hurry, it's still really chaotic in here",
+        "Right, I'll wave the crews in when I see them coming"
       ]
     }
   },
