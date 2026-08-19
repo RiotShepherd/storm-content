@@ -1,0 +1,227 @@
+{
+  "id": "police_fans_fight_at_volleyball_match",
+  "name": "Fans fight at volleyball match",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 160,
+  "description": "Fans fight at volleyball match",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 6,
+    "ambulance": 1,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      4,
+      8
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "crowd disorder",
+    "multiple casualties",
+    "confined hall"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police and ambulance please, there's a fight broken out among the crowd at the volleyball match",
+      "Help, spectators are fighting in the stands, some people are hurt",
+      "Please hurry, it's kicked off badly at the sports hall, people are down"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police and ambulance please, there's a fight broken out among the crowd at the volleyball match",
+        "Help, spectators are fighting in the stands, some people are hurt",
+        "Please hurry, it's kicked off badly at the sports hall, people are down"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm event staff here",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "One's called {{firstPatientName}}, a spectator",
+        "I don't know most names, {{firstPatientName}}'s one of the injured"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the sports hall, near the main entrance stand",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Two groups of supporters clashed after the match ended, it's turned violent",
+        "It's been going a couple of minutes, chairs have been knocked over onto people",
+        "Several fans are down, the crowd's still pushing around them"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious, a couple are dazed on the floor",
+        "They're awake but shaken"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing seems fine for those I can check",
+        "Seems okay so far"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Several are in pain from being crushed or hit",
+        "A few holding their ribs and arms"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "One's got a cut to the head, bleeding",
+        "A little bleeding among a couple of them"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, just spectators",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Couldn't say",
+        "No idea"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, mostly adults"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're clearing space around the injured",
+        "Please hurry, it's still tense in here"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need police and ambulance now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, disturbance confirmed, {{patients}} casualties being triaged"
+    ],
+    "update": [
+      "Crowd separated, casualties assessed",
+      "Prisoners detained, hall being cleared"
+    ],
+    "stop": [
+      "{{unit}} clear, scene secured, casualties conveyed as required"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_845"
+  ],
+  "notes": "Generated from MissionChief UK mission 845 (Fans fight at volleyball match). Buildings: 6 Police Stations, 3 Rescue Stations, 1 Riot Police Extension. Vehicles: 2 Police Cars or ARVs, 4 Police Cars, 1 Ambulance. Personnel: none. Patients: min 4, max 8, 30% require transport, General Internal, code C-3. Prisoners: max 20. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "id": "fire_smell_of_burning_residential",
+  "name": "Smell of burning (Residential)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Smell of burning (Residential)",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "unknown source"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade, I can smell burning in the house but I can't find where it's coming from.",
+      "There's a smell of burning in the flat, no smoke that I can see, but it's getting stronger."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade, I can smell burning in the house but I can't find where it's coming from.",
+        "There's a smell of burning in the flat, no smoke that I can see, but it's getting stronger."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "{{callerName}}, I'm ringing about it now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's nobody hurt, it's just the smell of burning (residential)."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I've been smelling burning for a while now, checked the kitchen and it's not the oven, I'm a bit worried.",
+        "The smell's coming from somewhere upstairs, I can't see any smoke but it's definitely burning."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, I've come outside while you check."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Nobody's been near enough to breathe any of it in."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, nobody's hurt at all."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, there's no injuries, nobody's been near it."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient, so I can't help with that."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, there's nobody hurt to ask."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Nobody's been hurt, so there's no patient."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, investigating smell of burning."
+    ],
+    "update": [
+      "{{unit}} source located, isolating electrics."
+    ],
+    "stop": [
+      "{{unit}} stopped, no fire found, property made safe."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_388"
+  ],
+  "notes": "Generated from MissionChief UK mission 388 (Smell of burning (Residential)). Buildings: 2 Fire Stations. Vehicles: 2 Fire engines. Personnel: none. Patients: none. Prisoners: none. Escalation: expands to House fire, House fire (Persons Reported), Flat Fire in Sheltered Housing, Flat Fire in Sheltered Housing (Persons Reported), Thatched cottage fire, Thatched Cottage Chimney Fire. POI: none."
+}

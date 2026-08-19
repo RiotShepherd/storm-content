@@ -1,0 +1,196 @@
+{
+  "id": "police_large_public_disturbance",
+  "name": "Large public disturbance",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "Large public disturbance",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 12,
+    "dog_unit": 2,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "large scale disorder",
+    "thrown objects",
+    "risk to public safety"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a huge disturbance in the town centre, hundreds of people",
+      "I need urgent help, a large crowd's turned violent in the square",
+      "There's a massive disorder going on, it's completely out of control"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a huge disturbance in the town centre, hundreds of people",
+        "I need urgent help, a large crowd's turned violent in the square",
+        "There's a massive disorder going on, it's completely out of control"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm stuck near the edge of it",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them, it's a huge crowd",
+        "No idea, there's too many people"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the whole square",
+        "It's centred around {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "What started as a small argument has turned into a huge crowd fighting and throwing things",
+        "It's been escalating for the last ten minutes, more people keep joining",
+        "There's bottles being thrown and shop windows getting smashed"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most seem conscious, but it's hard to see everyone in the chaos",
+        "Can't tell everyone's condition, it's mayhem"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Can't tell from here, it's too chaotic",
+        "No idea, I can't see clearly"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Some people look hurt but I can't get close enough to check",
+        "Hard to say from where I am"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I've seen a couple of people with blood on them",
+        "Some injuries visible from a distance"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All sorts, mixed ages in the crowd"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm trying to get somewhere safe",
+        "Please hurry, this is getting really dangerous"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police urgently, this is a major disturbance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, disorder confirmed, containment being established"
+    ],
+    "update": [
+      "Crowd being dispersed, prisoners detained",
+      "Area being cleared, businesses secured"
+    ],
+    "stop": [
+      "{{unit}} clear, area under control"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_198"
+  ],
+  "notes": "Generated from MissionChief UK mission 198 (Large public disturbance). Buildings: 12 Police Stations, 1 Riot Police Extension. Vehicles: 12 Police Cars, 2 DSUs. Personnel: none. Patients: none. Prisoners: max 8. Escalation: none. POI: none."
+}

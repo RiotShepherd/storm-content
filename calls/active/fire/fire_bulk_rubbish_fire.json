@@ -1,0 +1,176 @@
+{
+  "id": "fire_bulk_rubbish_fire",
+  "name": "Bulk rubbish fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 22,
+  "description": "Bulk rubbish fire",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 4,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "heavy smoke",
+    "possible fly tipped chemicals",
+    "fire spreading to nearby buildings"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a big pile of rubbish on fire behind the shops, smoke's going everywhere",
+      "I need the fire brigade, a rubbish tip's caught fire and it's spreading"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a big pile of rubbish on fire behind the shops, smoke's going everywhere",
+        "I need the fire brigade, a rubbish tip's caught fire and it's spreading"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm above the shops"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, it's just rubbish"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, round the back of the parade"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Someone's set light to the rubbish pile out the back, it's well alight and smoking badly"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, no one's near it"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, just heavy smoke"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's been near it"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've shut my windows against the smoke"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire not a medical call"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, large rubbish fire, smoke affecting nearby properties, no persons involved"
+    ],
+    "update": [
+      "{{unit}} damping down, protecting adjacent buildings from spread"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire extinguished"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_8"
+  ],
+  "notes": "Generated from MissionChief UK mission 8 (Bulk rubbish fire). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: expands to Basement fire, Roof fire, Garden shed fire; follow ups Burning leaves, Roof fire. POI: none."
+}

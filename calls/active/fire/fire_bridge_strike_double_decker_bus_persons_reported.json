@@ -1,0 +1,243 @@
+{
+  "id": "fire_bridge_strike_double_decker_bus_persons_reported",
+  "name": "Bridge Strike (Double Decker Bus) (Persons reported)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 800,
+  "description": "Bridge Strike (Double Decker Bus) (Persons reported)",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "rescue_unit": 1,
+    "irv": 6,
+    "traffic_car": 2,
+    "fire_officer": 4
+  },
+  "patients": {
+    "range": [
+      1,
+      40
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "structural damage to bus",
+    "casualties trapped",
+    "live traffic",
+    "crowd gathering"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 6",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "A double decker bus has hit the low bridge, the top's been ripped off, there's people hurt on top",
+      "I need the fire brigade, a bus has struck the bridge, there's loads of casualties up top",
+      "Emergency, the bus has gone into the bridge, people are screaming, some aren't moving"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A double decker bus has hit the low bridge, the top's been ripped off, there's people hurt on top",
+        "I need the fire brigade, a bus has struck the bridge, there's loads of casualties up top",
+        "Emergency, the bus has gone into the bridge, people are screaming, some aren't moving"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was walking underneath when it happened"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's loads of them, I can't tell you names, some are still on the top deck"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, right under the railway bridge"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The bus has hit the low bridge, the whole top deck's been torn open, there's people hurt up there"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are moving and shouting, but a few aren't responding at all"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A couple aren't breathing right, there's people trying to help them"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Loads of them are in pain, screaming about their necks and backs"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's blood, quite a few cuts from the glass and metal"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've no idea, there's too many of them, I don't know any of them"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I can't tell you that, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All sorts, adults mostly, I think I saw a couple of teenagers too"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, people are trying to keep the injured still"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a major incident, we need everyone you can send"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, double decker struck bridge, top deck destroyed, multiple casualties, declaring major incident"
+    ],
+    "update": [
+      "{{unit}} confirms {{patients}} casualties being triaged, extrication ongoing for trapped passengers",
+      "{{unit}} requesting further ambulance resources, casualty clearing station being set up"
+    ],
+    "stop": [
+      "{{unit}} stood down, all casualties extricated and handed to ambulance service"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_451"
+  ],
+  "notes": "Generated from MissionChief UK mission 451 (Bridge Strike (Double Decker Bus) (Persons reported)). Buildings: 12 Fire Stations, 16 Rescue Stations, 8 Police Stations. Vehicles: 4 Fire engines, 1 Rescue Support Vehicle, 6 Police Cars, 2 Traffic Cars (only when available). Personnel: 4 Fire Officers. Patients: min 1, max 40, 50% require transport, Traumatology, codes C-1, C-2, C-3. Prisoners: none. Escalation: none. POI: Low Bridge.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

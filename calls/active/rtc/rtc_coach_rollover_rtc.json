@@ -1,0 +1,245 @@
+{
+  "id": "rtc_coach_rollover_rtc",
+  "name": "Coach rollover RTC",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1000,
+  "description": "Coach rollover RTC",
+  "keywords": {
+    "correct": [
+      "rtc_injury"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "rescue_unit": 2,
+    "irv": 6,
+    "fire_officer": 6
+  },
+  "patients": {
+    "range": [
+      20,
+      40
+    ],
+    "rrvChance": 50,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway",
+    "vehicle unstable",
+    "multiple casualties"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 40,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A coach has rolled over on the road, there's people trapped inside and lots of casualties!",
+      "Emergency, a coach has overturned, passengers are trapped and there's people hurt everywhere."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A coach has rolled over on the road, there's people trapped inside and lots of casualties!",
+        "Emergency, a coach has overturned, passengers are trapped and there's people hurt everywhere."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was behind the coach.",
+        "{{callerName}}, I pulled over as soon as it happened."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them, there's a lot of passengers.",
+        "I can't say, there's too many people involved."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, the coach is on its side across the road."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The coach seemed to lose control and rolled onto its side, passengers are trapped inside.",
+        "It went over on the bend, there's people trying to climb out of the windows."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are climbing out themselves, others aren't moving.",
+        "A lot are shouting, but I can see some not responding."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell for everyone, it's chaos.",
+        "Some are, I can hear coughing and crying."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "People are shouting they're trapped and in pain.",
+        "Lots of screaming about broken bones."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, I can see blood on several passengers.",
+        "Yes, quite a few are bleeding badly."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them.",
+        "No idea, there's too many people."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no idea, sorry.",
+        "I can't tell you."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, it looked like a day trip group.",
+        "Mixed, mostly older passengers I think."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm helping who I can from outside.",
+        "Please hurry, there's still people trapped in there."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Are you serious, a coach has rolled over with people trapped inside!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties assessed, triage underway"
+    ],
+    "update": [
+      "{{unit}} extracting passengers, ambulances requested",
+      "{{unit}} stabilising the coach before extraction continues"
+    ],
+    "stop": [
+      "{{unit}} clear, all casualties transported"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_373"
+  ],
+  "notes": "Generated from MissionChief UK mission 373 (Coach rollover RTC). Buildings: 6 Fire Stations, 20 Rescue Stations, 6 Police Stations. Vehicles: 4 Fire engines, 2 Rescue Support Vehicles, 6 Police Cars. Personnel: 6 Fire Officers. Patients: min 20, max 40, 40% require transport, Traumatology, codes C-1, C-2, C-3, C-4, 40% critical care. Prisoners: none. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

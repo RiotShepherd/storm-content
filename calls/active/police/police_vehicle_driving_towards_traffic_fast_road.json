@@ -1,0 +1,191 @@
+{
+  "id": "police_vehicle_driving_towards_traffic_fast_road",
+  "name": "Vehicle driving towards traffic (fast road)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 130,
+  "description": "Vehicle driving towards traffic (fast road)",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "motorway",
+    "a_road"
+  ],
+  "units": {
+    "irv": 6,
+    "traffic_car": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "wrong way vehicle",
+    "live traffic",
+    "high speed road"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 20,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a car coming the wrong way down the motorway, straight at us!",
+      "Police, quick, there's a driver going the wrong way on the dual carriageway, head on into traffic!"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a car coming the wrong way down the motorway, straight at us!",
+        "Police, quick, there's a driver going the wrong way on the dual carriageway, head on into traffic!"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm still driving, hands free.",
+        "{{callerName}}, I had to pull onto the hard shoulder."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know, I haven't seen the driver up close.",
+        "No idea, they just went straight past me."
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm on {{address}}, heading northbound.",
+        "{{address}}, near the last junction, it's still coming this way."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's a car coming the wrong way down the carriageway, everyone's swerving to avoid it.",
+        "An old silver car just came straight at us on the wrong side, I don't know if the driver's had a funny turn."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I don't know, I've not been able to get near it.",
+        "He seemed to slump at the wheel just before he swerved."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell from here, I've not got close.",
+        "I don't know, sorry, it's still moving."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I've no idea, I haven't spoken to him.",
+        "Can't say, I've kept my distance."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I can't see, sorry.",
+        "I don't know, I haven't got near the car."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No idea, I don't know the driver.",
+        "I've never seen them before."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry.",
+        "I couldn't tell you."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looked like an older man, maybe seventies.",
+        "Hard to say, it went past fast, maybe middle aged."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay clear on the hard shoulder.",
+        "Understood, I'll keep flashing my lights to warn others."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police now, someone's going to get killed!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, vehicle located, lanes being closed"
+    ],
+    "update": [
+      "{{unit}} still tracking the vehicle, traffic being held back",
+      "{{patients}} casualties reported, {{unit}} assessing"
+    ],
+    "stop": [
+      "{{unit}} clear, vehicle stopped safely"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_454"
+  ],
+  "notes": "Generated from MissionChief UK mission 454 (Vehicle driving towards traffic (fast road)). Buildings: 5 Police Stations, 1 Rescue Station. Vehicles: 6 Police Cars or ARVs, 2 Traffic Cars (only when available). Personnel: none. Patients: max 1, 20% require transport, General Internal, codes C-2, C-3. Prisoners: max 1. Escalation: none. POI: Major Road Standby Point."
+}

@@ -1,0 +1,245 @@
+{
+  "id": "fire_fire_in_multi_storey_car_park_major_incident",
+  "name": "Fire in multi-storey car park (Major Incident)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 2500,
+  "description": "Fire in multi-storey car park (Major Incident)",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 8,
+    "single_pump": 7,
+    "aerial": 2,
+    "rescue_unit": 2,
+    "water_carrier": 3,
+    "irv": 6,
+    "hazmat_unit": 1,
+    "iccu": 1,
+    "basu": 1,
+    "fire_officer": 8
+  },
+  "patients": {
+    "range": [
+      0,
+      12
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "exploding car tyres and fuel tanks",
+    "smoke logging within structure",
+    "structural concerns",
+    "persons possibly trapped"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 10,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 17",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Major fire in the multi-storey car park, cars are exploding and people are trapped on the upper levels",
+      "Fire brigade, the car park's on fire, it's spread across several levels, please send everyone"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Major fire in the multi-storey car park, cars are exploding and people are trapped on the upper levels",
+        "Fire brigade, the car park's on fire, it's spread across several levels, please send everyone"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was parking up when it started"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know who, but there's people trapped up on the higher levels, I can hear them"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the multi-storey car park, use the pedestrian entrance",
+        "It's {{address}}, the car park by the shopping centre"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A car caught fire on one of the middle levels and it's spread to other vehicles, there's a lot of smoke trapped inside the structure"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I believe so, I can hear shouting"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Can't tell from down here, but the smoke's thick where they are"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I don't know, I can't see them properly"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No idea, sorry, I can't get close enough to see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've no idea who they are"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Sorry, I can't help with that"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Can't say, I just heard voices"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm well away from the building now",
+        "Please hurry, I can hear people shouting from inside"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a major fire with people possibly trapped, we need the fire brigade now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, multiple vehicles well alight, structure smoke logged, {{patients}} casualties"
+    ],
+    "update": [
+      "Crews searching upper levels in breathing apparatus, fire spreading between vehicles"
+    ],
+    "stop": [
+      "Fire extinguished, structure checked and confirmed clear, {{unit}} damping down"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_450"
+  ],
+  "notes": "Generated from MissionChief UK mission 450 (Fire in multi-storey car park (Major Incident)). Buildings: 30 Fire Stations, 5 Rescue Stations, 10 Police Stations. Vehicles: 15 Fire engines, 2 Aerial Appliance Trucks, 2 Rescue Support Vehicles, 3 Water Carriers, 6 Police Cars, 1 HazMat Unit or CBRN Vehicle, 1 ICCU or ACU, 1 BASU. Personnel: 8 Fire Officers, 45 to 135 Firefighters. Patients: max 12, 10% require transport, General Internal, codes C-1, C-2, C-3. Prisoners: none. Escalation: none. POI: Multi-Storey Car Park.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

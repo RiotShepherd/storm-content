@@ -1,0 +1,181 @@
+{
+  "id": "medical_non_injury_fall",
+  "name": "Non Injury Fall",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 70,
+  "description": "Non Injury Fall",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My mum's had a fall, she doesn't think she's hurt but she can't get up",
+      "It's not really an emergency, my mum's on the floor and needs a hand getting up"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My mum's had a fall, she doesn't think she's hurt but she can't get up",
+        "It's not really an emergency, my mum's on the floor and needs a hand getting up"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, her daughter",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, my mum",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, the door's on the latch"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She slipped getting out of the chair, she's on the floor but says nothing hurts"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's alert and chatting"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says she's fine, just shaken"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Arthritis, that's about it"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Just her arthritis tablets"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "84"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep her comfortable on the floor"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Actually that might be right, she says she's not hurt, just stuck"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient found on the floor, assessing"
+    ],
+    "update": [
+      "No apparent injury found, obs stable"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient assisted up, no transport required"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_361"
+  ],
+  "notes": "Generated from MissionChief UK mission 361 (Non Injury Fall). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 0% require transport, Traumatology, code C-3. Prisoners: none. Escalation: none. POI: none."
+}

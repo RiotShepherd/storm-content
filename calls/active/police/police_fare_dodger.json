@@ -1,0 +1,186 @@
+{
+  "id": "police_fare_dodger",
+  "name": "Fare dodger",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 4,
+  "responseMinutes": 90,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 52,
+  "description": "Fare dodger",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "bus_station",
+    "high_street",
+    "tram_stop",
+    "train_station",
+    "industrial_estate"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a passenger who's refusing to pay and getting aggressive with staff",
+      "I need to report a fare dodger, he's jumped the barrier and won't stop",
+      "There's someone who's dodged the fare and is causing trouble at the station"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a passenger who's refusing to pay and getting aggressive with staff",
+        "I need to report a fare dodger, he's jumped the barrier and won't stop",
+        "There's someone who's dodged the fare and is causing trouble at the station"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I work at the station",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, never seen him before",
+        "No idea who he is"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the station platform",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He vaulted the barrier without a ticket and when I challenged him he got abusive",
+        "It happened a couple of minutes ago, he's refusing to leave",
+        "He's done a runner from three different staff already this week"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, he's just being difficult",
+        "No injuries"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No idea, don't know him",
+        "Couldn't say"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about twenty five"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm keeping my distance from him",
+        "Thank you, he's still shouting"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police, not 111"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, male located and spoken to"
+    ],
+    "update": [
+      "Male details taken, fare evasion confirmed"
+    ],
+    "stop": [
+      "{{unit}} clear, male dealt with"
+    ]
+  },
+  "tags": [
+    "police",
+    "railway_police",
+    "mc_50"
+  ],
+  "notes": "Generated from MissionChief UK mission 50 (Fare dodger). Buildings: 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: Bus stop, Tram stop, Train station (regional), Train station (regional and long distance), Goods station."
+}

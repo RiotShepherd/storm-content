@@ -1,0 +1,195 @@
+{
+  "id": "rtc_car_into_telegraph_pole",
+  "name": "Car into telegraph pole",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 200,
+  "description": "Car into telegraph pole",
+  "keywords": {
+    "correct": [
+      "rtc_injury"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "irv": 2,
+    "traffic_car": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      2
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway",
+    "damaged pole, cables may be down"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 40,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a crash, a car's gone straight into a telegraph pole.",
+      "Ambulance please, a car's hit a pole at speed, it's a real mess."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a crash, a car's gone straight into a telegraph pole.",
+        "Ambulance please, a car's hit a pole at speed, it's a real mess."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I saw it happen.",
+        "{{callerName}}, I was driving behind them."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, I've just stopped to help.",
+        "She told me her name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}, right by the pole.",
+        "{{address}}, you can't miss the car, it's wrapped round the pole."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The car's come off the road and hit the telegraph pole head on.",
+        "He lost control and went straight into the pole, it's snapped right over."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's awake but confused.",
+        "She's talking to me but she's very dazed."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but quite fast.",
+        "Yes, she's breathing okay."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his chest hurts where the belt caught him.",
+        "She's saying her neck and shoulder hurt."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's blood on his face from the windscreen.",
+        "A cut on her head, bleeding a bit."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry.",
+        "No idea, I don't know him."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, I don't know them.",
+        "I couldn't say."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like he's in his twenties.",
+        "She's maybe forty."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're staying with them until you arrive.",
+        "Please hurry, the pole looks like it could come down further."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, someone's hurt and trapped in a car, we need help now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties assessed"
+    ],
+    "update": [
+      "{{unit}} treating casualties, road partially blocked"
+    ],
+    "stop": [
+      "{{unit}} clear, casualties transported"
+    ]
+  },
+  "tags": [
+    "police",
+    "recovery_vehicle",
+    "mc_776"
+  ],
+  "notes": "Generated from MissionChief UK mission 776 (Car into telegraph pole). Buildings: 2 Fire Stations, 3 Police Stations, 1 Recovery Centre, 1 Rescue Station. Vehicles: 2 Police Cars, 1 Traffic Car. Personnel: none. Patients: max 2, 40% require transport, General Internal, codes C-2, C-3. Prisoners: max 1. Escalation: RTC Car into telegraph pole (entrapment). POI: none."
+}

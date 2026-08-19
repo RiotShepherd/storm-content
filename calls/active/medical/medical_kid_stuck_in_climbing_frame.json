@@ -1,0 +1,198 @@
+{
+  "id": "medical_kid_stuck_in_climbing_frame",
+  "name": "Kid stuck in Climbing Frame",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 142,
+  "description": "Kid stuck in Climbing Frame",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 4,
+  "locationTypes": [
+    "school"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "rescue_unit": 1,
+    "irv": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "child trapped",
+    "playground equipment"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 20,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A child's got his leg stuck in the climbing frame at school, he's really upset",
+      "I need help, one of our pupils is trapped in the play equipment and can't get free"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A child's got his leg stuck in the climbing frame at school, he's really upset",
+        "I need help, one of our pupils is trapped in the play equipment and can't get free"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I teach his class",
+        "{{callerName}}, playground supervisor"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, one of our pupils",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the primary school",
+        "{{address}}, come to the playground gate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was climbing and his leg's gone through the bars, we can't get him free"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's crying but talking"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his leg hurts where it's trapped"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A small graze, nothing major"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "None that we know of, I'll check with the office"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None that we know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "7"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've got a member of staff with him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need someone to free him, please hurry"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, child trapped in climbing frame, reassuring casualty"
+    ],
+    "update": [
+      "Fire crew working to free casualty safely"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient freed and assessed, no transport required"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_642"
+  ],
+  "notes": "Generated from MissionChief UK mission 642 (Kid stuck in Climbing Frame). Buildings: 6 Fire Stations, 1 Police Station, 1 Rescue Station. Vehicles: 1 Fire engine, 1 Rescue Support Vehicle (20% probability), 1 Police Car. Personnel: 1 Fire Officer. Patients: max 1, min 1, 20% require transport, General Surgeon, codes C-1, C-2, C-3. Prisoners: none. Escalation: none. POI: School."
+}

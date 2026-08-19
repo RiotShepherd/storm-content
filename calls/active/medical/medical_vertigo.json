@@ -1,0 +1,193 @@
+{
+  "id": "medical_vertigo",
+  "name": "Vertigo",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 78,
+  "description": "Vertigo",
+  "keywords": {
+    "correct": [
+      "r0_minor"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance please, it's my mum, she says the room's spinning and she can't stand up",
+      "I need an ambulance, my mum's gone really dizzy all of a sudden",
+      "Please hurry, mum's saying everything's spinning, she's frightened"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance please, it's my mum, she says the room's spinning and she can't stand up",
+        "I need an ambulance, my mum's gone really dizzy all of a sudden",
+        "Please hurry, mum's saying everything's spinning, she's frightened"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm mum's daughter",
+        "{{callerName}}, I live just round the corner from her"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, she's here on the sofa with me",
+        "{{firstPatientName}}, she's my mum"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the front door's on the latch",
+        "We're at {{address}}, I'll watch for you",
+        "{{address}}, second floor flat"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She stood up to make a cup of tea and the room started spinning, she had to grab the wall",
+        "It came on about twenty minutes ago, she says everything's whirling round",
+        "She's had vertigo before but never this bad"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's talking to me but she's very unsteady",
+        "She's awake, lying still because moving makes it worse"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine, just the dizziness",
+        "Normal breathing, no problem there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, just the spinning and she feels sick",
+        "A bit of a headache but no real pain"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding at all",
+        "None, no injury"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's had labyrinthitis before",
+        "High blood pressure, nothing else that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She takes tablets for her blood pressure, I've got the box here",
+        "Just some tablets for her ears, I can't remember the name"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "68"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep her sitting still and stay on the phone",
+        "Thank you, please hurry, she's really scared"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I don't think she can wait that long, she can barely move",
+        "Alright, if you really think that's safer"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualty with vertigo symptoms, assessing"
+    ],
+    "update": [
+      "Patient conscious and responsive, vertigo symptoms ongoing, observations being taken"
+    ],
+    "stop": [
+      "{{unit}} clear, patient assessed on scene"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_571"
+  ],
+  "notes": "Generated from MissionChief UK mission 571 (Vertigo). Buildings: 2 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, General Internal, code C-3. Prisoners: none. Escalation: none. POI: none."
+}

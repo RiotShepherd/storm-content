@@ -1,0 +1,221 @@
+{
+  "id": "fire_flat_fire_in_sheltered_housing_persons_reported",
+  "name": "Flat Fire in Sheltered Housing (Persons Reported)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 350,
+  "description": "Flat Fire in Sheltered Housing (Persons Reported)",
+  "keywords": {
+    "correct": [
+      "f2y"
+    ],
+    "acceptable": [
+      "f2",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "flats",
+    "house"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "limited mobility resident",
+    "smoke logging",
+    "vulnerable person unable to self evacuate"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 70,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 40,
+      "afterSeconds": [
+        180,
+        420
+      ],
+      "message": "Crews report persons suffering smoke inhalation, up to 3 casualties",
+      "addUnits": {},
+      "addPatients": [
+        1,
+        3
+      ]
+    },
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 6",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Fire brigade please, one of our residents is still in her flat and there's smoke coming from under the door",
+      "Please hurry, it's sheltered housing, an elderly resident's trapped by smoke"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, one of our residents is still in her flat and there's smoke coming from under the door",
+        "Please hurry, it's sheltered housing, an elderly resident's trapped by smoke"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the on duty warden"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, she's one of our residents"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the sheltered housing scheme, main entrance",
+        "It's {{address}}, I'll let you straight in"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Smoke's coming from Mrs {{callerName}}'s neighbour's flat, sorry, from a resident's flat, and she's not answering when we knock, she doesn't move well"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "She was calling out earlier, I'm not sure now"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "She sounded like she was coughing a lot"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I don't know, I couldn't get close enough to ask"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Not that I'm aware of"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's got COPD, it's on her file"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She uses inhalers, I know that much"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "She's in her eighties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying by the door but not going in",
+        "Please hurry, she uses a frame, she can't get out quick"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a fire with a resident trapped, we need the fire brigade now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, flat fire, persons reported, {{patients}} casualties, search and rescue in progress"
+    ],
+    "update": [
+      "Crews located resident, treating for smoke inhalation before extraction"
+    ],
+    "stop": [
+      "Casualty handed to ambulance crew, fire extinguished, {{unit}} ventilating"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_276"
+  ],
+  "notes": "Generated from MissionChief UK mission 276 (Flat Fire in Sheltered Housing (Persons Reported)). Buildings: 8 Fire Stations, 1 Rescue Station. Vehicles: 4 Fire engines. Personnel: 2 Fire Officers, 9 to 27 Firefighters. Patients: max 1, min 1, 70% require transport, General Surgeon, code C-2, 10% critical care. Prisoners: none. Escalation: 3x Smoke Inhalation follow up. POI: Sheltered housing scheme."
+}

@@ -1,0 +1,234 @@
+{
+  "id": "hazmat_odour_of_chemicals",
+  "name": "Odour of chemicals",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 400,
+  "description": "Odour of chemicals",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "hazmat_unit": 1,
+    "fire_officer": 3,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      14
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "unknown chemical odour",
+    "possible toxic fumes",
+    "multiple casualties"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a horrible chemical smell across the industrial estate, people are feeling unwell",
+      "I don't know what it is but there's a strong odour and a few of us feel dizzy"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a horrible chemical smell across the industrial estate, people are feeling unwell",
+        "I don't know what it is but there's a strong odour and a few of us feel dizzy"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I work on the estate"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "A few of us are affected, {{firstPatientName}}'s feeling the worst",
+        "{{firstPatientName}} came over dizzy first"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's at {{address}}, on the industrial estate",
+        "{{address}}, near the units on the east side"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's a strong chemical smell drifting across the estate and a few people have gone dizzy and started coughing",
+        "Nobody knows where it's coming from, but it's making people feel unwell"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, everyone's awake",
+        "{{firstPatientName}}'s awake but feels faint"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A couple are coughing and a bit short of breath",
+        "Mostly okay, some coughing"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Headaches and sore throats mainly",
+        "{{firstPatientName}} has a bad headache"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of",
+        "I don't know everyone's history"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not that I'm aware of",
+        "I don't know"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mostly working age adults",
+        "All adults, staff on the estate"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're moving everyone away from the smell",
+        "Right, we've gone upwind of it"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, more people keep feeling unwell, we need help here",
+        "This is getting worse, not better"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, unidentified chemical odour, {{patients}} casualties reporting symptoms"
+    ],
+    "update": [
+      "{{unit}} identifying source and monitoring air quality",
+      "Casualties being assessed and moved upwind"
+    ],
+    "stop": [
+      "{{unit}} stood down, source identified and made safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_394"
+  ],
+  "notes": "Generated from MissionChief UK mission 394 (Odour of chemicals). Buildings: 11 Fire Stations, 5 Rescue Stations. Vehicles: 3 Fire engines, 1 HazMat Unit or CBRN Vehicle. Personnel: 3 Fire Officers, 1 Operational Team Leader (10% probability). Patients: max 14, 30% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "id": "medical_hcp_home_visit",
+  "name": "HCP Home Visit",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 4,
+  "responseMinutes": 90,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "HCP Home Visit",
+  "keywords": {
+    "correct": [
+      "r0_minor"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "rrv": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I'm not sure if this is right but the GP said to call if he got worse, he's not in danger, just really unwell",
+      "It's not an emergency, but my dad needs someone to look at him at home, he can't get to the surgery"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I'm not sure if this is right but the GP said to call if he got worse, he's not in danger, just really unwell",
+        "It's not an emergency, but my dad needs someone to look at him at home, he can't get to the surgery"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, his daughter",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my dad",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, I'll leave the door on the latch"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's been unwell for a few days, weak and off his food, we just want someone to check him over"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's awake and chatting"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Mild discomfort, nothing severe"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "High blood pressure, that's about it"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Just his blood pressure tablets"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "76"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "That's fine, thank you"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Actually yes, that sounds right, I wasn't sure who to call"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient assessed at home"
+    ],
+    "update": [
+      "Patient stable, no transport required at this time"
+    ],
+    "stop": [
+      "{{unit}} clear, patient left in the care of family"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_693"
+  ],
+  "notes": "Generated from MissionChief UK mission 693 (HCP Home Visit). Buildings: 1 Rescue Station, 1 GP Surgery. Vehicles: 1 RRV or Specialist Paramedic RRV. Personnel: none. Patients: min 1, max 1, 30% require transport, General Internal, code C-4. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,173 @@
+{
+  "id": "fire_home_fire_safety_check",
+  "name": "Home Fire Safety Check",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 250,
+  "description": "Home Fire Safety Check",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Hello, I booked a home fire safety check, is this the right number to confirm it",
+      "Hi, I wanted to arrange a home fire safety visit, someone gave me this number"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Hello, I booked a home fire safety check, is this the right number to confirm it",
+        "Hi, I wanted to arrange a home fire safety visit, someone gave me this number"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, thank you for calling back"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, this isn't an emergency, it's just a safety check booking"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's my address for the visit",
+        "It's {{address}}, any time that suits works for me"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I'd like a fire safety officer to come round and check my smoke alarms and go through fire safety with me, nothing's happened, it's just a routine visit"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one involved, I've not seen anybody hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, there's nobody to check, it's just the fire"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can see"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries, nobody's here"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I can't help with that, there's no one hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no patient, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no one to ask, nobody's been hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Thank you, I'll wait to hear when someone can come out"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's not medical at all, I just want a home fire safety check booked in"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} attending for scheduled home fire safety check, no persons reported"
+    ],
+    "update": [
+      "Officer conducting home safety check, advising on smoke alarms"
+    ],
+    "stop": [
+      "Visit complete, advice given, {{unit}} clear"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_751"
+  ],
+  "notes": "Generated from MissionChief UK mission 751 (Home Fire Safety Check). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

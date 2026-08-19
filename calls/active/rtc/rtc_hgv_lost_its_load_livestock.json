@@ -1,0 +1,200 @@
+{
+  "id": "rtc_hgv_lost_its_load_livestock",
+  "name": "HGV Lost its load (Livestock)",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 240,
+  "description": "HGV Lost its load (Livestock)",
+  "keywords": {
+    "correct": [
+      "rtc_minor"
+    ],
+    "acceptable": [
+      "rtc_injury"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "irv": 4,
+    "traffic_car": 1,
+    "arv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "live traffic",
+    "animals in the carriageway"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A lorry's lost its load and there's sheep loose all over the road!",
+      "Police please, livestock have escaped from an overturned trailer, they're running into traffic."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A lorry's lost its load and there's sheep loose all over the road!",
+        "Police please, livestock have escaped from an overturned trailer, they're running into traffic."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I had to stop suddenly.",
+        "{{callerName}}, I've pulled over just up the road."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Nobody's hurt, it's the animals that are loose.",
+        "No injuries, just livestock on the road."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, there's sheep running all over the carriageway."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The trailer's gate must have come open, there's animals loose right across both lanes.",
+        "The lorry's shed part of its load and now livestock are wandering into traffic."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, it's the animals loose on the road.",
+        "No injuries, just a hazard for other drivers."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Everyone's fine, this isn't medical.",
+        "No injuries at all."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt, it's about the animals.",
+        "Not applicable."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, nobody's injured.",
+        "No injuries."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient.",
+        "Not applicable."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No one needs medical help.",
+        "Not applicable."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient.",
+        "Not applicable."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay in the car with my hazards on.",
+        "Understood, I'll warn other drivers as they approach."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need help with animals loose on the road!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing loose livestock"
+    ],
+    "update": [
+      "{{unit}} working with the farmer to round up the animals"
+    ],
+    "stop": [
+      "{{unit}} clear, animals recovered, road reopened"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "mc_132"
+  ],
+  "notes": "Generated from MissionChief UK mission 132 (HGV Lost its load (Livestock)). Buildings: 1 Fire Station, 8 Police Stations. Vehicles: 2 Fire engines, 4 Police Cars, 1 Traffic Car (only when available). Personnel: 2 Armed Response Personnel. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

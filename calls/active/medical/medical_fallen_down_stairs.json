@@ -1,0 +1,190 @@
+{
+  "id": "medical_fallen_down_stairs",
+  "name": "Fallen Down Stairs",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Fallen Down Stairs",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 60,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My mum's fallen down the stairs, she's not moving well",
+      "He's tumbled down a whole flight of stairs, he's in a bad way"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My mum's fallen down the stairs, she's not moving well",
+        "He's tumbled down a whole flight of stairs, he's in a bad way"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my mum"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She missed her footing at the top and fell the whole way down, landed at the bottom",
+        "He tripped near the top of the stairs and tumbled all the way down"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake but very shaken",
+        "Yes, conscious, in a lot of pain"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing okay",
+        "Seems fine, just shaken"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Her back and hip hurt badly",
+        "Yes, all over, mostly his shoulder"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A cut on her head, bleeding a bit",
+        "No visible bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's got osteoporosis",
+        "Nothing that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She's on calcium tablets I think",
+        "Not that I know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "76"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm keeping her still and not moving her",
+        "I'm staying right with him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, she's fallen the whole flight, I don't think that's enough",
+        "No, this needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty following fall down stairs"
+    ],
+    "update": [
+      "{{unit}} maintaining spinal precautions, assessing for fractures",
+      "{{patients}} casualty stable, prepping for transport"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_863"
+  ],
+  "notes": "Generated from MissionChief UK mission 863 (Fallen Down Stairs). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 80% require transport, Traumatology, code C-2, 40% critical care. Prisoners: none. Escalation: none. POI: none."
+}

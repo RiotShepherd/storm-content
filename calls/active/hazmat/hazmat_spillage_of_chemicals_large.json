@@ -1,0 +1,235 @@
+{
+  "id": "hazmat_spillage_of_chemicals_large",
+  "name": "Spillage of chemicals (Large)",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1300,
+  "description": "Spillage of chemicals (Large)",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 3,
+    "irv": 2,
+    "hazmat_unit": 1,
+    "iccu": 1,
+    "fire_officer": 3
+  },
+  "patients": {
+    "range": [
+      0,
+      16
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "large chemical spill",
+    "toxic fumes",
+    "multiple casualties",
+    "contaminated area"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "We've had a large chemical spill in the warehouse, some staff have been overcome by fumes",
+      "There's chemicals all over the warehouse floor and people are coughing badly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "We've had a large chemical spill in the warehouse, some staff have been overcome by fumes",
+        "There's chemicals all over the warehouse floor and people are coughing badly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the warehouse supervisor"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Several staff are affected, {{firstPatientName}}'s one of the worst",
+        "{{firstPatientName}} collapsed near the spill"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's at {{address}}, the warehouse unit",
+        "{{address}}, industrial estate, main warehouse"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A large drum of chemicals split open on the warehouse floor, fumes have spread quickly",
+        "The spill's covering a big area of the floor, staff nearby started coughing and some collapsed"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are awake, one or two aren't responding well",
+        "{{firstPatientName}} isn't responding properly"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Several are struggling to breathe",
+        "A number of them are wheezing badly"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Chest pain and burning eyes reported",
+        "Some complaining of chest tightness"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "None reported"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know everyone's history",
+        "Not something I can confirm for all of them"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not that I'm aware of",
+        "I don't know"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mostly working age adults",
+        "All adults, staff members"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've evacuated the warehouse and sealed it off",
+        "Right, everyone's out and accounted for"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we've got multiple people struggling to breathe",
+        "This can't wait, it's a chemical exposure"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, large chemical spill confirmed, {{patients}} casualties reported"
+    ],
+    "update": [
+      "{{unit}} decontaminating and triaging {{patients}} casualties",
+      "Warehouse sealed, HazMat crews managing the spill"
+    ],
+    "stop": [
+      "{{unit}} stood down, all casualties handed over and area made safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_667"
+  ],
+  "notes": "Generated from MissionChief UK mission 667 (Spillage of chemicals (Large)). Buildings: 6 Fire Stations, 3 Rescue Stations, 1 Police Station. Vehicles: 6 Fire engines, 2 Police Cars, 1 HazMat Unit or CBRN Vehicle, 1 ICCU or ACU. Personnel: 3 Fire Officers. Patients: max 16, 30% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

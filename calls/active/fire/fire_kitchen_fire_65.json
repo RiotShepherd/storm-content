@@ -1,0 +1,180 @@
+{
+  "id": "fire_kitchen_fire_65",
+  "name": "Kitchen Fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Kitchen Fire",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "smoke logging",
+    "possible persons inside"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade please, I can see smoke coming from next door's kitchen window",
+      "There's a fire next door, kitchen I think, can you send someone quick",
+      "My neighbour's kitchen's on fire, I don't think they know"
+    ],
+    "phoneArea": "auto",
+    "callerType": "neighbour"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, I can see smoke coming from next door's kitchen window",
+        "There's a fire next door, kitchen I think, can you send someone quick",
+        "My neighbour's kitchen's on fire, I don't think they know"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm next door"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I'm not sure if they're home, I haven't seen them come out"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the house with smoke coming from the side window"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I saw smoke through the window and then flames, I don't know if anyone's in there"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I can't see inside, I don't know if anyone's in there"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I don't know, I can't see them"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I can't tell, I haven't seen anyone"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient, I can't help with that"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's nobody hurt"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's nobody hurt, no patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep watching from here, please hurry"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire, I need the fire brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, smoke showing from kitchen, crew investigating for persons"
+    ],
+    "update": [
+      "Property confirmed empty, fire being tackled",
+      "Kitchen fire now under control, ventilating property"
+    ],
+    "stop": [
+      "{{unit}} leaving scene, fire out"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_65"
+  ],
+  "notes": "Generated from MissionChief UK mission 65 (Kitchen Fire). Buildings: 2 Fire Stations. Vehicles: 2 Fire engines. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

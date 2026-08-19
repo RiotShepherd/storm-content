@@ -1,0 +1,194 @@
+{
+  "id": "fire_threats_to_commit_arson",
+  "name": "Threats to commit arson",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 30,
+  "description": "Threats to commit arson",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "irv": 2,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "potential arson risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 20,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I need to report someone threatening to set fire to my neighbour's house.",
+      "Someone's just threatened to burn my shed down, I think they meant it."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "confused",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I need to report someone threatening to set fire to my neighbour's house.",
+        "Someone's just threatened to burn my shed down, I think they meant it."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "{{callerName}}, I'm ringing about it now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me really, the one who was threatened, I'm just shaken up."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A man came to the door shouting threats, said he was going to torch the place, then walked off down the street.",
+        "There's been an argument next door and now they're saying they'll set fire to the house, I'm worried they mean it."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm fine, just really rattled by it."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I'm breathing okay, just my heart's racing."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No physical pain, just shock really."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, he didn't touch me, just shouted."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing relevant."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, I don't take anything."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm forty two."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, no fire seen, liaising with police regarding threats."
+    ],
+    "update": [
+      "{{unit}} area checked, no ignition found, advice given to occupier."
+    ],
+    "stop": [
+      "{{unit}} stopped, no further action, police dealing with suspect."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_529"
+  ],
+  "notes": "Generated from MissionChief UK mission 529 (Threats to commit arson). Buildings: 5 Fire Stations, 4 Police Stations. Vehicles: 1 Fire engine, 2 Police Cars. Personnel: 1 Fire Officer. Patients: max 1, min 1, 20% require transport, General Internal, code C-3. Prisoners: max 1. Escalation: Burning car, Garden shed fire, Caravan fire, Basement fire, Kitchen Fire. POI: none."
+}

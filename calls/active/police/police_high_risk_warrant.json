@@ -1,0 +1,204 @@
+{
+  "id": "police_high_risk_warrant",
+  "name": "High-Risk Warrant",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 120,
+  "description": "High-Risk Warrant",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 4,
+    "dog_unit": 1,
+    "arv": 4,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "potentially dangerous occupants",
+    "possible weapons"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, I want to report suspicious activity, I think there's a wanted man living next door",
+      "I need to give you information about someone dangerous staying at an address nearby",
+      "There's a man at the house next to mine who I believe police are looking for"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, I want to report suspicious activity, I think there's a wanted man living next door",
+        "I need to give you information about someone dangerous staying at an address nearby",
+        "There's a man at the house next to mine who I believe police are looking for"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'd rather not give too much detail",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know his real name, everyone calls him by a nickname",
+        "No idea of his real name"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's the house I mean",
+        "It's {{address}}, the one with the boarded window"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's a lot of people coming and going from that address at all hours, I think something's not right",
+        "I've seen weapons being carried in there before now",
+        "I believe the man wanted for the warehouse incident is staying there"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, this is just information",
+        "No injuries involved"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A, I don't know him personally",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'd say he's in his thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'd rather stay anonymous if possible",
+        "Thank you, please be careful, he could be dangerous"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police, it's not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, address contained, entry being made"
+    ],
+    "update": [
+      "Address secured, occupants detained"
+    ],
+    "stop": [
+      "{{unit}} clear, warrant executed, prisoners in custody"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_93"
+  ],
+  "notes": "Generated from MissionChief UK mission 93 (High-Risk Warrant). Buildings: 9 Police Stations. Vehicles: 4 Police Cars or ARVs, 1 DSU. Personnel: 8 Armed Response Personnel. Patients: none. Prisoners: max 4. Escalation: none. POI: none."
+}

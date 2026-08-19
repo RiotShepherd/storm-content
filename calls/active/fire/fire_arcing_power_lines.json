@@ -1,0 +1,177 @@
+{
+  "id": "fire_arcing_power_lines",
+  "name": "Arcing power lines",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Arcing power lines",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "residential_road",
+    "track",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "live electrical cables",
+    "risk of cable falling",
+    "sparks"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's power lines arcing and sparking down the road, it's making a loud crackling noise",
+      "I need the fire brigade, there's a cable overhead throwing sparks, I think it's about to come down"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's power lines arcing and sparking down the road, it's making a loud crackling noise",
+        "I need the fire brigade, there's a cable overhead throwing sparks, I think it's about to come down"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I live just down from it"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, I've kept everyone back"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the lines are just outside"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The overhead cable's arcing, blue flashes and a loud buzzing noise, it's been going a few minutes"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one hurt, everyone's kept well back"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, no one's been near it"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's touched it"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient, it's just the cable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we'll stay well back from it"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's not medical, it's live cables sparking"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, arcing overhead line, area cordoned, awaiting DNO"
+    ],
+    "update": [
+      "{{unit}} holding cordon, power company en route to isolate supply"
+    ],
+    "stop": [
+      "{{unit}} stood down, supply isolated by DNO engineers"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_334"
+  ],
+  "notes": "Generated from MissionChief UK mission 334 (Arcing power lines). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,175 @@
+{
+  "id": "fire_fire_hydrant_control",
+  "name": "Fire hydrant control",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 75,
+  "description": "Fire hydrant control",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "water pooling on road",
+    "trip hazard from cover"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's water bubbling up from the pavement, I think it's the fire hydrant",
+      "I need to report a leaking hydrant cover outside my house, water's coming up through the road"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's water bubbling up from the pavement, I think it's the fire hydrant",
+        "I need to report a leaking hydrant cover outside my house, water's coming up through the road"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I noticed it outside my house"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, it's just a leak"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's right outside on the pavement"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Water's bubbling up around the hydrant cover in the road, it's been going for a while now"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, it's just water"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, not a fire"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's involved"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've put a cone near it so no one trips"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's not medical, it's a leaking hydrant"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, checking hydrant for leak or damage"
+    ],
+    "update": [
+      "{{unit}} confirms hydrant valve requires attention, water board notified"
+    ],
+    "stop": [
+      "{{unit}} stood down, hydrant made safe, water board to attend"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_674"
+  ],
+  "notes": "Generated from MissionChief UK mission 674 (Fire hydrant control). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

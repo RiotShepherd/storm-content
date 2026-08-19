@@ -1,0 +1,186 @@
+{
+  "id": "police_unlawful_occupation_report_squatting",
+  "name": "Unlawful Occupation Report (Squatting)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 85,
+  "description": "Unlawful Occupation Report (Squatting)",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I own a property on the high street and I've just found people have moved in without permission.",
+      "Police please, there's squatters in a house I'm responsible for, the locks have been changed."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I own a property on the high street and I've just found people have moved in without permission.",
+        "Police please, there's squatters in a house I'm responsible for, the locks have been changed."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the landlord.",
+        "{{callerName}}, I manage the property."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no one hurt, it's an occupation issue.",
+        "No patient, nobody's injured."
+      ]
+    },
+    "address": {
+      "answers": [
+        "The property's at {{address}}.",
+        "{{address}}, it's the empty one that's been let out before."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I went to check on the property and found the locks changed and people living inside who shouldn't be there.",
+        "A neighbour told me people have moved into the empty house, and I've confirmed it myself."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, it's not that kind of call.",
+        "No injuries, it's about the occupation."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Everyone's fine as far as I know, this isn't medical.",
+        "No one's hurt, it's a property matter."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Not applicable, nobody's injured.",
+        "No one's in pain, it's about the squatters."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, there's no injury here.",
+        "No, nothing like that."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient in this.",
+        "Not relevant, sorry."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No one needs medical help.",
+        "Not applicable."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, it's a property matter.",
+        "No one's hurt in this."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll wait outside for your officers.",
+        "Understood, I won't go back in until someone arrives."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This isn't medical, I need police to deal with the squatters!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, speaking with occupants"
+    ],
+    "update": [
+      "{{unit}} confirming details with those inside"
+    ],
+    "stop": [
+      "{{unit}} clear, matter resolved"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_790"
+  ],
+  "notes": "Generated from MissionChief UK mission 790 (Unlawful Occupation Report (Squatting)). Buildings: 4 Police Stations. Vehicles: 2 Police Cars. Personnel: none. Patients: none. Prisoners: max 1. Escalation: none. POI: none."
+}

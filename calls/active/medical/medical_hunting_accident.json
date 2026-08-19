@@ -1,0 +1,181 @@
+{
+  "id": "medical_hunting_accident",
+  "name": "Hunting accident",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 200,
+  "description": "Hunting accident",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "park"
+  ],
+  "units": {
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      1,
+      2
+    ],
+    "rrvChance": 55,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "firearm on scene",
+    "remote location",
+    "heavy bleeding"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a shooting accident, my mate's been shot, we were out hunting",
+      "I need an ambulance and the police, the gun's gone off and hit my mate"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a shooting accident, my mate's been shot, we were out hunting",
+        "I need an ambulance and the police, the gun's gone off and hit my mate"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, we were out together",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, my mate",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're out near {{address}}, it's rough ground so come carefully",
+        "{{address}}, I'll wave you in"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "We were out after pheasant and the gun went off, he's been hit in the leg"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious, in agony"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Awful, he's screaming"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, heavily, I'm pressing on it with my jacket"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None that I know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "About 40"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm keeping pressure on"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this can't wait, he needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with gunshot wound, assessing"
+    ],
+    "update": [
+      "Bleeding controlled, patient conscious",
+      "Police securing firearm, preparing to convey"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_664"
+  ],
+  "notes": "Generated from MissionChief UK mission 664 (Hunting accident). Buildings: 2 Rescue Stations, 2 Police Stations. Vehicles: 2 Police Cars. Personnel: none. Patients: min 1, max 2, 100% require transport, General Surgeon, code C-2, 35% critical care. Prisoners: none. Escalation: none. POI: Forest."
+}

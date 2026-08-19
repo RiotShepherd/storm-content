@@ -1,0 +1,234 @@
+{
+  "id": "medical_mass_influx_of_sick_people_railway_station",
+  "name": "Mass influx of sick people - railway station",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.15,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 650,
+  "description": "Mass influx of sick people - railway station",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "train_station"
+  ],
+  "units": {
+    "irv": 6,
+    "dual_pump": 2,
+    "single_pump": 2,
+    "rescue_unit": 3,
+    "hart": 2,
+    "welfare_unit": 1,
+    "basu": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      35,
+      70
+    ],
+    "rrvChance": 60,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "mass casualties",
+    "crowd surge",
+    "unknown substance",
+    "platform overcrowding"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 25,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's loads of people collapsing at the station, I don't know what's happening",
+      "I need every ambulance you can send, dozens of people are being sick and collapsing on the platform"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's loads of people collapsing at the station, I don't know what's happening",
+        "I need every ambulance you can send, dozens of people are being sick and collapsing on the platform"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, station staff here",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's too many to give you one name, I'm sorry",
+        "I can't say, there's dozens of people"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the railway station",
+        "{{address}}, main concourse"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "People just started being sick and collapsing all over the platform, there's dozens of them"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are, some aren't, it's chaos"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Some are struggling to breathe"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I can't tell, there's too many people"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I haven't seen any blood, more people just collapsing"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've no idea, there's so many people"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All sorts, adults and children"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please send everyone you can"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need multiple ambulances now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, multiple casualties at the station, triaging"
+    ],
+    "update": [
+      "Triage ongoing, {{patients}} casualties identified so far",
+      "Additional resources requested, scene being managed"
+    ],
+    "stop": [
+      "{{unit}} clear, casualties conveyed and scene stood down"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mass_casualty",
+    "railway_fire",
+    "mc_792"
+  ],
+  "notes": "Generated from MissionChief UK mission 792 (Mass influx of sick people - railway station). Buildings: 11 Fire Stations, 15 Rescue Stations, 5 Police Stations, 1 Mass Casualty Extension, 1 HART Base. Vehicles: 6 Police Cars, 4 Fire engines, 3 Rescue Support Vehicles, 1 PRV, 1 SRV, 1 Welfare Vehicle, 1 BASU (10% probability). Personnel: 1 Fire Officer, 1 Ambulance Officer. Patients: min 35, max 70, 25% require transport, General Internal, codes C-1, C-2, C-3, C-4, 20% critical care. Prisoners: none. Escalation: none. POI: Train station (regional traffic).",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "id": "fire_fire_in_a_town_hall",
+  "name": "Fire in a town hall",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 885,
+  "description": "Fire in a town hall",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "aerial": 2,
+    "rescue_unit": 1,
+    "irv": 4,
+    "iccu": 1,
+    "basu": 1,
+    "bulk_foam_unit": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      1,
+      6
+    ],
+    "rrvChance": 35,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "smoke logging",
+    "crowds outside",
+    "falling debris"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 6",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Fire brigade please, there's smoke pouring out of the town hall, people are coming out coughing",
+      "It's the town hall, it's on fire, I can see flames at one of the windows",
+      "There's a fire at the town hall, there was a meeting on, people are still coming out"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, there's smoke pouring out of the town hall, people are coming out coughing",
+        "It's the town hall, it's on fire, I can see flames at one of the windows",
+        "There's a fire at the town hall, there was a meeting on, people are still coming out"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was walking past when I saw the smoke",
+        "{{callerName}}, I'm stood outside the town hall now"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know their names, there's a group of them coughing on the steps"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the old town hall, you'll see the smoke from the street",
+        "It's {{address}}, big stone building with the clock"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I saw smoke coming from one of the ground floor windows, then people started running out coughing",
+        "There was some sort of council meeting on, the alarm went and now there's smoke pouring out of the doors"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, they're conscious, a few are sat on the steps getting their breath back"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A couple of them are coughing quite badly, one lady can't stop"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "One man says his chest feels tight"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no bleeding, it's the smoke that's the problem"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've no idea, I don't know any of them"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Sorry, I can't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, there's an older gentleman and some younger office staff"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping everyone back from the doors",
+        "Please hurry, more people keep coming out coughing"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, they need an ambulance, it's smoke inhalation, not a GP job"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, smoke showing from ground floor, {{patients}} casualties on scene"
+    ],
+    "update": [
+      "Crews ventilating the building, casualties being assessed by paramedics"
+    ],
+    "stop": [
+      "Fire out, {{unit}} damping down, scene handed to building management"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "chemical_and_industrial_fire",
+    "urban_fire",
+    "mc_662"
+  ],
+  "notes": "Generated from MissionChief UK mission 662 (Fire in a town hall). Buildings: 15 Fire Stations, 5 Rescue Stations, 5 Police Stations, 1 Foam Extension. Vehicles: 4 Fire engines, 2 Aerial Appliance Trucks, 1 Rescue Support Vehicle, 4 Police Cars, 1 ICCU or ACU, 1 BASU, 1 Foam Unit. Personnel: 2 Fire Officers. Patients: min 1, max 6, 80% require transport, General Internal, code C-2, 25% critical care. Prisoners: none. Escalation: none. POI: none."
+}

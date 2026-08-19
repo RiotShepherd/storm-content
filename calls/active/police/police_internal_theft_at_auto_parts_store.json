@@ -1,0 +1,189 @@
+{
+  "id": "police_internal_theft_at_auto_parts_store",
+  "name": "Internal Theft at Auto Parts Store",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 70,
+  "description": "Internal Theft at Auto Parts Store",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 2,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, I need to report theft, one of my staff has been stealing stock",
+      "I want to report internal theft at the store, I've caught it on camera",
+      "There's been theft from within the shop, I think it's one of our own staff"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, I need to report theft, one of my staff has been stealing stock",
+        "I want to report internal theft at the store, I've caught it on camera",
+        "There's been theft from within the shop, I think it's one of our own staff"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the store manager",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's one of my staff, {{firstPatientName}}",
+        "{{firstPatientName}}, he works here"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the auto parts store",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I've been going through the CCTV and found one of our staff pocketing parts and not ringing them through",
+        "It's been happening for weeks according to the stock discrepancies",
+        "I confronted him and he denied it, but I've got it on camera"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, this is a theft matter",
+        "No injuries involved"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know his medical history",
+        "Not something I'd know"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's twenty three"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got the footage ready for you",
+        "Thank you, he's still on shift at the moment"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is theft, I need police"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} attending, footage reviewed with manager"
+    ],
+    "update": [
+      "Suspect spoken to, details taken"
+    ],
+    "stop": [
+      "{{unit}} clear, crime reference given"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_737"
+  ],
+  "notes": "Generated from MissionChief UK mission 737 (Internal Theft at Auto Parts Store). Buildings: 3 Police Stations. Vehicles: 2 Police Cars. Personnel: none. Patients: none. Prisoners: max 4. Escalation: none. POI: none."
+}

@@ -1,0 +1,176 @@
+{
+  "id": "fire_reported_fire_in_the_open",
+  "name": "Reported fire in the open",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Reported fire in the open",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "residential_road",
+    "track",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "unclear source of fire",
+    "smoke drifting"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade please, there's a fire out in the open somewhere near us",
+      "I can see smoke from an open fire outside, not sure exactly what's burning"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, there's a fire out in the open somewhere near us",
+        "I can see smoke from an open fire outside, not sure exactly what's burning"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's nobody hurt, it's just the fire"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I'm not sure what's on fire, I can just see smoke and some flames in the distance"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, there's no one to check on"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's affected, everyone's clear"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can tell"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient, I can't help with that"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's nobody hurt"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's nobody hurt, no patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep an eye on it"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire, I need the fire brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, investigating source of fire in the open"
+    ],
+    "update": [
+      "Fire located and being extinguished"
+    ],
+    "stop": [
+      "{{unit}} leaving scene, fire out"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_318"
+  ],
+  "notes": "Generated from MissionChief UK mission 318 (Reported fire in the open). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: 14 possible follow ups (Burning car, Burning motorbike, Burning grass, Burning leaves, Bulk rubbish fire, Little field fire, Little forest fire, Out of control bonfire, Heathland fire large, Medium forest fire, Hare Coursing, Railway Embankement Fire, Large Forest Fire, Heathland fire medium). POI: none."
+}

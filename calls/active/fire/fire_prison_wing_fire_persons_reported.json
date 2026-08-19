@@ -1,0 +1,206 @@
+{
+  "id": "fire_prison_wing_fire_persons_reported",
+  "name": "Prison Wing Fire (Persons Reported)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 700,
+  "description": "Prison Wing Fire (Persons Reported)",
+  "keywords": {
+    "correct": [
+      "f2y"
+    ],
+    "acceptable": [
+      "f2",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "office"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "irv": 2,
+    "fire_officer": 3
+  },
+  "patients": {
+    "range": [
+      0,
+      4
+    ],
+    "rrvChance": 15,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "restricted access, security procedures",
+    "smoke logging"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 6",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Fire brigade please, we've got a fire on the wing and a couple of people affected by smoke",
+      "There's a fire here, some of the wing staff are struggling with the smoke"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, we've got a fire on the wing and a couple of people affected by smoke",
+        "There's a fire here, some of the wing staff are struggling with the smoke"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm a prison officer"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "A couple of people are affected, I don't have full details"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the prison, main gate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's a fire on the wing and a couple of people got some smoke before we got them clear"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "They're conscious, just coughing"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A bit of coughing, nothing too bad"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nothing major, one mentioned a sore chest"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I'd need to check records"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't have that to hand, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Adults, prisoners and staff"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've got them at the muster point"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need medical help here, not 111"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, fire confirmed on wing, casualties being assessed"
+    ],
+    "update": [
+      "Fire being tackled, casualties treated at muster point"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualties"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_515"
+  ],
+  "notes": "Generated from MissionChief UK mission 515 (Prison Wing Fire (Persons Reported)). Buildings: 10 Fire Stations, 2 Rescue Stations, 2 Police Stations. Vehicles: 4 Fire engines, 2 Police Cars. Personnel: 3 Fire Officers. Patients: max 4, 60% require transport, General Internal, codes C-1, C-2, 5% critical care. Prisoners: none. Escalation: expands to Prison Wing Fire (Major Incident) (Persons Reported). POI: Prison."
+}

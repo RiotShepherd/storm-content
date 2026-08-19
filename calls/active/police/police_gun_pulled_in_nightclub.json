@@ -1,0 +1,205 @@
+{
+  "id": "police_gun_pulled_in_nightclub",
+  "name": "Gun pulled in nightclub",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "Gun pulled in nightclub",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 6,
+    "dog_unit": 1,
+    "arv": 3,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "firearm inside venue",
+    "large crowd",
+    "risk to public"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, someone's just pulled a gun on the dance floor!",
+      "Help, there's a man with a gun in the club, everyone's panicking!",
+      "Please hurry, a gun's just been pulled inside the nightclub, people are running out"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, someone's just pulled a gun on the dance floor!",
+        "Help, there's a man with a gun in the club, everyone's panicking!",
+        "Please hurry, a gun's just been pulled inside the nightclub, people are running out"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the duty manager",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know his name, he's not a member",
+        "No idea who he is"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the nightclub on the corner",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A row between two men on the dance floor ended with one pulling a handgun",
+        "It happened seconds ago, he waved it at the crowd and people scattered",
+        "He's still inside, near the main bar, everyone's trying to get out"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's been hurt, everyone's just terrified",
+        "No injuries reported"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt so far"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A, no one's hurt",
+        "Not that I know of"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looked to be in his late twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're getting people out through the fire exits",
+        "Please hurry, he's still armed in there"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs armed police now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, venue contained, armed officers deploying"
+    ],
+    "update": [
+      "Male located and detained, firearm recovered"
+    ],
+    "stop": [
+      "{{unit}} clear, male in custody, venue handed back to management"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_351"
+  ],
+  "notes": "Generated from MissionChief UK mission 351 (Gun pulled in nightclub). Buildings: 12 Police Stations. Vehicles: 6 Police Cars, 1 DSU, Armed Response Vehicles. Personnel: 6 Armed Response Personnel. Patients: none. Prisoners: max 3. Escalation: none. POI: none."
+}

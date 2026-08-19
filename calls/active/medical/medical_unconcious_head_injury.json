@@ -1,0 +1,191 @@
+{
+  "id": "medical_unconcious_head_injury",
+  "name": "Unconcious Head Injury",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "Unconcious Head Injury",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 90,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "unconscious patient",
+    "head injury"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 90,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "He's unconscious, he's hit his head really badly, he won't wake up",
+      "I need an ambulance, I've found a man collapsed with a head injury and he's not responding"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "He's unconscious, he's hit his head really badly, he won't wake up",
+        "I need an ambulance, I've found a man collapsed with a head injury and he's not responding"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I just found him",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know his name, I'm afraid",
+        "I'm not sure, sorry"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He fell and banged his head, he's not responding at all now"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No, he's completely unresponsive"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, he's breathing but it's noisy"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's not responding to say"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A cut on his head, bleeding quite a bit"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him, I just found him"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Hard to say, maybe 50s"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I've put him in the recovery position"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's not waking up, he needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient unresponsive with head injury, assessing"
+    ],
+    "update": [
+      "Airway maintained, GCS being monitored"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_661"
+  ],
+  "notes": "Generated from MissionChief UK mission 661 (Unconcious Head Injury). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 90% require transport, General Internal, code C-1, 50% critical care. Prisoners: none. Escalation: none. POI: none."
+}

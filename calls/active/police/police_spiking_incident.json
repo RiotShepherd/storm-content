@@ -1,0 +1,185 @@
+{
+  "id": "police_spiking_incident",
+  "name": "Spiking incident",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 250,
+  "description": "Spiking incident",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "pub",
+    "high_street"
+  ],
+  "units": {
+    "irv": 2,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance and police please, I think my friend's drink's been spiked",
+      "Help, my mate's collapsed, we think someone's put something in her drink"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance and police please, I think my friend's drink's been spiked",
+        "Help, my mate's collapsed, we think someone's put something in her drink"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I just saw it happen",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, she's my mate",
+        "It's {{firstPatientName}}, he's a friend of mine"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, we're just inside",
+        "It's {{address}}, near the bar"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She was fine ten minutes ago and now she can barely stand or speak properly",
+        "He's gone really drowsy and confused, none of us saw anyone near his drink"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "She's drowsy, hard to keep her awake",
+        "He's in and out, not making sense"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but slow",
+        "Yes, but shallow"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She's not really responding to say",
+        "He's not able to tell us"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of, she's fit and healthy",
+        "No idea, don't know his history"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, she doesn't take anything",
+        "Not that I know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "She's twenty two",
+        "He's about twenty five"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry, she's getting worse",
+        "Right, we're staying with him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "She needs an ambulance now, not 111!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty assessed and being monitored"
+    ],
+    "update": [
+      "Casualty remaining drowsy, being kept under close observation"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty handed to ambulance crew"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_506"
+  ],
+  "notes": "Generated from MissionChief UK mission 506 (Spiking incident). Buildings: 2 Police Stations. Vehicles: 2 Police Cars. Personnel: none. Patients: max 1, min 1, 60% require transport, General Internal, code C-2. Prisoners: max 2. Escalation: none. POI: Nightclub, Bar."
+}

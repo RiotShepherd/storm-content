@@ -1,0 +1,184 @@
+{
+  "id": "police_police_assistance_directing_traffic",
+  "name": "Police assistance directing traffic",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 95,
+  "description": "Police assistance directing traffic",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "pedestrian_street",
+    "high_street"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "live traffic",
+    "pedestrians in carriageway"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, we need help directing traffic, it's chaos round the market",
+      "Can you send someone, traffic's backed up and pedestrians are in the road"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, we need help directing traffic, it's chaos round the market",
+        "Can you send someone, traffic's backed up and pedestrians are in the road"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I work here",
+        "It's {{callerName}}, I'm on shift"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, we just need traffic managed",
+        "Nobody hurt, just need help directing cars"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, by the market square",
+        "It's {{address}}, at the pedestrian street"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The market stalls have blocked the road and cars are trying to get through",
+        "Traffic's queuing right back and pedestrians are walking between cars"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, it's just the lights",
+        "No injuries, it's a hazard not a casualty"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's hurt",
+        "N/A, nobody's injured"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, nobody's hurt",
+        "Not that I've seen"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "No, nothing like that"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A, nobody's hurt",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "N/A, it's not a person",
+        "Nobody's hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, thank you, I'll keep watching from here",
+        "Right, understood, I'll wait"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This is a police matter, nobody needs a doctor!",
+        "No one's ill, I need the police not 111!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, directing traffic around the market"
+    ],
+    "update": [
+      "Traffic flowing again, pedestrians kept clear of the carriageway"
+    ],
+    "stop": [
+      "{{unit}} clear, normal flow restored"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_721"
+  ],
+  "notes": "Generated from MissionChief UK mission 721 (Police assistance directing traffic). Buildings: 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: Market place."
+}

@@ -1,0 +1,188 @@
+{
+  "id": "medical_child_birth",
+  "name": "Child Birth",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Child Birth",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 45,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "imminent childbirth"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My wife's gone into labour and I think the baby's coming now",
+      "She's in labour, the contractions are really close together, please hurry"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My wife's gone into labour and I think the baby's coming now",
+        "She's in labour, the contractions are really close together, please hurry"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my wife"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Her waters broke and the contractions are coming every couple of minutes now",
+        "She says she can feel the baby coming, it's happening fast"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake, in a lot of pain",
+        "Yes, conscious, breathing through contractions"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing hard through the contractions",
+        "Fine between contractions"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Very strong contractions, close together",
+        "Yes, she says it's intense"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A little show, nothing heavy",
+        "No, not that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "This is her second baby",
+        "First baby, no complications so far"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, nothing regular",
+        "Just her pregnancy vitamins"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "31"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm getting towels ready like you said",
+        "I'm staying right with her"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think the baby's coming, we can't wait",
+        "No, this is happening now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty in active labour"
+    ],
+    "update": [
+      "{{unit}} assisting with delivery",
+      "Mother and baby both being monitored"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty and baby to hospital, both stable"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_220"
+  ],
+  "notes": "Generated from MissionChief UK mission 220 (Child Birth). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, Gynecology / Central Delivery Suite, code C-2, 25% critical care. Prisoners: none. Escalation: none. POI: none."
+}

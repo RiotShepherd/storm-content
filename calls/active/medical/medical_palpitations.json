@@ -1,0 +1,180 @@
+{
+  "id": "medical_palpitations",
+  "name": "Palpitations",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "Palpitations",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My heart's racing, it won't slow down, I'm getting worried",
+      "I need some advice, my heart's pounding really fast and it's not stopping"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My heart's racing, it won't slow down, I'm getting worried",
+        "I need some advice, my heart's pounding really fast and it's not stopping"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, that's me",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "It just started out of nowhere, my heart's pounding really fast"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm awake, just anxious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A bit breathless with it"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A tightness in my chest, not painful exactly"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've had this before, a few years ago"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None regularly"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "38"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll try to stay calm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "If you think that's safer, but it's quite fast"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with palpitations, assessing"
+    ],
+    "update": [
+      "ECG obtained, rate settling"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed for further assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_645"
+  ],
+  "notes": "Generated from MissionChief UK mission 645 (Palpitations). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 60% require transport, General Internal, codes C-2, C-3, 10% critical care. Prisoners: none. Escalation: none. POI: none."
+}

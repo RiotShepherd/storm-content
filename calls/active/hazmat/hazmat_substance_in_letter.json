@@ -1,0 +1,209 @@
+{
+  "id": "hazmat_substance_in_letter",
+  "name": "Substance in letter",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "Substance in letter",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "irv": 3,
+    "hazmat_unit": 1,
+    "fire_officer": 2,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      2
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "suspicious substance",
+    "possible CBRN exposure",
+    "contaminated room",
+    "police involvement"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "We've opened a letter with white powder in it and now two of us feel unwell",
+      "I need help, someone's opened a suspicious letter in the post room and there's powder everywhere"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "We've opened a letter with white powder in it and now two of us feel unwell",
+        "I need help, someone's opened a suspicious letter in the post room and there's powder everywhere"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I work in the post room"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}} and one other colleague",
+        "{{firstPatientName}} opened it, they're the worst affected"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the post room",
+        "{{address}}, ground floor office"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A letter was opened and white powder came out, {{firstPatientName}} breathed some of it in and now feels unwell",
+        "There's powder on the desk and floor, we've sealed the room but two of us have symptoms"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, both awake",
+        "{{firstPatientName}}'s awake but anxious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A bit tight, coughing occasionally",
+        "{{firstPatientName}} says their throat feels swollen"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Sore throat and a headache",
+        "{{firstPatientName}} has a burning feeling in the nose and throat"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of",
+        "I don't know off hand"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not that I'm aware of",
+        "I don't know"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "{{firstPatientName}} is 41, the other colleague's similar age",
+        "Both in their forties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've sealed the room and evacuated the rest of the office",
+        "Right, we're not touching anything else"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a suspicious substance exposure, we need help now",
+        "Definitely not, we're worried it's something dangerous"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, suspicious substance confirmed, {{patients}} casualties reported"
+    ],
+    "update": [
+      "{{unit}} working with police, {{patients}} casualties being decontaminated",
+      "Post room sealed, substance being assessed"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualties handed over and room secured"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_403"
+  ],
+  "notes": "Generated from MissionChief UK mission 403 (Substance in letter). Buildings: 11 Fire Stations, 6 Rescue Stations, 3 Police Stations. Vehicles: 2 Fire engines, 3 Police Cars, 1 HazMat Unit or CBRN Vehicle. Personnel: 2 Fire Officers, 1 Operational Team Leader. Patients: max 2, 80% require transport, General Internal, codes C-1, C-2, 30% critical care. Prisoners: none. Escalation: none. POI: none."
+}

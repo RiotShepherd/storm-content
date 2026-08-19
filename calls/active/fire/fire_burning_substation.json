@@ -1,0 +1,188 @@
+{
+  "id": "fire_burning_substation",
+  "name": "Burning Substation",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Burning Substation",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "high voltage equipment",
+    "risk of explosion",
+    "toxic smoke"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's smoke and flames coming from the electricity substation",
+      "I need the fire brigade, the substation's on fire, there's a loud buzzing and smoke pouring out"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's smoke and flames coming from the electricity substation",
+        "I need the fire brigade, the substation's on fire, there's a loud buzzing and smoke pouring out"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I live opposite it"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, no one can get near it"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the substation behind the fence"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's been a bang and now smoke and flames are coming from inside the compound"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, everyone's kept well back"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, just smoke drifting over the road"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's near it"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're all staying well back from the fence"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, substation fire, cordon in place, awaiting power company"
+    ],
+    "update": [
+      "{{unit}} holding position until DNO confirms supply isolated"
+    ],
+    "stop": [
+      "{{unit}} stood down, supply confirmed isolated, fire out"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_317"
+  ],
+  "notes": "Generated from MissionChief UK mission 317 (Burning Substation). Buildings: 2 Fire Stations. Vehicles: 2 Fire engines. Personnel: 1 Fire Officer. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

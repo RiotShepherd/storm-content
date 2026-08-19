@@ -1,0 +1,204 @@
+{
+  "id": "fire_care_home_fire",
+  "name": "Care home fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Care home fire",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "aerial": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "mobility impaired residents",
+    "smoke logging",
+    "night time low staffing"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 6",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's a fire in one of the residents' rooms at the care home",
+      "I need the fire brigade, we've got smoke coming from a bedroom and we're evacuating residents"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire in one of the residents' rooms at the care home",
+        "I need the fire brigade, we've got smoke coming from a bedroom and we're evacuating residents"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the duty manager here"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "We're getting the residents out now, I don't have a full list yet"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the care home, main entrance on the front"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Smoke's coming from one of the bedrooms, we've started our evacuation procedure for that wing"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "As far as we know all residents are conscious, we're moving them now"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A couple of the more frail residents are struggling with the smoke"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No injuries reported yet, we're still evacuating"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding reported"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Many residents have dementia and mobility issues, staff know their needs"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Medication charts are with each resident's file, staff have them"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Our residents are mostly in their eighties and nineties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're following our evacuation plan and moving residents to the assembly point"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need the fire brigade urgently, this is an evacuation"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, smoke showing from care home, evacuation in progress"
+    ],
+    "update": [
+      "{{unit}} assisting staff with evacuation, fire located and being tackled",
+      "{{unit}} confirms residents accounted for at assembly point"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, residents returning to building"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_456"
+  ],
+  "notes": "Generated from MissionChief UK mission 456 (Care home fire). Buildings: 3 Fire Stations. Vehicles: 4 Fire engines, 1 Aerial Appliance Truck (2% probability). Personnel: 1 Fire Officer, 4 to 12 Firefighters. Patients: none. Prisoners: none. Escalation: Care home fire (Persons Reported). POI: Care Home."
+}

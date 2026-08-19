@@ -1,0 +1,181 @@
+{
+  "id": "medical_one_sided_weakness",
+  "name": "One Sided Weakness",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "One Sided Weakness",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 70,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My dad's face has dropped on one side and his arm's gone weak, I think it's a stroke",
+      "I need an ambulance now, I think my dad's having a stroke"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My dad's face has dropped on one side and his arm's gone weak, I think it's a stroke",
+        "I need an ambulance now, I think my dad's having a stroke"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, his daughter",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my dad",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, please hurry",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was fine ten minutes ago and now the whole left side of his face and arm won't work properly"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's awake but his speech is slurred"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says he's not in pain"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "High blood pressure and he had a mini stroke last year"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Blood pressure tablets and aspirin"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "74"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm noting the time it started"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think this is a stroke, he needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with FAST positive symptoms, assessing"
+    ],
+    "update": [
+      "Stroke pathway activated, preparing to convey",
+      "Onset time confirmed with family"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to stroke centre as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_647"
+  ],
+  "notes": "Generated from MissionChief UK mission 647 (One Sided Weakness). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 70% require transport, General Internal, code C-2, 10% critical care. Prisoners: none. Escalation: none. POI: none."
+}

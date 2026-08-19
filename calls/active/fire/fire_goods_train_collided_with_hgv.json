@@ -1,0 +1,216 @@
+{
+  "id": "fire_goods_train_collided_with_hgv",
+  "name": "Goods Train Collided with HGV",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 2480,
+  "description": "Goods Train Collided with HGV",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "level_crossing"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "rescue_unit": 1,
+    "hazmat_unit": 1,
+    "irv": 4,
+    "iccu": 1,
+    "traffic_car": 2,
+    "hart": 2,
+    "fire_officer": 3,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "live rail line",
+    "fuel spill from HGV",
+    "driver trapped in cab"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "npas": {
+      "chance": 80,
+      "delaySeconds": [
+        120,
+        240
+      ],
+      "unit": "npas"
+    },
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a crash, a lorry's been hit by a train at the crossing",
+      "Please send help, an HGV's collided with a goods train at the level crossing"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a crash, a lorry's been hit by a train at the crossing",
+        "Please send help, an HGV's collided with a goods train at the level crossing"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was waiting at the barrier when it happened"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's the lorry driver, I don't know his name"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the level crossing",
+        "It's {{address}}, come to the crossing barriers"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The lorry got stuck on the level crossing and the goods train hit it, the driver's trapped in the cab"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious and talking to us"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing okay, but he says his chest hurts when he breathes"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, a lot of pain, his legs are trapped under the dashboard"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's some blood on his face from the impact"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He hasn't said anything, I don't know him"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He looks about forty"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying back from the tracks",
+        "Please hurry, the lorry driver's still in there"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a serious crash with someone trapped, we need fire, ambulance and police"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, HGV and train collision, {{patients}} casualty, extrication in progress"
+    ],
+    "update": [
+      "Crews cutting the cab to free the trapped driver"
+    ],
+    "stop": [
+      "Casualty freed and handed to ambulance, {{unit}} making the scene safe"
+    ]
+  },
+  "tags": [
+    "railway_fire",
+    "railway_police",
+    "recovery_vehicle",
+    "mc_810"
+  ],
+  "notes": "Generated from MissionChief UK mission 810 (Goods Train Collided with HGV). Buildings: 11 Fire Stations, 3 Rescue Stations, 1 HART Base, 8 Police Stations, 1 Railway Police, 1 HGV Recovery Extension, 1 Police Helicopter Station. Vehicles: 2 Fire engines, 1 Rescue Support Vehicle, 1 HazMat or CBRN Vehicle, 4 Police Cars, 1 EIU, 2 Traffic Cars, 1 PRV, 1 SRV, 1 Police Helicopter or Drone. Personnel: 3 Fire Officers, 1 Operational Team Leader, 4 Railway Police Officers (12 available), 1 Mobile Operations Manager (3 available). Patients: min 1, max 1, 100% require transport, Traumatology, code C-1, 100% critical care. Prisoners: none. Escalation: none. POI: Railroad Crossing, Rail Crossing."
+}

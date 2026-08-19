@@ -1,0 +1,195 @@
+{
+  "id": "fire_assisting_the_ambulance_service_bariatric",
+  "name": "Assisting the ambulance service [Bariatric]",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Assisting the ambulance service [Bariatric]",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "residential_road",
+    "track",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "aerial": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "narrow stairwell",
+    "heavy patient handling",
+    "no lift access"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "The ambulance crew need the fire brigade, my mum's a big lady and they can't get her down the stairs safely",
+      "I need extra help for the paramedics, my husband's very large and he's collapsed upstairs"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The ambulance crew need the fire brigade, my mum's a big lady and they can't get her down the stairs safely",
+        "I need extra help for the paramedics, my husband's very large and he's collapsed upstairs"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm her daughter"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, she's my mum"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, second floor flat, there's no lift"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's collapsed upstairs and she's a big lady, the ambulance crew can't manage the stairs alone"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "She's conscious but very distressed and struggling"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "She's breathless, the paramedics have her on oxygen"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says her back and chest hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, it's a mobility and lifting problem"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's diabetic and has heart problems"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She's on insulin and heart tablets, they're on the side"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "She's 54"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, the crew are with her, please get here quickly, the stairs are narrow"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, the ambulance is already here, they need fire crew for the lift"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, assisting ambulance with bariatric patient, planning safe extrication"
+    ],
+    "update": [
+      "{{unit}} and paramedics preparing specialist equipment for the move",
+      "Stairwell confirmed too narrow for standard carry, using alternative route"
+    ],
+    "stop": [
+      "{{unit}} stood down, patient safely handed to ambulance crew"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_423"
+  ],
+  "notes": "Generated from MissionChief UK mission 423 (Assisting the ambulance service [Bariatric]). Buildings: 4 Fire Stations, 1 Rescue Station. Vehicles: 2 Fire engines or Rescue Support Vehicles, 1 Aerial Appliance Truck (30% probability). Personnel: 1 Fire Officer. Patients: max 1, min 1, 80% require transport, General Internal, codes C-1, C-2, C-3, 20% critical care. Prisoners: none. Escalation: none. POI: none."
+}

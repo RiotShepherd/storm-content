@@ -1,0 +1,234 @@
+{
+  "id": "rescue_flooded_railway_station_persons_trapped",
+  "name": "Flooded Railway Station (Persons Trapped)",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1010,
+  "description": "Flooded Railway Station (Persons Trapped)",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "train_station"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "rescue_unit": 3,
+    "irv": 4,
+    "iccu": 1,
+    "hart": 4,
+    "welfare_unit": 1,
+    "fire_officer": 2,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      10,
+      30
+    ],
+    "rrvChance": 11,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "rising flood water",
+    "electrified rail",
+    "large numbers of passengers",
+    "slippery surfaces"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 25,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "This is station staff, the platforms are flooding fast and there's people trapped who can't get to the exits.",
+      "Emergency, the station's flooding badly and passengers are stuck on the lower platform."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "This is station staff, the platforms are flooding fast and there's people trapped who can't get to the exits.",
+        "Emergency, the station's flooding badly and passengers are stuck on the lower platform."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the station supervisor.",
+        "{{callerName}}, I work here on the gate line."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't have all their names, there's a lot of people down there.",
+        "One's {{firstPatientName}}, she's struggling the most."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, it's the station.",
+        "{{address}}, come to the main entrance, I'll direct you down."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Water's come up fast on the lower platform and a group of passengers can't get back up the stairs.",
+        "The station's flooding, it happened really quickly and people got cut off from the exits."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious, but a few are panicking badly.",
+        "They're alert but very frightened, some are in the water."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Some are coughing after being splashed, but breathing okay.",
+        "Yes, but a couple seem to be struggling with the cold."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A few say they've hurt themselves slipping on the stairs.",
+        "Some have bruising from the crush trying to get up the stairs."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A couple of cuts from the crush, nothing major that I can see.",
+        "One or two are bleeding from falls on the stairs."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't have medical details for passengers.",
+        "I can't say, there's too many people."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I wouldn't know, sorry.",
+        "Not something I have access to."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, there's children and elderly caught down there.",
+        "Mixed, quite a few commuters and a couple of elderly passengers."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping everyone together on the driest part of the platform.",
+        "Please hurry, the water's still rising."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need the fire brigade for a flooding rescue now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing trapped passengers"
+    ],
+    "update": [
+      "{{unit}} evacuating passengers to higher ground, {{patients}} casualties assessed",
+      "{{unit}} confirms power to the rail isolated"
+    ],
+    "stop": [
+      "{{unit}} clear, all passengers accounted for"
+    ]
+  },
+  "tags": [
+    "railway_fire",
+    "railway_police",
+    "mc_809"
+  ],
+  "notes": "Generated from MissionChief UK mission 809 (Flooded Railway Station (Persons Trapped)). Buildings: 9 Fire Stations, 2 Flood Rescue Extensions, 4 Rescue Stations, 1 HART Base, 4 Police Stations, 1 Railway Police. Vehicles: 3 Fire engines (min 1500 pump capacity), 1 Rescue Support Vehicle, 2 Flood Rescue Units, 4 Police Cars, 1 EIU, 2 PRVs, 2 SRVs, 1 Welfare Vehicle. Personnel: 2 Fire Officers, 1 Operational Team Leader, 2 Railway Police Officers (6 available), 1 Mobile Operations Manager (3 available). Patients: min 10, max 30, 25% require transport, General Internal, codes C-2, C-3, C-4, 1% critical care. Prisoners: none. Escalation: none. POI: Train station (regional), Train station (regional and long distance).",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

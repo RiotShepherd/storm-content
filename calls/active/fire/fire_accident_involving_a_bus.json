@@ -1,0 +1,224 @@
+{
+  "id": "fire_accident_involving_a_bus",
+  "name": "Accident Involving a Bus",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Accident Involving a Bus",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "rescue_unit": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      12
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "fuel leak",
+    "smoke from engine bay",
+    "glass debris",
+    "live traffic"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a bus crash, it's hit a wall on the high street, there's people hurt on board",
+      "I need the fire brigade, a bus has crashed and passengers are trapped inside",
+      "Quick, a double decker's gone into the front of a shop, there's people hurt"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a bus crash, it's hit a wall on the high street, there's people hurt on board",
+        "I need the fire brigade, a bus has crashed and passengers are trapped inside",
+        "Quick, a double decker's gone into the front of a shop, there's people hurt"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was waiting at the stop when it happened",
+        "{{callerName}}, I was on the bus behind it"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know their names, there's several of them hurt",
+        "One's a woman up front, I don't know her name"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, right outside the bus stop",
+        "It's {{address}}, by the parade of shops"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The bus swerved and hit the wall, some passengers are hurt and a few can't get out",
+        "It's crashed into the front of a shop, there's smoke coming from the engine and people shouting"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most of them are awake and moving but a couple aren't responding",
+        "The driver's talking to me but a passenger up front isn't answering"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A few are coughing, there's smoke coming into the bus",
+        "Some of them are struggling to breathe with the smoke"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Several are saying their chests and backs hurt",
+        "One lad's holding his ribs, says it's agony"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's a woman with a cut to her head, it's bleeding quite a bit",
+        "A couple of cuts from the glass, nothing too heavy"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've no idea, I don't know any of them"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Sorry, I can't tell you that"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, mostly adults, there's one older woman"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry, there's quite a few of them",
+        "Right, I'll tell them to stay still"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is serious, there's people trapped, we need you now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, bus in collision with wall, {{patients}} casualties, triaging now"
+    ],
+    "update": [
+      "{{unit}} confirms {{patients}} casualties, extrication in progress for one trapped passenger",
+      "Road partially blocked, awaiting further ambulance support"
+    ],
+    "stop": [
+      "{{unit}} stood down, all casualties handed to ambulance crews"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_64"
+  ],
+  "notes": "Generated from MissionChief UK mission 64 (Accident Involving a Bus). Buildings: 3 Fire Stations, 8 Rescue Stations. Vehicles: 2 Fire engines, 1 Rescue Support Vehicle. Personnel: none. Patients: max 12, 50% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

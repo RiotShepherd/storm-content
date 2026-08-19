@@ -1,0 +1,206 @@
+{
+  "id": "rescue_partial_building_collapse",
+  "name": "Partial Building Collapse",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 480,
+  "description": "Partial Building Collapse",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "rescue_unit": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      6
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "further collapse risk",
+    "unstable structure",
+    "dust and debris"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Part of the wall's come down on the house next door, I think someone might still be inside.",
+      "Fire brigade please, there's been a partial collapse at the flats, some people are hurt."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Part of the wall's come down on the house next door, I think someone might still be inside.",
+        "Fire brigade please, there's been a partial collapse at the flats, some people are hurt."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I live next door.",
+        "{{callerName}}, I was outside when it happened."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know all of them, a few residents were caught in it.",
+        "One of them is {{firstPatientName}}, she lives on the ground floor."
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's {{address}}.",
+        "{{address}}, the side wall's come down."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Part of the wall and roof have collapsed, some people got out but I think a couple are still trapped.",
+        "There was a loud crack and part of the building came down, a few people are hurt."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious, one lady's not responding.",
+        "A few are talking, but one man seems out of it."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, they're breathing, coughing from the dust though.",
+        "I think so, hard to tell from here."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A few are holding their arms and legs, saying they're broken.",
+        "One's screaming that her leg's trapped."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, a couple have cuts that are bleeding quite badly.",
+        "There's blood on at least two of them."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know most of them well enough.",
+        "No idea, there's a few different households."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no idea, sorry.",
+        "I don't know, sorry."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, there's an elderly resident and some younger ones.",
+        "A range, from kids to an older man."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay well back in case more falls.",
+        "Please hurry, I can hear someone under the rubble."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a building collapse, we need fire and ambulance!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing the structure, {{patients}} casualties reported"
+    ],
+    "update": [
+      "{{unit}} shoring up the affected section, search continuing"
+    ],
+    "stop": [
+      "{{unit}} clear, structure made safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_75"
+  ],
+  "notes": "Generated from MissionChief UK mission 75 (Partial Building Collapse). Buildings: 5 Fire Stations, 3 Rescue Stations. Vehicles: 4 Fire engines, 1 Rescue Support Vehicle. Personnel: 2 Fire Officers. Patients: max 6, 30% require transport, Traumatology, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

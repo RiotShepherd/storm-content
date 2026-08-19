@@ -1,0 +1,178 @@
+{
+  "id": "fire_train_station_fire_small",
+  "name": "Train station fire (Small)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Train station fire (Small)",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "train_station"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "smoke"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade, there's a small fire in the waiting room at the station.",
+      "We've got a small fire near the ticket machines, we've closed that area off."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade, there's a small fire in the waiting room at the station.",
+        "We've got a small fire near the ticket machines, we've closed that area off."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "{{callerName}}, I'm ringing about it now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no patient, it's just the train station fire (small), nobody's hurt."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A bin caught fire in the waiting room, we've moved passengers away and it's not spreading much.",
+        "Some electrical fault caused a small fire behind the ticket machines, we've isolated the power."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, area was cleared quickly."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, nobody's breathing anything in, we're away from it."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, no injuries, nobody's hurt."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, there's nobody hurt to bleed."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient, I can't answer that."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable, nobody's hurt."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No one's hurt, so there's no patient age to give."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, small fire, extinguishing."
+    ],
+    "update": [
+      "{{unit}} fire out, checking for reignition."
+    ],
+    "stop": [
+      "{{unit}} stopped, no further action."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "railway_fire",
+    "urban_fire",
+    "mc_287"
+  ],
+  "notes": "Generated from MissionChief UK mission 287 (Train station fire (Small)). Buildings: 2 Fire Stations. Vehicles: 2 Fire engines. Personnel: 4 to 12 Firefighters. Patients: none. Prisoners: none. Escalation: Train station fire (Medium). POI: Train station (regional), Train station (regional and long distance)."
+}

@@ -1,0 +1,205 @@
+{
+  "id": "hazmat_spillage_of_chemicals_small",
+  "name": "Spillage of chemicals (Small)",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 500,
+  "description": "Spillage of chemicals (Small)",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "hazmat_unit": 1,
+    "irv": 2,
+    "fire_officer": 5
+  },
+  "patients": {
+    "range": [
+      0,
+      3
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "small chemical spill",
+    "contaminated area"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "We've had a small chemical spill in the unit, one of my staff feels unwell",
+      "There's been a spill on the industrial estate, not huge, but someone's been affected"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "We've had a small chemical spill in the unit, one of my staff feels unwell",
+        "There's been a spill on the industrial estate, not huge, but someone's been affected"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm on site"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, one of our staff",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's at {{address}}",
+        "{{address}}, industrial estate unit"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A small container of chemicals spilled and {{firstPatientName}} was nearby, breathed some fumes in",
+        "There's a small spill on the floor, {{firstPatientName}} got a bit of it on their skin and feels unwell"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and talking",
+        "Yes, conscious throughout"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A little tight, but managing",
+        "Breathing's okay, a bit of coughing"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Some stinging where it touched the skin",
+        "A sore throat, mainly"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of",
+        "No, nothing I'm aware of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not that I know of",
+        "None that I'm aware of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "29"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've moved them away from the spill and it's contained",
+        "Right, we're keeping others clear of it"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I think it's best they're checked properly given the chemical exposure",
+        "Could do, but I'd rather be safe with the exposure"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, small chemical spill confirmed, {{patients}} casualty reported"
+    ],
+    "update": [
+      "{{unit}} assessing casualty, spill contained",
+      "Area cordoned while spill is cleared"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualty handed over and spill cleared"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_666"
+  ],
+  "notes": "Generated from MissionChief UK mission 666 (Spillage of chemicals (Small)). Buildings: 6 Fire Stations, 3 Rescue Stations, 1 Police Station. Vehicles: 3 Fire engines, 1 HazMat Unit or CBRN Vehicle, 2 Police Cars. Personnel: 5 Fire Officers. Patients: max 3, 30% require transport, General Internal, code C-2. Prisoners: none. Escalation: expands to Spillage of chemicals (Large). POI: none."
+}

@@ -1,0 +1,191 @@
+{
+  "id": "police_flooding_on_carriageway",
+  "name": "Flooding on carriageway",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "Flooding on carriageway",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "flood water on carriageway",
+    "risk of vehicles stranded"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, the road's completely flooded, cars are struggling to get through",
+      "I need to report flooding on the road, it's getting worse by the minute",
+      "There's serious flooding on the carriageway, I've seen a car nearly get stuck"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, the road's completely flooded, cars are struggling to get through",
+        "I need to report flooding on the road, it's getting worse by the minute",
+        "There's serious flooding on the carriageway, I've seen a car nearly get stuck"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm parked up watching it",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, it's just the flooding",
+        "N/A"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's flooded right across",
+        "It's on {{address}}, near the dip in the road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The road's underwater after all the rain, cars are having to turn back",
+        "It's been rising for the last twenty minutes",
+        "A car tried to go through and stalled halfway, the driver's had to get out"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, everyone's got out safely so far",
+        "No injuries yet"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying well back from the water",
+        "Thank you, it's getting worse quickly"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police for road safety"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, road confirmed flooded, closure being arranged"
+    ],
+    "update": [
+      "Road closed, diversion in place"
+    ],
+    "stop": [
+      "{{unit}} clear, road reopened once water receded"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_267"
+  ],
+  "notes": "Generated from MissionChief UK mission 267 (Flooding on carriageway). Buildings: 5 Police Stations. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

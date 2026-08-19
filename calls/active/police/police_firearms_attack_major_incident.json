@@ -1,0 +1,253 @@
+{
+  "id": "police_firearms_attack_major_incident",
+  "name": "Firearms Attack (Major Incident)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1500,
+  "description": "Firearms Attack (Major Incident)",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 12,
+    "dog_unit": 4,
+    "arv": 5,
+    "otl": 1,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      8,
+      15
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "active shooter",
+    "mass casualties",
+    "ongoing threat",
+    "wide area affected"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "npas": {
+      "chance": 80,
+      "delaySeconds": [
+        120,
+        240
+      ],
+      "unit": "npas"
+    },
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    },
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Please help, there's been a mass shooting, there's so many people down!",
+      "Police, ambulance, everyone, there's multiple shooters, people are dying!",
+      "I don't know how to explain it, there's been gunfire, dozens of people hurt!"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Please help, there's been a mass shooting, there's so many people down!",
+        "Police, ambulance, everyone, there's multiple shooters, people are dying!",
+        "I don't know how to explain it, there's been gunfire, dozens of people hurt!"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm sheltering nearby",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I can't tell you names, there's so many down",
+        "I don't know, there's too many people hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's happening right here",
+        "It's at {{address}}, it's chaos"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Gunfire broke out across the whole area, there's people down everywhere",
+        "It happened minutes ago and it might still be going on",
+        "I heard sustained shooting, it sounded like more than one gun"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are conscious and screaming, a lot aren't moving",
+        "Too many to tell, some are awake, many aren't"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell for most of them",
+        "Some seem to be breathing, I really don't know about the rest"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "The ones who can speak are in agony",
+        "Can't tell for most"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's blood everywhere, it's a massacre",
+        "Multiple people bleeding heavily, it's horrific"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, men, women, I think I saw children too"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying hidden and safe",
+        "Please, send everyone, there's so many hurt"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a mass casualty situation, I need everyone here now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, major incident declared, {{patients}} casualties reported across scene"
+    ],
+    "update": [
+      "Scene being cleared by armed officers, triage points established",
+      "Casualties being treated at triage points, {{patients}} patients under critical care"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patients conveyed under major incident protocol"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mass_casualty",
+    "mc_207"
+  ],
+  "notes": "Generated from MissionChief UK mission 207 (Firearms Attack (Major Incident)). Buildings: 18 Police Stations, 9 Rescue Stations, 1 Police Helicopter Station. Vehicles: 12 Police Cars, 4 DSUs, 1 Police Helicopter. Personnel: 10 Armed Response Personnel, 1 Operational Team Leader. Patients: max 15, min 8, 30% require transport, Traumatology / Critical Care, codes C-1, C-2, 100% critical care. Prisoners: max 2. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

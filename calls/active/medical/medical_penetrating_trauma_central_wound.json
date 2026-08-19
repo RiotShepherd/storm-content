@@ -1,0 +1,197 @@
+{
+  "id": "medical_penetrating_trauma_central_wound",
+  "name": "Penetrating Trauma - Central Wound",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Penetrating Trauma - Central Wound",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "ambulance": 1,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "knife involved",
+    "assailant may still be nearby",
+    "heavy bleeding"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 40,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "He's been stabbed in the chest, there's so much blood, please hurry",
+      "I need an ambulance now, there's been a stabbing and he's bleeding badly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "He's been stabbed in the chest, there's so much blood, please hurry",
+        "I need an ambulance now, there's been a stabbing and he's bleeding badly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was with him",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, I know him from round here",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, please hurry",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There was a fight and he's been stabbed, it's right in the middle of his chest"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes but he's fading, barely talking now"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Really struggling, gasping"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He was screaming but he's gone quiet now"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Bleeding badly, I'm pressing on it with a towel"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about 25"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm keeping pressure on"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance right now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with penetrating chest wound, assessing"
+    ],
+    "update": [
+      "Bleeding controlled, patient deteriorating",
+      "Preparing to convey as priority"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority to major trauma centre"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_474"
+  ],
+  "notes": "Generated from MissionChief UK mission 474 (Penetrating Trauma - Central Wound). Buildings: 4 Rescue Stations. Vehicles: 1 Ambulance. Personnel: 1 Operational Team Leader. Patients: min 1, max 1, 100% require transport, General Internal, code C-1, 80% critical care. Prisoners: none. Escalation: none. POI: none."
+}

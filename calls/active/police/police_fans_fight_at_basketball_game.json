@@ -1,0 +1,227 @@
+{
+  "id": "police_fans_fight_at_basketball_game",
+  "name": "Fans fight at basketball game",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 160,
+  "description": "Fans fight at basketball game",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 6,
+    "ambulance": 1,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      4,
+      8
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "large crowd disorder",
+    "multiple casualties",
+    "confined seating area"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police and ambulance please, there's a massive fight in the crowd at the basketball game",
+      "Help, fans have turned on each other in the stands, people are getting hurt",
+      "Please hurry, there's a huge brawl at the arena, it's spreading fast"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police and ambulance please, there's a massive fight in the crowd at the basketball game",
+        "Help, fans have turned on each other in the stands, people are getting hurt",
+        "Please hurry, there's a huge brawl at the arena, it's spreading fast"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm a steward here",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's several hurt, one's called {{firstPatientName}} I think",
+        "I don't know all their names, {{firstPatientName}}'s one of them"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the arena, block C stand",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Rival fans started fighting after a disputed call, it's spread through the whole block",
+        "It's been going for a few minutes, seats are being thrown",
+        "Several people are down, others are still fighting around them"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious, a couple aren't moving much",
+        "They're awake, some are dazed"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing seems okay for those I can see",
+        "Seems fine so far"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Several are in pain, cuts and bruises",
+        "A few are holding their heads, looks bad"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, at least two are bleeding from head wounds",
+        "Some cuts and bleeding among the group"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, they're just fans",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Couldn't say",
+        "No idea"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, mostly young adults"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're trying to clear the area around them",
+        "Please hurry, it's still going on"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need police and ambulance urgently"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, crowd disturbance confirmed, {{patients}} casualties being triaged"
+    ],
+    "update": [
+      "Combatants separated, casualties assessed for transport",
+      "Prisoners detained, remaining crowd being dispersed"
+    ],
+    "stop": [
+      "{{unit}} clear, scene secured, casualties conveyed as required"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_846"
+  ],
+  "notes": "Generated from MissionChief UK mission 846 (Fans fight at basketball game). Buildings: 6 Police Stations, 3 Rescue Stations, 1 Riot Police Extension. Vehicles: 2 Police Cars or ARVs, 4 Police Cars, 1 Ambulance. Personnel: none. Patients: min 4, max 8, 30% require transport, General Internal, code C-3. Prisoners: max 20. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

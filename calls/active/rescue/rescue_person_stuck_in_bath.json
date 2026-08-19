@@ -1,0 +1,189 @@
+{
+  "id": "rescue_person_stuck_in_bath",
+  "name": "Person stuck in bath",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Person stuck in bath",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 55,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I'm ever so sorry to bother you, but I've got stuck in the bath and I can't get myself out.",
+      "I need some help, I've slipped getting out of the bath and I can't stand up, I'm stuck."
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I'm ever so sorry to bother you, but I've got stuck in the bath and I can't get myself out.",
+        "I need some help, I've slipped getting out of the bath and I can't stand up, I'm stuck."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "My name's {{callerName}}."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, it's just me here."
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}.",
+        "{{address}}, the front door's unlocked, come straight in."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I slipped getting out of the bath and now I can't get any grip to stand up.",
+        "My legs have gone and I just can't lift myself out of the bath."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm fine, just stuck.",
+        "Yes, wide awake, just can't move."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing's fine.",
+        "Yes, I'm okay, just cold and stuck."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "My hip hurts a bit from the fall.",
+        "Not really, just my shoulder's sore."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no bleeding.",
+        "No, I don't think so."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've got arthritis in my hips.",
+        "I had a hip replacement a couple of years ago."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I take tablets for my blood pressure.",
+        "Just the usual, blood pressure tablets."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm seventy eight.",
+        "I'm eighty two."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll try to stay warm and wait.",
+        "Thank you, I'll leave the front door unlocked."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No dear, I'm physically stuck, I need someone to lift me!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing the casualty"
+    ],
+    "update": [
+      "{{unit}} working to lift the casualty safely"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty assisted out"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_606"
+  ],
+  "notes": "Generated from MissionChief UK mission 606 (Person stuck in bath). Buildings: 1 Fire Station, 3 Rescue Stations. Vehicles: 1 Fire engine. Personnel: none. Patients: max 1, min 1, 55% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

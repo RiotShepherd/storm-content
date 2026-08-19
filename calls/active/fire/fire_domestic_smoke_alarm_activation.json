@@ -1,0 +1,174 @@
+{
+  "id": "fire_domestic_smoke_alarm_activation",
+  "name": "Domestic smoke alarm activation",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 60,
+  "description": "Domestic smoke alarm activation",
+  "keywords": {
+    "correct": [
+      "f_alarm"
+    ],
+    "acceptable": [
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "uncertain cause",
+    "elderly resident alone"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My smoke alarm's going off and I can't find anything burning",
+      "I need the fire brigade, the smoke alarm won't stop and I'm not sure why"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "confused",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My smoke alarm's going off and I can't find anything burning",
+        "I need the fire brigade, the smoke alarm won't stop and I'm not sure why"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my flat"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's just me here, I'm fine, there's no fire that I can see"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's my flat"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The alarm's just started going off, I've checked the kitchen and I can't see any smoke or fire"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm fine, I'm just stood in the hallway"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I'm okay, breathing fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I'm not hurt, just confused about the alarm"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, I'm not injured"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I'm fine health wise, this is about the alarm"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not relevant, I'm not hurt"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm in my seventies, if that helps"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll wait by the front door for you"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I don't think I need 111, I just want someone to check the alarm's not a real fire"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, smoke alarm activation, no fire found on initial check, investigating cause"
+    ],
+    "update": [
+      "{{unit}} confirms false alarm, likely faulty detector or cooking fumes"
+    ],
+    "stop": [
+      "{{unit}} stood down, no fire found, resident advised on alarm testing"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_208"
+  ],
+  "notes": "Generated from MissionChief UK mission 208 (Domestic smoke alarm activation). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: House fire, House fire (Persons Reported). POI: none."
+}

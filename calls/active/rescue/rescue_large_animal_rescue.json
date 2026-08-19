@@ -1,0 +1,186 @@
+{
+  "id": "rescue_large_animal_rescue",
+  "name": "Large Animal Rescue",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 200,
+  "description": "Large Animal Rescue",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "aerial": 1,
+    "rescue_unit": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My horse has got stuck in the mud down by the stream and can't get herself out.",
+      "Fire brigade please, one of our cows has fallen into a ditch and we can't move her."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My horse has got stuck in the mud down by the stream and can't get herself out.",
+        "Fire brigade please, one of our cows has fallen into a ditch and we can't move her."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, she's my horse.",
+        "{{callerName}}, it's our cow that's stuck."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no patient, it's the horse that's stuck.",
+        "No one's hurt, it's the animal."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, in the field.",
+        "{{address}}, come through the farm gate."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's sunk into the mud up to her belly and can't pull herself free.",
+        "The cow's slipped into the ditch and can't stand up properly."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's awake and struggling.",
+        "Yes, she's alert, just can't get herself out."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, she's breathing fine, just distressed.",
+        "Yes, breathing okay, just panicking."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Hard to tell, she doesn't seem to be limping.",
+        "Can't say for certain, she's calmer now."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no visible injuries.",
+        "No, doesn't look hurt."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's healthy normally.",
+        "No issues that I know of."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable.",
+        "No, nothing like that."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, it's the horse.",
+        "Not applicable."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep her calm while we wait.",
+        "Understood, I'll stay with her."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need the fire brigade for the animal!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing access to the animal"
+    ],
+    "update": [
+      "{{unit}} working to free the animal, vet on scene"
+    ],
+    "stop": [
+      "{{unit}} clear, animal freed"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "mc_815"
+  ],
+  "notes": "Generated from MissionChief UK mission 815 (Large Animal Rescue). Buildings: 4 Fire Stations. Vehicles: 1 Fire engine, 1 Aerial Appliance Truck, 1 Rescue Support Vehicle. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

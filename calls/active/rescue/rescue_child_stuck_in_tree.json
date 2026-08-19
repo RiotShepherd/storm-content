@@ -1,0 +1,192 @@
+{
+  "id": "rescue_child_stuck_in_tree",
+  "name": "Child stuck in tree",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 34,
+  "description": "Child stuck in tree",
+  "keywords": {
+    "correct": [
+      "tree_on_road"
+    ],
+    "acceptable": [
+      "rtc_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "aerial": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My son's climbed up a tree in the park and now he's too scared to get down.",
+      "Fire brigade please, there's a child stuck up a tree, he can't climb down and he's crying."
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My son's climbed up a tree in the park and now he's too scared to get down.",
+        "Fire brigade please, there's a child stuck up a tree, he can't climb down and he's crying."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm his mum.",
+        "{{callerName}}, I'm his dad, I'm right below the tree."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}.",
+        "His name's {{firstPatientName}}, he's my son."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, in the park.",
+        "{{address}}, near the big oak tree by the playground."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He climbed up higher than he meant to chasing a ball and now he's frozen, too scared to come down.",
+        "He's stuck near the top of the tree, he won't move and he's getting upset."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's talking to me from up there.",
+        "He's awake, just frightened and crying."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, he's fine, just upset.",
+        "Yes, breathing fine, just scared."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, he says he's not hurt, just stuck.",
+        "He's not in pain, just too scared to move."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, he's not hurt.",
+        "No, he hasn't fallen, just stuck."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No, he's a healthy little boy.",
+        "Nothing I'm aware of."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, he's not on anything.",
+        "No medications."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's eight.",
+        "He's seven years old."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying right below him talking to him.",
+        "Please hurry, he's getting more upset."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need the fire brigade to get him down!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, aerial appliance setting up"
+    ],
+    "update": [
+      "{{unit}} working to bring the child down safely"
+    ],
+    "stop": [
+      "{{unit}} clear, child safely down and reunited with parent"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_639"
+  ],
+  "notes": "Generated from MissionChief UK mission 639 (Child stuck in tree). Buildings: 3 Fire Stations, 1 Rescue Station. Vehicles: 1 Fire engine, 1 Aerial Appliance Truck (80% probability). Personnel: none. Patients: max 1, 30% require transport, General Surgeon and Children, codes C-1, C-2, C-3. Prisoners: none. Escalation: none. POI: Park."
+}

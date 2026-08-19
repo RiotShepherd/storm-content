@@ -1,0 +1,201 @@
+{
+  "id": "rescue_ceiling_collapse_minor_person_trapped",
+  "name": "Ceiling Collapse Minor (Person Trapped)",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Ceiling Collapse Minor (Person Trapped)",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 50,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "further collapse risk",
+    "dust"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 40,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "The ceiling's come down on my husband, he's stuck under some of it!",
+      "Fire brigade please, part of the ceiling's collapsed and someone's trapped underneath."
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The ceiling's come down on my husband, he's stuck under some of it!",
+        "Fire brigade please, part of the ceiling's collapsed and someone's trapped underneath."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my husband under there.",
+        "{{callerName}}, I'm his wife, I called as soon as it happened."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}.",
+        "His name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}.",
+        "{{address}}, come round the back, the front door's blocked."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Part of the ceiling came down on him while he was in the kitchen, he's pinned under some of the beam.",
+        "The ceiling collapsed and he couldn't get out of the way in time, he's trapped under the debris."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's talking to me, but he's in a lot of pain.",
+        "He's conscious, shouting for help."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, he's breathing okay.",
+        "Yes, but he sounds winded."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his back and shoulder really hurt.",
+        "He's saying his leg's trapped and it's agony."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's a cut on his head, bleeding a bit.",
+        "Not that I can see, just dust and bruising."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's got a bad back normally.",
+        "No major health problems that I know of."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He takes blood pressure tablets, that's all I know.",
+        "I don't think he's on anything."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's forty five.",
+        "He's in his fifties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with him and talking to him.",
+        "Please hurry, I don't think more of it is safe."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's trapped under a collapsed ceiling, we need the fire brigade!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, casualty located, working to free them"
+    ],
+    "update": [
+      "{{unit}} freeing the casualty, ambulance assessing"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty freed"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_473"
+  ],
+  "notes": "Generated from MissionChief UK mission 473 (Ceiling Collapse Minor (Person Trapped)). Buildings: 5 Fire Stations, 1 Rescue Station. Vehicles: 2 Fire engines or Rescue Support Vehicles. Personnel: none. Patients: max 1, 40% require transport, General Internal, codes C-1, C-2, 40% critical care. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,183 @@
+{
+  "id": "fire_person_in_large_enclosure",
+  "name": "Person in large enclosure",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 118,
+  "description": "Person in large enclosure",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "aerial": 1,
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "dangerous animal in enclosure",
+    "restricted access",
+    "casualty unresponsive"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Please help, someone's trapped inside the enclosure and they're struggling",
+      "There's a keeper stuck in with the animals, he can't get out and he's not looking good"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Please help, someone's trapped inside the enclosure and they're struggling",
+        "There's a keeper stuck in with the animals, he can't get out and he's not looking good"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm another keeper here"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, he's one of our keepers"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the enclosure at the back"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He went in to do the feed and something's gone wrong, he's collapsed inside"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He was moving earlier but he's gone quiet now"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell from here, we can't get close because of the animal"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I don't know, he hasn't said anything"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I can't see any blood, but I can't get close"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know, I'll ask the office"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I'm not sure"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's in his thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've kept the animal away from him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's collapsed inside the enclosure, we need help now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, casualty located within enclosure, animal secured"
+    ],
+    "update": [
+      "Casualty being extricated from enclosure",
+      "{{patients}} casualty being assessed"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualty"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mc_797"
+  ],
+  "notes": "Generated from MissionChief UK mission 797 (Person in large enclosure). Buildings: 3 Fire Stations, 2 Police Stations, 2 Rescue Stations. Vehicles: 1 Fire engine, 1 Aerial Appliance Truck (15% probability), 1 Police Car (30% probability). Personnel: 3 to 9 Firefighters. Patients: max 1, 60% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Zoo."
+}

@@ -1,0 +1,214 @@
+{
+  "id": "fire_fire_in_a_lithium_battery_manufacturing_factory",
+  "name": "Fire in a Lithium Battery Manufacturing Factory",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1150,
+  "description": "Fire in a Lithium Battery Manufacturing Factory",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "f2y",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse"
+  ],
+  "units": {
+    "dual_pump": 6,
+    "single_pump": 6,
+    "aerial": 3,
+    "water_carrier": 2,
+    "rescue_unit": 2,
+    "irv": 6,
+    "hazmat_unit": 2,
+    "bulk_foam_unit": 2,
+    "iccu": 1,
+    "basu": 1,
+    "fire_officer": 3
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "toxic and flammable gases from batteries",
+    "risk of reignition",
+    "large chemical stockpile"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 14",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's a fire in the battery factory, we've evacuated but it's producing toxic smoke",
+      "I need the fire brigade urgently, one of the battery lines has caught fire and it's spreading fast",
+      "Please hurry, the factory's alight and we're worried about the chemicals inside"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire in the battery factory, we've evacuated but it's producing toxic smoke",
+        "I need the fire brigade urgently, one of the battery lines has caught fire and it's spreading fast",
+        "Please hurry, the factory's alight and we're worried about the chemicals inside"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the site manager"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Everyone's out and accounted for, no injuries reported"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the battery factory, main gate on the industrial estate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Fire's broken out on the battery production line, it's spreading and giving off thick toxic smoke"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Everyone's conscious and accounted for at the assembly point"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A few staff got some smoke on the way out, they're being checked now"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No serious injuries reported"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding reported"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable, no serious injuries"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient requiring transport"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, everyone's well clear at the assembly point upwind of the smoke"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a major hazmat fire, we need every crew you can send"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, lithium battery fire, major incident declared, hazmat crews requested"
+    ],
+    "update": [
+      "{{unit}} confirms fire contained to one production line, monitoring air quality",
+      "{{unit}} advising nearby residents to close windows due to smoke plume"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire extinguished, area ventilated and monitored"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "chemical_and_industrial_fire",
+    "rural_fire",
+    "mc_734"
+  ],
+  "notes": "Generated from MissionChief UK mission 734 (Fire in a Lithium Battery Manufacturing Factory). Buildings: 20 Fire Stations, 1 Rescue Station, 6 Police Stations, 2 Foam Extensions. Vehicles: 12 Fire engines, 3 Aerial Appliance Trucks, 2 Water Carriers, 2 Rescue Support Vehicles, 6 Police Cars, 2 HazMat Units or CBRN Vehicles, 2 Foam Units, 1 ICCU or ACU, 1 BASU. Personnel: 3 Fire Officers. Patients: none. Prisoners: none. Escalation: none. POI: Factory."
+}

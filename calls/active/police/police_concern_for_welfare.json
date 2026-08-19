@@ -1,0 +1,192 @@
+{
+  "id": "police_concern_for_welfare",
+  "name": "Concern for welfare",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 4,
+  "responseMinutes": 90,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 75,
+  "description": "Concern for welfare",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, I've not heard from my neighbour in days and I'm worried",
+      "I need a welfare check, I can't get an answer at my neighbour's and her curtains haven't moved",
+      "Please can someone check on someone for me, I think something might be wrong"
+    ],
+    "phoneArea": "auto",
+    "callerType": "neighbour"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, I've not heard from my neighbour in days and I'm worried",
+        "I need a welfare check, I can't get an answer at my neighbour's and her curtains haven't moved",
+        "Please can someone check on someone for me, I think something might be wrong"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I live next door to her",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, she lives on her own",
+        "{{firstPatientName}}, she's elderly and lives alone"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that's her house",
+        "It's {{address}}, I've knocked several times"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I haven't seen her in three days, her milk's still on the step",
+        "She usually pops out every morning and I haven't seen her since Tuesday",
+        "The curtains haven't been opened and she's not answering her phone"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I don't know, I can't get anyone to answer",
+        "I can't tell, there's no answer at the door"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I've no way of knowing, I can't get in",
+        "I don't know, that's why I'm calling"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I don't know, I can't reach her",
+        "Unknown, no answer"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I can't tell from outside",
+        "No idea"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's got heart problems as far as I know",
+        "She's diabetic I believe"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I'm not sure what she takes",
+        "I don't know her medications"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "She's in her eighties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll wait here for you",
+        "Thank you, I'm really worried about her"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think you need to get in, this needs police"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, no answer at address, gaining entry"
+    ],
+    "update": [
+      "Patient located inside, being assessed"
+    ],
+    "stop": [
+      "{{unit}} clear, occupant located and welfare confirmed"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_105"
+  ],
+  "notes": "Generated from MissionChief UK mission 105 (Concern for welfare). Buildings: 2 Police Stations, 1 Rescue Station. Vehicles: 2 Police Cars. Personnel: none. Patients: max 1, 30% require transport, General Surgeon, codes C-2, C-3. Prisoners: none. Escalation: Panic button activation. POI: none."
+}

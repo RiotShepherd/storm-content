@@ -1,0 +1,186 @@
+{
+  "id": "medical_labour_home_birth",
+  "name": "Labour - Home Birth",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 90,
+  "description": "Labour - Home Birth",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My partner's having the baby at home, the midwife's here but wanted me to call",
+      "It's a home birth, the midwife asked me to ring for an ambulance to be on standby"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My partner's having the baby at home, the midwife's here but wanted me to call",
+        "It's a home birth, the midwife asked me to ring for an ambulance to be on standby"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm her partner",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my partner"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, the midwife's already here"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's in labour, contractions are close together, the midwife's with her"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's awake and coping well"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says it's very intense now"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A little, the midwife says that's normal"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing complicated, it's her second baby"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "31"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, thank you"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we just want an ambulance on standby"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, midwife in attendance, labour progressing"
+    ],
+    "update": [
+      "Labour progressing normally, mother and baby well"
+    ],
+    "stop": [
+      "{{unit}} clear, delivery successful, midwife remaining on scene"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_692"
+  ],
+  "notes": "Generated from MissionChief UK mission 692 (Labour - Home Birth). Buildings: 1 Rescue Station, 2 GP Surgeries. Vehicles: none. Personnel: 2 Community Midwives. Patients: min 1, max 1, 30% require transport, Central Delivery Suite, codes C-1, C-2, 100% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,204 @@
+{
+  "id": "fire_burning_manufacturing_machine",
+  "name": "Burning manufacturing machine",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 247,
+  "description": "Burning manufacturing machine",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "warehouse",
+    "industrial_estate"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "water_carrier": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "industrial machinery",
+    "hydraulic oil",
+    "isolated but live power nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "One of the machines on the factory floor has caught fire",
+      "I need the fire brigade, production line machinery's on fire and we've evacuated the floor"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "One of the machines on the factory floor has caught fire",
+        "I need the fire brigade, production line machinery's on fire and we've evacuated the floor"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the shift supervisor"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, we got everyone off the floor"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the factory, use the main gate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One of the production machines caught fire, we've isolated the power and evacuated that section"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, all staff accounted for"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, everyone's out in the yard"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries reported"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've isolated the power to that machine"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a fire not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, machine fire within factory, power isolated, no persons involved"
+    ],
+    "update": [
+      "{{unit}} extinguishing, checking for fire spread into roof void"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, handed back to site management"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "chemical_and_industrial_fire",
+    "urban_fire",
+    "mc_102"
+  ],
+  "notes": "Generated from MissionChief UK mission 102 (Burning manufacturing machine). Buildings: 5 Fire Stations. Vehicles: 3 Fire engines, 1 Water Carrier. Personnel: 1 Fire Officer. Patients: none. Prisoners: none. Escalation: none. POI: Warehouse, Factory, Cold Storage Warehouse."
+}

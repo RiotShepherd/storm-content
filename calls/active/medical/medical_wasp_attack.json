@@ -1,0 +1,196 @@
+{
+  "id": "medical_wasp_attack",
+  "name": "Wasp attack",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "Wasp attack",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      4
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "active wasp nest nearby",
+    "multiple casualties"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 20,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance please, we've disturbed a wasps' nest, my kids have been stung loads of times",
+      "I need an ambulance, there's a swarm of wasps, several of us have been stung",
+      "Please hurry, my son's covered in stings and his face is swelling up"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance please, we've disturbed a wasps' nest, my kids have been stung loads of times",
+        "I need an ambulance, there's a swarm of wasps, several of us have been stung",
+        "Please hurry, my son's covered in stings and his face is swelling up"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the mum",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}} is the worst of them, he's my son",
+        "{{firstPatientName}}, and there's three others stung as well"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, in the back garden",
+        "{{address}}, come round the side gate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "We knocked the nest by accident while mowing, the wasps went for the kids",
+        "It happened about two minutes ago, they've all been stung multiple times",
+        "My son's had at least ten stings, his face is coming up in lumps"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, they're all conscious, but he's crying and his lips look swollen",
+        "Everyone's awake, but my son doesn't look right"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "His breathing sounds a bit wheezy to me",
+        "Everyone else is breathing fine, just him I'm worried about"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "They're all saying it stings and burns",
+        "Lots of pain from the stings, he's screaming"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, just the sting marks",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's never been stung before that I know of",
+        "No allergies that we know about"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, he doesn't take anything",
+        "We don't have an EpiPen in the house"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "7"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got him sitting down, please hurry",
+        "I'm trying to keep him calm but he's really upset"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, his face is swelling, I think it's serious",
+        "Okay, if you're sure that's alright"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties with multiple wasp stings, assessing for anaphylaxis"
+    ],
+    "update": [
+      "Worst affected patient showing facial swelling, treating as allergic reaction",
+      "All patients triaged, one requiring further treatment for stings"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patients treated on scene"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_603"
+  ],
+  "notes": "Generated from MissionChief UK mission 603 (Wasp attack). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 4, min 1, 20% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

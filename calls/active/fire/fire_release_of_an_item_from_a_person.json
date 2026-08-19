@@ -1,0 +1,174 @@
+{
+  "id": "fire_release_of_an_item_from_a_person",
+  "name": "Release of an item from a person",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 20,
+  "description": "Release of an item from a person",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "swelling limb needs prompt release"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My daughter's got a bangle stuck on her wrist, it won't come off and her hand's swelling",
+      "Hi, I've got a jar stuck on my hand and I can't get it off"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My daughter's got a bangle stuck on her wrist, it won't come off and her hand's swelling",
+        "Hi, I've got a jar stuck on my hand and I can't get it off"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, it's my daughter"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, she's my daughter"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She was trying it on and now it's stuck fast, her fingers are starting to swell"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's fine, just worried"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "She's breathing fine, it's just her wrist"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "It's starting to ache from the swelling"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, just stuck"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing relevant, she's healthy otherwise"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, nothing"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "She's twelve"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep her calm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need the fire brigade to cut it off, not 111"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, assessing item for safe removal"
+    ],
+    "update": [
+      "Crew cutting item free"
+    ],
+    "stop": [
+      "{{unit}} leaving scene, item removed, casualty unharmed"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_203"
+  ],
+  "notes": "Generated from MissionChief UK mission 203 (Release of an item from a person). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

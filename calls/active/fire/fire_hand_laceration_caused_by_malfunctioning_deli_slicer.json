@@ -1,0 +1,181 @@
+{
+  "id": "fire_hand_laceration_caused_by_malfunctioning_deli_slicer",
+  "name": "Hand Laceration Caused By Malfunctioning Deli Slicer",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Hand Laceration Caused By Malfunctioning Deli Slicer",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "supermarket",
+    "retail_park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "malfunctioning machinery",
+    "risk of further injury from blade"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Someone's badly cut their hand on the deli slicer, it's bleeding a lot",
+      "Please send an ambulance, a colleague's hand's gone into the slicer, there's a lot of blood"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Someone's badly cut their hand on the deli slicer, it's bleeding a lot",
+        "Please send an ambulance, a colleague's hand's gone into the slicer, there's a lot of blood"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work on the deli counter with him"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, he works with me on the deli counter"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the supermarket, come to the deli counter",
+        "It's {{address}}, I'll meet you at the entrance"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The slicer at the deli counter malfunctioned and my colleague's hand got caught in the blade, it's a deep cut"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious, just in shock"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He's breathing fine, just pale and shaky"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, he says it's really painful, a deep cut"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, it's bleeding a lot, I'm keeping pressure on it"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't think he's on anything"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's in his twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got a clean cloth pressed on it and I'm applying pressure",
+        "Please hurry, it's still bleeding through the cloth"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a deep cut that's bleeding heavily, we need an ambulance, not a GP"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, hand laceration, {{patients}} casualty, wound dressed"
+    ],
+    "update": [
+      "Casualty assessed, wound bleeding controlled, prepared for transport"
+    ],
+    "stop": [
+      "Casualty conveyed to hospital, {{unit}} clear"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_723"
+  ],
+  "notes": "Generated from MissionChief UK mission 723 (Hand Laceration Caused By Malfunctioning Deli Slicer). Buildings: 1 Fire Station, 1 Rescue Station. Vehicles: 1 Fire Engine, Rescue Support Vehicle or Aerial Appliance Truck. Personnel: none. Patients: min 1, max 1, 100% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Supermarket (small), Supermarket (big)."
+}

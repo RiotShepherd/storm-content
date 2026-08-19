@@ -1,0 +1,193 @@
+{
+  "id": "police_large_drunken_disorder",
+  "name": "Large Drunken Disorder",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 95,
+  "description": "Large Drunken Disorder",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 3,
+    "dog_unit": 1,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "large intoxicated crowd",
+    "risk of escalation"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a big group causing trouble outside the pub, all very drunk",
+      "I need help, a large crowd's spilled out onto the street, drunk and fighting",
+      "There's a large drunken disorder outside, they're smashing things up"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a big group causing trouble outside the pub, all very drunk",
+        "I need help, a large crowd's spilled out onto the street, drunk and fighting",
+        "There's a large drunken disorder outside, they're smashing things up"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I live above the shop opposite",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them",
+        "No idea who they are"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, they're all outside there",
+        "It's near {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A big group's come out of the pub, shouting, shoving each other and knocking over bins",
+        "It's been building for the last ten minutes, more people are joining in",
+        "A couple of them have started throwing punches now"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "They're all conscious, just very drunk and rowdy",
+        "No one's seriously hurt yet"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Everyone's fine physically, just drunk"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A, no one's hurt",
+        "Not that I've seen"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No idea, don't know them",
+        "Couldn't say"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, mostly twenties and thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying inside with the door locked",
+        "Thank you, it's getting louder"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police, it's a public disorder"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, crowd being dispersed"
+    ],
+    "update": [
+      "Prisoners detained, crowd reducing"
+    ],
+    "stop": [
+      "{{unit}} clear, area quiet"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_138"
+  ],
+  "notes": "Generated from MissionChief UK mission 138 (Large Drunken Disorder). Buildings: 6 Police Stations. Vehicles: 3 Police Cars, 1 DSU. Personnel: none. Patients: none. Prisoners: max 3. Escalation: Panic button activation. POI: none."
+}

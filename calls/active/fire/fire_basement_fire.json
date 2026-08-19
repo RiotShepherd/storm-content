@@ -1,0 +1,210 @@
+{
+  "id": "fire_basement_fire",
+  "name": "Basement fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 250,
+  "description": "Basement fire",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      2
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "smoke logging",
+    "confined below ground space",
+    "limited access"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 90,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's smoke coming up from the basement flat, I think it's on fire down there",
+      "I need the fire brigade, smoke's coming through the floor from the basement"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's smoke coming up from the basement flat, I think it's on fire down there",
+        "I need the fire brigade, smoke's coming through the floor from the basement"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm in the flat above"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I think the fella who lives in the basement might still be down there"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the basement flat, door's round the side"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Smoke's coming up through the floorboards, I think there's a fire in the basement flat below"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I don't know, I've been banging on his door and there's no answer"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell, the smoke's too thick to go down and check"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I don't know, I can't get to him"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I can't see, I haven't been able to get near"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him well, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's a younger man, maybe thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll wait outside and keep the door clear"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, there's a fire and someone might be trapped, we need you now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, smoke issuing from basement level, BA crews committed, {{patients}} persons reported"
+    ],
+    "update": [
+      "{{unit}} searching basement under BA, fire located and being attacked"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, casualty handed to ambulance"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_20"
+  ],
+  "notes": "Generated from MissionChief UK mission 20 (Basement fire). Buildings: 3 Fire Stations. Vehicles: 3 Fire engines. Personnel: 1 Fire Officer (90% probability). Patients: max 2, 30% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,189 @@
+{
+  "id": "medical_hcp_admission_from_gp_surgery",
+  "name": "HCP Admission From GP Surgery",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "HCP Admission From GP Surgery",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "It's the GP surgery on the high street, I need an ambulance for a patient in the treatment room",
+      "This is reception at the surgery, the doctor wants a patient blue lighted to hospital"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "It's the GP surgery on the high street, I need an ambulance for a patient in the treatment room",
+        "This is reception at the surgery, the doctor wants a patient blue lighted to hospital"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, reception at the surgery",
+        "It's {{callerName}}, I'm with the doctor"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, the patient in the treatment room",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the GP surgery on the corner",
+        "{{address}}, come straight through to the treatment room"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The doctor's examined them and they need immediate transfer, it's not safe to wait"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, alert but deteriorating"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Laboured, the doctor's concerned about their sats"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Some discomfort reported, but obs are the main worry"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "It's all documented in their GP notes, I'll send it with the crew"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Full medication list is ready for you"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "74"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Thank you, we'll keep them comfortable until you arrive"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, the doctor's already assessed them, they need an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} at GP surgery, {{patients}} patient ready for transfer, assessing"
+    ],
+    "update": [
+      "Patient stable, handover complete, loading now"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "general_practitioner",
+    "mc_689"
+  ],
+  "notes": "Generated from MissionChief UK mission 689 (HCP Admission From GP Surgery). Buildings: 1 GP Surgery. Vehicles: none. Personnel: none. Patients: min 1, max 1, 100% require transport, General Internal, codes C-1, C-2, C-3, C-4. Prisoners: none. Escalation: none. POI: none."
+}

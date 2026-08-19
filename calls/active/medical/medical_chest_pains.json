@@ -1,0 +1,187 @@
+{
+  "id": "medical_chest_pains",
+  "name": "Chest Pains",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Chest Pains",
+  "keywords": {
+    "correct": [
+      "r1_chest"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "chest pain",
+      "cardiac arrest",
+      "palpitations"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I'm having really bad chest pains, it's crushing",
+      "My husband's got severe chest pain, he thinks it might be his heart"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I'm having really bad chest pains, it's crushing",
+        "My husband's got severe chest pain, he thinks it might be his heart"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my husband"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's got sudden crushing chest pain, it's spreading down his left arm",
+        "The pain came on about fifteen minutes ago, tight across his chest"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and scared",
+        "Yes, conscious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A bit short of breath",
+        "Breathing okay but shallow"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Severe, crushing, about nine out of ten",
+        "Bad, spreading to his jaw as well"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's had a heart attack before",
+        "High cholesterol and blood pressure"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He takes aspirin and statins",
+        "I'll get his tablets"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "61"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've given him an aspirin like you said",
+        "I'm keeping him calm and sitting"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, absolutely not, this sounds like his heart",
+        "No, this can't wait"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with chest pain, cardiac monitoring in progress"
+    ],
+    "update": [
+      "{{unit}} carrying out ECG and administering treatment",
+      "{{patients}} casualty stable, prepping for transport"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_36"
+  ],
+  "notes": "Generated from MissionChief UK mission 36 (Chest Pains). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 100% require transport, Cardiology, code C-2, 10% critical care. Prisoners: none. Escalation: none. POI: none."
+}

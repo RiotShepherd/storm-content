@@ -1,0 +1,192 @@
+{
+  "id": "police_live_lane_breakdown_359",
+  "name": "Live Lane Breakdown",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Live Lane Breakdown",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "vehicle stopped in live lane",
+    "high speed traffic",
+    "risk of collision"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, I've broken down in a live lane and I don't know what to do",
+      "Help, my van's stopped dead in the middle lane, I can't get it moving",
+      "There's a vehicle stuck in a live lane, it's mine, traffic's building up fast"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, I've broken down in a live lane and I don't know what to do",
+        "Help, my van's stopped dead in the middle lane, I can't get it moving",
+        "There's a vehicle stuck in a live lane, it's mine, traffic's building up fast"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the driver stuck here",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Just me in the van",
+        "It's only me"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I'm in the outside lane",
+        "I'm at {{address}}, can't move it"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The van's lost all power, I couldn't get across to the hard shoulder",
+        "It happened a couple of minutes ago, I'm blocking a lane completely",
+        "There was a bang from the engine and then it just stopped"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm fine, just really shaken up being out here",
+        "No one's hurt, just me"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I'm breathing okay, just frightened",
+        "Fine, just scared"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, I'm unhurt",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not relevant",
+        "N/A"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No",
+        "N/A"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying in the car with my belt on",
+        "Please hurry, it's terrifying out here"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police for a road hazard"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, lane closure requested, driver safe"
+    ],
+    "update": [
+      "Vehicle being recovered, traffic managed"
+    ],
+    "stop": [
+      "{{unit}} clear, lane reopened"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_359"
+  ],
+  "notes": "Generated from MissionChief UK mission 359 (Live Lane Breakdown). Buildings: 5 Police Stations. Vehicles: 2 Police Cars. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

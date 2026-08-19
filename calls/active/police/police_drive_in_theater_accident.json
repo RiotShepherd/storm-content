@@ -1,0 +1,188 @@
+{
+  "id": "police_drive_in_theater_accident",
+  "name": "Drive-in Theater Accident",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 70,
+  "description": "Drive-in Theater Accident",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's been a collision here at the drive-in, two cars have hit each other",
+      "I need to report an accident in the car park at the drive-in cinema",
+      "There's been a crash between two cars here at the outdoor cinema"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's been a collision here at the drive-in, two cars have hit each other",
+        "I need to report an accident in the car park at the drive-in cinema",
+        "There's been a crash between two cars here at the outdoor cinema"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I was watching the film nearby",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know the drivers",
+        "No idea who they are"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the drive-in cinema field",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One car reversed into another while trying to leave, they're arguing about it now",
+        "It happened a couple of minutes ago, low speed but there's damage to both cars",
+        "A car clipped another while manoeuvring between the rows"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, both drivers are out of their cars",
+        "No injuries, just damage and an argument"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A, no one's hurt",
+        "No injuries"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep an eye until you get here",
+        "Thank you, they're still arguing"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police for the collision"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, minor collision confirmed, details being taken"
+    ],
+    "update": [
+      "Drivers exchanging details, no injuries reported"
+    ],
+    "stop": [
+      "{{unit}} clear, incident resolved"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_702"
+  ],
+  "notes": "Generated from MissionChief UK mission 702 (Drive-in Theater Accident). Buildings: 2 Police Stations. Vehicles: 2 Police Cars. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

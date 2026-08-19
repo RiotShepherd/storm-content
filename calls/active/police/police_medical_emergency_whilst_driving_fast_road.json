@@ -1,0 +1,188 @@
+{
+  "id": "police_medical_emergency_whilst_driving_fast_road",
+  "name": "Medical emergency whilst driving (fast road)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Medical emergency whilst driving (fast road)",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "motorway",
+    "a_road"
+  ],
+  "units": {
+    "irv": 2,
+    "traffic_car": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "vehicle stopped in live lane"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance, and I think police as well, there's a car all over the dual carriageway",
+      "Please, a driver's collapsed at the wheel, we've got the car onto the hard shoulder"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance, and I think police as well, there's a car all over the dual carriageway",
+        "Please, a driver's collapsed at the wheel, we've got the car onto the hard shoulder"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I just saw it happen",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, I just stopped to help",
+        "No idea, I'm a stranger to him"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, on the hard shoulder",
+        "We're on the {{address}}, near the slip road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was driving fine then just slumped over the wheel, we've got the car onto the hard shoulder",
+        "She started gasping for breath while driving and managed to pull over"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's in and out, mumbling a bit",
+        "She's conscious but not making much sense"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He's breathing but it's really laboured",
+        "Yes but very fast and shallow"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He keeps grabbing at his chest",
+        "She says her chest feels tight"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him, I just stopped to help",
+        "No idea, I'm a stranger to him"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I can't see any on him",
+        "No idea, I don't know her"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Middle aged man, maybe fifties",
+        "Looks about sixty"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry, cars are flying past us",
+        "Right, I'll stay with him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "He needs an ambulance now, not a GP appointment!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualty assessed on the hard shoulder"
+    ],
+    "update": [
+      "Casualty conscious, carriageway partially blocked, requesting traffic management"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty handed to ambulance crew"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_453"
+  ],
+  "notes": "Generated from MissionChief UK mission 453 (Medical emergency whilst driving (fast road)). Buildings: 2 Rescue Stations, 4 Police Stations. Vehicles: 2 Police Cars or ARVs, 1 Traffic Car (only when available). Personnel: none. Patients: max 1, 100% require transport, General Internal, codes C-1, C-2, C-3, 20% critical care. Prisoners: none. Escalation: none. POI: Major Road Standby Point."
+}

@@ -1,0 +1,225 @@
+{
+  "id": "police_firearms_attack",
+  "name": "Firearms Attack",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1000,
+  "description": "Firearms Attack",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 8,
+    "dog_unit": 1,
+    "arv": 3,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      3,
+      6
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "active shooter",
+    "firearms discharged",
+    "multiple casualties",
+    "public in danger"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "npas": {
+      "chance": 80,
+      "delaySeconds": [
+        120,
+        240
+      ],
+      "unit": "npas"
+    },
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    },
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Help, someone's opened fire, there's people down, please send everyone!",
+      "Police, ambulance, there's been a shooting, multiple people are hurt!",
+      "Please, there's a gunman, people are shot, I don't know what to do!"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Help, someone's opened fire, there's people down, please send everyone!",
+        "Police, ambulance, there's been a shooting, multiple people are hurt!",
+        "Please, there's a gunman, people are shot, I don't know what to do!"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm hiding round the corner",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know their names, there's several down",
+        "I can't tell you, there's people on the ground"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it happened right outside",
+        "It's at {{address}}, I'm still nearby"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A man just opened fire into the crowd, several people are down and not moving",
+        "It happened seconds ago, I heard multiple shots",
+        "He's still got the gun, people are running everywhere"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are conscious and screaming, others aren't moving at all",
+        "A couple are awake, others look unresponsive"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell for the ones not moving",
+        "Some seem to be breathing, others I'm not sure"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "The ones awake are screaming in pain",
+        "Can't tell for the others"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's blood everywhere, several of them are bleeding heavily",
+        "Multiple people bleeding badly"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them",
+        "No idea, I don't know them"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, I can see adults and at least one child"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying down and out of sight",
+        "Please hurry, people are dying out here"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a shooting, I need everyone here now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, scene not yet confirmed safe, {{patients}} casualties reported"
+    ],
+    "update": [
+      "Armed officers containing area, casualties being triaged as scene allows",
+      "Scene declared safe, {{patients}} casualties receiving critical care"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patients conveyed, scene handed to investigation team"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_206"
+  ],
+  "notes": "Generated from MissionChief UK mission 206 (Firearms Attack). Buildings: 12 Police Stations, 6 Rescue Stations, 1 Police Helicopter Station. Vehicles: 8 Police Cars, 1 DSU, 1 Police Helicopter. Personnel: 6 Armed Response Personnel, 1 Operational Team Leader. Patients: max 6, min 3, 30% require transport, Traumatology / Critical Care, codes C-1, C-2, 100% critical care. Prisoners: max 1. Escalation: Firearms Attack (Major Incident). POI: none."
+}

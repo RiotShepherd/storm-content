@@ -1,0 +1,188 @@
+{
+  "id": "police_customer_steals_lottery_tickets",
+  "name": "Customer steals lottery tickets",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 70,
+  "description": "Customer steals lottery tickets",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, a customer's just grabbed a handful of scratch cards and run out",
+      "I need to report a theft, someone's taken lottery tickets from behind the counter",
+      "Someone's just stolen from my shop, they've legged it with a stack of scratch cards"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, a customer's just grabbed a handful of scratch cards and run out",
+        "I need to report a theft, someone's taken lottery tickets from behind the counter",
+        "Someone's just stolen from my shop, they've legged it with a stack of scratch cards"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the shopkeeper",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, he's not a regular",
+        "No idea who he is"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the newsagents",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He leant over the counter and grabbed a stack of scratch cards while I was serving someone else",
+        "It happened a minute ago, he ran off up the road",
+        "He's done this before I think, same description"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, it's just theft",
+        "No injuries at all"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looked to be a teenager"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got him on CCTV",
+        "Thank you, I'll keep the footage for you"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police for a theft"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} attending, details taken, CCTV to be reviewed"
+    ],
+    "update": [
+      "Suspect description circulated"
+    ],
+    "stop": [
+      "{{unit}} clear, crime reference given to staff"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_736"
+  ],
+  "notes": "Generated from MissionChief UK mission 736 (Customer steals lottery tickets). Buildings: 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: max 1. Escalation: none. POI: none."
+}

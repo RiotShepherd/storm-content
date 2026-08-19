@@ -1,0 +1,250 @@
+{
+  "id": "fire_large_fire_in_nightclub_persons_reported",
+  "name": "Large fire in nightclub (Persons Reported)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 900,
+  "description": "Large fire in nightclub (Persons Reported)",
+  "keywords": {
+    "correct": [
+      "f2y"
+    ],
+    "acceptable": [
+      "f2",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "pub",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 3,
+    "aerial": 1,
+    "irv": 2,
+    "fire_officer": 4
+  },
+  "patients": {
+    "range": [
+      5,
+      15
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "heavy smoke",
+    "crowd of casualties outside",
+    "persons still inside"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 25,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 40,
+      "afterSeconds": [
+        180,
+        420
+      ],
+      "message": "Crews report persons suffering smoke inhalation, up to 5 casualties",
+      "addUnits": {},
+      "addPatients": [
+        1,
+        5
+      ]
+    },
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 8",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Fire brigade please, the nightclub's on fire and there's people still inside",
+      "There's a fire at the club, loads of people trying to get out, some are struggling to breathe"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, the nightclub's on fire and there's people still inside",
+        "There's a fire at the club, loads of people trying to get out, some are struggling to breathe"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm a doorman here"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know all their names, there's a group of them out here"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the nightclub, there's a crowd out front"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The fire started inside and people are still coming out coughing, some collapsed on the pavement"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious but a couple looked like they'd passed out from the smoke"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Several of them are coughing badly, struggling for breath"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A few are saying their chest hurts from the smoke"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding that I've seen, it's all smoke related"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, mostly young adults, it's a nightclub crowd"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're getting people away from the smoke"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need ambulances here now, people are struggling to breathe"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualties with smoke inhalation being assessed"
+    ],
+    "update": [
+      "Triage in progress outside venue",
+      "Further casualties being brought out by crews"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualties"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_356"
+  ],
+  "notes": "Generated from MissionChief UK mission 356 (Large fire in nightclub (Persons Reported)). Buildings: 15 Fire Stations, 7 Rescue Stations, 2 Police Stations. Vehicles: 6 Fire engines, 1 Aerial Appliance Truck (20% probability), 2 Police Cars. Personnel: 4 Fire Officers, 1 ICCU or ACU. Patients: min 5, max 15, 25% require transport, General Internal, code C-2, 10% critical care. Prisoners: none. Escalation: 5x Smoke Inhalation, expands to the Major Incident version. POI: Nightclub.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

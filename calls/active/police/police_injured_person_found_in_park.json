@@ -1,0 +1,189 @@
+{
+  "id": "police_injured_person_found_in_park",
+  "name": "Injured person found in park",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 4,
+  "responseMinutes": 90,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 120,
+  "description": "Injured person found in park",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "park"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "casualty alone in open space",
+    "unknown cause of injury"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, I've found someone injured in the park, they're not moving much",
+      "Help, there's a person lying hurt near the play area, I don't know what happened",
+      "I need an ambulance and police, someone's been found injured in the park"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, I've found someone injured in the park, they're not moving much",
+        "Help, there's a person lying hurt near the play area, I don't know what happened",
+        "I need an ambulance and police, someone's been found injured in the park"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I was out walking my dog",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know them, I just found them like this",
+        "No idea who they are"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's just off the main path in the park",
+        "We're at {{address}}, near the bandstand"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I found them lying on the ground, I don't know if they fell or were attacked",
+        "They were like this when I got here, there's no one else around",
+        "Looks like they might have taken a fall, there's a bit of blood nearby"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "They're semi conscious, groaning a bit",
+        "Barely, they opened their eyes when I spoke to them"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, they're breathing but it seems shallow",
+        "Breathing okay as far as I can tell"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "They mumbled something about their head hurting",
+        "Hard to say, they're not very responsive"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's a cut on their head, bleeding",
+        "A little blood near their head"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them at all, I just found them",
+        "No idea, complete stranger"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like an older adult, maybe sixties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with them until you arrive",
+        "Please hurry, they don't look good"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance now, they're not right"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualty found, assessing"
+    ],
+    "update": [
+      "Casualty responsive, being assessed for head injury"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_676"
+  ],
+  "notes": "Generated from MissionChief UK mission 676 (Injured person found in park). Buildings: 1 Rescue Station, 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: min 1, max 1, 30% require transport, General Internal, code C-3. Prisoners: none. Escalation: none. POI: Park."
+}

@@ -1,0 +1,220 @@
+{
+  "id": "police_cashier_brawl_in_break_room",
+  "name": "Cashier Brawl in Break Room",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 180,
+  "description": "Cashier Brawl in Break Room",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "supermarket",
+    "retail_park"
+  ],
+  "units": {
+    "irv": 3,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      2,
+      12
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "multiple casualties",
+    "confined space",
+    "ongoing violence"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a massive fight broken out in our staff break room",
+      "Help, some of the staff have turned on each other, it's a full on brawl in the back",
+      "Please hurry, there's a fight in the break room, people are getting hurt"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a massive fight broken out in our staff break room",
+        "Help, some of the staff have turned on each other, it's a full on brawl in the back",
+        "Please hurry, there's a fight in the break room, people are getting hurt"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the store manager",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "One of them's {{firstPatientName}}, a cashier",
+        "There's several involved, {{firstPatientName}}'s one of them"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the staff area at the back of the store",
+        "We're at {{address}}, come through the loading bay"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "An argument between two cashiers over the till turned into a full brawl, others got dragged in",
+        "It started about three minutes ago, it's spread to most of the staff in there",
+        "Chairs have been thrown, several staff are hurt"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious, a couple are dazed on the floor",
+        "They're awake but very shaken"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing okay as far as I can see",
+        "Seems fine, just shaken up"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Several are in pain from being hit or falling",
+        "A few are holding their heads and arms"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, one's got a cut above the eye",
+        "A couple of them are bleeding from scratches and cuts"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know their full medical history, sorry",
+        "Not something I'd know off the top of my head"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Couldn't say",
+        "No idea"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, mostly twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've separated who I can",
+        "Please hurry, it's still going on"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need police and ambulance urgently"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties in break room being triaged"
+    ],
+    "update": [
+      "Combatants separated, walking wounded assessed",
+      "Prisoners restrained, further casualties assessed for transport"
+    ],
+    "stop": [
+      "{{unit}} clear, scene secured, casualties conveyed as required"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_731"
+  ],
+  "notes": "Generated from MissionChief UK mission 731 (Cashier Brawl in Break Room). Buildings: 3 Police Stations, 1 Rescue Station. Vehicles: 3 Police Cars. Personnel: none. Patients: min 2, max 12, 30% require transport, General Internal, codes C-1, C-2. Prisoners: max 10. Escalation: none. POI: Supermarket (small), Supermarket (big).",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

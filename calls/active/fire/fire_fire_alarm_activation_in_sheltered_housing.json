@@ -1,0 +1,173 @@
+{
+  "id": "fire_fire_alarm_activation_in_sheltered_housing",
+  "name": "Fire Alarm Activation in Sheltered Housing",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Fire Alarm Activation in Sheltered Housing",
+  "keywords": {
+    "correct": [
+      "f_alarm"
+    ],
+    "acceptable": [
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "flats",
+    "house"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "elderly residents with mobility issues",
+    "uncertain cause of activation"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "The fire alarm's going off at the sheltered housing and some residents can't move quickly",
+      "I need the fire brigade, the alarm's sounding here and I've got several elderly residents who need help"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The fire alarm's going off at the sheltered housing and some residents can't move quickly",
+        "I need the fire brigade, the alarm's sounding here and I've got several elderly residents who need help"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the scheme warden"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "All residents are accounted for, no injuries so far"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the sheltered housing scheme"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The alarm's activated, I can't find any sign of fire but a few residents need help getting out"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "All residents are conscious, some are just slow moving"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A couple of the residents have breathing conditions normally"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No injuries reported"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding reported"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Several residents have mobility issues and existing health conditions"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Medication records are kept in the office if needed"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Residents are mostly in their seventies and eighties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm helping residents to the assembly point now"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a fire alarm and we have residents who need help evacuating"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, alarm activation in sheltered housing, assisting warden with evacuation"
+    ],
+    "update": [
+      "{{unit}} confirms no fire found, all residents safely at assembly point"
+    ],
+    "stop": [
+      "{{unit}} stood down, false alarm, residents returning to flats"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_274"
+  ],
+  "notes": "Generated from MissionChief UK mission 274 (Fire Alarm Activation in Sheltered Housing). Buildings: 2 Fire Stations. Vehicles: 2 Fire engines. Personnel: 4 to 12 Firefighters. Patients: none. Prisoners: none. Escalation: Flat Fire in Sheltered Housing. POI: Sheltered housing scheme."
+}

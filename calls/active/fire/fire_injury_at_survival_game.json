@@ -1,0 +1,187 @@
+{
+  "id": "fire_injury_at_survival_game",
+  "name": "Injury at survival game",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 58,
+  "description": "Injury at survival game",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "residential_road",
+    "track",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "uneven woodland terrain",
+    "other players still active on site"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 85,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Hiya, we need an ambulance, someone's been hurt at the survival game site",
+      "One of our lads has taken a bad hit at airsoft, he's bleeding, can you send someone",
+      "Ambulance please, someone's gone down hard at the woodland game site"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Hiya, we need an ambulance, someone's been hurt at the survival game site",
+        "One of our lads has taken a bad hit at airsoft, he's bleeding, can you send someone",
+        "Ambulance please, someone's gone down hard at the woodland game site"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I run the site with a mate",
+        "{{callerName}}, I'm one of the marshals here"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "He's called {{firstPatientName}}, he's on my team"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the woodland game site, follow the signs off the track",
+        "It's {{address}}, there's a barrier at the entrance, I'll get someone to open it"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He took a hard shot to the stomach and went down, he's in a lot of pain",
+        "He was tackled during a game and landed badly, there's a cut and he's bleeding"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yeah he's awake, he's just in a lot of pain"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He's breathing, a bit fast though"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says it's really bad, he's gripping his stomach"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's a bit of blood from a graze on his arm, not loads"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know his medical history, sorry, I'll try and find someone who does"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, I don't think he's on anything"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's in his twenties I think"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we'll keep him still",
+        "Please hurry, he's in a bad way"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he needs an ambulance, he can't move"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualty located at the game site"
+    ],
+    "update": [
+      "Casualty conscious, assessing injuries",
+      "Preparing casualty for extraction from the woodland"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualty"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_683"
+  ],
+  "notes": "Generated from MissionChief UK mission 683 (Injury at survival game). Buildings: 1 Fire Station, 1 Rescue Station. Vehicles: 1 Fire engine. Personnel: none. Patients: min 1, max 1, 85% require transport, General Surgeon, code C-1. Prisoners: none. Escalation: none. POI: none."
+}

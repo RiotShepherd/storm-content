@@ -1,0 +1,198 @@
+{
+  "id": "police_fight_in_progress",
+  "name": "Fight in Progress",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 70,
+  "description": "Fight in Progress",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 3,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      3
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "street fight",
+    "risk to bystanders"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a fight going on right now outside, it's getting violent",
+      "Help, several people are fighting in the street, someone's going to get seriously hurt",
+      "Quick, there's a fight in progress, people are throwing punches"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a fight going on right now outside, it's getting violent",
+        "Help, several people are fighting in the street, someone's going to get seriously hurt",
+        "Quick, there's a fight in progress, people are throwing punches"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm watching from my window",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them",
+        "No idea who they are"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's right outside",
+        "It's happening near {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A group of them are throwing punches and kicking each other on the ground",
+        "It's been going on for a minute or two, it's getting worse",
+        "One's been knocked down and the others are still going at him"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are still on their feet, one's on the ground not moving much",
+        "They're conscious, still fighting"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "The one on the ground seems to be breathing but he's out of it",
+        "Others seem fine breathing wise"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "The one on the ground looks in a bad way",
+        "A couple are holding their faces"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, one's bleeding from the face",
+        "One's got blood on his shirt"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Couldn't say",
+        "No idea"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Young men, looks like late teens to twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying inside, watching from the window",
+        "Please hurry, it's getting worse"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police here now, they're hurting each other badly"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, combatants separated, {{patients}} casualties assessed"
+    ],
+    "update": [
+      "Prisoners detained, walking wounded treated for minor injuries"
+    ],
+    "stop": [
+      "{{unit}} clear, scene secured"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_55"
+  ],
+  "notes": "Generated from MissionChief UK mission 55 (Fight in Progress). Buildings: 3 Police Stations. Vehicles: 3 Police Cars. Personnel: none. Patients: max 3, 30% require transport, Traumatology, codes C-3, C-4. Prisoners: max 2. Escalation: Panic button activation. POI: none."
+}

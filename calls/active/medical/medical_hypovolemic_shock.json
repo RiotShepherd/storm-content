@@ -1,0 +1,194 @@
+{
+  "id": "medical_hypovolemic_shock",
+  "name": "Hypovolemic shock",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Hypovolemic shock",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "ambulance": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 95,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "heavy bleeding",
+    "broken glass at scene"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 37,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Please hurry, my husband's gone very pale and he's covered in blood, I think he's in shock",
+      "I need an ambulance, he cut himself badly and now he's gone grey and floppy"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Please hurry, my husband's gone very pale and he's covered in blood, I think he's in shock",
+        "I need an ambulance, he cut himself badly and now he's gone grey and floppy"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm his wife",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my husband",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, front door's open"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He cut his arm badly on broken glass, there was so much blood, now he's gone grey and floppy"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's still awake but he's really out of it"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fast and shallow"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says it doesn't hurt as much now, which is scaring me"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, a lot, I've got towels on it but it's soaking through"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's on blood thinners for his heart"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Warfarin, I think"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "63"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm keeping pressure on and raising his arm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient showing signs of shock, assessing"
+    ],
+    "update": [
+      "Bleeding controlled, IV access gained",
+      "Patient remains pale and tachycardic"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_578"
+  ],
+  "notes": "Generated from MissionChief UK mission 578 (Hypovolemic shock). Buildings: 4 Rescue Stations. Vehicles: 1 Ambulance. Personnel: none. Patients: max 1, min 1, 100% require transport, General Surgeon, codes C-2, C-3, 75% critical care. Prisoners: none. Escalation: none. POI: none."
+}

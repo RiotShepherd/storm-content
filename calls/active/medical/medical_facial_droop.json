@@ -1,0 +1,191 @@
+{
+  "id": "medical_facial_droop",
+  "name": "Facial Droop",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 78,
+  "description": "Facial Droop",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "suspected stroke"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 75,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My husband's face has suddenly drooped on one side, I think it's a stroke",
+      "Something's wrong, one side of his face isn't moving properly and his speech is slurred"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My husband's face has suddenly drooped on one side, I think it's a stroke",
+        "Something's wrong, one side of his face isn't moving properly and his speech is slurred"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my husband"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "His face suddenly drooped on one side and his speech went slurred, it happened in the last few minutes",
+        "One side of his mouth has dropped and he can't lift his arm properly, I think it's a stroke"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake but confused",
+        "Yes, conscious, frightened"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing normally",
+        "Fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He hasn't mentioned pain",
+        "Not that he's said"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "High blood pressure",
+        "He's had a mini stroke before, I think"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He takes blood pressure tablets",
+        "Blood thinners, I believe"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "66"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm noting the time it started like you said",
+        "I'm staying right with him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, absolutely not, this looks like a stroke",
+        "No, this needs an ambulance now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with FAST positive stroke symptoms"
+    ],
+    "update": [
+      "{{unit}} carrying out stroke assessment, pre alerting hospital",
+      "{{patients}} casualty stable, time critical transfer being arranged"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital as a stroke priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_576"
+  ],
+  "notes": "Generated from MissionChief UK mission 576 (Facial Droop). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 75% require transport, General Internal, code C-2, 20% critical care. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,245 @@
+{
+  "id": "rescue_building_collapse",
+  "name": "Building collapse",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 900,
+  "description": "Building collapse",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "rescue_unit": 3,
+    "irv": 1,
+    "iccu": 1,
+    "fire_officer": 4,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      8,
+      20
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "crush injury",
+      "catastrophic bleed",
+      "head injury",
+      "trapped"
+    ]
+  },
+  "hazards": [
+    "structural collapse",
+    "further collapse risk",
+    "gas leak possible",
+    "dust and debris"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "The building's come down, there's people trapped under the rubble!",
+      "Fire and ambulance please, part of the block's collapsed, I can hear people shouting from inside."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The building's come down, there's people trapped under the rubble!",
+        "Fire and ambulance please, part of the block's collapsed, I can hear people shouting from inside."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I live in the flat next door.",
+        "{{callerName}}, I was outside when it happened."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know all of them, there's a few families in that block.",
+        "One of them is {{firstPatientName}}, she lives on the ground floor."
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's {{address}}, the whole side of the building's down.",
+        "{{address}}, you can see the rubble from the road."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Part of the building's just collapsed, there was a loud bang and then the wall came down.",
+        "The block's come down, I think there was some kind of explosion first."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I can hear some of them shouting from under the rubble.",
+        "Some are calling out, others have gone quiet."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can hear coughing from under there, so some are.",
+        "I don't know about everyone, it's hard to tell."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "People are shouting that they're trapped and can't move.",
+        "I can hear someone screaming about their legs."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I can see blood on the people who got out.",
+        "A couple of the ones outside are cut quite badly."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know most of them well enough to say.",
+        "No idea, there's a lot of residents in there."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no idea, sorry.",
+        "I don't know, there's too many people involved."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All sorts, there's definitely children in there too.",
+        "Mixed ages, I know an elderly couple live on the ground floor."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay well back in case more comes down.",
+        "Please hurry, I can still hear someone under there."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a building collapse, we need fire and ambulance now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties estimated, search underway"
+    ],
+    "update": [
+      "{{unit}} using search dogs and cameras to locate trapped persons",
+      "{{unit}} reports voices heard under the debris"
+    ],
+    "stop": [
+      "{{unit}} clear, search concluded, casualties accounted for"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_149"
+  ],
+  "notes": "Generated from MissionChief UK mission 149 (Building collapse). Buildings: 7 Fire Stations, 4 Rescue Stations, 1 Police Station. Vehicles: 4 Fire engines, 3 Rescue Support Vehicles, 1 Police Car, 1 ICCU or Ambulance Control Unit. Personnel: 4 Fire Officers, 1 Operational Team Leader. Patients: min 8, max 20, 50% require transport, Traumatology and Critical Care, code C-2, 100% critical care. Prisoners: none. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "id": "medical_burns_caused_by_seafood_steamer_malfunction",
+  "name": "Burns Caused By Seafood Steamer Malfunction",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Burns Caused By Seafood Steamer Malfunction",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "supermarket",
+    "retail_park"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "hot steam",
+    "burn hazard"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "One of my colleagues has been burned by the steamer in the fish counter, it malfunctioned",
+      "There's been an accident with the seafood steamer, a member of staff's been scalded"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "One of my colleagues has been burned by the steamer in the fish counter, it malfunctioned",
+        "There's been an accident with the seafood steamer, a member of staff's been scalded"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the supervisor"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, from the fish counter"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, the supermarket, fish counter"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The steamer malfunctioned and released a burst of steam, {{firstPatientName}} got scalded on the arm",
+        "Hot steam sprayed out unexpectedly and burned their hand and arm"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and in pain",
+        "Yes, fully conscious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, breathing normally",
+        "No problems there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, quite painful, the skin's red and blistering",
+        "Significant pain where the steam hit"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, it's a burn",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of",
+        "I'm not sure"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not that I know of",
+        "I don't know"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "24"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've run cool water over it",
+        "We've turned the steamer off"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I think it needs proper attention, the burn looks bad",
+        "Could try that, but I'd rather be safe"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with steam burn"
+    ],
+    "update": [
+      "{{unit}} cooling and dressing the burn",
+      "{{patients}} casualty stable, pain managed"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_728"
+  ],
+  "notes": "Generated from MissionChief UK mission 728 (Burns Caused By Seafood Steamer Malfunction). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 30% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Supermarket (small), Supermarket (big)."
+}

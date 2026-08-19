@@ -1,0 +1,201 @@
+{
+  "id": "police_execution_of_an_interpol_arrest_warrant",
+  "name": "Execution of an Interpol arrest warrant",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 750,
+  "description": "Execution of an Interpol arrest warrant",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "dog_unit": 1,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "armed operation in progress",
+    "public in vicinity"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "npas": {
+      "chance": 80,
+      "delaySeconds": [
+        120,
+        240
+      ],
+      "unit": "npas"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's an armed operation happening outside my flat, officers everywhere",
+      "I want to report, there's a big police operation going on outside, I'm scared",
+      "There's officers with guns outside the building next to mine, what's going on"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's an armed operation happening outside my flat, officers everywhere",
+        "I want to report, there's a big police operation going on outside, I'm scared",
+        "There's officers with guns outside the building next to mine, what's going on"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I live in the building next door",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know who they're after",
+        "No idea what's happening"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the flats opposite mine",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's officers in full gear surrounding the building, I can hear shouting",
+        "It's been going on for a few minutes, I'm not sure what's happening",
+        "They've blocked the road and there's a lot of officers"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt that I can see",
+        "No injuries visible"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A, I don't know what's going on",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying inside with the door locked",
+        "Thank you, I'm just worried"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a police matter"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, operation in progress, area secured"
+    ],
+    "update": [
+      "Warrant executed, subject detained"
+    ],
+    "stop": [
+      "{{unit}} clear, subject in custody, area stood down"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_803"
+  ],
+  "notes": "Generated from MissionChief UK mission 803 (Execution of an Interpol arrest warrant). Buildings: 10 Police Stations, 3 Riot Police Extensions, 2 Police Helicopter Stations. Vehicles: 1 Police Helicopter, 1 DSU. Personnel: 8 Level 2 Public Order Officers deployed (16 available), 1 Police Sergeant (2 available). Patients: none. Prisoners: max 3. Escalation: none. POI: none."
+}

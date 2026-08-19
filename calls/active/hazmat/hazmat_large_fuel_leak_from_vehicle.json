@@ -1,0 +1,190 @@
+{
+  "id": "hazmat_large_fuel_leak_from_vehicle",
+  "name": "Large fuel leak from vehicle",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Large fuel leak from vehicle",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "large fuel spill",
+    "fire risk",
+    "slip hazard"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a huge fuel leak from a lorry on the industrial estate",
+      "A big vehicle's leaking loads of fuel across the road"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a huge fuel leak from a lorry on the industrial estate",
+        "A big vehicle's leaking loads of fuel across the road"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No patient, the driver's out and unhurt",
+        "Nobody's hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's at {{address}}",
+        "{{address}}, by the loading bay"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A large lorry's leaking fuel, there's a big pool of it spreading across the road",
+        "Fuel's pouring out from underneath, quite a lot of it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No patient involved",
+        "N/A"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No patient, nobody's struggling",
+        "N/A, no injuries"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No injuries at all",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "Nobody's bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable",
+        "No patient"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "No patient to report on"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient",
+        "N/A"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep clear of it",
+        "Right, I'll warn other drivers"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's not medical, it's the fuel leak",
+        "No injuries, just the spill"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, large fuel leak confirmed, no casualties"
+    ],
+    "update": [
+      "{{unit}} containing the leak, area cordoned",
+      "Fuel flow being stemmed at source"
+    ],
+    "stop": [
+      "{{unit}} stood down, leak stopped and area made safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_392"
+  ],
+  "notes": "Generated from MissionChief UK mission 392 (Large fuel leak from vehicle). Buildings: 2 Fire Stations, 2 Police Stations. Vehicles: 2 Fire engines or Rescue Support Vehicles, 2 Police Cars. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

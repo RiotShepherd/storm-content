@@ -1,0 +1,241 @@
+{
+  "id": "rescue_stage_collapse_at_festival",
+  "name": "Stage Collapse at Festival",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1400,
+  "description": "Stage Collapse at Festival",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "park",
+    "stadium"
+  ],
+  "units": {
+    "dual_pump": 4,
+    "single_pump": 4,
+    "rescue_unit": 6,
+    "irv": 6,
+    "fire_officer": 8
+  },
+  "patients": {
+    "range": [
+      20,
+      35
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "structural collapse",
+    "large crowd",
+    "crush risk",
+    "unstable rigging"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "The main stage has just come down at the festival, there's people trapped underneath it!",
+      "Emergency, the stage structure's collapsed with the crowd right up against it, people are hurt."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The main stage has just come down at the festival, there's people trapped underneath it!",
+        "Emergency, the stage structure's collapsed with the crowd right up against it, people are hurt."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm event staff.",
+        "{{callerName}}, I was right at the front when it went."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I can't give you names, there's a lot of people hurt.",
+        "I don't know, there's too many casualties out here."
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's {{address}}, the main stage area.",
+        "{{address}}, you'll see the crowd from the entrance."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Part of the stage rigging came down over the crowd, some people are pinned underneath.",
+        "The whole structure buckled and collapsed forward into the front rows."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are conscious and shouting, others aren't responding.",
+        "A lot are talking, but a few I can't see moving."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell for all of them.",
+        "Some are, it's chaos out here."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "People are screaming they're trapped and in agony.",
+        "Lots of shouting about crushed limbs and being pinned."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, several are bleeding heavily.",
+        "Yes, quite badly on a number of them."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them.",
+        "No idea, it's a huge crowd."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I can't say, sorry.",
+        "No way of knowing."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mostly young adults, but mixed.",
+        "All sorts, mainly twenties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're trying to clear space around the casualties.",
+        "Please hurry, more of the structure looks unstable."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Are you serious, the stage has collapsed on people!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties estimated, triage underway"
+    ],
+    "update": [
+      "{{unit}} working to free those trapped under the structure",
+      "{{unit}} evacuating the crowd from the collapse zone"
+    ],
+    "stop": [
+      "{{unit}} clear, all casualties accounted for"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_375"
+  ],
+  "notes": "Generated from MissionChief UK mission 375 (Stage Collapse at Festival). Buildings: 13 Fire Stations, 40 Rescue Stations, 6 Police Stations. Vehicles: 8 Fire engines, 6 Rescue Support Vehicles, 6 Police Cars. Personnel: 8 Fire Officers, 1 ICCU or ACU. Patients: min 20, max 35, 30% require transport, Traumatology, codes C-1, C-2, C-3, C-4, 30% critical care. Prisoners: none. Escalation: none. POI: Festival.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

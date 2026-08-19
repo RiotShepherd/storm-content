@@ -1,0 +1,188 @@
+{
+  "id": "medical_traumatic_limb_amputation_311",
+  "name": "Traumatic limb amputation",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Traumatic limb amputation",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "b_road",
+    "park"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "catastrophic bleed",
+      "amputation",
+      "shock"
+    ]
+  },
+  "hazards": [
+    "catastrophic bleeding",
+    "farm machinery",
+    "remote location"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "His leg's been taken off by the baler, he's bleeding out, please hurry",
+      "I need an ambulance urgently, he's caught his leg in the farm machinery"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "His leg's been taken off by the baler, he's bleeding out, please hurry",
+        "I need an ambulance urgently, he's caught his leg in the farm machinery"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, we work the farm together",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're out at {{address}}, please hurry",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He got caught in the baler out on the farm, his leg's gone below the knee"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious, in shock"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Screaming in pain"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Catastrophic, I've got a tourniquet made from a belt"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "50"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I've turned the machine off"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance right now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with traumatic amputation, machinery isolated"
+    ],
+    "update": [
+      "Tourniquet applied, bleeding controlled",
+      "Preparing to convey as priority"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority to major trauma centre"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_311"
+  ],
+  "notes": "Generated from MissionChief UK mission 311 (Traumatic limb amputation). Buildings: 4 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 80% require transport, General Surgeon / Critical Care, code C-2, 100% critical care. Prisoners: none. Escalation: none. POI: Farm, Forest, Heathland, Golf course, Moorland."
+}

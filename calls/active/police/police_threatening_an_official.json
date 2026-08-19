@@ -1,0 +1,184 @@
+{
+  "id": "police_threatening_an_official",
+  "name": "Threatening an official",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 75,
+  "description": "Threatening an official",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "train_station"
+  ],
+  "units": {
+    "irv": 2,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, a passenger's just threatened me, I'm one of the station staff",
+      "Help, someone's threatening me over a fare dispute, I'm scared"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, a passenger's just threatened me, I'm one of the station staff",
+        "Help, someone's threatening me over a fare dispute, I'm scared"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I work here",
+        "It's {{callerName}}, I'm on shift"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}, I work here",
+        "That's me, {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the station",
+        "It's {{address}}, by the ticket barriers"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He got right in my face when I asked for his ticket, saying he'd wait for me outside",
+        "A passenger's shouting threats at me because I stopped him jumping the barrier"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm fine, just shaken",
+        "Yes, conscious, just really rattled"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing fine, just shaky",
+        "Yes, okay, just adrenaline"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, just shaken",
+        "Nothing hurts, just scared"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not relevant, I'm not hurt",
+        "No, nothing relevant"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, nothing",
+        "Not relevant"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm twenty nine",
+        "I'm thirty six"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry, he's still around here",
+        "Right, I'll stay in the office"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This is a police matter, I'm not ill!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} member of staff being reassured"
+    ],
+    "update": [
+      "Suspect description circulated, station being checked for the individual"
+    ],
+    "stop": [
+      "{{unit}} clear, statement taken, staff member safe"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_144"
+  ],
+  "notes": "Generated from MissionChief UK mission 144 (Threatening an official). Buildings: 4 Police Stations, 1 Rescue Station. Vehicles: 2 Police Cars. Personnel: none. Patients: max 1, 30% require transport, General Internal, code C-3. Prisoners: max 2. Escalation: Panic button activation. POI: Subway station."
+}

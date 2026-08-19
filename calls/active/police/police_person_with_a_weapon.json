@@ -1,0 +1,201 @@
+{
+  "id": "police_person_with_a_weapon",
+  "name": "Person with a weapon",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 250,
+  "description": "Person with a weapon",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 6,
+    "dog_unit": 1,
+    "arv": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "armed suspect",
+    "crowd nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police, quick, there's a man with a knife outside",
+      "Help, someone's got a weapon and he's waving it around"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police, quick, there's a man with a knife outside",
+        "Help, someone's got a weapon and he's waving it around"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I just saw it happen",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Nobody's hurt yet, but everyone's kept clear",
+        "No one's hurt, people are running from him"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, he's right outside",
+        "It's at {{address}}, near the entrance"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's got what looks like a large knife, shouting at people to stay back",
+        "A man's pulled out something that looks like a machete"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt yet, everyone's kept clear",
+        "No one's been hit that I've seen"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's hurt, everyone's just running",
+        "N/A, nobody's been hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt, people have kept away",
+        "Not that I've seen"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, not that I've seen"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him",
+        "No idea who he is"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like he's in his twenties",
+        "Hard to tell, maybe thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're staying well back",
+        "Right, please hurry, he's still got it out"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This is a police matter, nobody needs a doctor!",
+        "No one's ill, I need the police not 111!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, suspect located and challenged"
+    ],
+    "update": [
+      "Suspect detained, weapon recovered, area being made safe"
+    ],
+    "stop": [
+      "{{unit}} clear, suspect in custody, weapon seized as evidence"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_92"
+  ],
+  "notes": "Generated from MissionChief UK mission 92 (Person with a weapon). Buildings: 8 Police Stations. Vehicles: 6 Police Cars, 1 DSU. Personnel: 4 Armed Response Personnel. Patients: none. Prisoners: max 1. Escalation: none. POI: none."
+}

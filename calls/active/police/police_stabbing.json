@@ -1,0 +1,216 @@
+{
+  "id": "police_stabbing",
+  "name": "Stabbing",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "Stabbing",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 4,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 6,
+    "dog_unit": 1,
+    "arv": 3
+  },
+  "patients": {
+    "range": [
+      1,
+      4
+    ],
+    "rrvChance": 70,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "suspect may still be nearby",
+    "weapon involved"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    },
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance and police, quick, someone's been stabbed",
+      "Help, there's a man on the floor, he's been stabbed, there's blood everywhere"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance and police, quick, someone's been stabbed",
+        "Help, there's a man on the floor, he's been stabbed, there's blood everywhere"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I just saw it happen",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, I just found him like this",
+        "No idea who he is, never seen him before"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, he's on the ground here",
+        "It's {{address}}, just outside"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A group ran off and left him on the ground, he's been stabbed in the side",
+        "Someone stabbed him and ran, he's bleeding badly"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious but going pale",
+        "Yes, conscious, but fading a bit"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes but it's shallow",
+        "Yes, but very fast"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says it really hurts, holding his side",
+        "He's in agony, clutching his stomach"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, a lot, from his stomach",
+        "Yes, soaking through his shirt"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Don't know him",
+        "No idea, complete stranger"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Young lad, looks about eighteen",
+        "Maybe early twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry, he's losing a lot of blood",
+        "Right, I'm putting pressure on it like you said"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This is life threatening, he needs an ambulance now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty found with stab wound, treatment started"
+    ],
+    "update": [
+      "Casualty being treated for blood loss, suspect description circulated",
+      "Cordon set up, area being searched for the suspect"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty handed to ambulance crew for transport"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_386"
+  ],
+  "notes": "Generated from MissionChief UK mission 386 (Stabbing). Buildings: 10 Police Stations, 4 Rescue Stations. Vehicles: 6 Police Cars, 1 DSU, Armed Response Vehicles. Personnel: 6 Armed Response Personnel. Patients: min 1, max 4, 100% require transport, Traumatology, codes C-1, C-2, 60% critical care. Prisoners: max 1. Escalation: none. POI: none."
+}

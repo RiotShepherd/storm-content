@@ -1,0 +1,180 @@
+{
+  "id": "fire_smoking_electrical_equipment",
+  "name": "Smoking Electrical Equipment",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Smoking Electrical Equipment",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "residential_road",
+    "track",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "electrical",
+    "smoke"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade, my extension lead is smoking, I've unplugged it but I'm worried it'll catch fire.",
+      "There's smoke coming from the plug socket behind the telly, I've turned it off at the wall."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade, my extension lead is smoking, I've unplugged it but I'm worried it'll catch fire.",
+        "There's smoke coming from the plug socket behind the telly, I've turned it off at the wall."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "{{callerName}}, I'm ringing about it now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No, there's no one hurt, it's the smoking electrical equipment I'm ringing about."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The extension lead started smoking under the desk, I've switched it off at the wall now.",
+        "I heard a crackle from the socket and then smoke, I've isolated the power but it still smells hot."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, I turned it off before it got any worse."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's had any trouble breathing, we're all outside."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, nobody's in pain, there's no patient."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no bleeding, no one's hurt."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Sorry, there's no patient for me to tell you about."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no one hurt here."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, nobody's been injured."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, faulty equipment isolated, checking for fire spread."
+    ],
+    "update": [
+      "{{unit}} no fire found, equipment made safe."
+    ],
+    "stop": [
+      "{{unit}} stopped, property safe, no further action."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_541"
+  ],
+  "notes": "Generated from MissionChief UK mission 541 (Smoking Electrical Equipment). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

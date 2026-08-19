@@ -1,0 +1,208 @@
+{
+  "id": "rtc_rtc_car_into_telegraph_pole_entrapment",
+  "name": "RTC Car into telegraph pole (entrapment)",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "RTC Car into telegraph pole (entrapment)",
+  "keywords": {
+    "correct": [
+      "rtc_trapped"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_injury"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "irv": 3,
+    "traffic_car": 1,
+    "rescue_unit": 1,
+    "dual_pump": 1,
+    "single_pump": 1,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      2
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway",
+    "person trapped, cables may be down"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 70,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 45,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A car's hit a telegraph pole and the driver's trapped inside, he can't get out.",
+      "Emergency, there's been a crash into a pole, someone's trapped in the wreckage."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A car's hit a telegraph pole and the driver's trapped inside, he can't get out.",
+        "Emergency, there's been a crash into a pole, someone's trapped in the wreckage."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I saw it happen.",
+        "{{callerName}}, I was driving behind them."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, he's a stranger.",
+        "She told me her name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}, right by the pole.",
+        "{{address}}, the car's wrapped around it."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The car's hit the pole head on and the front's crumpled right in, the driver's stuck.",
+        "He's lost control and gone into the pole, the door won't open, he's trapped."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious but very dazed.",
+        "She's talking to me but she's in a lot of pain."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but it's fast and shallow.",
+        "Yes, she's breathing okay."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his legs are trapped and hurting badly.",
+        "She's saying her chest really hurts."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's blood on his face and hands.",
+        "Yes, a cut on her head, bleeding steadily."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry.",
+        "No idea, I don't know him."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, I don't know them.",
+        "I couldn't say."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like he's in his twenties.",
+        "She's maybe forty."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with him talking to him.",
+        "Please hurry, he can't move at all, the pole looks unstable."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's trapped in the car, we need help now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, casualty trapped, extrication starting"
+    ],
+    "update": [
+      "{{unit}} working to free the casualty from the wreckage"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty freed and transported"
+    ]
+  },
+  "tags": [
+    "police",
+    "recovery_vehicle",
+    "mc_777"
+  ],
+  "notes": "Generated from MissionChief UK mission 777 (RTC Car into telegraph pole (entrapment)). Buildings: 4 Fire Stations, 5 Police Stations, 1 Recovery Centre, 1 Rescue Station. Vehicles: 3 Police Cars, 1 Traffic Car, 1 Rescue Support Vehicle, 2 Fire engines. Personnel: 1 Operational Team Leader. Patients: max 2, 70% require transport, General Internal, codes C-1, C-2, 10% critical care. Prisoners: max 1. Escalation: none. POI: none."
+}

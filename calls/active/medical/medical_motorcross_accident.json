@@ -1,0 +1,186 @@
+{
+  "id": "medical_motorcross_accident",
+  "name": "Motorcross Accident",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "Motorcross Accident",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      3
+    ],
+    "rrvChance": 65,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "uneven ground",
+    "other riders on track",
+    "bike fuel spill"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a crash on the motocross track, a rider's down",
+      "I need an ambulance, one of the riders has come off at speed"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a crash on the motocross track, a rider's down",
+        "I need an ambulance, one of the riders has come off at speed"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm a marshal here",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, one of the riders",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the motocross track",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He came off the bike at speed and landed awkwardly, he's not moving much"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes but he's in a lot of pain"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Really bad, he thinks his leg's broken"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Some bleeding from his arm, road rash"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him personally, I'll check his entry form"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Early twenties I'd say"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "We've stopped the race"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties from motocross incident, assessing"
+    ],
+    "update": [
+      "Injuries consistent with high speed impact, treating on scene"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patients conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_266"
+  ],
+  "notes": "Generated from MissionChief UK mission 266 (Motorcross Accident). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 3, min 1, 100% require transport, General Surgeon, codes C-1, C-2, 25% critical care. Prisoners: none. Escalation: none. POI: Dirt Race Track."
+}

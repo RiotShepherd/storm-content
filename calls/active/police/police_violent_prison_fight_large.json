@@ -1,0 +1,192 @@
+{
+  "id": "police_violent_prison_fight_large",
+  "name": "Violent Prison Fight (Large)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1600,
+  "description": "Violent Prison Fight (Large)",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "office"
+  ],
+  "units": {
+    "irv": 8,
+    "dog_unit": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      7
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "large group fighting",
+    "improvised weapons",
+    "staff outnumbered",
+    "risk to officers"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 40,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "This is the duty officer at the prison, we've got a large fight broken out on the wing, multiple inmates involved.",
+      "I need urgent assistance, a fight's broken out between a large group of prisoners and staff can't control it."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "This is the duty officer at the prison, we've got a large fight broken out on the wing, multiple inmates involved.",
+        "I need urgent assistance, a fight's broken out between a large group of prisoners and staff can't control it."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the duty officer on this wing.",
+        "{{callerName}}, I'm control room staff here."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't have names yet, there's a lot of them down.",
+        "One's {{firstPatientName}}, the others I'll need to check."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, it's the main wing.",
+        "{{address}}, come to the staff entrance, I'll meet you."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A large fight's broken out between two groups on the wing, staff have locked down what they can but several are hurt.",
+        "It kicked off between a big group of prisoners, there's chairs and tables being used, we've got injuries."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious, one lad's not responding.",
+        "A few are dazed but talking, one's out cold."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "They're breathing, some quite laboured.",
+        "Yes, but a couple are struggling to catch their breath."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Several are holding their heads and ribs.",
+        "A couple are saying their arms are broken."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, a few head wounds bleeding heavily.",
+        "There's blood from cuts on at least three of them."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I'll need to check their files, I don't have that to hand.",
+        "Some have known conditions, I'll get that from records."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I'd need to check with healthcare here.",
+        "Not sure, healthcare will have that."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, twenties up to fifties.",
+        "Mostly young men, twenties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping the groups separated.",
+        "Understood, staff are holding the wing till you arrive."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This is a police matter, we need officers here now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, wing secured, assessing casualties"
+    ],
+    "update": [
+      "{{unit}} reports {{patients}} casualties, situation calming",
+      "{{unit}} still separating groups on the wing"
+    ],
+    "stop": [
+      "{{unit}} clear, wing locked down, casualties dealt with"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_512"
+  ],
+  "notes": "Generated from MissionChief UK mission 512 (Violent Prison Fight (Large)). Buildings: 25 Police Stations, 8 Rescue Stations, 1 Riot Police Extension. Vehicles: 8 Police Cars, 2 DSUs. Personnel: none. Patients: max 7, 40% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: Prison."
+}

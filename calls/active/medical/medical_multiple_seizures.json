@@ -1,0 +1,193 @@
+{
+  "id": "medical_multiple_seizures",
+  "name": "Multiple Seizures",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Multiple Seizures",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "seizure"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "ongoing seizure",
+    "risk of injury from convulsions"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 30,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My son's having fit after fit, he won't stop, please hurry",
+      "I need an ambulance now, he's had three seizures and isn't coming round properly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My son's having fit after fit, he won't stop, please hurry",
+        "I need an ambulance now, he's had three seizures and isn't coming round properly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm his mum",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my son",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's had three seizures in the last twenty minutes, he's not properly coming round between them"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No, he's not responding between the fits"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "It's hard to tell while he's fitting"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He can't tell me, he's unconscious between fits"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "He's bitten his tongue, there's some blood"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's epileptic"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He's got emergency medication but I don't know how to use it"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "16"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm keeping him safe on his side"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this can't wait, he needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient actively seizing, assessing"
+    ],
+    "update": [
+      "Seizures continuing, airway being managed",
+      "Patient beginning to settle post ictal"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_486"
+  ],
+  "notes": "Generated from MissionChief UK mission 486 (Multiple Seizures). Buildings: none. Vehicles: none. Personnel: none. Patients: min 1, max 1, 80% require transport, General Internal, code C-1, 60% critical care. Prisoners: none. Escalation: none. POI: none."
+}

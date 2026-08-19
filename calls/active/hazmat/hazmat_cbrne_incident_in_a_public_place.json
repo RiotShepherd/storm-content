@@ -1,0 +1,248 @@
+{
+  "id": "hazmat_cbrne_incident_in_a_public_place",
+  "name": "CBRNE incident in a public place",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 2000,
+  "description": "CBRNE incident in a public place",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "rescue_unit": 1,
+    "hazmat_unit": 2,
+    "irv": 10,
+    "iccu": 1,
+    "fire_officer": 6,
+    "arv": 6,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      4,
+      40
+    ],
+    "rrvChance": 85,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "unknown substance",
+    "mass casualties",
+    "crowded public place",
+    "possible contamination"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 20,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    },
+    "hems": {
+      "chance": 37,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Please send everyone, there's people collapsing in the shopping centre, we don't know what's happened.",
+      "Something's happened in the town centre, lots of people are coughing and falling ill, it could be gas or chemicals.",
+      "There's been some kind of incident, dozens of people are unwell, some have collapsed, please hurry."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Please send everyone, there's people collapsing in the shopping centre, we don't know what's happened.",
+        "Something's happened in the town centre, lots of people are coughing and falling ill, it could be gas or chemicals.",
+        "There's been some kind of incident, dozens of people are unwell, some have collapsed, please hurry."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "{{callerName}}, I'm ringing about it now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them, there's dozens of people affected."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "People started collapsing suddenly in the shopping centre, some are coughing badly, others say their eyes are stinging, we don't know the cause.",
+        "There was some kind of release, maybe a spray or a gas, a lot of people nearby are now unwell and confused."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious but some have collapsed and aren't responding well."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A lot of people are coughing and struggling to breathe."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "People are saying their eyes and skin are stinging."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding that I can see, it's more people feeling unwell."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of these people, there's dozens of them."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no idea, sorry, it's too many people to know."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, it's a public shopping centre, there's children and elderly people caught up in it."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, CBRNE protocols initiated, hazmat in specialist suits, mass decontamination being set up."
+    ],
+    "update": [
+      "{{unit}} decontamination under way, {{patients}} casualties triaged, substance still unidentified."
+    ],
+    "stop": [
+      "{{unit}} stopped, substance identified and made safe, scene handed to police for forensic examination."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_215"
+  ],
+  "notes": "Generated from MissionChief UK mission 215 (CBRNE incident in a public place). Buildings: 10 Fire Stations, 20 Rescue Stations, 15 Police Stations. Vehicles: 4 Fire engines, 1 Rescue Support Vehicle, 2 HazMat Units or CBRN Vehicles, 10 Police Cars, 1 ICCU or ACU. Personnel: 6 Fire Officers, 12 Armed Response Personnel, 1 Operational Team Leader. Patients: max 40, min 4, 20% require transport, General Internal, code C-2, 75% critical care. Prisoners: max 1. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

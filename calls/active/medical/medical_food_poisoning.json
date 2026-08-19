@@ -1,0 +1,179 @@
+{
+  "id": "medical_food_poisoning",
+  "name": "Food Poisoning",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 70,
+  "description": "Food Poisoning",
+  "keywords": {
+    "correct": [
+      "r0_minor"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I think I've got food poisoning, I've been sick for hours and now I'm getting worried",
+      "It's probably nothing but I can't keep anything down and I feel dreadful"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I think I've got food poisoning, I've been sick for hours and now I'm getting worried",
+        "It's probably nothing but I can't keep anything down and I feel dreadful"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, that's me",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}, that's my name"
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}",
+        "{{address}}, the door's unlocked"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I had a takeaway last night and I've been vomiting and got terrible stomach cramps since"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm awake, just weak"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Cramping, maybe six out of ten"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing significant, I'm generally healthy"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Just paracetamol for the cramps"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "29"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, thank you, I'll keep sipping water"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Actually that might be better, I wasn't sure if this was a 999 job"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} patient with suspected food poisoning, assessing"
+    ],
+    "update": [
+      "Patient stable, mild dehydration noted"
+    ],
+    "stop": [
+      "{{unit}} clear, patient advised to self care"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_219"
+  ],
+  "notes": "Generated from MissionChief UK mission 219 (Food Poisoning). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, General Surgeon, code C-3, 50% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

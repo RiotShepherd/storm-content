@@ -1,0 +1,189 @@
+{
+  "id": "medical_back_pain",
+  "name": "Back pain",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Back pain",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 50,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I've put my back out, I can't move without terrible pain",
+      "My back's gone into spasm, I can hardly move"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I've put my back out, I can't move without terrible pain",
+        "My back's gone into spasm, I can hardly move"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}",
+        "{{address}}, I'm on the floor"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I bent down to pick something up and my back went into spasm, I can't move now",
+        "I've had bad back pain for a few hours, now it's gone into spasm and I can't get up"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm fine, just can't move",
+        "Yes, fully aware"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, just the pain when I breathe deeply",
+        "Normal"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Very bad, about an eight out of ten",
+        "Severe, shooting down my leg too"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've had back problems before",
+        "Nothing significant"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I take painkillers sometimes for it",
+        "Just paracetamol at home"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "52"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll try to stay still",
+        "I'm not moving, don't worry"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I can't move at all, I don't think I can get anywhere",
+        "Maybe, but I really can't move right now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with severe back pain"
+    ],
+    "update": [
+      "{{unit}} assessing mobility, pain relief given",
+      "{{patients}} casualty being carefully moved with equipment"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_154"
+  ],
+  "notes": "Generated from MissionChief UK mission 154 (Back pain). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 80% require transport, General Internal, codes C-2, C-3, 30% critical care. Prisoners: none. Escalation: none. POI: none."
+}

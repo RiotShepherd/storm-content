@@ -1,0 +1,198 @@
+{
+  "id": "police_animal_attack",
+  "name": "Animal Attack",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 30,
+  "description": "Animal Attack",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "loose dog in area",
+    "risk of further attack"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance and police please, I've been attacked by a dog, it's bitten my arm badly",
+      "Help, a dog's just attacked me, I'm bleeding really badly",
+      "Please send someone, a dog went for me in the park, I'm hurt"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance and police please, I've been attacked by a dog, it's bitten my arm badly",
+        "Help, a dog's just attacked me, I'm bleeding really badly",
+        "Please send someone, a dog went for me in the park, I'm hurt"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, it's me that's been bitten",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}, that's me"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I'm just inside the park gates",
+        "I'm at {{address}}, by the bench near the entrance"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A dog ran up and bit my arm and leg, the owner's nowhere to be seen",
+        "It happened about a minute ago, the dog just went for me out of nowhere",
+        "It bit down hard on my arm before someone pulled it off"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm conscious, just in a lot of pain",
+        "I'm awake, my arm's a mess though"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "My breathing's fine, it's just my arm",
+        "Breathing's okay, I'm just shaking"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, really bad, about an eight out of ten",
+        "It's throbbing, really painful"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, quite a bit, I've wrapped my scarf round it",
+        "Yes, it won't stop bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No, nothing relevant",
+        "I'm generally healthy"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, I don't take anything",
+        "Nothing regular"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "34"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm pressing on it like you said",
+        "Thank you, please hurry, it really hurts"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I'm bleeding, I need an ambulance now",
+        "No way, look at the state of my arm"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualty with dog bite injuries, assessing"
+    ],
+    "update": [
+      "Wound dressed, patient stable, dog secured by owner"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} patient to A&E for wound review"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_218"
+  ],
+  "notes": "Generated from MissionChief UK mission 218 (Animal Attack). Buildings: 1 Police Station, 1 Rescue Station. Vehicles: 1 Police Car. Personnel: none. Patients: max 1, min 1, 60% require transport, Traumatology, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

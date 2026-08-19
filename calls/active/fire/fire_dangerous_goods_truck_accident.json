@@ -1,0 +1,214 @@
+{
+  "id": "fire_dangerous_goods_truck_accident",
+  "name": "Dangerous goods truck accident",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 220,
+  "description": "Dangerous goods truck accident",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "rescue_unit": 1,
+    "hazmat_unit": 1,
+    "traffic_car": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "chemical spill",
+    "vehicle unstable",
+    "trapped casualty",
+    "live traffic"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "A lorry carrying chemicals has crashed and there's a leak, the driver's trapped",
+      "I need the fire brigade, a tanker's overturned and something's leaking from it"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A lorry carrying chemicals has crashed and there's a leak, the driver's trapped",
+        "I need the fire brigade, a tanker's overturned and something's leaking from it"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was driving behind it"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's the driver, I don't know his name, he's stuck in the cab"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's on the road just past the junction"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The lorry's gone off the road and rolled, there's a strong smell and something's leaking underneath"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious, calling out from the cab"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He sounds okay but he's trapped and can't get free"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his leg's trapped and it hurts badly"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I can't see clearly, there might be some blood on his head"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like a man in his fifties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've stopped traffic and I'm keeping people away from the leak"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, there's a chemical leak and he's trapped, we need you now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, HGV overturned with chemical leak, casualty trapped in cab, hazmat assessment underway"
+    ],
+    "update": [
+      "{{unit}} confirms substance identified, extrication of driver in progress"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualty handed to ambulance, spill contained"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_322"
+  ],
+  "notes": "Generated from MissionChief UK mission 322 (Dangerous goods truck accident). Buildings: 11 Fire Stations, 1 Rescue Station. Vehicles: 3 Fire engines, 1 Rescue Support Vehicle, 1 HazMat Unit or CBRN Vehicle, 1 Traffic Car (only when available). Personnel: 2 Fire Officers. Patients: max 1, min 1, 100% require transport, Traumatology, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

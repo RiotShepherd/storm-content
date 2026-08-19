@@ -1,0 +1,194 @@
+{
+  "id": "rtc_hit_and_run",
+  "name": "Hit and Run",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 120,
+  "description": "Hit and Run",
+  "keywords": {
+    "correct": [
+      "rtc_injury"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "irv": 4
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway",
+    "offending vehicle fled the scene"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a crash, the other car just sped off and left them!",
+      "Police and ambulance please, someone's hit a pedestrian and driven away."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a crash, the other car just sped off and left them!",
+        "Police and ambulance please, someone's hit a pedestrian and driven away."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was right behind them.",
+        "{{callerName}}, I pulled over to help."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know them, I've just stopped to help.",
+        "He told me his name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}, just past the junction.",
+        "{{address}}, the road's partly blocked."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A car clipped him and just drove off without stopping, didn't even slow down.",
+        "The driver hit them and sped away straight after, I got a partial number plate."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's talking to me but he's very pale.",
+        "She's conscious but confused, keeps asking what happened."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, he's breathing, but it's fast.",
+        "Yes, but shallow."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his hip and leg really hurt.",
+        "She's holding her arm, says it's broken."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's a cut on his head, bleeding a bit.",
+        "There's a graze on her leg, not too bad."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry.",
+        "No idea, I don't know him."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, I don't know them.",
+        "I couldn't say."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like he's in his thirties.",
+        "She's maybe sixty."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're staying with them until you arrive.",
+        "Please hurry, they're in a lot of pain."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Are you serious? Someone's been hit by a car and left lying here!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties assessed"
+    ],
+    "update": [
+      "{{unit}} treating casualty, description of the vehicle circulated"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty transported"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_106"
+  ],
+  "notes": "Generated from MissionChief UK mission 106 (Hit and Run). Buildings: 4 Police Stations, 1 Rescue Station. Vehicles: 4 Police Cars. Personnel: none. Patients: max 1, 50% require transport, Traumatology, codes C-2, C-3. Prisoners: max 1. Escalation: none. POI: none."
+}

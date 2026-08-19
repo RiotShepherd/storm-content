@@ -1,0 +1,178 @@
+{
+  "id": "fire_harvester_on_fire_in_field",
+  "name": "Harvester on fire in field",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Harvester on fire in field",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "b_road"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "water_carrier": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "risk of crop fire spread",
+    "fuel on machine",
+    "unclear if operator clear"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a harvester on fire out in the field, I can see the smoke from the road",
+      "Fire brigade please, a combine's gone up in the middle of the field"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a harvester on fire out in the field, I can see the smoke from the road",
+        "Fire brigade please, a combine's gone up in the middle of the field"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was just driving past"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I can't see the driver near it, but I think they got off in time, nobody visibly hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the field visible from the road",
+        "It's {{address}}, you'll need to come in off the track"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I was driving past and saw a harvester well alight in the middle of a field, I don't know if the driver's clear"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one involved, I've not seen anybody hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, there's nobody to check, it's just the fire"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can see"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries, nobody's here"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I can't help with that, there's no one hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no patient, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no one to ask, nobody's been hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm stopped safely on the verge",
+        "Please hurry, I can't tell if anyone's still near it"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a machinery fire in a field, nobody's hurt as far as I can tell"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, harvester well alight, operator confirmed clear, no persons reported"
+    ],
+    "update": [
+      "Crews containing fire, preventing spread to surrounding crop"
+    ],
+    "stop": [
+      "Fire out, {{unit}} damping down"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "mc_250"
+  ],
+  "notes": "Generated from MissionChief UK mission 250 (Harvester on fire in field). Buildings: 7 Fire Stations. Vehicles: 2 Fire engines, 1 Water Carrier. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: Farm."
+}

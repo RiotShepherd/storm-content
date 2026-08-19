@@ -1,0 +1,212 @@
+{
+  "id": "rescue_person_trapped_in_agricultural_machinery",
+  "name": "Person trapped in agricultural machinery",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Person trapped in agricultural machinery",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "rescue_unit": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "machinery still engaged",
+    "isolated rural location"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My husband's got his arm caught in the baler, it won't let go of him!",
+      "Emergency, one of the farm workers is trapped in machinery, we've cut the power but he's stuck."
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My husband's got his arm caught in the baler, it won't let go of him!",
+        "Emergency, one of the farm workers is trapped in machinery, we've cut the power but he's stuck."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my husband.",
+        "{{callerName}}, I work with him on the farm."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}.",
+        "His name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the farm off the lane.",
+        "{{address}}, come through the main gate, I'll be watching for you."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "His sleeve got caught in the machine and it's pulled his arm in before we could stop it.",
+        "He was clearing a blockage and the machine started up with his arm still in it."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious, but he's very pale.",
+        "Yes, talking to me, but he's in shock."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, he's breathing, fast though.",
+        "Yes, but he seems to be going into shock."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's in agony, his arm's badly crushed.",
+        "He says the pain is unbearable."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's a lot of blood.",
+        "Yes, quite heavy bleeding from his arm."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No health problems that I know of.",
+        "Nothing that I'm aware of."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, he's not on anything.",
+        "I don't think so."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's fifty two.",
+        "He's in his forties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've turned the machine off completely.",
+        "Please hurry, he's losing a lot of blood."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's trapped in machinery, we need help now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, machinery isolated, assessing casualty"
+    ],
+    "update": [
+      "{{unit}} working to free the casualty from the machinery"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty freed and handed to ambulance"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "mc_320"
+  ],
+  "notes": "Generated from MissionChief UK mission 320 (Person trapped in agricultural machinery). Buildings: 6 Fire Stations. Vehicles: 3 Fire engines, 1 Rescue Support Vehicle. Personnel: 2 Fire Officers. Patients: max 1, min 1, 100% require transport, General Internal, code C-1. Prisoners: none. Escalation: none. POI: none."
+}

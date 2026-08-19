@@ -1,0 +1,198 @@
+{
+  "id": "rescue_unwell_person_stuck_in_lift",
+  "name": "Unwell Person Stuck in lift",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Unwell Person Stuck in lift",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 75,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's someone stuck in the lift and they're saying they feel really unwell.",
+      "Fire brigade please, a man's collapsed inside a stuck lift, we can hear him through the door."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's someone stuck in the lift and they're saying they feel really unwell.",
+        "Fire brigade please, a man's collapsed inside a stuck lift, we can hear him through the door."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work in the building.",
+        "{{callerName}}, I heard him calling for help."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "He told us his name's {{firstPatientName}}.",
+        "It's {{firstPatientName}}, he works on the third floor."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}.",
+        "{{address}}, it's the lift near reception."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The lift got stuck between floors and now he's saying he feels dizzy and can't breathe properly.",
+        "He was fine when he got in but now he's saying his chest hurts and he feels faint."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's still talking to us through the door, but he sounds weak.",
+        "Yes, but his voice is getting fainter."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He says he's finding it hard to breathe in there.",
+        "Yes, but he says it's getting worse."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's saying his chest feels tight.",
+        "He says he's got a bad headache and feels sick."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, he hasn't mentioned any bleeding.",
+        "No, not that we know of."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He mentioned he's got a heart condition.",
+        "We're not sure, we don't know him well."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not sure, sorry.",
+        "He might have a spray on him, we're not sure."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's about fifty.",
+        "He's in his sixties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're staying by the door talking to him.",
+        "Please hurry, he sounds like he's getting worse."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's trapped and unwell, we need the fire brigade now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing access to the lift"
+    ],
+    "update": [
+      "{{unit}} working to free the casualty, ambulance assessing"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty freed and assessed"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_367"
+  ],
+  "notes": "Generated from MissionChief UK mission 367 (Unwell Person Stuck in lift). Buildings: 1 Fire Station, 1 Rescue Station. Vehicles: 1 Fire engine. Personnel: none. Patients: min 1, max 1, 75% require transport, General Internal, codes C-1, C-2. Prisoners: none. Escalation: none. POI: none."
+}

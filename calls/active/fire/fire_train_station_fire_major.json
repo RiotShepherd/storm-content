@@ -1,0 +1,214 @@
+{
+  "id": "fire_train_station_fire_major",
+  "name": "Train station fire (Major)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1500,
+  "description": "Train station fire (Major)",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "f2y",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "train_station"
+  ],
+  "units": {
+    "dual_pump": 6,
+    "single_pump": 6,
+    "aerial": 1,
+    "basu": 1,
+    "water_carrier": 1,
+    "irv": 4,
+    "iccu": 1,
+    "fire_officer": 8
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 35,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "smoke",
+    "structural collapse",
+    "mass casualties",
+    "live rail lines"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 14",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Fire brigade, it's a major fire at the station, the whole concourse is smoke logged, there's people struggling to breathe.",
+      "The station fire's massive now, passengers are coughing and some can't get out through the smoke."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade, it's a major fire at the station, the whole concourse is smoke logged, there's people struggling to breathe.",
+        "The station fire's massive now, passengers are coughing and some can't get out through the smoke."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "{{callerName}}, I'm ringing about it now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them, there's a lot of passengers affected."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The fire's spread through most of the station roof structure, we've got passengers with smoke inhalation being helped out.",
+        "It's a huge fire now, structural collapse risk in parts, several passengers are being treated for smoke inhalation on the forecourt."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious, coughing badly, a couple are being carried out."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Several are struggling to breathe, oxygen's being given by the ambulance crews on scene."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A few have burns from falling debris."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A couple have cuts from broken glass in the concourse."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've no idea, they're just passengers, hundreds of them."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I couldn't tell you, sorry."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, it was rush hour, there's children and elderly among them."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, major incident declared, mass evacuation, multiple casualties on forecourt."
+    ],
+    "update": [
+      "{{unit}} fire under control, {{patients}} casualties triaged and treated for smoke inhalation and burns."
+    ],
+    "stop": [
+      "{{unit}} stopped, fire out, extensive damping down, structural engineer requested."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "railway_fire",
+    "urban_fire",
+    "mc_295"
+  ],
+  "notes": "Generated from MissionChief UK mission 295 (Train station fire (Major)). Buildings: 20 Fire Stations, 4 Police Stations. Vehicles: 12 Fire engines, 1 Aerial Appliance Truck, 1 BASU, 1 Water Carrier (30% probability), 4 Police Cars, 1 ICCU or ACU. Personnel: 8 Fire Officers, 31 to 94 Firefighters. Patients: 50% require transport, General Internal / Burns, codes C-1, C-2, C-3, C-4, 25% critical care. Prisoners: none. Escalation: none. POI: Train station (regional), Train station (regional and long distance)."
+}

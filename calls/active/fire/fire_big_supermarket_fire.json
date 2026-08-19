@@ -1,0 +1,225 @@
+{
+  "id": "fire_big_supermarket_fire",
+  "name": "Big Supermarket Fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Big Supermarket Fire",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "f2y",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "supermarket",
+    "retail_park"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 3,
+    "aerial": 1,
+    "rescue_unit": 1,
+    "water_carrier": 1,
+    "irv": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      6
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "smoke logging",
+    "large crowd evacuated",
+    "stock and racking collapse risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 40,
+      "afterSeconds": [
+        180,
+        420
+      ],
+      "message": "Crews report persons suffering smoke inhalation, up to 3 casualties",
+      "addUnits": {},
+      "addPatients": [
+        1,
+        3
+      ]
+    },
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 8",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "The supermarket's on fire, it's spreading fast through the store and we're evacuating",
+      "I need the fire brigade, there's a big fire at the supermarket, smoke's filling the aisles"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The supermarket's on fire, it's spreading fast through the store and we're evacuating",
+        "I need the fire brigade, there's a big fire at the supermarket, smoke's filling the aisles"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the store manager"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "A few of the staff and customers got some smoke, I don't have all their names"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the big supermarket, main entrance is on the front"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Fire's broken out somewhere near the storeroom and it's spreading through the store, we're evacuating everyone"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Everyone we know of is out and conscious, a few coughing from smoke"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A handful of people got smoke in their lungs on the way out, they're struggling a bit"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No serious injuries reported, mostly smoke effects"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding reported, just smoke inhalation"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know their medical histories, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I can't say, I don't know them personally"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, staff and customers"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've got everyone in the car park, the store's fully evacuated"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need the fire brigade, the store's well alight"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, well developed fire within supermarket, {{patients}} casualties with smoke inhalation, store evacuated"
+    ],
+    "update": [
+      "{{unit}} making pumps eight, fire spreading through roof void",
+      "{{unit}} confirms all persons accounted for, {{patients}} treated by ambulance"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire extinguished, scene handed to loss adjusters"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_68"
+  ],
+  "notes": "Generated from MissionChief UK mission 68 (Big Supermarket Fire). Buildings: 8 Fire Stations, 3 Rescue Stations, 2 Police Stations. Vehicles: 6 Fire engines, 1 Aerial Appliance Truck, 1 Rescue Support Vehicle, 1 Water Carrier (20% probability), 1 Police Car. Personnel: 2 Fire Officers. Patients: max 6, 30% require transport, General Internal, code C-2. Prisoners: none. Escalation: 3x Smoke Inhalation follow up. POI: Supermarket (big)."
+}

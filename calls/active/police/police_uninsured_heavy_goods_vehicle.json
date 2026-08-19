@@ -1,0 +1,188 @@
+{
+  "id": "police_uninsured_heavy_goods_vehicle",
+  "name": "Uninsured Heavy Goods Vehicle",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 75,
+  "description": "Uninsured Heavy Goods Vehicle",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 1,
+    "traffic_car": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I want to report a lorry, I'm pretty sure it's uninsured, I've seen it around a lot.",
+      "Police please, there's an HGV parked up that I don't think is taxed or insured."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I want to report a lorry, I'm pretty sure it's uninsured, I've seen it around a lot.",
+        "Police please, there's an HGV parked up that I don't think is taxed or insured."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I see it most days.",
+        "{{callerName}}, I run a business nearby."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no one hurt, it's a vehicle report.",
+        "No patient, nobody's involved like that."
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's parked on {{address}} right now.",
+        "{{address}}, outside the yard on the corner."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's a big lorry that's been parked up for weeks with no tax disc showing and I'm sure it's not insured.",
+        "The same HGV keeps turning up, no plates renewed, looks dodgy to me."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, it's just the vehicle.",
+        "No injuries, it's a paperwork issue as far as I know."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "This isn't a medical call, nobody's hurt.",
+        "Everyone's fine, it's about the lorry."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's in pain, nobody's involved.",
+        "Not applicable, it's a vehicle matter."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, there's no injury here.",
+        "No, nothing like that."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient in this.",
+        "Not relevant, sorry."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No one needs medical help.",
+        "Not applicable."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, it's a vehicle report.",
+        "No one's hurt, it's just the lorry."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll point the officer to it when they arrive.",
+        "Right you are, I'll keep an eye on it till someone comes."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "It's not medical, I just want the lorry checked!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, vehicle located and being checked"
+    ],
+    "update": [
+      "{{unit}} running checks on the vehicle"
+    ],
+    "stop": [
+      "{{unit}} clear, matter dealt with"
+    ]
+  },
+  "tags": [
+    "police",
+    "recovery_vehicle",
+    "mc_778"
+  ],
+  "notes": "Generated from MissionChief UK mission 778 (Uninsured Heavy Goods Vehicle). Buildings: 2 Police Stations, 1 HGV Recovery Extension. Vehicles: 1 Police Car, 1 Traffic Car. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,192 @@
+{
+  "id": "medical_crushed_foot_caused_by_produce_cart_tip_over",
+  "name": "Crushed Foot Caused By Produce Cart Tip Over",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Crushed Foot Caused By Produce Cart Tip Over",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "supermarket",
+    "retail_park"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A produce cart's tipped over onto someone's foot in the supermarket",
+      "One of our customers has had their foot crushed by a stock cart"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A produce cart's tipped over onto someone's foot in the supermarket",
+        "One of our customers has had their foot crushed by a stock cart"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I work here"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, one of our customers"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the supermarket",
+        "{{address}}, near the produce aisle"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A loaded produce cart tipped over and landed on their foot",
+        "The cart came off its wheels and crushed their foot against the shelving"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and in pain",
+        "Yes, fully conscious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, breathing normally",
+        "No problems there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, quite severe in the foot",
+        "Very painful, they can't put weight on it"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A little, from a graze",
+        "No visible bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of",
+        "I don't know them personally"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not that I know of",
+        "I don't know"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "36"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've kept the area clear",
+        "We've got them sat down comfortably"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I think it's best they're checked properly, the foot looks bad",
+        "Could try that, but the foot's quite swollen already"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with crush injury to foot"
+    ],
+    "update": [
+      "{{unit}} assessing and immobilising the foot",
+      "{{patients}} casualty stable, pain managed"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_729"
+  ],
+  "notes": "Generated from MissionChief UK mission 729 (Crushed Foot Caused By Produce Cart Tip Over). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 30% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Supermarket (small), Supermarket (big)."
+}

@@ -1,0 +1,186 @@
+{
+  "id": "medical_interfacility_transfer_critical_care",
+  "name": "Interfacility Transfer - Critical Care",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "Interfacility Transfer - Critical Care",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "This is ICU at the hospital, we need a critical care transfer arranged",
+      "It's the unit here, I've got a ventilated patient that needs moving to a specialist centre"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "This is ICU at the hospital, we need a critical care transfer arranged",
+        "It's the unit here, I've got a ventilated patient that needs moving to a specialist centre"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, ICU nurse in charge",
+        "{{callerName}}, calling from the unit"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "The patient is {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, ICU reception, ask for the bed manager",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The patient needs to move to a specialist unit, they're ventilated and stable for transfer"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No, they're sedated and ventilated"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing is supported by the ventilator"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "They're sedated, no signs of pain"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No active bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "It's all in the transfer notes I'll hand to the crew"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Full drug chart will go with them"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "54"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Thank you, we'll have everything ready"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this has to be an ambulance transfer, it's already arranged with the bed manager"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene at sending unit, handover with ICU team"
+    ],
+    "update": [
+      "Patient stable and ventilated, transfer equipment secured"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to receiving unit"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_716"
+  ],
+  "notes": "Generated from MissionChief UK mission 716 (Interfacility Transfer - Critical Care). Buildings: none. Vehicles: none. Personnel: none. Patients: min 1, max 1, 0% require transport, codes C-1, C-2, C-3, C-4. Prisoners: none. Escalation: none. POI: none."
+}

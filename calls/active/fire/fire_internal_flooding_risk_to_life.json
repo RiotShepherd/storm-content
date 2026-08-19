@@ -1,0 +1,186 @@
+{
+  "id": "fire_internal_flooding_risk_to_life",
+  "name": "Internal flooding (Risk to life)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Internal flooding (Risk to life)",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      5
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "standing water",
+    "risk of electric shock from wiring",
+    "slippery floors"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Please, there's water coming through my ceiling and I can hear my neighbour shouting",
+      "It's flooding badly inside, my mum's inside and she can't get to the door",
+      "There's a burst pipe or something, water's pouring through the flat below and the old boy who lives there isn't answering"
+    ],
+    "phoneArea": "auto",
+    "callerType": "neighbour"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Please, there's water coming through my ceiling and I can hear my neighbour shouting",
+        "It's flooding badly inside, my mum's inside and she can't get to the door",
+        "There's a burst pipe or something, water's pouring through the flat below and the old boy who lives there isn't answering"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I live upstairs"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, he's my downstairs neighbour"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the ground floor flat",
+        "It's {{address}}, the water's coming from in there"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The flat downstairs, water's been coming through for a while now, I think a pipe's burst and I can't reach him",
+        "There's water pouring through the ceiling and he's not answering his door"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He answered when I shouted through but sounded confused and out of breath"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He said he was struggling to breathe with all the damp and cold"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He didn't mention pain, just that he's stuck and can't get to the door"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding that I know of"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I think he's got a bad chest, he's older"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I'm not sure, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's elderly, seventies I'd say"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Please hurry, the water's still rising"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No it's an emergency, he's trapped in there with the water coming in"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, assessing flooding and casualty access"
+    ],
+    "update": [
+      "Pumping out water, {{patients}} casualty located",
+      "Casualty being assessed by crew"
+    ],
+    "stop": [
+      "{{unit}} leaving scene, flooding contained"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_204"
+  ],
+  "notes": "Generated from MissionChief UK mission 204 (Internal flooding (Risk to life)). Buildings: 1 Fire Station, 1 Rescue Station. Vehicles: 1 Fire engine. Personnel: none. Patients: max 5, min 1, 30% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,205 @@
+{
+  "id": "fire_flat_fire_in_sheltered_housing",
+  "name": "Flat Fire in Sheltered Housing",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 250,
+  "description": "Flat Fire in Sheltered Housing",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "flats",
+    "house"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "elderly and vulnerable residents",
+    "limited mobility evacuation",
+    "smoke logging"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's a fire in one of the sheltered housing flats",
+      "Fire brigade please, smoke's coming from a flat in the sheltered housing scheme"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire in one of the sheltered housing flats",
+        "Fire brigade please, smoke's coming from a flat in the sheltered housing scheme"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the scheme warden"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No, that resident was out at a day centre, the flat was empty"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the sheltered housing scheme, use the main door",
+        "It's {{address}}, I'll buzz you in"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The warden's alarm went off and there's smoke coming from one of the residents' flats"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one involved, I've not seen anybody hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, there's nobody to check, it's just the fire"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can see"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries, nobody's here"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I can't help with that, there's no one hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no patient, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no one to ask, nobody's been hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm checking on the other residents",
+        "Please hurry, some of our residents can't move quickly"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a flat fire in sheltered accommodation, we need the fire brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, flat fire in sheltered housing, no persons reported"
+    ],
+    "update": [
+      "Crews checking neighbouring flats, assisting warden with resident welfare"
+    ],
+    "stop": [
+      "Fire extinguished, all residents accounted for, {{unit}} ventilating"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_275"
+  ],
+  "notes": "Generated from MissionChief UK mission 275 (Flat Fire in Sheltered Housing). Buildings: 6 Fire Stations. Vehicles: 3 Fire engines. Personnel: 1 Fire Officer, 6 to 19 Firefighters. Patients: none. Prisoners: none. Escalation: none. POI: Sheltered housing scheme."
+}

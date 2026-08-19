@@ -1,0 +1,208 @@
+{
+  "id": "fire_bin_lorry_fire",
+  "name": "Bin Lorry Fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 200,
+  "description": "Bin Lorry Fire",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 4,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "irv": 1,
+    "water_carrier": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "burning refuse",
+    "toxic smoke",
+    "vehicle fuel tank",
+    "road blocked"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "The bin lorry's on fire on the street, the driver's pulled over and it's really going",
+      "I need the fire brigade, a rubbish truck's caught fire outside the houses"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The bin lorry's on fire on the street, the driver's pulled over and it's really going",
+        "I need the fire brigade, a rubbish truck's caught fire outside the houses"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I live on this road"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "The driver's out and safe, no one else is hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the lorry's stopped right outside"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The bin lorry's caught fire at the back, the driver's pulled over and got out, flames are spreading along it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "The driver's fine, he's stood well back"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's hurt, just smoke coming off the lorry"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No injuries, everyone's clear"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient, the driver's uninjured"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping back from the smoke"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a vehicle fire, not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, bin lorry well alight, driver safe, requesting water carrier"
+    ],
+    "update": [
+      "{{unit}} working to prevent fire spreading to load bay",
+      "Road closed both directions while crews work"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, vehicle recovery arranged"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_127"
+  ],
+  "notes": "Generated from MissionChief UK mission 127 (Bin Lorry Fire). Buildings: 7 Fire Stations, 1 Police Station. Vehicles: 3 Fire engines, 1 Police Car, 1 Water Carrier. Personnel: 2 Fire Officers. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

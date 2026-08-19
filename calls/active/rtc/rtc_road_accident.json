@@ -1,0 +1,194 @@
+{
+  "id": "rtc_road_accident",
+  "name": "Road accident",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Road accident",
+  "keywords": {
+    "correct": [
+      "rtc_injury"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 40,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a road accident, a car's gone into the back of another one.",
+      "Ambulance please, there's been a crash, someone's hurt in one of the cars."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a road accident, a car's gone into the back of another one.",
+        "Ambulance please, there's been a crash, someone's hurt in one of the cars."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was right behind them.",
+        "{{callerName}}, I've stopped to help."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, I've just stopped.",
+        "She told me her name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, near the junction."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One car's gone into the back of another, the driver in front seems hurt.",
+        "There's been a shunt at the lights, one of the drivers is complaining of neck pain."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious, talking to me.",
+        "Yes, she's awake, a bit shaken."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing fine.",
+        "Yes, she's okay, just sore."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his neck hurts.",
+        "She's holding her shoulder, says it's painful."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no visible bleeding.",
+        "A small cut on her hand, nothing major."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry.",
+        "No idea, sorry."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, I don't know them.",
+        "I couldn't say."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like he's in his thirties.",
+        "She's maybe fifty."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're staying with them.",
+        "Understood, they're sat in the car waiting."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, they're hurt from a crash, we need an ambulance!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing casualty"
+    ],
+    "update": [
+      "{{unit}} treating casualty"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty transported"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_25"
+  ],
+  "notes": "Generated from MissionChief UK mission 25 (Road accident). Buildings: 3 Fire Stations. Vehicles: 1 Fire engine. Personnel: none. Patients: max 1, 40% require transport, Traumatology, codes C-2, C-3. Prisoners: none. Escalation: follow ups Road accident, Unknown Tanker Spill; expands from Burning bus shelter, Burning car. POI: none."
+}

@@ -1,0 +1,190 @@
+{
+  "id": "medical_broken_ankle",
+  "name": "Broken Ankle",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 70,
+  "description": "Broken Ankle",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 70,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I've twisted my ankle really badly, I think it might be broken",
+      "I've gone over on my ankle, I heard it crack"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I've twisted my ankle really badly, I think it might be broken",
+        "I've gone over on my ankle, I heard it crack"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I stepped off the kerb awkwardly and my ankle rolled, I heard a crack",
+        "I fell and twisted my ankle, it's swollen up already and I can't put weight on it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, fully awake",
+        "Yes, fine other than the pain"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine",
+        "Normal"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Very painful, can't put any weight on it",
+        "Sharp pain, worse when I try to move it"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No, just swollen"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing relevant",
+        "No"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None",
+        "Not on anything"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "27"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay sat down",
+        "I'm keeping it still"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I don't think I can walk on it at all",
+        "Maybe, but I really can't put weight on it"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with suspected ankle fracture"
+    ],
+    "update": [
+      "{{unit}} splinting and providing pain relief",
+      "{{patients}} casualty stable, ready for transport"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_407"
+  ],
+  "notes": "Generated from MissionChief UK mission 407 (Broken Ankle). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 70% require transport, Traumatology, code C-3, 100% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

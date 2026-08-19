@@ -1,0 +1,192 @@
+{
+  "id": "medical_cyclist_blown_over_by_strong_winds",
+  "name": "Cyclist blown over by strong winds",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 70,
+  "description": "Cyclist blown over by strong winds",
+  "keywords": {
+    "correct": [
+      "r0_minor"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "strong winds",
+    "live traffic"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 25,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A cyclist's just been blown off his bike by the wind, he's come down hard",
+      "Someone's been knocked off their bike in the wind, they're hurt"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A cyclist's just been blown off his bike by the wind, he's come down hard",
+        "Someone's been knocked off their bike in the wind, they're hurt"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "He said his name's {{firstPatientName}}",
+        "{{firstPatientName}}, that's what he told me"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's at {{address}}",
+        "{{address}}, on the road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A gust of wind knocked him sideways off his bike, he landed hard on the road",
+        "He was blown into the kerb and came off, hit his shoulder and hip"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and talking",
+        "Yes, conscious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, breathing normally",
+        "No problems there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, his shoulder and hip hurt",
+        "Says his wrist is painful too"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A graze on his arm, nothing serious",
+        "No, just bruising"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He hasn't said",
+        "Don't know, I'm a stranger to him"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Don't know",
+        "He hasn't said"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about 40",
+        "Mid forties, I'd guess"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with him",
+        "I've got his bike out of the road"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "He seems in a fair bit of pain, might be worth checking",
+        "Not sure, could go either way really"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty assessed following cycling incident"
+    ],
+    "update": [
+      "{{unit}} checking for injuries, casualty stable",
+      "{{patients}} casualty comfortable, further assessment ongoing"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for check up"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_848"
+  ],
+  "notes": "Generated from MissionChief UK mission 848 (Cyclist blown over by strong winds). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 25% require transport, General Surgeon, code C-3. Prisoners: none. Escalation: none. POI: none."
+}

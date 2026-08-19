@@ -1,0 +1,192 @@
+{
+  "id": "medical_traumatic_limb_amputation",
+  "name": "Traumatic limb amputation",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Traumatic limb amputation",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "catastrophic bleed",
+      "amputation",
+      "shock"
+    ]
+  },
+  "hazards": [
+    "catastrophic bleeding",
+    "machinery on scene",
+    "severed limb"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "His hand's been cut clean off in the machine, there's blood everywhere, please hurry",
+      "I need an ambulance now, he's caught his hand in the saw and it's come off"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "His hand's been cut clean off in the machine, there's blood everywhere, please hurry",
+        "I need an ambulance now, he's caught his hand in the saw and it's come off"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work with him",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, my colleague",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, please hurry",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He caught his hand in the saw at work, it's completely severed"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious, in shock"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's in agony"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Catastrophic, I've got a tourniquet on from the first aid kit"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "39"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I've kept the hand, wrapped it and put it on ice like the poster says"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance right now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with traumatic amputation, tourniquet applied"
+    ],
+    "update": [
+      "Bleeding controlled, patient in shock",
+      "Amputated part packaged for transport"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority to major trauma centre"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_152"
+  ],
+  "notes": "Generated from MissionChief UK mission 152 (Traumatic limb amputation). Buildings: 4 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 80% require transport, General Surgeon / Critical Care, code C-2, 100% critical care. Prisoners: none. Escalation: none. POI: none."
+}

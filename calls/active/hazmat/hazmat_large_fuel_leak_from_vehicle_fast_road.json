@@ -1,0 +1,192 @@
+{
+  "id": "hazmat_large_fuel_leak_from_vehicle_fast_road",
+  "name": "Large fuel leak from vehicle (fast road)",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Large fuel leak from vehicle (fast road)",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "irv": 2,
+    "traffic_car": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "live traffic",
+    "large fuel spill",
+    "fire risk",
+    "fast road"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a lorry leaking loads of fuel on the dual carriageway",
+      "Big fuel leak from a vehicle on the fast road, traffic's building up"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a lorry leaking loads of fuel on the dual carriageway",
+        "Big fuel leak from a vehicle on the fast road, traffic's building up"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No patient, the driver's safely out of the vehicle",
+        "Nobody's hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's on the dual carriageway near {{address}}",
+        "{{address}}, on the hard shoulder"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A lorry's fuel tank has split, it's leaking heavily across the carriageway",
+        "There's fuel all over the road, cars are having to swerve round it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No patient",
+        "N/A"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No patient involved",
+        "N/A"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No injuries",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "No patient"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "No patient"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient",
+        "N/A"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay well back from the traffic",
+        "Right, I'm on the hard shoulder, away from the road"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's not medical, it's the fuel leak on a fast road",
+        "No injuries, just very dangerous with the traffic"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance on the fast road, fuel leak confirmed, no casualties"
+    ],
+    "update": [
+      "{{unit}} working with police to close a lane, containing the leak",
+      "Traffic being managed while spill is dealt with"
+    ],
+    "stop": [
+      "{{unit}} stood down, carriageway cleared and reopened"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_393"
+  ],
+  "notes": "Generated from MissionChief UK mission 393 (Large fuel leak from vehicle (fast road)). Buildings: 2 Fire Stations, 2 Police Stations. Vehicles: 2 Fire engines or Rescue Support Vehicles, 2 Police Cars, 1 Traffic Car (only when available). Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

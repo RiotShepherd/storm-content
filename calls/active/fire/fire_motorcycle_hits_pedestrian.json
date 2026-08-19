@@ -1,0 +1,195 @@
+{
+  "id": "fire_motorcycle_hits_pedestrian",
+  "name": "Motorcycle Hits Pedestrian",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 200,
+  "description": "Motorcycle Hits Pedestrian",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "rescue_unit": 1,
+    "ambulance": 1,
+    "irv": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 50,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "motorcycle debris in road",
+    "casualty in carriageway"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 85,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance please, a motorbike's hit a pedestrian, they're on the ground",
+      "There's been an accident, a bike's hit someone crossing the road, they're really hurt"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance please, a motorbike's hit a pedestrian, they're on the ground",
+        "There's been an accident, a bike's hit someone crossing the road, they're really hurt"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I saw it happen"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know their name, I just saw it happen"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The motorbike came round the corner and hit them as they were crossing, they went flying"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "They're conscious but in a lot of pain, drifting a bit"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "They're breathing but it's laboured"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "They're in agony, I think their leg's broken"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's a fair bit of blood from a head wound"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looked like an adult, middle aged maybe"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping them still and warm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is an emergency, they've been hit by a motorbike"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty assessed following RTC"
+    ],
+    "update": [
+      "Casualty being treated at roadside",
+      "Extrication and treatment ongoing"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualty"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_602"
+  ],
+  "notes": "Generated from MissionChief UK mission 602 (Motorcycle Hits Pedestrian). Buildings: 6 Fire Stations, 5 Rescue Stations, 1 Police Station. Vehicles: 1 Rescue Support Vehicle, 1 Ambulance, 1 Police Car. Personnel: 1 Fire Officer. Patients: max 1, min 1, 85% require transport, Traumatology, codes C-1, C-2, 40% critical care. Prisoners: none. Escalation: none. POI: none."
+}

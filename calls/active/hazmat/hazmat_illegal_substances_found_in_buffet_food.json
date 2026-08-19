@@ -1,0 +1,224 @@
+{
+  "id": "hazmat_illegal_substances_found_in_buffet_food",
+  "name": "Illegal substances found in Buffet Food",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 120,
+  "description": "Illegal substances found in Buffet Food",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "irv": 3
+  },
+  "patients": {
+    "range": [
+      6,
+      20
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "mass casualty event",
+    "suspected contaminated food",
+    "crowd control needed",
+    "possible ongoing exposure"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I'm the duty manager here, we've got loads of guests collapsing, we think something's been put in the buffet",
+      "Please, I need lots of ambulances, people are being sick and passing out after the buffet",
+      "Something's badly wrong, dozens of guests are unwell, we think it's the food"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I'm the duty manager here, we've got loads of guests collapsing, we think something's been put in the buffet",
+        "Please, I need lots of ambulances, people are being sick and passing out after the buffet",
+        "Something's badly wrong, dozens of guests are unwell, we think it's the food"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the duty manager",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's too many to name, one of the worst is {{firstPatientName}}",
+        "{{firstPatientName}} is one of the guests who's collapsed"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, it's the function room",
+        "{{address}}, come straight through to the main hall"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Guests started collapsing and vomiting not long after the buffet was served, we think it's been contaminated with something, maybe drugs",
+        "There's a strange chemical smell off some of the trays, and people are going down fast"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are awake but confused, a couple aren't responding",
+        "{{firstPatientName}} isn't responding to us"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Some are struggling to breathe, others seem okay",
+        "A few are breathing very fast, panicky"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Some are saying their stomachs are burning",
+        "A lot of complaints of stomach pain and dizziness"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding that I can see",
+        "No, nothing like that"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of their medical histories, there's so many of them",
+        "No idea, they're guests, not staff"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know what any of them take",
+        "Not that I'm aware of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, a real mix, adults mostly",
+        "Mostly adults, no children as far as I can see"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got staff keeping people calm and away from the buffet",
+        "Please hurry, more keep going down"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs ambulances now, there's dozens of people affected",
+        "Definitely not, this is an emergency"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, mass casualty incident confirmed, {{patients}} casualties so far"
+    ],
+    "update": [
+      "{{unit}} triaging {{patients}} casualties, suspected contamination of buffet food",
+      "Additional resources requested, scene being managed as multi casualty"
+    ],
+    "stop": [
+      "{{unit}} stood down, all {{patients}} casualties triaged and handed over"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_748"
+  ],
+  "notes": "Generated from MissionChief UK mission 748 (Illegal substances found in Buffet Food). Buildings: 6 Rescue Stations, 4 Police Stations. Vehicles: 3 Police Cars. Personnel: none. Patients: min 6, max 20, 100% require transport, General Internal, code C-3. Prisoners: max 6. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

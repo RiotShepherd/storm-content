@@ -1,0 +1,191 @@
+{
+  "id": "police_aggressive_person",
+  "name": "Aggressive Person",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Aggressive Person",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "aggressive male",
+    "risk to public"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a bloke outside shouting and squaring up to people",
+      "I need help, there's a man being really aggressive, I think he might hurt someone",
+      "Quick, there's a man causing trouble, he's shouting and threatening people outside the shop"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a bloke outside shouting and squaring up to people",
+        "I need help, there's a man being really aggressive, I think he might hurt someone",
+        "Quick, there's a man causing trouble, he's shouting and threatening people outside the shop"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm just a passer by",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, never seen him before",
+        "No idea who he is"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, he's right outside",
+        "Outside {{address}}, near the entrance"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's shouting abuse at anyone who walks past and squaring up to them",
+        "He's been going for about five minutes, getting more aggressive",
+        "He tried to grab someone's collar a minute ago"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's been hurt yet, but he's getting closer to it",
+        "No one's hurt so far"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, everyone's just scared",
+        "Nobody's hurt physically"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's been hit yet, but people are terrified",
+        "Not that I've seen"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "None that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've no idea, don't know him",
+        "Couldn't tell you"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, might be drunk though",
+        "Can't say, but he doesn't seem sober"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like he's in his thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm keeping my distance",
+        "Please hurry, he's getting worse"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need the police, he's about to hurt someone!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, male detained, no injuries reported"
+    ],
+    "update": [
+      "Subject being spoken to, situation calming"
+    ],
+    "stop": [
+      "{{unit}} clear, male dealt with, no further action required"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_56"
+  ],
+  "notes": "Generated from MissionChief UK mission 56 (Aggressive Person). Buildings: 2 Police Stations. Vehicles: 2 Police Cars. Personnel: none. Patients: none. Prisoners: max 1. Escalation: Fight in Progress, Panic button activation. POI: none."
+}

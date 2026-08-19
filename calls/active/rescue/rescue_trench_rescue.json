@@ -1,0 +1,214 @@
+{
+  "id": "rescue_trench_rescue",
+  "name": "Trench Rescue",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 250,
+  "description": "Trench Rescue",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "rescue_unit": 2,
+    "irv": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      4
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "catastrophic bleed",
+      "amputation",
+      "shock"
+    ]
+  },
+  "hazards": [
+    "trench collapse risk",
+    "unstable ground",
+    "heavy machinery nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "The trench has collapsed on one of our lads, he's buried up to his chest!",
+      "Emergency, we've had a trench collapse on site, at least one worker's trapped and badly hurt."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The trench has collapsed on one of our lads, he's buried up to his chest!",
+        "Emergency, we've had a trench collapse on site, at least one worker's trapped and badly hurt."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the site foreman.",
+        "{{callerName}}, I was working right next to him."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}.",
+        "His name's {{firstPatientName}}, he's one of the groundworkers."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the building site.",
+        "{{address}}, come through the site entrance, I'll wave you in."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The side of the trench gave way while he was down there and it's come in on top of him.",
+        "The ground collapsed into the trench and buried him from the waist down, we can't dig him out safely ourselves."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious but he's going very pale.",
+        "Yes, talking to us, but he's in a bad way."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but it's fast and shallow.",
+        "Yes, but he's struggling with the weight on him."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's in severe pain, he says he can't feel his leg.",
+        "He's screaming in pain, it's really bad."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's severe bleeding, it looks very serious.",
+        "Yes, a lot of blood, we've tried to apply pressure."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No health problems that I know of.",
+        "Not that I'm aware of."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry.",
+        "I don't know."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's twenty nine.",
+        "He's in his thirties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping pressure on where we can reach.",
+        "Please hurry, he's losing a lot of blood."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's buried in a collapsed trench, we need help now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, shoring being set up, assessing casualties"
+    ],
+    "update": [
+      "{{unit}} working carefully to free trapped casualty",
+      "{{patients}} casualties confirmed, ambulance on scene"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty freed and transported"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "mc_168"
+  ],
+  "notes": "Generated from MissionChief UK mission 168 (Trench Rescue). Buildings: 5 Fire Stations, 3 Rescue Stations, 1 Police Station. Vehicles: 3 Fire engines, 2 Rescue Support Vehicles, 1 Police Car. Personnel: 1 Fire Officer. Patients: max 4, min 1, 30% require transport, General Surgeon / Critical Care, code C-2, 100% critical care. Prisoners: none. Escalation: none. POI: none."
+}

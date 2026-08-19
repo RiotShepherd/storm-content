@@ -1,0 +1,177 @@
+{
+  "id": "fire_late_fire_call",
+  "name": "Late fire call",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Late fire call",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "residential_road",
+    "track",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "fire may be well developed",
+    "smoke logging"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Sorry to call so late, but there's a fire, I only just noticed it",
+      "Fire brigade please, I think there's been a fire going for a while, I've only just seen it"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Sorry to call so late, but there's a fire, I only just noticed it",
+        "Fire brigade please, I think there's been a fire going for a while, I've only just seen it"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's nobody hurt, it's just the fire"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I'm not sure how long it's been going, I only just spotted the smoke and flames"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, there's no one to check on"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's affected, everyone's clear"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can tell"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient, I can't help with that"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's nobody hurt"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's nobody hurt, no patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep my distance"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire, I need the fire brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, fire found well developed on arrival"
+    ],
+    "update": [
+      "Crews investigating extent of fire",
+      "Fire being brought under control"
+    ],
+    "stop": [
+      "{{unit}} leaving scene, fire out"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_421"
+  ],
+  "notes": "Generated from MissionChief UK mission 421 (Late fire call). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

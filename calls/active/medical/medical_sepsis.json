@@ -1,0 +1,180 @@
+{
+  "id": "medical_sepsis",
+  "name": "Sepsis",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Sepsis",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My gran's really poorly, she's shaking and burning up and doesn't seem right at all",
+      "I need an ambulance, she's had an infection and now she's confused and shivering badly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My gran's really poorly, she's shaking and burning up and doesn't seem right at all",
+        "I need an ambulance, she's had an infection and now she's confused and shivering badly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, her granddaughter",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my gran",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's had a water infection and now she's got a temperature, she's shivering and confused"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes but she's not making sense"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fast"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says she's cold but she's boiling to touch"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Recent UTI, and she's diabetic"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Metformin and antibiotics from the GP"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "86"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm keeping her comfortable"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think this needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with signs of sepsis, assessing"
+    ],
+    "update": [
+      "Obs deteriorating, sepsis pathway activated"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_312"
+  ],
+  "notes": "Generated from MissionChief UK mission 312 (Sepsis). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 100% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

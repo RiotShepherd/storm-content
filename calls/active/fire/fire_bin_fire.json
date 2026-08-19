@@ -1,0 +1,176 @@
+{
+  "id": "fire_bin_fire",
+  "name": "Bin fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 11,
+  "description": "Bin fire",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 4,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "smoke drifting into street",
+    "fire close to building"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade please, there's a bin fire and it's spreading up the wall behind it",
+      "I need the fire service, one of the bins is well alight and there's smoke drifting into the street"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, there's a bin fire and it's spreading up the wall behind it",
+        "I need the fire service, one of the bins is well alight and there's smoke drifting into the street"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm just across the road"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't think anyone's hurt, I can't see anyone near it"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, you can't miss it, there's smoke everywhere"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I looked out and saw smoke, then flames, someone's set light to the bin"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Everyone's kept their distance, no one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "The smoke's thick, I've moved back up the road"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can tell"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable, no one's hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's nobody hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping well back",
+        "Please hurry, it's spreading up the wall"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, it's a fire, I need the fire brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, single bin well alight, no persons involved"
+    ],
+    "update": [
+      "{{unit}} extinguishing, checking wall for scorch damage"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_0"
+  ],
+  "notes": "Generated from MissionChief UK mission 0 (Bin fire). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: Phonebox on fire, Burning leaves, Burning bus shelter. POI: none."
+}

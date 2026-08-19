@@ -1,0 +1,191 @@
+{
+  "id": "police_livestock_on_road",
+  "name": "Livestock on road",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Livestock on road",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "animals on road",
+    "risk of collision"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's sheep all over the road, they've escaped from a field",
+      "I need help, there's cattle loose on the road, it's really dangerous for drivers",
+      "There's livestock wandering on the carriageway, cars are having to stop suddenly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's sheep all over the road, they've escaped from a field",
+        "I need help, there's cattle loose on the road, it's really dangerous for drivers",
+        "There's livestock wandering on the carriageway, cars are having to stop suddenly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm parked up watching them",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, it's just the animals",
+        "N/A"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, they're spread right across the road",
+        "It's on {{address}}, near the farm gate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A gate's been left open and a whole flock's wandered onto the road",
+        "Cars are having to stop and wait, it's causing a tailback",
+        "About a dozen sheep are just stood in the middle of the lane"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, no injuries",
+        "No injuries reported"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A, it's about the animals",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying back and waiting",
+        "Thank you, please hurry, more cars keep coming"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police, not 111"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, animals contained, farmer contacted"
+    ],
+    "update": [
+      "Livestock being moved off the carriageway"
+    ],
+    "stop": [
+      "{{unit}} clear, road clear, animals returned"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_643"
+  ],
+  "notes": "Generated from MissionChief UK mission 643 (Livestock on road). Buildings: 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

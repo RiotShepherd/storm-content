@@ -1,0 +1,183 @@
+{
+  "id": "medical_smoke_inhalation",
+  "name": "Smoke Inhalation",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Smoke Inhalation",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "smoke inhalation",
+    "fire nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I've breathed in loads of smoke from the fire, I can't stop coughing",
+      "I need some help, I got caught in smoke before I got out of the building"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I've breathed in loads of smoke from the fire, I can't stop coughing",
+        "I need some help, I got caught in smoke before I got out of the building"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, that's me",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There was a fire and I got caught in the smoke before I got out, my chest feels tight"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm awake, just coughing a lot"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Coughing a lot, a bit wheezy"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "My throat and chest hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing significant"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "37"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm outside in fresh air now"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think I need to be checked over"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with smoke inhalation, assessing"
+    ],
+    "update": [
+      "Oxygen given, sats improving"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_349"
+  ],
+  "notes": "Generated from MissionChief UK mission 349 (Smoke Inhalation). Buildings: 2 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 50% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

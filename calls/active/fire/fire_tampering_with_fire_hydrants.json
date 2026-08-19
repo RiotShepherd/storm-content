@@ -1,0 +1,178 @@
+{
+  "id": "fire_tampering_with_fire_hydrants",
+  "name": "Tampering with fire hydrants",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 60,
+  "description": "Tampering with fire hydrants",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "flooding",
+    "slippery road surface"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade, some lads are messing about with the fire hydrant on the corner, water's spraying everywhere.",
+      "I want to report some youths opening a fire hydrant near the shops, water's flooding the road."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade, some lads are messing about with the fire hydrant on the corner, water's spraying everywhere.",
+        "I want to report some youths opening a fire hydrant near the shops, water's flooding the road."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I live opposite."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No, there's no one hurt, it's the tampering with fire hydrants I'm ringing about."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A group of teenagers have prised the cover off the hydrant and turned it on, water's shooting up and flooding the gutter.",
+        "Someone's tampered with the hydrant outside the flats, it's been running for a good ten minutes now."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, it's just the water running everywhere."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's had any trouble breathing, we're all outside."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, nobody's in pain, there's no patient."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no bleeding, no one's hurt."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Sorry, there's no patient for me to tell you about."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no one hurt here."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, nobody's been injured."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, hydrant shut off, area made safe."
+    ],
+    "update": [
+      "{{unit}} liaising with water company for repair."
+    ],
+    "stop": [
+      "{{unit}} stopped, hydrant secured, no further action."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mc_859"
+  ],
+  "notes": "Generated from MissionChief UK mission 859 (Tampering with fire hydrants). Buildings: 1 Fire Station, 1 Police Station. Vehicles: 1 Fire engine, 1 Police Car. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,184 @@
+{
+  "id": "medical_mountainbiker_hit_a_tree",
+  "name": "Mountainbiker hit a tree",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 35,
+  "description": "Mountainbiker hit a tree",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "remote trail",
+    "difficult access"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 35,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A mountain biker's hit a tree on the trail, he's hurt",
+      "I need an ambulance, my mate's crashed into a tree on his bike and knocked himself about"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A mountain biker's hit a tree on the trail, he's hurt",
+        "I need an ambulance, my mate's crashed into a tree on his bike and knocked himself about"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was riding with him",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, my mate",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on the trail near {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He came off the trail and went straight into a tree, he's got a nasty knock to the head"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's talking to me but a bit dazed"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "His shoulder and head are hurting him"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A cut on his head, not too bad"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None that I know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about 30"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I've got him sat down, kept his helmet on"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think he needs to be checked properly"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient injured after collision with tree, assessing"
+    ],
+    "update": [
+      "Patient alert, head injury being monitored"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_768"
+  ],
+  "notes": "Generated from MissionChief UK mission 768 (Mountainbiker hit a tree). Buildings: 2 Rescue Stations. Vehicles: none. Personnel: none. Patients: min 1, max 1, 35% require transport, Traumatology, codes C-2, C-3, 35% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

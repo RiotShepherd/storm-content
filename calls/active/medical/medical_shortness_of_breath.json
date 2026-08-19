@@ -1,0 +1,179 @@
+{
+  "id": "medical_shortness_of_breath",
+  "name": "Shortness of Breath",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Shortness of Breath",
+  "keywords": {
+    "correct": [
+      "r1_breathing"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I'm really struggling to breathe, it's been getting worse all evening",
+      "I need some help, I'm quite breathless and it's not improving"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I'm really struggling to breathe, it's been getting worse all evening",
+        "I need some help, I'm quite breathless and it's not improving"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, that's me",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I've had a cold and now I'm properly breathless, even just sitting still"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm awake, just breathless"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Laboured but I can still talk"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A bit tight in my chest"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "COPD"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Inhalers, I've used them but they're not helping much"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "64"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll try to stay calm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I did think about that but it's getting worse"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with breathing difficulty, assessing"
+    ],
+    "update": [
+      "Sats improving with oxygen and nebuliser"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_628"
+  ],
+  "notes": "Generated from MissionChief UK mission 628 (Shortness of Breath). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 60% require transport, General Internal, code C-2, 10% critical care, 60% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

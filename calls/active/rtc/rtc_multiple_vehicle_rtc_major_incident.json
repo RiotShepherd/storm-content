@@ -1,0 +1,245 @@
+{
+  "id": "rtc_multiple_vehicle_rtc_major_incident",
+  "name": "Multiple vehicle RTC - Major Incident",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1000,
+  "description": "Multiple vehicle RTC - Major Incident",
+  "keywords": {
+    "correct": [
+      "rtc_serious"
+    ],
+    "acceptable": [
+      "rtc_trapped",
+      "rtc_injury"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 3,
+    "rescue_unit": 2,
+    "irv": 6,
+    "fire_officer": 8
+  },
+  "patients": {
+    "range": [
+      30,
+      150
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway",
+    "mass casualties",
+    "multiple vehicles on fire"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 45,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "It's carnage out here, there's been a massive pile up, dozens of cars involved!",
+      "Emergency, a huge crash on the carriageway, there's people trapped and injured everywhere."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "It's carnage out here, there's been a massive pile up, dozens of cars involved!",
+        "Emergency, a huge crash on the carriageway, there's people trapped and injured everywhere."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was caught up in it myself.",
+        "{{callerName}}, I'm a few vehicles back, I got out to help."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I can't give you names, there's dozens of people out here.",
+        "I don't know, there's far too many casualties."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, it's chaos, cars as far as I can see."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's been a huge chain reaction crash, it looks like dozens of vehicles are involved.",
+        "Something started it further up and it just kept happening, car after car."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some people are walking wounded, others aren't moving at all.",
+        "It's mixed, some conscious, some not responding."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell for everyone, there's too many casualties.",
+        "Some are, it's impossible to check them all."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "People everywhere are screaming that they're hurt or trapped.",
+        "There's shouting from all directions about injuries."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, I can see blood on a lot of people.",
+        "Yes, quite severely on several of them."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them, there's too many people.",
+        "No idea, it's total chaos."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no way of knowing, sorry.",
+        "I can't tell you, there's dozens of casualties."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, it's every kind of vehicle involved.",
+        "Mixed, definitely children in some of the cars."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're trying to help who we can while we wait.",
+        "Please send everyone, this is huge."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Are you serious, this is a massive crash, we need everyone here now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, major incident declared, {{patients}} casualties estimated"
+    ],
+    "update": [
+      "{{unit}} triaging casualties across the scene, further resources requested",
+      "{{unit}} confirms carriageway closed both directions"
+    ],
+    "stop": [
+      "{{unit}} clear, all casualties accounted for"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_371"
+  ],
+  "notes": "Generated from MissionChief UK mission 371 (Multiple vehicle RTC - Major Incident). Buildings: 13 Fire Stations, 40 Rescue Stations, 6 Police Stations. Vehicles: 6 Fire engines, 2 Rescue Support Vehicles, 6 Police Cars. Personnel: 8 Fire Officers, 1 ICCU or ACU. Patients: min 30, max 150, 30% require transport, Traumatology, codes C-1, C-2, C-3, C-4, 30% critical care. Prisoners: none. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

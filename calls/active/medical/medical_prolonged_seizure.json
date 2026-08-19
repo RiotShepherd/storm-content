@@ -1,0 +1,193 @@
+{
+  "id": "medical_prolonged_seizure",
+  "name": "Prolonged Seizure",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Prolonged Seizure",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "seizure"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "prolonged seizure",
+    "risk of injury"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 35,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My daughter's having a fit and it's not stopping, it's been going on for ages",
+      "I need an ambulance urgently, she's been fitting for several minutes and it won't stop"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My daughter's having a fit and it's not stopping, it's been going on for ages",
+        "I need an ambulance urgently, she's been fitting for several minutes and it won't stop"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, her mum",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, my daughter",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, please hurry",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's been fitting for about six minutes now, it's not stopping like it usually does"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No, she's still fitting, not responding"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Noisy, I'm worried"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She can't tell me, she's still seizing"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A little from her mouth, I think she's bitten her tongue"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's epileptic but this is lasting longer than normal"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She's got emergency medication at home"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "12"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've moved things away from her"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this can't wait, please send an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient still seizing on arrival"
+    ],
+    "update": [
+      "Seizure terminated with medication",
+      "Patient stabilising, airway maintained"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_471"
+  ],
+  "notes": "Generated from MissionChief UK mission 471 (Prolonged Seizure). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 100% require transport, General Internal, code C-1, 70% critical care. Prisoners: none. Escalation: none. POI: none."
+}

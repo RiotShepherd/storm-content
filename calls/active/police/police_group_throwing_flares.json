@@ -1,0 +1,188 @@
+{
+  "id": "police_group_throwing_flares",
+  "name": "Group Throwing Flares",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 250,
+  "description": "Group Throwing Flares",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "stadium"
+  ],
+  "units": {
+    "irv": 4,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "pyrotechnics",
+    "smoke",
+    "large crowd",
+    "risk of panic"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, a group are letting off flares outside the stadium",
+      "Help, there's smoke everywhere, a group are throwing flares into the crowd",
+      "There's a group setting off flares, it's really dangerous with all these people around"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, a group are letting off flares outside the stadium",
+        "Help, there's smoke everywhere, a group are throwing flares into the crowd",
+        "There's a group setting off flares, it's really dangerous with all these people around"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm stadium security",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know who's throwing them",
+        "No idea who's responsible"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the concourse outside the stadium",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A group of around six or eight are lighting flares and throwing them into the crowd",
+        "It's been going on a couple of minutes, there's smoke everywhere",
+        "One landed near a family with young kids, it's really dangerous"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt yet, but people are panicking and running",
+        "No injuries reported yet"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A few people are coughing from the smoke",
+        "No serious breathing issues yet"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A, no one's hurt yet",
+        "Not that's been reported to me"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Group looks like they're in their late teens to twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're moving people away from the smoke",
+        "Please hurry, it's getting worse"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police urgently"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, group located, flares being seized"
+    ],
+    "update": [
+      "Suspects detained, area cleared of smoke"
+    ],
+    "stop": [
+      "{{unit}} clear, prisoners in custody"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_622"
+  ],
+  "notes": "Generated from MissionChief UK mission 622 (Group Throwing Flares). Buildings: 2 Police Stations, 1 Riot Police Extension. Vehicles: 4 Police Cars. Personnel: deployed 6 Level 2 Public Order Officers, 1 Police Sergeant; available 12, 2. Patients: none. Prisoners: max 2. Escalation: none. POI: Stadium."
+}

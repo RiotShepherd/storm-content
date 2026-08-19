@@ -1,0 +1,193 @@
+{
+  "id": "fire_bakery_oven_explosion_in_supermarket",
+  "name": "Bakery Oven Explosion In Supermarket",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Bakery Oven Explosion In Supermarket",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "supermarket",
+    "retail_park"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      6
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "gas supply to ovens",
+    "smoke logging",
+    "evacuated crowd in car park"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 20,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been an explosion in the bakery at the back of the supermarket, staff are hurt",
+      "I need the fire brigade, the bakery oven's blown, there's smoke and a few of us are hurt"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been an explosion in the bakery at the back of the supermarket, staff are hurt",
+        "I need the fire brigade, the bakery oven's blown, there's smoke and a few of us are hurt"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the duty manager"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's a few of the bakery staff, I don't have all their names yet"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the supermarket, come round to the loading bay at the back"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One of the ovens exploded in the in store bakery, there's smoke and a few staff caught the blast"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "They're all conscious, a bit shaken and some are coughing"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A couple are struggling with the smoke, we've got them out into the car park"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A few are saying their arms and faces are sore, might be burns"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "One's got a cut from flying debris, not too bad"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know all of their medical histories, I can find out"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not sure, I'll check with HR"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All adults, staff members, ages vary"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've evacuated the bakery and store, everyone's out front"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need the fire brigade, there's been an explosion and people are hurt"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, bakery oven explosion, {{patients}} casualties, gas supply being isolated"
+    ],
+    "update": [
+      "{{unit}} confirms fire out, {{patients}} casualties being assessed by ambulance",
+      "Store fully evacuated, gas isolated at the meter"
+    ],
+    "stop": [
+      "{{unit}} stood down, scene handed to store management"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_724"
+  ],
+  "notes": "Generated from MissionChief UK mission 724 (Bakery Oven Explosion In Supermarket). Buildings: 6 Fire Stations, 1 Rescue Station. Vehicles: 2 Fire engines. Personnel: 1 Fire Officer. Patients: min 1, max 6, 20% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Supermarket (small), Supermarket (big)."
+}

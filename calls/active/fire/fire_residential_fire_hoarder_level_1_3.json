@@ -1,0 +1,201 @@
+{
+  "id": "fire_residential_fire_hoarder_level_1_3",
+  "name": "Residential Fire (Hoarder level 1-3)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 140,
+  "description": "Residential Fire (Hoarder level 1-3)",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "cluttered property, restricted access",
+    "smoke logging",
+    "fire load from stored items"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Fire brigade please, there's a fire in my house, it's a bit cluttered in there and it's hard to move",
+      "There's a fire at my house, I've got a lot of stuff piled up and I can't get to the door properly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, there's a fire in my house, it's a bit cluttered in there and it's hard to move",
+        "There's a fire at my house, I've got a lot of stuff piled up and I can't get to the door properly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, it's my house"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's just me here, I'm out now"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The fire started near the hallway and with all my things stacked up it's spreading quicker than I'd like"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm okay, just a bit out of breath from the smoke"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I'm coughing a bit but I'm managing"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, just shaken up"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've got asthma actually, that's a worry with the smoke"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I use an inhaler"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm sixty two"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm outside now, staying clear"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, my house is on fire, I need the fire brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, fire confirmed, heavy fire loading due to contents, crews assessing access"
+    ],
+    "update": [
+      "Crews tackling fire, restricted access due to clutter",
+      "Casualty assessed and treated for smoke inhalation"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualty"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_396"
+  ],
+  "notes": "Generated from MissionChief UK mission 396 (Residential Fire (Hoarder level 1-3)). Buildings: 3 Fire Stations, 1 Rescue Station. Vehicles: 3 Fire engines. Personnel: none. Patients: max 1, 50% require transport, General Internal, code C-2, 30% critical care. Prisoners: none. Escalation: none. POI: none."
+}

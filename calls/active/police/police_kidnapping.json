@@ -1,0 +1,227 @@
+{
+  "id": "police_kidnapping",
+  "name": "Kidnapping",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 800,
+  "description": "Kidnapping",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 5,
+    "traffic_car": 3,
+    "dog_unit": 1,
+    "arv": 3
+  },
+  "patients": {
+    "range": [
+      0,
+      2
+    ],
+    "rrvChance": 70,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "suspects at large",
+    "victim in danger",
+    "vehicle involved"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "npas": {
+      "chance": 80,
+      "delaySeconds": [
+        120,
+        240
+      ],
+      "unit": "npas"
+    },
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    },
+    "hems": {
+      "chance": 30,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Please help, my daughter's been taken, someone's grabbed her and driven off!",
+      "Police, quick, a man's forced someone into a car against their will!",
+      "I've just seen a kidnapping, they've bundled a woman into a van and driven away!"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Please help, my daughter's been taken, someone's grabbed her and driven off!",
+        "Police, quick, a man's forced someone into a car against their will!",
+        "I've just seen a kidnapping, they've bundled a woman into a van and driven away!"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, she's my daughter",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, that's my daughter",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it happened right outside",
+        "It was near {{address}}, they drove off towards the main road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A man grabbed her, put a hand over her mouth and forced her into a car",
+        "It happened less than a minute ago, I couldn't stop them, the car's gone",
+        "She was walking home and a van pulled up, two men dragged her inside"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "She was struggling and screaming when they took her, so yes, conscious then",
+        "I don't know now, I couldn't see her clearly"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I don't know now, I couldn't tell you",
+        "She was breathing and fighting them off when I last saw her"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I don't know, I couldn't see if she was hurt",
+        "She might be, I saw them grab her roughly"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I don't know, I couldn't see",
+        "Not that I saw, but I'm not sure"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's not on anything, she's healthy",
+        "Nothing that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, nothing",
+        "She doesn't take anything"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "19"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm trying to stay calm but I need you to find her",
+        "Please, please hurry, I'm so scared for her"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is an emergency, someone's taken my daughter!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, description and vehicle circulated, search commenced"
+    ],
+    "update": [
+      "Area search ongoing, ANPR and helicopter tasked",
+      "Vehicle located, address being approached"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient recovered, suspect in custody"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_405"
+  ],
+  "notes": "Generated from MissionChief UK mission 405 (Kidnapping). Buildings: 11 Police Stations, 1 Police Helicopter Station. Vehicles: 5 Police Cars or ARVs, 3 Traffic Cars (75% probability, only when available), 1 Police Helicopter, 1 DSU. Personnel: 6 Armed Response Personnel. Patients: max 2, 50% require transport, General Internal, code C-2, 60% critical care, 80% first responder full care. Prisoners: max 1. Escalation: none. POI: none."
+}

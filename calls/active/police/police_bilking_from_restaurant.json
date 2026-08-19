@@ -1,0 +1,188 @@
+{
+  "id": "police_bilking_from_restaurant",
+  "name": "Bilking from Restaurant",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 140,
+  "description": "Bilking from Restaurant",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, a group of customers have just run off without paying their bill",
+      "I need to report a dine and dash, they've legged it out the fire exit",
+      "Someone's just walked out of my restaurant without paying, can you send someone"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, a group of customers have just run off without paying their bill",
+        "I need to report a dine and dash, they've legged it out the fire exit",
+        "Someone's just walked out of my restaurant without paying, can you send someone"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the manager here",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know his name, he was a customer",
+        "No idea who he was, never seen him before"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the restaurant on the corner",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A table of four finished their meal and ran out the door without paying, about eighty pounds owed",
+        "It happened two minutes ago, they went off down the high street",
+        "One man got up and just walked straight out while the others distracted the waitress"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, it's just the unpaid bill",
+        "No injuries, just theft"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries here",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A, nobody's hurt",
+        "No one's injured"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looked to be in their twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got a description on our CCTV",
+        "Thank you, I'll hold onto the footage for you"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is theft, I need the police"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} attending, details taken from restaurant staff, suspects sought"
+    ],
+    "update": [
+      "CCTV reviewed, description circulated"
+    ],
+    "stop": [
+      "{{unit}} clear, crime reference given to staff"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_771"
+  ],
+  "notes": "Generated from MissionChief UK mission 771 (Bilking from Restaurant). Buildings: 2 Police Stations. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: max 1. Escalation: Panic button activation, Suspicious Person, Stop and Search. POI: none."
+}

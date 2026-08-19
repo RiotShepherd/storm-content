@@ -1,0 +1,187 @@
+{
+  "id": "police_debris_in_carriageway_fast_road",
+  "name": "Debris in carriageway (Fast Road)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Debris in carriageway (Fast Road)",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "motorway",
+    "a_road"
+  ],
+  "units": {
+    "irv": 1,
+    "traffic_car": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "debris on fast road",
+    "high speed traffic",
+    "risk of collision"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's debris in the fast lane of the motorway, it's really dangerous",
+      "I need to report a hazard, something's fallen in the road and cars are swerving at speed",
+      "There's debris on the dual carriageway, someone's going to hit it"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's debris in the fast lane of the motorway, it's really dangerous",
+        "I need to report a hazard, something's fallen in the road and cars are swerving at speed",
+        "There's debris on the dual carriageway, someone's going to hit it"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm pulled up on the hard shoulder",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's involved yet, but it's a matter of time",
+        "N/A, nobody's hurt yet"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, near the junction",
+        "It's on {{address}}, just past the slip road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's a pallet in the middle lane, cars are swerving at speed to avoid it",
+        "It looks like it's come off a van, no one's stopped",
+        "Traffic's already backing up as people brake hard to avoid it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt yet, no injuries",
+        "N/A, no one's been hit"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying well back on the hard shoulder",
+        "Please hurry, someone's going to hit it at that speed"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a road hazard, I need police urgently"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, lane closure in place, debris being cleared"
+    ],
+    "update": [
+      "Traffic held while carriageway cleared"
+    ],
+    "stop": [
+      "{{unit}} clear, carriageway clear, lanes reopened"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_524"
+  ],
+  "notes": "Generated from MissionChief UK mission 524 (Debris in carriageway (Fast Road)). Buildings: 2 Police Stations. Vehicles: 1 Police Car, 1 Traffic Car (only when available). Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: Highway exit, Major Road Standby Point."
+}

@@ -1,0 +1,179 @@
+{
+  "id": "fire_garage_fire",
+  "name": "Garage fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 140,
+  "description": "Garage fire",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "stored fuel and flammables",
+    "smoke logging"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a fire in my garage, I can see smoke coming from under the door",
+      "Fire brigade please, my garage has caught fire, I've got the car out but the garage is going up"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire in my garage, I can see smoke coming from under the door",
+        "Fire brigade please, my garage has caught fire, I've got the car out but the garage is going up"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my garage"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No, I got well clear before it took hold, nobody's hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the garage next to the house",
+        "It's {{address}}, detached garage at the side"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I noticed smoke coming from the garage, I think it started near where I keep petrol for the mower, I got the car out but left it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one involved, I've not seen anybody hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, there's nobody to check, it's just the fire"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can see"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries, nobody's here"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I can't help with that, there's no one hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no patient, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no one to ask, nobody's been hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm well back on the drive now",
+        "Please hurry, there's fuel cans in there"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a garage fire, nobody's hurt"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, garage fire, no persons reported"
+    ],
+    "update": [
+      "Crews checking for fuel containers before committing fully"
+    ],
+    "stop": [
+      "Fire out, {{unit}} damping down"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_27"
+  ],
+  "notes": "Generated from MissionChief UK mission 27 (Garage fire). Buildings: 4 Fire Stations. Vehicles: 2 Fire engines. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

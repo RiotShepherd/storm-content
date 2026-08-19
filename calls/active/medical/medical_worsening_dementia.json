@@ -1,0 +1,193 @@
+{
+  "id": "medical_worsening_dementia",
+  "name": "Worsening Dementia",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 4,
+  "responseMinutes": 90,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 75,
+  "description": "Worsening Dementia",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "rrv": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 25,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I need an ambulance for my mother, her dementia's got a lot worse today and I'm worried",
+      "It's not really an emergency but I don't know what else to do, mum's very confused and won't settle",
+      "She doesn't know who I am today, she's normally not this bad"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I need an ambulance for my mother, her dementia's got a lot worse today and I'm worried",
+        "It's not really an emergency but I don't know what else to do, mum's very confused and won't settle",
+        "She doesn't know who I am today, she's normally not this bad"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm her daughter, I check on her every day",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my mother",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I'm with her now",
+        "We're at {{address}}, the carer's just left"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Her dementia's been getting worse for weeks but today she doesn't know where she is at all",
+        "She tried to leave the house in her nightie and got confused about the day",
+        "She's normally forgetful but today she's not making any sense, she doesn't recognise me"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's awake, just very confused",
+        "Awake and moving about, but nothing she says makes sense"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine",
+        "No problems breathing"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She's not complaining of any pain",
+        "No pain that she's told me about"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "None at all"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She was diagnosed with dementia about three years ago",
+        "She's got high blood pressure and the dementia diagnosis"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She's on donepezil for the dementia, and blood pressure tablets",
+        "I've got a list of her medication here if you need it"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "83"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, thank you, I'll stay with her",
+        "I just don't know what to do with her like this"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Maybe, if you think that's better, I just didn't know who to call",
+        "Yes, that might be more appropriate, sorry to bother you"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with acute confusion, assessing"
+    ],
+    "update": [
+      "Patient disorientated but stable, carer and family present"
+    ],
+    "stop": [
+      "{{unit}} clear, patient handed into care of family, advice given"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_865"
+  ],
+  "notes": "Generated from MissionChief UK mission 865 (Worsening Dementia). Buildings: 3 Rescue Stations, 1 GP Surgery. Vehicles: 1 RRV or Specialist Paramedic RRV. Personnel: none. Patients: min 1, max 1, 30% require transport, General Internal, code C-4, 5% critical care. Prisoners: none. Escalation: none. POI: none."
+}

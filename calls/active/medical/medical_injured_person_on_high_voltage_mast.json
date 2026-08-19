@@ -1,0 +1,188 @@
+{
+  "id": "medical_injured_person_on_high_voltage_mast",
+  "name": "Injured person on high voltage mast",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 65,
+  "description": "Injured person on high voltage mast",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "aerial": 1,
+    "rescue_unit": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "live electricity",
+    "person at height",
+    "risk of fall"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a man stuck up an electricity mast, I think he's been shocked",
+      "I need help, a colleague's fallen or been shocked up the mast, he's not moving right"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a man stuck up an electricity mast, I think he's been shocked",
+        "I need help, a colleague's fallen or been shocked up the mast, he's not moving right"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work with him",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, he's one of our engineers",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, by the mast access gate",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was doing maintenance work up the mast and he's either fallen or been electrocuted, he's not moving properly"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious, shouting down to us"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Seems okay as far as we can tell"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his arm's in agony"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No visible bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know, I'll ask his supervisor"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He looks about 35"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "We've not touched the mast, we know it's live"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need an ambulance, he's stuck up there"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, power confirmed isolated, assessing casualty"
+    ],
+    "update": [
+      "Casualty being brought down safely",
+      "Assessment ongoing at height"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_146"
+  ],
+  "notes": "Generated from MissionChief UK mission 146 (Injured person on high voltage mast). Buildings: 4 Fire Stations, 1 Rescue Station. Vehicles: 1 Fire engine, 1 Aerial Appliance Truck, 1 Rescue Support Vehicle. Personnel: none. Patients: min 1, max 1, 60% require transport, General Surgeon, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

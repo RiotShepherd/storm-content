@@ -1,0 +1,188 @@
+{
+  "id": "medical_diabetic_problems",
+  "name": "Diabetic problems",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Diabetic problems",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My husband's a diabetic and he's gone all shaky and confused",
+      "I think my blood sugar's crashed, I need help"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My husband's a diabetic and he's gone all shaky and confused",
+        "I think my blood sugar's crashed, I need help"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my husband"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's gone very shaky, sweaty and confused, I think his blood sugar's dropped",
+        "He's a type one diabetic, he's not making sense and looks pale"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake but confused",
+        "Yes, but drowsy"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing normally",
+        "Seems fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain that he's mentioned",
+        "Not that he's said"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's diabetic, type one",
+        "Diabetes, that's the main thing"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He uses insulin",
+        "I've got his glucose gel here"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "45"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've given him something sugary like you said",
+        "I'm keeping him sitting down"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's really not right, I think this needs an ambulance",
+        "No, I'm worried about him"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with suspected hypoglycaemia"
+    ],
+    "update": [
+      "{{unit}} checking blood sugar and administering treatment",
+      "{{patients}} casualty improving following treatment"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for further checks"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_217"
+  ],
+  "notes": "Generated from MissionChief UK mission 217 (Diabetic problems). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 50% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

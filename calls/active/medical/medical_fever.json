@@ -1,0 +1,181 @@
+{
+  "id": "medical_fever",
+  "name": "Fever",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Fever",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 90,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My mum's got a temperature that won't come down, I think she needs an ambulance",
+      "It's not an emergency as such, but my mum's really hot and shivery and not herself"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My mum's got a temperature that won't come down, I think she needs an ambulance",
+        "It's not an emergency as such, but my mum's really hot and shivery and not herself"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm her son",
+        "{{callerName}}, I'm here with my mum"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, my mum",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, I'll open the door",
+        "{{address}}, come round the back if the front's locked"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's had a temperature since yesterday, it's now up over thirty nine and she's shivering and confused",
+        "Fever, and it's not getting any better, she's shaking and hot to touch"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's talking to me but she's not making much sense"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "It's a bit quick but she's not struggling"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says her head's pounding"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding at all"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's diabetic and has high blood pressure"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Metformin and a blood pressure tablet, I can find the box"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "71"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll try and keep her cool, please hurry"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, she's really not herself, I think she needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with pyrexia, assessing"
+    ],
+    "update": [
+      "Patient alert, temperature being managed, prepping for transport"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to A&E"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_39"
+  ],
+  "notes": "Generated from MissionChief UK mission 39 (Fever). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 90% require transport, General Internal, code C-2, 50% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

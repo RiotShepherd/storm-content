@@ -1,0 +1,179 @@
+{
+  "id": "medical_nosebleed",
+  "name": "Nosebleed",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Nosebleed",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I've got a nosebleed that won't stop, it's been over half an hour",
+      "I need some advice, my nose has been bleeding for ages and I can't get it to stop"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I've got a nosebleed that won't stop, it's been over half an hour",
+        "I need some advice, my nose has been bleeding for ages and I can't get it to stop"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, that's me",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "It just started on its own, I've been pinching it but it keeps coming"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm fine in myself, just bleeding"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Not painful, just annoying and messy"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, still bleeding steadily from my nose"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I'm on blood thinners, warfarin"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Warfarin"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "70"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep pinching and leaning forward"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "If you think 111 would do, I wasn't sure"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with ongoing nosebleed, assessing"
+    ],
+    "update": [
+      "Bleeding controlled with direct pressure"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient stable, transport as precaution"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_71"
+  ],
+  "notes": "Generated from MissionChief UK mission 71 (Nosebleed). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, General Surgeon, codes C-2, C-3, 50% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,178 @@
+{
+  "id": "medical_transient_ischemic_attack",
+  "name": "Transient Ischemic Attack",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Transient Ischemic Attack",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "head injury",
+      "stroke symptoms",
+      "reduced consciousness"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 70,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My wife had what looked like a stroke, but it's passed now, I'm not sure what to do",
+      "I need some advice, her face drooped and her arm went weak for a few minutes but she's back to normal now"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My wife had what looked like a stroke, but it's passed now, I'm not sure what to do",
+        "I need some advice, her face drooped and her arm went weak for a few minutes but she's back to normal now"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, her husband",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my wife",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Her face drooped and her arm went weak for a few minutes, but she seems back to normal now"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's fully awake and talking normally now"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says she's not in pain"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "High blood pressure"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Blood pressure tablets, aspirin"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "61"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've noted the time it happened"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I did think about that but it looked exactly like a stroke"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with resolved stroke like symptoms, assessing"
+    ],
+    "update": [
+      "Symptoms fully resolved, obs stable"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed for stroke assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_63"
+  ],
+  "notes": "Generated from MissionChief UK mission 63 (Transient Ischemic Attack). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 70% require transport, Neurosurgery, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

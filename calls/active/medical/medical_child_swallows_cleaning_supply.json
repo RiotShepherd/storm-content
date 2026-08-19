@@ -1,0 +1,191 @@
+{
+  "id": "medical_child_swallows_cleaning_supply",
+  "name": "Child swallows cleaning supply",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Child swallows cleaning supply",
+  "keywords": {
+    "correct": [
+      "r0_minor"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "ingested chemical",
+    "poisoning risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My little girl's drunk some cleaning fluid, I don't know how much",
+      "Please help, my son's swallowed some bleach from under the sink"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My little girl's drunk some cleaning fluid, I don't know how much",
+        "Please help, my son's swallowed some bleach from under the sink"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, she's only three"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She got into the cupboard under the sink and drank some of the cleaning spray, I don't know how much",
+        "He's swallowed some bleach, I found the bottle open next to him"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's awake and crying",
+        "Yes, conscious but upset"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing okay so far",
+        "Seems fine for now"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says her mouth and throat hurt",
+        "He's saying his tummy hurts"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No, she's healthy otherwise",
+        "Nothing relevant"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No regular medication",
+        "None"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "3"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I haven't given her anything to drink or eat",
+        "I've got the bottle here to show you what it was"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, she's swallowed a chemical, I need an ambulance",
+        "No, this can't wait, please send someone"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty assessed following chemical ingestion"
+    ],
+    "update": [
+      "{{unit}} monitoring airway and contacting poisons information",
+      "{{patients}} casualty stable, being closely observed"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital as a precaution"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_640"
+  ],
+  "notes": "Generated from MissionChief UK mission 640 (Child swallows cleaning supply). Buildings: 1 Police Station, 1 Rescue Station. Vehicles: 1 Police Car. Personnel: none. Patients: max 1, min 1, 100% require transport, General Internal and Children, code C-3. Prisoners: none. Escalation: none. POI: none."
+}

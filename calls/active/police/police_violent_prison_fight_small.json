@@ -1,0 +1,188 @@
+{
+  "id": "police_violent_prison_fight_small",
+  "name": "Violent Prison Fight (Small)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "Violent Prison Fight (Small)",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "office"
+  ],
+  "units": {
+    "irv": 4
+  },
+  "patients": {
+    "range": [
+      0,
+      2
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "improvised weapons",
+    "risk to officers"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 40,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "This is the duty officer, a fight's broken out between a couple of inmates on the wing.",
+      "I need assistance, two prisoners have gone at each other and staff have had to step in."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "This is the duty officer, a fight's broken out between a couple of inmates on the wing.",
+        "I need assistance, two prisoners have gone at each other and staff have had to step in."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the duty officer on this wing.",
+        "{{callerName}}, I'm control room staff here."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "One's {{firstPatientName}}, I'll get the other checked.",
+        "I don't have names yet, both are still being separated."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}.",
+        "{{address}}, come to the staff entrance, I'll meet you."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Two inmates have got into a fight in the corridor, staff have separated them but one's hurt.",
+        "A scuffle broke out between two prisoners, it's over now but one took a punch to the face."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, both are conscious and talking.",
+        "Yes, one's a bit dazed but talking."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, both breathing fine.",
+        "Yes, fine."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "One's holding his nose, says it's broken.",
+        "He's saying his ribs hurt where he was kicked."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, his nose is bleeding quite a bit.",
+        "There's a cut lip, bleeding a little."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I'll need to check his file.",
+        "Not sure, healthcare will have that."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I'd need to check with healthcare here.",
+        "Not sure, sorry."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's in his twenties.",
+        "He's about thirty."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've got them separated now.",
+        "Understood, staff are with them till you arrive."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This is a police matter, we need officers here now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing casualties"
+    ],
+    "update": [
+      "{{unit}} reports {{patients}} casualties, situation calming"
+    ],
+    "stop": [
+      "{{unit}} clear, matter dealt with"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_510"
+  ],
+  "notes": "Generated from MissionChief UK mission 510 (Violent Prison Fight (Small)). Buildings: 10 Police Stations, 2 Rescue Stations, 1 Riot Police Extension. Vehicles: 4 Police Cars. Personnel: none. Patients: max 2, 40% require transport, General Internal, code C-2. Prisoners: none. Escalation: expands to Violent Prison Fight (Medium). POI: Prison."
+}

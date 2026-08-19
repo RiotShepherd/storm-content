@@ -1,0 +1,236 @@
+{
+  "id": "fire_bus_on_fire",
+  "name": "Bus on fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Bus on fire",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      12
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "fuel tank risk",
+    "smoke logging",
+    "passengers gathered roadside"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "The bus I'm driving has caught fire at the back, I've got passengers off but a few got smoke",
+      "I need the fire brigade, my bus is on fire, everyone's off but some passengers are coughing badly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The bus I'm driving has caught fire at the back, I've got passengers off but a few got smoke",
+        "I need the fire brigade, my bus is on fire, everyone's off but some passengers are coughing badly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the driver"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "A few of the passengers got smoke, I don't have all their names"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I've pulled up on the road here"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Smoke started coming from the engine at the back, I stopped and got everyone off quickly"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Everyone's conscious, a few are coughing quite badly"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A handful of passengers got a lungful of smoke before I got them off"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No injuries reported, mostly the smoke"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, just smoke effects"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know the passengers, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I can't say, I don't know them"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed, mostly adults on board"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, everyone's off the bus and stood back"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need the fire brigade, the bus is alight"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, bus well alight, all passengers evacuated, {{patients}} with smoke inhalation"
+    ],
+    "update": [
+      "{{unit}} extinguishing, {{patients}} casualties being assessed by ambulance"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, vehicle recovery arranged"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_255"
+  ],
+  "notes": "Generated from MissionChief UK mission 255 (Bus on fire). Buildings: 6 Fire Stations, 5 Rescue Stations. Vehicles: 3 Fire engines. Personnel: 1 Fire Officer. Patients: max 12, 30% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

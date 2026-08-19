@@ -1,0 +1,213 @@
+{
+  "id": "rescue_vehicle_trapped_in_flood_water",
+  "name": "Vehicle trapped in flood water",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Vehicle trapped in flood water",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "rescue_unit": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      4
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "rising flood water",
+    "fast flowing water",
+    "vehicle unstable"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 40,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My car's stuck in flood water and it's coming in fast, I can't get the door open!",
+      "Help, I've driven into deep water, the car's filling up and I'm stuck inside."
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My car's stuck in flood water and it's coming in fast, I can't get the door open!",
+        "Help, I've driven into deep water, the car's filling up and I'm stuck inside."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "My name's {{callerName}}, I'm stuck in the car."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's just me, {{firstPatientName}}.",
+        "I'm {{firstPatientName}}, my kids are with me too."
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm on {{address}}, the water came out of nowhere.",
+        "{{address}}, near the dip in the road."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I drove into what I thought was a puddle and it's much deeper than I realised, the car's stuck and water's coming in.",
+        "The road's completely flooded and the car's stalled, the water's rising around us."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, we're all awake, just scared.",
+        "Yes, I'm fine, just can't get out."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, we're all breathing fine, just frightened.",
+        "Yes, I'm okay, just panicking a bit."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, nobody's hurt, just stuck.",
+        "No pain, just terrified."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries.",
+        "No, we're not hurt."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No, nothing relevant.",
+        "No health issues."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, not on anything.",
+        "No medications needed."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm thirty six, my children are young.",
+        "I'm in my forties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're staying inside the car with the windows shut for now.",
+        "Please hurry, the water's still rising."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we're trapped in flood water, we need help now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing the vehicle and casualties"
+    ],
+    "update": [
+      "{{unit}} working to reach the vehicle safely"
+    ],
+    "stop": [
+      "{{unit}} clear, casualties recovered"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_565"
+  ],
+  "notes": "Generated from MissionChief UK mission 565 (Vehicle trapped in flood water). Buildings: 6 Fire Stations, 1 Technical Rescue Extension, 3 Rescue Stations. Vehicles: 2 Fire engines, 1 Inland Rescue Boat (Trailer). Personnel: 1 Fire Officer. Patients: max 4, 40% require transport, General Internal, codes C-1, C-2. Prisoners: none. Escalation: none. POI: none."
+}

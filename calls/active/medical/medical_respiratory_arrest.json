@@ -1,0 +1,190 @@
+{
+  "id": "medical_respiratory_arrest",
+  "name": "Respiratory Arrest",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "Respiratory Arrest",
+  "keywords": {
+    "correct": [
+      "r2_arrest"
+    ],
+    "acceptable": [
+      "r2_arrest_hems",
+      "r_unconscious"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "patient not breathing"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 35,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "He's stopped breathing, please, I need help now",
+      "I need an ambulance urgently, he was struggling to breathe and now he's not breathing at all"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "He's stopped breathing, please, I need help now",
+        "I need an ambulance urgently, he was struggling to breathe and now he's not breathing at all"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm with him",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, please hurry",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was struggling to breathe and now he's completely stopped"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No, he's not responding at all"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, he's not breathing, I don't think"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's not responding to tell me"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Bad asthma, he's had attacks before"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He's got an inhaler, it's not helping now"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "19"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I'm ready to do CPR if you tell me how"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is an emergency, please send someone now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient in respiratory arrest, resuscitation commenced"
+    ],
+    "update": [
+      "Airway secured, ventilation ongoing"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_79"
+  ],
+  "notes": "Generated from MissionChief UK mission 79 (Respiratory Arrest). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 100% require transport, General Surgeon, code C-1, 70% critical care. Prisoners: none. Escalation: none. POI: none."
+}

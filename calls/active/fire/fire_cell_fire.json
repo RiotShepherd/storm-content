@@ -1,0 +1,185 @@
+{
+  "id": "fire_cell_fire",
+  "name": "Cell Fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Cell Fire",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "office"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "confined cell space",
+    "smoke in wing corridor",
+    "prisoner control considerations"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a fire in one of the cells, we've got it contained but need the brigade",
+      "I need the fire brigade, a prisoner's set fire to bedding in his cell"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire in one of the cells, we've got it contained but need the brigade",
+        "I need the fire brigade, a prisoner's set fire to bedding in his cell"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm a prison officer on this wing"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "The prisoner's been moved out, no injuries"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the prison, report to the gate lodge"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A prisoner set fire to bedding in his cell, staff have moved him out and the wing's being ventilated"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious and out of the cell, unharmed"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No breathing problems reported"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No injuries reported"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable, no one's hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient, prisoner is unharmed"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've got extra staff on the wing"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire, not a medical matter"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, cell fire contained, wing being ventilated, escorted by prison staff"
+    ],
+    "update": [
+      "{{unit}} extinguishing, smoke clearing from wing"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, cell made safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_513"
+  ],
+  "notes": "Generated from MissionChief UK mission 513 (Cell Fire). Buildings: 6 Fire Stations. Vehicles: 2 Fire engines. Personnel: 1 Fire Officer. Patients: none. Prisoners: none. Escalation: Prison Wing Fire, Prison Wing Fire (Major Incident). POI: Prison."
+}

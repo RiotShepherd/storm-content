@@ -1,0 +1,190 @@
+{
+  "id": "police_breach_of_bail",
+  "name": "Breach of bail",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Breach of bail",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "potential domestic risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, I think I've just seen someone who's not supposed to be here, he's on bail conditions",
+      "I want to report a breach of bail, my neighbour's ex has turned up again",
+      "There's a man here who I know isn't allowed near this address"
+    ],
+    "phoneArea": "auto",
+    "callerType": "neighbour"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, I think I've just seen someone who's not supposed to be here, he's on bail conditions",
+        "I want to report a breach of bail, my neighbour's ex has turned up again",
+        "There's a man here who I know isn't allowed near this address"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I live next door",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I know him only as her ex partner",
+        "I don't know his full name, but I recognise his face"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, he's just gone up to the front door",
+        "It's {{address}}, he's still outside"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's not meant to come anywhere near here, it's a condition of his bail, but he's stood right outside",
+        "He turned up about five minutes ago and started knocking on the door",
+        "I know he was arrested last month and told to stay away, but he's back again"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, he's just stood there",
+        "No injuries, just very worrying"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A, no one's hurt",
+        "No one's been hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know his medical details",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about thirty"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep an eye from my window",
+        "Thank you, please hurry, she's scared"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs the police, he shouldn't be here at all"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, male located and spoken to, bail conditions checked"
+    ],
+    "update": [
+      "Subject confirmed in breach, arrested"
+    ],
+    "stop": [
+      "{{unit}} clear, male in custody"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_390"
+  ],
+  "notes": "Generated from MissionChief UK mission 390 (Breach of bail). Buildings: 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: max 1. Escalation: none. POI: none."
+}

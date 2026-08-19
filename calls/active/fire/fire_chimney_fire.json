@@ -1,0 +1,186 @@
+{
+  "id": "fire_chimney_fire",
+  "name": "Chimney fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 190,
+  "description": "Chimney fire",
+  "keywords": {
+    "correct": [
+      "f_chimney"
+    ],
+    "acceptable": [
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "aerial": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "sparks landing on roof",
+    "soot deposits alight",
+    "smoke in loft space"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My chimney's on fire, there's sparks coming out the top and it's roaring",
+      "I need the fire brigade, the chimney's alight, I can hear it from inside"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My chimney's on fire, there's sparks coming out the top and it's roaring",
+        "I need the fire brigade, the chimney's alight, I can hear it from inside"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my house"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, we're all downstairs and away from the fireplace"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's my house, the chimney at the front"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I lit the fire earlier and now the chimney's roaring, I can see sparks coming out the top"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, we're all fine"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, we've put the fire out downstairs"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's involved"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient, everyone's fine"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've moved into the kitchen away from the fireplace"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a chimney fire not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, chimney fire, no persons involved, checking for spread into roof space"
+    ],
+    "update": [
+      "{{unit}} using chimney rods to clear and extinguish"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, chimney checked safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_21"
+  ],
+  "notes": "Generated from MissionChief UK mission 21 (Chimney fire). Buildings: 3 Fire Stations. Vehicles: 1 Fire engine, 1 Aerial Appliance Truck (10% probability). Personnel: 1 Fire Officer. Patients: none. Prisoners: none. Escalation: Roof fire (expandable). POI: none."
+}

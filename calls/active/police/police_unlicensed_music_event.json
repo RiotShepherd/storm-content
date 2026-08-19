@@ -1,0 +1,225 @@
+{
+  "id": "police_unlicensed_music_event",
+  "name": "Unlicensed Music Event",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 670,
+  "description": "Unlicensed Music Event",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 9,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      12
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "large crowd",
+    "drug and alcohol use",
+    "crush risk near the stage",
+    "aggressive attendees"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's some sort of illegal rave going on, hundreds of people, and now someone's collapsed.",
+      "I need police and ambulance, there's an unlicensed party going on and people are getting crushed near the front."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's some sort of illegal rave going on, hundreds of people, and now someone's collapsed.",
+        "I need police and ambulance, there's an unlicensed party going on and people are getting crushed near the front."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm here at the party.",
+        "{{callerName}}, I live just up the road, I can hear it from my house."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know her name, she's just collapsed near the speakers.",
+        "It's {{firstPatientName}}, her mates are with her."
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's at {{address}}, there's music blaring out of it.",
+        "{{address}}, you can't miss it, there's crowds outside."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's hundreds of people here, no proper stewards, and someone's gone down near the front by the speakers.",
+        "It's an unlicensed party, it's got completely out of hand and people are getting hurt in the crush."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "She's breathing but not really responding to us.",
+        "He's awake but really out of it, can't stand up."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but it's shallow.",
+        "She's breathing, fast though."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She's clutching her stomach and won't let anyone near her.",
+        "He's got a nasty cut and says his ribs hurt."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's a cut on his head, bleeding quite a bit.",
+        "A bit, from a graze on her arm."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've no idea, I don't know her.",
+        "No idea, we've only just met her tonight."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry.",
+        "No idea what she's taken, if anything."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about twenty.",
+        "She's a teenager, maybe seventeen."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we'll keep everyone back from her.",
+        "Please hurry, more people keep getting pushed over."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need someone here now, people are getting crushed!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, large crowd confirmed, assessing casualties"
+    ],
+    "update": [
+      "{{unit}} reports {{patients}} casualties so far, event still ongoing",
+      "{{unit}} working to disperse the crowd safely"
+    ],
+    "stop": [
+      "{{unit}} clear, event shut down, casualties dealt with"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_446"
+  ],
+  "notes": "Generated from MissionChief UK mission 446 (Unlicensed Music Event). Buildings: 10 Police Stations, 1 Riot Police Extension. Vehicles: 9 Police Cars. Personnel: 22 Level 2 Public Order Officers deployed, 50 available. Patients: max 12, 30% require transport, General Surgeon, codes C-1, C-2, C-3. Prisoners: max 8. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

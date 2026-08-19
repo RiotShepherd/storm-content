@@ -1,0 +1,182 @@
+{
+  "id": "medical_heat_cramp",
+  "name": "Heat cramp",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "Heat cramp",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "hot weather, no shade"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My husband's got terrible cramp from the heat, he was out gardening for hours",
+      "Somebody's collapsed with cramp, it's been so hot today"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My husband's got terrible cramp from the heat, he was out gardening for hours",
+        "Somebody's collapsed with cramp, it's been so hot today"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm his wife",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, my husband",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, in the back garden",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was out gardening in the heat and now he's doubled over with cramp in his legs and stomach"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's awake and talking to me"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Bad cramping, eight out of ten"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Nothing that I know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "45"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got him in the shade with water"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "If you think that's best, I just don't know what to do"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with heat related cramp, assessing"
+    ],
+    "update": [
+      "Patient cooling, cramps easing with fluids"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient improved on scene"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_186"
+  ],
+  "notes": "Generated from MissionChief UK mission 186 (Heat cramp). Buildings: 4 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 50% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,215 @@
+{
+  "id": "fire_grain_dryer_fires",
+  "name": "Grain dryer fires",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 950,
+  "description": "Grain dryer fires",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "industrial_estate"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "aerial": 2,
+    "water_carrier": 1,
+    "rescue_unit": 1,
+    "irv": 2,
+    "iccu": 1,
+    "ambulance": 1,
+    "basu": 2,
+    "bulk_foam_unit": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "risk of dust explosion",
+    "smoke inhalation",
+    "confined machinery access"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 6",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's a fire at the grain dryer on the farm, it's really smoking",
+      "Fire brigade please, the grain dryer's caught fire, I got everyone clear"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire at the grain dryer on the farm, it's really smoking",
+        "Fire brigade please, the grain dryer's caught fire, I got everyone clear"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I run the farm"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's one of my workers, he got a lungful of smoke getting the dryer shut down"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the farm with the grain dryers",
+        "It's {{address}}, come in through the main gate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The grain dryer overheated and caught fire, there was a lot of dust so it went up quickly, one of the workers got caught by the smoke getting clear"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious, just coughing a lot"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He's coughing badly, struggling a bit for breath"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his throat and chest feel tight"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, it's the smoke that's the problem"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of, he's never mentioned anything"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't think he's on anything regular"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's in his thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've shut the dryer down and got everyone away",
+        "Please hurry, grain dust fires can flash up fast"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we've got someone affected by smoke, we need an ambulance as well as the fire brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, grain dryer alight, {{patients}} casualties, dust explosion risk assessed"
+    ],
+    "update": [
+      "Crews cooling equipment and monitoring for reignition"
+    ],
+    "stop": [
+      "Fire out, equipment confirmed cool, {{unit}} stood down"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "mc_769"
+  ],
+  "notes": "Generated from MissionChief UK mission 769 (Grain dryer fires). Buildings: 15 Fire Stations, 1 Rescue Station, 2 Police Stations, 1 Foam Extension. Vehicles: 4 Fire engines, 2 Aerial Appliance Trucks, 1 Water Carrier, 1 Rescue Support Vehicle, 2 Police Cars, 1 ICCU or ACU, 1 Ambulance, 2 BASUs, 1 Foam Unit. Personnel: 2 Fire Officers, 21 to 63 Firefighters, 2 to 6 Policemen. Patients: not listed. Prisoners: none. Escalation: none. POI: Silo."
+}

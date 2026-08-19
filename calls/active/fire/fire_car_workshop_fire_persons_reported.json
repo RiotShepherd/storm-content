@@ -1,0 +1,226 @@
+{
+  "id": "fire_car_workshop_fire_persons_reported",
+  "name": "Car Workshop Fire - Persons Reported",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "Car Workshop Fire - Persons Reported",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate"
+  ],
+  "units": {
+    "dual_pump": 4,
+    "single_pump": 4,
+    "aerial": 1,
+    "rescue_unit": 1,
+    "water_carrier": 1,
+    "hazmat_unit": 1,
+    "irv": 2,
+    "fire_officer": 4
+  },
+  "patients": {
+    "range": [
+      0,
+      4
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "vehicle fuel and oils",
+    "smoke logging",
+    "persons reported inside"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 40,
+      "afterSeconds": [
+        180,
+        420
+      ],
+      "message": "Crews report persons suffering smoke inhalation, up to 4 casualties",
+      "addUnits": {},
+      "addPatients": [
+        1,
+        4
+      ]
+    },
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 10",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "The workshop's on fire, a couple of the mechanics are still trying to get out",
+      "I need the fire brigade, there's a fire in the garage and people are trapped inside"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The workshop's on fire, a couple of the mechanics are still trying to get out",
+        "I need the fire brigade, there's a fire in the garage and people are trapped inside"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work here"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's a couple of the lads still in there, I don't know if they're out yet"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the car workshop on the industrial estate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A car caught fire on the ramp and it's spread fast, some of the mechanics haven't come out yet"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I don't know, I can't see them from out here"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "There's thick smoke, I don't know how they're doing in there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I can't tell you, I can't see them"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I don't know, I can't get near enough"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know their medical details"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I'm not sure, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "They're all adults, staff members"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying outside and keeping others back"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, people might be trapped, we need you here now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, workshop well alight, persons reported, crews committed with BA"
+    ],
+    "update": [
+      "{{unit}} confirms {{patients}} casualties located and being treated",
+      "{{unit}} continuing search of workshop for further persons"
+    ],
+    "stop": [
+      "{{unit}} stood down, all persons accounted for, fire out"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "chemical_and_industrial_fire",
+    "urban_fire",
+    "mc_41"
+  ],
+  "notes": "Generated from MissionChief UK mission 41 (Car Workshop Fire - Persons Reported). Buildings: 16 Fire Stations, 2 Police Stations, 2 Rescue Stations. Vehicles: 8 Fire engines, 1 Aerial Appliance Truck, 1 Rescue Support Vehicle, 1 Water Carrier (40% probability), 1 HazMat Unit or CBRN Vehicle, 2 Police Cars. Personnel: 4 Fire Officers. Patients: max 4, 50% require transport, General Internal, code C-2. Prisoners: none. Escalation: 4x Smoke Inhalation follow up. POI: Car workshop."
+}

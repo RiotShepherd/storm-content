@@ -1,0 +1,193 @@
+{
+  "id": "medical_alcoholic_intoxication",
+  "name": "Alcoholic intoxication",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 70,
+  "description": "Alcoholic intoxication",
+  "keywords": {
+    "correct": [
+      "r0_minor"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "intoxicated casualty",
+    "risk of choking"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a bloke collapsed outside the pub, he's absolutely paralytic",
+      "Someone's passed out on the pavement, smells strongly of drink"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a bloke collapsed outside the pub, he's absolutely paralytic",
+        "Someone's passed out on the pavement, smells strongly of drink"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, he won't tell me his name",
+        "He mumbled something, sounded like {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's outside {{address}}",
+        "{{address}}, on the pavement"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's collapsed on the pavement, reeks of alcohol, can barely open his eyes",
+        "He's stumbling and slurring, then he just sat down and won't get up"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's semi conscious, mumbling",
+        "In and out, hard to keep him talking"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing but it's noisy",
+        "Seems okay, a bit snorey"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Can't tell, he's not making sense",
+        "He hasn't said anything about pain"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding that I can see",
+        "There's a small graze on his head from falling"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No idea, I don't know him",
+        "Couldn't say, he's a stranger to me"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't tell you"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about 30 to 40",
+        "Hard to say, maybe mid thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay with him and keep him on his side",
+        "I'll keep an eye on him till you get here"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I don't think he can get himself anywhere, he's out of it",
+        "Might be worth it, but he's not responding well"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty assessed, intoxicated"
+    ],
+    "update": [
+      "{{unit}} monitoring airway, casualty semi responsive",
+      "{{patients}} casualty being kept in recovery position"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty for further assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_35"
+  ],
+  "notes": "Generated from MissionChief UK mission 35 (Alcoholic intoxication). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, General Internal, code C-3. Prisoners: none. Escalation: none. POI: none."
+}

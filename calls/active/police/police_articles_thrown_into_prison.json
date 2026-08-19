@@ -1,0 +1,185 @@
+{
+  "id": "police_articles_thrown_into_prison",
+  "name": "Articles Thrown into Prison",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 140,
+  "description": "Articles Thrown into Prison",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "office"
+  ],
+  "units": {
+    "irv": 3,
+    "dog_unit": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "contraband thrown over wall",
+    "suspect nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, someone's just thrown a package over the prison wall",
+      "I need to report, I've seen someone throwing items into the prison grounds",
+      "There's a man throwing packages over the fence into the prison, I think it's contraband"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, someone's just thrown a package over the prison wall",
+        "I need to report, I've seen someone throwing items into the prison grounds",
+        "There's a man throwing packages over the fence into the prison, I think it's contraband"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm one of the officers on duty",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No patient involved, this is about the thrower",
+        "N/A, nobody's hurt here"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the perimeter fence on the east side",
+        "{{address}}, near the north wall"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "We spotted someone throwing a package wrapped in tape over the wall towards the yard",
+        "It happened a few minutes ago, he ran off after chucking it over",
+        "Someone's using a drone or throwing packages over the wall again, we've recovered one item already"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, no patient in this",
+        "N/A"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, this isn't medical",
+        "N/A"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt",
+        "N/A"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "N/A"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've secured the item and the area",
+        "Thank you, we'll keep watching the fence line"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs the police, not a medical service"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, package recovered near perimeter fence, area being checked"
+    ],
+    "update": [
+      "Suspect not located, item seized as evidence"
+    ],
+    "stop": [
+      "{{unit}} clear, item logged, prison security notified"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_508"
+  ],
+  "notes": "Generated from MissionChief UK mission 508 (Articles Thrown into Prison). Buildings: 6 Police Stations. Vehicles: 3 Police Cars, 1 DSU. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: Prison."
+}

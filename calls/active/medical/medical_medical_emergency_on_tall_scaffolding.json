@@ -1,0 +1,208 @@
+{
+  "id": "medical_medical_emergency_on_tall_scaffolding",
+  "name": "Medical emergency on tall scaffolding",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 700,
+  "description": "Medical emergency on tall scaffolding",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "hart": 2,
+    "dual_pump": 1,
+    "aerial": 1,
+    "rescue_unit": 1,
+    "otl": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 60,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "person at height",
+    "scaffolding access",
+    "risk of fall"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "One of the lads has collapsed up on the scaffolding, he's right at the top",
+      "I need an ambulance, a worker's gone down on the scaffold and he's not responding properly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "One of the lads has collapsed up on the scaffolding, he's right at the top",
+        "I need an ambulance, a worker's gone down on the scaffold and he's not responding properly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, site foreman here",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, one of the subcontractors",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the building site",
+        "{{address}}, main gate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was working up on the scaffold and just went down, he's not responding properly"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's barely responding"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He's breathing but it's shallow"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He can't tell us, he's out of it"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No visible bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him well, he's a subcontractor"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He looks about 50"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "We've got him secured up there, harnessed in"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need an ambulance, he's stuck at height"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, casualty collapsed at height, liaising with fire crew"
+    ],
+    "update": [
+      "Casualty being lowered safely, obs concerning"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_542"
+  ],
+  "notes": "Generated from MissionChief UK mission 542 (Medical emergency on tall scaffolding). Buildings: 6 Rescue Stations, 6 Fire Stations, 1 HART Base. Vehicles: 1 PRV, 1 SRV, 1 Fire engine, 1 Aerial Appliance Truck, 1 Rescue Support Vehicle. Personnel: 1 Operational Team Leader, 1 Fire Officer. Patients: max 1, min 1, 60% require transport, General Internal, codes C-1, C-2, C-3, 20% critical care. Prisoners: none. Escalation: none. POI: none."
+}

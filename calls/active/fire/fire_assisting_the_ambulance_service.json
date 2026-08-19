@@ -1,0 +1,181 @@
+{
+  "id": "fire_assisting_the_ambulance_service",
+  "name": "Assisting the ambulance service",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 70,
+  "description": "Assisting the ambulance service",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "residential_road",
+    "track",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "confined stairwell",
+    "heavy patient handling"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance are already on their way for my dad but they've asked for the fire brigade too, he's stuck and can't get up",
+      "I need the fire service, my husband's collapsed and he's a big lad, the paramedics can't move him on their own"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance are already on their way for my dad but they've asked for the fire brigade too, he's stuck and can't get up",
+        "I need the fire service, my husband's collapsed and he's a big lad, the paramedics can't move him on their own"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm his wife"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, he's my husband"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the ambulance already has it but please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's collapsed in the hallway and the paramedics need help lifting him, he's not a small man"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious, talking a bit, but he's frightened"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He's struggling a bit for breath, the crew are on oxygen with him"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his chest is tight"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, it's not an injury, he just can't get up"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's got a bad heart and high blood pressure"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He takes tablets for his blood pressure, I've got them ready"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's 68"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, the ambulance crew are with him already, please hurry with the extra hands"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, the paramedics are already here, they've asked for you specifically"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, assisting ambulance crew with {{patients}} patient, manual handling in progress"
+    ],
+    "update": [
+      "{{unit}} working with paramedics to move patient safely"
+    ],
+    "stop": [
+      "{{unit}} stood down, patient handed to ambulance crew for transport"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_422"
+  ],
+  "notes": "Generated from MissionChief UK mission 422 (Assisting the ambulance service). Buildings: 1 Fire Station, 1 Rescue Station. Vehicles: 1 Fire engine or Rescue Support Vehicle. Personnel: none. Patients: max 1, min 1, 80% require transport, General Internal, codes C-1, C-2, C-3, 20% critical care. Prisoners: none. Escalation: Assisting the ambulance service [Bariatric]. POI: none."
+}

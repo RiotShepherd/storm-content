@@ -1,0 +1,189 @@
+{
+  "id": "medical_serious_head_injury",
+  "name": "Serious head injury",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Serious head injury",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "head injury",
+      "stroke symptoms",
+      "reduced consciousness"
+    ]
+  },
+  "hazards": [
+    "head injury, brief loss of consciousness"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "He's fallen and hit his head really hard, there's blood everywhere",
+      "I need an ambulance, my dad's fallen down the stairs and hit his head"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "He's fallen and hit his head really hard, there's blood everywhere",
+        "I need an ambulance, my dad's fallen down the stairs and hit his head"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, his son",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, my dad",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He fell down the stairs and hit his head on the floor at the bottom"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He was out for a bit, now he's awake but confused"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his head's throbbing"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, quite a lot from a cut on his scalp"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's on blood thinners"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Warfarin"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "72"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I'm keeping pressure on the wound"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he was knocked out, he needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with head injury, assessing"
+    ],
+    "update": [
+      "Patient conscious but confused, bleeding controlled"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority to trauma centre"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_151"
+  ],
+  "notes": "Generated from MissionChief UK mission 151 (Serious head injury). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 100% require transport, Neurosurgery, code C-2, 90% critical care. Prisoners: none. Escalation: none. POI: none."
+}

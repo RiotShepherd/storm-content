@@ -1,0 +1,198 @@
+{
+  "id": "police_brawl",
+  "name": "Brawl",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 70,
+  "description": "Brawl",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 3,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      3
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "street fight",
+    "risk to bystanders"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a fight broken out on the street, several people involved",
+      "Help, a brawl's kicked off outside, people are getting hurt",
+      "Quick, there's a group fighting on the pavement, it's getting nasty"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a fight broken out on the street, several people involved",
+        "Help, a brawl's kicked off outside, people are getting hurt",
+        "Quick, there's a group fighting on the pavement, it's getting nasty"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I was just walking past",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them",
+        "No idea who they are"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, right outside",
+        "It's happening near {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A group of them started fighting, punches and kicks flying",
+        "It's been going on for a couple of minutes, it's spreading",
+        "One of them's been knocked to the ground and the others are still going at it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "One's on the ground, not moving much, the rest are still fighting",
+        "Most are conscious, still swinging at each other"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "The one on the ground seems to be breathing but he's out of it",
+        "Everyone else seems fine breathing wise"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "The lad on the ground looks in a bad way",
+        "A couple are holding their faces, looks painful"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, one of them's got blood on his face",
+        "One's bleeding from the nose"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Couldn't say",
+        "No idea"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Young men, late teens to twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying well back",
+        "Please hurry, it's getting worse"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police here now, they're really hurting each other!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, combatants separated, {{patients}} casualties assessed"
+    ],
+    "update": [
+      "Prisoners detained, walking wounded treated for minor injuries"
+    ],
+    "stop": [
+      "{{unit}} clear, scene secured"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_67"
+  ],
+  "notes": "Generated from MissionChief UK mission 67 (Brawl). Buildings: 3 Police Stations. Vehicles: 3 Police Cars. Personnel: none. Patients: max 3, 30% require transport, Traumatology, codes C-3, C-4. Prisoners: max 2. Escalation: Panic button activation. POI: none."
+}

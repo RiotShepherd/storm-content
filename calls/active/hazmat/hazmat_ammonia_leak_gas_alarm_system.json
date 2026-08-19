@@ -1,0 +1,222 @@
+{
+  "id": "hazmat_ammonia_leak_gas_alarm_system",
+  "name": "Ammonia leak (Gas alarm system)",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 500,
+  "description": "Ammonia leak (Gas alarm system)",
+  "keywords": {
+    "correct": [
+      "gas_leak"
+    ],
+    "acceptable": [
+      "hazmat_spill"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "warehouse"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 3,
+    "irv": 2,
+    "hazmat_unit": 1,
+    "iccu": 1,
+    "basu": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      10
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "toxic vapour",
+    "confined space",
+    "refrigeration plant risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 40,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade, our ammonia alarm's gone off in the cold store, we can smell it strongly, some staff are coughing.",
+      "It's a gas alarm, ammonia I think, at the storage warehouse, a couple of people have been sick."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade, our ammonia alarm's gone off in the cold store, we can smell it strongly, some staff are coughing.",
+        "It's a gas alarm, ammonia I think, at the storage warehouse, a couple of people have been sick."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "{{callerName}}, I'm ringing about it now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't have their names to hand, I'll get them from the office."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The refrigeration system's alarm went off and we can smell ammonia strongly across the warehouse floor, we've evacuated most staff.",
+        "There's a strong chemical smell from the cold store, the alarm's sounding, a few staff got caught in it before we could clear the area."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "The ones affected are conscious but coughing badly, eyes streaming."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A few are really struggling to breathe, we've got them out into fresh air."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Some are saying their throats and eyes are burning."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, it's the fumes causing the problem."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I can check their HR files, not sure of any conditions offhand."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry, I'd need to check."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed, mostly working age warehouse staff."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, ammonia leak confirmed, hazmat in gas tight suits, {{patients}} casualties decontaminated."
+    ],
+    "update": [
+      "{{unit}} leak isolated, casualties being treated for respiratory irritation."
+    ],
+    "stop": [
+      "{{unit}} stopped, atmosphere cleared, premises handed back."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_325"
+  ],
+  "notes": "Generated from MissionChief UK mission 325 (Ammonia leak (Gas alarm system)). Buildings: 13 Fire Stations, 5 Rescue Stations, 2 Police Stations. Vehicles: 6 Fire engines, 2 Police Cars, 1 HazMat Unit or CBRN Vehicle, 1 ICCU or ACU, 1 BASU. Personnel: 2 Fire Officers. Patients: max 10, 40% require transport, General Internal, code C-1. Prisoners: none. Escalation: none. POI: Cold Storage Warehouse.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

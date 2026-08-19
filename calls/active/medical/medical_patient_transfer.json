@@ -1,0 +1,177 @@
+{
+  "id": "medical_patient_transfer",
+  "name": "Patient Transfer",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Patient Transfer",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "This is the care home, we need a routine transfer booked for one of our residents",
+      "It's the care coordinator here, we've got a resident who needs transport to her hospital appointment"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "This is the care home, we need a routine transfer booked for one of our residents",
+        "It's the care coordinator here, we've got a resident who needs transport to her hospital appointment"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the care coordinator",
+        "{{callerName}}, care home reception"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "The resident's name is {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the care home",
+        "{{address}}, ask for the office"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She needs to get to her hospital appointment, she can't manage in a car"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, alert as usual"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain reported"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Dementia, but otherwise stable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Regular medication list is with her notes"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "88"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Thank you, we'll have her ready"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this has already been booked as a transfer"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient ready for transfer"
+    ],
+    "update": [
+      "Patient loaded, comfortable for transfer"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to appointment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_77"
+  ],
+  "notes": "Generated from MissionChief UK mission 77 (Patient Transfer). Buildings: none. Vehicles: none. Personnel: none. Patients: max 1, min 1, 0% require transport. Prisoners: none. Escalation: none. POI: none."
+}

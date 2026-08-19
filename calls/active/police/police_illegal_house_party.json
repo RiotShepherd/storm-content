@@ -1,0 +1,190 @@
+{
+  "id": "police_illegal_house_party",
+  "name": "Illegal house party",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "Illegal house party",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "university"
+  ],
+  "units": {
+    "irv": 8
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "large gathering",
+    "noise",
+    "risk of overcrowding"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a massive party going on next door, it's completely out of control",
+      "I need to report a house party, it's way too big and it's breaching all the rules",
+      "There's an illegal party at the student house, dozens of people, it's chaos"
+    ],
+    "phoneArea": "auto",
+    "callerType": "neighbour"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a massive party going on next door, it's completely out of control",
+        "I need to report a house party, it's way too big and it's breaching all the rules",
+        "There's an illegal party at the student house, dozens of people, it's chaos"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I live next door to the student house",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know anyone there",
+        "No idea who's inside"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the house with all the noise",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's dozens of people crammed into the house and garden, music blasting",
+        "It's been going on for hours, it's getting louder and rowdier",
+        "People are climbing on the roof and there's broken glass in the street"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt that I've seen",
+        "No injuries reported to me"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A, don't know them",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mostly students, so late teens to early twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep the windows shut",
+        "Thank you, it's been going on for hours now"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a noise and disorder issue, I need police"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, party confirmed, occupants being spoken to"
+    ],
+    "update": [
+      "Party being dispersed, numbers reduced"
+    ],
+    "stop": [
+      "{{unit}} clear, premises quiet"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_299"
+  ],
+  "notes": "Generated from MissionChief UK mission 299 (Illegal house party). Buildings: 6 Police Stations, 1 Rescue Station. Vehicles: 8 Police Cars. Personnel: none. Patients: max 1, 30% require transport, General Internal, code C-3. Prisoners: none. Escalation: none. POI: University."
+}

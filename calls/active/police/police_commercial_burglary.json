@@ -1,0 +1,190 @@
+{
+  "id": "police_commercial_burglary",
+  "name": "Commercial Burglary",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 200,
+  "description": "Commercial Burglary",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 4,
+    "dog_unit": 1,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, someone's broken into my shop, the window's smashed",
+      "I need to report a burglary, I've just arrived to find the back door forced open",
+      "There's been a break in at my unit, stuff's been taken"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, someone's broken into my shop, the window's smashed",
+        "I need to report a burglary, I've just arrived to find the back door forced open",
+        "There's been a break in at my unit, stuff's been taken"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I own the shop",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no one here, whoever did it has gone",
+        "No one around, they've left already"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the unit on the industrial estate",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I arrived this morning to find the shutter forced and stock missing",
+        "The back window's smashed, they've gone through the till",
+        "Looks like they got in overnight, the safe's been tampered with"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's here, no one's hurt",
+        "No injuries, they're long gone"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A, no one's hurt",
+        "Not applicable"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable, no one's here"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I won't touch anything until you arrive",
+        "Thank you, I'll wait outside"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police for a burglary"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, forced entry confirmed, scene being examined"
+    ],
+    "update": [
+      "Scene preserved for forensics, stock loss being assessed"
+    ],
+    "stop": [
+      "{{unit}} clear, crime reference given, scene released to owner"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_172"
+  ],
+  "notes": "Generated from MissionChief UK mission 172 (Commercial Burglary). Buildings: 6 Police Stations. Vehicles: 4 Police Cars, 1 DSU. Personnel: none. Patients: none. Prisoners: max 3. Escalation: none. POI: none."
+}

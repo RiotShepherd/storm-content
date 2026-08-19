@@ -1,0 +1,200 @@
+{
+  "id": "police_unexploded_ww2_ordnance_in_countryside",
+  "name": "Unexploded WW2 Ordnance in Countryside",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 450,
+  "description": "Unexploded WW2 Ordnance in Countryside",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "park",
+    "b_road"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "irv": 2,
+    "eod_unit": 2,
+    "fire_officer": 2,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "unexploded ordnance",
+    "livestock in the field",
+    "public footpath nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I was out walking the dog and I've found what I think is an old bomb in the field.",
+      "Police please, I was metal detecting and I've dug up something that looks like an old shell."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I was out walking the dog and I've found what I think is an old bomb in the field.",
+        "Police please, I was metal detecting and I've dug up something that looks like an old shell."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was just out walking.",
+        "{{callerName}}, I found it about an hour ago."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no one hurt, it's just the object.",
+        "No patient, nobody's been near it."
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm out near {{address}}, in the field off the track.",
+        "{{address}}, it's a bit off the road, I can wave someone in."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I dug something up with the detector and it looks like an old artillery shell, rusted right through.",
+        "My dog was digging and uncovered something metal, it looks like an old bomb."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, I've not touched it.",
+        "No casualties, I backed away as soon as I saw what it was."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Everyone's fine, it's not a medical call.",
+        "No one's injured out here."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, nobody's been near it.",
+        "Nobody's hurt, I've kept well back."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, there's no injury.",
+        "No, nothing like that."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient here.",
+        "Not applicable, nobody's hurt."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No one needs medical help.",
+        "Not relevant, sorry."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, it's just the item.",
+        "It's not a person, it's an old shell."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay back by the gate.",
+        "Understood, I'll keep the dog away from it."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need the bomb squad, not a doctor!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, item located, area being cordoned"
+    ],
+    "update": [
+      "{{unit}} cordon in place, awaiting EOD",
+      "footpath closed while {{unit}} secures the area"
+    ],
+    "stop": [
+      "{{unit}} clear, item made safe"
+    ]
+  },
+  "tags": [
+    "bomb_disposal",
+    "mc_829"
+  ],
+  "notes": "Generated from MissionChief UK mission 829 (Unexploded WW2 Ordnance in Countryside). Buildings: 6 Fire Stations, 6 Rescue Stations, 10 Police Stations, 1 Bomb Disposal HQ. Vehicles: 2 Fire engines, 2 Police Cars, 1 EOD Response Vehicle, 1 EOD Medium Equipment Van. Personnel: 2 Fire Officers, 1 Operational Team Leader. Patients: none. Prisoners: none. Escalation: none. POI: Forest, Farm, Heathland."
+}

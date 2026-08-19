@@ -1,0 +1,189 @@
+{
+  "id": "medical_fall_detector_alarm",
+  "name": "Fall detector alarm",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 35,
+  "description": "Fall detector alarm",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 25,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "This is the monitoring centre, we've had a fall alarm activate and no response from the resident",
+      "We've received a fall detector signal and can't reach the client by voice"
+    ],
+    "phoneArea": "auto",
+    "callerType": "alarm_company"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "This is the monitoring centre, we've had a fall alarm activate and no response from the resident",
+        "We've received a fall detector signal and can't reach the client by voice"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, monitoring centre operator"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "The client on file is {{firstPatientName}}",
+        "{{firstPatientName}}, according to our records"
+      ]
+    },
+    "address": {
+      "answers": [
+        "The registered address is {{address}}",
+        "{{address}}, that's on our system"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The fall detector has triggered automatically, we've tried calling through the unit but there's no response",
+        "It's an automatic fall signal, we can't get a verbal response from the resident"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Unable to confirm, no response through the unit",
+        "Unknown from here"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Can't confirm from the monitoring centre",
+        "No way to know from here"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "We've no way of knowing",
+        "Unable to confirm"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "We can't say from here",
+        "No way to confirm"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Our notes mention some mobility issues",
+        "I can check the file, one moment"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not something we hold on our system",
+        "I don't have that information"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "88"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Understood, we'll keep trying to reach them",
+        "We'll stay on the line while you attend"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Given there's no response, we think this needs checking in person",
+        "We'd rather someone attended given the lack of contact"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, welfare check following fall detector activation"
+    ],
+    "update": [
+      "{{unit}} gaining entry and locating the resident",
+      "{{patients}} casualty found and being assessed"
+    ],
+    "stop": [
+      "{{unit}} stood down, resident found and assessed"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_596"
+  ],
+  "notes": "Generated from MissionChief UK mission 596 (Fall detector alarm). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 50% require transport, General Internal, code C-3, 5% critical care. Prisoners: none. Escalation: none. POI: none."
+}

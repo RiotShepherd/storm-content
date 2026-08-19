@@ -1,0 +1,188 @@
+{
+  "id": "rescue_persons_stuck_on_scaffolding",
+  "name": "Persons stuck on scaffolding",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 120,
+  "description": "Persons stuck on scaffolding",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r0_fall"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "aerial": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "working at height",
+    "unstable scaffold"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a couple of scaffolders stuck up on the platform, the access ladder's come away.",
+      "Fire brigade please, our workers are stranded on the scaffolding and can't get down safely."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a couple of scaffolders stuck up on the platform, the access ladder's come away.",
+        "Fire brigade please, our workers are stranded on the scaffolding and can't get down safely."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the site foreman.",
+        "{{callerName}}, I'm one of the crew on the ground."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no patient, nobody's hurt, they're just stuck.",
+        "No injuries, they're just stranded up there."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}.",
+        "{{address}}, it's the scaffolding on the front of the building."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The access ladder came loose and now two of the lads can't get back down.",
+        "Part of the scaffold shifted and the safe way down is blocked, they're stuck at the top."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, they're fine, just can't get down.",
+        "Yes, both fully alert, just stuck."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, they're fine.",
+        "Yes, both breathing normally."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, neither of them is hurt.",
+        "No injuries, just stuck."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries.",
+        "No, they're fine."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable, nobody's hurt.",
+        "No injuries to report."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No one needs medical help.",
+        "Not applicable."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, they're just stuck.",
+        "Not applicable."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've told them to stay still and not move.",
+        "Understood, we'll keep talking to them until you arrive."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a height rescue, we need the fire brigade!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, aerial appliance setting up"
+    ],
+    "update": [
+      "{{unit}} working to bring them down safely"
+    ],
+    "stop": [
+      "{{unit}} clear, all persons down safely"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_597"
+  ],
+  "notes": "Generated from MissionChief UK mission 597 (Persons stuck on scaffolding). Buildings: 4 Fire Stations. Vehicles: 1 Fire engine, 1 Aerial Appliance Truck. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

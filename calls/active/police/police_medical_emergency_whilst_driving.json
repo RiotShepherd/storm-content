@@ -1,0 +1,197 @@
+{
+  "id": "police_medical_emergency_whilst_driving",
+  "name": "Medical emergency whilst driving",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Medical emergency whilst driving",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "vehicle stopped in road",
+    "unresponsive driver",
+    "live traffic"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, the driver's collapsed at the wheel, the car's stopped in the road",
+      "Help, someone's had a medical episode while driving, the car's mounted the kerb",
+      "There's a driver who's collapsed, the car's still running, I don't think he's conscious"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, the driver's collapsed at the wheel, the car's stopped in the road",
+        "Help, someone's had a medical episode while driving, the car's mounted the kerb",
+        "There's a driver who's collapsed, the car's still running, I don't think he's conscious"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I was driving behind him",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know his name, I just saw it happen",
+        "No idea, I stopped to help a stranger"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the car's stopped right here",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He just slumped over the wheel and the car drifted to a stop",
+        "It happened seconds ago, I don't think he's responsive",
+        "The car mounted the kerb slowly and stopped against a wall"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No, he's not responding to me at all",
+        "Barely, he's making noises but not talking"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, he's breathing but it sounds odd",
+        "He's breathing, but it's shallow"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He can't tell me, he's not responsive enough",
+        "Can't say, he's not talking"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No visible bleeding",
+        "None that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him at all",
+        "No idea, complete stranger"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks to be in his sixties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've put the handbrake on and I'm staying with him",
+        "Please hurry, he doesn't look good"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance urgently, he's collapsed"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualty found unresponsive in vehicle, assessing"
+    ],
+    "update": [
+      "Patient extricated from vehicle, being treated"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_452"
+  ],
+  "notes": "Generated from MissionChief UK mission 452 (Medical emergency whilst driving). Buildings: 2 Rescue Stations, 4 Police Stations. Vehicles: 2 Police Cars or ARVs. Personnel: none. Patients: max 1, 100% require transport, General Internal, codes C-1, C-2, 20% critical care. Prisoners: none. Escalation: none. POI: none."
+}

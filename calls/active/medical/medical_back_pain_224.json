@@ -1,0 +1,189 @@
+{
+  "id": "medical_back_pain_224",
+  "name": "Back Pain",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Back Pain",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 90,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My back's completely seized up, I can't stand",
+      "I've hurt my back badly, the pain's unbearable"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My back's completely seized up, I can't stand",
+        "I've hurt my back badly, the pain's unbearable"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}",
+        "{{address}}, I'm stuck on the floor"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I twisted awkwardly lifting something heavy and now I can't straighten up",
+        "My back's gone completely, I can't put any weight on it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, wide awake, just in agony",
+        "Yes, fully conscious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, just shallow because of the pain",
+        "Normal"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Severe, worst back pain I've had",
+        "About a nine out of ten"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've got a history of slipped discs",
+        "Nothing I can think of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I take painkillers for my back sometimes",
+        "Just over the counter ones"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "44"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay as still as I can",
+        "It's not easing off at all"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I genuinely can't move, I don't think I can wait",
+        "I really can't get to a car like this"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty immobile with back pain"
+    ],
+    "update": [
+      "{{unit}} providing pain relief, preparing to move casualty safely",
+      "{{patients}} casualty stable, extraction in progress"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_224"
+  ],
+  "notes": "Generated from MissionChief UK mission 224 (Back Pain). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 90% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

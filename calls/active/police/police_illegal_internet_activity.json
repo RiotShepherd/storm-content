@@ -1,0 +1,188 @@
+{
+  "id": "police_illegal_internet_activity",
+  "name": "Illegal internet activity",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Illegal internet activity",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, I want to report some illegal activity I've found online",
+      "I need to report something, I think someone's been scammed through a website I found",
+      "I've come across something on the internet that I think you need to know about"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, I want to report some illegal activity I've found online",
+        "I need to report something, I think someone's been scammed through a website I found",
+        "I've come across something on the internet that I think you need to know about"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I found this while browsing",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know who's behind it",
+        "No idea who runs the site"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I'm calling from home",
+        "I'm at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I found a website selling counterfeit goods and using stolen card details",
+        "I've seen posts trying to sell illegal items online, I've taken screenshots",
+        "Someone's set up a fake page pretending to be a charity, taking donations"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, this is all online",
+        "No injuries involved"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A, this is not medical",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep the screenshots safe",
+        "Thank you, I just wanted to flag it"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police, it's a crime matter"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} attending, evidence being gathered from caller"
+    ],
+    "update": [
+      "Details passed to cyber crime team"
+    ],
+    "stop": [
+      "{{unit}} clear, report logged for investigation"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_269"
+  ],
+  "notes": "Generated from MissionChief UK mission 269 (Illegal internet activity). Buildings: 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: max 1. Escalation: none. POI: none."
+}

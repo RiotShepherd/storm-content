@@ -1,0 +1,196 @@
+{
+  "id": "fire_crane_fell_over_on_construction_site",
+  "name": "Crane fell over on construction site",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Crane fell over on construction site",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "aerial": 2,
+    "dual_pump": 1,
+    "single_pump": 1,
+    "rescue_unit": 2,
+    "irv": 2,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      2
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "unstable crane structure",
+    "scaffolding collapse risk",
+    "trapped casualties"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 20,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A crane's come down on the construction site, there's a couple of workers hurt",
+      "I need the fire brigade urgently, the crane's collapsed and it's brought down scaffolding on some of the crew"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A crane's come down on the construction site, there's a couple of workers hurt",
+        "I need the fire brigade urgently, the crane's collapsed and it's brought down scaffolding on some of the crew"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the site foreman"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's two of my workers hurt, I don't want to give names till I know they're okay"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the construction site, main gate on the road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The crane's toppled over and brought scaffolding down with it, two of the crew were caught underneath"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "One's conscious and talking, the other's in and out"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Both are breathing but one's struggling a bit"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "They're both in a lot of pain, one's leg looks trapped under debris"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's some bleeding from cuts, we've applied first aid"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't have their full medical details on me"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not sure, I'd have to check their site records"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Both in their thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've cleared the area and stopped all other work on site"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is an emergency, people are trapped under debris"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, crane collapse with casualties trapped, structure assessed as unstable"
+    ],
+    "update": [
+      "{{unit}} confirms {{patients}} casualties being extricated, structure being shored"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualties handed to ambulance, site made safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mc_774"
+  ],
+  "notes": "Generated from MissionChief UK mission 774 (Crane fell over on construction site). Buildings: 4 Fire Stations, 1 Police Station, 1 Rescue Station. Vehicles: 2 Aerial Appliance Trucks, 2 Fire engines, 2 Rescue Support Vehicles, 2 Police Cars. Personnel: 1 Fire Officer. Patients: min 1, max 2, 20% require transport, Traumatology, code C-3. Prisoners: none. Escalation: none. POI: Construction site."
+}

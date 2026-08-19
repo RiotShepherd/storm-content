@@ -1,0 +1,206 @@
+{
+  "id": "fire_barn_fire",
+  "name": "Barn fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 200,
+  "description": "Barn fire",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "b_road"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "water_carrier": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "collapsing structure",
+    "livestock nearby",
+    "limited water supply",
+    "asbestos roofing"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 6",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "One of our barns is well alight, it's a big fire and I'm worried it'll spread to the others",
+      "I need the fire brigade urgently, the hay barn's on fire and it's taking hold fast"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "One of our barns is well alight, it's a big fire and I'm worried it'll spread to the others",
+        "I need the fire brigade urgently, the hay barn's on fire and it's taking hold fast"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my farm"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's inside, all the family and workers are accounted for"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, take the farm track off the main road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The barn's well alight, flames right through the roof, we can't get near it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, everyone's out and accounted for"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, we're all well back from the smoke"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's been near it"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient, it's just the barn"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've moved the livestock away from that side"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire, we need the brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, barn well alight, no persons reported, requesting water carrier"
+    ],
+    "update": [
+      "{{unit}} making pumps six, fire spreading through roof timbers",
+      "{{unit}} protecting adjacent barns from radiant heat"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire extinguished, damping down ongoing"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "mc_142"
+  ],
+  "notes": "Generated from MissionChief UK mission 142 (Barn fire). Buildings: 7 Fire Stations. Vehicles: 4 Fire engines, 1 Water Carrier. Personnel: 2 Fire Officers. Patients: none. Prisoners: none. Escalation: none. POI: Farm."
+}

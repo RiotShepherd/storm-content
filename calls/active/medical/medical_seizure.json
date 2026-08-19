@@ -1,0 +1,188 @@
+{
+  "id": "medical_seizure",
+  "name": "Seizure",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "Seizure",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "seizure"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 65,
+    "conditions": [
+      "seizure",
+      "reduced consciousness",
+      "stroke symptoms"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My partner's just had a fit, he's coming round now but I'm scared",
+      "I need an ambulance, he collapsed and was shaking all over"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My partner's just had a fit, he's coming round now but I'm scared",
+        "I need an ambulance, he collapsed and was shaking all over"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, his partner",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my partner",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He collapsed and started shaking all over, it lasted about two minutes and now he's confused"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's coming round, a bit dazed"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's too dazed to say"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A small cut on his lip from biting it"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "First time this has happened as far as I know"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "41"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got him on his side"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think he needs to be checked over"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient post seizure, assessing"
+    ],
+    "update": [
+      "Patient coming round, obs stable"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_38"
+  ],
+  "notes": "Generated from MissionChief UK mission 38 (Seizure). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 50% require transport, Neurology, code C-1, 25% critical care. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,206 @@
+{
+  "id": "police_protester_needing_rescuing_from_height",
+  "name": "Protester needing rescuing from height",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 400,
+  "description": "Protester needing rescuing from height",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "rescue_unit": 1,
+    "irv": 4,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "fall risk",
+    "height rescue required"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police, and I think you'll need the fire brigade too, someone's climbed up and won't come down",
+      "Help, a protester's stuck up there, they look frightened"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police, and I think you'll need the fire brigade too, someone's climbed up and won't come down",
+        "Help, a protester's stuck up there, they look frightened"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I just saw it happen",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, one of the protesters",
+        "I don't know their name, one of the group up there"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, they're up above the entrance",
+        "It's {{address}}, on the roof line"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "They climbed up during the demo and now they're too scared to climb back down",
+        "They're sat on a ledge, refusing to move, looks like they're stuck"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, conscious, shouting down to us",
+        "Yes, awake, but very scared"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, seems fine, just terrified",
+        "Yes, breathing okay, panicking a bit"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, just stuck and scared",
+        "Says they're fine, just can't move"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Don't know them well enough to say",
+        "Not sure, I don't know them"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Young, maybe early twenties",
+        "Looks like a teenager"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're telling them to stay still",
+        "Right, we'll keep everyone calm down here"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This needs the fire brigade and police, not 111!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty located at height, rescue in progress"
+    ],
+    "update": [
+      "Aerial rescue equipment in use, casualty talking throughout"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty brought down safely and handed to ambulance crew"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_350"
+  ],
+  "notes": "Generated from MissionChief UK mission 350 (Protester needing rescuing from height). Buildings: 10 Fire Stations, 7 Rescue Stations, 3 Police Stations. Vehicles: 3 Fire engines, 1 Rescue Support Vehicle, 4 Police Cars. Personnel: 1 Fire Officer. Patients: min 1, max 1, 0% require transport, General Internal, code C-3. Prisoners: none. Escalation: none. POI: none."
+}

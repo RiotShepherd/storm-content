@@ -1,0 +1,191 @@
+{
+  "id": "medical_fallen_person",
+  "name": "Fallen person",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Fallen person",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's an elderly lady on the ground, she's had a fall",
+      "Someone's fallen over on the pavement, can't get themselves up"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's an elderly lady on the ground, she's had a fall",
+        "Someone's fallen over on the pavement, can't get themselves up"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "She told me her name's {{firstPatientName}}",
+        "{{firstPatientName}}, that's what she said"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's at {{address}}",
+        "{{address}}, on the pavement"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's tripped on the uneven pavement and gone down, she can't get herself back up",
+        "She lost her footing and fell, seems a bit shaken but talking"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and talking",
+        "Yes, conscious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, breathing normally",
+        "No problems there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says her hip hurts",
+        "Yes, her wrist mainly"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "A small graze on her hand"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know her, I'm a passer by",
+        "She hasn't said"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Don't know",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about 70",
+        "She said she's in her seventies"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with her",
+        "I've got my coat over her, it's a bit cold"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "She's asked me to call for an ambulance rather than that",
+        "Not sure, she seems keen for an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty following a fall"
+    ],
+    "update": [
+      "{{unit}} checking for injuries before moving casualty",
+      "{{patients}} casualty stable, being assisted up"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for a check up"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_40"
+  ],
+  "notes": "Generated from MissionChief UK mission 40 (Fallen person). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, Traumatology, code C-2, 50% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

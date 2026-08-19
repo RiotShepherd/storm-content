@@ -1,0 +1,248 @@
+{
+  "id": "rtc_collision_between_two_buses",
+  "name": "Collision between two buses",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1180,
+  "description": "Collision between two buses",
+  "keywords": {
+    "correct": [
+      "rtc_serious"
+    ],
+    "acceptable": [
+      "rtc_trapped",
+      "rtc_injury"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 5,
+    "single_pump": 5,
+    "rescue_unit": 6,
+    "irv": 8,
+    "traffic_car": 3,
+    "hart": 2,
+    "welfare_unit": 1,
+    "iccu": 1,
+    "fire_officer": 3
+  },
+  "patients": {
+    "range": [
+      15,
+      110
+    ],
+    "rrvChance": 50,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway",
+    "multiple casualties",
+    "vehicles blocking the road"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 45,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Two buses have collided head on, there's people injured on both of them!",
+      "Emergency, a serious crash between two buses, loads of passengers are hurt."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Two buses have collided head on, there's people injured on both of them!",
+        "Emergency, a serious crash between two buses, loads of passengers are hurt."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was on the pavement nearby.",
+        "{{callerName}}, I was a passenger on one of the buses."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them, there's people from both buses.",
+        "I can't say, there's far too many casualties."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, the buses are blocking the whole road."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The two buses have gone into each other head on, both are badly damaged and full of passengers.",
+        "One bus went into the other at the junction, there's injured people all over the road."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are, but I can see people slumped in their seats too.",
+        "A lot are walking wounded, others aren't moving."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell for everyone, there's so many people.",
+        "Some are, it's very chaotic here."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "People everywhere are shouting they're hurt.",
+        "Lots of screaming about broken bones and cuts."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's a lot of blood, on both buses.",
+        "Yes, quite severe on several passengers."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them.",
+        "No idea, there's too many people."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no idea, sorry.",
+        "I can't tell you."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, both buses were full.",
+        "Mixed, there were school children on one of them."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're trying to help who we can.",
+        "Please send everyone you have, this is huge."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Are you serious, this is a major crash, we need everyone here now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties assessed across both vehicles"
+    ],
+    "update": [
+      "{{unit}} triaging passengers from both buses, mass casualty response ongoing"
+    ],
+    "stop": [
+      "{{unit}} clear, all casualties transported"
+    ]
+  },
+  "tags": [
+    "mass_casualty",
+    "police",
+    "recovery_vehicle",
+    "mc_791"
+  ],
+  "notes": "Generated from MissionChief UK mission 791 (Collision between two buses). Buildings: 16 Fire Stations, 10 Rescue Stations, 4 Police Stations, 2 HGV Recovery Extensions, 1 Mass Casualty Extension, 1 HART Base. Vehicles: 10 Fire engines, 6 Rescue Support Vehicles, 8 Police Cars, 3 Traffic Cars, 1 PRV, 1 SRV, 1 Welfare Vehicle, 1 ICCU or ACU. Personnel: 3 Fire Officers, 1 Ambulance Officer, 1 Mass Casualty Equipment. Patients: min 15, max 110, 50% require transport, Traumatology, codes C-1, C-2, C-3, 40% critical care. Prisoners: none. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

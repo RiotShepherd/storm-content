@@ -1,0 +1,238 @@
+{
+  "id": "rtc_chain_collision_in_the_tunnel",
+  "name": "Chain Collision in the tunnel",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 700,
+  "description": "Chain Collision in the tunnel",
+  "keywords": {
+    "correct": [
+      "rtc_injury"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 3,
+    "rescue_unit": 3,
+    "water_carrier": 1,
+    "basu": 1,
+    "hazmat_unit": 1,
+    "iccu": 1,
+    "irv": 3,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      14
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "smoke logging in the tunnel",
+    "multiple vehicles involved",
+    "enclosed space"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 25,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a massive pile up in the tunnel, loads of cars have gone into each other!",
+      "Emergency, multiple cars have crashed in the tunnel, there's smoke starting to build up in here."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a massive pile up in the tunnel, loads of cars have gone into each other!",
+        "Emergency, multiple cars have crashed in the tunnel, there's smoke starting to build up in here."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm a few cars back in the tunnel.",
+        "{{callerName}}, I've had to get out and leave my car."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them, there's cars everywhere.",
+        "I can't tell you, there's too many people involved."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're inside {{address}}, near the middle of the tunnel.",
+        "{{address}}, it's chaos in here, loads of cars piled up."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One car braked suddenly and then everyone behind went into each other, there's smoke starting to fill the tunnel.",
+        "It's a huge pile up, cars are still colliding as people can't stop in time."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are, others aren't moving in their cars.",
+        "A few people are out and walking, others look trapped."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I don't know about everyone, it's getting smoky in here.",
+        "Some are coughing from the smoke."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "People are shouting they're trapped and hurt.",
+        "I can hear screaming from further up."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, I can see blood on a few people who've got out.",
+        "Yes, on at least a couple of them."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them.",
+        "No idea, there's too many people."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no idea, sorry.",
+        "I can't tell you."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All sorts, it's a lot of vehicles.",
+        "Mixed ages, hard to say exactly."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm moving away from the smoke towards the exit.",
+        "Please hurry, the smoke's getting worse in here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Are you serious, there's a huge crash in the tunnel, we need help now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene in the tunnel, {{patients}} casualties assessed"
+    ],
+    "update": [
+      "{{unit}} ventilating the tunnel, treating casualties",
+      "{{unit}} confirms tunnel closed both directions"
+    ],
+    "stop": [
+      "{{unit}} clear, casualties transported, tunnel being cleared"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_796"
+  ],
+  "notes": "Generated from MissionChief UK mission 796 (Chain Collision in the tunnel). Buildings: 13 Fire Stations, 7 Rescue Stations, 2 Police Stations. Vehicles: 6 Fire engines, 3 Rescue Support Vehicles, 1 Water Carrier, 1 BASU, 1 HazMat or CBRN Vehicle, 1 ICCU or ACU, 3 Police Cars. Personnel: 2 Fire Officers. Patients: max 14, 25% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Tunnel.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

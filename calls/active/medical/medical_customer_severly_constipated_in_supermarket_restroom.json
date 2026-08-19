@@ -1,0 +1,184 @@
+{
+  "id": "medical_customer_severly_constipated_in_supermarket_restroom",
+  "name": "Customer Severly Constipated In Supermarket Restroom",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Customer Severly Constipated In Supermarket Restroom",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "supermarket",
+    "retail_park"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 15,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "We've got a customer stuck in the toilets, in a lot of pain, says they can't go",
+      "One of our customers is unwell in the restroom, severe stomach pain, been in there a while"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "We've got a customer stuck in the toilets, in a lot of pain, says they can't go",
+        "One of our customers is unwell in the restroom, severe stomach pain, been in there a while"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the duty manager"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, our customer"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, the supermarket",
+        "{{address}}, near the customer toilets"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "They've been in the restroom a long time, saying they've got severe stomach pain and can't go to the toilet",
+        "They pressed the alarm cord, they're doubled over with pain and very uncomfortable"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, fully awake and talking",
+        "Yes, conscious, just in discomfort"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, breathing normally",
+        "No problems there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, quite bad abdominal pain",
+        "They say it's a five or six out of ten"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of",
+        "They haven't said"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not that I know of",
+        "I don't know"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "59"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've given them some privacy and water",
+        "We're keeping the area clear"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "That might be more appropriate actually, it's not life threatening",
+        "Yes, I think that's probably better suited"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with abdominal discomfort"
+    ],
+    "update": [
+      "{{unit}} assessing casualty, condition stable",
+      "{{patients}} casualty comfortable, advice being given"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualty advised to see GP if symptoms continue"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_730"
+  ],
+  "notes": "Generated from MissionChief UK mission 730 (Customer Severly Constipated In Supermarket Restroom). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 15% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Supermarket (small), Supermarket (big)."
+}

@@ -1,0 +1,206 @@
+{
+  "id": "fire_burning_machine",
+  "name": "Burning machine",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 247,
+  "description": "Burning machine",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "rescue_unit": 1,
+    "water_carrier": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "fuel and oil stored nearby",
+    "confined workshop space",
+    "electrical fault"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's a machine on fire in my garage workshop",
+      "I need the fire brigade, one of my tools has caught fire and it's spreading to the workshop"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a machine on fire in my garage workshop",
+        "I need the fire brigade, one of my tools has caught fire and it's spreading to the workshop"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my workshop"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, I got out straight away"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the garage at the side of the house"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One of my machines has caught fire, I think it overheated, now the bench is starting to catch too"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, I'm well clear"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, just a lot of smoke in there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, I got out before it got bad"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've shut the door to slow it down"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a fire not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, machine fire within domestic garage, no persons involved"
+    ],
+    "update": [
+      "{{unit}} extinguishing, preventing spread to stored materials"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, area ventilated"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_28"
+  ],
+  "notes": "Generated from MissionChief UK mission 28 (Burning machine). Buildings: 5 Fire Stations. Vehicles: 3 Fire engines, 1 Rescue Support Vehicle, 1 Water Carrier (30% probability). Personnel: 1 Fire Officer. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

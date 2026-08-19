@@ -1,0 +1,196 @@
+{
+  "id": "police_protest_medium",
+  "name": "Protest (Medium)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 996,
+  "description": "Protest (Medium)",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 6,
+    "mounted_unit": 1,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      4
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "large crowd",
+    "road partially blocked"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police, there's a big protest going on, a few hundred people",
+      "There's a march coming through, getting noisy and crowded"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police, there's a big protest going on, a few hundred people",
+        "There's a march coming through, getting noisy and crowded"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I just saw it happen",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Someone's fallen and hurt their arm",
+        "One man's sat down, looks unwell"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, along the high street",
+        "It's {{address}}, near the square"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A few hundred are gathered, mostly peaceful but blocking the road",
+        "The crowd's grown quickly, chanting, spilling off the pavement"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious, a bit shaken",
+        "She's conscious, holding her arm"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing fine",
+        "Yes, fine but shaken"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his arm hurts",
+        "She's in some pain from the fall"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No visible bleeding",
+        "A small graze, not much blood"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Don't know him",
+        "No idea, stranger to me"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about thirty",
+        "Maybe mid forties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay nearby",
+        "Right, we're keeping the area clear around them"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This needs police attendance, not 111!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty being assessed"
+    ],
+    "update": [
+      "Crowd being monitored, casualty receiving first aid"
+    ],
+    "stop": [
+      "{{unit}} clear, crowd dispersing peacefully"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_448"
+  ],
+  "notes": "Generated from MissionChief UK mission 448 (Protest (Medium)). Buildings: 10 Police Stations, 1 Riot Police Extension. Vehicles: 6 Police Cars, 1 Mounted Unit. Personnel: deployed 22 Level 2 Public Order Officers, 4 Police Medics, 5 Police Sergeants, 2 Police Inspectors; available 50, 10, 10, 5. Patients: max 4, 30% require transport, General Surgeon, codes C-1, C-2, C-3. Prisoners: max 5. Escalation: none. POI: none."
+}

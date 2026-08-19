@@ -1,0 +1,190 @@
+{
+  "id": "medical_spinal_injury",
+  "name": "Spinal injury",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Spinal injury",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 70,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "possible spinal injury",
+    "do not move patient"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "He's fallen from a ladder and he says he can't feel his legs",
+      "I need an ambulance, he's fallen from height and can't move his legs properly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "He's fallen from a ladder and he says he can't feel his legs",
+        "I need an ambulance, he's fallen from height and can't move his legs properly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was working with him",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He fell off a ladder about ten feet up, landed on his back"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's awake and talking"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "His back's in agony"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "None that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None that I know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "52"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "We haven't moved him at all"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think this needs an ambulance, he can't feel his legs"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with suspected spinal injury, immobilising"
+    ],
+    "update": [
+      "Patient immobilised, sensation being monitored"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority to trauma centre"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_147"
+  ],
+  "notes": "Generated from MissionChief UK mission 147 (Spinal injury). Buildings: 2 Rescue Stations. Vehicles: none. Personnel: none. Patients: min 1, max 1, 50% require transport, General Surgeon, code C-2, 50% critical care. Prisoners: none. Escalation: none. POI: none."
+}

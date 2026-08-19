@@ -1,0 +1,185 @@
+{
+  "id": "rtc_two_vehicle_rtc_no_injuries",
+  "name": "Two vehicle RTC (No Injuries)",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Two vehicle RTC (No Injuries)",
+  "keywords": {
+    "correct": [
+      "rtc_minor"
+    ],
+    "acceptable": [
+      "rtc_injury"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "live traffic"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a bump between two cars, nobody's hurt but they're blocking the road.",
+      "Police please, a minor crash, both drivers are fine but need it sorting."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a bump between two cars, nobody's hurt but they're blocking the road.",
+        "Police please, a minor crash, both drivers are fine but need it sorting."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I saw it happen.",
+        "{{callerName}}, I was stopped nearby."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Nobody's hurt, both drivers are out and talking.",
+        "No injuries that I can see."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, right by the junction."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Two cars have bumped into each other pulling out of the junction, no one's hurt.",
+        "A minor shunt at low speed, both drivers are out checking the damage."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, everyone's up and talking.",
+        "No injuries, both drivers are fine."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Everyone's fine, this isn't medical.",
+        "No injuries at all."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt, just the cars.",
+        "Not applicable."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, nobody's injured.",
+        "No injuries."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient.",
+        "Not applicable."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No one needs medical help.",
+        "Not applicable."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient.",
+        "Not applicable."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we'll wait by the cars.",
+        "Understood, we've moved to the side of the road."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we just need police to sort the details, nobody's hurt!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing vehicles"
+    ],
+    "update": [
+      "{{unit}} taking details, arranging recovery if needed"
+    ],
+    "stop": [
+      "{{unit}} clear, matter resolved"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_332"
+  ],
+  "notes": "Generated from MissionChief UK mission 332 (Two vehicle RTC (No Injuries)). Buildings: 1 Police Station. Vehicles: 2 Police Cars. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

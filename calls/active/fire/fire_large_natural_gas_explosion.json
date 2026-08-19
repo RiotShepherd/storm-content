@@ -1,0 +1,242 @@
+{
+  "id": "fire_large_natural_gas_explosion",
+  "name": "Large Natural Gas Explosion",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1000,
+  "description": "Large Natural Gas Explosion",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "f2y",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "b_road",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 3,
+    "irv": 3,
+    "rescue_unit": 2,
+    "hazmat_unit": 1,
+    "iccu": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      20
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "risk of further explosion",
+    "gas leak",
+    "debris and rubble",
+    "structural collapse risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 8",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's been a massive explosion, I think it's the gas main",
+      "Please help, there was a huge bang and now there's people hurt everywhere"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a massive explosion, I think it's the gas main",
+        "Please help, there was a huge bang and now there's people hurt everywhere"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I was nearby when it happened"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know their names, there's several of them hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's near the explosion site"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There was an explosion, I think a gas main's gone, it's brought debris down and people are down"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "A couple are conscious and talking, a couple aren't moving"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Most are breathing but one's struggling"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Several are in a lot of pain, looks like broken bones"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, a few are bleeding, cuts from debris"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, there's quite a few people involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please send as many ambulances as you can"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, there's been an explosion, people are seriously hurt"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, explosion confirmed, multiple casualties, gas supply being isolated"
+    ],
+    "update": [
+      "Triage in progress, {{patients}} casualties identified",
+      "Crews making area safe, gas board attending"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualties, area made safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "rural_fire",
+    "mc_330"
+  ],
+  "notes": "Generated from MissionChief UK mission 330 (Large Natural Gas Explosion). Buildings: 13 Fire Stations, 15 Rescue Stations, 3 Police Stations. Vehicles: 6 Fire engines, 3 Police Cars, 2 Rescue Support Vehicles, 1 HazMat Unit or CBRN Vehicle, 1 ICCU or ACU. Personnel: 2 Fire Officers. Patients: max 20, 50% require transport, Traumatology, codes C-1, C-2. Prisoners: none. Escalation: none. POI: none.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

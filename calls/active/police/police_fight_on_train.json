@@ -1,0 +1,188 @@
+{
+  "id": "police_fight_on_train",
+  "name": "Fight on Train",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 120,
+  "description": "Fight on Train",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "tram_stop",
+    "train_station"
+  ],
+  "units": {
+    "irv": 4,
+    "dog_unit": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "confined carriage",
+    "moving train",
+    "frightened passengers"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a fight broken out on the train, it's between two passengers",
+      "Help, people are fighting on the carriage, I don't know how to stop it",
+      "There's a violent argument turned into a fight on the train, it's frightening everyone"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a fight broken out on the train, it's between two passengers",
+        "Help, people are fighting on the carriage, I don't know how to stop it",
+        "There's a violent argument turned into a fight on the train, it's frightening everyone"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm a passenger on the train",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know either of them",
+        "No idea who they are"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, we're pulling into the station now",
+        "It's on the train approaching {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Two men started arguing over a seat and now they're throwing punches",
+        "It happened a couple of minutes ago, other passengers are trying to get away from them",
+        "One of them's grabbed the other by the collar and it's turned nasty"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Both still conscious, still fighting",
+        "Yes, they're both up and swinging"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing fine as far as I can see, just angry",
+        "Seems okay, just very heated"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Don't know, they're too busy fighting to say",
+        "Can't tell"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "One's got a bloody nose",
+        "A little blood on one of them"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Both look to be in their thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've moved to the other end of the carriage",
+        "Please hurry, everyone's scared in here"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police urgently"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} met train at station, parties separated"
+    ],
+    "update": [
+      "Both men detained, statements being taken from witnesses"
+    ],
+    "stop": [
+      "{{unit}} clear, incident resolved"
+    ]
+  },
+  "tags": [
+    "police",
+    "railway_police",
+    "mc_464"
+  ],
+  "notes": "Generated from MissionChief UK mission 464 (Fight on Train). Buildings: 2 Police Stations. Vehicles: 4 Police Cars, 1 DSU. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: Tram stop, Train stations."
+}

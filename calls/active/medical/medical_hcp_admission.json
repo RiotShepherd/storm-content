@@ -1,0 +1,189 @@
+{
+  "id": "medical_hcp_admission",
+  "name": "HCP Admission",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "HCP Admission",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "This is Dr Patel at the surgery, I need to arrange an emergency admission for a patient",
+      "It's the practice nurse here, I've got a patient who needs blue lighting to hospital"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "This is Dr Patel at the surgery, I need to arrange an emergency admission for a patient",
+        "It's the practice nurse here, I've got a patient who needs blue lighting to hospital"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's Dr {{callerName}} calling from the surgery",
+        "{{callerName}}, I'm the practice nurse"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "The patient's name is {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, it's the surgery",
+        "{{address}}, ask at reception"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I've assessed the patient and they need urgent admission, observations are deteriorating"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, alert but unwell"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing is laboured, sats are dropping"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "They're reporting some discomfort but the main concern is the observations"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "COPD and type 2 diabetes, it's all in their notes"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I'll have the medication list ready for the crew"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "68"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Thank you, I'll stay with them until you arrive"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs to be an ambulance, I've already assessed them"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene at the surgery, {{patients}} patient handed over by GP, assessing"
+    ],
+    "update": [
+      "Patient stable on obs, preparing for transfer"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed for admission"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_655"
+  ],
+  "notes": "Generated from MissionChief UK mission 655 (HCP Admission). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 80% require transport, General Internal, codes C-1, C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

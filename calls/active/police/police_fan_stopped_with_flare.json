@@ -1,0 +1,184 @@
+{
+  "id": "police_fan_stopped_with_flare",
+  "name": "Fan Stopped with Flare",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Fan Stopped with Flare",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "stadium"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "pyrotechnic device",
+    "crowd nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, we've stopped a fan trying to bring a flare into the stadium",
+      "Security here, we've caught someone with a smoke flare at the turnstiles",
+      "There's a fan here who tried to sneak a flare in, we've got him detained"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, we've stopped a fan trying to bring a flare into the stadium",
+        "Security here, we've caught someone with a smoke flare at the turnstiles",
+        "There's a fan here who tried to sneak a flare in, we've got him detained"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm on stadium security",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "He's not giving his name, won't cooperate",
+        "Won't tell us his name"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the turnstile at the east entrance",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "We found a flare hidden in his jacket during the bag check",
+        "He tried to push past when we found it on him",
+        "It's a pyrotechnic flare, we've confiscated it and he's not happy about it"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's fine, just angry about being stopped",
+        "Conscious, arguing with our staff"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "He's fine physically"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A, no one's hurt",
+        "No injuries"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No idea, don't know him",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about twenty"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping him at the gate",
+        "Thank you, he's getting a bit mouthy now"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police, not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, male detained with flare, item seized"
+    ],
+    "update": [
+      "Male arrested, removed from stadium"
+    ],
+    "stop": [
+      "{{unit}} clear, male in custody, item seized as evidence"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_621"
+  ],
+  "notes": "Generated from MissionChief UK mission 621 (Fan Stopped with Flare). Buildings: 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: max 1. Escalation: none. POI: Stadium."
+}

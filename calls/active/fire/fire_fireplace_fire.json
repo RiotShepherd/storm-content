@@ -1,0 +1,206 @@
+{
+  "id": "fire_fireplace_fire",
+  "name": "Fireplace fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 131,
+  "description": "Fireplace fire",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "smoke logging",
+    "possible chimney fire spreading into roof space"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's a fire in my fireplace, it's spread past the grate",
+      "Fire brigade please, my chimney or fireplace has caught, there's smoke filling the room"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire in my fireplace, it's spread past the grate",
+        "Fire brigade please, my chimney or fireplace has caught, there's smoke filling the room"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my house"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No, we all got out of the room, nobody's hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's my house, front door's open",
+        "It's {{address}}, just knock if the door's shut"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The fire in the grate spread onto the hearth and now there's smoke coming from around the fireplace surround"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one involved, I've not seen anybody hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, there's nobody to check, it's just the fire"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can see"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries, nobody's here"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I can't help with that, there's no one hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no patient, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no one to ask, nobody's been hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've moved everyone into the kitchen",
+        "Please hurry, the room's filling with smoke"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a house fire, we need the fire brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, fireplace fire, no persons reported"
+    ],
+    "update": [
+      "Crews checking chimney and roof void for fire spread"
+    ],
+    "stop": [
+      "Fire out, chimney checked clear, {{unit}} leaving scene"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_31"
+  ],
+  "notes": "Generated from MissionChief UK mission 31 (Fireplace fire). Buildings: 6 Fire Stations. Vehicles: 3 Fire engines. Personnel: 1 Fire Officer. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

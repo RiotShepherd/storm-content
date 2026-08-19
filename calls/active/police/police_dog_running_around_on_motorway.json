@@ -1,0 +1,186 @@
+{
+  "id": "police_dog_running_around_on_motorway",
+  "name": "Dog running around on motorway",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Dog running around on motorway",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "motorway",
+    "a_road"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "loose animal on motorway",
+    "high speed traffic",
+    "risk of collision"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a dog loose on the motorway, this is really dangerous",
+      "I need urgent help, a dog's running along the hard shoulder on the motorway",
+      "There's a dog running between lanes on the motorway, someone's going to crash"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a dog loose on the motorway, this is really dangerous",
+        "I need urgent help, a dog's running along the hard shoulder on the motorway",
+        "There's a dog running between lanes on the motorway, someone's going to crash"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm pulled onto the hard shoulder",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, it's just the dog",
+        "N/A"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, near the junction",
+        "It's on {{address}}, between two junctions"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "It ran across in front of me, I nearly hit it, now it's running along the hard shoulder",
+        "Cars are slamming their brakes on trying to avoid it",
+        "It looks terrified, darting in and out of the lanes"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt so far, but it's only a matter of time",
+        "N/A, no injuries yet"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying in my car with hazards on",
+        "Please hurry, it's really dangerous at this speed"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police, this is a road danger"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, lane closure requested, dog being tracked"
+    ],
+    "update": [
+      "Dog contained safely off the carriageway"
+    ],
+    "stop": [
+      "{{unit}} clear, dog secured, lanes reopened"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_821"
+  ],
+  "notes": "Generated from MissionChief UK mission 821 (Dog running around on motorway). Buildings: 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: Highway exit, Major Road Standby Point, Motorway."
+}

@@ -1,0 +1,188 @@
+{
+  "id": "medical_blurred_vision",
+  "name": "Blurred Vision",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Blurred Vision",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "seizure",
+      "reduced consciousness",
+      "stroke symptoms"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My vision's gone really blurry all of a sudden, I don't feel right",
+      "My wife says everything looks blurred and she's got a bad headache"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "confused",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My vision's gone really blurry all of a sudden, I don't feel right",
+        "My wife says everything looks blurred and she's got a bad headache"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my wife"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, come quickly"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Her vision suddenly went blurry about ten minutes ago, and she's got a pounding headache",
+        "It happened out of nowhere, she says everything's doubled and she feels dizzy"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's awake and talking",
+        "Yes, conscious throughout"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing normally",
+        "Fine so far"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She's got a bad headache",
+        "Yes, behind her eyes she says"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She has migraines sometimes",
+        "High blood pressure, that's it"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She takes tablets for blood pressure",
+        "I'd need to check"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "55"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got her sitting down in a dim room",
+        "She's not getting any better, still blurry"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I'm worried it might be something serious, not just a headache",
+        "Maybe, but her vision's still bad"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with visual disturbance"
+    ],
+    "update": [
+      "{{unit}} carrying out neurological observations",
+      "{{patients}} casualty being closely monitored for stroke signs"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for further assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_479"
+  ],
+  "notes": "Generated from MissionChief UK mission 479 (Blurred Vision). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 80% require transport, Neurology, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

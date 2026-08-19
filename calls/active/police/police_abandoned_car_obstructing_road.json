@@ -1,0 +1,189 @@
+{
+  "id": "police_abandoned_car_obstructing_road",
+  "name": "Abandoned Car Obstructing Road",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 4,
+  "responseMinutes": 90,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 40,
+  "description": "Abandoned Car Obstructing Road",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "obstruction to traffic",
+    "vehicle blocking road"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a car just abandoned in the middle of the road, it's causing a right hazard",
+      "I need someone to come and move a car, it's been parked blocking the road for hours",
+      "There's an abandoned car blocking traffic outside my house, can you send someone"
+    ],
+    "phoneArea": "auto",
+    "callerType": "neighbour"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a car just abandoned in the middle of the road, it's causing a right hazard",
+        "I need someone to come and move a car, it's been parked blocking the road for hours",
+        "There's an abandoned car blocking traffic outside my house, can you send someone"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I live opposite",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no one with the car, it's empty",
+        "Nobody around it at all"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's right outside",
+        "It's on {{address}}, blocking half the road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "It's been sat there since yesterday, doors unlocked, no one's come for it",
+        "Someone's abandoned a car right across the road, cars are having to mount the kerb to get past"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one in it, it's empty",
+        "No one around, just the car"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Nobody's hurt, it's just the car causing the obstruction",
+        "No injuries, nobody's even here"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt",
+        "Not applicable, there's no one involved"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know who it belongs to",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable",
+        "I couldn't tell you"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable, the car's empty"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll leave it be until someone comes",
+        "Thank you, it's causing a real problem for traffic"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This isn't a medical thing, it's an abandoned car!",
+        "No, I need the police for this, not 111"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, vehicle confirmed abandoned and obstructing the carriageway"
+    ],
+    "update": [
+      "Checks run on the vehicle, awaiting recovery"
+    ],
+    "stop": [
+      "{{unit}} clear, vehicle recovered, road clear"
+    ]
+  },
+  "tags": [
+    "recovery_vehicle",
+    "mc_784"
+  ],
+  "notes": "Generated from MissionChief UK mission 784 (Abandoned Car Obstructing Road). Buildings: 1 Recovery Centre. Vehicles: tow capability only. Personnel: none. Patients: none. Prisoners: none. Escalation: Stolen Car Located. POI: none."
+}

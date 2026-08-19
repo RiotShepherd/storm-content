@@ -1,0 +1,203 @@
+{
+  "id": "police_fail_to_stop",
+  "name": "Fail to stop",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 500,
+  "description": "Fail to stop",
+  "keywords": {
+    "correct": [
+      "pursuit"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 4,
+    "dog_unit": 1,
+    "traffic_car": 2,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "dangerous driving",
+    "pursuit in progress"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "npas": {
+      "chance": 80,
+      "delaySeconds": [
+        120,
+        240
+      ],
+      "unit": "npas"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, a car's just sped off after nearly hitting a cyclist, didn't stop",
+      "I need to report dangerous driving, he's driven off flooring it after a near miss",
+      "There's a car that failed to stop for police, it just flew past me at speed"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, a car's just sped off after nearly hitting a cyclist, didn't stop",
+        "I need to report dangerous driving, he's driven off flooring it after a near miss",
+        "There's a car that failed to stop for police, it just flew past me at speed"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I saw the whole thing",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know the driver",
+        "No idea who he is"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it happened right by here",
+        "It was near {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A car sped through a red light and nearly hit someone, then just kept going",
+        "It happened seconds ago, heading towards the ring road at speed",
+        "Police were behind it with lights on and it just wouldn't stop"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, everyone got out of the way",
+        "No injuries, just very close calls"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know the driver",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Hard to say, he drove past too fast"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got the registration if that helps",
+        "Thank you, it was very dangerous"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police, not 111"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in pursuit, vehicle description confirmed"
+    ],
+    "update": [
+      "Vehicle stopped safely, occupants detained"
+    ],
+    "stop": [
+      "{{unit}} clear, vehicle recovered, suspects in custody"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_91"
+  ],
+  "notes": "Generated from MissionChief UK mission 91 (Fail to stop). Buildings: 7 Police Stations, 1 Police Helicopter Station. Vehicles: 4 Police Cars, 1 DSU, 1 Police Helicopter, 2 Traffic Cars (only when available). Personnel: none. Patients: none. Prisoners: max 4. Escalation: none. POI: none."
+}

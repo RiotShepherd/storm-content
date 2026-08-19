@@ -1,0 +1,223 @@
+{
+  "id": "hazmat_bulk_hazardous_storage_tank_leak_large",
+  "name": "Bulk hazardous storage tank leak (large)",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 600,
+  "description": "Bulk hazardous storage tank leak (large)",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 3,
+    "irv": 3,
+    "hazmat_unit": 2,
+    "basu": 1,
+    "iccu": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      10
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "toxic vapour",
+    "chemical spill",
+    "confined bund area"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade, there's a big leak from the chemical tank on site, vapour's coming off it heavily.",
+      "One of the large storage tanks is leaking, staff are being evacuated, there's a strong smell in the air."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade, there's a big leak from the chemical tank on site, vapour's coming off it heavily.",
+        "One of the large storage tanks is leaking, staff are being evacuated, there's a strong smell in the air."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "{{callerName}}, I'm ringing about it now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't have their names, they're site staff."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A valve's failed on the large storage tank and product is leaking out fast, we can see vapour rising from the bund.",
+        "The tank started leaking during a delivery, there's a strong chemical smell spreading across the yard."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "The staff caught in the vapour are conscious, coughing and their eyes are streaming."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A few are wheezing quite badly, we've moved them upwind."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Some report burning in their eyes and throat."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, it's the vapour affecting them."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I'll need to check their records, I don't know offhand."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not sure, sorry."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Working age staff, twenties to fifties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, large tank leak confirmed, hazmat in gas tight suits, cordon extended."
+    ],
+    "update": [
+      "{{unit}} leak being controlled, {{patients}} casualties treated for chemical exposure."
+    ],
+    "stop": [
+      "{{unit}} stopped, leak contained, environment agency notified."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_328"
+  ],
+  "notes": "Generated from MissionChief UK mission 328 (Bulk hazardous storage tank leak (large)). Buildings: 11 Fire Stations, 5 Rescue Stations, 2 Police Stations. Vehicles: 6 Fire engines, 3 Police Cars, 2 HazMat Units or CBRN Vehicles, 1 BASU, 1 ICCU or ACU. Personnel: 2 Fire Officers. Patients: max 10, 60% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Large chemical storage tank.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

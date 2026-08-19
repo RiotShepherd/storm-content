@@ -1,0 +1,192 @@
+{
+  "id": "police_concern_for_welfare_on_bridge",
+  "name": "Concern for welfare on bridge",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 4,
+  "responseMinutes": 90,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 130,
+  "description": "Concern for welfare on bridge",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "bridge"
+  ],
+  "units": {
+    "irv": 3,
+    "traffic_car": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "person at height",
+    "risk to life",
+    "traffic nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's someone stood on the wrong side of the railings on the bridge",
+      "I'm really worried, there's a person on the bridge who looks like they're going to jump",
+      "Please hurry, someone's on the edge of the bridge, I don't think they're safe"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's someone stood on the wrong side of the railings on the bridge",
+        "I'm really worried, there's a person on the bridge who looks like they're going to jump",
+        "Please hurry, someone's on the edge of the bridge, I don't think they're safe"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I was just driving past",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know them, I've never seen them before",
+        "No idea who they are"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the bridge",
+        "It's at {{address}}, on the footbridge"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "They're stood on the other side of the railing, right on the edge",
+        "They've been there a couple of minutes, not moving, just staring down",
+        "I tried calling out to them but they didn't respond"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "They're conscious, stood up on their own",
+        "Yes, they're awake, just very still"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell from here, but they're standing",
+        "Looks okay from a distance"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I don't know, they're not saying anything",
+        "Can't tell"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, not that I can see",
+        "None visible"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them at all",
+        "No idea"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like a young adult, maybe twenties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying nearby but keeping my distance",
+        "Please hurry, I'm scared for them"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs police right now, please"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, person located on bridge, negotiating"
+    ],
+    "update": [
+      "Person engaging with officers, talks ongoing",
+      "Person brought to safety, being assessed"
+    ],
+    "stop": [
+      "{{unit}} clear, person safe, handed to ambulance for assessment"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_412"
+  ],
+  "notes": "Generated from MissionChief UK mission 412 (Concern for welfare on bridge). Buildings: 3 Police Stations, 1 Rescue Station. Vehicles: 3 Police Cars or ARVs, 1 Traffic Car (only when available). Personnel: none. Patients: max 1, 60% require transport, General Internal, code C-3, 70% first responder full care. Prisoners: none. Escalation: none. POI: Bridge."
+}

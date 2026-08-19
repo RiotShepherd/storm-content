@@ -1,0 +1,220 @@
+{
+  "id": "police_bar_fight",
+  "name": "Bar Fight",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 340,
+  "description": "Bar Fight",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "pub"
+  ],
+  "units": {
+    "irv": 6,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      8
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "mass brawl",
+    "broken glass",
+    "multiple injured",
+    "alcohol involved"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police and ambulance please, there's a massive fight broken out in the bar",
+      "Help, it's kicked off in here, people are getting hurt, glasses everywhere",
+      "Please hurry, there's a huge brawl in the pub, someone's bleeding badly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police and ambulance please, there's a massive fight broken out in the bar",
+        "Help, it's kicked off in here, people are getting hurt, glasses everywhere",
+        "Please hurry, there's a huge brawl in the pub, someone's bleeding badly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I work behind the bar",
+        "It's {{callerName}}, I'm the duty manager"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know most of their names, there's several hurt",
+        "One's called {{firstPatientName}} I think, a regular"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, come round the back if the front's blocked",
+        "We're at {{address}}, it's chaos in here"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A row over spilled drinks turned into a full on brawl, chairs and glasses are flying",
+        "It's been going about two minutes, at least eight people involved",
+        "Someone's been glassed, there's blood on the floor"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious, one lad's not moving much on the floor",
+        "They're all awake, shouting and fighting"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "The injured ones seem to be breathing okay",
+        "Breathing fine as far as I can tell"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Several are in pain, cuts and bruises mostly",
+        "One's holding his face, says his jaw hurts"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, at least two of them are bleeding badly from cuts",
+        "Someone's been glassed across the face, lots of blood"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them well enough to say",
+        "No idea, they're not regulars I recognise"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Couldn't tell you",
+        "No idea"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, twenties to forties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm trying to keep people apart",
+        "Please hurry, this is getting out of hand"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need police and ambulance now, this is serious!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, large disturbance confirmed, {{patients}} casualties being triaged"
+    ],
+    "update": [
+      "Combatants separated, {{patients}} casualties assessed for cuts and trauma",
+      "Prisoners restrained, walking wounded treated on scene"
+    ],
+    "stop": [
+      "{{unit}} clear, scene secured, casualties conveyed as required"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_445"
+  ],
+  "notes": "Generated from MissionChief UK mission 445 (Bar Fight). Buildings: 8 Police Stations, 1 Riot Police Extension. Vehicles: 6 Police Cars. Personnel: 1 Police Sergeant deployed, 5 available. Patients: max 8, 30% require transport, General Surgeon, codes C-1, C-2, C-3, 30% critical care. Prisoners: max 6. Escalation: none. POI: Bar.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "id": "fire_amusement_park_ride_malfunction",
+  "name": "Amusement Park Ride Malfunction",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Amusement Park Ride Malfunction",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "aerial": 1,
+    "rescue_unit": 1,
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "working at height",
+    "crowd nearby",
+    "ride mechanism still under tension"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "One of our rides has malfunctioned and stopped with people stuck on it, one's not doing well",
+      "I need the fire brigade, we've a stuck ride and a passenger's in a bad way up top"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "One of our rides has malfunctioned and stopped with people stuck on it, one's not doing well",
+        "I need the fire brigade, we've a stuck ride and a passenger's in a bad way up top"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the ride operator"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't have his name, he's one of the riders",
+        "It might be {{firstPatientName}}, that's what his friend shouted up"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the theme park, follow signs to the big drop ride"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The ride jammed halfway through the cycle, one rider's stuck at height and struggling",
+        "It stopped dead with people still on it, one passenger's gone very pale and can't catch their breath"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious but shaking, can't get down"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He says he can't catch his breath, he's panicking up there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's saying his chest feels tight"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding that I can see from here"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know, I'll ask his friends"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not sure, I can ask the group he's with"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like a teenager, maybe 16 or so"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping everyone calm and talking to him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's stuck up a ride and can't breathe properly, we need you here"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, ride stopped with {{patients}} casualty at height, assessing rescue plan"
+    ],
+    "update": [
+      "{{unit}} rigging rescue equipment, casualty still conscious at height",
+      "Ride power isolated, awaiting confirmation before approach"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualty safely lowered and handed to ambulance"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_699"
+  ],
+  "notes": "Generated from MissionChief UK mission 699 (Amusement Park Ride Malfunction). Buildings: 10 Fire Stations, 5 Rescue Stations, 5 Police Stations. Vehicles: 1 Fire engine, 1 Aerial Appliance Truck, 1 Rescue Support Vehicle, 1 Police Car. Personnel: none. Patients: min 1, max 1, 30% require transport, General Internal, code C-3, 20% critical care. Prisoners: none. Escalation: none. POI: Theme Park."
+}

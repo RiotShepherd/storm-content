@@ -1,0 +1,215 @@
+{
+  "id": "rtc_multi_vehicle_rtc_entrapment",
+  "name": "Multi vehicle RTC entrapment",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 400,
+  "description": "Multi vehicle RTC entrapment",
+  "keywords": {
+    "correct": [
+      "rtc_trapped"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_injury"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "rescue_unit": 1,
+    "irv": 2,
+    "fire_officer": 1,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      3,
+      7
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway",
+    "persons trapped in vehicles"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 45,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a big crash, several cars, and at least one person's trapped inside their car.",
+      "Emergency, multiple vehicles involved, someone's trapped and can't get out."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a big crash, several cars, and at least one person's trapped inside their car.",
+        "Emergency, multiple vehicles involved, someone's trapped and can't get out."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was a few cars back.",
+        "{{callerName}}, I've stopped to help where I can."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know any of them, there's several cars involved.",
+        "One's trapped, he told me his name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, cars are scattered across both lanes."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Several cars have gone into each other and one driver's trapped, the door's completely jammed.",
+        "It's a multi car crash, one of the cars is crushed and the driver can't get out."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "The trapped one's conscious, talking to us.",
+        "Some are, others in the cars aren't moving."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but he sounds in pain.",
+        "Some are, hard to check everyone."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's saying his legs are trapped and it hurts badly.",
+        "A few are saying their backs and necks hurt."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's blood, quite a bit.",
+        "Yes, on a couple of them."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them.",
+        "No idea, there's too many people."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no idea, sorry.",
+        "I can't tell you."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Mixed ages, quite a few different drivers.",
+        "All sorts, hard to say exactly."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm talking to the trapped driver to keep him calm.",
+        "Please hurry, he can't move at all."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Are you serious, someone's trapped in a crashed car!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} casualties assessed, extrication starting"
+    ],
+    "update": [
+      "{{unit}} working to free trapped casualties"
+    ],
+    "stop": [
+      "{{unit}} clear, casualties extracted and transported"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_130"
+  ],
+  "notes": "Generated from MissionChief UK mission 130 (Multi vehicle RTC entrapment). Buildings: 6 Fire Stations, 10 Rescue Stations, 1 Police Station. Vehicles: 4 Fire engines, 1 Rescue Support Vehicle, 2 Police Cars. Personnel: 1 Fire Officer, 1 Operational Team Leader (50% probability). Patients: min 3, max 7, 80% require transport, General Surgeon, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

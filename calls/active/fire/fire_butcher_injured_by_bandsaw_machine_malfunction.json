@@ -1,0 +1,180 @@
+{
+  "id": "fire_butcher_injured_by_bandsaw_machine_malfunction",
+  "name": "Butcher Injured By Bandsaw Machine Malfunction",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Butcher Injured By Bandsaw Machine Malfunction",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "supermarket",
+    "retail_park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "machinery still powered",
+    "blood loss",
+    "confined workspace"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been an accident with the bandsaw in the butchery, one of my staff is badly hurt",
+      "I need an ambulance and the fire brigade, the bandsaw's malfunctioned and injured the butcher"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been an accident with the bandsaw in the butchery, one of my staff is badly hurt",
+        "I need an ambulance and the fire brigade, the bandsaw's malfunctioned and injured the butcher"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the department manager"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, he's one of our butchers"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the supermarket, go to the butchery counter at the back"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The bandsaw malfunctioned while he was using it, he's got a serious injury to his hand and arm"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious but in a lot of shock"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He's breathing fast, he's very shaken up"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's in severe pain, holding his arm"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's a lot of blood, we've applied pressure with a clean cloth"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know his full history, I'll ask his emergency contact"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I'm not sure, I can check his staff file"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's in his forties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping pressure on the wound and keeping him calm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance now, he's bleeding badly"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, machinery isolated, {{patients}} casualty with traumatic hand injury, treating for shock"
+    ],
+    "update": [
+      "{{unit}} confirms bleeding controlled, casualty stable ahead of transport"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualty handed to ambulance for transport"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_725"
+  ],
+  "notes": "Generated from MissionChief UK mission 725 (Butcher Injured By Bandsaw Machine Malfunction). Buildings: 1 Fire Station, 1 Rescue Station. Vehicles: 1 Fire Engine, Rescue Support Vehicle or Aerial Appliance Truck. Personnel: none. Patients: min 1, max 1, 100% require transport, General Internal, code C-3. Prisoners: none. Escalation: none. POI: Supermarket (small), Supermarket (big)."
+}

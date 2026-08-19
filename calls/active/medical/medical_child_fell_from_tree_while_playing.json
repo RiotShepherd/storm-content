@@ -1,0 +1,190 @@
+{
+  "id": "medical_child_fell_from_tree_while_playing",
+  "name": "Child fell from tree while playing",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "Child fell from tree while playing",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My son's fallen out of a tree, he's hurt his arm badly",
+      "He's fallen from quite high up in a tree, he's in a lot of pain"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My son's fallen out of a tree, he's hurt his arm badly",
+        "He's fallen from quite high up in a tree, he's in a lot of pain"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my son"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, in the garden"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He climbed up the tree and fell, must be eight or nine feet, landed awkwardly on his arm",
+        "He fell out of the tree onto the grass, he's not able to move his arm properly"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and crying",
+        "Yes, conscious, very upset"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing normally",
+        "Fine, just crying hard"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Very painful, his arm looks a strange shape",
+        "Yes, he says his arm and his back hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A small graze, not much",
+        "No bleeding, just bruising"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No, nothing relevant",
+        "He's healthy otherwise"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None",
+        "No regular medication"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "8"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm keeping him still and comforting him",
+        "I'm not letting him move it"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, his arm looks broken, I don't think that's enough",
+        "No, I think he needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty assessed following fall from height"
+    ],
+    "update": [
+      "{{unit}} splinting suspected fracture, providing pain relief",
+      "{{patients}} casualty stable, ready for transport"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_770"
+  ],
+  "notes": "Generated from MissionChief UK mission 770 (Child fell from tree while playing). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 80% require transport, Traumatology, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

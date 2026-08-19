@@ -1,0 +1,172 @@
+{
+  "id": "fire_dryer_on_fire",
+  "name": "Dryer on fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 101,
+  "description": "Dryer on fire",
+  "keywords": {
+    "correct": [
+      "f1"
+    ],
+    "acceptable": [
+      "f2",
+      "f_alarm"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "lint buildup",
+    "smoke logging small shop",
+    "customers nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "One of the tumble dryers has caught fire in the launderette",
+      "I need the fire brigade, a dryer's on fire and the shop's filling with smoke"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "One of the tumble dryers has caught fire in the launderette",
+        "I need the fire brigade, a dryer's on fire and the shop's filling with smoke"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I run the launderette"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, I've got the customers outside"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the launderette on the high street"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One of the dryers has caught fire, I think it overheated, it's smoking badly now"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, everyone's out on the pavement"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A couple of customers got a bit of smoke but they're fine outside"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's involved"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've turned off the power to the machines"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, tumble dryer well alight within launderette, no persons involved"
+    ],
+    "update": [
+      "{{unit}} extinguishing, ventilating the shop"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, premises made safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mc_858"
+  ],
+  "notes": "Generated from MissionChief UK mission 858 (Dryer on fire). Buildings: 3 Fire Stations. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: Launderette."
+}

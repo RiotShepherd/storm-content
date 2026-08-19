@@ -1,0 +1,180 @@
+{
+  "id": "medical_general_weakness",
+  "name": "General Weakness",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "General Weakness",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My mum's just not herself today, she's really weak and can't get up",
+      "I don't know what's wrong, my mum's gone all weak and pale"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "confused",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My mum's just not herself today, she's really weak and can't get up",
+        "I don't know what's wrong, my mum's gone all weak and pale"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, her daughter",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my mum",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, I'll be watching for you"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's been getting weaker all morning, she can barely stand and she's very pale"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's talking but seems muddled"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Seems okay, a little shallow maybe"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says she's not in pain, just weak"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's got a heart condition and had a stroke a few years back"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She's on warfarin and something for her heart, I can get the list"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "82"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Alright, I'll stay with her, please hurry"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I did wonder about that but she's really not right today"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with generalised weakness, assessing"
+    ],
+    "update": [
+      "Patient alert, obs stable, preparing to convey"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_654"
+  ],
+  "notes": "Generated from MissionChief UK mission 654 (General Weakness). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 50% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,188 @@
+{
+  "id": "rtc_caravan_roll_over_rtc",
+  "name": "Caravan roll over RTC",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 500,
+  "description": "Caravan roll over RTC",
+  "keywords": {
+    "correct": [
+      "rtc_minor"
+    ],
+    "acceptable": [
+      "rtc_injury"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "irv": 4
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "live traffic",
+    "road blocked"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A caravan's flipped over on the road, it's blocking both lanes.",
+      "There's been an accident, a car towing a caravan has rolled it, no one seems hurt but it's a mess."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A caravan's flipped over on the road, it's blocking both lanes.",
+        "There's been an accident, a car towing a caravan has rolled it, no one seems hurt but it's a mess."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was a few cars back.",
+        "{{callerName}}, I stopped to check on them."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Nobody seems hurt, they've climbed out themselves.",
+        "No injuries as far as I can see."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, the caravan's on its side blocking the road."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The caravan started swaying and then flipped right over, dragging the car with it.",
+        "It looks like the caravan came loose and rolled, luckily they'd slowed right down."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, the driver's out and walking about, seems fine.",
+        "Yes, they're both conscious and out of the vehicle."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, both breathing fine.",
+        "Yes, they seem okay, just shaken."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, they say they're not hurt, just shaken up.",
+        "Not that they've mentioned, just shocked."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no visible injuries.",
+        "No, doesn't look like it."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry.",
+        "No idea, I don't know them."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry.",
+        "I couldn't say."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like a couple in their sixties.",
+        "Middle aged, I'd say."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping traffic back from them.",
+        "Understood, they're sat safely on the verge."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we just need help clearing the road and checking them over!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing the vehicle and caravan"
+    ],
+    "update": [
+      "{{unit}} working to clear the carriageway"
+    ],
+    "stop": [
+      "{{unit}} clear, road reopened"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_465"
+  ],
+  "notes": "Generated from MissionChief UK mission 465 (Caravan roll over RTC). Buildings: 1 Fire Station, 4 Police Stations. Vehicles: 1 Fire engine or Rescue Support Vehicle, 4 Police Cars. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,203 @@
+{
+  "id": "fire_burning_freight_car",
+  "name": "Burning freight car",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Burning freight car",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "train_station",
+    "industrial_estate"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 2,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "overhead line electrification",
+    "unknown wagon contents",
+    "rail track hazards"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 7",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "One of the freight wagons is on fire in the goods yard",
+      "I need the fire brigade, a freight car's alight on the sidings"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "One of the freight wagons is on fire in the goods yard",
+        "I need the fire brigade, a freight car's alight on the sidings"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work here at the depot"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, the yard's been cleared"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the goods yard, use the staff gate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One of the freight wagons has caught fire, we don't know the cause yet, it's well alight now"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, all staff are accounted for"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, we've kept everyone clear of the smoke"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've isolated the power to that section of track"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a fire not a medical matter"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, freight wagon well alight, contents unknown, line isolated"
+    ],
+    "update": [
+      "{{unit}} confirms wagon contents non hazardous, continuing to extinguish"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, line handed back to network control"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "chemical_and_industrial_fire",
+    "urban_fire",
+    "mc_236"
+  ],
+  "notes": "Generated from MissionChief UK mission 236 (Burning freight car). Buildings: 6 Fire Stations. Vehicles: 5 Fire engines. Personnel: 1 Fire Officer. Patients: none. Prisoners: none. Escalation: none. POI: Goods station."
+}

@@ -1,0 +1,205 @@
+{
+  "id": "rescue_person_trapped_between_platform_and_train",
+  "name": "Person trapped between platform and train",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 160,
+  "description": "Person trapped between platform and train",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "tram_stop",
+    "train_station"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "rescue_unit": 1,
+    "irv": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "live rail",
+    "train unable to move",
+    "crowded platform"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Someone's fallen between the train and the platform, they're trapped and the train can't move!",
+      "Emergency, a passenger's gone down the gap and is trapped between the platform edge and the train."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Someone's fallen between the train and the platform, they're trapped and the train can't move!",
+        "Emergency, a passenger's gone down the gap and is trapped between the platform edge and the train."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm platform staff.",
+        "{{callerName}}, I saw it happen right in front of me."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know his name, he's a passenger.",
+        "She told me her name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's {{address}}, platform two.",
+        "{{address}}, come to the station, we've held the train."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He slipped as the train was pulling in and his leg's gone down the gap between the platform and the train.",
+        "She fell as she was boarding and now she's trapped between the train and the edge."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious and talking, but very frightened.",
+        "Yes, she's awake, in a lot of pain."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, he's breathing, but panicking.",
+        "Yes, breathing fast, she's very scared."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's screaming that his leg is crushed.",
+        "She says her leg is trapped and it's agony."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's blood, it looks bad.",
+        "Yes, quite a bit of blood from the leg."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know, he's a stranger.",
+        "No idea, I don't know her."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry.",
+        "I couldn't tell you."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about thirty.",
+        "She's maybe in her twenties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've stopped the train from moving.",
+        "Please hurry, he's in so much pain."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is an emergency, someone is trapped by a train!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, power confirmed isolated, assessing casualty"
+    ],
+    "update": [
+      "{{unit}} working to free the casualty, ambulance on scene"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty freed and transported"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "railway_fire",
+    "urban_fire",
+    "mc_798"
+  ],
+  "notes": "Generated from MissionChief UK mission 798 (Person trapped between platform and train). Buildings: 5 Fire Stations, 1 Police Station, 3 Rescue Stations. Vehicles: 2 Fire engines, 1 Rescue Support Vehicle, 1 Police Car. Personnel: 1 Fire Officer. Patients: min 1, max 1, 100% require transport, Traumatology, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Tram stop, Train stations."
+}

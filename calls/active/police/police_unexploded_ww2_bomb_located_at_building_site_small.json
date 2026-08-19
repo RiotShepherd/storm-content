@@ -1,0 +1,204 @@
+{
+  "id": "police_unexploded_ww2_bomb_located_at_building_site_small",
+  "name": "Unexploded WW2 Bomb Located at Building Site (Small)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 625,
+  "description": "Unexploded WW2 Bomb Located at Building Site (Small)",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "irv": 6,
+    "ambulance": 1,
+    "hart": 2,
+    "eod_unit": 2,
+    "fire_officer": 1,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "unexploded ordnance"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, we've found something that looks like an old bomb on site",
+      "Control, we think we've uncovered unexploded ordnance during digging"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, we've found something that looks like an old bomb on site",
+        "Control, we think we've uncovered unexploded ordnance during digging"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I work here",
+        "It's {{callerName}}, I'm on shift"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, we've stepped away from it",
+        "Nobody hurt, we've cleared the immediate area"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the building site",
+        "It's {{address}}, near the site fence"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A groundworker's dug up a rusted metal object shaped like an old bomb",
+        "We've stopped digging, it's a suspicious object partly buried near the fence"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's nobody hurt, it's just the property",
+        "No one's hurt, it's just damage"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Nobody needing that, no one's hurt",
+        "There's no injuries, just the damage"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's in pain, nobody's here",
+        "No, nobody's hurt at all"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, there's no one hurt",
+        "No bleeding, nobody was here when it happened"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient, it's not medical",
+        "Not applicable, nobody's hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No one needs that, nobody's hurt",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, it's just property",
+        "N/A, nobody's involved that way"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've stopped work and stepped back",
+        "Right, everyone's clear of the area"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This is a police matter, nobody needs a doctor!",
+        "No one's ill, I need the police not 111!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, small cordon established, bomb disposal en route"
+    ],
+    "update": [
+      "Area cordoned off, EOD team assessing the object"
+    ],
+    "stop": [
+      "{{unit}} clear, device made safe, cordon lifted"
+    ]
+  },
+  "tags": [
+    "bomb_disposal",
+    "mc_838"
+  ],
+  "notes": "Generated from MissionChief UK mission 838 (Unexploded WW2 Bomb Located at Building Site (Small)). Buildings: 6 Fire Stations, 6 Rescue Stations, 15 Police Stations, 2 Bomb Disposal HQs, 1 HART Base. Vehicles: 1 Fire engine, 6 Police Cars, 1 Ambulance, 1 PRV, 1 SRV, 1 EOD Response Vehicle, 1 EOD Medium Equipment Van. Personnel: 1 Fire Officer, 1 Operational Team Leader, 1 Police Sergeant (2 available). Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

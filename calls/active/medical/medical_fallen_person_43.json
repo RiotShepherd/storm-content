@@ -1,0 +1,191 @@
+{
+  "id": "medical_fallen_person_43",
+  "name": "Fallen person",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 4,
+  "responseMinutes": 90,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 40,
+  "description": "Fallen person",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Someone's had a minor fall on the high street, seems okay but a bit shaken",
+      "There's a chap who's tripped and gone down, nothing looks too serious"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Someone's had a minor fall on the high street, seems okay but a bit shaken",
+        "There's a chap who's tripped and gone down, nothing looks too serious"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "He told me his name's {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's at {{address}}",
+        "{{address}}, on the high street"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He caught his foot on a paving slab and went down, bit embarrassed more than hurt",
+        "She tripped over her own feet and stumbled, landed on her knees"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and chatting away",
+        "Yes, conscious, seems fine"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, breathing normally",
+        "No problems"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Says his knee's a bit sore",
+        "A bit of a graze, nothing major"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "A tiny graze on her knee"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Don't know him, just happened to be passing",
+        "She hasn't said"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Don't know",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about 45",
+        "Middle aged I'd say"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, he's sitting on the bench now, seems alright",
+        "She's a bit shaken but otherwise fine"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "He did say he'd rather get checked, given he takes blood thinners",
+        "Not sure, maybe that would suit her better"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty following a minor fall"
+    ],
+    "update": [
+      "{{unit}} checking for injuries, casualty comfortable",
+      "{{patients}} casualty stable, minor injuries only"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualty advised and no transport required"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_43"
+  ],
+  "notes": "Generated from MissionChief UK mission 43 (Fallen person). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, Traumatology, code C-4, 50% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

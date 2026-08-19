@@ -1,0 +1,179 @@
+{
+  "id": "fire_garden_shed_fire",
+  "name": "Garden shed fire",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 60,
+  "description": "Garden shed fire",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "fire spread to fence and house",
+    "possible gas canisters or fuel for garden tools"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My garden shed's on fire, it's right by the fence to next door",
+      "Fire brigade please, the shed's gone up, I'm worried it'll spread to the house"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My garden shed's on fire, it's right by the fence to next door",
+        "Fire brigade please, the shed's gone up, I'm worried it'll spread to the house"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my garden"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No, nobody was near it, we're all fine, just worried about the house"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the shed at the back of the garden",
+        "It's {{address}}, come round the side gate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The shed's caught fire, I think it was an electrical fault with the freezer I kept in there, it's close to the fence and the house"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one involved, I've not seen anybody hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, there's nobody to check, it's just the fire"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can see"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries, nobody's here"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I can't help with that, there's no one hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no patient, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no one to ask, nobody's been hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've moved everyone away from the fence line",
+        "Please hurry, it's quite close to the house"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a shed fire, nobody's hurt"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, garden shed alight, no persons reported"
+    ],
+    "update": [
+      "Crews preventing fire spread to boundary fence and house"
+    ],
+    "stop": [
+      "Fire out, {{unit}} damping down, checking fence line"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_6"
+  ],
+  "notes": "Generated from MissionChief UK mission 6 (Garden shed fire). Buildings: 2 Fire Stations. Vehicles: 2 Fire engines. Personnel: none. Patients: none. Prisoners: none. Escalation: Burning leaves, Roof fire. POI: none."
+}

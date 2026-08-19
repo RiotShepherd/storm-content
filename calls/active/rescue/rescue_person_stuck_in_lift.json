@@ -1,0 +1,184 @@
+{
+  "id": "rescue_person_stuck_in_lift",
+  "name": "Person Stuck in lift",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Person Stuck in lift",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I'm stuck in the lift, it's just stopped between floors and the doors won't open.",
+      "Fire brigade please, I'm trapped in a lift, I've been stuck for twenty minutes."
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I'm stuck in the lift, it's just stopped between floors and the doors won't open.",
+        "Fire brigade please, I'm trapped in a lift, I've been stuck for twenty minutes."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "My name's {{callerName}}, I'm the one stuck."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no injury, I'm just stuck.",
+        "It's just me, I'm fine, just trapped."
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}, in the lift.",
+        "{{address}}, it's the lift by the main entrance."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The lift just stopped between floors and won't move, the doors won't open either.",
+        "It made a strange noise and then stopped, I've been stuck since."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm fine, just stuck.",
+        "Yes, completely fine, just want out."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing's fine, a bit stuffy in here though.",
+        "Yes, I'm okay."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, I'm not hurt at all.",
+        "No pain, just fed up."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries.",
+        "No, I'm fine."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing relevant.",
+        "No, I'm generally healthy."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, nothing I need right now.",
+        "No, I'm not on anything."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm thirty four.",
+        "I'm in my forties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay calm and wait.",
+        "Thank you, I'll try the alarm button again."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I'm physically trapped, not ill!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing the lift"
+    ],
+    "update": [
+      "{{unit}} working to free the casualty from the lift"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty released"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_366"
+  ],
+  "notes": "Generated from MissionChief UK mission 366 (Person Stuck in lift). Buildings: 1 Fire Station. Vehicles: 1 Fire engine. Personnel: none. Patients: none. Prisoners: none. Escalation: expands to Unwell Person Stuck in lift. POI: none."
+}

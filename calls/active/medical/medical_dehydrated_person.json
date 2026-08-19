@@ -1,0 +1,189 @@
+{
+  "id": "medical_dehydrated_person",
+  "name": "Dehydrated person",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "Dehydrated person",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My gran's not been drinking enough and now she seems really weak and dizzy",
+      "There's a runner who's collapsed, looks dehydrated, it's really hot today"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My gran's not been drinking enough and now she seems really weak and dizzy",
+        "There's a runner who's collapsed, looks dehydrated, it's really hot today"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my gran"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's been unwell for a couple of days and hasn't been drinking much, now she's very weak and dizzy",
+        "She got up and nearly fainted, says she feels dreadful"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake but weak",
+        "Yes, conscious, a bit drowsy"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, breathing normally",
+        "Seems okay"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, just weak and dizzy",
+        "She says her head hurts a bit"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's diabetic",
+        "Nothing that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She takes tablets for her diabetes",
+        "Not sure, I'd have to check"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "79"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've given her some water",
+        "I'm keeping her sat down and cool"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I think she needs to be checked properly, she's very weak",
+        "Maybe, but she seems quite poorly"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty assessed with suspected dehydration"
+    ],
+    "update": [
+      "{{unit}} administering fluids and monitoring",
+      "{{patients}} casualty improving with treatment"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for further checks"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_187"
+  ],
+  "notes": "Generated from MissionChief UK mission 187 (Dehydrated person). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 50% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

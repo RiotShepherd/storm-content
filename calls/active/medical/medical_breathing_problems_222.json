@@ -1,0 +1,188 @@
+{
+  "id": "medical_breathing_problems_222",
+  "name": "Breathing Problems",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Breathing Problems",
+  "keywords": {
+    "correct": [
+      "r1_breathing"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My mum can't breathe properly, it's come on suddenly",
+      "She's really struggling for breath, please send someone quickly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My mum can't breathe properly, it's come on suddenly",
+        "She's really struggling for breath, please send someone quickly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my mum"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, hurry please"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's suddenly become very breathless, it's been getting worse for the last twenty minutes",
+        "Out of nowhere she started struggling to breathe, she's gone quite pale"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake but frightened",
+        "Yes, conscious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Very laboured, fast and shallow",
+        "Really struggling, gasping a bit"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says her chest feels tight",
+        "No pain, just can't get her breath"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She has COPD",
+        "Heart problems, I believe"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She's got an inhaler somewhere",
+        "I'll need to find her tablets"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "74"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got her sitting upright",
+        "I'm doing my best to keep her calm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, she really can't breathe properly, please hurry",
+        "No, this needs an ambulance now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty in respiratory distress"
+    ],
+    "update": [
+      "{{unit}} administering oxygen, monitoring closely",
+      "{{patients}} casualty responding to treatment"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_222"
+  ],
+  "notes": "Generated from MissionChief UK mission 222 (Breathing Problems). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 100% require transport, General Internal, code C-2, 10% critical care. Prisoners: none. Escalation: none. POI: none."
+}

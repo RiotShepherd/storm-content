@@ -1,0 +1,187 @@
+{
+  "id": "rtc_caravan_roll_over_rtc_fast_road",
+  "name": "Caravan roll over RTC (Fast Road)",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 700,
+  "description": "Caravan roll over RTC (Fast Road)",
+  "keywords": {
+    "correct": [
+      "rtc_minor"
+    ],
+    "acceptable": [
+      "rtc_injury"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "motorway",
+    "a_road"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "irv": 4,
+    "traffic_car": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "live traffic",
+    "high speed road",
+    "carriageway blocked"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A caravan's rolled over on the motorway, it's right across the lanes!",
+      "There's been a crash on the dual carriageway, a caravan's overturned and traffic's stopping fast behind it."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A caravan's rolled over on the motorway, it's right across the lanes!",
+        "There's been a crash on the dual carriageway, a caravan's overturned and traffic's stopping fast behind it."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I had to brake hard to avoid it.",
+        "{{callerName}}, I've pulled onto the hard shoulder."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Nobody seems hurt, they're both out of the car.",
+        "No injuries as far as I can tell."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}, near the last junction.",
+        "{{address}}, it's blocking at least two lanes."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The caravan started snaking at speed and then flipped, taking up most of the carriageway.",
+        "It rolled right across the lanes, traffic's backing up fast behind us."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, both out of the car and walking around.",
+        "Yes, they're conscious, just very shaken."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, both breathing fine.",
+        "Yes, they seem okay physically."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, they say they're not hurt.",
+        "Not that they've said, just shocked."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no visible injuries.",
+        "No, doesn't look like it."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry.",
+        "No idea, sorry."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry.",
+        "I couldn't say."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Middle aged couple, I'd guess.",
+        "Hard to say, maybe fifties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll flag down traffic behind us.",
+        "Please hurry, this is a fast road and it's not safe here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is on the motorway, we need police here fast!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, lanes being closed"
+    ],
+    "update": [
+      "{{unit}} working to clear the caravan from the carriageway"
+    ],
+    "stop": [
+      "{{unit}} clear, carriageway reopened"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_466"
+  ],
+  "notes": "Generated from MissionChief UK mission 466 (Caravan roll over RTC (Fast Road)). Buildings: 2 Fire Stations, 8 Police Stations. Vehicles: 2 Fire engines or Rescue Support Vehicles, 4 Police Cars, 2 Traffic Cars (only when available). Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: Highway exit, Major Road Standby Point."
+}

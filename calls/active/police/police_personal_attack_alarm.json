@@ -1,0 +1,195 @@
+{
+  "id": "police_personal_attack_alarm",
+  "name": "Personal Attack Alarm",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 120,
+  "description": "Personal Attack Alarm",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 3,
+    "dog_unit": 1,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "suspect still in area"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Help, please, someone just grabbed me and I've set off my attack alarm",
+      "Police, quick, a man's followed me and tried to grab my bag"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Help, please, someone just grabbed me and I've set off my attack alarm",
+        "Police, quick, a man's followed me and tried to grab my bag"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}",
+        "{{callerName}}, that's me"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "That's me, {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I'm just outside",
+        "It's {{address}}, I'm stood by the entrance"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He grabbed my arm and tried to pull my bag off me, I hit the alarm and he ran off",
+        "Someone came up behind me, I panicked and set off the alarm, he's still nearby"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm fine, just really shaken",
+        "Yes, I'm conscious, just scared"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, I'm okay, just out of breath from running",
+        "Yes, breathing fine, just shaky"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "My wrist hurts where he grabbed it",
+        "My arm's a bit sore but nothing major"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no bleeding",
+        "No, I don't think so"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No, nothing relevant",
+        "No, I'm healthy otherwise"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, I don't take anything",
+        "No, nothing"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm in my twenties",
+        "I'm thirty four"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry, I don't want him coming back",
+        "Right, I'll stay on the line"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I need the police, not a doctor, he's still out there!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty being reassured and checked over"
+    ],
+    "update": [
+      "Casualty calmer, description of suspect circulated to units"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty safe, statement to follow"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_763"
+  ],
+  "notes": "Generated from MissionChief UK mission 763 (Personal Attack Alarm). Buildings: 4 Police Stations, 1 Rescue Station. Vehicles: 3 Police Cars, 1 DSU (25% probability). Personnel: none. Patients: max 1, 50% require transport, General Internal, codes C-2, C-3, 10% critical care. Prisoners: max 3. Escalation: none. POI: none."
+}

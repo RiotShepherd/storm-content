@@ -1,0 +1,189 @@
+{
+  "id": "rescue_hand_stuck_in_window",
+  "name": "Hand stuck in window",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Hand stuck in window",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 55,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My daughter's got her hand stuck in the window and we can't get it free.",
+      "Fire brigade please, someone's hand is trapped in a window frame, they're in a lot of pain."
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My daughter's got her hand stuck in the window and we can't get it free.",
+        "Fire brigade please, someone's hand is trapped in a window frame, they're in a lot of pain."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm her mum.",
+        "{{callerName}}, I'm with them now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}.",
+        "Her name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}.",
+        "{{address}}, it's the upstairs window."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She was leaning out of the window and it's slammed shut on her hand, we can't move it.",
+        "Their hand's got trapped between the window and the frame and it won't budge."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's awake and crying.",
+        "Yes, fully conscious, just in a lot of pain."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, she's breathing fine, just upset.",
+        "Yes, breathing okay."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says her hand really hurts and it's swelling.",
+        "Yes, quite a lot, their fingers are going a funny colour."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A little graze, nothing major.",
+        "No, no bleeding, just swelling."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No, she's healthy otherwise.",
+        "Nothing I'm aware of."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, not on anything.",
+        "No medications."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "She's six.",
+        "She's ten years old."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm holding her other hand and keeping her calm.",
+        "Please hurry, her hand's going white."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, her hand is physically trapped, we need the fire brigade!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing the window"
+    ],
+    "update": [
+      "{{unit}} working to free the hand safely"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty freed"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_607"
+  ],
+  "notes": "Generated from MissionChief UK mission 607 (Hand stuck in window). Buildings: 1 Fire Station, 3 Rescue Stations. Vehicles: 1 Fire engine. Personnel: none. Patients: max 1, min 1, 55% require transport, General Internal, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

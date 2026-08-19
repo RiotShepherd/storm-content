@@ -1,0 +1,198 @@
+{
+  "id": "police_protest_large",
+  "name": "Protest (Large)",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1380,
+  "description": "Protest (Large)",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 6,
+    "mounted_unit": 2,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      4
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "large crowd",
+    "road blocked",
+    "risk of crush"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police, this is huge, there must be thousands marching down the high street",
+      "Control, the protest's massive, it's spilling into the road"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police, this is huge, there must be thousands marching down the high street",
+        "Control, the protest's massive, it's spilling into the road"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I just saw it happen",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "One woman's sat on the kerb, someone's helping her",
+        "There's a man who's gone down in the crush"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's along the main route",
+        "It's {{address}}, near the town hall"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Thousands are marching through, it's completely blocked the road",
+        "The crowd's huge, chanting and moving slowly, traffic's at a standstill"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "She's conscious, looks a bit dazed",
+        "He's conscious, being helped up"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing fine",
+        "Yes, just a bit winded"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says her wrist hurts, might have fallen",
+        "He's holding his ribs"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's a small cut on her head, not much blood",
+        "No visible bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Don't know her, she's a stranger",
+        "No idea, don't know him"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about forty",
+        "Middle aged man I'd say"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay with her until help comes",
+        "Right, we're keeping people back from him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This needs the police and an ambulance, not 111!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualties being assessed within the crowd"
+    ],
+    "update": [
+      "Crowd being managed, cordons in place, casualties being treated",
+      "Route partially reopened as numbers reduce"
+    ],
+    "stop": [
+      "{{unit}} clear, crowd dispersed, road reopened"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_449"
+  ],
+  "notes": "Generated from MissionChief UK mission 449 (Protest (Large)). Buildings: 12 Police Stations, 2 Riot Police Extensions. Vehicles: 6 Police Cars, 2 Mounted Units. Personnel: deployed 27 Level 2 Public Order Officers, 6 Police Medics, 6 Police Sergeants, 3 Police Inspectors; available 60, 15, 15, 7. Patients: max 4, 30% require transport, General Surgeon, codes C-1, C-2, C-3. Prisoners: max 5. Escalation: none. POI: none."
+}

@@ -1,0 +1,188 @@
+{
+  "id": "medical_labour_premature_birth",
+  "name": "Labour - Premature Birth",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 160,
+  "description": "Labour - Premature Birth",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "ambulance": 2
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 90,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "She's only 32 weeks and the baby's coming now, please hurry",
+      "I need an ambulance, my wife's gone into labour early and it's too soon"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "She's only 32 weeks and the baby's coming now, please hurry",
+        "I need an ambulance, my wife's gone into labour early and it's too soon"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm her husband",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my wife",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, please hurry",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Her waters broke early and now she's having strong contractions, it's too soon"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's awake and frightened"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She's in a lot of pain, contractions are close"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Some blood with her waters breaking"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's had a difficult pregnancy, high blood pressure"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Just pregnancy vitamins"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "27"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this can't wait, the baby's coming"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient in premature labour, assessing"
+    ],
+    "update": [
+      "Labour advancing rapidly, preparing neonatal equipment"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to maternity unit as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_691"
+  ],
+  "notes": "Generated from MissionChief UK mission 691 (Labour - Premature Birth). Buildings: 3 Rescue Stations, 2 GP Surgeries. Vehicles: 2 Ambulances. Personnel: 2 Community Midwives. Patients: min 1, max 1, 100% require transport, Central Delivery Suite, code C-1, 50% critical care. Prisoners: none. Escalation: none. POI: none."
+}

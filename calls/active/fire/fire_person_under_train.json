@@ -1,0 +1,216 @@
+{
+  "id": "fire_person_under_train",
+  "name": "Person under train",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 700,
+  "description": "Person under train",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "train_station"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "rescue_unit": 2,
+    "irv": 5,
+    "fire_officer": 4
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "live rail lines",
+    "power may still be live",
+    "casualty trapped under train"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 6",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Someone's gone under a train, please send help now",
+      "There's been an accident, a person's under the train at the station"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Someone's gone under a train, please send help now",
+        "There's been an accident, a person's under the train at the station"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm station staff"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know who they are, I just saw it happen"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the station, platform side"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "They went onto the tracks and the train couldn't stop in time"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I can't tell, they're under the train, I can't see them properly"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I don't know, nobody can get close"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "I've no idea, I can't see them"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I can't tell, there's a lot going on"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I couldn't say, it happened so fast"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've stopped everyone going near the tracks"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is critical, someone's under a train"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, casualty confirmed under train, power isolated"
+    ],
+    "update": [
+      "Crews working to access casualty",
+      "Extrication in progress"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualty"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "railway_fire",
+    "urban_fire",
+    "mc_291"
+  ],
+  "notes": "Generated from MissionChief UK mission 291 (Person under train). Buildings: 14 Fire Stations, 2 Rescue Stations, 5 Police Stations. Vehicles: 4 Fire engines, 2 Rescue Support Vehicles, 5 Police Cars. Personnel: 4 Fire Officers, 14 to 42 Firefighters. Patients: max 1, min 1, 100% require transport, Traumatology / Critical Care, code C-1, 100% critical care. Prisoners: none. Escalation: none. POI: Train stations, Subway station."
+}

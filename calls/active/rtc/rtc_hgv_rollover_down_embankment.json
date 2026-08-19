@@ -1,0 +1,213 @@
+{
+  "id": "rtc_hgv_rollover_down_embankment",
+  "name": "HGV Rollover Down Embankment",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 450,
+  "description": "HGV Rollover Down Embankment",
+  "keywords": {
+    "correct": [
+      "rtc_injury"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "rescue_unit": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      2,
+      2
+    ],
+    "rrvChance": 75,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway",
+    "steep embankment"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 70,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 45,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A lorry's gone off the road and rolled down the embankment!",
+      "Emergency, an HGV's come off the carriageway and rolled down the bank, the driver's trapped."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A lorry's gone off the road and rolled down the embankment!",
+        "Emergency, an HGV's come off the carriageway and rolled down the bank, the driver's trapped."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was driving behind him.",
+        "{{callerName}}, I've stopped on the verge."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know them, they're strangers to me.",
+        "I don't know their names, sorry."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, the lorry's gone down the bank on the left."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The lorry seemed to lose control and went straight off the road down the embankment.",
+        "It's rolled several times down the bank, it's badly damaged."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "The driver's conscious but sounds dazed.",
+        "One of them's talking, the other isn't responding."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but fast.",
+        "I think so, hard to tell from up here."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's shouting that his back hurts.",
+        "They're both saying they're in a lot of pain."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, I can see blood from up here.",
+        "Yes, looks quite bad."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry.",
+        "No idea, they're strangers."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry.",
+        "I couldn't say."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like a man in his forties.",
+        "Hard to say, both middle aged I think."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying up here, I can't get down safely.",
+        "Please hurry, it's a steep drop down to them."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, a lorry's gone down an embankment, we need help now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing casualties down the embankment"
+    ],
+    "update": [
+      "{{unit}} working to reach and treat casualties"
+    ],
+    "stop": [
+      "{{unit}} clear, casualties transported"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_268"
+  ],
+  "notes": "Generated from MissionChief UK mission 268 (HGV Rollover Down Embankment). Buildings: 8 Fire Stations, 2 Rescue Stations. Vehicles: 4 Fire engines, 1 Rescue Support Vehicle. Personnel: 2 Fire Officers. Patients: max 2, min 2, 70% require transport, General Surgeon, code C-2, 65% critical care. Prisoners: none. Escalation: none. POI: none."
+}

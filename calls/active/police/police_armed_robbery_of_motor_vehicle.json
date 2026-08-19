@@ -1,0 +1,207 @@
+{
+  "id": "police_armed_robbery_of_motor_vehicle",
+  "name": "Armed Robbery of Motor Vehicle",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 700,
+  "description": "Armed Robbery of Motor Vehicle",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 3,
+    "traffic_car": 4,
+    "dog_unit": 1,
+    "arv": 3,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "firearm involved",
+    "suspects at large",
+    "vehicle taken"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police, quick, someone's just pulled a gun on me and taken my car!",
+      "Help, I've just been robbed at gunpoint, they've taken my car",
+      "Please send someone now, a man with a gun forced me out of my car and drove off"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police, quick, someone's just pulled a gun on me and taken my car!",
+        "Help, I've just been robbed at gunpoint, they've taken my car",
+        "Please send someone now, a man with a gun forced me out of my car and drove off"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, it's my car they've taken",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}, I'm the one it happened to"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I'm still stood here",
+        "It's outside {{address}}, they drove off towards the main road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A man pointed a gun at me and told me to get out of the car or he'd shoot",
+        "It happened seconds ago, he's driven off in my car",
+        "Two of them jumped out of nowhere, one had a gun, the other grabbed my keys"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm not hurt, just terrified",
+        "I'm fine physically, just shaking"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I'm breathing fine, just in shock",
+        "Fine, just panicking"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, he didn't touch me",
+        "No, he just pointed the gun"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries",
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not relevant, I'm not hurt",
+        "Nothing, I'm fine"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No",
+        "Nothing"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "41"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying here like you said",
+        "I'm trying to stay calm but I'm really shaken up"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need the police, someone had a gun!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, victim shaken but uninjured, vehicle reported taken at gunpoint"
+    ],
+    "update": [
+      "Description of suspects and vehicle circulated",
+      "Area search commenced for the stolen vehicle"
+    ],
+    "stop": [
+      "{{unit}} clear, victim supported, investigation ongoing"
+    ]
+  },
+  "tags": [
+    "police",
+    "police_&_public_order",
+    "mc_425"
+  ],
+  "notes": "Generated from MissionChief UK mission 425 (Armed Robbery of Motor Vehicle). Buildings: 10 Police Stations. Vehicles: 3 Police Cars or ARVs, 4 Traffic Cars (only when available), 1 DSU. Personnel: 6 Armed Response Personnel. Patients: none. Prisoners: max 4. Escalation: none. POI: none."
+}

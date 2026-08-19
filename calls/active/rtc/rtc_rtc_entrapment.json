@@ -1,0 +1,206 @@
+{
+  "id": "rtc_rtc_entrapment",
+  "name": "RTC Entrapment",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 125,
+  "description": "RTC Entrapment",
+  "keywords": {
+    "correct": [
+      "rtc_trapped"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_injury"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "irv": 1,
+    "traffic_car": 1,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      2
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "fuel on the carriageway",
+    "person trapped"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 45,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a crash and someone's trapped in the car, they can't get out.",
+      "Emergency, a car's crashed and the driver's trapped, the doors are jammed shut."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a crash and someone's trapped in the car, they can't get out.",
+        "Emergency, a car's crashed and the driver's trapped, the doors are jammed shut."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I stopped straight away.",
+        "{{callerName}}, I saw it happen right in front of me."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know them, they're a stranger.",
+        "He told me his name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, the car's badly damaged on the side of the road."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The car's spun off the road and hit a barrier, the driver's stuck, the door won't budge.",
+        "It's crashed and the frame's bent in on the driver's side, he can't get out."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious, talking to us.",
+        "Yes, she's awake but in a lot of pain."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but it's laboured.",
+        "Yes, she's breathing okay."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's saying his leg's trapped and it's agony.",
+        "She's saying her ribs really hurt."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's blood, quite a bit.",
+        "A cut on her arm, bleeding steadily."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry.",
+        "No idea, sorry."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, I don't know them.",
+        "I couldn't say."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like he's in his thirties.",
+        "She's maybe twenty five."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with him, keeping him talking.",
+        "Please hurry, he really can't move."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's trapped in the car, we need help now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, casualty trapped, extrication starting"
+    ],
+    "update": [
+      "{{unit}} working to free the casualty from the vehicle"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty freed and transported"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_128"
+  ],
+  "notes": "Generated from MissionChief UK mission 128 (RTC Entrapment). Buildings: 3 Fire Stations, 2 Rescue Stations, 1 Police Station. Vehicles: 2 Fire engines, 1 Police Car, 1 Traffic Car (50% probability, only when available). Personnel: 1 Operational Team Leader (25% probability). Patients: min 1, max 2, 80% require transport, General Surgeon, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

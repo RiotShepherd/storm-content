@@ -1,0 +1,195 @@
+{
+  "id": "fire_fire_in_a_paper_mill",
+  "name": "Fire in a paper mill",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 78,
+  "description": "Fire in a paper mill",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "large paper stock fire load",
+    "smoke logging",
+    "sprinkler system activation"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 6",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's a fire in the paper mill, one of the machines has caught and it's spreading",
+      "I need the fire brigade, the paper store's alight at the mill"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire in the paper mill, one of the machines has caught and it's spreading",
+        "I need the fire brigade, the paper store's alight at the mill"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work at the mill"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, everyone's out and accounted for"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the paper mill, main gate off the road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Fire's broken out near the reels of paper stock, it's spreading quickly through the dry stock"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, all staff are out"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, everyone's clear of the smoke"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's involved"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've evacuated the building and shut down the machinery"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, fire within paper stock area, no persons involved, machinery shut down"
+    ],
+    "update": [
+      "{{unit}} making pumps four, working to prevent spread to remaining stock"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, damping down ongoing"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_570"
+  ],
+  "notes": "Generated from MissionChief UK mission 570 (Fire in a paper mill). Buildings: 2 Fire Stations. Vehicles: 4 Fire engines. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

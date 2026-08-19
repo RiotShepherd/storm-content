@@ -1,0 +1,190 @@
+{
+  "id": "police_robbery_of_motor_vehicle",
+  "name": "Robbery of Motor Vehicle",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 500,
+  "description": "Robbery of Motor Vehicle",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 3,
+    "traffic_car": 4,
+    "dog_unit": 1,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "suspect vehicle made off"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police, quick, someone's just robbed my car off me at knifepoint",
+      "Help, a man's forced my car off me, he's driven off"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police, quick, someone's just robbed my car off me at knifepoint",
+        "Help, a man's forced my car off me, he's driven off"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I just saw it happen",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, just shaken, he's gone with the car",
+        "Nobody hurt, just very shaken"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it happened right here",
+        "It's {{address}}, where I was parked"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He came up to my window, threatened me, and I got out, he's driven off in it",
+        "Two of them blocked me in, threatened me and took the keys"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm fine, just really shaken",
+        "Yes, conscious, just scared"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing fine, just shaky",
+        "Yes, okay, just adrenaline"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, just shock",
+        "Nothing hurts, just shaken"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not relevant, I'm not hurt",
+        "No, nothing relevant"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, nothing",
+        "Not relevant"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm forty two",
+        "I'm thirty"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry, he's got my car",
+        "Right, I'll stay put"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This is a robbery, I need police not a GP!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, victim being reassured and details taken"
+    ],
+    "update": [
+      "Vehicle circulated to units, ANPR alert issued"
+    ],
+    "stop": [
+      "{{unit}} clear, statement taken, vehicle flagged as stolen"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_424"
+  ],
+  "notes": "Generated from MissionChief UK mission 424 (Robbery of Motor Vehicle). Buildings: 10 Police Stations. Vehicles: 3 Police Cars, 4 Traffic Cars (only when available), 1 DSU. Personnel: none. Patients: none. Prisoners: max 4. Escalation: Armed Robbery of Motor Vehicle. POI: none."
+}

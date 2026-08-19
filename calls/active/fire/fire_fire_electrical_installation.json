@@ -1,0 +1,178 @@
+{
+  "id": "fire_fire_electrical_installation",
+  "name": "Fire - Electrical Installation",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Fire - Electrical Installation",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "electrical fault",
+    "risk of fire in wall cavity",
+    "smoke logging"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's smoke coming from the fuse board, I think there's an electrical fire",
+      "I need the fire brigade, something's sparked in the consumer unit and it's smoking"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's smoke coming from the fuse board, I think there's an electrical fire",
+        "I need the fire brigade, something's sparked in the consumer unit and it's smoking"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, it's my house"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's hurt, I've turned the power off at the mains"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's my house"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There was a bang from the fuse board and now it's smoking, I've switched everything off at the mains"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No one's hurt, we're all outside"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries, just a bit of smoke smell"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no one's involved"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient involved"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've turned the power off and we're waiting outside"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's an electrical fire not medical"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, electrical fire at consumer unit, power isolated by occupant, no persons involved"
+    ],
+    "update": [
+      "{{unit}} confirms fire extinguished, checking for spread into wall cavity"
+    ],
+    "stop": [
+      "{{unit}} stood down, fire out, advised to have installation checked by electrician"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_638"
+  ],
+  "notes": "Generated from MissionChief UK mission 638 (Fire - Electrical Installation). Buildings: 1 Fire Station. Vehicles: 2 Fire engines. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

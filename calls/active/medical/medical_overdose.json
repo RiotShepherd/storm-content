@@ -1,0 +1,191 @@
+{
+  "id": "medical_overdose",
+  "name": "Overdose",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 110,
+  "description": "Overdose",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 50,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "overdose, unknown quantity",
+    "risk of self harm"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I think my brother's taken an overdose, I found empty packets by him",
+      "I need an ambulance, my brother's taken something, there's empty tablet packets everywhere"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I think my brother's taken an overdose, I found empty packets by him",
+        "I need an ambulance, my brother's taken something, there's empty tablet packets everywhere"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm his sister",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, my brother",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, front door's unlocked"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I found him like this with empty tablet packets around him, I don't know how many he's taken"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's drowsy, sort of responding"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Slow, I'm worried about it"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's not really responding to say"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's been struggling with depression"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Antidepressants, that's what the packets are"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "26"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got him on his side"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with suspected overdose, assessing"
+    ],
+    "update": [
+      "Airway maintained, obs being monitored closely"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_385"
+  ],
+  "notes": "Generated from MissionChief UK mission 385 (Overdose). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 100% require transport, General Internal, codes C-1, C-2, 10% critical care. Prisoners: none. Escalation: none. POI: none."
+}

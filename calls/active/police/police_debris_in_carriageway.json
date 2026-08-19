@@ -1,0 +1,191 @@
+{
+  "id": "police_debris_in_carriageway",
+  "name": "Debris in carriageway",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Debris in carriageway",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "debris in carriageway",
+    "live traffic risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, there's a load of debris fallen off a lorry in the middle of the road",
+      "I need to report, there's stuff scattered across the carriageway, it's really dangerous",
+      "There's debris all over the road, cars are swerving to avoid it"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, there's a load of debris fallen off a lorry in the middle of the road",
+        "I need to report, there's stuff scattered across the carriageway, it's really dangerous",
+        "There's debris all over the road, cars are swerving to avoid it"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm the one who called it in",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's involved, just the debris",
+        "N/A, nobody's hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's spread across both lanes",
+        "It's near {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Looks like it's fallen off the back of a lorry, boxes and wood all over the road",
+        "Cars are having to swerve to avoid it, it's a real hazard",
+        "It happened a few minutes ago, I saw the lorry pull away without stopping"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, no one's involved",
+        "N/A, no injuries"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A",
+        "No one's hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've pulled over safely to warn other drivers",
+        "Thank you, please hurry, it's dangerous"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a road hazard, I need police"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, debris confirmed in carriageway, lane closed"
+    ],
+    "update": [
+      "Debris being cleared, traffic managed around scene"
+    ],
+    "stop": [
+      "{{unit}} clear, carriageway clear, road reopened"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_523"
+  ],
+  "notes": "Generated from MissionChief UK mission 523 (Debris in carriageway). Buildings: 2 Police Stations. Vehicles: 1 Police Car. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

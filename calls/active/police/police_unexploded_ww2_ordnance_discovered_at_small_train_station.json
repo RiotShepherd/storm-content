@@ -1,0 +1,203 @@
+{
+  "id": "police_unexploded_ww2_ordnance_discovered_at_small_train_station",
+  "name": "Unexploded WW2 Ordnance Discovered at Small Train Station",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 725,
+  "description": "Unexploded WW2 Ordnance Discovered at Small Train Station",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "train_station"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "irv": 4,
+    "ambulance": 1,
+    "eod_unit": 2,
+    "hart": 2,
+    "iccu": 1,
+    "fire_officer": 2,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "unexploded ordnance",
+    "trains in the area",
+    "public on the platform"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Hello, I work here at the station, we've found something in the ballast that looks like an old bomb.",
+      "Police please, one of the maintenance lads has turned up what looks like an old WW2 shell on the tracks."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Hello, I work here at the station, we've found something in the ballast that looks like an old bomb.",
+        "Police please, one of the maintenance lads has turned up what looks like an old WW2 shell on the tracks."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the duty supervisor here.",
+        "{{callerName}}, I'm one of the track workers."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "There's no one hurt, it's just the item we found.",
+        "Nobody's involved, it's an object not a person."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, it's the small station building.",
+        "{{address}}, on the platform near the end of the line."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One of the lads doing track works found what looks like an old shell buried near the rails.",
+        "It's been sat there rusting, we think it's from the war, we've stopped all trains through here."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no casualty, nobody's touched it.",
+        "Nobody's hurt, we've kept everyone well back."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's injured, it's not that kind of call.",
+        "Everyone here is fine, we're just worried about the object itself."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Nobody's in any pain, we've all kept clear of it.",
+        "No injuries at all, we just need it dealt with safely."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, nobody's been hurt.",
+        "No blood, no injuries, just the ordnance."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "There's no patient, I'm not sure why you're asking.",
+        "Nobody's hurt, so nothing to tell you there."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not relevant, nobody's injured.",
+        "No one needs medical help, it's the item itself we're worried about."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, sorry.",
+        "It's not a person, it's an old shell."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping everyone off the platform.",
+        "Understood, we'll wait for your officers well back from it."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "This isn't a medical matter, we need the bomb squad!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, ordnance located, cordon being set up"
+    ],
+    "update": [
+      "{{unit}} confirms cordon holding, EOD en route",
+      "{{patients}} people evacuated from the platform so far"
+    ],
+    "stop": [
+      "{{unit}} clear, ordnance made safe and removed"
+    ]
+  },
+  "tags": [
+    "bomb_disposal",
+    "mc_834"
+  ],
+  "notes": "Generated from MissionChief UK mission 834 (Unexploded WW2 Ordnance Discovered at Small Train Station). Buildings: 6 Fire Stations, 6 Rescue Stations, 15 Police Stations, 2 Bomb Disposal HQs, 1 HART Base, 3 Railway Police. Vehicles: 2 Fire engines, 4 Police Cars, 1 Ambulance, 1 EOD Response Vehicle, 1 EOD Medium Equipment Van, 1 PRV, 1 SRV, 1 EIU. Personnel: 2 Fire Officers, 2 Police Sergeants, 4 Railway Police Officers (12 available), 1 Operational Team Leader. Patients: not shown. Prisoners: none. Escalation: none. POI: Train station (regional traffic)."
+}

@@ -1,0 +1,195 @@
+{
+  "id": "hazmat_contaminated_ice_cream_cart",
+  "name": "Contaminated ice cream cart",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "Contaminated ice cream cart",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "irv": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      4
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "contaminated food source",
+    "crowd of unwell casualties"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 20,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "It's the ice cream van on the industrial estate, people are being sick after eating from it",
+      "I need an ambulance, my son's been throwing up since he had an ice cream from that van",
+      "There's something wrong with the ice cream, three or four of us feel awful"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "It's the ice cream van on the industrial estate, people are being sick after eating from it",
+        "I need an ambulance, my son's been throwing up since he had an ice cream from that van",
+        "There's something wrong with the ice cream, three or four of us feel awful"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}",
+        "{{callerName}}, I run the unit next door"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know all their names, one's called {{firstPatientName}}",
+        "{{firstPatientName}} is the worst of them"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're by the ice cream cart at {{address}}",
+        "{{address}}, near the industrial estate entrance"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "They've all had ice cream from the cart and started being sick and getting stomach cramps",
+        "It smells off, like it's gone bad, and now people are ill"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, all of them are awake",
+        "{{firstPatientName}}'s awake but very pale"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine, just very sick",
+        "A couple of them seem to be struggling a bit for breath"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Bad stomach cramps, yes",
+        "{{firstPatientName}} says it's like a burning pain in the stomach"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No, nothing like that"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of",
+        "I've no idea, I only know {{firstPatientName}}"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know",
+        "None that anyone's mentioned"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "A mix, one's about 8, the rest are adults",
+        "{{firstPatientName}} is 34"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry, more people keep coming over feeling sick",
+        "Right, I'll keep them away from the cart"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, there's several of them and they're getting worse",
+        "Should I call that instead of an ambulance?"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene at the ice cream cart, {{patients}} casualties reporting sickness"
+    ],
+    "update": [
+      "{{unit}} assessing {{patients}} casualties, suspected food contamination",
+      "Cart isolated, awaiting environmental health"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualties assessed and cart secured"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_347"
+  ],
+  "notes": "Generated from MissionChief UK mission 347 (Contaminated ice cream cart). Buildings: 2 Rescue Stations, 1 Police Station. Vehicles: 1 Police Car. Personnel: none. Patients: max 4, min 1, 20% require transport, General Internal, code C-3, 10% critical care. Prisoners: none. Escalation: none. POI: none."
+}

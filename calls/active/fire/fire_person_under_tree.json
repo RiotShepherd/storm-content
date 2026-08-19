@@ -1,0 +1,200 @@
+{
+  "id": "fire_person_under_tree",
+  "name": "Person under tree",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Person under tree",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "residential_road",
+    "track",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "fire_officer": 1,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "further branches may fall",
+    "casualty trapped",
+    "unstable tree"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A tree's come down on someone, please hurry, they're trapped",
+      "There's been an accident, a branch or tree's fallen and it's landed on a person"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A tree's come down on someone, please hurry, they're trapped",
+        "There's been an accident, a branch or tree's fallen and it's landed on a person"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I saw it happen"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know their name, I just saw it happen"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The tree just came down, I don't know if it was the wind, and it's landed right on them"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "They were shouting at first but they've gone quiet"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I think so, but I can't get close enough to check properly"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "They were screaming in pain when it first happened"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "I can see some blood, hard to tell how bad"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them, sorry"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looked like an adult"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with them, please hurry"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, they're trapped under a tree, this is an emergency"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, casualty trapped under fallen tree"
+    ],
+    "update": [
+      "Crews working to remove tree from casualty",
+      "Casualty being extricated and treated"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualty"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_233"
+  ],
+  "notes": "Generated from MissionChief UK mission 233 (Person under tree). Buildings: 6 Fire Stations, 5 Rescue Stations. Vehicles: 2 Fire engines, Rescue Support Vehicles or Aerial Appliance Trucks. Personnel: 1 Fire Officer, 1 Operational Team Leader. Patients: max 1, min 1, 100% require transport, Traumatology / Critical Care, codes C-1, C-2, 100% critical care. Prisoners: none. Escalation: none. POI: none."
+}

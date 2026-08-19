@@ -1,0 +1,196 @@
+{
+  "id": "rescue_confined_space_rescue",
+  "name": "Confined Space Rescue",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Confined Space Rescue",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "rescue_unit": 1,
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      4
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "confined space",
+    "possible gas or fumes",
+    "limited access"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 65,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "One of our lads has gone down in the tank, we can't get him out and another one's gone in after him.",
+      "We need help urgently, a worker's collapsed in a confined space and a colleague's stuck trying to reach him."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "One of our lads has gone down in the tank, we can't get him out and another one's gone in after him.",
+        "We need help urgently, a worker's collapsed in a confined space and a colleague's stuck trying to reach him."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the site supervisor.",
+        "{{callerName}}, I work with them."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "One's {{firstPatientName}}, I don't know the other one as well.",
+        "It's {{firstPatientName}}, he's one of our engineers."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, it's the industrial unit.",
+        "{{address}}, come to the main gate, I'll direct you."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "One of the lads went into the tank to check something and just collapsed, another went in to help and now he's not right either.",
+        "There was a fault in the confined space, our worker went down and we think there's a gas issue."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "One's not responding at all, the other is but he's confused.",
+        "Both are conscious but they sound very disorientated."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but it sounds laboured.",
+        "I think so, hard to tell from up here."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "One's saying he feels sick and dizzy.",
+        "They're both saying they can't breathe properly."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, it's not that kind of injury.",
+        "No visible bleeding."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing I know of.",
+        "Not that I'm aware of."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know, I'd need to check with HR.",
+        "Not sure, sorry."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Both in their thirties.",
+        "One's about twenty five, the other older, maybe forty."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've stopped anyone else going in.",
+        "Please hurry, we don't know what's down there."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need the fire brigade for a confined space rescue!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, gas monitoring underway, entry team preparing"
+    ],
+    "update": [
+      "{{unit}} working to extract casualties safely",
+      "{{patients}} casualties confirmed, ventilation in progress"
+    ],
+    "stop": [
+      "{{unit}} clear, casualties extracted"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_686"
+  ],
+  "notes": "Generated from MissionChief UK mission 686 (Confined Space Rescue). Buildings: 4 Fire Stations, 1 Rescue Station. Vehicles: 1 Rescue Support Vehicle, 1 Fire engine. Personnel: none. Patients: min 1, max 4, 65% require transport, Traumatology, code C-2. Prisoners: none. Escalation: none. POI: none."
+}

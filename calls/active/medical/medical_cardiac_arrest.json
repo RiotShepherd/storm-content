@@ -1,0 +1,200 @@
+{
+  "id": "medical_cardiac_arrest",
+  "name": "Cardiac Arrest",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "Cardiac Arrest",
+  "keywords": {
+    "correct": [
+      "r2_arrest"
+    ],
+    "acceptable": [
+      "r2_arrest_hems",
+      "r_unconscious"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "cardiac arrest",
+    "CPR in progress"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "He's collapsed, he's not breathing, please help me",
+      "My dad's gone down, I don't think he's breathing, what do I do"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "He's collapsed, he's not breathing, please help me",
+        "My dad's gone down, I don't think he's breathing, what do I do"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my dad"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry, the door's open"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He just collapsed on the floor, he's not moving and I don't think he's breathing",
+        "He clutched his chest and went down, he's not responding at all"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No, he's not responding to me at all",
+        "No, completely unresponsive"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I don't think he's breathing",
+        "I can't tell, doesn't look like it"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He can't tell me, he's not responding",
+        "N/A, he's unconscious"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's got a heart condition",
+        "High blood pressure, I think"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He takes heart tablets",
+        "I'd have to check"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "68"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I'm doing chest compressions like you told me",
+        "Okay I'm counting like you said, please stay on the phone"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's not breathing, this is an emergency",
+        "No, absolutely not, he needs help now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty in cardiac arrest, CPR in progress"
+    ],
+    "update": [
+      "{{unit}} continuing resuscitation, defibrillator attached",
+      "{{patients}} casualty status being closely monitored during resuscitation"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital, resuscitation ongoing"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_78"
+  ],
+  "notes": "Generated from MissionChief UK mission 78 (Cardiac Arrest). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 100% require transport, General Surgeon, code C-1. Prisoners: none. Escalation: none. POI: none."
+}

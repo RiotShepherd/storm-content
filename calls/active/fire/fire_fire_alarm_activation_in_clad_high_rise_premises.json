@@ -1,0 +1,190 @@
+{
+  "id": "fire_fire_alarm_activation_in_clad_high_rise_premises",
+  "name": "Fire alarm activation in Clad High Rise premises",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Fire alarm activation in Clad High Rise premises",
+  "keywords": {
+    "correct": [
+      "f_alarm"
+    ],
+    "acceptable": [
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "flats"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "combustible cladding",
+    "high rise evacuation",
+    "residents in stairwells"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 5",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "The fire alarm's going off in our block, we've got the cladding so people are worried",
+      "I need the fire brigade, the alarm's sounding and given the cladding on this building everyone's on edge"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "confused",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "The fire alarm's going off in our block, we've got the cladding so people are worried",
+        "I need the fire brigade, the alarm's sounding and given the cladding on this building everyone's on edge"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I live on the eighth floor"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't think anyone's hurt, everyone's coming down the stairs"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the tower block with the cladding"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The alarm's gone off, I can't see smoke or fire from my flat but everyone's evacuating because of the cladding"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Everyone I've seen is conscious and moving down the stairwell"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's having trouble breathing that I've seen"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No injuries reported"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding reported"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable, no one's hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient affected"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're following the evacuation and staying calm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's a fire alarm in a high rise with cladding, we need it checked properly"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, alarm activation in clad high rise, investigating source, evacuation in progress"
+    ],
+    "update": [
+      "{{unit}} confirms no fire found, checking external cladding for any sign of fire spread"
+    ],
+    "stop": [
+      "{{unit}} stood down, no fire found, residents returning to building"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_197"
+  ],
+  "notes": "Generated from MissionChief UK mission 197 (Fire alarm activation in Clad High Rise premises). Buildings: 3 Fire Stations. Vehicles: 3 Fire engines. Personnel: none. Patients: none. Prisoners: none. Escalation: expands to Flat Fire in Clad High Rise. POI: High Rise with Cladding."
+}

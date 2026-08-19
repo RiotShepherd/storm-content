@@ -1,0 +1,191 @@
+{
+  "id": "fire_fire_involving_acetylene_cylinders",
+  "name": "Fire involving Acetylene cylinders",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 400,
+  "description": "Fire involving Acetylene cylinders",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "hazmat_unit": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "risk of cylinder explosion",
+    "large exclusion zone",
+    "flying debris if cylinders fail"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Fire brigade please, there's a fire and there's acetylene cylinders right next to it",
+      "There's a fire near some gas bottles, acetylene I think, please hurry, I'm worried they'll go off"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, there's a fire and there's acetylene cylinders right next to it",
+        "There's a fire near some gas bottles, acetylene I think, please hurry, I'm worried they'll go off"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work here"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No, we all got well clear when we heard the hissing, nobody's hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please keep everyone well back when you arrive",
+        "It's {{address}}, the cylinders are near the fire"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A fire's started near where the acetylene cylinders are stored, I've heard them hissing"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one involved, I've not seen anybody hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, there's nobody to check, it's just the fire"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can see"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries, nobody's here"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I can't help with that, there's no one hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no patient, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no one to ask, nobody's been hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're all well back, past the far fence",
+        "Please hurry, those bottles can go off"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a cylinder fire, we need specialist crews now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, fire near acetylene cylinders, exclusion zone in place, no persons reported"
+    ],
+    "update": [
+      "Crews cooling cylinders from a safe distance, area evacuated"
+    ],
+    "stop": [
+      "Fire out, cylinders confirmed safe, {{unit}} stood down"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_180"
+  ],
+  "notes": "Generated from MissionChief UK mission 180 (Fire involving Acetylene cylinders). Buildings: 11 Fire Stations. Vehicles: 2 Fire engines, 1 HazMat Unit or CBRN Vehicle. Personnel: 1 Fire Officer. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

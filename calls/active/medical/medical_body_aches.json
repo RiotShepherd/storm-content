@@ -1,0 +1,189 @@
+{
+  "id": "medical_body_aches",
+  "name": "Body Aches",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Body Aches",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "I've been aching all over for a couple of days and it's getting worse",
+      "I feel absolutely dreadful, aching everywhere, thought I should get checked"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "I've been aching all over for a couple of days and it's getting worse",
+        "I feel absolutely dreadful, aching everywhere, thought I should get checked"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "I'm at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I've had aching all over my body for a couple of days, it's not going away",
+        "Every joint and muscle aches, I've also got a bit of a temperature"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, fully awake",
+        "Yes, fine that way"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Normal, no problems there",
+        "Fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A dull ache all over, six out of ten maybe",
+        "Yes, everywhere really"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing significant",
+        "No, I'm generally healthy"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've taken some paracetamol",
+        "Just over the counter painkillers"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "38"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, thank you",
+        "I'll try to rest"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Maybe that's better, I wasn't sure who to call",
+        "Yes, that sounds sensible actually"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty assessed with generalised aches"
+    ],
+    "update": [
+      "{{unit}} carrying out observations, casualty stable",
+      "{{patients}} casualty advised on next steps"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualty advised to see GP if symptoms continue"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_630"
+  ],
+  "notes": "Generated from MissionChief UK mission 630 (Body Aches). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, General Internal, codes C-2, C-3, 50% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

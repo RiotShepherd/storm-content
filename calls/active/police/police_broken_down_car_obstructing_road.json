@@ -1,0 +1,189 @@
+{
+  "id": "police_broken_down_car_obstructing_road",
+  "name": "Broken Down Car Obstructing Road",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 40,
+  "description": "Broken Down Car Obstructing Road",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "vehicle obstructing carriageway",
+    "live traffic risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, my car's broken down right in the middle of the road and I can't move it",
+      "I need help, my car's died in the road and it's blocking traffic",
+      "There's a car broken down blocking the road, cars are having to swerve round it"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, my car's broken down right in the middle of the road and I can't move it",
+        "I need help, my car's died in the road and it's blocking traffic",
+        "There's a car broken down blocking the road, cars are having to swerve round it"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, it's my car",
+        "It's {{callerName}}, I'm the driver"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's just me, nobody else involved",
+        "No one else, I'm on my own"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I'm stuck right in the middle of the carriageway",
+        "I'm at {{address}}, hazards are on"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The engine just cut out and I can't get it started again, I'm blocking the lane",
+        "It happened about ten minutes ago, cars are having to go round me",
+        "Smoke started coming from the bonnet and then it died"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm fine, just stuck in the car",
+        "No one's hurt, just the car"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I'm breathing fine, just worried about being hit",
+        "No problems there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, I'm not hurt",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not relevant, I'm not hurt",
+        "N/A"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No",
+        "N/A"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got my hazards on and I'm staying in the car",
+        "Thank you, please hurry, it's dangerous here"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need the police for traffic, not 111"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, vehicle confirmed broken down and obstructing carriageway"
+    ],
+    "update": [
+      "Traffic being managed around the vehicle, recovery requested"
+    ],
+    "stop": [
+      "{{unit}} clear, vehicle recovered, road clear"
+    ]
+  },
+  "tags": [
+    "recovery_vehicle",
+    "mc_785"
+  ],
+  "notes": "Generated from MissionChief UK mission 785 (Broken Down Car Obstructing Road). Buildings: 1 Recovery Centre. Vehicles: tow capability only. Personnel: none. Patients: none. Prisoners: none. Escalation: Stolen Car Located. POI: none."
+}

@@ -1,0 +1,189 @@
+{
+  "id": "medical_altered_consciousness",
+  "name": "Altered Consciousness",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Altered Consciousness",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Something's wrong with my dad, he's not making sense and seems really out of it",
+      "He's awake but he's not himself, talking gibberish"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "confused",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Something's wrong with my dad, he's not making sense and seems really out of it",
+        "He's awake but he's not himself, talking gibberish"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my dad"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, come quick"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He's awake but very confused, not answering questions properly, doesn't know where he is",
+        "He's been acting strange for the last half hour, slurring and not making sense"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's awake but very confused",
+        "Yes, but not really with it"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing seems fine",
+        "Seems okay"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He hasn't said anything about pain",
+        "He's not able to tell me"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's diabetic, that's all I know",
+        "He had a stroke a couple of years ago"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He takes tablets for diabetes",
+        "I'd have to check the cabinet"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "71"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with him",
+        "He's not getting any better"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's really not himself, I'm worried",
+        "I don't think that's enough, something's badly wrong"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with altered consciousness"
+    ],
+    "update": [
+      "{{unit}} assessing neurological status and blood sugar",
+      "{{patients}} casualty condition being closely monitored"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_627"
+  ],
+  "notes": "Generated from MissionChief UK mission 627 (Altered Consciousness). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 60% require transport, General Internal, code C-2, 10% critical care, 20% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

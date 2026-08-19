@@ -1,0 +1,175 @@
+{
+  "id": "fire_fire_alarm_activation_in_commercial_premises",
+  "name": "Fire alarm activation in commercial premises",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 80,
+  "description": "Fire alarm activation in commercial premises",
+  "keywords": {
+    "correct": [
+      "f_alarm"
+    ],
+    "acceptable": [
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "premises reported unoccupied",
+    "keyholder not yet on site"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "This is the monitoring centre, we've had a fire alarm activation at the premises and can't reach anyone on site",
+      "The fire alarm's triggered at the shop, I'm the keyholder and I'm on my way but wanted to report it"
+    ],
+    "phoneArea": "auto",
+    "callerType": "alarm_company"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "This is the monitoring centre, we've had a fire alarm activation at the premises and can't reach anyone on site",
+        "The fire alarm's triggered at the shop, I'm the keyholder and I'm on my way but wanted to report it"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm calling from the alarm monitoring centre"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "We believe the premises are unoccupied at this time"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, that is the registered address on our system"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "We've received a fire alarm signal from the premises, we can't get an answer from the keyholder yet"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No persons reported on site, it should be unoccupied"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Not applicable, no persons reported"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Not applicable"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Not applicable"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "No patient, premises reported unoccupied"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we'll keep trying to reach the keyholder"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a fire alarm signal, not a medical matter"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, alarm activation, gaining entry to confirm no fire"
+    ],
+    "update": [
+      "{{unit}} confirms no signs of fire, awaiting keyholder to reset system"
+    ],
+    "stop": [
+      "{{unit}} stood down, false alarm confirmed, premises secured"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_455"
+  ],
+  "notes": "Generated from MissionChief UK mission 455 (Fire alarm activation in commercial premises). Buildings: 1 Fire Station. Vehicles: 2 Fire engines. Personnel: 4 to 12 Firefighters. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

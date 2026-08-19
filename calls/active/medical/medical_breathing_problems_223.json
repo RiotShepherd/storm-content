@@ -1,0 +1,188 @@
+{
+  "id": "medical_breathing_problems_223",
+  "name": "Breathing Problems",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Breathing Problems",
+  "keywords": {
+    "correct": [
+      "r1_breathing"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My husband's breathing's really bad, he's wheezing badly",
+      "He's gasping for breath, it started about half an hour ago"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My husband's breathing's really bad, he's wheezing badly",
+        "He's gasping for breath, it started about half an hour ago"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my husband"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "His breathing's been getting steadily worse over the last half hour, he's wheezing badly",
+        "He suddenly started gasping for breath, no obvious cause"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake but very anxious",
+        "Yes, conscious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Laboured and wheezy",
+        "Struggling, using his shoulders to breathe"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A tight feeling in his chest",
+        "Not really pain, just tightness"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He has asthma",
+        "Nothing that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He has an inhaler",
+        "Not that I'm aware of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "49"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've got him sitting forward",
+        "I'm staying right with him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's getting worse, I need an ambulance",
+        "No, I don't think that's enough"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with worsening breathing difficulty"
+    ],
+    "update": [
+      "{{unit}} providing oxygen and monitoring",
+      "{{patients}} casualty stabilising"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_223"
+  ],
+  "notes": "Generated from MissionChief UK mission 223 (Breathing Problems). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 60% require transport, General Internal, code C-2, 10% critical care. Prisoners: none. Escalation: none. POI: none."
+}

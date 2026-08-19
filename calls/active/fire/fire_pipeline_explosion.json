@@ -1,0 +1,240 @@
+{
+  "id": "fire_pipeline_explosion",
+  "name": "Pipeline Explosion",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 900,
+  "description": "Pipeline Explosion",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "f2y",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "track"
+  ],
+  "units": {
+    "dual_pump": 4,
+    "single_pump": 4,
+    "aerial": 2,
+    "hazmat_unit": 2,
+    "water_carrier": 3,
+    "irv": 5,
+    "iccu": 1,
+    "fire_officer": 3
+  },
+  "patients": {
+    "range": [
+      1,
+      8
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "risk of further explosion",
+    "toxic fumes",
+    "fire along pipeline route"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 10",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's been an explosion at the pipeline, people are hurt",
+      "Please help, the pipeline's gone up, there's been an explosion and casualties"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been an explosion at the pipeline, people are hurt",
+        "Please help, the pipeline's gone up, there's been an explosion and casualties"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I work on site here"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know all their names, a few of the crew are hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the pipeline site"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There was a loud bang and the pipeline's on fire now, a few workers were caught in the blast"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are conscious, one's not responding"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A couple are struggling, there's fumes in the air"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Some are in a lot of pain, looks like fractures"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, a few cuts from flying debris"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know them well enough"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Adults, site workers"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're moving people away from the fire"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, there's been an explosion, people are hurt"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, explosion confirmed, {{patients}} casualties being assessed"
+    ],
+    "update": [
+      "Crews isolating pipeline and cooling fire",
+      "Casualties being treated and prepared for transport"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualties"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_717"
+  ],
+  "notes": "Generated from MissionChief UK mission 717 (Pipeline Explosion). Buildings: 13 Fire Stations, 3 Rescue Stations, 1 Police Station. Vehicles: 8 Fire engines, 2 Aerial Appliance Trucks, 2 HazMat Units or CBRN Vehicles, 3 Water Carriers, 5 Police Cars, 1 ICCU or ACU. Personnel: 3 Fire Officers, 8 HazMat personnel. Patients: min 1, max 8, 50% require transport, Traumatology, code C-1, 30% critical care. Prisoners: none. Escalation: none. POI: Pipeline.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

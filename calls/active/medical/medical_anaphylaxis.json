@@ -1,0 +1,199 @@
+{
+  "id": "medical_anaphylaxis",
+  "name": "Anaphylaxis",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "Anaphylaxis",
+  "keywords": {
+    "correct": [
+      "r1_breathing"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "risk of airway obstruction"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 70,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My son's having a severe allergic reaction, his throat's closing up",
+      "Please hurry, she's gone into anaphylactic shock, we've used the EpiPen"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My son's having a severe allergic reaction, his throat's closing up",
+        "Please hurry, she's gone into anaphylactic shock, we've used the EpiPen"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, please hurry"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, the door's open"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was stung by a wasp and now his face and throat are swelling fast, he's struggling to breathe",
+        "She ate something with the allergen in and collapsed within minutes"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, but fading",
+        "He's conscious but very distressed"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Really struggling, wheezing badly",
+        "Getting worse, very laboured"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his throat feels like it's closing",
+        "She's clutching her throat"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's got a severe nut allergy",
+        "Known anaphylaxis, this has happened before"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "We've just used his EpiPen",
+        "I've got a second EpiPen ready"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "16"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I've used the EpiPen like you said, please hurry",
+        "I'm keeping her sitting up, it's not helping much"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, absolutely not, he can't breathe properly",
+        "This is a genuine emergency, please send someone now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty in anaphylaxis"
+    ],
+    "update": [
+      "{{unit}} administering adrenaline, airway being closely monitored",
+      "{{patients}} casualty responding to treatment"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_170"
+  ],
+  "notes": "Generated from MissionChief UK mission 170 (Anaphylaxis). Buildings: 2 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 70% require transport, General Internal, code C-1. Prisoners: none. Escalation: none. POI: none."
+}

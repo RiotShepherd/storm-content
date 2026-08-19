@@ -1,0 +1,180 @@
+{
+  "id": "medical_uti",
+  "name": "UTI",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "UTI",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 40,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My gran's got a water infection and she's gone really confused with it",
+      "I need some advice, my gran's UTI has made her very muddled today"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My gran's got a water infection and she's gone really confused with it",
+        "I need some advice, my gran's UTI has made her very muddled today"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, her granddaughter",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my gran",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's had a UTI for a couple of days and today she's suddenly gone very confused and unsteady"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes but she's not herself, quite muddled"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says it stings when she goes to the toilet"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Recurrent UTIs, and she's got dementia"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She's on antibiotics from the GP already"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "81"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay with her"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "The GP did say to call 111 but she's really confused today"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with acute confusion, assessing"
+    ],
+    "update": [
+      "Obs stable, sepsis screen considered"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_646"
+  ],
+  "notes": "Generated from MissionChief UK mission 646 (UTI). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 40% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

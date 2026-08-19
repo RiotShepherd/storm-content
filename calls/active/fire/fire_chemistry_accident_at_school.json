@@ -1,0 +1,196 @@
+{
+  "id": "fire_chemistry_accident_at_school",
+  "name": "Chemistry accident at school",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 90,
+  "description": "Chemistry accident at school",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "school"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "hazmat_unit": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      2
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "chemical fumes",
+    "lab equipment",
+    "pupils nearby needing evacuation"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [
+    {
+      "chance": 40,
+      "afterSeconds": [
+        180,
+        420
+      ],
+      "message": "Crews report persons suffering smoke inhalation, up to 2 casualties",
+      "addUnits": {},
+      "addPatients": [
+        1,
+        2
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "There's been an accident in the chemistry lab, some fumes have got out and a couple of pupils aren't well",
+      "I need the fire brigade, we've had a chemical reaction go wrong in the lab, pupils are coughing badly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been an accident in the chemistry lab, some fumes have got out and a couple of pupils aren't well",
+        "I need the fire brigade, we've had a chemical reaction go wrong in the lab, pupils are coughing badly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the science teacher"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's two of my pupils, {{firstPatientName}} is one of them"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the school, go to reception and they'll direct you to the science block"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "An experiment went wrong and produced a lot of fumes, we've evacuated the lab but a couple of pupils breathed it in"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "They're both conscious, coughing and a bit distressed"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "They're struggling to breathe properly, we've got them out in the fresh air"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "They say their throats and chests are sore"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, it's the fumes that are the problem"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I'd need to check with the office, one might have asthma"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "The school office holds medical records, I can check"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "They're both fourteen"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've got them outside in fresh air with a first aider"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, they've breathed in fumes, we need you here"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, chemical incident in school lab, {{patients}} casualties with breathing difficulty, lab evacuated"
+    ],
+    "update": [
+      "{{unit}} confirms substance identified, ventilating lab",
+      "{{unit}} treating {{patients}} casualties for fume inhalation"
+    ],
+    "stop": [
+      "{{unit}} stood down, lab made safe, casualties handed to ambulance"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_331"
+  ],
+  "notes": "Generated from MissionChief UK mission 331 (Chemistry accident at school). Buildings: 11 Fire Stations, 1 Rescue Station. Vehicles: 2 Fire engines, 1 HazMat Unit or CBRN Vehicle. Personnel: none. Patients: max 2, 60% require transport, General Internal, code C-2. Prisoners: none. Escalation: 2x Smoke Inhalation follow up. POI: School."
+}

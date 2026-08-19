@@ -1,0 +1,204 @@
+{
+  "id": "police_driver_hit_by_loose_truck_wheel",
+  "name": "Driver hit by loose truck wheel",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Driver hit by loose truck wheel",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "motorway",
+    "a_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "irv": 2,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      3
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "debris on carriageway",
+    "live traffic",
+    "loose wheel hazard"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, a wheel's come off a lorry and hit a car, someone's hurt",
+      "There's been an accident, a truck wheel came loose and smashed into a car windscreen",
+      "Help, a wheel bounced off the road and hit a driver, they need help now"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, a wheel's come off a lorry and hit a car, someone's hurt",
+        "There's been an accident, a truck wheel came loose and smashed into a car windscreen",
+        "Help, a wheel bounced off the road and hit a driver, they need help now"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I was driving behind them",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "The driver's called {{firstPatientName}} I think, he told me his name",
+        "{{firstPatientName}}, that's the driver who was hit"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's on the main carriageway",
+        "We're at {{address}}, near the junction"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A wheel came off the lorry in front and bounced straight into the windscreen of the car next to me",
+        "It happened seconds ago, the car swerved and stopped on the hard shoulder",
+        "The lorry didn't even stop, the wheel just came flying off"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's conscious but he's got a head injury",
+        "He's awake but dazed"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing okay as far as I can tell",
+        "Yes, he's breathing fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his head and shoulder really hurt",
+        "Yes, he's in a lot of pain"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, there's blood on his forehead",
+        "A cut on his head, bleeding quite a bit"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him, we just stopped to help",
+        "No idea, I don't know him"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks to be in his forties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're keeping him still",
+        "Please hurry, he's got a nasty head injury"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance and police now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty struck by loose wheel, assessing"
+    ],
+    "update": [
+      "Casualty stabilised, carriageway partially closed",
+      "Lorry located further down the road, driver being spoken to"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_822"
+  ],
+  "notes": "Generated from MissionChief UK mission 822 (Driver hit by loose truck wheel). Buildings: 1 Fire Station, 2 Police Stations, 1 Rescue Station. Vehicles: 2 Fire Engines or Rescue Support Vehicles, 2 Police Cars. Personnel: 1 Fire Officer. Patients: min 1, max 3, 30% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: Highway exit, Intersection with lights."
+}

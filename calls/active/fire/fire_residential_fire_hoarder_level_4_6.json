@@ -1,0 +1,211 @@
+{
+  "id": "fire_residential_fire_hoarder_level_4_6",
+  "name": "Residential Fire (Hoarder level 4-6)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 300,
+  "description": "Residential Fire (Hoarder level 4-6)",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "f2y",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 3,
+    "single_pump": 2,
+    "aerial": 1,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "severely restricted access due to hoarding",
+    "heavy fire loading",
+    "risk of collapse from stacked contents"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 7",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Fire brigade please, my house is well alight, there's so much stuff in here it's spreading fast",
+      "There's a serious fire at my house, it's packed full of belongings and I can't get through"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade please, my house is well alight, there's so much stuff in here it's spreading fast",
+        "There's a serious fire at my house, it's packed full of belongings and I can't get through"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, it's my house"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's just me here, I only just got out"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The fire's taken hold quickly because of everything stacked up inside, I only just managed to get out"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm okay, but I've breathed in a lot of smoke"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I'm struggling a bit, coughing quite badly"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "My chest feels tight from the smoke"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I've got a bad chest, this smoke isn't helping"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I use an inhaler"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "I'm fifty eight"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm outside now"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, my house is on fire, I need the fire brigade"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, well developed fire, heavy fire loading, breathing apparatus committed"
+    ],
+    "update": [
+      "Crews in breathing apparatus tackling fire",
+      "Casualty treated for smoke inhalation"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualty"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_397"
+  ],
+  "notes": "Generated from MissionChief UK mission 397 (Residential Fire (Hoarder level 4-6)). Buildings: 6 Fire Stations, 1 Rescue Station. Vehicles: 5 Fire engines, 1 Aerial Appliance Truck (20% probability). Personnel: 2 Fire Officers. Patients: max 1, 50% require transport, General Internal, code C-2, 30% critical care. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,236 @@
+{
+  "id": "rescue_evacuation_of_stranded_passenger_train",
+  "name": "Evacuation of Stranded Passenger Train",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1360,
+  "description": "Evacuation of Stranded Passenger Train",
+  "keywords": {
+    "correct": [
+      "rescue_height"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "level_crossing"
+  ],
+  "units": {
+    "dual_pump": 2,
+    "single_pump": 2,
+    "iccu": 3,
+    "rescue_unit": 7,
+    "basu": 1,
+    "hazmat_unit": 1,
+    "irv": 6,
+    "hart": 4,
+    "welfare_unit": 1,
+    "fire_officer": 4,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      5,
+      50
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "stranded train",
+    "smoke on board",
+    "level crossing live rail",
+    "large number of passengers"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 10,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "This is the train manager, we're stopped between stations and passengers are struggling to breathe, we need help fast.",
+      "Emergency, our train's stuck at a crossing and it's filling with smoke, we need to evacuate everyone."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "This is the train manager, we're stopped between stations and passengers are struggling to breathe, we need help fast.",
+        "Emergency, our train's stuck at a crossing and it's filling with smoke, we need to evacuate everyone."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the train manager.",
+        "{{callerName}}, I'm on board, I work for the railway."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't have names for everyone, there's a lot of passengers unwell.",
+        "One of them is {{firstPatientName}}, she's struggling the most."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're stopped near {{address}}, by the crossing.",
+        "{{address}}, the train's stopped just before the crossing."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The train stopped suddenly and smoke started coming through the carriage, people are finding it hard to breathe.",
+        "We lost power and the train's stuck, it's got very hot and smoky inside and passengers are struggling."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Most are conscious but distressed, a couple have gone quiet.",
+        "The majority are alert, but a few are struggling badly."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Several are wheezing and coughing badly.",
+        "A number of them are really struggling for breath."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "A few are clutching their chests.",
+        "Some are saying their chest feels tight."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, it's the smoke and heat that's the problem.",
+        "No bleeding, it's breathing that's the issue."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't have medical details for the passengers.",
+        "I can't say, there's too many people to know that."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I wouldn't know, sorry.",
+        "Not something I have access to."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, we've got children and elderly on board.",
+        "Mixed, quite a few elderly passengers in this carriage."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're moving everyone towards the doors ready to evacuate.",
+        "Please hurry, some of them are getting worse."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need emergency services to evacuate this train now!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, liaising with train crew, evacuation beginning"
+    ],
+    "update": [
+      "{{unit}} evacuating passengers, {{patients}} casualties assessed",
+      "{{unit}} confirms power to the line isolated"
+    ],
+    "stop": [
+      "{{unit}} clear, all passengers accounted for"
+    ]
+  },
+  "tags": [
+    "railway_fire",
+    "railway_police",
+    "mc_807"
+  ],
+  "notes": "Generated from MissionChief UK mission 807 (Evacuation of Stranded Passenger Train). Buildings: 15 Fire Stations, 12 Rescue Stations, 1 Railway fire response, 1 HART Base, 9 Police Stations, 1 Railway Police, 2 Search and Rescue HQs. Vehicles: 4 Fire engines, 1 ICCU or ACU, 1 Rail Road Unit, 1 Rescue Support Vehicle, 1 BASU, 1 HazMat or CBRN Vehicle, 6 Police Cars, 1 EIU, 2 PRVs, 2 SRVs, 1 Welfare Vehicle, 5 Operational Support Vans/Trailers/Personal SAR Vehicles, 1 Control Van. Personnel: 4 Fire Officers, 1 Operational Team Leader, 4 Railway Police Officers (12 available), 1 Mobile Operations Manager (4 available), 1 Police Sergeant (4 available). Patients: min 5, max 50, 10% require transport, General Internal, codes C-3, C-4. Prisoners: none. Escalation: none. POI: Railroad Crossing, Rail Crossing.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

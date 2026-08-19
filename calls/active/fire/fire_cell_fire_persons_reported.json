@@ -1,0 +1,190 @@
+{
+  "id": "fire_cell_fire_persons_reported",
+  "name": "Cell Fire (Persons Reported)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 180,
+  "description": "Cell Fire (Persons Reported)",
+  "keywords": {
+    "correct": [
+      "f2y"
+    ],
+    "acceptable": [
+      "f2",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "office"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "irv": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 15,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "confined cell space",
+    "locked door delaying access",
+    "smoke logging in wing"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 60,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a fire in a cell and the prisoner hasn't come out, we can't get the door open safely",
+      "I need the fire brigade urgently, a prisoner's collapsed in his cell and there's smoke coming under the door"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire in a cell and the prisoner hasn't come out, we can't get the door open safely",
+        "I need the fire brigade urgently, a prisoner's collapsed in his cell and there's smoke coming under the door"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm the officer on duty on this wing"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's the prisoner in cell twelve, {{firstPatientName}} I believe"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the prison, report to the gate lodge"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's a fire in his cell, we can see smoke under the door but haven't been able to safely open it yet"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "We don't know, he's not responding when we call through the door"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "We can't tell from out here, there's smoke coming under the door"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "We can't say, we haven't been able to reach him"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "We don't know, we can't see him"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I'll check his medical file, prisoners often have conditions on record"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "His medication record is held by healthcare, I can get it"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's in his thirties"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we have staff standing by at the cell door"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need you here urgently, he's not responding"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, cell fire, persons reported, forcing entry with prison staff"
+    ],
+    "update": [
+      "{{unit}} confirms casualty located and removed from cell, treating for smoke inhalation"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualty handed to ambulance, fire out"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_514"
+  ],
+  "notes": "Generated from MissionChief UK mission 514 (Cell Fire (Persons Reported)). Buildings: 6 Fire Stations, 1 Rescue Station, 1 Police Station. Vehicles: 2 Fire engines, 1 Police Car. Personnel: 1 Fire Officer. Patients: max 1, 60% require transport, General Internal, codes C-1, C-2, 5% critical care. Prisoners: none. Escalation: Prison Wing Fire (Persons Reported), Prison Wing Fire (Major Incident) (Persons Reported). POI: Prison."
+}

@@ -1,0 +1,190 @@
+{
+  "id": "hazmat_fuel_spill_from_car",
+  "name": "Fuel spill from car",
+  "category": "hazmat",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 40,
+  "description": "Fuel spill from car",
+  "keywords": {
+    "correct": [
+      "hazmat_spill"
+    ],
+    "acceptable": [
+      "gas_leak",
+      "f1"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "industrial_estate",
+    "warehouse",
+    "a_road",
+    "petrol_station"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "fuel spill",
+    "fire risk",
+    "slip hazard"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's diesel or petrol pouring out from under a car on the industrial estate",
+      "I've just seen a car leaking fuel all over the road, thought I should report it"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's diesel or petrol pouring out from under a car on the industrial estate",
+        "I've just seen a car leaking fuel all over the road, thought I should report it"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}",
+        "{{callerName}}, I work nearby"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "Nobody's hurt, it's just the car leaking fuel",
+        "No patient, the driver's fine, just worried about the spill"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's outside the unit at {{address}}",
+        "{{address}}, right on the industrial estate"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Fuel's pouring out from underneath the car, a big puddle spreading across the road",
+        "Looks like the fuel tank's split, it's leaking fast"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no patient, everyone's out of the car and fine",
+        "N/A, nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No patient to speak of, nobody's struggling to breathe",
+        "Everyone's fine, just the fuel smell is strong"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, nobody's hurt",
+        "No injuries at all"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries",
+        "Nobody's bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not applicable, nobody's hurt",
+        "No patient involved"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No patient, so nothing to report",
+        "N/A"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient",
+        "N/A"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll keep everyone back from it",
+        "Right, should I move my car away from it"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "It's not medical, it's a fuel spill",
+        "No injuries, just the spill itself"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, fuel spill confirmed, no casualties"
+    ],
+    "update": [
+      "{{unit}} making the area safe, spill contained",
+      "Fuel spread being controlled with absorbent"
+    ],
+    "stop": [
+      "{{unit}} stood down, spill cleared and area made safe"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_30"
+  ],
+  "notes": "Generated from MissionChief UK mission 30 (Fuel spill from car). Buildings: 1 Fire Station. Vehicles: 1 Fire Engine or Rescue Support Vehicle. Personnel: none. Patients: none. Prisoners: none. Escalation: none. POI: none."
+}

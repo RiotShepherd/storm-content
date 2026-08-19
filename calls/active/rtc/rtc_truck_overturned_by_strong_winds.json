@@ -1,0 +1,203 @@
+{
+  "id": "rtc_truck_overturned_by_strong_winds",
+  "name": "Truck overturned by strong winds",
+  "category": "rtc",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 176,
+  "description": "Truck overturned by strong winds",
+  "keywords": {
+    "correct": [
+      "rtc_injury"
+    ],
+    "acceptable": [
+      "rtc_serious",
+      "rtc_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "rescue_unit": 1,
+    "irv": 2,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      2
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "live traffic",
+    "strong winds",
+    "vehicle unstable"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 25,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A lorry's been blown right over by the wind, it's on its side across the road!",
+      "Emergency, a high sided truck has overturned in the wind, the driver might be hurt."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A lorry's been blown right over by the wind, it's on its side across the road!",
+        "Emergency, a high sided truck has overturned in the wind, the driver might be hurt."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was driving behind him.",
+        "{{callerName}}, I've pulled over to help."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, he's a stranger.",
+        "I don't know his name, sorry."
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on {{address}}.",
+        "{{address}}, the lorry's on its side across both lanes."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A big gust caught the trailer and just tipped the whole thing over.",
+        "The wind's been really bad and it's blown the lorry clean onto its side."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's conscious, talking to me, but shaken.",
+        "Yes, he's awake, just very shocked."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing fine.",
+        "Yes, he's okay, just shaken up."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his shoulder hurts where the belt caught him.",
+        "He's holding his arm, says it's sore."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no visible injuries.",
+        "A small cut on his head, nothing major."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him, sorry.",
+        "No idea, I don't know him."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry.",
+        "I couldn't say."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like he's in his fifties.",
+        "Hard to say, middle aged."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with him out of the wind.",
+        "Please hurry, it's still really gusty out here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, a lorry's overturned with the driver hurt, we need help!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, assessing driver and vehicle"
+    ],
+    "update": [
+      "{{unit}} treating casualty, stabilising the vehicle"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty transported"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mc_847"
+  ],
+  "notes": "Generated from MissionChief UK mission 847 (Truck overturned by strong winds). Buildings: 6 Fire Stations, 2 Rescue Stations, 2 Police Stations. Vehicles: 2 Fire engines, 1 Rescue Support Vehicle, 2 Police Cars. Personnel: 1 Fire Officer. Patients: max 2, 25% require transport, General Surgeon and Traumatology, code C-3. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,190 @@
+{
+  "id": "medical_fallen_person_308",
+  "name": "Fallen person",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Fallen person",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "b_road",
+    "park"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "remote access",
+    "exposure to weather"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Someone's collapsed out on the golf course, we can't get them up",
+      "A walker's fallen on the footpath out on the moorland, quite remote"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Someone's collapsed out on the golf course, we can't get them up",
+        "A walker's fallen on the footpath out on the moorland, quite remote"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "He told me his name's {{firstPatientName}}",
+        "{{firstPatientName}}, that's what he said"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's out near {{address}}",
+        "{{address}}, it's a fair way off the road"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He tripped on the uneven ground and went down hard, can't put weight on his leg",
+        "She fell on the path, quite remote out here, will take a while to reach"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and talking",
+        "Yes, conscious"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, breathing normally",
+        "No problems there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, his ankle or leg, hard to tell",
+        "She says her hip hurts"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "A small graze"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him, we just happened to be walking near each other",
+        "She hasn't said"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Don't know",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about 60",
+        "Late fifties I'd guess"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll stay with them, we're quite exposed out here",
+        "I've got a coat over her to keep her warm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "We're quite remote, I don't think that's practical here",
+        "It's a fair way to walk out, might be best you send someone"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty located after access on foot"
+    ],
+    "update": [
+      "{{unit}} assessing casualty, arranging extraction from remote location",
+      "{{patients}} casualty stable, being prepared for evacuation"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital following extraction"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_308"
+  ],
+  "notes": "Generated from MissionChief UK mission 308 (Fallen person). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, Traumatology, codes C-2, C-3, C-4, 50% first responder full care. Prisoners: none. Escalation: none. POI: Farm, Forest, Heathland, Golf course, Moorland."
+}

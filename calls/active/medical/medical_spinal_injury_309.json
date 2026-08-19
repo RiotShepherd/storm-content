@@ -1,0 +1,187 @@
+{
+  "id": "medical_spinal_injury_309",
+  "name": "Spinal injury",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Spinal injury",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "b_road",
+    "park"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 70,
+    "conditions": [
+      "abdominal pain",
+      "bleeding wound",
+      "trauma"
+    ]
+  },
+  "hazards": [
+    "remote farmland",
+    "possible spinal injury",
+    "difficult vehicle access"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "He's come off a quad bike out on the farm, he says his back's gone numb",
+      "I need an ambulance, he's had a fall from a quad bike and can't feel his legs properly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "He's come off a quad bike out on the farm, he says his back's gone numb",
+        "I need an ambulance, he's had a fall from a quad bike and can't feel his legs properly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, we work the farm together",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're out at {{address}}, it's the farm",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He hit a rut and was thrown off the quad, landed badly on his back"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's awake and talking"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Bad pain in his back"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A small cut, nothing serious"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "None that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None that I know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "44"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "We've kept him still, haven't moved him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think this needs an ambulance, he can't feel his legs properly"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with suspected spinal injury following fall, immobilising"
+    ],
+    "update": [
+      "Patient immobilised, access difficult on scene"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority to trauma centre"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_309"
+  ],
+  "notes": "Generated from MissionChief UK mission 309 (Spinal injury). Buildings: 2 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 50% require transport, General Surgeon, code C-2, 50% critical care. Prisoners: none. Escalation: none. POI: Farm, Forest, Heathland, Golf course, Moorland."
+}

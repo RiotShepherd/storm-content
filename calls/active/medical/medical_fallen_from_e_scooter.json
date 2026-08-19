@@ -1,0 +1,199 @@
+{
+  "id": "medical_fallen_from_e_scooter",
+  "name": "Fallen from E Scooter",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 35,
+  "description": "Fallen from E Scooter",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 50,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Someone's come off an e scooter, they've hit the kerb pretty hard",
+      "There's been an e scooter accident, the rider's come off at speed"
+    ],
+    "phoneArea": "auto",
+    "callerType": "passer_by"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Someone's come off an e scooter, they've hit the kerb pretty hard",
+        "There's been an e scooter accident, the rider's come off at speed"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "He told me his name's {{firstPatientName}}",
+        "{{firstPatientName}}, that's what he said"
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's at {{address}}",
+        "{{address}}, on the pavement"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He hit a pothole and came off the scooter at speed, landed on his shoulder",
+        "The scooter clipped the kerb and threw him off, he hit his head I think"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and talking",
+        "Yes, conscious but a bit dazed"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Fine, breathing normally",
+        "No problems there"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "His shoulder and wrist hurt",
+        "He says his head's sore where he hit it"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A small cut on his elbow",
+        "No, not that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Don't know, I'm a stranger to him",
+        "He hasn't said"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Don't know",
+        "He hasn't said"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about 25",
+        "Early twenties I'd guess"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying with him",
+        "I've moved the scooter off the path"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "He seems a bit dazed, might be worth checking properly",
+        "Not sure, he seems alright but hit his head"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty following e scooter incident"
+    ],
+    "update": [
+      "{{unit}} checking for head injury and other trauma",
+      "{{patients}} casualty stable, further assessment ongoing"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for check up"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_582"
+  ],
+  "notes": "Generated from MissionChief UK mission 582 (Fallen from E Scooter). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 30% require transport, General Internal, codes C-1, C-2, 10% critical care. Prisoners: none. Escalation: none. POI: none."
+}

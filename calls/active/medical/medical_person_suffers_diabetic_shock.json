@@ -1,0 +1,179 @@
+{
+  "id": "medical_person_suffers_diabetic_shock",
+  "name": "Person suffers diabetic shock",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Person suffers diabetic shock",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 70,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My colleague's a diabetic and he's gone all confused and shaky, I think his sugar's crashed",
+      "I need an ambulance, he's diabetic and he's acting really strange, sweating and confused"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My colleague's a diabetic and he's gone all confused and shaky, I think his sugar's crashed",
+        "I need an ambulance, he's diabetic and he's acting really strange, sweating and confused"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work with him",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}, my colleague",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He said he felt odd, then started sweating and acting confused, he's diabetic"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes but he's not making sense"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's not able to say"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Type 1 diabetic"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He carries insulin and a glucose gel, I've given him some"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "33"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've given him something sugary"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I think he needs to be checked over now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with suspected hypoglycaemia, assessing"
+    ],
+    "update": [
+      "Blood sugar treated, patient improving"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed to hospital"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_767"
+  ],
+  "notes": "Generated from MissionChief UK mission 767 (Person suffers diabetic shock). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 70% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

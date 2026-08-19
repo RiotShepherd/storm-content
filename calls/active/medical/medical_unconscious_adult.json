@@ -1,0 +1,190 @@
+{
+  "id": "medical_unconscious_adult",
+  "name": "Unconscious Adult",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "Unconscious Adult",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 90,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "unresponsive patient"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 80,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My husband's collapsed, he's not waking up",
+      "I need an ambulance now, he's just collapsed and won't respond"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My husband's collapsed, he's not waking up",
+        "I need an ambulance now, he's just collapsed and won't respond"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, his wife",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my husband",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, please hurry",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He just collapsed in the kitchen, he's not responding to me at all"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "No, nothing, he won't wake up"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, but it sounds odd, snoring almost"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He's not responding to say"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Heart problems, high cholesterol"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "Statins and something for his heart"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "59"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I've got him on his side"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance right now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient unresponsive, assessing"
+    ],
+    "update": [
+      "Airway maintained, obs being monitored"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_632"
+  ],
+  "notes": "Generated from MissionChief UK mission 632 (Unconscious Adult). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 80% require transport, General Internal, codes C-1, C-2, 50% critical care, 20% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

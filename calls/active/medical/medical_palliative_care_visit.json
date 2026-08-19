@@ -1,0 +1,182 @@
+{
+  "id": "medical_palliative_care_visit",
+  "name": "Palliative Care Visit",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 50,
+  "description": "Palliative Care Visit",
+  "keywords": {
+    "correct": [
+      "r0_minor"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "rrv": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 25,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 5,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "It's not an emergency, my mum's on palliative care and we just need someone to check her pain relief",
+      "I'm not sure who to call, my mum's terminally ill and her pain isn't controlled today"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "It's not an emergency, my mum's on palliative care and we just need someone to check her pain relief",
+        "I'm not sure who to call, my mum's terminally ill and her pain isn't controlled today"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, her daughter",
+        "{{callerName}}, I'm her carer"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my mum",
+        "It's {{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She's comfortable but her pain's not quite controlled, the hospice nurse said to call if needed"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, she's awake and alert"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "A little laboured but that's normal for her"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says it's about a six today"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She has terminal cancer, it's all on her care plan"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She's on a syringe driver, morphine"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "79"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Thank you, that's reassuring"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "We've got a care plan, I think this fits that"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient reviewed under palliative care plan"
+    ],
+    "update": [
+      "Pain relief adjusted, patient more comfortable"
+    ],
+    "stop": [
+      "{{unit}} clear, no transport required, care plan updated"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_762"
+  ],
+  "notes": "Generated from MissionChief UK mission 762 (Palliative Care Visit). Buildings: 1 Rescue Station, 1 GP Surgery. Vehicles: 1 RRV or Specialist Paramedic RRV. Personnel: none. Patients: min 1, max 1, 5% require transport, General Internal, codes C-3, C-4, 5% critical care. Prisoners: none. Escalation: none. POI: none."
+}

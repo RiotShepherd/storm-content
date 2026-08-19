@@ -1,0 +1,229 @@
+{
+  "id": "fire_mass_crush_at_festival",
+  "name": "Mass crush at festival",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 1200,
+  "description": "Mass crush at festival",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "park",
+    "stadium"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "irv": 6,
+    "fire_officer": 2
+  },
+  "patients": {
+    "range": [
+      20,
+      140
+    ],
+    "rrvChance": 40,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "dense crowd",
+    "mass casualty situation",
+    "risk of further crush",
+    "limited access for vehicles"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's been a crush at the festival, loads of people are down, please help",
+      "It's chaos here, people have been crushed near the stage, we need lots of ambulances"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's been a crush at the festival, loads of people are down, please help",
+        "It's chaos here, people have been crushed near the stage, we need lots of ambulances"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm event security"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know names, there's so many casualties"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's the festival site, near the main stage"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The crowd surged forward and people got crushed against the barrier, there's people down everywhere"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are conscious, others aren't responding"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Several are struggling to breathe, it was a real crush"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Lots of people in pain, crush injuries"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Some bleeding, mostly crush and breathing injuries"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them, there's too many people"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, it's a festival crowd"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're trying to clear space for you"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, we need every ambulance you've got, this is a mass casualty situation"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, mass casualty triage established following crowd crush"
+    ],
+    "update": [
+      "{{patients}} casualties being triaged",
+      "Further resources requested to scene"
+    ],
+    "stop": [
+      "{{unit}} leaving scene with casualties"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "mass_casualty",
+    "urban_fire",
+    "mc_374"
+  ],
+  "notes": "Generated from MissionChief UK mission 374 (Mass crush at festival). Buildings: 6 Fire Stations, 40 Rescue Stations, 6 Police Stations. Vehicles: 2 Fire engines, 6 Police Cars. Personnel: 2 Fire Officers. Patients: min 20, max 140, 30% require transport, General Internal, codes C-1, C-2, C-3, C-4, 30% critical care. Prisoners: none. Escalation: none. POI: Festival.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "id": "medical_serious_head_injury_310",
+  "name": "Serious head injury",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.05,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "Serious head injury",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "track",
+    "b_road",
+    "park"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "head injury",
+      "stroke symptoms",
+      "reduced consciousness"
+    ]
+  },
+  "hazards": [
+    "remote location",
+    "possible neck injury",
+    "horse still nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "She's come off her horse and hit her head on the ground, she's not making sense",
+      "I need an ambulance, she's been thrown from her horse and knocked her head badly"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "She's come off her horse and hit her head on the ground, she's not making sense",
+        "I need an ambulance, she's been thrown from her horse and knocked her head badly"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was riding with her",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're on the bridleway near {{address}}",
+        "{{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The horse spooked and threw her, she landed hard on her head, we're out on the bridleway"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "She was knocked out for a minute, now she's awake but confused"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing's fine"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She says her head and neck hurt"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A graze on her head, not too heavy"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "None that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None that I know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "17"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "We've not moved her, kept her still"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, she was knocked out, she needs an ambulance"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, {{patients}} patient with head injury following fall, assessing"
+    ],
+    "update": [
+      "C-spine precautions in place, patient monitored"
+    ],
+    "stop": [
+      "{{unit}} clear, {{patients}} patient conveyed as priority to trauma centre"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_310"
+  ],
+  "notes": "Generated from MissionChief UK mission 310 (Serious head injury). Buildings: 3 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 100% require transport, Neurosurgery, code C-2, 90% critical care. Prisoners: none. Escalation: none. POI: Farm, Forest, Heathland, Golf course, Moorland."
+}

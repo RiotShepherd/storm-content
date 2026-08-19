@@ -1,0 +1,235 @@
+{
+  "id": "rescue_sports_stadium_collapse",
+  "name": "Sports Stadium Collapse",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.05,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    120,
+    300
+  ],
+  "reward": 4500,
+  "description": "Sports Stadium Collapse",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "stadium"
+  ],
+  "units": {
+    "dual_pump": 13,
+    "single_pump": 12,
+    "aerial": 5,
+    "rescue_unit": 10,
+    "irv": 15,
+    "dog_unit": 4,
+    "basu": 4,
+    "iccu": 1,
+    "fire_officer": 5
+  },
+  "patients": {
+    "range": [
+      75,
+      250
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "structural collapse",
+    "mass crowd",
+    "crush risk",
+    "further collapse risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    },
+    "hart": {
+      "chance": 60,
+      "delaySeconds": [
+        90,
+        180
+      ],
+      "unit": "hart"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Part of the stand's collapsed, there's hundreds of people down, it's an absolute disaster!",
+      "Emergency, the stadium's partially come down with a full crowd inside, please send everyone you have!"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Part of the stand's collapsed, there's hundreds of people down, it's an absolute disaster!",
+        "Emergency, the stadium's partially come down with a full crowd inside, please send everyone you have!"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm a steward here.",
+        "{{callerName}}, I was sat in the stand when it went."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I can't give you names, there's hundreds of people down.",
+        "I don't know, there's too many casualties to say."
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's {{address}}, the stadium.",
+        "{{address}}, the east stand's the part that's come down."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A section of the stand's collapsed with the crowd still in it, there's people trapped under the seating.",
+        "There was a loud crack and part of the stand gave way during the match, hundreds were sat there."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Some are conscious and screaming, others aren't moving.",
+        "Loads are shouting for help, but I can see people not moving too."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I can't tell for everyone, there's too many casualties.",
+        "Some are, others I really don't know."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "People everywhere are screaming that they're trapped and hurt.",
+        "There's shouting from all over about broken bones and being crushed."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, I can see a lot of blood from where I'm standing.",
+        "Yes, badly, on a number of people."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know any of them, it's a huge crowd.",
+        "No idea, there's far too many people involved."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I've no way of knowing, sorry.",
+        "I can't tell you, there's hundreds of people."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "All ages, there were families in that section.",
+        "Mixed, definitely children among them."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're trying to help who we can and keep others back.",
+        "Please send everyone, this is huge."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "Are you serious, hundreds of people are hurt here!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, mass casualty declared, {{patients}} casualties estimated"
+    ],
+    "update": [
+      "{{unit}} triaging casualties across the stand, further units requested",
+      "{{unit}} reports crowd being evacuated to a safe area"
+    ],
+    "stop": [
+      "{{unit}} clear, all casualties accounted for"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_685"
+  ],
+  "notes": "Generated from MissionChief UK mission 685 (Sports Stadium Collapse). Buildings: 50 Fire Stations, 30 Rescue Stations, 10 Police Stations. Vehicles: 25 Fire engines, 5 Aerial Appliance Trucks, 10 Rescue Support Vehicles, 15 Police Cars, 4 DSUs, 4 BASUs, 1 ICCU or ACU. Personnel: 5 Fire Officers. Patients: min 75, max 250, 30% require transport, Traumatology, code C-3, 10% first responder full care. Prisoners: none. Escalation: none. POI: Stadium.",
+  "majorIncident": {
+    "chance": 30,
+    "declareAfterSeconds": [
+      90,
+      240
+    ],
+    "addUnits": {
+      "dual_pump": 2,
+      "fire_officer": 1,
+      "irv": 2,
+      "hart": 1
+    },
+    "desks": [
+      "hems",
+      "hart",
+      "npas"
+    ]
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "id": "police_domestic_violence",
+  "name": "Domestic Violence",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 120,
+  "description": "Domestic Violence",
+  "keywords": {
+    "correct": [
+      "domestic"
+    ],
+    "acceptable": [
+      "assault",
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 2
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "domestic assault in progress",
+    "suspect on scene",
+    "risk to caller"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 90,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, my partner's hit me, I need help now",
+      "Please help me, he's attacked me, I'm scared he's coming back",
+      "I need the police, there's been a domestic assault, I'm hurt"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, my partner's hit me, I need help now",
+        "Please help me, he's attacked me, I'm scared he's coming back",
+        "I need the police, there's been a domestic assault, I'm hurt"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, it's me",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}, that's me"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I've locked myself in the bathroom",
+        "I'm at {{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He grabbed me and hit me across the face, he's still in the house",
+        "It happened a few minutes ago, he's done this before",
+        "He pushed me down the stairs during an argument"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, I'm awake, my face really hurts",
+        "I'm conscious but shaking badly"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "I'm breathing okay, just in shock",
+        "Fine, just scared"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, my face and ribs really hurt",
+        "Bad pain in my arm where he grabbed me"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Yes, my lip's split and bleeding",
+        "A bit of blood from my nose"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Nothing relevant",
+        "No, nothing else"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No, I don't take anything",
+        "Nothing regular"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "29"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying locked in here",
+        "Please hurry, I'm scared he'll come back"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police, he's still here!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, victim located and safe, assailant detained"
+    ],
+    "update": [
+      "Victim assessed for injuries, statement being taken"
+    ],
+    "stop": [
+      "{{unit}} clear, victim conveyed for further care, suspect in custody"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_140"
+  ],
+  "notes": "Generated from MissionChief UK mission 140 (Domestic Violence). Buildings: 1 Police Station, 1 Rescue Station. Vehicles: 2 Police Cars. Personnel: none. Patients: min 1, max 1, 90% require transport, General Internal, codes C-2, C-3. Prisoners: max 1. Escalation: none. POI: none."
+}

@@ -1,0 +1,190 @@
+{
+  "id": "medical_abdominal_pain",
+  "name": "Abdominal Pain",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "Abdominal Pain",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 20,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance please, abdominal Pain, please hurry",
+      "I need an ambulance, it's my husband, abdominal Pain"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance please, abdominal Pain, please hurry",
+        "I need an ambulance, it's my husband, abdominal Pain"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I'm with them now",
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, they're right here with me"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}, come to the front door",
+        "{{address}}, I'll leave the door open"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Abdominal Pain. It came on about ten minutes ago",
+        "Abdominal Pain, and it's not getting any better"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake and talking to me",
+        "Sort of, drifting in and out"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes but it's laboured",
+        "Breathing's okay I think"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Yes, a lot",
+        "They say it's bad, about an eight out of ten"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "A little, I've got a towel on it"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Blood pressure, that's all I know of",
+        "Nothing that I know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "There's a box of tablets in the kitchen, I can check",
+        "Just the usual, statins and something for blood pressure"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "31"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, thank you, please be quick",
+        "I'm trying, I'm scared"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this can't wait, I need an ambulance now",
+        "Okay, if you think that's best"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with abdominal pain"
+    ],
+    "update": [
+      "{{unit}} carrying out observations, pain relief given",
+      "{{patients}} casualty stable, further assessment ongoing"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_651"
+  ],
+  "notes": "Generated from MissionChief UK mission 651 (Abdominal Pain). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 50% require transport, General Internal, codes C-2, C-3. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,204 @@
+{
+  "id": "rescue_parachutist_stuck_in_tree",
+  "name": "Parachutist stuck in tree",
+  "category": "rescue",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 100,
+  "description": "Parachutist stuck in tree",
+  "keywords": {
+    "correct": [
+      "tree_on_road"
+    ],
+    "acceptable": [
+      "rtc_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "industrial_estate",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "rescue_unit": 1,
+    "aerial": 1,
+    "fire_officer": 1,
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 35,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 20,
+    "destination": "local_ed"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "A parachutist has come down wrong and he's stuck up a tree, he's not able to get himself down.",
+      "Fire brigade please, someone doing a skydive has landed in a tree and looks hurt."
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "A parachutist has come down wrong and he's stuck up a tree, he's not able to get himself down.",
+        "Fire brigade please, someone doing a skydive has landed in a tree and looks hurt."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I saw him come down.",
+        "{{callerName}}, I was in the garden when it happened."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "I don't know him, he's a stranger to me.",
+        "He told me his name's {{firstPatientName}}."
+      ]
+    },
+    "address": {
+      "answers": [
+        "It's near {{address}}, he's caught in a tree in the garden.",
+        "{{address}}, you can see the parachute from the road."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "His parachute got caught in the branches on the way down and he's stuck about halfway up.",
+        "He came down off course and ended up tangled in a tree, he can't free himself."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's talking to me from up there.",
+        "Yes, he's awake, but he sounds in pain."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, he's breathing okay.",
+        "Yes, but he says his chest hurts when he breathes."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his leg's hurt from hitting a branch.",
+        "Yes, he's saying his back and shoulder hurt."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "There's a cut on his arm, bleeding a little.",
+        "No, not that I can see from here."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know, I don't know him.",
+        "No idea, he's a stranger to me."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, sorry.",
+        "I couldn't tell you."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks like he's in his thirties.",
+        "Hard to say, maybe forties."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying here talking to him.",
+        "Please hurry, he's struggling to hold on."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's stuck in a tree, we need the fire brigade!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, aerial appliance setting up"
+    ],
+    "update": [
+      "{{unit}} working to bring the casualty down safely"
+    ],
+    "stop": [
+      "{{unit}} clear, casualty brought down"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_216"
+  ],
+  "notes": "Generated from MissionChief UK mission 216 (Parachutist stuck in tree). Buildings: 6 Fire Stations, 1 Rescue Station. Vehicles: 1 Fire engine, 1 Rescue Support Vehicle, 1 Aerial Appliance Truck (10% probability). Personnel: 1 Fire Officer, 1 Operational Team Leader (75% probability), 6 to 18 Firefighters. Patients: max 1, min 1, 20% require transport, Traumatology, code C-2, 25% critical care. Prisoners: none. Escalation: none. POI: none."
+}

@@ -1,0 +1,189 @@
+{
+  "id": "medical_absent_seizure",
+  "name": "Absent Seizure",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 35,
+  "description": "Absent Seizure",
+  "keywords": {
+    "correct": [
+      "r_unconscious"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "seizure"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 25,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 50,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My daughter's just staring into space, she's not responding to me at all",
+      "Something's wrong, she just stopped mid sentence and isn't answering"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "confused",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My daughter's just staring into space, she's not responding to me at all",
+        "Something's wrong, she just stopped mid sentence and isn't answering"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my daughter"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, I'm with her"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "She just went blank, staring, not responding, it's been going on a couple of minutes",
+        "She stopped talking mid sentence and her eyes went vacant, she's not answering me"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "She's sort of awake but not responding to me",
+        "Her eyes are open but she's not there"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing normally",
+        "Seems fine, breathing steady"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "She's not saying anything, I don't think so",
+        "Can't tell, she's not responding"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "She's had these before, the doctor called them absence seizures",
+        "Yes, she's epileptic I think"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I think she has some medication but I'm not sure",
+        "Not sure, I'd have to check"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "9"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying right with her",
+        "She's starting to come round I think, still confused"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "I don't know, this is the first time it's lasted this long",
+        "Maybe, but I'm worried, should I still call one"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty assessed following seizure"
+    ],
+    "update": [
+      "{{unit}} monitoring recovery, casualty now more responsive",
+      "{{patients}} casualty being kept comfortable and observed"
+    ],
+    "stop": [
+      "{{unit}} stood down, casualty recovered and advice given"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_585"
+  ],
+  "notes": "Generated from MissionChief UK mission 585 (Absent Seizure). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: max 1, min 1, 50% require transport, General Internal, code C-2, 5% critical care. Prisoners: none. Escalation: none. POI: none."
+}

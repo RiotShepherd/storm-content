@@ -1,0 +1,178 @@
+{
+  "id": "fire_child_locked_in_car",
+  "name": "Child Locked in Car",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.0,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 60,
+  "description": "Child Locked in Car",
+  "keywords": {
+    "correct": [
+      "f_vehicle"
+    ],
+    "acceptable": [
+      "f1",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": true
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "residential_road",
+    "high_street"
+  ],
+  "units": {
+    "dual_pump": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      1
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "heat inside vehicle",
+    "risk of breaking glass safely",
+    "distressed parent"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 30,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a baby locked in a car and it's really hot, the parent's outside panicking",
+      "I need the fire brigade, a child's shut in a car in this heat and can't get out"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a baby locked in a car and it's really hot, the parent's outside panicking",
+        "I need the fire brigade, a child's shut in a car in this heat and can't get out"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I was walking past"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's the mum's little one, {{firstPatientName}} she said his name is"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's in the car park outside"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "The car's locked with the child inside, keys are locked in too, it's warm out and he's getting distressed"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "He's awake and crying, banging on the window"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "He seems okay so far but it's warm in there and he's getting worked up"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He doesn't seem hurt, just very upset"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, he's not injured"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "The mum says he's healthy, no conditions she's aware of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "She says he's not on any medication"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "He's about two years old"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we're talking to him through the glass to keep him calm"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he's locked in a hot car, we need you here now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, child locked in vehicle, gaining access"
+    ],
+    "update": [
+      "{{unit}} confirms child removed from vehicle, assessing for effects of heat"
+    ],
+    "stop": [
+      "{{unit}} stood down, child handed to ambulance for check, no further action"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "urban_fire",
+    "mc_333"
+  ],
+  "notes": "Generated from MissionChief UK mission 333 (Child Locked in Car). Buildings: 1 Fire Station, 1 Rescue Station. Vehicles: 1 Fire engine. Personnel: none. Patients: max 1, 30% require transport, General Internal / Children, code C-3. Prisoners: none. Escalation: none. POI: none."
+}

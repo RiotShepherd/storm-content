@@ -1,0 +1,200 @@
+{
+  "id": "medical_3rd_degree_burns",
+  "name": "3rd Degree Burns",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 120,
+  "description": "3rd Degree Burns",
+  "keywords": {
+    "correct": [
+      "r1n1_severe"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 100,
+    "conditions": [
+      "burns",
+      "airway burns",
+      "smoke inhalation"
+    ]
+  },
+  "hazards": [
+    "severe burns",
+    "risk of shock"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 50,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Please help, my husband's got terrible burns, third degree I think",
+      "There's been an accident, he's badly burned, please hurry"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Please help, my husband's got terrible burns, third degree I think",
+        "There's been an accident, he's badly burned, please hurry"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}",
+        "{{callerName}}, I'm with him"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, he's in so much pain"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, hurry please"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "Boiling water went over his arm and chest, the skin's blistered and white in places",
+        "He's been burned badly, the skin looks charred in places"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's awake and in agony",
+        "Yes, conscious but going into shock I think"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing okay for now",
+        "A bit fast, he's panicking"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Terrible, he's screaming",
+        "Very severe, worst I've ever seen"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding, just the burns",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "No, nothing that I know of",
+        "Not that I'm aware of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None that I know of",
+        "No regular medication"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "47"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I've run cool water over it like you said",
+        "I'm trying, he's in so much pain"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this needs an ambulance now, look at the burns",
+        "Absolutely not, this is serious"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with significant burns"
+    ],
+    "update": [
+      "{{unit}} cooling and dressing burns, monitoring for shock",
+      "{{patients}} casualty stable, prepping for transport"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital, burns dressed"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_150"
+  ],
+  "notes": "Generated from MissionChief UK mission 150 (3rd Degree Burns). Buildings: 4 Rescue Stations. Vehicles: none. Personnel: none. Patients: max 1, min 1, 100% require transport, General Surgeon / Burns / Critical Care, code C-2, 100% critical care. Prisoners: none. Escalation: none. POI: none."
+}

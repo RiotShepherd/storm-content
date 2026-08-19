@@ -1,0 +1,195 @@
+{
+  "id": "medical_vomiting_blood",
+  "name": "Vomiting Blood",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    10,
+    25
+  ],
+  "reward": 25,
+  "description": "Vomiting Blood",
+  "keywords": {
+    "correct": [
+      "r1_moderate"
+    ],
+    "acceptable": [
+      "r1_moderate",
+      "r0_minor"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 30,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "blood on the bathroom floor, slip risk"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 75,
+    "destination": "local_ed"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Ambulance please, my husband's just been sick, and it's got blood in it, a lot of it",
+      "I need an ambulance urgently, there's blood, he's vomited blood",
+      "Please send someone now, he's brought up blood, he looks grey"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Ambulance please, my husband's just been sick, and it's got blood in it, a lot of it",
+        "I need an ambulance urgently, there's blood, he's vomited blood",
+        "Please send someone now, he's brought up blood, he looks grey"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, I'm his wife",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "{{firstPatientName}}, that's my husband",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I'll unlock the door now",
+        "We're at {{address}}, top of the stairs"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was sick in the bathroom and it was full of blood, dark red, almost black",
+        "It happened about five minutes ago, he'd been complaining of a bad stomach all day",
+        "He's brought up blood twice now, he's gone very pale"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, he's awake but he looks terrible",
+        "He's conscious but very weak, struggling to keep his eyes open"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing fast, he's frightened",
+        "Breathing okay for now"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He says his stomach's really painful, like a burning",
+        "Yes, bad stomach pain, he's doubled over"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "Just the blood he's brought up, nothing else",
+        "No other bleeding that I can see"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "He's got a stomach ulcer, diagnosed a couple of years ago",
+        "He drinks a fair bit, the doctor's warned him about his liver"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "He's on omeprazole for his stomach",
+        "I don't think he takes anything regularly"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "52"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm sitting with him, please hurry",
+        "I'm trying to stay calm but I'm really frightened"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is an emergency, he needs an ambulance now",
+        "Absolutely not, look at him, he needs help now"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with suspected upper GI bleed, assessing"
+    ],
+    "update": [
+      "Patient pale and tachycardic, further haematemesis on scene",
+      "IV access gained, fluids commenced, prepping for transport"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} patient to A&E, pre-alert given"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_663"
+  ],
+  "notes": "Generated from MissionChief UK mission 663 (Vomiting Blood). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 75% require transport, General Internal, code C-2, 10% critical care. Prisoners: none. Escalation: none. POI: none."
+}

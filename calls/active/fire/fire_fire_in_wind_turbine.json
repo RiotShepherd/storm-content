@@ -1,0 +1,191 @@
+{
+  "id": "fire_fire_in_wind_turbine",
+  "name": "Fire in wind turbine",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.4,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 150,
+  "description": "Fire in wind turbine",
+  "keywords": {
+    "correct": [
+      "f2"
+    ],
+    "acceptable": [
+      "f1",
+      "f2y",
+      "f3"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 4,
+  "locationTypes": [
+    "house",
+    "residential_road",
+    "track",
+    "park"
+  ],
+  "units": {
+    "dual_pump": 1,
+    "single_pump": 1,
+    "fire_officer": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "fire at height",
+    "blade debris falling",
+    "difficult access"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "There's a fire at one of the wind turbines out on the ridge, please hurry",
+      "Fire brigade please, one of the wind turbines out on the ridge is on fire, it's a fair height up"
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "There's a fire at one of the wind turbines out on the ridge, please hurry",
+        "Fire brigade please, one of the wind turbines out on the ridge is on fire, it's a fair height up"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}, I work on the site"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No, the site was unmanned near the fire, no one's hurt"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, the access track leads right up to it",
+        "It's {{address}}, follow the site road in"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "There's smoke and flames coming from one of the wind turbines out on the ridge, I think it's an electrical fault"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "There's no one involved, I've not seen anybody hurt"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No, there's nobody to check, it's just the fire"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No one's hurt as far as I can see"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries, nobody's here"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I can't help with that, there's no one hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no patient, sorry"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no one to ask, nobody's been hurt"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, we've shut down the equipment remotely",
+        "Please hurry, it's very high up, hard to fight"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, it's an equipment fire, nobody's hurt"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, fire at height, equipment isolated, no persons reported"
+    ],
+    "update": [
+      "Crews assessing access at height, monitoring for falling debris"
+    ],
+    "stop": [
+      "Fire out, {{unit}} confirming equipment cool before leaving"
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "rural_fire",
+    "urban_fire",
+    "mc_575"
+  ],
+  "notes": "Generated from MissionChief UK mission 575 (Fire in wind turbine). Buildings: 6 Fire Stations. Vehicles: 2 Fire engines. Personnel: 1 Fire Officer. Patients: none. Prisoners: none. Escalation: none. POI: Windmill Park."
+}

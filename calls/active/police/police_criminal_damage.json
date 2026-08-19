@@ -1,0 +1,189 @@
+{
+  "id": "police_criminal_damage",
+  "name": "Criminal damage",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.7,
+  "grade": 3,
+  "responseMinutes": 40,
+  "onSceneMinutes": [
+    20,
+    45
+  ],
+  "reward": 70,
+  "description": "Criminal damage",
+  "keywords": {
+    "correct": [
+      "police_assistance"
+    ],
+    "acceptable": [
+      "assault"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": true,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 2,
+    "cell_van": 1
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {},
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, someone's smashed the windows of my car",
+      "I want to report criminal damage, someone's keyed the whole side of my van",
+      "There's been damage done to my property overnight, I need it reported"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "calm",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, someone's smashed the windows of my car",
+        "I want to report criminal damage, someone's keyed the whole side of my van",
+        "There's been damage done to my property overnight, I need it reported"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, it's my car that's been damaged",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No one's involved, nobody's here",
+        "N/A, whoever did it has gone"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, it's parked outside my house",
+        "We're at {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "I came out this morning and the windscreen's smashed",
+        "Someone's scratched right down the side of my van overnight",
+        "There's paint thrown across my front door, must have happened in the night"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Nobody's hurt, it's just damage",
+        "No injuries involved"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No injuries to report",
+        "Nobody's hurt"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "N/A, no one's hurt",
+        "Not applicable"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No",
+        "None"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "N/A",
+        "Not applicable"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Not applicable"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'll leave it as it is for you to see",
+        "Thank you, I've taken photos already"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police for criminal damage"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, damage confirmed and photographed"
+    ],
+    "update": [
+      "Statement taken from owner, area checked for suspects"
+    ],
+    "stop": [
+      "{{unit}} clear, crime reference given"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_395"
+  ],
+  "notes": "Generated from MissionChief UK mission 395 (Criminal damage). Buildings: 2 Police Stations. Vehicles: 2 Police Cars. Personnel: none. Patients: none. Prisoners: max 2. Escalation: none. POI: none."
+}

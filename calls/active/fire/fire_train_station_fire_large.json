@@ -1,0 +1,211 @@
+{
+  "id": "fire_train_station_fire_large",
+  "name": "Train station fire (Large)",
+  "category": "fire",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.1,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    60,
+    150
+  ],
+  "reward": 800,
+  "description": "Train station fire (Large)",
+  "keywords": {
+    "correct": [
+      "f3"
+    ],
+    "acceptable": [
+      "f2y",
+      "f2"
+    ]
+  },
+  "records": {
+    "personType": "none",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 70,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "train_station"
+  ],
+  "units": {
+    "dual_pump": 4,
+    "single_pump": 4,
+    "aerial": 1,
+    "basu": 1,
+    "water_carrier": 1,
+    "irv": 2,
+    "iccu": 1,
+    "fire_officer": 6
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 0,
+    "conditions": []
+  },
+  "hazards": [
+    "smoke",
+    "mass evacuation",
+    "live rail lines nearby"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "fireOfficer": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "fire_officer"
+    }
+  },
+  "escalations": [
+    {
+      "chance": 20,
+      "afterSeconds": [
+        120,
+        300
+      ],
+      "message": "Make pumps 10",
+      "addUnits": {
+        "dual_pump": 2,
+        "fire_officer": 1
+      },
+      "addPatients": [
+        0,
+        0
+      ]
+    }
+  ],
+  "caller": {
+    "openings": [
+      "Fire brigade, there's a big fire at the station, we're evacuating the platforms now.",
+      "It's the train station, fire's spreading through the concourse, please hurry."
+    ],
+    "phoneArea": "auto",
+    "callerType": "staff"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Fire brigade, there's a big fire at the station, we're evacuating the platforms now.",
+        "It's the train station, fire's spreading through the concourse, please hurry."
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "It's {{callerName}}.",
+        "{{callerName}}, I'm ringing about it now."
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "No, there's no one hurt, it's the train station fire (large) I'm ringing about."
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, please hurry.",
+        "It's {{address}}."
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A fire's broken out near the ticket hall and it's spreading, we're clearing platforms and stopping trains.",
+        "Smoke's filling the concourse fast, staff are moving passengers out through the side exits."
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Everyone's being moved out, we've had no reports of anyone trapped."
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "No one's had any trouble breathing, we're all outside."
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No, nobody's in pain, there's no patient."
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no bleeding, no one's hurt."
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Sorry, there's no patient for me to tell you about."
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No idea, there's no one hurt here."
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "There's no patient, nobody's been injured."
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, please hurry.",
+        "Right, we'll stay well back until you get here."
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "What? No, I need the fire brigade, not 111."
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, station fire, large evacuation under way, multiple jets committed."
+    ],
+    "update": [
+      "{{unit}} making progress, working with rail control to isolate power to lines."
+    ],
+    "stop": [
+      "{{unit}} stopped, fire out, damping down, station remains closed."
+    ]
+  },
+  "tags": [
+    "fire_fighting",
+    "railway_fire",
+    "urban_fire",
+    "mc_294"
+  ],
+  "notes": "Generated from MissionChief UK mission 294 (Train station fire (Large)). Buildings: 13 Fire Stations, 2 Police Stations. Vehicles: 8 Fire engines, 1 Aerial Appliance Truck, 1 BASU, 1 Water Carrier (10% probability), 2 Police Cars, 1 ICCU or ACU. Personnel: 6 Fire Officers, 21 to 63 Firefighters. Patients: none. Prisoners: none. Escalation: Train station fire (Major). POI: Train station (regional), Train station (regional and long distance)."
+}

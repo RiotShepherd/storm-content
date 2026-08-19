@@ -1,0 +1,205 @@
+{
+  "id": "medical_fall_from_height",
+  "name": "Fall from height",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.6,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "Fall from height",
+  "keywords": {
+    "correct": [
+      "r0_fall"
+    ],
+    "acceptable": [
+      "r0_minor",
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {
+    "otl": 1
+  },
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 80,
+    "conditions": [
+      "fracture",
+      "head injury",
+      "neck injury",
+      "chest injury",
+      "walking wounded"
+    ]
+  },
+  "hazards": [
+    "fall from height",
+    "possible spinal injury"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 100,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Someone's fallen from a ladder, it's a bad height, they're not moving much",
+      "He's fallen off the roof, please send an ambulance urgently"
+    ],
+    "phoneArea": "auto",
+    "callerType": "witness"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Someone's fallen from a ladder, it's a bad height, they're not moving much",
+        "He's fallen off the roof, please send an ambulance urgently"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "He said his name's {{firstPatientName}}",
+        "{{firstPatientName}}"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He fell from a ladder, must be about fifteen feet up, he's on the ground and not moving much",
+        "He came off the roof and landed hard, he's conscious but in a lot of pain"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, but drowsy and confused",
+        "Yes, awake, in a lot of pain"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Yes, breathing but it seems shallow",
+        "Seems okay but laboured"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "Severe, all over really",
+        "Yes, his back and legs mainly"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "A bit from his head",
+        "Yes, from a cut on his leg"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "I don't know him, I'm a neighbour",
+        "Not sure, I don't know him well"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "I don't know",
+        "Couldn't say"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "Looks about 50",
+        "Mid to late forties I'd guess"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm not moving him at all",
+        "I'm keeping him still and talking to him"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, this is a fall from height, he needs an ambulance now",
+        "No, absolutely not, this is urgent"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty following fall from height"
+    ],
+    "update": [
+      "{{unit}} maintaining spinal precautions, assessing injuries",
+      "{{patients}} casualty stable, prepping for careful extraction"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital as priority"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_319"
+  ],
+  "notes": "Generated from MissionChief UK mission 319 (Fall from height). Buildings: 6 Rescue Stations. Vehicles: none. Personnel: 1 Operational Team Leader (50% probability). Patients: max 1, min 1, 100% require transport, Traumatology, code C-1, 40% critical care. Prisoners: none. Escalation: none. POI: none."
+}

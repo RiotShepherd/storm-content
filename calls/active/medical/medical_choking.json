@@ -1,0 +1,199 @@
+{
+  "id": "medical_choking",
+  "name": "Choking",
+  "category": "medical",
+  "domain": "land",
+  "enabled": true,
+  "weight": 1.5,
+  "grade": 1,
+  "responseMinutes": 8,
+  "onSceneMinutes": [
+    15,
+    40
+  ],
+  "reward": 180,
+  "description": "Choking",
+  "keywords": {
+    "correct": [
+      "r1_breathing"
+    ],
+    "acceptable": [
+      "r1_moderate"
+    ]
+  },
+  "records": {
+    "personType": "patient",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 5,
+    "max": 1,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "house",
+    "flats",
+    "high_street",
+    "park",
+    "pub",
+    "supermarket",
+    "office"
+  ],
+  "units": {},
+  "patients": {
+    "range": [
+      1,
+      1
+    ],
+    "rrvChance": 90,
+    "conditions": [
+      "breathing difficulty",
+      "smoke inhalation",
+      "chest pain",
+      "unwell, unclear cause"
+    ]
+  },
+  "hazards": [
+    "airway obstruction"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 90,
+    "destination": "major_trauma_centre"
+  },
+  "desks": {
+    "hems": {
+      "chance": 25,
+      "delaySeconds": [
+        60,
+        120
+      ],
+      "unit": "hems"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "My baby's choking, he can't breathe, please help",
+      "Someone's choking in the restaurant, they can't speak"
+    ],
+    "phoneArea": "auto",
+    "callerType": "relative"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 10
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "My baby's choking, he can't breathe, please help",
+        "Someone's choking in the restaurant, they can't speak"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's {{firstPatientName}}",
+        "{{firstPatientName}}, my son"
+      ]
+    },
+    "address": {
+      "answers": [
+        "We're at {{address}}",
+        "{{address}}, please hurry"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "He was eating and suddenly started choking, he can't cough properly",
+        "Food's gone down the wrong way and they can't breathe or speak"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "Yes, awake but panicking",
+        "Yes, conscious, going red in the face"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Struggling badly, can't get air in",
+        "Very poor, making a horrible noise trying to breathe"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "He can't tell me, he's choking",
+        "N/A, can't speak"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No bleeding",
+        "No"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not that I know of",
+        "No allergies that we know of"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "None",
+        "Not that I know of"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "2"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "I'm doing back blows like you told me",
+        "Okay, trying that now, please stay with me"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, he can't breathe, this is an emergency",
+        "No, absolutely not, please hurry"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} in attendance, {{patients}} casualty with airway obstruction"
+    ],
+    "update": [
+      "{{unit}} clearing airway, casualty breathing improving",
+      "{{patients}} casualty stable following intervention"
+    ],
+    "stop": [
+      "{{unit}} conveying {{patients}} casualty to hospital for assessment"
+    ]
+  },
+  "tags": [
+    "ambulance",
+    "mc_141"
+  ],
+  "notes": "Generated from MissionChief UK mission 141 (Choking). Buildings: 1 Rescue Station. Vehicles: none. Personnel: none. Patients: min 1, max 1, 90% require transport, General Internal, code C-1, 50% critical care, 50% first responder full care. Prisoners: none. Escalation: none. POI: none."
+}

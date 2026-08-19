@@ -1,0 +1,204 @@
+{
+  "id": "police_knifepoint_robbery_of_a_person",
+  "name": "Knifepoint Robbery of a Person",
+  "category": "police",
+  "domain": "land",
+  "enabled": true,
+  "weight": 0.2,
+  "grade": 2,
+  "responseMinutes": 18,
+  "onSceneMinutes": [
+    40,
+    90
+  ],
+  "reward": 250,
+  "description": "Knifepoint Robbery of a Person",
+  "keywords": {
+    "correct": [
+      "assault"
+    ],
+    "acceptable": [
+      "police_assistance"
+    ]
+  },
+  "records": {
+    "personType": "suspect",
+    "requiresRecordConfirm": false,
+    "hasVehicle": false
+  },
+  "duplicateCallers": {
+    "chance": 40,
+    "max": 3,
+    "windowSeconds": [
+      30,
+      240
+    ]
+  },
+  "hoaxChance": 0,
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ],
+  "units": {
+    "irv": 4,
+    "dog_unit": 1,
+    "arv": 3
+  },
+  "patients": {
+    "range": [
+      0,
+      0
+    ],
+    "rrvChance": 10,
+    "conditions": [
+      "injuries"
+    ]
+  },
+  "hazards": [
+    "armed suspect at large",
+    "risk to public"
+  ],
+  "access": "",
+  "transport": {
+    "chance": 0,
+    "destination": "none"
+  },
+  "desks": {
+    "arv": {
+      "chance": 100,
+      "delaySeconds": [
+        30,
+        90
+      ],
+      "unit": "arv"
+    }
+  },
+  "escalations": [],
+  "caller": {
+    "openings": [
+      "Police please, I've just been robbed at knifepoint, he's taken my phone and wallet",
+      "Help, someone pulled a knife on me and took my bag",
+      "Please hurry, a man threatened me with a knife and robbed me"
+    ],
+    "phoneArea": "auto",
+    "callerType": "patient"
+  },
+  "callerBehaviour": {
+    "type": "panicked",
+    "wrongServiceChance": 5
+  },
+  "dialogue": {
+    "start": {
+      "answers": [
+        "Police please, I've just been robbed at knifepoint, he's taken my phone and wallet",
+        "Help, someone pulled a knife on me and took my bag",
+        "Please hurry, a man threatened me with a knife and robbed me"
+      ]
+    },
+    "callerName": {
+      "answers": [
+        "{{callerName}}, it's me that's been robbed",
+        "It's {{callerName}}"
+      ]
+    },
+    "patientName": {
+      "answers": [
+        "It's me, {{firstPatientName}}",
+        "{{firstPatientName}}, I'm the one it happened to"
+      ]
+    },
+    "address": {
+      "answers": [
+        "{{address}}, I'm still stood here shaking",
+        "It happened near {{address}}"
+      ],
+      "revealsAddress": true
+    },
+    "whatHappened": {
+      "answers": [
+        "A man came up behind me, showed me a knife and demanded my phone and wallet",
+        "It happened less than a minute ago, he's run off towards the alley",
+        "He grabbed my bag and pulled a blade when I tried to hold on"
+      ],
+      "diagnostic": true
+    },
+    "conscious": {
+      "answers": [
+        "I'm fine, just shaken, he didn't touch me with it",
+        "I'm conscious, just terrified"
+      ],
+      "diagnostic": true
+    },
+    "breathing": {
+      "answers": [
+        "Breathing fine, just in shock",
+        "Fine, just shaking badly"
+      ],
+      "diagnostic": true
+    },
+    "pain": {
+      "answers": [
+        "No pain, he didn't cut me",
+        "A bit sore where he grabbed my arm, but no cuts"
+      ],
+      "diagnostic": true
+    },
+    "bleeding": {
+      "answers": [
+        "No, no injuries",
+        "No bleeding, he didn't get to use it"
+      ],
+      "diagnostic": true
+    },
+    "medicalHistory": {
+      "answers": [
+        "Not relevant, I'm fine",
+        "Nothing, I'm not hurt"
+      ]
+    },
+    "medications": {
+      "answers": [
+        "No",
+        "Nothing"
+      ]
+    },
+    "patientAge": {
+      "answers": [
+        "27"
+      ]
+    },
+    "reassure": {
+      "answers": [
+        "Okay, I'm staying where I am like you said",
+        "Thank you, I'm trying to calm down"
+      ]
+    },
+    "refer111": {
+      "answers": [
+        "No, I need police, he had a knife!"
+      ]
+    }
+  },
+  "sceneReports": {
+    "arrival": [
+      "{{unit}} on scene, victim located, uninjured but shaken"
+    ],
+    "update": [
+      "Description circulated, area search commenced"
+    ],
+    "stop": [
+      "{{unit}} clear, victim supported, investigation ongoing"
+    ]
+  },
+  "tags": [
+    "police",
+    "mc_861"
+  ],
+  "notes": "Generated from MissionChief UK mission 861 (Knifepoint Robbery of a Person). Buildings: 8 Police Stations. Vehicles: 4 Police Cars, 1 DSU, 1 Armed Response Vehicle. Personnel: 4 Armed Response Personnel. Patients: not shown. Prisoners: not shown. Escalation: Stabbing. POI: none."
+}
