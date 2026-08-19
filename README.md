@@ -27,3 +27,7 @@ What the game currently uses from a file: `id`, `name`, `category`, `enabled`, `
 Unit keys used in `units` across the set: `irv, traffic_car, arv, dog_unit, cell_van, mounted_unit, eod_unit, drone_unit, single_pump, dual_pump, aerial, rescue_unit, water_carrier, basu, hazmat_unit, iccu, bulk_foam_unit, welfare_unit, fire_officer, otl, ambulance, rrv, hart, hems`. The game maps each to the service it counts against on scene; unknown keys are ignored, so new keys can be used ahead of the game catching up.
 
 The game reads this repo on start and once an hour; Settings > Live call content lists every file and the reason any file was skipped. `rescue_vessel_capsized` now uses `coastline` / `harbour` (the only water location types the game has).
+
+## Vehicles (reference)
+
+`vehicles/uk-fleet.json` is the game's built-in UK fleet (every land vehicle type from the MissionChief UK list that real UK services run, plus the desk-only air units), with crew ranges, real purchase prices in pounds, the training each crew member holds and a note on which services use it; `vehicles/training.json` is the training catalogue; `templates/vehicle-template.json` documents the fields. The game does not read these from the repo (its list is `content/vehicles.json` next to the game, seeded from the same data); they are here so call files and the game agree on unit keys.
