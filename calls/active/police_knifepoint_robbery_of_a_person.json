@@ -1,0 +1,126 @@
+{
+  "id": "police_knifepoint_robbery_of_a_person",
+  "category": "robbery",
+  "title": "Knifepoint Robbery of a Person",
+  "caller": {
+    "name": "Jade Doyle",
+    "phone": "07130314446",
+    "persona": "the victim themselves, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "victim",
+    "openingLine": "Police, quick, I was threatened with a knife and they took my things",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "87 Mill Road",
+    "town": "Bognor Regis",
+    "postcode": "PO21 7BN",
+    "lat": 50.78475,
+    "lng": -0.674,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Knifepoint Robbery of a Person",
+    "summaryTruth": "Knifepoint Robbery of a Person. They came up behind me, pulled a knife and demanded my phone and wallet. Hazards reported: armed suspect at large, risk to public. Location 87 Mill Road, Bognor Regis.",
+    "correctGrade": 2,
+    "correctThrive": {
+      "threat": true,
+      "harm": false,
+      "risk": true,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "They came up behind me, pulled a knife and demanded my phone and wallet",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "They came up behind me, pulled a knife and demanded my phone and wallet",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Jade Doyle",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Jade Doyle.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "87 Mill Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "87 Mill Road, Bognor Regis. Please be quick.",
+      "critical": true,
+      "spontaneous": true,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "asian male, late teens, wearing high-vis and jeans",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a asian male, late teens, wearing high-vis and jeans."
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "armed suspect at large",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, armed suspect at large."
+    }
+  ],
+  "unknownTopics": [],
+  "outcome": {
+    "arrestChance": 0.45
+  },
+  "unitRequirements": [
+    "AFO",
+    "K9"
+  ],
+  "escalations": [
+    {
+      "key": "weapon_seen",
+      "chance": 0.3,
+      "delayMs": 80000,
+      "text": "Update from the victim: the male definitely had a blade, described as a kitchen knife, last seen heading towards the seafront.",
+      "addTags": [
+        "AFO"
+      ],
+      "gradeTo": 1
+    }
+  ],
+  "source": "converted-from-legacy"
+}

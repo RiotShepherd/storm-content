@@ -1,0 +1,126 @@
+{
+  "id": "police_residential_burglary",
+  "category": "burglary",
+  "title": "Residential Burglary",
+  "caller": {
+    "name": "Joe Mason",
+    "phone": "07753462970",
+    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "witness",
+    "openingLine": "Police, someone's clearly been in my house, I'm outside and scared",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "43 Station Road",
+    "town": "Crawley",
+    "postcode": "RH10 6WU",
+    "lat": 51.1119,
+    "lng": -0.18315,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Residential Burglary",
+    "summaryTruth": "Residential Burglary. The back door's been forced and drawers are all over the floor. Hazards reported: intruder possibly still on premises. Location 43 Station Road, Crawley.",
+    "correctGrade": 3,
+    "correctThrive": {
+      "threat": false,
+      "harm": false,
+      "risk": false,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "The back door's been forced and drawers are all over the floor",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "The back door's been forced and drawers are all over the floor",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Joe Mason",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Joe Mason.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "43 Station Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "43 Station Road, Crawley. Please be quick.",
+      "critical": true,
+      "spontaneous": false,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "asian male, 30s, wearing high-vis and jeans",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a asian male, 30s, wearing high-vis and jeans."
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "intruder possibly still on premises",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, intruder possibly still on premises."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.5
+  },
+  "unitRequirements": [
+    "K9"
+  ],
+  "escalations": [
+    {
+      "key": "suspects_decamp",
+      "chance": 0.35,
+      "delayMs": 90000,
+      "text": "Informant states the suspects have left on foot carrying bags, direction of the town centre.",
+      "addTags": [
+        "K9"
+      ]
+    }
+  ],
+  "source": "converted-from-legacy"
+}

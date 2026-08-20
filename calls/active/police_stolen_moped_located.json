@@ -1,0 +1,113 @@
+{
+  "id": "police_stolen_moped_located",
+  "category": "theft",
+  "title": "Stolen Moped Located",
+  "caller": {
+    "name": "Lisa Simmons",
+    "phone": "07419851256",
+    "persona": "a passer-by who saw it happen, steady and matter of fact",
+    "callerIs": "witness",
+    "openingLine": "There's a moped here that looks exactly like the one you're after",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "19 Mill Road",
+    "town": "Uckfield",
+    "postcode": "TN22 5SL",
+    "lat": 50.96685,
+    "lng": 0.0983,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Stolen Moped Located",
+    "summaryTruth": "Stolen Moped Located. It's on its side in the alley, no one around it, matches the colour and make. Location 19 Mill Road, Uckfield.",
+    "correctGrade": 3,
+    "correctThrive": {
+      "threat": false,
+      "harm": false,
+      "risk": false,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "It's on its side in the alley, no one around it, matches the colour and make",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "It's on its side in the alley, no one around it, matches the colour and make",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Lisa Simmons",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Lisa Simmons.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "19 Mill Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "19 Mill Road, Uckfield. Please be quick.",
+      "critical": true,
+      "spontaneous": false,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "black male, 30s, wearing a black jacket",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a black male, 30s, wearing a black jacket."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.7
+  },
+  "unitRequirements": [],
+  "escalations": [
+    {
+      "key": "detainee_violent",
+      "chance": 0.2,
+      "delayMs": 70000,
+      "text": "Store security state the detained person is kicking off and has assaulted a guard.",
+      "addTags": [
+        "Taser"
+      ],
+      "gradeTo": 2
+    }
+  ],
+  "source": "converted-from-legacy"
+}

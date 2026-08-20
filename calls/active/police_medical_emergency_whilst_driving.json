@@ -1,0 +1,113 @@
+{
+  "id": "police_medical_emergency_whilst_driving",
+  "category": "roads",
+  "title": "Medical emergency whilst driving",
+  "caller": {
+    "name": "Adam Marsh",
+    "phone": "07575419942",
+    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "witness",
+    "openingLine": "Help, the driver in front of me has just collapsed at the wheel",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "67 Park Avenue",
+    "town": "Hastings",
+    "postcode": "TN34 4GT",
+    "lat": 50.8546,
+    "lng": 0.5762,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Medical emergency whilst driving",
+    "summaryTruth": "Medical emergency whilst driving. The car was driving normally then just drifted and stopped, the driver's slumped over. Hazards reported: vehicle stopped in road, unresponsive driver, live traffic. Location 67 Park Avenue, Hastings.",
+    "correctGrade": 1,
+    "correctThrive": {
+      "threat": false,
+      "harm": false,
+      "risk": true,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "The car was driving normally then just drifted and stopped, the driver's slumped over",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "The car was driving normally then just drifted and stopped, the driver's slumped over",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Adam Marsh",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Adam Marsh.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "67 Park Avenue",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "67 Park Avenue, Hastings. Please be quick.",
+      "critical": true,
+      "spontaneous": false,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "vehicle stopped in road",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, vehicle stopped in road."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.1
+  },
+  "unitRequirements": [],
+  "escalations": [
+    {
+      "key": "road_rage",
+      "chance": 0.15,
+      "delayMs": 90000,
+      "text": "Caller states the drivers are now out of their vehicles squaring up, one has picked up a length of wood from the verge.",
+      "addTags": [
+        "Taser"
+      ],
+      "gradeTo": 2
+    }
+  ],
+  "source": "converted-from-legacy"
+}

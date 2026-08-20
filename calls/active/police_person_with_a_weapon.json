@@ -1,0 +1,128 @@
+{
+  "id": "police_person_with_a_weapon",
+  "category": "weapons",
+  "title": "Person with a weapon",
+  "caller": {
+    "name": "Peter Brennan",
+    "phone": "07393517920",
+    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "witness",
+    "openingLine": "Help, there's someone with a weapon near the shops",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "70 Mill Road",
+    "town": "Bognor Regis",
+    "postcode": "PO21 6YH",
+    "lat": 50.78155,
+    "lng": -0.67715,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Person with a weapon",
+    "summaryTruth": "Person with a weapon. They're waving the knife around, shouting at anyone who comes close. Hazards reported: armed suspect, crowd nearby. Location 70 Mill Road, Bognor Regis.",
+    "correctGrade": 1,
+    "correctThrive": {
+      "threat": true,
+      "harm": false,
+      "risk": true,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "They're waving the knife around, shouting at anyone who comes close",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "They're waving the knife around, shouting at anyone who comes close",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Peter Brennan",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Peter Brennan.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "70 Mill Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "70 Mill Road, Bognor Regis. Please be quick.",
+      "critical": true,
+      "spontaneous": false,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "asian male, 20s, wearing a black jacket",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a asian male, 20s, wearing a black jacket."
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "armed suspect",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, armed suspect."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.5
+  },
+  "unitRequirements": [
+    "AFO",
+    "K9"
+  ],
+  "escalations": [
+    {
+      "key": "weapon_confirmed",
+      "chance": 0.4,
+      "delayMs": 70000,
+      "text": "Further call confirms the male is still in the area and still carrying the weapon.",
+      "addTags": [
+        "AFO"
+      ],
+      "gradeTo": 1
+    }
+  ],
+  "source": "converted-from-legacy"
+}

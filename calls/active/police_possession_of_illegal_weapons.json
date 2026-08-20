@@ -1,0 +1,127 @@
+{
+  "id": "police_possession_of_illegal_weapons",
+  "category": "weapons",
+  "title": "Possession of illegal weapons",
+  "caller": {
+    "name": "Kofi Mason",
+    "phone": "07345169843",
+    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "witness",
+    "openingLine": "Police, quick, I don't feel safe, one of them's got a blade",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "2 Victoria Road",
+    "town": "Uckfield",
+    "postcode": "TN22 1HQ",
+    "lat": 50.9682,
+    "lng": 0.1004,
+    "callerKnowsPostcode": false
+  },
+  "incident": {
+    "type": "Possession of illegal weapons",
+    "summaryTruth": "Possession of illegal weapons. One of them lifted {{his}} jacket and I saw a knife tucked in {{his}} waistband. Hazards reported: armed suspects. Location 2 Victoria Road, Uckfield.",
+    "correctGrade": 1,
+    "correctThrive": {
+      "threat": true,
+      "harm": false,
+      "risk": true,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "One of them lifted {{his}} jacket and I saw a knife tucked in {{his}} waistband",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "One of them lifted {{his}} jacket and I saw a knife tucked in {{his}} waistband",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Kofi Mason",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Kofi Mason.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "2 Victoria Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "2 Victoria Road, Uckfield. Please be quick.",
+      "critical": true,
+      "spontaneous": true,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "white female, 40s, wearing a black jacket",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a white female, 40s, wearing a black jacket."
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "armed suspects",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, armed suspects."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.5
+  },
+  "unitRequirements": [
+    "AFO"
+  ],
+  "escalations": [
+    {
+      "key": "weapon_confirmed",
+      "chance": 0.4,
+      "delayMs": 70000,
+      "text": "Further call confirms the male is still in the area and still carrying the weapon.",
+      "addTags": [
+        "AFO"
+      ],
+      "gradeTo": 1
+    }
+  ],
+  "source": "converted-from-legacy"
+}

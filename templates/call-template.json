@@ -1,446 +1,73 @@
 {
-  "_help": "ONE CALL PER FILE. Copy this file into storm-content/calls/<category>/<id>.json and fill it in. Every key starting with _ is a note for humans and is ignored by the game. Delete the notes or leave them, both are fine.",
-  "id": "unique_snake_case_id",
-  "name": "Name of call as the player sees it",
-  "category": "rtc | fire | medical | police | rescue | hazmat",
-  "_category": "which service family the call belongs to. Drives the scoring (was the player's keyword in the right family) and which colour/pin style it gets.",
-  "domain": "land | water | air",
-  "_domain": "land = roads, buildings, open ground. water = river, canal, lake, coastline, harbour (suggestion draws from lifeboats, coastguard, fire boat, marine police; coastguard helicopter desk available). air = airports/aircraft. The location types below must belong to the same domain.",
-  "enabled": true,
-  "weight": 1,
-  "_weight": "base chance of this call spawning compared with every other enabled call. 1 = normal, 3 = three times as common, 0.2 = rare, 0 = never (use enabled:false instead).",
-  "weightBy": {
-    "_help": "OPTIONAL multipliers on top of weight. Each matching entry multiplies the base weight; anything missing means no change. Delete this whole block for a plain call.",
-    "hour": {
-      "0-5": 0.3,
-      "6-9": 1.5,
-      "10-15": 1,
-      "16-19": 1.8,
-      "20-23": 0.8
-    },
-    "_hour": "24h ranges 'start-end' (inclusive). Rush hour RTCs, night-time domestics, that kind of thing.",
-    "weekday": {
-      "mon": 1,
-      "tue": 1,
-      "wed": 1,
-      "thu": 1,
-      "fri": 1.3,
-      "sat": 1.6,
-      "sun": 1.1
-    },
-    "month": {
-      "jan": 1,
-      "feb": 1,
-      "mar": 1,
-      "apr": 1,
-      "may": 1,
-      "jun": 1,
-      "jul": 1,
-      "aug": 1,
-      "sep": 1,
-      "oct": 1.2,
-      "nov": 2,
-      "dec": 1.5
-    },
-    "weather": {
-      "clear": 1,
-      "rain": 1.6,
-      "storm": 2,
-      "fog": 1.4,
-      "ice": 2.5,
-      "snow": 2,
-      "heat": 1
-    },
-    "_weather": "the game's own simple weather state; only these seven keys exist.",
-    "areaType": {
-      "urban": 1.4,
-      "suburban": 1,
-      "rural": 0.6,
-      "coastal": 1
-    },
-    "_areaType": "what kind of area the spawn point sits in, worked out from the map around it.",
-    "coverage": {
-      "police": 1,
-      "fire": 1,
-      "ambulance": 1
-    },
-    "_coverage": "multiplier per service the player currently has crewed stations for; a call needing a service the player has none of should be 0 for that service."
-  },
-  "grade": 2,
-  "_grade": "TRUE urgency, 1 (most urgent) to 4. The player's own priority pick is scored against this. Grade 1 = life at risk now, 2 = emergency, 3 = urgent, 4 = routine.",
-  "responseMinutes": 15,
-  "_responseMinutes": "units must be on scene within this many minutes or the call counts as late.",
-  "onSceneMinutes": [
-    20,
-    45
-  ],
-  "_onSceneMinutes": "how long the units stay on scene, min and max, picked at random.",
-  "reward": 250,
-  "keywords": {
-    "_help": "which Incident Processing keywords count as CORRECT for this call (full marks), and which are close enough (partial marks). Keys from the keyword catalogue.",
-    "correct": [
-      "rtc_serious"
-    ],
-    "acceptable": [
-      "rtc_trapped",
-      "rtc_injury"
+  "_help": "STORM case file template (new format). One file per 999 call. Copy, fill, add to calls/active and list it in calls/manifest.json. Full field guide: calls/CASE_SCHEMA.md. The file is ground truth: the AI caller never invents beyond it and QA scores the player against it.",
+  "id": "kebab-case-id-matching-filename",
+  "category": "burglary | domestic | robbery | theft | weapons | asb | roads | missing | drugs | publicorder | suspicious | fraud | police",
+  "title": "Shown in supervisor QA, never mid-call",
+  "caller": {
+    "name": "Full name",
+    "phone": "07700900000",
+    "persona": "one line of voice direction, e.g. frightened, whispering",
+    "callerIs": "victim | witness | third_party | involved",
+    "openingLine": "What they say the moment the call connects",
+    "dontKnowLines": [
+      "In-character lines for questions they cannot answer"
     ]
   },
-  "records": {
-    "_help": "what the PNC / UKHS look-ups generate for this call. personType: none | patient | suspect. requiresRecordConfirm: the on-scene clock pauses until the dispatcher confirms the record. hasVehicle: a suspect vehicle exists for the PNC vehicle search.",
-    "personType": "patient",
-    "requiresRecordConfirm": false,
-    "hasVehicle": true
+  "location": {
+    "line": "12 Example Road",
+    "town": "Brighton",
+    "postcode": "BN1 1AA",
+    "lat": 50.82,
+    "lng": -0.14,
+    "callerKnowsPostcode": true
   },
-  "duplicateCallers": {
-    "_help": "big public incidents get rung in by several people. chance out of 100 that a second (third...) caller rings about the same incident within windowSeconds; each shows up as another call in Simulation and the lookup card's 'incidents found near this address' is how the player spots the duplicate.",
-    "chance": 60,
-    "max": 3,
-    "windowSeconds": [
-      30,
-      240
-    ]
-  },
-  "hoaxChance": 0,
-  "_hoaxChance": "out of 100: the call is a hoax or a wrong number; crews find nothing on scene, points lost for a full attendance.",
-  "_reward": "Response Points on a clean resolution, scaled by the interrogation score.",
-  "locationTypes": [
-    "a_road",
-    "b_road",
-    "motorway",
-    "roundabout"
-  ],
-  "_locationTypes": "HARD RULE: the call can only spawn at a real place of one of these types (an RTC only on roads, a domestic only at house/flats, a boat only on water). Pick from the list below.",
-  "_locationTypesAvailable": {
-    "road (land)": [
-      "motorway",
-      "a_road",
-      "b_road",
-      "residential_road",
-      "high_street",
-      "pedestrian_street",
-      "track",
-      "roundabout"
-    ],
-    "structure (land)": [
-      "bridge",
-      "tunnel"
-    ],
-    "rail (land)": [
-      "train_station",
-      "level_crossing",
-      "tram_stop"
-    ],
-    "transport (land)": [
-      "bus_station",
-      "airport",
-      "car_park",
-      "petrol_station"
-    ],
-    "residential (land)": [
-      "house",
-      "flats"
-    ],
-    "healthcare (land)": [
-      "hospital",
-      "gp_surgery"
-    ],
-    "education (land)": [
-      "school",
-      "university"
-    ],
-    "retail (land)": [
-      "shopping_centre",
-      "retail_park",
-      "supermarket"
-    ],
-    "industrial (land)": [
-      "industrial_estate",
-      "warehouse"
-    ],
-    "commercial (land)": [
-      "office",
-      "hotel"
-    ],
-    "leisure (land)": [
-      "pub",
-      "restaurant",
-      "stadium",
-      "park"
-    ],
-    "community (land)": [
-      "place_of_worship"
-    ],
-    "water (water)": [
-      "river",
-      "canal",
-      "lake",
-      "coastline",
-      "harbour"
-    ],
-    "_note": "new types can be added in the locations content file (key, label, category, domain); once added there they can be used here."
-  },
-  "units": {
-    "_help": "the predetermined attendance: what the game SUGGESTS when the player picks this call's keyword. Keys are vehicle type keys from the vehicles content file (irv, rpt, single_pump, dual_pump, aerial, rescue_unit, otl, fire_officer, rrv, hart, hems, arv, npas, dog_unit, lifeboat_all_weather, lifeboat_inshore, coastguard_rescue_team, cg_helicopter, fire_boat ... add more in vehicles.json). Anything not listed is not suggested. Ambulances are NOT listed here, they come from patients below.",
-    "irv": 2,
-    "rpt": 2,
-    "dual_pump": 2,
-    "rescue_unit": 1,
-    "otl": 1,
-    "fire_officer": 2
-  },
-  "_buildings": "MissionChief style requirement: how many stations of each service (fire / police / ambulance) the player must own, across the whole save, before this call can come in. Leave {} for no requirement beyond the services the units need.",
-  "buildings": {
-    "fire": 1
-  },
-  "patients": {
-    "range": [
-      5,
-      9
-    ],
-    "_range": "minimum and maximum number of patients; one ambulance is suggested per patient. [0, 0] for a call with no patients.",
-    "rrvChance": 60,
-    "_rrvChance": "out of 100, chance a Rapid Response Vehicle is added on top of the ambulances.",
-    "conditions": [
-      "neck injury",
-      "chest injury",
-      "catastrophic bleed",
-      "walking wounded"
-    ],
-    "_conditions": "pool the patients' conditions are drawn from; shows in the Patients section and the UKHS record."
-  },
-  "hazards": [
-    "fuel on the carriageway",
-    "unstable lorry load",
-    "live traffic"
-  ],
-  "_hazards": "scene hazards, used for the H in the METHANE message and the crews' arrival report. [] if none.",
-  "access": "Access from the northbound carriageway only, southbound blocked",
-  "_access": "how crews get in, used for the A in METHANE. Leave '' to auto-generate from the location.",
-  "transport": {
-    "_help": "where patients end up; feeds the Transportziel (transport destination) bar. destination: local_ed | major_trauma_centre | burns_unit | childrens | none",
-    "chance": 90,
-    "destination": "major_trauma_centre"
-  },
-  "desks": {
-    "_help": "automatic desk reviews that run when the call is classified. The player cannot request these. chance is out of 100; a desk that triggers self-tasks its unit after delaySeconds and logs an event, otherwise it logs 'not required'. Delete any desk that never applies.",
-    "hems": {
-      "chance": 40,
-      "delaySeconds": [
-        60,
-        120
-      ],
-      "unit": "hems"
-    },
-    "criticalCareCar": {
-      "chance": 0,
-      "delaySeconds": [
-        60,
-        120
-      ],
-      "unit": "ccp_car"
-    },
-    "hart": {
-      "chance": 0,
-      "delaySeconds": [
-        90,
-        180
-      ],
-      "unit": "hart"
-    },
-    "fireOfficer": {
-      "chance": 0,
-      "delaySeconds": [
-        30,
-        60
-      ],
-      "unit": "fire_officer"
-    },
-    "arv": {
-      "chance": 0,
-      "delaySeconds": [
-        60,
-        120
-      ],
-      "unit": "arv"
-    },
-    "npas": {
-      "chance": 0,
-      "delaySeconds": [
-        120,
-        240
-      ],
-      "unit": "npas"
-    },
-    "dogUnit": {
-      "chance": 0,
-      "delaySeconds": [
-        120,
-        240
-      ],
-      "unit": "dog_unit"
-    },
-    "coastguardHelicopter": {
-      "chance": 0,
-      "delaySeconds": [
-        120,
-        300
-      ],
-      "unit": "cg_helicopter"
+  "incident": {
+    "type": "Correct incident type string",
+    "summaryTruth": "Full ground-truth narrative. Every fact the caller can ever reveal.",
+    "correctGrade": 1,
+    "correctThrive": {
+      "threat": false,
+      "harm": false,
+      "risk": false,
+      "investigation": false,
+      "vulnerability": false,
+      "engagement": false
     }
   },
+  "facts": [
+    {
+      "key": "stable_id",
+      "label": "QA label",
+      "value": "ground truth string",
+      "askHints": [
+        "lowercase",
+        "substrings"
+      ],
+      "beat": "in-character line releasing it",
+      "spontaneous": false,
+      "critical": false,
+      "cardField": "callerName | addressLine | town | postcode | incidentType | summary"
+    }
+  ],
+  "unknownTopics": [
+    "topics the caller genuinely cannot answer"
+  ],
+  "outcome": {
+    "arrestChance": 0.0
+  },
+  "unitRequirements": [
+    "Taser | AFO | TPAC | PO2 | K9 | CUS"
+  ],
   "escalations": [
     {
-      "_help": "OPTIONAL mid-incident messages from the crews once on scene (fire make-ups, extra casualties found). afterSeconds is measured from the first unit arriving. Use [] for none.",
-      "chance": 25,
-      "afterSeconds": [
-        120,
-        300
+      "key": "class_key",
+      "chance": 0.3,
+      "delayMs": 90000,
+      "text": "Template update line in an on-scene unit or second caller voice",
+      "addTags": [
+        "AFO"
       ],
-      "message": "Make pumps 4, persons reported",
-      "addUnits": {
-        "dual_pump": 2,
-        "fire_officer": 1
-      },
-      "addPatients": [
-        0,
-        2
-      ]
+      "gradeTo": 1
     }
-  ],
-  "majorIncident": {
-    "_help": "OPTIONAL. If chance triggers, the first crew on scene declares a major incident with a METHANE message (JESIP), built live from this call: M declared, E exact location (auto), T type (name), H hazards (above), A access (above), N number of casualties (patients actually generated), E services required (units + desks). declareAfterSeconds is measured from the first unit arriving. When declared: every listed desk runs again, addUnits is added to the suggestion, and the incident is flagged MAJOR in Operations.",
-    "chance": 15,
-    "declareAfterSeconds": [
-      90,
-      240
-    ],
-    "addUnits": {
-      "dual_pump": 2,
-      "fire_officer": 2,
-      "irv": 2,
-      "hart": 1
-    },
-    "desks": [
-      "hems",
-      "hart",
-      "npas"
-    ]
-  },
-  "caller": {
-    "openings": [
-      "First thing the caller says when the handler presses Call Start, one is picked at random",
-      "Another possible opening"
-    ],
-    "phoneArea": "auto",
-    "_phoneArea": "auto = a number local to the spawn location; or 'mobile'; or 'withheld'.",
-    "callerType": "witness",
-    "_callerType": "witness | patient | relative | staff | alarm_company | police_officer ... only affects the caller-ID text and how the answers read."
-  },
-  "callerBehaviour": {
-    "_help": "OPTIONAL flavour: panicked | calm | confused | abusive | child | non_english | silent. Changes bubble timing and wording; a silent call gets no answers until Call Start is pressed twice.",
-    "type": "panicked",
-    "wrongServiceChance": 20,
-    "_wrongServiceChance": "out of 100 the caller asks for the wrong service first (e.g. police for a medical), the handler has to work it out."
-  },
-  "dialogue": {
-    "_help": "the caller's answers to each interrogation button, in the order the player can press them. Button ids are fixed: start, callerName, patientName, address, whatHappened, conscious, breathing, pain, bleeding, medicalHistory, medications, patientAge, reassure, refer111. Give at least one answer per button; one is picked at random each time it is pressed. Placeholders: {{address}} {{callerName}} {{patients}} {{firstPatientName}}. Exactly ONE button must have revealsAddress:true. Buttons with diagnostic:true count towards the interrogation score.",
-    "start": {
-      "answers": [
-        "Police and ambulance, there's been a bad crash on the dual carriageway"
-      ]
-    },
-    "callerName": {
-      "answers": [
-        "It's {{callerName}}, I was in the car behind"
-      ]
-    },
-    "patientName": {
-      "answers": [
-        "I don't know them, there are loads of people, some are still in the cars"
-      ]
-    },
-    "address": {
-      "revealsAddress": true,
-      "answers": [
-        "We're on {{address}}, just past the junction",
-        "{{address}}, both lanes are blocked"
-      ]
-    },
-    "whatHappened": {
-      "diagnostic": true,
-      "answers": [
-        "A lorry's gone across the central reservation and there are four or five cars piled up behind it"
-      ]
-    },
-    "conscious": {
-      "diagnostic": true,
-      "answers": [
-        "Most people are out and walking about but the driver of the blue car isn't moving"
-      ]
-    },
-    "breathing": {
-      "diagnostic": true,
-      "answers": [
-        "The one in the blue car, I can't tell, his head's against the wheel"
-      ]
-    },
-    "pain": {
-      "diagnostic": true,
-      "answers": [
-        "A woman's screaming about her neck, she can't turn her head"
-      ]
-    },
-    "bleeding": {
-      "diagnostic": true,
-      "answers": [
-        "There's a lot of blood on the road by the lorry cab, the driver's leg is a mess"
-      ]
-    },
-    "medicalHistory": {
-      "answers": [
-        "No idea, I don't know any of them"
-      ]
-    },
-    "medications": {
-      "answers": [
-        "I don't know, sorry"
-      ]
-    },
-    "patientAge": {
-      "answers": [
-        "All sorts, there's a child in one of the cars, maybe six or seven"
-      ]
-    },
-    "reassure": {
-      "answers": [
-        "Okay, okay, we're staying on the verge",
-        "Please hurry, the blue car driver still isn't moving"
-      ]
-    },
-    "refer111": {
-      "answers": [
-        "Are you joking? There are people trapped in cars here!"
-      ]
-    }
-  },
-  "sceneReports": {
-    "_help": "OPTIONAL radio messages the crews send in real time once on scene, in order, spaced by afterSeconds from arrival. Placeholders {{patients}} {{unit}}. If missing the game generates plain ones.",
-    "arrival": [
-      "{{unit}} on scene, multiple vehicles involved, assessing"
-    ],
-    "update": [
-      "{{patients}} casualties, one trapped, fire service required for extrication",
-      "Requesting a second ambulance, one patient time critical"
-    ],
-    "stop": [
-      "Stop message: incident under control, all casualties conveyed"
-    ]
-  },
-  "tags": [
-    "major_incident_capable",
-    "traffic"
-  ],
-  "_tags": "free labels for filtering, events and future systems (warning markers, pursuits ...). Not used by the game yet.",
-  "notes": "Anything for humans editing this file."
+  ]
 }

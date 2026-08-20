@@ -1,0 +1,128 @@
+{
+  "id": "police_possible_sighting_of_wanted_person_with_a_firearms_markers",
+  "category": "weapons",
+  "title": "Possible sighting of wanted person with a firearms markers",
+  "caller": {
+    "name": "Raj Okafor",
+    "phone": "07102420342",
+    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "witness",
+    "openingLine": "Police, I'm scared, I think I've just seen the {{man}} you warned about, the one with a gun",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "56 Station Road",
+    "town": "Burgess Hill",
+    "postcode": "RH15 7AW",
+    "lat": 50.953,
+    "lng": -0.1252,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Possible sighting of wanted person with a firearms markers",
+    "summaryTruth": "Possible sighting of wanted person with a firearms markers. It's definitely {{him}}, same face as the appeal, I've kept my distance. Hazards reported: armed and dangerous suspect. Location 56 Station Road, Burgess Hill.",
+    "correctGrade": 1,
+    "correctThrive": {
+      "threat": true,
+      "harm": false,
+      "risk": true,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "It's definitely {{him}}, same face as the appeal, I've kept my distance",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "It's definitely {{him}}, same face as the appeal, I've kept my distance",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Raj Okafor",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Raj Okafor.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "56 Station Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "56 Station Road, Burgess Hill. Please be quick.",
+      "critical": true,
+      "spontaneous": true,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "black male, 40s, wearing high-vis and jeans",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a black male, 40s, wearing high-vis and jeans."
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "armed and dangerous suspect",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, armed and dangerous suspect."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.5
+  },
+  "unitRequirements": [
+    "AFO",
+    "K9"
+  ],
+  "escalations": [
+    {
+      "key": "weapon_confirmed",
+      "chance": 0.4,
+      "delayMs": 70000,
+      "text": "Further call confirms the male is still in the area and still carrying the weapon.",
+      "addTags": [
+        "AFO"
+      ],
+      "gradeTo": 1
+    }
+  ],
+  "source": "converted-from-legacy"
+}

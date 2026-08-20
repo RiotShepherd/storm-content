@@ -1,0 +1,125 @@
+{
+  "id": "police_fight_on_train",
+  "category": "publicorder",
+  "title": "Fight on Train",
+  "caller": {
+    "name": "Steve Simmons",
+    "phone": "07425978557",
+    "persona": "the person reporting it, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "third_party",
+    "openingLine": "Help, people are fighting on the carriage, I don't know how to stop it",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "39 Chesham Road",
+    "town": "Hove",
+    "postcode": "BN3 7LU",
+    "lat": 50.8234,
+    "lng": -0.17475,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Fight on Train",
+    "summaryTruth": "Fight on Train. An argument over a seat has turned into a full fight between two passengers. Hazards reported: confined carriage, moving train, frightened passengers. Location 39 Chesham Road, Hove.",
+    "correctGrade": 2,
+    "correctThrive": {
+      "threat": false,
+      "harm": false,
+      "risk": true,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "An argument over a seat has turned into a full fight between two passengers",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "An argument over a seat has turned into a full fight between two passengers",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Steve Simmons",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Steve Simmons.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "39 Chesham Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "39 Chesham Road, Hove. Please be quick.",
+      "critical": true,
+      "spontaneous": false,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "black male, 30s, wearing a black jacket",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a black male, 30s, wearing a black jacket."
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "confined carriage",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, confined carriage."
+    }
+  ],
+  "unknownTopics": [],
+  "outcome": {
+    "arrestChance": 0.4
+  },
+  "unitRequirements": [
+    "K9"
+  ],
+  "escalations": [
+    {
+      "key": "crowd_growing",
+      "chance": 0.35,
+      "delayMs": 90000,
+      "text": "First unit reports the group has grown and bottles are being thrown. Requesting public order trained backup.",
+      "addTags": [
+        "PO2"
+      ],
+      "gradeTo": 2
+    }
+  ],
+  "source": "converted-from-legacy"
+}

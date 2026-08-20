@@ -1,0 +1,141 @@
+{
+  "id": "police_armed_robbery_of_motor_vehicle",
+  "category": "robbery",
+  "title": "Armed Robbery of Motor Vehicle",
+  "caller": {
+    "name": "Fiona Nash",
+    "phone": "07645267382",
+    "persona": "the victim themselves, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "victim",
+    "openingLine": "I've just been threatened with a gun and my car's been stolen",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "68 The Broadway",
+    "town": "Hastings",
+    "postcode": "TN34 5PZ",
+    "lat": 50.854,
+    "lng": 0.5775,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Armed Robbery of Motor Vehicle",
+    "summaryTruth": "Armed Robbery of Motor Vehicle. I'd just parked up when someone came up and pointed a gun at me. Hazards reported: firearm involved, suspects at large, vehicle taken. Location 68 The Broadway, Hastings.",
+    "correctGrade": 2,
+    "correctThrive": {
+      "threat": true,
+      "harm": false,
+      "risk": true,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "I'd just parked up when someone came up and pointed a gun at me",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "I'd just parked up when someone came up and pointed a gun at me",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Fiona Nash",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Fiona Nash.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "68 The Broadway",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "68 The Broadway, Hastings. Please be quick.",
+      "critical": true,
+      "spontaneous": true,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "vehicle",
+      "label": "Vehicle details",
+      "value": "MD93 EDA",
+      "askHints": [
+        "reg",
+        "registration",
+        "number plate",
+        "what car",
+        "vehicle"
+      ],
+      "beat": "It's a silver Audi A3, registration MD93 EDA.",
+      "critical": true
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "white male, 20s, wearing a dark hoodie",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a white male, 20s, wearing a dark hoodie."
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "firearm involved",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, firearm involved."
+    }
+  ],
+  "unknownTopics": [],
+  "outcome": {
+    "arrestChance": 0.45
+  },
+  "unitRequirements": [
+    "AFO",
+    "K9",
+    "TPAC"
+  ],
+  "escalations": [
+    {
+      "key": "weapon_seen",
+      "chance": 0.3,
+      "delayMs": 80000,
+      "text": "Update from the victim: the male definitely had a blade, described as a kitchen knife, last seen heading towards the seafront.",
+      "addTags": [
+        "AFO"
+      ],
+      "gradeTo": 1
+    }
+  ],
+  "source": "converted-from-legacy"
+}

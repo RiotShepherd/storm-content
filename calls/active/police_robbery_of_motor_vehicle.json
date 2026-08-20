@@ -1,0 +1,142 @@
+{
+  "id": "police_robbery_of_motor_vehicle",
+  "category": "robbery",
+  "title": "Robbery of Motor Vehicle",
+  "caller": {
+    "name": "Donna Marsh",
+    "phone": "07761428895",
+    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "witness",
+    "openingLine": "Police, I'm shaking, someone's just threatened me and taken my car",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "78 Marine Parade",
+    "town": "Bexhill-on-Sea",
+    "postcode": "TN39 3PA",
+    "lat": 50.84,
+    "lng": 0.4627,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Robbery of Motor Vehicle",
+    "summaryTruth": "Robbery of Motor Vehicle. {{He}} came up to my window, threatened me, and I got out, {{he}}'s driven off in it. Hazards reported: suspect vehicle made off. Location 78 Marine Parade, Bexhill-on-Sea.",
+    "correctGrade": 2,
+    "correctThrive": {
+      "threat": false,
+      "harm": false,
+      "risk": true,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "{{He}} came up to my window, threatened me, and I got out, {{he}}'s driven off in it",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "{{He}} came up to my window, threatened me, and I got out, {{he}}'s driven off in it",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Donna Marsh",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Donna Marsh.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "78 Marine Parade",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "78 Marine Parade, Bexhill-on-Sea. Please be quick.",
+      "critical": true,
+      "spontaneous": true,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "vehicle",
+      "label": "Vehicle details",
+      "value": "NV51 HXA",
+      "askHints": [
+        "reg",
+        "registration",
+        "number plate",
+        "what car",
+        "vehicle"
+      ],
+      "beat": "It's a silver Audi A3, registration NV51 HXA.",
+      "critical": true
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "white female, 20s, wearing a black jacket",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a white female, 20s, wearing a black jacket."
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "suspect vehicle made off",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, suspect vehicle made off."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.45
+  },
+  "unitRequirements": [
+    "K9",
+    "TPAC"
+  ],
+  "escalations": [
+    {
+      "key": "weapon_seen",
+      "chance": 0.3,
+      "delayMs": 80000,
+      "text": "Update from the victim: the male definitely had a blade, described as a kitchen knife, last seen heading towards the seafront.",
+      "addTags": [
+        "AFO"
+      ],
+      "gradeTo": 1
+    }
+  ],
+  "source": "converted-from-legacy"
+}

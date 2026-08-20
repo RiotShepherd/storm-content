@@ -1,0 +1,111 @@
+{
+  "id": "police_domestic_violence",
+  "category": "domestic",
+  "title": "Domestic Violence",
+  "caller": {
+    "name": "Tracy Hughes",
+    "phone": "07833331560",
+    "persona": "the victim themselves, panicking, talking fast, hard to keep on one topic",
+    "callerIs": "victim",
+    "openingLine": "Police please, I've been attacked at home, I don't feel safe",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "85 Chesham Road",
+    "town": "Uckfield",
+    "postcode": "TN22 8ED",
+    "lat": 50.97125,
+    "lng": 0.09645,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Domestic Violence",
+    "summaryTruth": "Domestic Violence. We were arguing and it turned physical, I got hit across the face. Hazards reported: domestic assault in progress, suspect on scene, risk to caller. Location 85 Chesham Road, Uckfield.",
+    "correctGrade": 2,
+    "correctThrive": {
+      "threat": true,
+      "harm": true,
+      "risk": true,
+      "investigation": true,
+      "vulnerability": true,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "We were arguing and it turned physical, I got hit across the face",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "We were arguing and it turned physical, I got hit across the face",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Tracy Hughes",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Tracy Hughes.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "85 Chesham Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "85 Chesham Road, Uckfield. Please be quick.",
+      "critical": true,
+      "spontaneous": true,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "risks",
+      "label": "Risks on scene",
+      "value": "domestic assault in progress",
+      "askHints": [
+        "danger",
+        "risk",
+        "weapon",
+        "safe"
+      ],
+      "beat": "You should know, domestic assault in progress."
+    }
+  ],
+  "unknownTopics": [],
+  "outcome": {
+    "arrestChance": 0.6
+  },
+  "unitRequirements": [],
+  "escalations": [
+    {
+      "key": "weapon_pickup",
+      "chance": 0.3,
+      "delayMs": 100000,
+      "text": "Second call from the informant. He has picked something up from the kitchen, she thinks a knife, and is refusing to leave.",
+      "addTags": [
+        "AFO"
+      ],
+      "gradeTo": 1
+    }
+  ],
+  "source": "converted-from-legacy"
+}

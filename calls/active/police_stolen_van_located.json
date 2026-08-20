@@ -1,0 +1,127 @@
+{
+  "id": "police_stolen_van_located",
+  "category": "theft",
+  "title": "Stolen Van Located",
+  "caller": {
+    "name": "Sharon Wheeler",
+    "phone": "07491393284",
+    "persona": "a passer-by who saw it happen, steady and matter of fact",
+    "callerIs": "witness",
+    "openingLine": "I've come across an abandoned van matching your stolen report",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "42 Park Avenue",
+    "town": "Littlehampton",
+    "postcode": "BN17 1UN",
+    "lat": 50.8098,
+    "lng": -0.53775,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Stolen Van Located",
+    "summaryTruth": "Stolen Van Located. It's parked up with the back doors open, matches the plate you circulated. Location 42 Park Avenue, Littlehampton.",
+    "correctGrade": 3,
+    "correctThrive": {
+      "threat": false,
+      "harm": false,
+      "risk": false,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "It's parked up with the back doors open, matches the plate you circulated",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "It's parked up with the back doors open, matches the plate you circulated",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Sharon Wheeler",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Sharon Wheeler.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "42 Park Avenue",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "42 Park Avenue, Littlehampton. Please be quick.",
+      "critical": true,
+      "spontaneous": false,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "vehicle",
+      "label": "Vehicle details",
+      "value": "MU59 RDE",
+      "askHints": [
+        "reg",
+        "registration",
+        "number plate",
+        "what car",
+        "vehicle"
+      ],
+      "beat": "It's a blue Vauxhall Corsa, registration MU59 RDE.",
+      "critical": true
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "black male, 30s, wearing a dark hoodie",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a black male, 30s, wearing a dark hoodie."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.7
+  },
+  "unitRequirements": [],
+  "escalations": [
+    {
+      "key": "detainee_violent",
+      "chance": 0.2,
+      "delayMs": 70000,
+      "text": "Store security state the detained person is kicking off and has assaulted a guard.",
+      "addTags": [
+        "Taser"
+      ],
+      "gradeTo": 2
+    }
+  ],
+  "source": "converted-from-legacy"
+}

@@ -31,3 +31,12 @@ The game reads this repo on start and once an hour; Settings > Live call content
 ## Vehicles (reference)
 
 `vehicles/uk-fleet.json` is the game's built-in UK fleet (every land vehicle type from the MissionChief UK list that real UK services run, plus the desk-only air units), with crew ranges, real purchase prices in pounds, the training each crew member holds and a note on which services use it; `vehicles/training.json` is the training catalogue; `templates/vehicle-template.json` documents the fields. The game does not read these from the repo (its list is `content/vehicles.json` next to the game, seeded from the same data); they are here so call files and the game agree on unit keys.
+
+
+## Layout (since the v0.0.8 rebuild)
+
+- `calls/active/` - live case files in the new format (police service, one JSON per 999 call). Listed in `calls/manifest.json`, synced by the game on boot.
+- `calls/retired/` - the legacy pre-rebuild library (fire, medical, hazmat, rescue, rtc, and the original police files the active set was converted from). Kept for reference and future conversion; also serves any old v0.0.7 installs via the root `manifest.json`.
+- `calls/events/` - seasonal packs (empty for now).
+- `templates/call-template.json` + `calls/CASE_SCHEMA.md` - how to author a new case.
+- `retired/vehicles/` - the old vehicle and training reference data. Vehicles, crews and training are built into the game itself since the rebuild, so this data is retired rather than consumed.

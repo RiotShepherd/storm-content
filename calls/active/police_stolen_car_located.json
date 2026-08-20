@@ -1,0 +1,127 @@
+{
+  "id": "police_stolen_car_located",
+  "category": "theft",
+  "title": "Stolen Car Located",
+  "caller": {
+    "name": "Liam Brennan",
+    "phone": "07790992593",
+    "persona": "a passer-by who saw it happen, steady and matter of fact",
+    "callerIs": "witness",
+    "openingLine": "I think I've spotted the stolen car, it's parked up and empty",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "87 Victoria Road",
+    "town": "Horsham",
+    "postcode": "RH12 9QL",
+    "lat": 51.0679,
+    "lng": -0.32705,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Stolen Car Located",
+    "summaryTruth": "Stolen Car Located. It's parked oddly, doors open, engine still warm, plates match what was reported. Location 87 Victoria Road, Horsham.",
+    "correctGrade": 3,
+    "correctThrive": {
+      "threat": false,
+      "harm": false,
+      "risk": false,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "It's parked oddly, doors open, engine still warm, plates match what was reported",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "It's parked oddly, doors open, engine still warm, plates match what was reported",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Liam Brennan",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Liam Brennan.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "87 Victoria Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "87 Victoria Road, Horsham. Please be quick.",
+      "critical": true,
+      "spontaneous": false,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "vehicle",
+      "label": "Vehicle details",
+      "value": "YM45 HRJ",
+      "askHints": [
+        "reg",
+        "registration",
+        "number plate",
+        "what car",
+        "vehicle"
+      ],
+      "beat": "It's a white Audi A3, registration YM45 HRJ.",
+      "critical": true
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "white male, late teens, wearing high-vis and jeans",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a white male, late teens, wearing high-vis and jeans."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.7
+  },
+  "unitRequirements": [],
+  "escalations": [
+    {
+      "key": "detainee_violent",
+      "chance": 0.2,
+      "delayMs": 70000,
+      "text": "Store security state the detained person is kicking off and has assaulted a guard.",
+      "addTags": [
+        "Taser"
+      ],
+      "gradeTo": 2
+    }
+  ],
+  "source": "converted-from-legacy"
+}

@@ -1,0 +1,109 @@
+{
+  "id": "police_suspicious_person",
+  "category": "suspicious",
+  "title": "Suspicious Person",
+  "caller": {
+    "name": "Neil Wheeler",
+    "phone": "07748511063",
+    "persona": "a neighbour watching from their window, steady and matter of fact",
+    "callerIs": "third_party",
+    "openingLine": "Oh hello, there's someone acting a bit odd outside, been there a while.",
+    "dontKnowLines": [
+      "I honestly couldn't tell you, sorry.",
+      "I didn't see that bit, I'm sorry.",
+      "No idea, it all happened so fast."
+    ]
+  },
+  "location": {
+    "line": "38 Chesham Road",
+    "town": "Littlehampton",
+    "postcode": "BN17 2GQ",
+    "lat": 50.81005,
+    "lng": -0.53805,
+    "callerKnowsPostcode": true
+  },
+  "incident": {
+    "type": "Suspicious Person",
+    "summaryTruth": "Suspicious Person. There's someone been stood by the corner for about twenty minutes, keeps looking at the houses.. Location 38 Chesham Road, Littlehampton.",
+    "correctGrade": 3,
+    "correctThrive": {
+      "threat": false,
+      "harm": false,
+      "risk": false,
+      "investigation": true,
+      "vulnerability": false,
+      "engagement": false
+    }
+  },
+  "facts": [
+    {
+      "key": "what_happened",
+      "label": "What has happened",
+      "value": "There's someone been stood by the corner for about twenty minutes, keeps looking at the houses.",
+      "askHints": [
+        "what",
+        "happen",
+        "going on",
+        "tell me"
+      ],
+      "beat": "There's someone been stood by the corner for about twenty minutes, keeps looking at the houses.",
+      "spontaneous": true
+    },
+    {
+      "key": "caller_name",
+      "label": "Caller's name",
+      "value": "Neil Wheeler",
+      "askHints": [
+        "your name",
+        "who am i",
+        "name please"
+      ],
+      "beat": "It's Neil Wheeler.",
+      "critical": true,
+      "cardField": "callerName"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "value": "38 Chesham Road",
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "street"
+      ],
+      "beat": "38 Chesham Road, Littlehampton. Please be quick.",
+      "critical": true,
+      "spontaneous": true,
+      "cardField": "addressLine"
+    },
+    {
+      "key": "suspect_desc",
+      "label": "Suspect description",
+      "value": "asian male, 30s, wearing high-vis and jeans",
+      "askHints": [
+        "describe",
+        "what do they look",
+        "wearing",
+        "description"
+      ],
+      "beat": "They looked like a asian male, 30s, wearing high-vis and jeans."
+    }
+  ],
+  "unknownTopics": [
+    "names of the people involved"
+  ],
+  "outcome": {
+    "arrestChance": 0.2
+  },
+  "unitRequirements": [],
+  "escalations": [
+    {
+      "key": "entry_attempt",
+      "chance": 0.25,
+      "delayMs": 90000,
+      "text": "Caller now says the male is trying door handles along the street."
+    }
+  ],
+  "source": "converted-from-legacy"
+}
