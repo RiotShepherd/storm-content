@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "51 Mill Road",
-    "town": "Lewes",
-    "postcode": "BN7 5PL",
-    "lat": 50.8771,
-    "lng": 0.008,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Illegal internet activity",
-    "summaryTruth": "Illegal internet activity. I found a website selling things that look counterfeit, using stolen photos. Location 51 Mill Road, Lewes.",
+    "summaryTruth": "Illegal internet activity. I found a website selling things that look counterfeit, using stolen photos. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "51 Mill Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "51 Mill Road, Lewes. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -98,5 +90,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

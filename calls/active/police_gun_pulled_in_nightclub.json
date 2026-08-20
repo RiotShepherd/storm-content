@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "32 London Road",
-    "town": "Uckfield",
-    "postcode": "TN22 3BS",
-    "lat": 50.9745,
-    "lng": 0.09375,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Gun pulled in nightclub",
-    "summaryTruth": "Gun pulled in nightclub. Someone on the dance floor pulled out a gun during an argument. Hazards reported: firearm inside venue, large crowd, risk to public. Location 32 London Road, Uckfield.",
+    "summaryTruth": "Gun pulled in nightclub. Someone on the dance floor pulled out a gun during an argument. Hazards reported: firearm inside venue, large crowd, risk to public. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": true,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "32 London Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "32 London Road, Uckfield. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -122,5 +114,15 @@
       "gradeTo": 1
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

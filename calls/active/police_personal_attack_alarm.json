@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "80 High Street",
-    "town": "Hastings",
-    "postcode": "TN34 4GG",
-    "lat": 50.85785,
-    "lng": 0.57735,
-    "callerKnowsPostcode": false
-  },
   "incident": {
     "type": "Personal Attack Alarm",
-    "summaryTruth": "Personal Attack Alarm. Someone came up behind me, grabbed my arm and tried to pull me back. Hazards reported: suspect still in area. Location 80 High Street, Hastings.",
+    "summaryTruth": "Personal Attack Alarm. Someone came up behind me, grabbed my arm and tried to pull me back. Hazards reported: suspect still in area. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "80 High Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "80 High Street, Hastings. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -98,5 +90,15 @@
     "K9"
   ],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

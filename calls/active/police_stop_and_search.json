@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "73 Grove Road",
-    "town": "Uckfield",
-    "postcode": "TN22 9HJ",
-    "lat": 50.96855,
-    "lng": 0.1022,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Stop and Search",
-    "summaryTruth": "Stop and Search. {{He}} keeps looking round and patting {{his}} jacket pocket, seems really nervous. Location 73 Grove Road, Uckfield.",
+    "summaryTruth": "Stop and Search. {{He}} keeps looking round and patting {{his}} jacket pocket, seems really nervous. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "73 Grove Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "73 Grove Road, Uckfield. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -98,5 +90,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

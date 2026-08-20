@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "87 West Street",
-    "town": "Burgess Hill",
-    "postcode": "RH15 4LP",
-    "lat": 50.96125,
-    "lng": -0.12695,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Fare dodger",
-    "summaryTruth": "Fare dodger. {{He}} jumped straight over the barrier without paying and my colleague challenged {{him}}. Location 87 West Street, Burgess Hill.",
+    "summaryTruth": "Fare dodger. {{He}} jumped straight over the barrier without paying and my colleague challenged {{him}}. Location {{address}}, {{town}}.",
     "correctGrade": 4,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "87 West Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "87 West Street, Burgess Hill. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -96,5 +88,12 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "bus_station",
+    "high_street",
+    "tram_stop",
+    "train_station",
+    "industrial_estate"
+  ]
 }

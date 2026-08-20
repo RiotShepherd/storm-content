@@ -1,5 +1,5 @@
 {
-  "_help": "STORM case file template (new format). One file per 999 call. Copy, fill, add to calls/active and list it in calls/manifest.json. Full field guide: calls/CASE_SCHEMA.md. The file is ground truth: the AI caller never invents beyond it and QA scores the player against it.",
+  "_help": "STORM case file template (new format). One file per 999 call. Copy, fill, add to calls/active and list it in calls/manifest.json. Full field guide: calls/CASE_SCHEMA.md. The file is ground truth: the AI caller never invents beyond it and QA scores the player against it. Locations: declare locationTypes (real places resolved live from OpenStreetMap at spawn: train_station, residential_road, supermarket, pub, a_road, shopping_centre, car_park, park, school, office, stadium, high_street...). Use {{address}}, {{town}}, {{place}}, {{postcode}} placeholders in openingLine, summaryTruth, fact values and beats. A fixed location block is an optional override for cases that must pin to one place.",
   "id": "kebab-case-id-matching-filename",
   "category": "burglary | domestic | robbery | theft | weapons | asb | roads | missing | drugs | publicorder | suspicious | fraud | police",
   "title": "Shown in supervisor QA, never mid-call",
@@ -13,14 +13,7 @@
       "In-character lines for questions they cannot answer"
     ]
   },
-  "location": {
-    "line": "12 Example Road",
-    "town": "Brighton",
-    "postcode": "BN1 1AA",
-    "lat": 50.82,
-    "lng": -0.14,
-    "callerKnowsPostcode": true
-  },
+  "location": "OPTIONAL fixed override, normally omitted. Same shape as before: {line, town, postcode, lat, lng, callerKnowsPostcode}",
   "incident": {
     "type": "Correct incident type string",
     "summaryTruth": "Full ground-truth narrative. Every fact the caller can ever reveal.",
@@ -69,5 +62,9 @@
       ],
       "gradeTo": 1
     }
+  ],
+  "locationTypes": [
+    "house",
+    "residential_road"
   ]
 }

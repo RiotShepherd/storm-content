@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "50 West Street",
-    "town": "Eastbourne",
-    "postcode": "BN21 1UZ",
-    "lat": 50.76465,
-    "lng": 0.28185,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Internal Theft at Auto Parts Store",
-    "summaryTruth": "Internal Theft at Auto Parts Store. Stock's been going missing for weeks, and the camera's finally caught who's responsible. Location 50 West Street, Eastbourne.",
+    "summaryTruth": "Internal Theft at Auto Parts Store. Stock's been going missing for weeks, and the camera's finally caught who's responsible. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "50 West Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "50 West Street, Eastbourne. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -107,5 +99,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

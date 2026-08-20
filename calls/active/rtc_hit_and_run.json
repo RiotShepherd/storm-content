@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "33 Church Lane",
-    "town": "Littlehampton",
-    "postcode": "BN17 5JL",
-    "lat": 50.8088,
-    "lng": -0.5366,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Hit and Run",
-    "summaryTruth": "Hit and Run. A car clipped {{him}} and just drove off without stopping, didn't even slow down.. Hazards reported: live traffic, fuel on the carriageway, offending vehicle fled the scene. Location 33 Church Lane, Littlehampton.",
+    "summaryTruth": "Hit and Run. A car clipped {{him}} and just drove off without stopping, didn't even slow down.. Hazards reported: live traffic, fuel on the carriageway, offending vehicle fled the scene. Location {{address}}, {{town}}.",
     "correctGrade": 2,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "33 Church Lane",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "33 Church Lane, Littlehampton. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -112,5 +104,12 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ]
 }

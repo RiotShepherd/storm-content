@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "66 Marine Parade",
-    "town": "Chichester",
-    "postcode": "PO19 3GS",
-    "lat": 50.8382,
-    "lng": -0.7777,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Solicitor fraudulently charging customers",
-    "summaryTruth": "Solicitor fraudulently charging customers. They've charged me for hours of work that never happened, and I've heard others say the same. Location 66 Marine Parade, Chichester.",
+    "summaryTruth": "Solicitor fraudulently charging customers. They've charged me for hours of work that never happened, and I've heard others say the same. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "66 Marine Parade",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "66 Marine Parade, Chichester. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -98,5 +90,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "39 Chesham Road",
-    "town": "Hove",
-    "postcode": "BN3 7LU",
-    "lat": 50.8234,
-    "lng": -0.17475,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Fight on Train",
-    "summaryTruth": "Fight on Train. An argument over a seat has turned into a full fight between two passengers. Hazards reported: confined carriage, moving train, frightened passengers. Location 39 Chesham Road, Hove.",
+    "summaryTruth": "Fight on Train. An argument over a seat has turned into a full fight between two passengers. Hazards reported: confined carriage, moving train, frightened passengers. Location {{address}}, {{town}}.",
     "correctGrade": 2,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "39 Chesham Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "39 Chesham Road, Hove. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -121,5 +113,9 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "tram_stop",
+    "train_station"
+  ]
 }

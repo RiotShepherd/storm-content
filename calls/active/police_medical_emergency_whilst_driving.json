@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "67 Park Avenue",
-    "town": "Hastings",
-    "postcode": "TN34 4GT",
-    "lat": 50.8546,
-    "lng": 0.5762,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Medical emergency whilst driving",
-    "summaryTruth": "Medical emergency whilst driving. The car was driving normally then just drifted and stopped, the driver's slumped over. Hazards reported: vehicle stopped in road, unresponsive driver, live traffic. Location 67 Park Avenue, Hastings.",
+    "summaryTruth": "Medical emergency whilst driving. The car was driving normally then just drifted and stopped, the driver's slumped over. Hazards reported: vehicle stopped in road, unresponsive driver, live traffic. Location {{address}}, {{town}}.",
     "correctGrade": 1,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "67 Park Avenue",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "67 Park Avenue, Hastings. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -109,5 +101,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

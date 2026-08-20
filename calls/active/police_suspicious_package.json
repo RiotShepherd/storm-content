@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "2 Queens Road",
-    "town": "Bexhill-on-Sea",
-    "postcode": "TN39 5ND",
-    "lat": 50.8463,
-    "lng": 0.4667,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Suspicious package",
-    "summaryTruth": "Suspicious package. There's a rucksack been left by the bus stop for over half an hour now.. Hazards reported: unattended item, crowded area. Location 2 Queens Road, Bexhill-on-Sea.",
+    "summaryTruth": "Suspicious package. There's a rucksack been left by the bus stop for over half an hour now.. Hazards reported: unattended item, crowded area. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": true,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "2 Queens Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "2 Queens Road, Bexhill-on-Sea. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -120,5 +112,15 @@
       "text": "Caller now says the male is trying door handles along the street."
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

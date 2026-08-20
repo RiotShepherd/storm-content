@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "41 Terminus Road",
-    "town": "Hove",
-    "postcode": "BN3 1WU",
-    "lat": 50.82595,
-    "lng": -0.16825,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Concern for welfare",
-    "summaryTruth": "Concern for welfare. I usually see {{him}} most days but I haven't seen {{him}} for three days now. Location 41 Terminus Road, Hove.",
+    "summaryTruth": "Concern for welfare. I usually see {{him}} most days but I haven't seen {{him}} for three days now. Location {{address}}, {{town}}.",
     "correctGrade": 4,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "41 Terminus Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "41 Terminus Road, Hove. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -86,5 +78,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

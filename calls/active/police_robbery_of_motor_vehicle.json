@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "78 Marine Parade",
-    "town": "Bexhill-on-Sea",
-    "postcode": "TN39 3PA",
-    "lat": 50.84,
-    "lng": 0.4627,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Robbery of Motor Vehicle",
-    "summaryTruth": "Robbery of Motor Vehicle. {{He}} came up to my window, threatened me, and I got out, {{he}}'s driven off in it. Hazards reported: suspect vehicle made off. Location 78 Marine Parade, Bexhill-on-Sea.",
+    "summaryTruth": "Robbery of Motor Vehicle. {{He}} came up to my window, threatened me, and I got out, {{he}}'s driven off in it. Hazards reported: suspect vehicle made off. Location {{address}}, {{town}}.",
     "correctGrade": 2,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "78 Marine Parade",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "78 Marine Parade, Bexhill-on-Sea. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -138,5 +130,15 @@
       "gradeTo": 1
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

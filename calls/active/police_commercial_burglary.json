@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "34 High Street",
-    "town": "Crawley",
-    "postcode": "RH10 5ET",
-    "lat": 51.1143,
-    "lng": -0.18305,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Commercial Burglary",
-    "summaryTruth": "Commercial Burglary. I arrived this morning to find the front window smashed and stock missing from the shelves. Location 34 High Street, Crawley.",
+    "summaryTruth": "Commercial Burglary. I arrived this morning to find the front window smashed and stock missing from the shelves. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "34 High Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "34 High Street, Crawley. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -108,5 +100,15 @@
       ]
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

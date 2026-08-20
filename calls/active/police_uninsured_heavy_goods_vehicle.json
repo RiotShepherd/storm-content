@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "61 London Road",
-    "town": "Bognor Regis",
-    "postcode": "PO21 9YQ",
-    "lat": 50.77855,
-    "lng": -0.6711,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Uninsured Heavy Goods Vehicle",
-    "summaryTruth": "Uninsured Heavy Goods Vehicle. It's got no visible tax or insurance details and the plates look wrong.. Location 61 London Road, Bognor Regis.",
+    "summaryTruth": "Uninsured Heavy Goods Vehicle. It's got no visible tax or insurance details and the plates look wrong.. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "61 London Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "61 London Road, Bognor Regis. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -113,5 +105,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "70 Mill Road",
-    "town": "Bognor Regis",
-    "postcode": "PO21 6YH",
-    "lat": 50.78155,
-    "lng": -0.67715,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Person with a weapon",
-    "summaryTruth": "Person with a weapon. They're waving the knife around, shouting at anyone who comes close. Hazards reported: armed suspect, crowd nearby. Location 70 Mill Road, Bognor Regis.",
+    "summaryTruth": "Person with a weapon. They're waving the knife around, shouting at anyone who comes close. Hazards reported: armed suspect, crowd nearby. Location {{address}}, {{town}}.",
     "correctGrade": 1,
     "correctThrive": {
       "threat": true,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "70 Mill Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "70 Mill Road, Bognor Regis. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -124,5 +116,15 @@
       "gradeTo": 1
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

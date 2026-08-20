@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "66 South Street",
-    "town": "Worthing",
-    "postcode": "BN11 4DD",
-    "lat": 50.81115,
-    "lng": -0.376,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Live Lane Breakdown",
-    "summaryTruth": "Live Lane Breakdown. The engine just cut out with no warning and I couldn't get it to the hard shoulder. Hazards reported: vehicle stopped in live lane, high speed traffic, risk of collision. Location 66 South Street, Worthing.",
+    "summaryTruth": "Live Lane Breakdown. The engine just cut out with no warning and I couldn't get it to the hard shoulder. Hazards reported: vehicle stopped in live lane, high speed traffic, risk of collision. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "66 South Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "66 South Street, Worthing. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -110,5 +102,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

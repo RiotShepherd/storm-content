@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "85 Chesham Road",
-    "town": "Uckfield",
-    "postcode": "TN22 8ED",
-    "lat": 50.97125,
-    "lng": 0.09645,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Domestic Violence",
-    "summaryTruth": "Domestic Violence. We were arguing and it turned physical, I got hit across the face. Hazards reported: domestic assault in progress, suspect on scene, risk to caller. Location 85 Chesham Road, Uckfield.",
+    "summaryTruth": "Domestic Violence. We were arguing and it turned physical, I got hit across the face. Hazards reported: domestic assault in progress, suspect on scene, risk to caller. Location {{address}}, {{town}}.",
     "correctGrade": 2,
     "correctThrive": {
       "threat": true,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "85 Chesham Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "85 Chesham Road, Uckfield. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -107,5 +99,15 @@
       "gradeTo": 1
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

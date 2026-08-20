@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "26 Park Avenue",
-    "town": "Hove",
-    "postcode": "BN3 2RN",
-    "lat": 50.826,
-    "lng": -0.17005,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Dog loose on road",
-    "summaryTruth": "Dog loose on road. It's running back and forth across the road, cars keep having to slam their brakes on. Hazards reported: loose animal on road, risk of collision. Location 26 Park Avenue, Hove.",
+    "summaryTruth": "Dog loose on road. It's running back and forth across the road, cars keep having to slam their brakes on. Hazards reported: loose animal on road, risk of collision. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "26 Park Avenue",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "26 Park Avenue, Hove. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -109,5 +101,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "59 West Street",
-    "town": "Seaford",
-    "postcode": "BN25 2TB",
-    "lat": 50.7688,
-    "lng": 0.10245,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Farmers Market Fight",
-    "summaryTruth": "Farmers Market Fight. It started as a row over who had the better pitch and turned into a shoving match. Location 59 West Street, Seaford.",
+    "summaryTruth": "Farmers Market Fight. It started as a row over who had the better pitch and turned into a shoving match. Location {{address}}, {{town}}.",
     "correctGrade": 2,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "59 West Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "59 West Street, Seaford. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -107,5 +99,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

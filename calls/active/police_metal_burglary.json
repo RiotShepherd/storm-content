@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "55 Grove Road",
-    "town": "Crawley",
-    "postcode": "RH10 5JA",
-    "lat": 51.10785,
-    "lng": -0.1904,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Metal burglary",
-    "summaryTruth": "Metal burglary. They've cut through the perimeter fence and are loading metal into a van. Location 55 Grove Road, Crawley.",
+    "summaryTruth": "Metal burglary. They've cut through the perimeter fence and are loading metal into a van. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "55 Grove Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "55 Grove Road, Crawley. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -108,5 +100,9 @@
       ]
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "train_station",
+    "industrial_estate"
+  ]
 }

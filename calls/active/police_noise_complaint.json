@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "57 Queens Road",
-    "town": "Haywards Heath",
-    "postcode": "RH16 7NX",
-    "lat": 51.0018,
-    "lng": -0.1049,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Noise Complaint",
-    "summaryTruth": "Noise Complaint. It's just been loud music and shouting since this evening, no sign of stopping. Location 57 Queens Road, Haywards Heath.",
+    "summaryTruth": "Noise Complaint. It's just been loud music and shouting since this evening, no sign of stopping. Location {{address}}, {{town}}.",
     "correctGrade": 4,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "57 Queens Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "57 Queens Road, Haywards Heath. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -98,5 +90,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

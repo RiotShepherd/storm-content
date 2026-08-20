@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "16 High Street",
-    "town": "Hove",
-    "postcode": "BN3 6FH",
-    "lat": 50.8295,
-    "lng": -0.1711,
-    "callerKnowsPostcode": false
-  },
   "incident": {
     "type": "Two vehicle RTC (No Injuries)",
-    "summaryTruth": "Two vehicle RTC (No Injuries). Two cars have bumped into each other pulling out of the junction, no one's hurt.. Hazards reported: live traffic. Location 16 High Street, Hove.",
+    "summaryTruth": "Two vehicle RTC (No Injuries). Two cars have bumped into each other pulling out of the junction, no one's hurt.. Hazards reported: live traffic. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "16 High Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "16 High Street, Hove. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -123,5 +115,12 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "a_road",
+    "b_road",
+    "residential_road",
+    "roundabout",
+    "motorway"
+  ]
 }

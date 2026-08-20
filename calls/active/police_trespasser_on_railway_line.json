@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "85 South Street",
-    "town": "Chichester",
-    "postcode": "PO19 9WE",
-    "lat": 50.8364,
-    "lng": -0.78175,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Trespasser on railway line",
-    "summaryTruth": "Trespasser on railway line. They climbed over the fence and they're walking along the tracks right now.. Hazards reported: live railway line, trains still running. Location 85 South Street, Chichester.",
+    "summaryTruth": "Trespasser on railway line. They climbed over the fence and they're walking along the tracks right now.. Hazards reported: live railway line, trains still running. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "85 South Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "85 South Street, Chichester. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -117,5 +109,11 @@
       "text": "Caller now says the male is trying door handles along the street."
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "tram_stop",
+    "train_station",
+    "industrial_estate",
+    "level_crossing"
+  ]
 }

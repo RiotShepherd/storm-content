@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "76 High Street",
-    "town": "Crawley",
-    "postcode": "RH10 4HN",
-    "lat": 51.10845,
-    "lng": -0.19075,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Abandoned Car Obstructing Road",
-    "summaryTruth": "Abandoned Car Obstructing Road. It's just been left in the middle of the road, no one around it at all. Hazards reported: obstruction to traffic, vehicle blocking road. Location 76 High Street, Crawley.",
+    "summaryTruth": "Abandoned Car Obstructing Road. It's just been left in the middle of the road, no one around it at all. Hazards reported: obstruction to traffic, vehicle blocking road. Location {{address}}, {{town}}.",
     "correctGrade": 4,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "76 High Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "76 High Street, Crawley. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -112,5 +104,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

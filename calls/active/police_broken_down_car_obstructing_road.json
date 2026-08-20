@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "3 Queens Road",
-    "town": "Hastings",
-    "postcode": "TN34 6FZ",
-    "lat": 50.8516,
-    "lng": 0.57895,
-    "callerKnowsPostcode": false
-  },
   "incident": {
     "type": "Broken Down Car Obstructing Road",
-    "summaryTruth": "Broken Down Car Obstructing Road. My engine just cut out and I've rolled to a stop right in the middle of the road. Hazards reported: vehicle obstructing carriageway, live traffic risk. Location 3 Queens Road, Hastings.",
+    "summaryTruth": "Broken Down Car Obstructing Road. My engine just cut out and I've rolled to a stop right in the middle of the road. Hazards reported: vehicle obstructing carriageway, live traffic risk. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "3 Queens Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "3 Queens Road, Hastings. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -123,5 +115,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

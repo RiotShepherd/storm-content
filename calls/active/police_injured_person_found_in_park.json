@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "38 Church Lane",
-    "town": "Horsham",
-    "postcode": "RH12 3QH",
-    "lat": 51.06545,
-    "lng": -0.3275,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Injured person found in park",
-    "summaryTruth": "Injured person found in park. I was just walking through and found {{him}} lying on the ground, I don't know what happened. Hazards reported: casualty alone in open space, unknown cause of injury. Location 38 Church Lane, Horsham.",
+    "summaryTruth": "Injured person found in park. I was just walking through and found {{him}} lying on the ground, I don't know what happened. Hazards reported: casualty alone in open space, unknown cause of injury. Location {{address}}, {{town}}.",
     "correctGrade": 4,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "38 Church Lane",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "38 Church Lane, Horsham. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -96,5 +88,8 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "park"
+  ]
 }

@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "33 West Street",
-    "town": "Burgess Hill",
-    "postcode": "RH15 4UE",
-    "lat": 50.96225,
-    "lng": -0.1248,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Customer steals lottery tickets",
-    "summaryTruth": "Customer steals lottery tickets. {{He}} leaned over the counter, grabbed a handful of scratch cards and ran out the door. Location 33 West Street, Burgess Hill.",
+    "summaryTruth": "Customer steals lottery tickets. {{He}} leaned over the counter, grabbed a handful of scratch cards and ran out the door. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "33 West Street",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "33 West Street, Burgess Hill. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -96,5 +88,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

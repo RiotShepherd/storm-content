@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "26 Terminus Road",
-    "town": "Crawley",
-    "postcode": "RH10 8UT",
-    "lat": 51.1125,
-    "lng": -0.19145,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Criminal damage",
-    "summaryTruth": "Criminal damage. I came out this morning and both my wing mirrors have been snapped off. Location 26 Terminus Road, Crawley.",
+    "summaryTruth": "Criminal damage. I came out this morning and both my wing mirrors have been snapped off. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "26 Terminus Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "26 Terminus Road, Crawley. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -98,5 +90,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

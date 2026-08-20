@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "9 Mill Road",
-    "town": "Hastings",
-    "postcode": "TN34 2ZE",
-    "lat": 50.85135,
-    "lng": 0.57395,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Escaped dog",
-    "summaryTruth": "Escaped dog. It squeezed through a gap in the fence and bolted before I could stop it. Location 9 Mill Road, Hastings.",
+    "summaryTruth": "Escaped dog. It squeezed through a gap in the fence and bolted before I could stop it. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "9 Mill Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "9 Mill Road, Hastings. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -98,5 +90,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "19 Marine Parade",
-    "town": "Worthing",
-    "postcode": "BN11 3WA",
-    "lat": 50.8069,
-    "lng": -0.3736,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Pickpocketing",
-    "summaryTruth": "Pickpocketing. I only noticed when I went to pay, my wallet's gone from my pocket. Location 19 Marine Parade, Worthing.",
+    "summaryTruth": "Pickpocketing. I only noticed when I went to pay, my wallet's gone from my pocket. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "19 Marine Parade",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "19 Marine Parade, Worthing. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -98,5 +90,8 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "park"
+  ]
 }

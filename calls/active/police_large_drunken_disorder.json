@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "82 Marine Parade",
-    "town": "Littlehampton",
-    "postcode": "BN17 7XR",
-    "lat": 50.80675,
-    "lng": -0.5441,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Large Drunken Disorder",
-    "summaryTruth": "Large Drunken Disorder. A big group spilled out of the pub, now they're fighting in the street. Hazards reported: large intoxicated crowd, risk of escalation. Location 82 Marine Parade, Littlehampton.",
+    "summaryTruth": "Large Drunken Disorder. A big group spilled out of the pub, now they're fighting in the street. Hazards reported: large intoxicated crowd, risk of escalation. Location {{address}}, {{town}}.",
     "correctGrade": 2,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "82 Marine Parade",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "82 Marine Parade, Littlehampton. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -123,5 +115,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

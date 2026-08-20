@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "2 Victoria Road",
-    "town": "Uckfield",
-    "postcode": "TN22 1HQ",
-    "lat": 50.9682,
-    "lng": 0.1004,
-    "callerKnowsPostcode": false
-  },
   "incident": {
     "type": "Possession of illegal weapons",
-    "summaryTruth": "Possession of illegal weapons. One of them lifted {{his}} jacket and I saw a knife tucked in {{his}} waistband. Hazards reported: armed suspects. Location 2 Victoria Road, Uckfield.",
+    "summaryTruth": "Possession of illegal weapons. One of them lifted {{his}} jacket and I saw a knife tucked in {{his}} waistband. Hazards reported: armed suspects. Location {{address}}, {{town}}.",
     "correctGrade": 1,
     "correctThrive": {
       "threat": true,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "2 Victoria Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "2 Victoria Road, Uckfield. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -123,5 +115,15 @@
       "gradeTo": 1
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

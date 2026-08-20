@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "10 Terminus Road",
-    "town": "Littlehampton",
-    "postcode": "BN17 8BW",
-    "lat": 50.81265,
-    "lng": -0.5424,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Premise Alarm",
-    "summaryTruth": "Premise Alarm. Motion sensors triggered in the stockroom, no visual confirmation yet. Location 10 Terminus Road, Littlehampton.",
+    "summaryTruth": "Premise Alarm. Motion sensors triggered in the stockroom, no visual confirmation yet. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "10 Terminus Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "10 Terminus Road, Littlehampton. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -96,5 +88,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

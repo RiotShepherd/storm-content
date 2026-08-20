@@ -16,9 +16,13 @@ One JSON file per 999 call. The file is the ground truth: the AI caller roleplay
 - `openingLine`: what they say the moment the call connects, before any question.
 - `dontKnowLines`: in-character lines for questions about `unknownTopics`.
 
-## location
+## locationTypes (the normal way)
 
-- `line`, `town`, `postcode`, `lat`, `lng`.
+Real place classes this call can spawn at: `train_station`, `bus_station`, `tram_stop`, `supermarket`, `shopping_centre`, `retail_park`, `pub`, `high_street`, `pedestrian_street`, `car_park`, `park`, `school`, `university`, `stadium`, `office`, `industrial_estate`, `residential_road`, `house`, `flats`, `a_road`, `b_road`, `motorway`, `roundabout`, `bridge`, `level_crossing`, `track`. The engine resolves a REAL place live from OpenStreetMap (cached per category, offline-safe) each time the call spawns, so a Fight on Train lands at a real railway station and a domestic on a real residential street (house numbers are generated). Use `{{address}}`, `{{town}}`, `{{place}}` and `{{postcode}}` placeholders in `openingLine`, `summaryTruth` and fact `value`/`beat` strings; they are substituted at spawn.
+
+## location (optional fixed override)
+
+- `line`, `town`, `postcode`, `lat`, `lng`: pins the case to one exact place; normally omitted in favour of locationTypes.
 - `callerKnowsPostcode`: false means QA does not expect the postcode on the card.
 
 ## incident

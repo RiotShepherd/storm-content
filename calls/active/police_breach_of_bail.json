@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "45 Victoria Road",
-    "town": "Eastbourne",
-    "postcode": "BN21 2NQ",
-    "lat": 50.77045,
-    "lng": 0.2844,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Breach of bail",
-    "summaryTruth": "Breach of bail. {{He}}'s not meant to come anywhere near here, it's a condition of {{his}} bail, but {{he}}'s stood right outside. Hazards reported: potential domestic risk. Location 45 Victoria Road, Eastbourne.",
+    "summaryTruth": "Breach of bail. {{He}}'s not meant to come anywhere near here, it's a condition of {{his}} bail, but {{he}}'s stood right outside. Hazards reported: potential domestic risk. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "45 Victoria Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "45 Victoria Road, Eastbourne. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": true,
       "cardField": "addressLine"
@@ -110,5 +102,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

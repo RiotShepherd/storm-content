@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "6 Station Road",
-    "town": "Lewes",
-    "postcode": "BN7 7EG",
-    "lat": 50.8719,
-    "lng": 0.0091,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Theft of a motor vehicle",
-    "summaryTruth": "Theft of a motor vehicle. Someone smashed the window, got in and drove off, must have been thirty seconds.. Location 6 Station Road, Lewes.",
+    "summaryTruth": "Theft of a motor vehicle. Someone smashed the window, got in and drove off, must have been thirty seconds.. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "6 Station Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "6 Station Road, Lewes. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -123,5 +115,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

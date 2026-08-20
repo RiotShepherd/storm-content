@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "42 Park Avenue",
-    "town": "Littlehampton",
-    "postcode": "BN17 1UN",
-    "lat": 50.8098,
-    "lng": -0.53775,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Stolen Van Located",
-    "summaryTruth": "Stolen Van Located. It's parked up with the back doors open, matches the plate you circulated. Location 42 Park Avenue, Littlehampton.",
+    "summaryTruth": "Stolen Van Located. It's parked up with the back doors open, matches the plate you circulated. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "42 Park Avenue",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "42 Park Avenue, Littlehampton. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -123,5 +115,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

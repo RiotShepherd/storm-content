@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "65 Terminus Road",
-    "town": "Hove",
-    "postcode": "BN3 5EQ",
-    "lat": 50.8292,
-    "lng": -0.17715,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Drive-in Theater Accident",
-    "summaryTruth": "Drive-in Theater Accident. One car reversed into another while trying to park for the film. Location 65 Terminus Road, Hove.",
+    "summaryTruth": "Drive-in Theater Accident. One car reversed into another while trying to park for the film. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "65 Terminus Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "65 Terminus Road, Hove. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -98,5 +90,15 @@
   },
   "unitRequirements": [],
   "escalations": [],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }

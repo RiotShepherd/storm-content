@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "88 Victoria Road",
-    "town": "Haywards Heath",
-    "postcode": "RH16 9ER",
-    "lat": 51.0019,
-    "lng": -0.10895,
-    "callerKnowsPostcode": false
-  },
   "incident": {
     "type": "Traffic light failure",
-    "summaryTruth": "Traffic light failure. All the lights are out at the junction, cars are just taking turns guessing.. Hazards reported: live traffic, junction hazard. Location 88 Victoria Road, Haywards Heath.",
+    "summaryTruth": "Traffic light failure. All the lights are out at the junction, cars are just taking turns guessing.. Hazards reported: live traffic, junction hazard. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "88 Victoria Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "88 Victoria Road, Haywards Heath. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -107,5 +99,9 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "a_road",
+    "high_street"
+  ]
 }

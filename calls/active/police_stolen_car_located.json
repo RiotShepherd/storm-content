@@ -14,17 +14,9 @@
       "No idea, it all happened so fast."
     ]
   },
-  "location": {
-    "line": "87 Victoria Road",
-    "town": "Horsham",
-    "postcode": "RH12 9QL",
-    "lat": 51.0679,
-    "lng": -0.32705,
-    "callerKnowsPostcode": true
-  },
   "incident": {
     "type": "Stolen Car Located",
-    "summaryTruth": "Stolen Car Located. It's parked oddly, doors open, engine still warm, plates match what was reported. Location 87 Victoria Road, Horsham.",
+    "summaryTruth": "Stolen Car Located. It's parked oddly, doors open, engine still warm, plates match what was reported. Location {{address}}, {{town}}.",
     "correctGrade": 3,
     "correctThrive": {
       "threat": false,
@@ -65,14 +57,14 @@
     {
       "key": "address",
       "label": "Address",
-      "value": "87 Victoria Road",
+      "value": "{{address}}",
       "askHints": [
         "where",
         "address",
         "location",
         "street"
       ],
-      "beat": "87 Victoria Road, Horsham. Please be quick.",
+      "beat": "{{address}}, {{town}}. Please be quick.",
       "critical": true,
       "spontaneous": false,
       "cardField": "addressLine"
@@ -123,5 +115,15 @@
       "gradeTo": 2
     }
   ],
-  "source": "converted-from-legacy"
+  "source": "converted-from-legacy",
+  "locationTypes": [
+    "high_street",
+    "pub",
+    "residential_road",
+    "car_park",
+    "supermarket",
+    "house",
+    "flats",
+    "shopping_centre"
+  ]
 }
