@@ -40,7 +40,13 @@
       "key": "caller_name",
       "label": "Caller's name",
       "value": "Dee Okonkwo",
-      "askHints": ["your name", "name please", "what's your name", "whats your name", "who am i speaking"],
+      "askHints": [
+        "your name",
+        "name please",
+        "what's your name",
+        "whats your name",
+        "who am i speaking"
+      ],
       "beat": "Dee Okonkwo, security team leader.",
       "critical": true,
       "cardField": "callerName"
@@ -49,7 +55,13 @@
       "key": "address",
       "label": "Location",
       "value": "Marsden's, Churchill Square Shopping Centre",
-      "askHints": ["where", "address", "location", "which store", "postcode"],
+      "askHints": [
+        "where",
+        "address",
+        "location",
+        "which store",
+        "postcode"
+      ],
       "beat": "Marsden's in Churchill Square, Brighton. BN1 2RG. Best access for your officers is the staff entrance on Russell Road.",
       "critical": true,
       "cardField": "addressLine"
@@ -58,14 +70,25 @@
       "key": "suspect_desc",
       "label": "Suspect description",
       "value": "white male, 30s, slim, grey tracksuit",
-      "askHints": ["describe", "description", "what does he look", "wearing"],
+      "askHints": [
+        "describe",
+        "description",
+        "what does he look",
+        "wearing"
+      ],
       "beat": "White male, thirties I'd say, slim build, grey tracksuit top and bottoms. Refusing to give a name."
     },
     {
       "key": "property",
       "label": "Property involved",
       "value": "around 200 pounds of fragrances",
-      "askHints": ["what did he take", "stolen", "property", "value", "how much"],
+      "askHints": [
+        "what did he take",
+        "stolen",
+        "property",
+        "value",
+        "how much"
+      ],
       "beat": "Fragrances mostly, boxed sets. We make it about two hundred pounds' worth. All recovered.",
       "spontaneous": true
     },
@@ -73,7 +96,14 @@
       "key": "compliance",
       "label": "Suspect behaviour",
       "value": "compliant, no violence",
-      "askHints": ["violent", "aggressive", "behaving", "kicking off", "compliant", "calm"],
+      "askHints": [
+        "violent",
+        "aggressive",
+        "behaving",
+        "kicking off",
+        "compliant",
+        "calm"
+      ],
       "beat": "He's no bother. Sat down, had a search, nothing else on him. Just won't talk.",
       "critical": true
     },
@@ -81,16 +111,44 @@
       "key": "cctv",
       "label": "CCTV secured",
       "value": "CCTV of the whole incident secured",
-      "askHints": ["cctv", "camera", "footage", "evidence"],
+      "askHints": [
+        "cctv",
+        "camera",
+        "footage",
+        "evidence"
+      ],
       "beat": "Full CCTV, selection to concealment to the doors. Already bookmarked for you."
     },
     {
       "key": "repeat",
       "label": "Suspected repeat offender",
       "value": "linked to similar thefts this month",
-      "askHints": ["before", "previous", "known", "regular", "repeat"],
+      "askHints": [
+        "before",
+        "previous",
+        "known",
+        "regular",
+        "repeat"
+      ],
       "beat": "We think he's the same fella who's done us twice this month, same MO, straight to the fragrance counter."
     }
   ],
-  "unknownTopics": ["his name", "his address", "his date of birth"]
+  "unknownTopics": [
+    "his name",
+    "his address",
+    "his date of birth"
+  ],
+  "unitRequirements": [],
+  "escalations": [
+    {
+      "key": "detainee_violent",
+      "chance": 0.2,
+      "delayMs": 70000,
+      "text": "Store security state the male is now kicking off in the back office and has bitten one guard. Struggling to hold him.",
+      "addTags": [
+        "Taser"
+      ],
+      "gradeTo": 2
+    }
+  ]
 }

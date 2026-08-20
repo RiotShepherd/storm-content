@@ -40,7 +40,13 @@
       "key": "caller_name",
       "label": "Caller's name",
       "value": "Raj Patel",
-      "askHints": ["your name", "name please", "what's your name", "whats your name", "can i take your name"],
+      "askHints": [
+        "your name",
+        "name please",
+        "what's your name",
+        "whats your name",
+        "can i take your name"
+      ],
       "beat": "Raj Patel. I'm at number 9, right next door.",
       "critical": true,
       "cardField": "callerName"
@@ -49,7 +55,13 @@
       "key": "address",
       "label": "Target address",
       "value": "7 Chesham Close",
-      "askHints": ["address", "where", "location", "which house", "what number"],
+      "askHints": [
+        "address",
+        "where",
+        "location",
+        "which house",
+        "what number"
+      ],
       "beat": "It's number 7, Chesham Close, Crawley. RH10 6JW. I'm at number 9 next door.",
       "critical": true,
       "cardField": "addressLine"
@@ -58,7 +70,11 @@
       "key": "offender_count",
       "label": "Number of offenders",
       "value": "two males",
-      "askHints": ["how many", "many people", "how many of them"],
+      "askHints": [
+        "how many",
+        "many people",
+        "how many of them"
+      ],
       "beat": "Two of them. Definitely two, I've seen both cross the landing.",
       "spontaneous": true,
       "critical": true
@@ -67,14 +83,28 @@
       "key": "descriptions",
       "label": "Descriptions",
       "value": "one tall in a dark hoodie, one shorter with a holdall",
-      "askHints": ["describe", "description", "what do they look", "wearing", "look like"],
+      "askHints": [
+        "describe",
+        "description",
+        "what do they look",
+        "wearing",
+        "look like"
+      ],
       "beat": "One's tall, dark hoodie, hood up. The other one's shorter, he's carrying a big holdall. That's all I can make out."
     },
     {
       "key": "vehicle",
       "label": "Vehicle and registration",
       "value": "white van, KK19 XRD",
-      "askHints": ["vehicle", "van", "car", "registration", "reg", "plate", "number plate"],
+      "askHints": [
+        "vehicle",
+        "van",
+        "car",
+        "registration",
+        "reg",
+        "plate",
+        "number plate"
+      ],
       "beat": "There's a white van right outside, like a Transit. Reg is... hang on... KK19 XRD. K-K-one-nine, X-ray Romeo Delta.",
       "critical": true
     },
@@ -82,23 +112,67 @@
       "key": "entry_point",
       "label": "Point of entry",
       "value": "rear patio door",
-      "askHints": ["get in", "entry", "break in", "how did they", "door", "window"],
+      "askHints": [
+        "get in",
+        "entry",
+        "break in",
+        "how did they",
+        "door",
+        "window"
+      ],
       "beat": "Round the back I think. The patio door at the back was the first place I saw the torch."
     },
     {
       "key": "occupants",
       "label": "Occupants away",
       "value": "family on holiday",
-      "askHints": ["anyone home", "anyone in", "occupants", "who lives", "neighbour", "family"],
+      "askHints": [
+        "anyone home",
+        "anyone in",
+        "occupants",
+        "who lives",
+        "neighbour",
+        "family"
+      ],
       "beat": "The Okafors live there and they're away, Spain I think, back Sunday. That's how I know it's wrong, the house should be empty."
     },
     {
       "key": "weapons",
       "label": "Weapons",
       "value": "no weapons seen",
-      "askHints": ["weapon", "armed", "knife", "carrying anything"],
+      "askHints": [
+        "weapon",
+        "armed",
+        "knife",
+        "carrying anything"
+      ],
       "beat": "Haven't seen any weapons, just the torches and that holdall."
     }
   ],
-  "unknownTopics": ["names of the offenders", "where they came from"]
+  "unknownTopics": [
+    "names of the offenders",
+    "where they came from"
+  ],
+  "unitRequirements": [],
+  "escalations": [
+    {
+      "key": "suspects_decamp",
+      "chance": 0.4,
+      "delayMs": 80000,
+      "text": "Informant states both males have left the property on foot towards the seafront carrying a holdall. Dark clothing, one in a grey beanie.",
+      "addTags": [
+        "K9"
+      ]
+    },
+    {
+      "key": "weapon_seen",
+      "chance": 0.15,
+      "delayMs": 120000,
+      "text": "Informant now says one of the males is carrying what looks like a crowbar.",
+      "addTags": [
+        "Taser"
+      ],
+      "gradeTo": 1
+    }
+  ]
 }
