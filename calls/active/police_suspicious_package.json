@@ -3,8 +3,6 @@
   "category": "suspicious",
   "title": "Suspicious package",
   "caller": {
-    "name": "Gary Patel",
-    "phone": "07156646412",
     "persona": "a passer-by who saw it happen, steady and matter of fact",
     "callerIs": "witness",
     "openingLine": "Hi there, I think I should report a package that's just been left.",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Gary Patel",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Gary Patel.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,14 +70,14 @@
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "asian male, late teens, wearing a grey tracksuit",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a asian male, late teens, wearing a grey tracksuit."
+      "beat": "Best I can give you: {{suspectDesc}}."
     },
     {
       "key": "risks",
@@ -122,5 +120,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

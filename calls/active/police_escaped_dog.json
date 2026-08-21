@@ -3,8 +3,6 @@
   "category": "police",
   "title": "Escaped dog",
   "caller": {
-    "name": "Donna Yates",
-    "phone": "07807808692",
     "persona": "a passer-by who saw it happen, steady and matter of fact",
     "callerIs": "witness",
     "openingLine": "My dog's slipped its lead and run off, I can't catch it",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Donna Yates",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Donna Yates.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,14 +70,14 @@
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "white female, late teens, wearing high-vis and jeans",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a white female, late teens, wearing high-vis and jeans."
+      "beat": "Best I can give you: {{suspectDesc}}."
     }
   ],
   "unknownTopics": [
@@ -100,5 +98,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

@@ -3,8 +3,6 @@
   "category": "robbery",
   "title": "Armed Robbery of Motor Vehicle",
   "caller": {
-    "name": "Fiona Nash",
-    "phone": "07645267382",
     "persona": "the victim themselves, panicking, talking fast, hard to keep on one topic",
     "callerIs": "victim",
     "openingLine": "I've just been threatened with a gun and my car's been stolen",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Fiona Nash",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Fiona Nash.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,7 +70,7 @@
     {
       "key": "vehicle",
       "label": "Vehicle details",
-      "value": "MD93 EDA",
+      "value": "{{vehicleReg}}",
       "askHints": [
         "reg",
         "registration",
@@ -80,20 +78,20 @@
         "what car",
         "vehicle"
       ],
-      "beat": "It's a silver Audi A3, registration MD93 EDA.",
+      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
       "critical": true
     },
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "white male, 20s, wearing a dark hoodie",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a white male, 20s, wearing a dark hoodie."
+      "beat": "Best I can give you: {{suspectDesc}}."
     },
     {
       "key": "risks",
@@ -139,5 +137,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

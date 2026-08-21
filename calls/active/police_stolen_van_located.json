@@ -3,8 +3,6 @@
   "category": "theft",
   "title": "Stolen Van Located",
   "caller": {
-    "name": "Sharon Wheeler",
-    "phone": "07491393284",
     "persona": "a passer-by who saw it happen, steady and matter of fact",
     "callerIs": "witness",
     "openingLine": "I've come across an abandoned van matching your stolen report",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Sharon Wheeler",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Sharon Wheeler.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,7 +70,7 @@
     {
       "key": "vehicle",
       "label": "Vehicle details",
-      "value": "MU59 RDE",
+      "value": "{{vehicleReg}}",
       "askHints": [
         "reg",
         "registration",
@@ -80,20 +78,20 @@
         "what car",
         "vehicle"
       ],
-      "beat": "It's a blue Vauxhall Corsa, registration MU59 RDE.",
+      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
       "critical": true
     },
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "black male, 30s, wearing a dark hoodie",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a black male, 30s, wearing a dark hoodie."
+      "beat": "Best I can give you: {{suspectDesc}}."
     }
   ],
   "unknownTopics": [
@@ -125,5 +123,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

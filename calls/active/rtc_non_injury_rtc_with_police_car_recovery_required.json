@@ -3,8 +3,6 @@
   "category": "roads",
   "title": "Non-Injury RTC with Police Car (Recovery Required)",
   "caller": {
-    "name": "Daniel Barker",
-    "phone": "07372182302",
     "persona": "a passer-by who saw it happen, steady and matter of fact",
     "callerIs": "witness",
     "openingLine": "A police car's had a minor accident, both drivers are unhurt but it's stuck.",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Daniel Barker",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Daniel Barker.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,7 +70,7 @@
     {
       "key": "vehicle",
       "label": "Vehicle details",
-      "value": "HC83 EDH",
+      "value": "{{vehicleReg}}",
       "askHints": [
         "reg",
         "registration",
@@ -80,7 +78,7 @@
         "what car",
         "vehicle"
       ],
-      "beat": "It's a white Audi A3, registration HC83 EDH.",
+      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
       "critical": true
     },
     {
@@ -124,5 +122,14 @@
     "residential_road",
     "roundabout",
     "motorway"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    }
+  }
 }

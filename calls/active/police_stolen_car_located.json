@@ -3,8 +3,6 @@
   "category": "theft",
   "title": "Stolen Car Located",
   "caller": {
-    "name": "Liam Brennan",
-    "phone": "07790992593",
     "persona": "a passer-by who saw it happen, steady and matter of fact",
     "callerIs": "witness",
     "openingLine": "I think I've spotted the stolen car, it's parked up and empty",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Liam Brennan",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Liam Brennan.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,7 +70,7 @@
     {
       "key": "vehicle",
       "label": "Vehicle details",
-      "value": "YM45 HRJ",
+      "value": "{{vehicleReg}}",
       "askHints": [
         "reg",
         "registration",
@@ -80,20 +78,20 @@
         "what car",
         "vehicle"
       ],
-      "beat": "It's a white Audi A3, registration YM45 HRJ.",
+      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
       "critical": true
     },
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "white male, late teens, wearing high-vis and jeans",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a white male, late teens, wearing high-vis and jeans."
+      "beat": "Best I can give you: {{suspectDesc}}."
     }
   ],
   "unknownTopics": [
@@ -125,5 +123,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

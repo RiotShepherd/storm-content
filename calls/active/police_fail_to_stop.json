@@ -3,8 +3,6 @@
   "category": "police",
   "title": "Fail to stop",
   "caller": {
-    "name": "Dean Tanner",
-    "phone": "07219368504",
     "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
     "callerIs": "witness",
     "openingLine": "Police, a driver's just fled the scene of a near miss at speed",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Dean Tanner",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Dean Tanner.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,7 +70,7 @@
     {
       "key": "vehicle",
       "label": "Vehicle details",
-      "value": "VP60 PKW",
+      "value": "{{vehicleReg}}",
       "askHints": [
         "reg",
         "registration",
@@ -80,20 +78,20 @@
         "what car",
         "vehicle"
       ],
-      "beat": "It's a silver BMW 3 Series, registration VP60 PKW.",
+      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
       "critical": true
     },
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "asian male, 20s, wearing a black jacket",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a asian male, 20s, wearing a black jacket."
+      "beat": "Best I can give you: {{suspectDesc}}."
     },
     {
       "key": "risks",
@@ -129,5 +127,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "male",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

@@ -3,9 +3,6 @@
   "category": "civil",
   "title": "Civil dispute: neighbour parked across driveway",
   "caller": {
-    "name": "Gerald Foster",
-    "age": 58,
-    "phone": "01444 900112",
     "persona": "indignant, pompous, convinced this is a police matter, prone to speeches",
     "callerIs": "involved",
     "openingLine": "Yes, hello, I want to report a crime. My neighbour has deliberately parked his caravan across the end of my driveway AGAIN and I am completely blocked in. I pay my road tax. I want him arrested, or at the very least a stern word.",
@@ -16,7 +13,7 @@
   },
   "incident": {
     "type": "Civil Dispute - No Police Offence",
-    "summaryTruth": "Gerald Foster, {{address}}, {{town}}, reports his neighbour Keith's caravan parked across his dropped kerb, blocking his car in. Ongoing feud between the two over parking for years. No threats, no damage, no breach of the peace, neighbour is not even home. Obstruction of a dropped kerb is a council parking matter; the dispute itself is civil. No policing purpose. Correct handling: explain, refer to the council and to legal advice, log and close.",
+    "summaryTruth": "{{callerName}}, {{address}}, {{town}}, reports {{c_his}} neighbour {{suspectFirst}}'s caravan parked across {{c_his}} dropped kerb, blocking {{c_his}} car in. Ongoing feud between the two over parking for years. No threats, no damage, no breach of the peace, neighbour is not even home. Obstruction of a dropped kerb is a council parking matter; the dispute itself is civil. No policing purpose. Correct handling: explain, refer to the council and to legal advice, log and close.",
     "correctGrade": 5,
     "correctThrive": {
       "threat": false,
@@ -31,7 +28,7 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Gerald Foster",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "name please",
@@ -39,7 +36,7 @@
         "whats your name",
         "take your name"
       ],
-      "beat": "Gerald Foster. That's F-O-S-T-E-R, and I'd like a reference number for this call.",
+      "beat": "{{callerName}}. That's F-O-S-T-E-R, and I'd like a reference number for this call.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -60,7 +57,7 @@
     {
       "key": "what_happened",
       "label": "What has actually happened",
-      "value": "caravan parked across his dropped kerb",
+      "value": "caravan parked across {{c_his}} dropped kerb",
       "askHints": [
         "what's happened",
         "whats happened",
@@ -68,7 +65,7 @@
         "tell me what",
         "blocked"
       ],
-      "beat": "What's happened is Keith's enormous caravan is parked bang across the end of my drive. My Jaguar is imprisoned. I have a golf tee time at half past four.",
+      "beat": "What's happened is {{suspectFirst}}'s enormous caravan is parked bang across the end of my drive. My Jaguar is imprisoned. I have a golf tee time at half past four.",
       "spontaneous": true
     },
     {
@@ -101,7 +98,7 @@
     {
       "key": "history",
       "label": "History of the dispute",
-      "value": "years-long parking feud with neighbour Keith",
+      "value": "years-long parking feud with neighbour {{suspectFirst}}",
       "askHints": [
         "before",
         "history",
@@ -110,7 +107,7 @@
         "happened before",
         "neighbour"
       ],
-      "beat": "Ohh, this has been going on for years. Keith and I have history. The wheelie bin incident of 2023, the leylandii, I could go on. It's all documented in my ledger."
+      "beat": "Ohh, this has been going on for years. {{suspectFirst}} and I have history. The wheelie bin incident of 2023, the leylandii, I could go on. It's all documented in my ledger."
     }
   ],
   "unknownTopics": [
@@ -121,5 +118,21 @@
   "escalations": [],
   "locationTypes": [
     "residential_road"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        45,
+        75
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        40,
+        75
+      ]
+    }
+  }
 }

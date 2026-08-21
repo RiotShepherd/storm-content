@@ -3,8 +3,6 @@
   "category": "police",
   "title": "Pickpocketing",
   "caller": {
-    "name": "Sharon Yates",
-    "phone": "07834325819",
     "persona": "a passer-by who saw it happen, steady and matter of fact",
     "callerIs": "witness",
     "openingLine": "I need to report a pickpocket, they've taken my phone",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Sharon Yates",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Sharon Yates.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,14 +70,14 @@
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "asian male, late teens, wearing high-vis and jeans",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a asian male, late teens, wearing high-vis and jeans."
+      "beat": "Best I can give you: {{suspectDesc}}."
     }
   ],
   "unknownTopics": [
@@ -93,5 +91,21 @@
   "source": "converted-from-legacy",
   "locationTypes": [
     "park"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

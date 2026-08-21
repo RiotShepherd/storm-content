@@ -3,9 +3,6 @@
   "category": "roads",
   "title": "RTC: two-car damage-only collision, road partially blocked",
   "caller": {
-    "name": "Tom Askew",
-    "age": 29,
-    "phone": "07700 900652",
     "persona": "annoyed but composed, standing at the roadside in the rain, traffic noise behind him",
     "callerIs": "involved",
     "openingLine": "Hi, yeah, I've just been in a crash on the A259. Some bloke's gone into the back of me at the lights. We're both pulled over but his car's half in the road and it's causing chaos.",
@@ -16,7 +13,7 @@
   },
   "incident": {
     "type": "Road Traffic Collision - Damage Only",
-    "summaryTruth": "Two-vehicle rear-end shunt on the A259 Marine Parade at the Sea Road junction, {{town}}. Caller Tom Askew driving a grey Ford Focus, GY68 HTC, struck from behind by a blue BMW 3 series, registration not yet obtained by caller, driven by a middle-aged male who is apologetic and exchanging details. Nobody injured. The BMW is partially blocking the nearside lane and traffic is backing up. Both drivers are out of their vehicles. No suggestion of drink driving. Raining.",
+    "summaryTruth": "Two-vehicle rear-end shunt on the A259 Marine Parade at the Sea Road junction, {{town}}. Caller {{callerName}} driving a {{vehicleDesc}}, {{vehicleReg}}, struck from behind by a blue BMW 3 series, registration not yet obtained by caller, driven by a middle-aged male who is apologetic and exchanging details. Nobody injured. The BMW is partially blocking the nearside lane and traffic is backing up. Both drivers are out of their vehicles. No suggestion of drink driving. Raining.",
     "correctGrade": 2,
     "correctThrive": {
       "threat": false,
@@ -31,7 +28,7 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Tom Askew",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "name please",
@@ -39,7 +36,7 @@
         "whats your name",
         "take your name"
       ],
-      "beat": "Tom Askew. A-S-K-E-W.",
+      "beat": "{{callerName}}. A-S-K-E-W.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -77,7 +74,7 @@
     {
       "key": "vehicles",
       "label": "Vehicles involved",
-      "value": "grey Ford Focus and blue BMW 3 series",
+      "value": "{{vehicleDesc}} and a blue BMW 3 series",
       "askHints": [
         "vehicles",
         "cars",
@@ -90,14 +87,14 @@
     {
       "key": "caller_reg",
       "label": "Caller's registration",
-      "value": "GY68 HTC",
+      "value": "{{vehicleReg}}",
       "askHints": [
         "your reg",
         "your registration",
         "your plate",
         "your number plate"
       ],
-      "beat": "Mine? GY68 HTC.",
+      "beat": "Mine? {{vehicleReg}}.",
       "critical": true
     },
     {
@@ -152,5 +149,14 @@
     "a_road",
     "roundabout",
     "b_road"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        20,
+        70
+      ]
+    }
+  }
 }

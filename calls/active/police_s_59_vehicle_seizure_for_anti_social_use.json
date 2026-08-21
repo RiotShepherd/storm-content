@@ -3,8 +3,6 @@
   "category": "asb",
   "title": "S.59 Vehicle Seizure for Anti-Social Use",
   "caller": {
-    "name": "Chloe Marsh",
-    "phone": "07899076509",
     "persona": "a neighbour watching from their window, steady and matter of fact",
     "callerIs": "third_party",
     "openingLine": "They've been doing wheelies in the road for the last half hour",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Chloe Marsh",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Chloe Marsh.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,7 +70,7 @@
     {
       "key": "vehicle",
       "label": "Vehicle details",
-      "value": "ER77 CJD",
+      "value": "{{vehicleReg}}",
       "askHints": [
         "reg",
         "registration",
@@ -80,20 +78,20 @@
         "what car",
         "vehicle"
       ],
-      "beat": "It's a grey Nissan Qashqai, registration ER77 CJD.",
+      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
       "critical": true
     },
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "asian male, 20s, wearing a dark hoodie",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a asian male, 20s, wearing a dark hoodie."
+      "beat": "Best I can give you: {{suspectDesc}}."
     },
     {
       "key": "risks",
@@ -137,5 +135,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

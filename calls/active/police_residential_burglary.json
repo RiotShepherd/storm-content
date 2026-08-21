@@ -3,8 +3,6 @@
   "category": "burglary",
   "title": "Residential Burglary",
   "caller": {
-    "name": "Joe Mason",
-    "phone": "07753462970",
     "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
     "callerIs": "witness",
     "openingLine": "Police, someone's clearly been in my house, I'm outside and scared",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Joe Mason",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Joe Mason.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,14 +70,14 @@
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "asian male, 30s, wearing high-vis and jeans",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a asian male, 30s, wearing high-vis and jeans."
+      "beat": "Best I can give you: {{suspectDesc}}."
     },
     {
       "key": "risks",
@@ -124,5 +122,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

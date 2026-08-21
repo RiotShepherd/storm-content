@@ -3,8 +3,6 @@
   "category": "burglary",
   "title": "Commercial Burglary",
   "caller": {
-    "name": "Adam Yates",
-    "phone": "07779756960",
     "persona": "a member of staff at the premises, steady and matter of fact",
     "callerIs": "witness",
     "openingLine": "I've just opened up to find we've been burgled",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Adam Yates",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Adam Yates.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,14 +70,14 @@
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "black male, late teens, wearing high-vis and jeans",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a black male, late teens, wearing high-vis and jeans."
+      "beat": "Best I can give you: {{suspectDesc}}."
     }
   ],
   "unknownTopics": [],
@@ -110,5 +108,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

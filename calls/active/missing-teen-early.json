@@ -3,12 +3,9 @@
   "category": "missing",
   "title": "Concern: 14-year-old not home, phone off",
   "caller": {
-    "name": "Karen Doyle",
-    "age": 43,
-    "phone": "07700 900905",
-    "persona": "worried mother trying to stay level, voice cracking at the edges, over-explaining",
+    "persona": "worried {{c_mother}} trying to stay level, voice cracking at the edges, over-explaining",
     "callerIs": "third_party",
-    "openingLine": "Hi, um, I don't know if this is the right thing but my daughter hasn't come home from school and it's been four hours and her phone's going straight to voicemail and that's just not her, she always answers me.",
+    "openingLine": "Hi, um, I don't know if this is the right thing but my {{p_son}} hasn't come home from school and it's been four hours and {{p_his}} phone's going straight to voicemail and that's just not her, she always answers me.",
     "dontKnowLines": [
       "I don't know. God, I should know that, shouldn't I.",
       "I don't know, I've been ringing everyone."
@@ -16,7 +13,7 @@
   },
   "incident": {
     "type": "Missing Person - Child",
-    "summaryTruth": "Karen Doyle reports her daughter Libby Doyle, 14, has not returned from Boundstone College, {{town}}. Last seen leaving school at 3:15pm by a friend, four hours ago. Phone off or dead, going straight to voicemail. No argument at home. Libby is described as white, 5ft 3, shoulder-length dyed red hair, school uniform with a black puffer coat, black rucksack. No previous missing episodes. Best friend Amelia has not seen her since the school gate. Libby recently mentioned an older boy called Connor she met online, mother does not know his surname, this had caused mild concern. Caller is at home at {{address}}, {{town}} with her younger son.",
+    "summaryTruth": "{{callerName}} reports {{c_his}} {{p_son}} {{patientName}}, {{patientAge}}, has not returned from Boundstone College, {{town}}. Last seen leaving school at 3:15pm by a friend, four hours ago. Phone off or dead, going straight to voicemail. No argument at home. {{patientFirst}} is described as white, 5ft 3, shoulder-length dyed red hair, school uniform with a black puffer coat, black rucksack. No previous missing episodes. Best friend Amelia has not seen {{p_him}} since the school gate. {{patientFirst}} recently mentioned an an older {{p_boy}} {{p_he}} met online, name not known she met online, mother does not know his surname, this had caused mild concern. Caller is at home at {{address}}, {{town}} with her younger son.",
     "correctGrade": 1,
     "correctThrive": {
       "threat": false,
@@ -31,7 +28,7 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Karen Doyle",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "name please",
@@ -39,14 +36,14 @@
         "whats your name",
         "take your name"
       ],
-      "beat": "Karen Doyle. I'm her mum.",
+      "beat": "{{callerName}}. I'm her mum.",
       "critical": true,
       "cardField": "callerName"
     },
     {
       "key": "misper_name",
       "label": "Missing person's name and age",
-      "value": "Libby Doyle, 14",
+      "value": "{{patientName}}, {{patientAge}}",
       "askHints": [
         "daughter's name",
         "her name",
@@ -54,7 +51,7 @@
         "how old",
         "age"
       ],
-      "beat": "Libby. Libby Doyle, she's fourteen. Fifteen in October.",
+      "beat": "{{patientFirst}}. {{patientName}}, she's fourteen. Fifteen in October.",
       "spontaneous": true,
       "critical": true
     },
@@ -84,7 +81,7 @@
         "school",
         "what time"
       ],
-      "beat": "Her friend saw her walking out the school gates at quarter past three. Boundstone College. Nobody's seen her since, that's four hours.",
+      "beat": "Her friend saw her walking out the school gates at quarter past three. Boundstone College. Nobody's seen {{p_him}} since, that's four hours.",
       "critical": true
     },
     {
@@ -117,7 +114,7 @@
     {
       "key": "online_contact",
       "label": "Concerning online contact",
-      "value": "older boy called Connor, met online",
+      "value": "an older {{p_boy}} {{p_he}} met online, name not known, met online",
       "askHints": [
         "boyfriend",
         "online",
@@ -153,7 +150,7 @@
         "trouble at home",
         "upset"
       ],
-      "beat": "No, nothing. This morning was completely normal, she had her toast, she was singing in the bathroom."
+      "beat": "No, nothing. This morning was completely normal, she had her toast, {{p_he}} was singing in the bathroom."
     }
   ],
   "unknownTopics": [
@@ -172,5 +169,22 @@
   "locationTypes": [
     "house",
     "residential_road"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        34,
+        52
+      ]
+    },
+    "patient": {
+      "gender": "any",
+      "ageRange": [
+        13,
+        15
+      ],
+      "familyOf": "caller"
+    }
+  }
 }

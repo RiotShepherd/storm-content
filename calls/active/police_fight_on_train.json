@@ -3,8 +3,6 @@
   "category": "publicorder",
   "title": "Fight on Train",
   "caller": {
-    "name": "Steve Simmons",
-    "phone": "07425978557",
     "persona": "the person reporting it, panicking, talking fast, hard to keep on one topic",
     "callerIs": "third_party",
     "openingLine": "Help, people are fighting on the carriage, I don't know how to stop it",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Steve Simmons",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Steve Simmons.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,14 +70,14 @@
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "black male, 30s, wearing a black jacket",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a black male, 30s, wearing a black jacket."
+      "beat": "Best I can give you: {{suspectDesc}}."
     },
     {
       "key": "risks",
@@ -117,5 +115,21 @@
   "locationTypes": [
     "tram_stop",
     "train_station"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

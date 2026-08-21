@@ -3,8 +3,6 @@
   "category": "roads",
   "title": "Uninsured Heavy Goods Vehicle",
   "caller": {
-    "name": "Sharon Yates",
-    "phone": "07298694977",
     "persona": "a passer-by who saw it happen, steady and matter of fact",
     "callerIs": "witness",
     "openingLine": "Yeah hiya, I need to report a suspicious HGV, no proper markings.",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Sharon Yates",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Sharon Yates.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,7 +70,7 @@
     {
       "key": "vehicle",
       "label": "Vehicle details",
-      "value": "XX68 HGW",
+      "value": "{{vehicleReg}}",
       "askHints": [
         "reg",
         "registration",
@@ -80,7 +78,7 @@
         "what car",
         "vehicle"
       ],
-      "beat": "It's a white Ford Transit, registration XX68 HGW.",
+      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
       "critical": true
     }
   ],
@@ -115,5 +113,14 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    }
+  }
 }

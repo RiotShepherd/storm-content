@@ -3,8 +3,6 @@
   "category": "suspicious",
   "title": "Suspicious Person on Prison Grounds",
   "caller": {
-    "name": "Joe Doyle",
-    "phone": "07595999338",
     "persona": "a member of staff at the premises, steady and matter of fact",
     "callerIs": "witness",
     "openingLine": "Oh hello, security here, we've got a person acting suspiciously near the grounds.",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Joe Doyle",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Joe Doyle.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,14 +70,14 @@
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "white female, 20s, wearing a dark hoodie",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a white female, 20s, wearing a dark hoodie."
+      "beat": "Best I can give you: {{suspectDesc}}."
     }
   ],
   "unknownTopics": [],
@@ -98,5 +96,21 @@
   "source": "converted-from-legacy",
   "locationTypes": [
     "office"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

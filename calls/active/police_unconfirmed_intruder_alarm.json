@@ -3,8 +3,6 @@
   "category": "police",
   "title": "Unconfirmed Intruder Alarm",
   "caller": {
-    "name": "Marcus Ellis",
-    "phone": "07548502510",
     "persona": "the person reporting it, steady and matter of fact",
     "callerIs": "third_party",
     "openingLine": "Hi there, I need to report an unconfirmed alarm activation.",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Marcus Ellis",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Marcus Ellis.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,14 +70,14 @@
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "white male, 30s, wearing a grey tracksuit",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a white male, 30s, wearing a grey tracksuit."
+      "beat": "Best I can give you: {{suspectDesc}}."
     }
   ],
   "unknownTopics": [],
@@ -98,5 +96,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

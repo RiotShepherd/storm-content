@@ -3,8 +3,6 @@
   "category": "robbery",
   "title": "Robbery of Motor Vehicle",
   "caller": {
-    "name": "Donna Marsh",
-    "phone": "07761428895",
     "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
     "callerIs": "witness",
     "openingLine": "Police, I'm shaking, someone's just threatened me and taken my car",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Donna Marsh",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Donna Marsh.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,7 +70,7 @@
     {
       "key": "vehicle",
       "label": "Vehicle details",
-      "value": "NV51 HXA",
+      "value": "{{vehicleReg}}",
       "askHints": [
         "reg",
         "registration",
@@ -80,20 +78,20 @@
         "what car",
         "vehicle"
       ],
-      "beat": "It's a silver Audi A3, registration NV51 HXA.",
+      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
       "critical": true
     },
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "white female, 20s, wearing a black jacket",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a white female, 20s, wearing a black jacket."
+      "beat": "Best I can give you: {{suspectDesc}}."
     },
     {
       "key": "risks",
@@ -140,5 +138,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "male",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }

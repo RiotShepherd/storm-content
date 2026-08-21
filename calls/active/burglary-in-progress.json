@@ -3,10 +3,7 @@
   "category": "burglary",
   "title": "Burglary in progress: torchlight in the house next door",
   "caller": {
-    "name": "Raj Patel",
-    "age": 41,
-    "phone": "07700 900217",
-    "persona": "hushed and urgent, watching from his bedroom window, steady but tense",
+    "persona": "hushed and urgent, watching from {{c_his}} bedroom window, steady but tense",
     "callerIs": "witness",
     "openingLine": "Hi, yeah, police? I'm watching two blokes going through my neighbour's house right now. There's torchlight moving round the back room. The family's away, nobody should be in there.",
     "dontKnowLines": [
@@ -16,7 +13,7 @@
   },
   "incident": {
     "type": "Burglary in Progress",
-    "summaryTruth": "Caller Raj Patel at 9 Chesham Close, {{town}}, watching number 7 next door. Two males inside the neighbour's house using torches, entry apparently via the rear patio door. Homeowners the Okafors are on holiday. A white Transit-style van is parked outside with registration Kk19 XRD, engine possibly running. One male is tall in a dark hoodie, the other shorter carrying a holdall. No weapons seen. Caller is at his bedroom window at number 9, not confronting.",
+    "summaryTruth": "Caller {{callerName}} at 9 Chesham Close, {{town}}, watching number 7 next door. Two males inside the neighbour's house using torches, entry apparently via the rear patio door. Homeowners the Okafors are on holiday. A white Transit-style van is parked outside with registration Kk19 XRD, engine possibly running. One male is tall in a dark hoodie, the other shorter carrying a holdall. No weapons seen. Caller is at {{c_his}} bedroom window at number 9, not confronting.",
     "correctGrade": 1,
     "correctThrive": {
       "threat": false,
@@ -31,7 +28,7 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Raj Patel",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "name please",
@@ -39,7 +36,7 @@
         "whats your name",
         "can i take your name"
       ],
-      "beat": "Raj Patel. I'm at number 9, right next door.",
+      "beat": "{{callerName}}. I'm at number 9, right next door.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -87,7 +84,7 @@
     {
       "key": "vehicle",
       "label": "Vehicle and registration",
-      "value": "white van, KK19 XRD",
+      "value": "white van, {{vehicleReg}}",
       "askHints": [
         "vehicle",
         "van",
@@ -97,7 +94,7 @@
         "plate",
         "number plate"
       ],
-      "beat": "There's a white van right outside, like a Transit. Reg is... hang on... KK19 XRD. K-K-one-nine, X-ray Romeo Delta.",
+      "beat": "There's a white van right outside, like a Transit. Reg is... hang on... {{vehicleReg}}. K-K-one-nine, X-ray Romeo Delta.",
       "critical": true
     },
     {
@@ -170,5 +167,14 @@
   "locationTypes": [
     "house",
     "residential_road"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        25,
+        70
+      ]
+    }
+  }
 }

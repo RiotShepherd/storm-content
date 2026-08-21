@@ -3,8 +3,6 @@
   "category": "police",
   "title": "Execution of an Interpol arrest warrant",
   "caller": {
-    "name": "Tom Ford",
-    "phone": "07677519347",
     "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
     "callerIs": "witness",
     "openingLine": "There's a massive police presence outside, I don't know what's happening",
@@ -44,13 +42,13 @@
     {
       "key": "caller_name",
       "label": "Caller's name",
-      "value": "Tom Ford",
+      "value": "{{callerName}}",
       "askHints": [
         "your name",
         "who am i",
         "name please"
       ],
-      "beat": "It's Tom Ford.",
+      "beat": "It's {{callerName}}.",
       "critical": true,
       "cardField": "callerName"
     },
@@ -72,14 +70,14 @@
     {
       "key": "suspect_desc",
       "label": "Suspect description",
-      "value": "white female, late teens, wearing a black jacket",
+      "value": "{{suspectDesc}}",
       "askHints": [
         "describe",
         "what do they look",
         "wearing",
         "description"
       ],
-      "beat": "They looked like a white female, late teens, wearing a black jacket."
+      "beat": "Best I can give you: {{suspectDesc}}."
     },
     {
       "key": "risks",
@@ -115,5 +113,21 @@
     "house",
     "flats",
     "shopping_centre"
-  ]
+  ],
+  "people": {
+    "caller": {
+      "gender": "any",
+      "ageRange": [
+        19,
+        78
+      ]
+    },
+    "suspect": {
+      "gender": "any",
+      "ageRange": [
+        16,
+        55
+      ]
+    }
+  }
 }
