@@ -8,6 +8,18 @@ One JSON file per 999 call. The file is the ground truth: the AI caller roleplay
 - `category`: grouping key (domestic, burglary, roads, retail, asb, missing, civil, ...).
 - `title`: shown in the supervisor QA review only, never to the player mid-call.
 
+## people (generated identities)
+
+Declare specs, get fresh people every spawn: `"people": {"caller": {"gender": "any", "ageRange": [19, 78]}, "suspect": {"gender": "male"}, "patient": {"gender": "any", "ageRange": [13, 15], "familyOf": "caller"}}`. Gender `any` rolls per spawn; `familyOf` shares a surname (a missing child takes the calling parent's). Generated people bring matched pronoun and kinship tokens for use anywhere in text:
+
+- Caller: `{{callerName}}`, `{{callerFirst}}`, `{{callerAge}}`, `{{c_he}}`, `{{c_him}}`, `{{c_his}}`, `{{c_man}}`, `{{c_mother}}` (mother/father), `{{c_mum}}` (mum/dad)
+- Suspect: `{{suspectName}}`, `{{suspectFirst}}`, `{{suspectAge}}`, `{{suspectDesc}}` (gender-consistent generated description), `{{s_he}}`, `{{s_him}}`, `{{s_his}}`, `{{s_man}}`, `{{s_male}}`
+- Patient: `{{patientName}}`, `{{patientFirst}}`, `{{patientAge}}`, `{{p_he}}`, `{{p_him}}`, `{{p_his}}`, `{{p_boy}}` (boy/girl), `{{p_son}}` (son/daughter)
+- Vehicle: `{{vehicleReg}}` (current-format UK plate), `{{vehicleDesc}}` (colour + make)
+- Capitalised variants work automatically: `{{s_He}}`, `{{p_His}}`, `{{c_Mother}}`.
+
+Caller phone numbers are generated in the Ofcom drama ranges (+44 7700 900xxx mobile, +44 1632 960xxx landline): real UK format, never a real person's number. Only pin `caller.name`/`caller.phone` in the file when a case genuinely needs one fixed person; if the prose uses gendered pronouns for a role, fix that role's gender to match or tokenise the pronouns.
+
 ## caller
 
 - `name`, `age`, `phone`.
