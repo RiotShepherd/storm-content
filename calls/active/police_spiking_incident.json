@@ -1,93 +1,111 @@
 {
-  "id": "police_spiking_incident",
-  "category": "police",
-  "title": "Spiking incident",
-  "caller": {
-    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "witness",
-    "openingLine": "Police, my mate's gone really unwell suddenly, we think {{he}}'s been spiked",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Spiking incident",
-    "summaryTruth": "Spiking incident. {{He}} was fine, then suddenly went really dizzy and confused. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "{{He}} was fine, then suddenly went really dizzy and confused",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "{{He}} was fine, then suddenly went really dizzy and confused",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    }
-  ],
-  "unknownTopics": [
-    "names of the people involved"
-  ],
-  "outcome": {
-    "arrestChance": 0.2
-  },
-  "unitRequirements": [],
-  "escalations": [],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "pub",
-    "high_street"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    }
+ "id": "police_spiking_incident",
+ "category": "police",
+ "title": "Spiking incident",
+ "caller": {
+  "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "witness",
+  "openingLine": "Police, my mate's gone really unwell suddenly, we think {{p_he}}'s been spiked",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Spiking incident",
+  "summaryTruth": "Spiking incident. {{p_He}} was fine, then suddenly went really dizzy and confused. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "{{p_He}} was fine, then suddenly went really dizzy and confused",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "{{p_He}} was fine, then suddenly went really dizzy and confused",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  }
+ ],
+ "unknownTopics": [
+  "names of the people involved"
+ ],
+ "outcome": {
+  "arrestChance": 0.2
+ },
+ "unitRequirements": [],
+ "escalations": [],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "pub",
+  "high_street"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "patient": {
+   "gender": "any",
+   "ageRange": [
+    18,
+    85
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 506,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 2
+   }
+  ],
+  "durationMin": 25,
+  "prisonersMax": 2
+ }
 }

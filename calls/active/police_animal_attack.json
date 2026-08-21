@@ -1,109 +1,119 @@
 {
-  "id": "police_animal_attack",
-  "category": "police",
-  "title": "Animal Attack",
-  "caller": {
-    "persona": "the victim themselves, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "victim",
-    "openingLine": "Ambulance and police please, I've been attacked by a dog, it's bitten my arm badly",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Animal Attack",
-    "summaryTruth": "Animal Attack. A dog off its lead just came at me and bit my arm before I could get away. Hazards reported: loose dog in area, risk of further attack. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "A dog off its lead just came at me and bit my arm before I could get away",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "A dog off its lead just came at me and bit my arm before I could get away",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "loose dog in area",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, loose dog in area."
-    }
-  ],
-  "unknownTopics": [],
-  "outcome": {
-    "arrestChance": 0.2
-  },
-  "unitRequirements": [],
-  "escalations": [],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    }
+ "id": "police_animal_attack",
+ "category": "police",
+ "title": "Animal Attack",
+ "caller": {
+  "persona": "the victim themselves, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "victim",
+  "openingLine": "Ambulance and police please, I've been attacked by a dog, it's bitten my arm badly",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Animal Attack",
+  "summaryTruth": "Animal Attack. A dog off its lead just came at me and bit my arm before I could get away. Hazards reported: loose dog in area, risk of further attack. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "A dog off its lead just came at me and bit my arm before I could get away",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "A dog off its lead just came at me and bit my arm before I could get away",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "loose dog in area",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, loose dog in area."
+  }
+ ],
+ "unknownTopics": [],
+ "outcome": {
+  "arrestChance": 0.2
+ },
+ "unitRequirements": [],
+ "escalations": [],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 218,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 1
+   }
+  ],
+  "durationMin": 10
+ }
 }

@@ -1,133 +1,144 @@
 {
-  "id": "police_trespasser_on_railway_line",
-  "category": "suspicious",
-  "title": "Trespasser on railway line",
-  "caller": {
-    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "witness",
-    "openingLine": "Hi, please, I can see someone on the tracks and a train's due.",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Trespasser on railway line",
-    "summaryTruth": "Trespasser on railway line. They climbed over the fence and they're walking along the tracks right now.. Hazards reported: live railway line, trains still running. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "They climbed over the fence and they're walking along the tracks right now.",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "They climbed over the fence and they're walking along the tracks right now.",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "live railway line",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, live railway line."
-    }
-  ],
-  "unknownTopics": [
-    "names of the people involved"
-  ],
-  "outcome": {
-    "arrestChance": 0.2
-  },
-  "unitRequirements": [],
-  "escalations": [
-    {
-      "key": "entry_attempt",
-      "chance": 0.25,
-      "delayMs": 90000,
-      "text": "Caller now says the male is trying door handles along the street."
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "tram_stop",
-    "train_station",
-    "industrial_estate",
-    "level_crossing"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "any",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_trespasser_on_railway_line",
+ "category": "suspicious",
+ "title": "Trespasser on railway line",
+ "caller": {
+  "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "witness",
+  "openingLine": "Hi, please, I can see someone on the tracks and a train's due.",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Trespasser on railway line",
+  "summaryTruth": "Trespasser on railway line. They climbed over the fence and they're walking along the tracks right now.. Hazards reported: live railway line, trains still running. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "They climbed over the fence and they're walking along the tracks right now.",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "They climbed over the fence and they're walking along the tracks right now.",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "live railway line",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, live railway line."
+  }
+ ],
+ "unknownTopics": [
+  "names of the people involved"
+ ],
+ "outcome": {
+  "arrestChance": 0.2
+ },
+ "unitRequirements": [],
+ "escalations": [
+  {
+   "key": "entry_attempt",
+   "chance": 0.25,
+   "delayMs": 90000,
+   "text": "Caller now says the male is trying door handles along the street."
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "tram_stop",
+  "train_station",
+  "industrial_estate",
+  "level_crossing"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "any",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 109,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 2
+   }
+  ],
+  "durationMin": 20,
+  "prisonersMax": 3
+ }
 }

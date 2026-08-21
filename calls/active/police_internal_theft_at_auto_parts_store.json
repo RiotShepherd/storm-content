@@ -1,127 +1,138 @@
 {
-  "id": "police_internal_theft_at_auto_parts_store",
-  "category": "theft",
-  "title": "Internal Theft at Auto Parts Store",
-  "caller": {
-    "persona": "a member of staff at the premises, steady and matter of fact",
-    "callerIs": "witness",
-    "openingLine": "I want to report internal theft at the store, I've caught it on camera",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Internal Theft at Auto Parts Store",
-    "summaryTruth": "Internal Theft at Auto Parts Store. Stock's been going missing for weeks, and the camera's finally caught who's responsible. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "Stock's been going missing for weeks, and the camera's finally caught who's responsible",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "Stock's been going missing for weeks, and the camera's finally caught who's responsible",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    }
-  ],
-  "unknownTopics": [],
-  "outcome": {
-    "arrestChance": 0.7
-  },
-  "unitRequirements": [],
-  "escalations": [
-    {
-      "key": "detainee_violent",
-      "chance": 0.2,
-      "delayMs": 70000,
-      "text": "Store security state the detained person is kicking off and has assaulted a guard.",
-      "addTags": [
-        "Taser"
-      ],
-      "gradeTo": 2
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "any",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_internal_theft_at_auto_parts_store",
+ "category": "theft",
+ "title": "Internal Theft at Auto Parts Store",
+ "caller": {
+  "persona": "a member of staff at the premises, steady and matter of fact",
+  "callerIs": "witness",
+  "openingLine": "I want to report internal theft at the store, I've caught it on camera",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Internal Theft at Auto Parts Store",
+  "summaryTruth": "Internal Theft at Auto Parts Store. Stock's been going missing for weeks, and the camera's finally caught who's responsible. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "Stock's been going missing for weeks, and the camera's finally caught who's responsible",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "Stock's been going missing for weeks, and the camera's finally caught who's responsible",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  }
+ ],
+ "unknownTopics": [],
+ "outcome": {
+  "arrestChance": 0.7
+ },
+ "unitRequirements": [],
+ "escalations": [
+  {
+   "key": "detainee_violent",
+   "chance": 0.2,
+   "delayMs": 70000,
+   "text": "Store security state the detained person is kicking off and has assaulted a guard.",
+   "addTags": [
+    "Taser"
+   ],
+   "gradeTo": 2
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "any",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 737,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 2
+   }
+  ],
+  "durationMin": 15,
+  "prisonersMax": 4
+ }
 }

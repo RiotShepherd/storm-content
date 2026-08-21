@@ -1,116 +1,127 @@
 {
-  "id": "police_bilking_from_restaurant",
-  "category": "police",
-  "title": "Bilking from Restaurant",
-  "caller": {
-    "persona": "a member of staff at the premises, steady and matter of fact",
-    "callerIs": "witness",
-    "openingLine": "Can I report a dine and dash, they've gone out the back exit",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Bilking from Restaurant",
-    "summaryTruth": "Bilking from Restaurant. They finished their meal and then slipped out the fire exit without paying. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "They finished their meal and then slipped out the fire exit without paying",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "They finished their meal and then slipped out the fire exit without paying",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    }
-  ],
-  "unknownTopics": [],
-  "outcome": {
-    "arrestChance": 0.2
-  },
-  "unitRequirements": [],
-  "escalations": [],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "any",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_bilking_from_restaurant",
+ "category": "police",
+ "title": "Bilking from Restaurant",
+ "caller": {
+  "persona": "a member of staff at the premises, steady and matter of fact",
+  "callerIs": "witness",
+  "openingLine": "Can I report a dine and dash, they've gone out the back exit",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Bilking from Restaurant",
+  "summaryTruth": "Bilking from Restaurant. They finished their meal and then slipped out the fire exit without paying. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "They finished their meal and then slipped out the fire exit without paying",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "They finished their meal and then slipped out the fire exit without paying",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  }
+ ],
+ "unknownTopics": [],
+ "outcome": {
+  "arrestChance": 0.2
+ },
+ "unitRequirements": [],
+ "escalations": [],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "any",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 771,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 1
+   }
+  ],
+  "durationMin": 20,
+  "prisonersMax": 1
+ }
 }

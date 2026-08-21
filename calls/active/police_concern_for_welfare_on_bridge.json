@@ -1,104 +1,125 @@
 {
-  "id": "police_concern_for_welfare_on_bridge",
-  "category": "police",
-  "title": "Concern for welfare on bridge",
-  "caller": {
-    "persona": "the person reporting it, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "third_party",
-    "openingLine": "There's someone in real danger on the bridge, they're right on the edge",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Concern for welfare on bridge",
-    "summaryTruth": "Concern for welfare on bridge. {{He}}'s climbed over the barrier and is stood right on the ledge of the bridge. Hazards reported: person at height, risk to life, traffic nearby. Location {{address}}, {{town}}.",
-    "correctGrade": 4,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": false,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "{{He}}'s climbed over the barrier and is stood right on the ledge of the bridge",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "{{He}}'s climbed over the barrier and is stood right on the ledge of the bridge",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": true,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "person at height",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, person at height."
-    }
-  ],
-  "unknownTopics": [],
-  "outcome": {
-    "arrestChance": 0.2
-  },
-  "unitRequirements": [
-    "TPAC"
-  ],
-  "escalations": [],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "bridge"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    }
+ "id": "police_concern_for_welfare_on_bridge",
+ "category": "police",
+ "title": "Concern for welfare on bridge",
+ "caller": {
+  "persona": "the person reporting it, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "third_party",
+  "openingLine": "There's someone in real danger on the bridge, they're right on the edge",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Concern for welfare on bridge",
+  "summaryTruth": "Concern for welfare on bridge. {{p_He}}'s climbed over the barrier and is stood right on the ledge of the bridge. Hazards reported: person at height, risk to life, traffic nearby. Location {{address}}, {{town}}.",
+  "correctGrade": 4,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": false,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "{{p_He}}'s climbed over the barrier and is stood right on the ledge of the bridge",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "{{p_He}}'s climbed over the barrier and is stood right on the ledge of the bridge",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": true,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "person at height",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, person at height."
+  }
+ ],
+ "unknownTopics": [],
+ "outcome": {
+  "arrestChance": 0.2
+ },
+ "unitRequirements": [
+  "TPAC"
+ ],
+ "escalations": [],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "bridge"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "patient": {
+   "gender": "any",
+   "ageRange": [
+    18,
+    85
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 412,
+  "vehicles": [
+   {
+    "class": "patrol_or_arv",
+    "count": 3
+   },
+   {
+    "class": "traffic",
+    "count": 1
+   }
+  ],
+  "durationMin": 20
+ }
 }

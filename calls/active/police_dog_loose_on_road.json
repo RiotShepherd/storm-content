@@ -1,122 +1,132 @@
 {
-  "id": "police_dog_loose_on_road",
-  "category": "roads",
-  "title": "Dog loose on road",
-  "caller": {
-    "persona": "a passer-by who saw it happen, steady and matter of fact",
-    "callerIs": "witness",
-    "openingLine": "There's a loose dog on the road, it's really dangerous",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Dog loose on road",
-    "summaryTruth": "Dog loose on road. It's running back and forth across the road, cars keep having to slam their brakes on. Hazards reported: loose animal on road, risk of collision. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": true,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "It's running back and forth across the road, cars keep having to slam their brakes on",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "It's running back and forth across the road, cars keep having to slam their brakes on",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": true,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "loose animal on road",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, loose animal on road."
-    }
-  ],
-  "unknownTopics": [
-    "names of the people involved"
-  ],
-  "outcome": {
-    "arrestChance": 0.1
-  },
-  "unitRequirements": [],
-  "escalations": [
-    {
-      "key": "road_rage",
-      "chance": 0.15,
-      "delayMs": 90000,
-      "text": "Caller states the drivers are now out of their vehicles squaring up, one has picked up a length of wood from the verge.",
-      "addTags": [
-        "Taser"
-      ],
-      "gradeTo": 2
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    }
+ "id": "police_dog_loose_on_road",
+ "category": "roads",
+ "title": "Dog loose on road",
+ "caller": {
+  "persona": "a passer-by who saw it happen, steady and matter of fact",
+  "callerIs": "witness",
+  "openingLine": "There's a loose dog on the road, it's really dangerous",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Dog loose on road",
+  "summaryTruth": "Dog loose on road. It's running back and forth across the road, cars keep having to slam their brakes on. Hazards reported: loose animal on road, risk of collision. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": true,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "It's running back and forth across the road, cars keep having to slam their brakes on",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "It's running back and forth across the road, cars keep having to slam their brakes on",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": true,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "loose animal on road",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, loose animal on road."
+  }
+ ],
+ "unknownTopics": [
+  "names of the people involved"
+ ],
+ "outcome": {
+  "arrestChance": 0.1
+ },
+ "unitRequirements": [],
+ "escalations": [
+  {
+   "key": "road_rage",
+   "chance": 0.15,
+   "delayMs": 90000,
+   "text": "Caller states the drivers are now out of their vehicles squaring up, one has picked up a length of wood from the verge.",
+   "addTags": [
+    "Taser"
+   ],
+   "gradeTo": 2
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 860,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 1
+   }
+  ],
+  "durationMin": 20
+ }
 }

@@ -1,131 +1,142 @@
 {
-  "id": "police_office_burglary",
-  "category": "burglary",
-  "title": "Office burglary",
-  "caller": {
-    "persona": "a member of staff at the premises, steady and matter of fact",
-    "callerIs": "witness",
-    "openingLine": "There's been a break in, the door's smashed and things are missing",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Office burglary",
-    "summaryTruth": "Office burglary. The back door's been forced open and drawers have been gone through. Hazards reported: broken glass. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "The back door's been forced open and drawers have been gone through",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "The back door's been forced open and drawers have been gone through",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "broken glass",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, broken glass."
-    }
-  ],
-  "unknownTopics": [],
-  "outcome": {
-    "arrestChance": 0.5
-  },
-  "unitRequirements": [],
-  "escalations": [
-    {
-      "key": "suspects_decamp",
-      "chance": 0.35,
-      "delayMs": 90000,
-      "text": "Informant states the suspects have left on foot carrying bags, direction of the town centre.",
-      "addTags": [
-        "K9"
-      ]
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "office"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "any",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_office_burglary",
+ "category": "burglary",
+ "title": "Office burglary",
+ "caller": {
+  "persona": "a member of staff at the premises, steady and matter of fact",
+  "callerIs": "witness",
+  "openingLine": "There's been a break in, the door's smashed and things are missing",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Office burglary",
+  "summaryTruth": "Office burglary. The back door's been forced open and drawers have been gone through. Hazards reported: broken glass. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "The back door's been forced open and drawers have been gone through",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "The back door's been forced open and drawers have been gone through",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "broken glass",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, broken glass."
+  }
+ ],
+ "unknownTopics": [],
+ "outcome": {
+  "arrestChance": 0.5
+ },
+ "unitRequirements": [],
+ "escalations": [
+  {
+   "key": "suspects_decamp",
+   "chance": 0.35,
+   "delayMs": 90000,
+   "text": "Informant states the suspects have left on foot carrying bags, direction of the town centre.",
+   "addTags": [
+    "K9"
+   ]
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "office"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "any",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 387,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 2
+   }
+  ],
+  "durationMin": 20,
+  "prisonersMax": 1
+ }
 }

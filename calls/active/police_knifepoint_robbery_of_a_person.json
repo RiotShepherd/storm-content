@@ -1,142 +1,166 @@
 {
-  "id": "police_knifepoint_robbery_of_a_person",
-  "category": "robbery",
-  "title": "Knifepoint Robbery of a Person",
-  "caller": {
-    "persona": "the victim themselves, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "victim",
-    "openingLine": "Police, quick, I was threatened with a knife and they took my things",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Knifepoint Robbery of a Person",
-    "summaryTruth": "Knifepoint Robbery of a Person. They came up behind me, pulled a knife and demanded my phone and wallet. Hazards reported: armed suspect at large, risk to public. Location {{address}}, {{town}}.",
-    "correctGrade": 2,
-    "correctThrive": {
-      "threat": true,
-      "harm": false,
-      "risk": true,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "They came up behind me, pulled a knife and demanded my phone and wallet",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "They came up behind me, pulled a knife and demanded my phone and wallet",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": true,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "armed suspect at large",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, armed suspect at large."
-    }
-  ],
-  "unknownTopics": [],
-  "outcome": {
-    "arrestChance": 0.45
-  },
-  "unitRequirements": [
-    "AFO",
-    "K9"
-  ],
-  "escalations": [
-    {
-      "key": "weapon_seen",
-      "chance": 0.3,
-      "delayMs": 80000,
-      "text": "Update from the victim: the male definitely had a blade, described as a kitchen knife, last seen heading towards the seafront.",
-      "addTags": [
-        "AFO"
-      ],
-      "gradeTo": 1
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "any",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_knifepoint_robbery_of_a_person",
+ "category": "robbery",
+ "title": "Knifepoint Robbery of a Person",
+ "caller": {
+  "persona": "the victim themselves, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "victim",
+  "openingLine": "Police, quick, I was threatened with a knife and they took my things",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Knifepoint Robbery of a Person",
+  "summaryTruth": "Knifepoint Robbery of a Person. They came up behind me, pulled a knife and demanded my phone and wallet. Hazards reported: armed suspect at large, risk to public. Location {{address}}, {{town}}.",
+  "correctGrade": 2,
+  "correctThrive": {
+   "threat": true,
+   "harm": false,
+   "risk": true,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "They came up behind me, pulled a knife and demanded my phone and wallet",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "They came up behind me, pulled a knife and demanded my phone and wallet",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": true,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "armed suspect at large",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, armed suspect at large."
+  }
+ ],
+ "unknownTopics": [],
+ "outcome": {
+  "arrestChance": 0.45
+ },
+ "unitRequirements": [
+  "AFO",
+  "K9"
+ ],
+ "escalations": [
+  {
+   "key": "weapon_seen",
+   "chance": 0.3,
+   "delayMs": 80000,
+   "text": "Update from the victim: the male definitely had a blade, described as a kitchen knife, last seen heading towards the seafront.",
+   "addTags": [
+    "AFO"
+   ],
+   "gradeTo": 1
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "any",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 861,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 4
+   },
+   {
+    "class": "dsu",
+    "count": 1
+   },
+   {
+    "class": "arv",
+    "count": 1
+   }
+  ],
+  "durationMin": 25,
+  "personnel": [
+   {
+    "kind": "armed",
+    "count": 4
+   }
+  ]
+ }
 }

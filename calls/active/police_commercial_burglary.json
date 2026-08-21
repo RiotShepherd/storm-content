@@ -1,128 +1,143 @@
 {
-  "id": "police_commercial_burglary",
-  "category": "burglary",
-  "title": "Commercial Burglary",
-  "caller": {
-    "persona": "a member of staff at the premises, steady and matter of fact",
-    "callerIs": "witness",
-    "openingLine": "I've just opened up to find we've been burgled",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Commercial Burglary",
-    "summaryTruth": "Commercial Burglary. I arrived this morning to find the front window smashed and stock missing from the shelves. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "I arrived this morning to find the front window smashed and stock missing from the shelves",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "I arrived this morning to find the front window smashed and stock missing from the shelves",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    }
-  ],
-  "unknownTopics": [],
-  "outcome": {
-    "arrestChance": 0.5
-  },
-  "unitRequirements": [
-    "K9"
-  ],
-  "escalations": [
-    {
-      "key": "suspects_decamp",
-      "chance": 0.35,
-      "delayMs": 90000,
-      "text": "Informant states the suspects have left on foot carrying bags, direction of the town centre.",
-      "addTags": [
-        "K9"
-      ]
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "any",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_commercial_burglary",
+ "category": "burglary",
+ "title": "Commercial Burglary",
+ "caller": {
+  "persona": "a member of staff at the premises, steady and matter of fact",
+  "callerIs": "witness",
+  "openingLine": "I've just opened up to find we've been burgled",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Commercial Burglary",
+  "summaryTruth": "Commercial Burglary. I arrived this morning to find the front window smashed and stock missing from the shelves. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "I arrived this morning to find the front window smashed and stock missing from the shelves",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "I arrived this morning to find the front window smashed and stock missing from the shelves",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  }
+ ],
+ "unknownTopics": [],
+ "outcome": {
+  "arrestChance": 0.5
+ },
+ "unitRequirements": [
+  "K9"
+ ],
+ "escalations": [
+  {
+   "key": "suspects_decamp",
+   "chance": 0.35,
+   "delayMs": 90000,
+   "text": "Informant states the suspects have left on foot carrying bags, direction of the town centre.",
+   "addTags": [
+    "K9"
+   ]
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "any",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 172,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 4
+   },
+   {
+    "class": "dsu",
+    "count": 1
+   }
+  ],
+  "durationMin": 25,
+  "prisonersMax": 3
+ }
 }

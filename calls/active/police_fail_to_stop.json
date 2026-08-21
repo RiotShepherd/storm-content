@@ -1,147 +1,170 @@
 {
-  "id": "police_fail_to_stop",
-  "category": "police",
-  "title": "Fail to stop",
-  "caller": {
-    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "witness",
-    "openingLine": "Police, a driver's just fled the scene of a near miss at speed",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Fail to stop",
-    "summaryTruth": "Fail to stop. {{He}} clipped another car and just floored it, didn't even slow down. Hazards reported: dangerous driving, pursuit in progress. Location {{address}}, {{town}}.",
-    "correctGrade": 2,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": true,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "{{He}} clipped another car and just floored it, didn't even slow down",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "{{He}} clipped another car and just floored it, didn't even slow down",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "vehicle",
-      "label": "Vehicle details",
-      "value": "{{vehicleReg}}",
-      "askHints": [
-        "reg",
-        "registration",
-        "number plate",
-        "what car",
-        "vehicle"
-      ],
-      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
-      "critical": true
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "dangerous driving",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, dangerous driving."
-    }
-  ],
-  "unknownTopics": [
-    "names of the people involved"
-  ],
-  "outcome": {
-    "arrestChance": 0.2
-  },
-  "unitRequirements": [
-    "K9",
-    "TPAC"
-  ],
-  "escalations": [],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "male",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_fail_to_stop",
+ "category": "police",
+ "title": "Fail to stop",
+ "caller": {
+  "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "witness",
+  "openingLine": "Police, a driver's just fled the scene of a near miss at speed",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Fail to stop",
+  "summaryTruth": "Fail to stop. {{s_He}} clipped another car and just floored it, didn't even slow down. Hazards reported: dangerous driving, pursuit in progress. Location {{address}}, {{town}}.",
+  "correctGrade": 2,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": true,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "{{s_He}} clipped another car and just floored it, didn't even slow down",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "{{s_He}} clipped another car and just floored it, didn't even slow down",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "vehicle",
+   "label": "Vehicle details",
+   "value": "{{vehicleReg}}",
+   "askHints": [
+    "reg",
+    "registration",
+    "number plate",
+    "what car",
+    "vehicle"
+   ],
+   "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
+   "critical": true
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "dangerous driving",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, dangerous driving."
+  }
+ ],
+ "unknownTopics": [
+  "names of the people involved"
+ ],
+ "outcome": {
+  "arrestChance": 0.2
+ },
+ "unitRequirements": [
+  "K9",
+  "TPAC"
+ ],
+ "escalations": [],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "male",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 91,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 4
+   },
+   {
+    "class": "dsu",
+    "count": 1
+   },
+   {
+    "class": "helicopter",
+    "count": 1
+   },
+   {
+    "class": "traffic",
+    "count": 2
+   }
+  ],
+  "durationMin": 35,
+  "prisonersMax": 4
+ }
 }

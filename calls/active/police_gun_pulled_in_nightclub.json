@@ -1,142 +1,167 @@
 {
-  "id": "police_gun_pulled_in_nightclub",
-  "category": "weapons",
-  "title": "Gun pulled in nightclub",
-  "caller": {
-    "persona": "a member of staff at the premises, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "witness",
-    "openingLine": "Help, there's a firearm in the club, people are trying to get out!",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Gun pulled in nightclub",
-    "summaryTruth": "Gun pulled in nightclub. Someone on the dance floor pulled out a gun during an argument. Hazards reported: firearm inside venue, large crowd, risk to public. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": true,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "Someone on the dance floor pulled out a gun during an argument",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "Someone on the dance floor pulled out a gun during an argument",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "firearm inside venue",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, firearm inside venue."
-    }
-  ],
-  "unknownTopics": [],
-  "outcome": {
-    "arrestChance": 0.5
-  },
-  "unitRequirements": [
-    "AFO",
-    "K9"
-  ],
-  "escalations": [
-    {
-      "key": "weapon_confirmed",
-      "chance": 0.4,
-      "delayMs": 70000,
-      "text": "Further call confirms the male is still in the area and still carrying the weapon.",
-      "addTags": [
-        "AFO"
-      ],
-      "gradeTo": 1
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "any",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_gun_pulled_in_nightclub",
+ "category": "weapons",
+ "title": "Gun pulled in nightclub",
+ "caller": {
+  "persona": "a member of staff at the premises, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "witness",
+  "openingLine": "Help, there's a firearm in the club, people are trying to get out!",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Gun pulled in nightclub",
+  "summaryTruth": "Gun pulled in nightclub. Someone on the dance floor pulled out a gun during an argument. Hazards reported: firearm inside venue, large crowd, risk to public. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": true,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "Someone on the dance floor pulled out a gun during an argument",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "Someone on the dance floor pulled out a gun during an argument",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "firearm inside venue",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, firearm inside venue."
+  }
+ ],
+ "unknownTopics": [],
+ "outcome": {
+  "arrestChance": 0.5
+ },
+ "unitRequirements": [
+  "AFO",
+  "K9"
+ ],
+ "escalations": [
+  {
+   "key": "weapon_confirmed",
+   "chance": 0.4,
+   "delayMs": 70000,
+   "text": "Further call confirms the male is still in the area and still carrying the weapon.",
+   "addTags": [
+    "AFO"
+   ],
+   "gradeTo": 1
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "any",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 351,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 6
+   },
+   {
+    "class": "dsu",
+    "count": 1
+   },
+   {
+    "class": "arv",
+    "count": 1
+   }
+  ],
+  "durationMin": 35,
+  "personnel": [
+   {
+    "kind": "armed",
+    "count": 6
+   }
+  ],
+  "prisonersMax": 3
+ }
 }

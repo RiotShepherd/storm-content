@@ -61,6 +61,50 @@ Each fact is one piece of information the caller can release:
 
 Topic substrings the caller genuinely cannot answer; triggers `dontKnowLines`.
 
+## deployment
+
+What the job needs on scene before it can be closed. Mirrored from this
+call's MissionChief UK counterpart, so the resourcing decision a player
+makes here matches the one that game asks for.
+
+- `mcId`: the MissionChief UK mission id this mirrors. Keep it; it is how
+  a requirement set is traced back to its source.
+- `vehicles[]`: each line is `{ class, count }`, optionally `chance`
+  (0..1) for requirements that only appear on some spawns. The roll
+  happens once, when the incident is created.
+- `personnel[]` (optional): `{ kind, count }` headcounts counted across
+  every crew on scene, on top of the vehicle lines.
+- `prisonersMax` (optional): most prisoners this job can produce. They
+  need cell capacity present on scene to leave for custody.
+- `durationMin`: working time on scene once the whole set is assembled.
+
+Vehicle classes: `patrol` (IRV/JRU), `patrol_or_arv`, `arv`, `traffic`
+(Traffic Car / Armed Traffic Car), `dsu` (Dog Support Unit / MDC),
+`psu` (PSU Carrier), `mounted`, `eiu` (rail), `helicopter` (NPAS),
+`heli_or_drone`.
+
+Personnel kinds: `armed` (AFOs, and they must arrive in an armed
+vehicle), `po1` and `po2` (Public Order Levels 1 and 2), `sergeant`,
+`inspector`, `officers` (a plain headcount).
+
+An incident resolves only when every line is satisfied by units actually
+on scene and held there for `durationMin`. Losing cover resets the
+timer. Anything a call needs must be reachable by the force fleet; the
+coverage tool in the game server proves this for every active call.
+
+```json
+"deployment": {
+  "mcId": 92,
+  "vehicles": [
+    { "class": "patrol", "count": 6 },
+    { "class": "dsu", "count": 1 }
+  ],
+  "personnel": [{ "kind": "armed", "count": 4 }],
+  "prisonersMax": 1,
+  "durationMin": 25
+}
+```
+
 ## Authoring rules
 
 - Grade 5 cases (no policing purpose) are as valuable as Grade 1s; the game teaches grading by contrast.

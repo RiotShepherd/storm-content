@@ -1,132 +1,146 @@
 {
-  "id": "police_debris_in_carriageway_fast_road",
-  "category": "roads",
-  "title": "Debris in carriageway (Fast Road)",
-  "caller": {
-    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "witness",
-    "openingLine": "I need to report a hazard, something's fallen in the road and cars are swerving at speed",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Debris in carriageway (Fast Road)",
-    "summaryTruth": "Debris in carriageway (Fast Road). A lorry's shed part of its load at speed and there's debris right across the fast lane. Hazards reported: debris on fast road, high speed traffic, risk of collision. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": true,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "A lorry's shed part of its load at speed and there's debris right across the fast lane",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "A lorry's shed part of its load at speed and there's debris right across the fast lane",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": true,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "vehicle",
-      "label": "Vehicle details",
-      "value": "{{vehicleReg}}",
-      "askHints": [
-        "reg",
-        "registration",
-        "number plate",
-        "what car",
-        "vehicle"
-      ],
-      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
-      "critical": true
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "debris on fast road",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, debris on fast road."
-    }
-  ],
-  "unknownTopics": [
-    "names of the people involved"
-  ],
-  "outcome": {
-    "arrestChance": 0.1
-  },
-  "unitRequirements": [
-    "TPAC"
-  ],
-  "escalations": [
-    {
-      "key": "road_rage",
-      "chance": 0.15,
-      "delayMs": 90000,
-      "text": "Caller states the drivers are now out of their vehicles squaring up, one has picked up a length of wood from the verge.",
-      "addTags": [
-        "Taser"
-      ],
-      "gradeTo": 2
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "motorway",
-    "a_road"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    }
+ "id": "police_debris_in_carriageway_fast_road",
+ "category": "roads",
+ "title": "Debris in carriageway (Fast Road)",
+ "caller": {
+  "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "witness",
+  "openingLine": "I need to report a hazard, something's fallen in the road and cars are swerving at speed",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Debris in carriageway (Fast Road)",
+  "summaryTruth": "Debris in carriageway (Fast Road). A lorry's shed part of its load at speed and there's debris right across the fast lane. Hazards reported: debris on fast road, high speed traffic, risk of collision. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": true,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "A lorry's shed part of its load at speed and there's debris right across the fast lane",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "A lorry's shed part of its load at speed and there's debris right across the fast lane",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": true,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "vehicle",
+   "label": "Vehicle details",
+   "value": "{{vehicleReg}}",
+   "askHints": [
+    "reg",
+    "registration",
+    "number plate",
+    "what car",
+    "vehicle"
+   ],
+   "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
+   "critical": true
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "debris on fast road",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, debris on fast road."
+  }
+ ],
+ "unknownTopics": [
+  "names of the people involved"
+ ],
+ "outcome": {
+  "arrestChance": 0.1
+ },
+ "unitRequirements": [
+  "TPAC"
+ ],
+ "escalations": [
+  {
+   "key": "road_rage",
+   "chance": 0.15,
+   "delayMs": 90000,
+   "text": "Caller states the drivers are now out of their vehicles squaring up, one has picked up a length of wood from the verge.",
+   "addTags": [
+    "Taser"
+   ],
+   "gradeTo": 2
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "motorway",
+  "a_road"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 524,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 1
+   },
+   {
+    "class": "traffic",
+    "count": 1
+   }
+  ],
+  "durationMin": 15
+ }
 }

@@ -1,130 +1,141 @@
 {
-  "id": "police_multiple_persons_slashing_car_tyres",
-  "category": "roads",
-  "title": "Multiple Persons Slashing Car Tyres",
-  "caller": {
-    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "witness",
-    "openingLine": "I need police, they're damaging cars in the car park right now",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Multiple Persons Slashing Car Tyres",
-    "summaryTruth": "Multiple Persons Slashing Car Tyres. They're going from car to car, crouching down and slashing the tyres. Hazards reported: group of suspects on foot. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "They're going from car to car, crouching down and slashing the tyres",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "They're going from car to car, crouching down and slashing the tyres",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "vehicle",
-      "label": "Vehicle details",
-      "value": "{{vehicleReg}}",
-      "askHints": [
-        "reg",
-        "registration",
-        "number plate",
-        "what car",
-        "vehicle"
-      ],
-      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
-      "critical": true
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "group of suspects on foot",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, group of suspects on foot."
-    }
-  ],
-  "unknownTopics": [
-    "names of the people involved"
-  ],
-  "outcome": {
-    "arrestChance": 0.1
-  },
-  "unitRequirements": [],
-  "escalations": [
-    {
-      "key": "road_rage",
-      "chance": 0.15,
-      "delayMs": 90000,
-      "text": "Caller states the drivers are now out of their vehicles squaring up, one has picked up a length of wood from the verge.",
-      "addTags": [
-        "Taser"
-      ],
-      "gradeTo": 2
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "supermarket",
-    "retail_park"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    }
+ "id": "police_multiple_persons_slashing_car_tyres",
+ "category": "roads",
+ "title": "Multiple Persons Slashing Car Tyres",
+ "caller": {
+  "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "witness",
+  "openingLine": "I need police, they're damaging cars in the car park right now",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Multiple Persons Slashing Car Tyres",
+  "summaryTruth": "Multiple Persons Slashing Car Tyres. They're going from car to car, crouching down and slashing the tyres. Hazards reported: group of suspects on foot. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "They're going from car to car, crouching down and slashing the tyres",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "They're going from car to car, crouching down and slashing the tyres",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "vehicle",
+   "label": "Vehicle details",
+   "value": "{{vehicleReg}}",
+   "askHints": [
+    "reg",
+    "registration",
+    "number plate",
+    "what car",
+    "vehicle"
+   ],
+   "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
+   "critical": true
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "group of suspects on foot",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, group of suspects on foot."
+  }
+ ],
+ "unknownTopics": [
+  "names of the people involved"
+ ],
+ "outcome": {
+  "arrestChance": 0.1
+ },
+ "unitRequirements": [],
+ "escalations": [
+  {
+   "key": "road_rage",
+   "chance": 0.15,
+   "delayMs": 90000,
+   "text": "Caller states the drivers are now out of their vehicles squaring up, one has picked up a length of wood from the verge.",
+   "addTags": [
+    "Taser"
+   ],
+   "gradeTo": 2
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "supermarket",
+  "retail_park"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 732,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 3
+   }
+  ],
+  "durationMin": 35,
+  "prisonersMax": 3
+ }
 }

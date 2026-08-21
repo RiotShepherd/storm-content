@@ -1,158 +1,177 @@
 {
-  "id": "police_robbery_of_motor_vehicle",
-  "category": "robbery",
-  "title": "Robbery of Motor Vehicle",
-  "caller": {
-    "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
-    "callerIs": "witness",
-    "openingLine": "Police, I'm shaking, someone's just threatened me and taken my car",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Robbery of Motor Vehicle",
-    "summaryTruth": "Robbery of Motor Vehicle. {{He}} came up to my window, threatened me, and I got out, {{he}}'s driven off in it. Hazards reported: suspect vehicle made off. Location {{address}}, {{town}}.",
-    "correctGrade": 2,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": true,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "{{He}} came up to my window, threatened me, and I got out, {{he}}'s driven off in it",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "{{He}} came up to my window, threatened me, and I got out, {{he}}'s driven off in it",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": true,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "vehicle",
-      "label": "Vehicle details",
-      "value": "{{vehicleReg}}",
-      "askHints": [
-        "reg",
-        "registration",
-        "number plate",
-        "what car",
-        "vehicle"
-      ],
-      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
-      "critical": true
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    },
-    {
-      "key": "risks",
-      "label": "Risks on scene",
-      "value": "suspect vehicle made off",
-      "askHints": [
-        "danger",
-        "risk",
-        "weapon",
-        "safe"
-      ],
-      "beat": "You should know, suspect vehicle made off."
-    }
-  ],
-  "unknownTopics": [
-    "names of the people involved"
-  ],
-  "outcome": {
-    "arrestChance": 0.45
-  },
-  "unitRequirements": [
-    "K9",
-    "TPAC"
-  ],
-  "escalations": [
-    {
-      "key": "weapon_seen",
-      "chance": 0.3,
-      "delayMs": 80000,
-      "text": "Update from the victim: the male definitely had a blade, described as a kitchen knife, last seen heading towards the seafront.",
-      "addTags": [
-        "AFO"
-      ],
-      "gradeTo": 1
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "male",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_robbery_of_motor_vehicle",
+ "category": "robbery",
+ "title": "Robbery of Motor Vehicle",
+ "caller": {
+  "persona": "a passer-by who saw it happen, panicking, talking fast, hard to keep on one topic",
+  "callerIs": "witness",
+  "openingLine": "Police, I'm shaking, someone's just threatened me and taken my car",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Robbery of Motor Vehicle",
+  "summaryTruth": "Robbery of Motor Vehicle. {{s_He}} came up to my window, threatened me, and I got out, {{s_he}}'s driven off in it. Hazards reported: suspect vehicle made off. Location {{address}}, {{town}}.",
+  "correctGrade": 2,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": true,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "{{s_He}} came up to my window, threatened me, and I got out, {{s_he}}'s driven off in it",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "{{s_He}} came up to my window, threatened me, and I got out, {{s_he}}'s driven off in it",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": true,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "vehicle",
+   "label": "Vehicle details",
+   "value": "{{vehicleReg}}",
+   "askHints": [
+    "reg",
+    "registration",
+    "number plate",
+    "what car",
+    "vehicle"
+   ],
+   "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
+   "critical": true
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  },
+  {
+   "key": "risks",
+   "label": "Risks on scene",
+   "value": "suspect vehicle made off",
+   "askHints": [
+    "danger",
+    "risk",
+    "weapon",
+    "safe"
+   ],
+   "beat": "You should know, suspect vehicle made off."
+  }
+ ],
+ "unknownTopics": [
+  "names of the people involved"
+ ],
+ "outcome": {
+  "arrestChance": 0.45
+ },
+ "unitRequirements": [
+  "K9",
+  "TPAC"
+ ],
+ "escalations": [
+  {
+   "key": "weapon_seen",
+   "chance": 0.3,
+   "delayMs": 80000,
+   "text": "Update from the victim: the male definitely had a blade, described as a kitchen knife, last seen heading towards the seafront.",
+   "addTags": [
+    "AFO"
+   ],
+   "gradeTo": 1
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "male",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 424,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 3
+   },
+   {
+    "class": "traffic",
+    "count": 4
+   },
+   {
+    "class": "dsu",
+    "count": 1
+   }
+  ],
+  "durationMin": 35,
+  "prisonersMax": 4
+ }
 }

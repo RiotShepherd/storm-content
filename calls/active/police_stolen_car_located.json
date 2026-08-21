@@ -1,143 +1,154 @@
 {
-  "id": "police_stolen_car_located",
-  "category": "theft",
-  "title": "Stolen Car Located",
-  "caller": {
-    "persona": "a passer-by who saw it happen, steady and matter of fact",
-    "callerIs": "witness",
-    "openingLine": "I think I've spotted the stolen car, it's parked up and empty",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Stolen Car Located",
-    "summaryTruth": "Stolen Car Located. It's parked oddly, doors open, engine still warm, plates match what was reported. Location {{address}}, {{town}}.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "It's parked oddly, doors open, engine still warm, plates match what was reported",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "It's parked oddly, doors open, engine still warm, plates match what was reported",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "vehicle",
-      "label": "Vehicle details",
-      "value": "{{vehicleReg}}",
-      "askHints": [
-        "reg",
-        "registration",
-        "number plate",
-        "what car",
-        "vehicle"
-      ],
-      "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
-      "critical": true
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    }
-  ],
-  "unknownTopics": [
-    "names of the people involved"
-  ],
-  "outcome": {
-    "arrestChance": 0.7
-  },
-  "unitRequirements": [],
-  "escalations": [
-    {
-      "key": "detainee_violent",
-      "chance": 0.2,
-      "delayMs": 70000,
-      "text": "Store security state the detained person is kicking off and has assaulted a guard.",
-      "addTags": [
-        "Taser"
-      ],
-      "gradeTo": 2
-    }
-  ],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "high_street",
-    "pub",
-    "residential_road",
-    "car_park",
-    "supermarket",
-    "house",
-    "flats",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "any",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_stolen_car_located",
+ "category": "theft",
+ "title": "Stolen Car Located",
+ "caller": {
+  "persona": "a passer-by who saw it happen, steady and matter of fact",
+  "callerIs": "witness",
+  "openingLine": "I think I've spotted the stolen car, it's parked up and empty",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Stolen Car Located",
+  "summaryTruth": "Stolen Car Located. It's parked oddly, doors open, engine still warm, plates match what was reported. Location {{address}}, {{town}}.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "It's parked oddly, doors open, engine still warm, plates match what was reported",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "It's parked oddly, doors open, engine still warm, plates match what was reported",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "vehicle",
+   "label": "Vehicle details",
+   "value": "{{vehicleReg}}",
+   "askHints": [
+    "reg",
+    "registration",
+    "number plate",
+    "what car",
+    "vehicle"
+   ],
+   "beat": "It's a {{vehicleDesc}}, registration {{vehicleReg}}.",
+   "critical": true
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  }
+ ],
+ "unknownTopics": [
+  "names of the people involved"
+ ],
+ "outcome": {
+  "arrestChance": 0.7
+ },
+ "unitRequirements": [],
+ "escalations": [
+  {
+   "key": "detainee_violent",
+   "chance": 0.2,
+   "delayMs": 70000,
+   "text": "Store security state the detained person is kicking off and has assaulted a guard.",
+   "addTags": [
+    "Taser"
+   ],
+   "gradeTo": 2
+  }
+ ],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "high_street",
+  "pub",
+  "residential_road",
+  "car_park",
+  "supermarket",
+  "house",
+  "flats",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "any",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 779,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 1
+   }
+  ],
+  "durationMin": 20,
+  "prisonersMax": 1
+ }
 }

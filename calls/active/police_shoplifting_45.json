@@ -1,110 +1,121 @@
 {
-  "id": "police_shoplifting_45",
-  "category": "theft",
-  "title": "Shoplifting",
-  "caller": {
-    "persona": "a member of staff at the premises, steady and matter of fact",
-    "callerIs": "witness",
-    "openingLine": "Police please, we've had a shoplifter, quite a bit of stock taken",
-    "dontKnowLines": [
-      "I honestly couldn't tell you, sorry.",
-      "I didn't see that bit, I'm sorry.",
-      "No idea, it all happened so fast."
-    ]
-  },
-  "incident": {
-    "type": "Shoplifting",
-    "summaryTruth": "Shoplifting. {{He}}'s filled a trolley and pushed it straight through the doors past security. Location {{address}}, {{town}}.",
-    "correctGrade": 4,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": false,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "what_happened",
-      "label": "What has happened",
-      "value": "{{He}}'s filled a trolley and pushed it straight through the doors past security",
-      "askHints": [
-        "what",
-        "happen",
-        "going on",
-        "tell me"
-      ],
-      "beat": "{{He}}'s filled a trolley and pushed it straight through the doors past security",
-      "spontaneous": true
-    },
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please"
-      ],
-      "beat": "It's {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "street"
-      ],
-      "beat": "{{address}}, {{town}}. Please be quick.",
-      "critical": true,
-      "spontaneous": false,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "what do they look",
-        "wearing",
-        "description"
-      ],
-      "beat": "Best I can give you: {{suspectDesc}}."
-    }
-  ],
-  "unknownTopics": [],
-  "outcome": {
-    "arrestChance": 0.7
-  },
-  "unitRequirements": [],
-  "escalations": [],
-  "source": "converted-from-legacy",
-  "locationTypes": [
-    "supermarket",
-    "retail_park"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        19,
-        78
-      ]
-    },
-    "suspect": {
-      "gender": "male",
-      "ageRange": [
-        16,
-        55
-      ]
-    }
+ "id": "police_shoplifting_45",
+ "category": "theft",
+ "title": "Shoplifting",
+ "caller": {
+  "persona": "a member of staff at the premises, steady and matter of fact",
+  "callerIs": "witness",
+  "openingLine": "Police please, we've had a shoplifter, quite a bit of stock taken",
+  "dontKnowLines": [
+   "I honestly couldn't tell you, sorry.",
+   "I didn't see that bit, I'm sorry.",
+   "No idea, it all happened so fast."
+  ]
+ },
+ "incident": {
+  "type": "Shoplifting",
+  "summaryTruth": "Shoplifting. {{s_He}}'s filled a trolley and pushed it straight through the doors past security. Location {{address}}, {{town}}.",
+  "correctGrade": 4,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": false,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "what_happened",
+   "label": "What has happened",
+   "value": "{{s_He}}'s filled a trolley and pushed it straight through the doors past security",
+   "askHints": [
+    "what",
+    "happen",
+    "going on",
+    "tell me"
+   ],
+   "beat": "{{s_He}}'s filled a trolley and pushed it straight through the doors past security",
+   "spontaneous": true
+  },
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please"
+   ],
+   "beat": "It's {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "street"
+   ],
+   "beat": "{{address}}, {{town}}. Please be quick.",
+   "critical": true,
+   "spontaneous": false,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "what do they look",
+    "wearing",
+    "description"
+   ],
+   "beat": "Best I can give you: {{suspectDesc}}."
+  }
+ ],
+ "unknownTopics": [],
+ "outcome": {
+  "arrestChance": 0.7
+ },
+ "unitRequirements": [],
+ "escalations": [],
+ "source": "converted-from-legacy",
+ "locationTypes": [
+  "supermarket",
+  "retail_park"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    19,
+    78
+   ]
+  },
+  "suspect": {
+   "gender": "male",
+   "ageRange": [
+    16,
+    55
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 45,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 1
+   }
+  ],
+  "durationMin": 10,
+  "prisonersMax": 1
+ }
 }

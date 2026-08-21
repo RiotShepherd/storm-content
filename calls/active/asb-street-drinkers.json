@@ -1,154 +1,165 @@
 {
-  "id": "asb-street-drinkers",
-  "category": "asb",
-  "title": "ASB: street drinkers outside a shop, ongoing nuisance",
-  "caller": {
-    "persona": "elderly, polite, weary, has rung about this before, a little rambling",
-    "callerIs": "witness",
-    "openingLine": "Oh hello, yes. It's the drinkers again, outside the Premier shop on the corner. There's five or six of them tonight, shouting and swearing, and one of them keeps kicking the bin over. It's every evening now, you know.",
-    "dontKnowLines": [
-      "Oh, I wouldn't know that, dear.",
-      "I couldn't say, I'm afraid."
-    ]
-  },
-  "incident": {
-    "type": "Anti-Social Behaviour",
-    "summaryTruth": "Regular caller {{callerName}}, {{callerAge}}, reports five to six street drinkers outside the Premier store on Tarring Road, {{town}}, shouting, swearing and kicking a bin over. Ongoing nightly issue. No violence tonight, no weapons, nobody threatened directly. Caller is watching from her flat across the road and is not in danger. She has called three times this month. The group usually disperses by ten. Known local issue.",
-    "correctGrade": 3,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": false,
-      "vulnerability": true,
-      "engagement": true
-    }
-  },
-  "facts": [
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "name please",
-        "what's your name",
-        "whats your name",
-        "take your name"
-      ],
-      "beat": "{{callerName}}. H-O-B-B-S. You've probably got me on your system, I've rung before.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "location",
-      "label": "Location",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "which shop",
-        "which road"
-      ],
-      "beat": "The Premier on Tarring Road, the corner shop. I'm in the flats just across the road.",
-      "critical": true,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "group_size",
-      "label": "Group size",
-      "value": "five or six",
-      "askHints": [
-        "how many",
-        "many of them"
-      ],
-      "beat": "Five or six of them tonight. Sometimes it's more at the weekend.",
-      "spontaneous": true
-    },
-    {
-      "key": "behaviour",
-      "label": "Behaviour",
-      "value": "shouting, swearing, kicking the bin over",
-      "askHints": [
-        "what are they doing",
-        "doing",
-        "violent",
-        "fighting",
-        "threaten"
-      ],
-      "beat": "Shouting and swearing mostly, terrible language. And the big one keeps kicking the litter bin over. No fighting tonight, not yet anyway."
-    },
-    {
-      "key": "threats",
-      "label": "Anyone directly threatened",
-      "value": "nobody threatened directly",
-      "askHints": [
-        "threatened",
-        "at you",
-        "towards you",
-        "anyone hurt",
-        "danger"
-      ],
-      "beat": "Oh no, not at me, they don't know I'm watching. People are just crossing the road to avoid them.",
-      "critical": true
-    },
-    {
-      "key": "history",
-      "label": "Ongoing pattern",
-      "value": "every evening, third call this month",
-      "askHints": [
-        "before",
-        "how often",
-        "happened before",
-        "every",
-        "regular"
-      ],
-      "beat": "Every evening this month, more or less. This is my third time ringing. The nice lady last time said someone would come but nobody ever does, you know."
-    },
-    {
-      "key": "caller_safety",
-      "label": "Caller's own safety",
-      "value": "in {{c_his}} flat across the road, not in danger",
-      "askHints": [
-        "are you safe",
-        "your safety",
-        "where are you",
-        "at risk"
-      ],
-      "beat": "I'm quite safe, dear, I'm up in my flat with the door locked. I just watch from the window."
-    }
-  ],
-  "unknownTopics": [
-    "names of the group",
-    "where they go after",
-    "postcode"
-  ],
-  "unitRequirements": [],
-  "escalations": [
-    {
-      "key": "crowd_hostile",
-      "chance": 0.25,
-      "delayMs": 90000,
-      "text": "First unit on scene reports the group has grown to a dozen plus and bottles have been thrown at the vehicle. Requesting public order trained backup.",
-      "addTags": [
-        "PO2"
-      ],
-      "gradeTo": 2
-    }
-  ],
-  "locationTypes": [
-    "high_street",
-    "park",
-    "supermarket"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        66,
-        86
-      ]
-    }
+ "id": "asb-street-drinkers",
+ "category": "asb",
+ "title": "ASB: street drinkers outside a shop, ongoing nuisance",
+ "caller": {
+  "persona": "elderly, polite, weary, has rung about this before, a little rambling",
+  "callerIs": "witness",
+  "openingLine": "Oh hello, yes. It's the drinkers again, outside the Premier shop on the corner. There's five or six of them tonight, shouting and swearing, and one of them keeps kicking the bin over. It's every evening now, you know.",
+  "dontKnowLines": [
+   "Oh, I wouldn't know that, dear.",
+   "I couldn't say, I'm afraid."
+  ]
+ },
+ "incident": {
+  "type": "Anti-Social Behaviour",
+  "summaryTruth": "Regular caller {{callerName}}, {{callerAge}}, reports five to six street drinkers outside the Premier store on Tarring Road, {{town}}, shouting, swearing and kicking a bin over. Ongoing nightly issue. No violence tonight, no weapons, nobody threatened directly. Caller is watching from her flat across the road and is not in danger. She has called three times this month. The group usually disperses by ten. Known local issue.",
+  "correctGrade": 3,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": false,
+   "vulnerability": true,
+   "engagement": true
   }
+ },
+ "facts": [
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "name please",
+    "what's your name",
+    "whats your name",
+    "take your name"
+   ],
+   "beat": "{{callerName}}. H-O-B-B-S. You've probably got me on your system, I've rung before.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "location",
+   "label": "Location",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "which shop",
+    "which road"
+   ],
+   "beat": "The Premier on Tarring Road, the corner shop. I'm in the flats just across the road.",
+   "critical": true,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "group_size",
+   "label": "Group size",
+   "value": "five or six",
+   "askHints": [
+    "how many",
+    "many of them"
+   ],
+   "beat": "Five or six of them tonight. Sometimes it's more at the weekend.",
+   "spontaneous": true
+  },
+  {
+   "key": "behaviour",
+   "label": "Behaviour",
+   "value": "shouting, swearing, kicking the bin over",
+   "askHints": [
+    "what are they doing",
+    "doing",
+    "violent",
+    "fighting",
+    "threaten"
+   ],
+   "beat": "Shouting and swearing mostly, terrible language. And the big one keeps kicking the litter bin over. No fighting tonight, not yet anyway."
+  },
+  {
+   "key": "threats",
+   "label": "Anyone directly threatened",
+   "value": "nobody threatened directly",
+   "askHints": [
+    "threatened",
+    "at you",
+    "towards you",
+    "anyone hurt",
+    "danger"
+   ],
+   "beat": "Oh no, not at me, they don't know I'm watching. People are just crossing the road to avoid them.",
+   "critical": true
+  },
+  {
+   "key": "history",
+   "label": "Ongoing pattern",
+   "value": "every evening, third call this month",
+   "askHints": [
+    "before",
+    "how often",
+    "happened before",
+    "every",
+    "regular"
+   ],
+   "beat": "Every evening this month, more or less. This is my third time ringing. The nice lady last time said someone would come but nobody ever does, you know."
+  },
+  {
+   "key": "caller_safety",
+   "label": "Caller's own safety",
+   "value": "in {{c_his}} flat across the road, not in danger",
+   "askHints": [
+    "are you safe",
+    "your safety",
+    "where are you",
+    "at risk"
+   ],
+   "beat": "I'm quite safe, dear, I'm up in my flat with the door locked. I just watch from the window."
+  }
+ ],
+ "unknownTopics": [
+  "names of the group",
+  "where they go after",
+  "postcode"
+ ],
+ "unitRequirements": [],
+ "escalations": [
+  {
+   "key": "crowd_hostile",
+   "chance": 0.25,
+   "delayMs": 90000,
+   "text": "First unit on scene reports the group has grown to a dozen plus and bottles have been thrown at the vehicle. Requesting public order trained backup.",
+   "addTags": [
+    "PO2"
+   ],
+   "gradeTo": 2
+  }
+ ],
+ "locationTypes": [
+  "high_street",
+  "park",
+  "supermarket"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    66,
+    86
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 418,
+  "vehicles": [
+   {
+    "class": "patrol_or_arv",
+    "count": 1
+   }
+  ],
+  "durationMin": 15,
+  "prisonersMax": 1
+ }
 }

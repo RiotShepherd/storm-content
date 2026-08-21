@@ -1,187 +1,198 @@
 {
-  "id": "domestic-ex-at-door",
-  "category": "domestic",
-  "title": "Domestic: ex-partner banging on the door",
-  "caller": {
-    "persona": "frightened, whispering, close to tears, keeps checking the window",
-    "callerIs": "victim",
-    "openingLine": "Please, you have to send someone, he's outside banging on my door again. He's not supposed to come here. Please hurry.",
-    "dontKnowLines": [
-      "I don't know, I can't see from here.",
-      "I don't know... please just send someone."
-    ]
-  },
-  "incident": {
-    "type": "Domestic Incident",
-    "summaryTruth": "Caller {{callerName}}, {{callerAge}}, is inside her home at {{address}}, {{town}}, BN21 3EX. Her ex-husband {{suspectName}} is outside banging on the front door and shouting. A non-molestation order is in place against him. He has been drinking. He has not got inside. No weapons seen. Caller's 8 year old granddaughter Millie is in the house. {{suspectFirst}} arrived on foot about five minutes ago.",
-    "correctGrade": 1,
-    "correctThrive": {
-      "threat": true,
-      "harm": false,
-      "risk": true,
-      "investigation": false,
-      "vulnerability": true,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "who am i",
-        "name please",
-        "what's your name",
-        "whats your name",
-        "can i take your name"
-      ],
-      "beat": "{{callerFirst}}. {{callerName}}.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Address",
-      "value": "{{address}}",
-      "askHints": [
-        "address",
-        "where are you",
-        "location",
-        "where do you live",
-        "what number"
-      ],
-      "beat": "{{address}}, in {{town}}. BN21 3EX. Please write it down, please.",
-      "spontaneous": false,
-      "critical": true,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "offender_name",
-      "label": "Offender's name",
-      "value": "{{suspectName}}",
-      "askHints": [
-        "who is he",
-        "his name",
-        "who's outside",
-        "whos outside",
-        "who is outside",
-        "who is it"
-      ],
-      "beat": "It's {{suspectFirst}}. My ex-husband, {{suspectName}}. There's a court order, he's not allowed within a hundred metres.",
-      "critical": true
-    },
-    {
-      "key": "court_order",
-      "label": "Non-molestation order in place",
-      "value": "non-molestation order",
-      "askHints": [
-        "order",
-        "injunction",
-        "court",
-        "allowed",
-        "bail"
-      ],
-      "beat": "There's a non-molestation order against him, from March. He's breaching it right now just by being here.",
-      "critical": false
-    },
-    {
-      "key": "entry_status",
-      "label": "Whether he has got inside",
-      "value": "still outside",
-      "askHints": [
-        "inside",
-        "got in",
-        "in the house",
-        "through the door",
-        "where is he now"
-      ],
-      "beat": "He's still outside, the door's held but he keeps hammering on it. He's screaming through the letterbox.",
-      "spontaneous": true
-    },
-    {
-      "key": "weapons",
-      "label": "Weapons",
-      "value": "no weapons seen",
-      "askHints": [
-        "weapon",
-        "knife",
-        "armed",
-        "carrying",
-        "in his hands"
-      ],
-      "beat": "I don't think so, I haven't seen anything in his hands. He's been drinking though, I can hear it in his voice."
-    },
-    {
-      "key": "child_present",
-      "label": "Child in the house",
-      "value": "granddaughter Millie, 8",
-      "askHints": [
-        "anyone else",
-        "children",
-        "kids",
-        "who else",
-        "alone",
-        "with you"
-      ],
-      "beat": "My granddaughter's here, Millie, she's only eight. She's hiding upstairs. That's why I'm whispering.",
-      "critical": true
-    },
-    {
-      "key": "arrival",
-      "label": "How and when he arrived",
-      "value": "on foot, five minutes ago",
-      "askHints": [
-        "how long",
-        "when did he",
-        "car",
-        "vehicle",
-        "drive",
-        "get there",
-        "get here"
-      ],
-      "beat": "About five minutes. He walked up, I saw him coming up the road. No car, he lost his licence."
-    }
-  ],
-  "unknownTopics": [
-    "registration",
-    "number plate",
-    "where he lives now"
-  ],
-  "unitRequirements": [
-    "Taser"
-  ],
-  "escalations": [
-    {
-      "key": "weapon_pickup",
-      "chance": 0.35,
-      "delayMs": 100000,
-      "text": "Second call from the informant. He has picked up a kitchen knife from the block by the door and is shouting through the letterbox.",
-      "addTags": [
-        "AFO"
-      ],
-      "gradeTo": 1
-    }
-  ],
-  "locationTypes": [
-    "house",
-    "flats"
-  ],
-  "people": {
-    "caller": {
-      "gender": "female",
-      "ageRange": [
-        30,
-        68
-      ]
-    },
-    "suspect": {
-      "gender": "male",
-      "ageRange": [
-        32,
-        65
-      ]
-    }
+ "id": "domestic-ex-at-door",
+ "category": "domestic",
+ "title": "Domestic: ex-partner banging on the door",
+ "caller": {
+  "persona": "frightened, whispering, close to tears, keeps checking the window",
+  "callerIs": "victim",
+  "openingLine": "Please, you have to send someone, he's outside banging on my door again. He's not supposed to come here. Please hurry.",
+  "dontKnowLines": [
+   "I don't know, I can't see from here.",
+   "I don't know... please just send someone."
+  ]
+ },
+ "incident": {
+  "type": "Domestic Incident",
+  "summaryTruth": "Caller {{callerName}}, {{callerAge}}, is inside her home at {{address}}, {{town}}, BN21 3EX. Her ex-husband {{suspectName}} is outside banging on the front door and shouting. A non-molestation order is in place against him. He has been drinking. He has not got inside. No weapons seen. Caller's 8 year old granddaughter Millie is in the house. {{suspectFirst}} arrived on foot about five minutes ago.",
+  "correctGrade": 1,
+  "correctThrive": {
+   "threat": true,
+   "harm": false,
+   "risk": true,
+   "investigation": false,
+   "vulnerability": true,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "who am i",
+    "name please",
+    "what's your name",
+    "whats your name",
+    "can i take your name"
+   ],
+   "beat": "{{callerFirst}}. {{callerName}}.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Address",
+   "value": "{{address}}",
+   "askHints": [
+    "address",
+    "where are you",
+    "location",
+    "where do you live",
+    "what number"
+   ],
+   "beat": "{{address}}, in {{town}}. BN21 3EX. Please write it down, please.",
+   "spontaneous": false,
+   "critical": true,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "offender_name",
+   "label": "Offender's name",
+   "value": "{{suspectName}}",
+   "askHints": [
+    "who is he",
+    "his name",
+    "who's outside",
+    "whos outside",
+    "who is outside",
+    "who is it"
+   ],
+   "beat": "It's {{suspectFirst}}. My ex-husband, {{suspectName}}. There's a court order, he's not allowed within a hundred metres.",
+   "critical": true
+  },
+  {
+   "key": "court_order",
+   "label": "Non-molestation order in place",
+   "value": "non-molestation order",
+   "askHints": [
+    "order",
+    "injunction",
+    "court",
+    "allowed",
+    "bail"
+   ],
+   "beat": "There's a non-molestation order against him, from March. He's breaching it right now just by being here.",
+   "critical": false
+  },
+  {
+   "key": "entry_status",
+   "label": "Whether he has got inside",
+   "value": "still outside",
+   "askHints": [
+    "inside",
+    "got in",
+    "in the house",
+    "through the door",
+    "where is he now"
+   ],
+   "beat": "He's still outside, the door's held but he keeps hammering on it. He's screaming through the letterbox.",
+   "spontaneous": true
+  },
+  {
+   "key": "weapons",
+   "label": "Weapons",
+   "value": "no weapons seen",
+   "askHints": [
+    "weapon",
+    "knife",
+    "armed",
+    "carrying",
+    "in his hands"
+   ],
+   "beat": "I don't think so, I haven't seen anything in his hands. He's been drinking though, I can hear it in his voice."
+  },
+  {
+   "key": "child_present",
+   "label": "Child in the house",
+   "value": "granddaughter Millie, 8",
+   "askHints": [
+    "anyone else",
+    "children",
+    "kids",
+    "who else",
+    "alone",
+    "with you"
+   ],
+   "beat": "My granddaughter's here, Millie, she's only eight. She's hiding upstairs. That's why I'm whispering.",
+   "critical": true
+  },
+  {
+   "key": "arrival",
+   "label": "How and when he arrived",
+   "value": "on foot, five minutes ago",
+   "askHints": [
+    "how long",
+    "when did he",
+    "car",
+    "vehicle",
+    "drive",
+    "get there",
+    "get here"
+   ],
+   "beat": "About five minutes. He walked up, I saw him coming up the road. No car, he lost his licence."
+  }
+ ],
+ "unknownTopics": [
+  "registration",
+  "number plate",
+  "where he lives now"
+ ],
+ "unitRequirements": [
+  "Taser"
+ ],
+ "escalations": [
+  {
+   "key": "weapon_pickup",
+   "chance": 0.35,
+   "delayMs": 100000,
+   "text": "Second call from the informant. He has picked up a kitchen knife from the block by the door and is shouting through the letterbox.",
+   "addTags": [
+    "AFO"
+   ],
+   "gradeTo": 1
+  }
+ ],
+ "locationTypes": [
+  "house",
+  "flats"
+ ],
+ "people": {
+  "caller": {
+   "gender": "female",
+   "ageRange": [
+    30,
+    68
+   ]
+  },
+  "suspect": {
+   "gender": "male",
+   "ageRange": [
+    32,
+    65
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 140,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 2
+   }
+  ],
+  "durationMin": 20,
+  "prisonersMax": 1
+ }
 }

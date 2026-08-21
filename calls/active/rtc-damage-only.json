@@ -1,162 +1,172 @@
 {
-  "id": "rtc-damage-only",
-  "category": "roads",
-  "title": "RTC: two-car damage-only collision, road partially blocked",
-  "caller": {
-    "persona": "annoyed but composed, standing at the roadside in the rain, traffic noise behind him",
-    "callerIs": "involved",
-    "openingLine": "Hi, yeah, I've just been in a crash on the A259. Some bloke's gone into the back of me at the lights. We're both pulled over but his car's half in the road and it's causing chaos.",
-    "dontKnowLines": [
-      "No idea mate, sorry.",
-      "Couldn't tell you."
-    ]
-  },
-  "incident": {
-    "type": "Road Traffic Collision - Damage Only",
-    "summaryTruth": "Two-vehicle rear-end shunt on the A259 Marine Parade at the Sea Road junction, {{town}}. Caller {{callerName}} driving a {{vehicleDesc}}, {{vehicleReg}}, struck from behind by a blue BMW 3 series, registration not yet obtained by caller, driven by a middle-aged male who is apologetic and exchanging details. Nobody injured. The BMW is partially blocking the nearside lane and traffic is backing up. Both drivers are out of their vehicles. No suggestion of drink driving. Raining.",
-    "correctGrade": 2,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": true,
-      "investigation": false,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "name please",
-        "what's your name",
-        "whats your name",
-        "take your name"
-      ],
-      "beat": "{{callerName}}. A-S-K-E-W.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "location",
-      "label": "Location",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "location",
-        "address",
-        "junction",
-        "which road"
-      ],
-      "beat": "A259, Marine Parade in Bexhill, right at the Sea Road lights. By the big white hotel.",
-      "critical": true,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "injuries",
-      "label": "Injuries",
-      "value": "no injuries",
-      "askHints": [
-        "injured",
-        "injuries",
-        "hurt",
-        "ambulance",
-        "okay",
-        "anyone hurt"
-      ],
-      "beat": "No, everyone's fine. Bit shaken, that's it. Don't need an ambulance.",
-      "spontaneous": true,
-      "critical": true
-    },
-    {
-      "key": "vehicles",
-      "label": "Vehicles involved",
-      "value": "{{vehicleDesc}} and a blue BMW 3 series",
-      "askHints": [
-        "vehicles",
-        "cars",
-        "what car",
-        "make",
-        "model"
-      ],
-      "beat": "Mine's a grey Focus, his is a blue BMW, 3 series I think."
-    },
-    {
-      "key": "caller_reg",
-      "label": "Caller's registration",
-      "value": "{{vehicleReg}}",
-      "askHints": [
-        "your reg",
-        "your registration",
-        "your plate",
-        "your number plate"
-      ],
-      "beat": "Mine? {{vehicleReg}}.",
-      "critical": true
-    },
-    {
-      "key": "road_blocked",
-      "label": "Road obstruction",
-      "value": "BMW partially blocking nearside lane",
-      "askHints": [
-        "blocked",
-        "blocking",
-        "road",
-        "traffic",
-        "lane",
-        "moving"
-      ],
-      "beat": "His BMW's stuck half in the left lane, won't start. Traffic's crawling round it and it's getting hairy, people are flying past.",
-      "spontaneous": true
-    },
-    {
-      "key": "other_driver",
-      "label": "Other driver's demeanour",
-      "value": "apologetic, exchanging details",
-      "askHints": [
-        "other driver",
-        "aggressive",
-        "exchanging",
-        "details",
-        "drink",
-        "drunk"
-      ],
-      "beat": "He's alright to be fair, hands up, says it's his fault. We're swapping details now. He seems sober, just wasn't looking."
-    }
-  ],
-  "unknownTopics": [
-    "his registration",
-    "his name",
-    "postcode"
-  ],
-  "unitRequirements": [],
-  "escalations": [
-    {
-      "key": "road_rage",
-      "chance": 0.15,
-      "delayMs": 80000,
-      "text": "Caller back on. The two drivers are now squaring up in the middle of the carriageway and one has picked up a length of wood from the verge.",
-      "addTags": [
-        "Taser"
-      ],
-      "gradeTo": 2
-    }
-  ],
-  "locationTypes": [
-    "a_road",
-    "roundabout",
-    "b_road"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        20,
-        70
-      ]
-    }
+ "id": "rtc-damage-only",
+ "category": "roads",
+ "title": "RTC: two-car damage-only collision, road partially blocked",
+ "caller": {
+  "persona": "annoyed but composed, standing at the roadside in the rain, traffic noise behind him",
+  "callerIs": "involved",
+  "openingLine": "Hi, yeah, I've just been in a crash on the A259. Some bloke's gone into the back of me at the lights. We're both pulled over but his car's half in the road and it's causing chaos.",
+  "dontKnowLines": [
+   "No idea mate, sorry.",
+   "Couldn't tell you."
+  ]
+ },
+ "incident": {
+  "type": "Road Traffic Collision - Damage Only",
+  "summaryTruth": "Two-vehicle rear-end shunt on the A259 Marine Parade at the Sea Road junction, {{town}}. Caller {{callerName}} driving a {{vehicleDesc}}, {{vehicleReg}}, struck from behind by a blue BMW 3 series, registration not yet obtained by caller, driven by a middle-aged male who is apologetic and exchanging details. Nobody injured. The BMW is partially blocking the nearside lane and traffic is backing up. Both drivers are out of their vehicles. No suggestion of drink driving. Raining.",
+  "correctGrade": 2,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": true,
+   "investigation": false,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "name please",
+    "what's your name",
+    "whats your name",
+    "take your name"
+   ],
+   "beat": "{{callerName}}. A-S-K-E-W.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "location",
+   "label": "Location",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "location",
+    "address",
+    "junction",
+    "which road"
+   ],
+   "beat": "A259, Marine Parade in Bexhill, right at the Sea Road lights. By the big white hotel.",
+   "critical": true,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "injuries",
+   "label": "Injuries",
+   "value": "no injuries",
+   "askHints": [
+    "injured",
+    "injuries",
+    "hurt",
+    "ambulance",
+    "okay",
+    "anyone hurt"
+   ],
+   "beat": "No, everyone's fine. Bit shaken, that's it. Don't need an ambulance.",
+   "spontaneous": true,
+   "critical": true
+  },
+  {
+   "key": "vehicles",
+   "label": "Vehicles involved",
+   "value": "{{vehicleDesc}} and a blue BMW 3 series",
+   "askHints": [
+    "vehicles",
+    "cars",
+    "what car",
+    "make",
+    "model"
+   ],
+   "beat": "Mine's a grey Focus, his is a blue BMW, 3 series I think."
+  },
+  {
+   "key": "caller_reg",
+   "label": "Caller's registration",
+   "value": "{{vehicleReg}}",
+   "askHints": [
+    "your reg",
+    "your registration",
+    "your plate",
+    "your number plate"
+   ],
+   "beat": "Mine? {{vehicleReg}}.",
+   "critical": true
+  },
+  {
+   "key": "road_blocked",
+   "label": "Road obstruction",
+   "value": "BMW partially blocking nearside lane",
+   "askHints": [
+    "blocked",
+    "blocking",
+    "road",
+    "traffic",
+    "lane",
+    "moving"
+   ],
+   "beat": "His BMW's stuck half in the left lane, won't start. Traffic's crawling round it and it's getting hairy, people are flying past.",
+   "spontaneous": true
+  },
+  {
+   "key": "other_driver",
+   "label": "Other driver's demeanour",
+   "value": "apologetic, exchanging details",
+   "askHints": [
+    "other driver",
+    "aggressive",
+    "exchanging",
+    "details",
+    "drink",
+    "drunk"
+   ],
+   "beat": "He's alright to be fair, hands up, says it's his fault. We're swapping details now. He seems sober, just wasn't looking."
+  }
+ ],
+ "unknownTopics": [
+  "his registration",
+  "his name",
+  "postcode"
+ ],
+ "unitRequirements": [],
+ "escalations": [
+  {
+   "key": "road_rage",
+   "chance": 0.15,
+   "delayMs": 80000,
+   "text": "Caller back on. The two drivers are now squaring up in the middle of the carriageway and one has picked up a length of wood from the verge.",
+   "addTags": [
+    "Taser"
+   ],
+   "gradeTo": 2
+  }
+ ],
+ "locationTypes": [
+  "a_road",
+  "roundabout",
+  "b_road"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    20,
+    70
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 332,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 2
+   }
+  ],
+  "durationMin": 15
+ }
 }

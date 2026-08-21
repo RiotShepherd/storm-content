@@ -1,163 +1,174 @@
 {
-  "id": "shoplifter-detained",
-  "category": "retail",
-  "title": "Shoplifter detained by store security",
-  "caller": {
-    "persona": "professional retail security officer, calm, has done this many times, slightly bored",
-    "callerIs": "third_party",
-    "openingLine": "Afternoon. Security at Marsden's department store, Churchill Square. We've detained a {{s_male}} for theft, about two hundred pounds of fragrances. He's in the holding room with me now, no dramas, but he's refusing to give his details.",
-    "dontKnowLines": [
-      "That I couldn't tell you.",
-      "Not something I've got in front of me, sorry."
-    ]
-  },
-  "incident": {
-    "type": "Theft - Shoplifting (Detained)",
-    "summaryTruth": "Store security officer {{callerName}} has detained a {{suspectDesc}}, for concealing around 200 pounds of fragrances at Marsden's, Churchill Square, {{town}}, BN1 2RG. Male is compliant but refusing details, suspected of being responsible for similar thefts this month. CCTV of the whole incident is secured. Male is in the ground floor security holding room, staff entrance on Russell Road side. No violence, no weapons, male searched, nothing else found.",
-    "correctGrade": 2,
-    "correctThrive": {
-      "threat": false,
-      "harm": false,
-      "risk": false,
-      "investigation": true,
-      "vulnerability": false,
-      "engagement": false
-    }
-  },
-  "facts": [
-    {
-      "key": "caller_name",
-      "label": "Caller's name",
-      "value": "{{callerName}}",
-      "askHints": [
-        "your name",
-        "name please",
-        "what's your name",
-        "whats your name",
-        "who am i speaking"
-      ],
-      "beat": "{{callerName}}, security team leader.",
-      "critical": true,
-      "cardField": "callerName"
-    },
-    {
-      "key": "address",
-      "label": "Location",
-      "value": "{{address}}",
-      "askHints": [
-        "where",
-        "address",
-        "location",
-        "which store",
-        "postcode"
-      ],
-      "beat": "Marsden's in Churchill Square, {{town}}. BN1 2RG. Best access for your officers is the staff entrance on Russell Road.",
-      "critical": true,
-      "cardField": "addressLine"
-    },
-    {
-      "key": "suspect_desc",
-      "label": "Suspect description",
-      "value": "{{suspectDesc}}",
-      "askHints": [
-        "describe",
-        "description",
-        "what does he look",
-        "wearing"
-      ],
-      "beat": "White male, thirties I'd say, slim build, grey tracksuit top and bottoms. Refusing to give a name."
-    },
-    {
-      "key": "property",
-      "label": "Property involved",
-      "value": "around 200 pounds of fragrances",
-      "askHints": [
-        "what did he take",
-        "stolen",
-        "property",
-        "value",
-        "how much"
-      ],
-      "beat": "Fragrances mostly, boxed sets. We make it about two hundred pounds' worth. All recovered.",
-      "spontaneous": true
-    },
-    {
-      "key": "compliance",
-      "label": "Suspect behaviour",
-      "value": "compliant, no violence",
-      "askHints": [
-        "violent",
-        "aggressive",
-        "behaving",
-        "kicking off",
-        "compliant",
-        "calm"
-      ],
-      "beat": "He's no bother. Sat down, had a search, nothing else on him. Just won't talk.",
-      "critical": true
-    },
-    {
-      "key": "cctv",
-      "label": "CCTV secured",
-      "value": "CCTV of the whole incident secured",
-      "askHints": [
-        "cctv",
-        "camera",
-        "footage",
-        "evidence"
-      ],
-      "beat": "Full CCTV, selection to concealment to the doors. Already bookmarked for you."
-    },
-    {
-      "key": "repeat",
-      "label": "Suspected repeat offender",
-      "value": "linked to similar thefts this month",
-      "askHints": [
-        "before",
-        "previous",
-        "known",
-        "regular",
-        "repeat"
-      ],
-      "beat": "We think he's the same fella who's done us twice this month, same MO, straight to the fragrance counter."
-    }
-  ],
-  "unknownTopics": [
-    "his name",
-    "his address",
-    "his date of birth"
-  ],
-  "unitRequirements": [],
-  "escalations": [
-    {
-      "key": "detainee_violent",
-      "chance": 0.2,
-      "delayMs": 70000,
-      "text": "Store security state the male is now kicking off in the back office and has bitten one guard. Struggling to hold him.",
-      "addTags": [
-        "Taser"
-      ],
-      "gradeTo": 2
-    }
-  ],
-  "locationTypes": [
-    "supermarket",
-    "shopping_centre"
-  ],
-  "people": {
-    "caller": {
-      "gender": "any",
-      "ageRange": [
-        24,
-        60
-      ]
-    },
-    "suspect": {
-      "gender": "any",
-      "ageRange": [
-        18,
-        50
-      ]
-    }
+ "id": "shoplifter-detained",
+ "category": "retail",
+ "title": "Shoplifter detained by store security",
+ "caller": {
+  "persona": "professional retail security officer, calm, has done this many times, slightly bored",
+  "callerIs": "third_party",
+  "openingLine": "Afternoon. Security at Marsden's department store, Churchill Square. We've detained a {{s_male}} for theft, about two hundred pounds of fragrances. He's in the holding room with me now, no dramas, but he's refusing to give his details.",
+  "dontKnowLines": [
+   "That I couldn't tell you.",
+   "Not something I've got in front of me, sorry."
+  ]
+ },
+ "incident": {
+  "type": "Theft - Shoplifting (Detained)",
+  "summaryTruth": "Store security officer {{callerName}} has detained a {{suspectDesc}}, for concealing around 200 pounds of fragrances at Marsden's, Churchill Square, {{town}}, BN1 2RG. Male is compliant but refusing details, suspected of being responsible for similar thefts this month. CCTV of the whole incident is secured. Male is in the ground floor security holding room, staff entrance on Russell Road side. No violence, no weapons, male searched, nothing else found.",
+  "correctGrade": 2,
+  "correctThrive": {
+   "threat": false,
+   "harm": false,
+   "risk": false,
+   "investigation": true,
+   "vulnerability": false,
+   "engagement": false
   }
+ },
+ "facts": [
+  {
+   "key": "caller_name",
+   "label": "Caller's name",
+   "value": "{{callerName}}",
+   "askHints": [
+    "your name",
+    "name please",
+    "what's your name",
+    "whats your name",
+    "who am i speaking"
+   ],
+   "beat": "{{callerName}}, security team leader.",
+   "critical": true,
+   "cardField": "callerName"
+  },
+  {
+   "key": "address",
+   "label": "Location",
+   "value": "{{address}}",
+   "askHints": [
+    "where",
+    "address",
+    "location",
+    "which store",
+    "postcode"
+   ],
+   "beat": "Marsden's in Churchill Square, {{town}}. BN1 2RG. Best access for your officers is the staff entrance on Russell Road.",
+   "critical": true,
+   "cardField": "addressLine"
+  },
+  {
+   "key": "suspect_desc",
+   "label": "Suspect description",
+   "value": "{{suspectDesc}}",
+   "askHints": [
+    "describe",
+    "description",
+    "what does he look",
+    "wearing"
+   ],
+   "beat": "White male, thirties I'd say, slim build, grey tracksuit top and bottoms. Refusing to give a name."
+  },
+  {
+   "key": "property",
+   "label": "Property involved",
+   "value": "around 200 pounds of fragrances",
+   "askHints": [
+    "what did he take",
+    "stolen",
+    "property",
+    "value",
+    "how much"
+   ],
+   "beat": "Fragrances mostly, boxed sets. We make it about two hundred pounds' worth. All recovered.",
+   "spontaneous": true
+  },
+  {
+   "key": "compliance",
+   "label": "Suspect behaviour",
+   "value": "compliant, no violence",
+   "askHints": [
+    "violent",
+    "aggressive",
+    "behaving",
+    "kicking off",
+    "compliant",
+    "calm"
+   ],
+   "beat": "He's no bother. Sat down, had a search, nothing else on him. Just won't talk.",
+   "critical": true
+  },
+  {
+   "key": "cctv",
+   "label": "CCTV secured",
+   "value": "CCTV of the whole incident secured",
+   "askHints": [
+    "cctv",
+    "camera",
+    "footage",
+    "evidence"
+   ],
+   "beat": "Full CCTV, selection to concealment to the doors. Already bookmarked for you."
+  },
+  {
+   "key": "repeat",
+   "label": "Suspected repeat offender",
+   "value": "linked to similar thefts this month",
+   "askHints": [
+    "before",
+    "previous",
+    "known",
+    "regular",
+    "repeat"
+   ],
+   "beat": "We think he's the same fella who's done us twice this month, same MO, straight to the fragrance counter."
+  }
+ ],
+ "unknownTopics": [
+  "his name",
+  "his address",
+  "his date of birth"
+ ],
+ "unitRequirements": [],
+ "escalations": [
+  {
+   "key": "detainee_violent",
+   "chance": 0.2,
+   "delayMs": 70000,
+   "text": "Store security state the male is now kicking off in the back office and has bitten one guard. Struggling to hold him.",
+   "addTags": [
+    "Taser"
+   ],
+   "gradeTo": 2
+  }
+ ],
+ "locationTypes": [
+  "supermarket",
+  "shopping_centre"
+ ],
+ "people": {
+  "caller": {
+   "gender": "any",
+   "ageRange": [
+    24,
+    60
+   ]
+  },
+  "suspect": {
+   "gender": "any",
+   "ageRange": [
+    18,
+    50
+   ]
+  }
+ },
+ "deployment": {
+  "mcId": 44,
+  "vehicles": [
+   {
+    "class": "patrol",
+    "count": 1
+   }
+  ],
+  "durationMin": 10,
+  "prisonersMax": 1
+ }
 }
